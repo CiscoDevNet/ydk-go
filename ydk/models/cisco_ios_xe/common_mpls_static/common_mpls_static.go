@@ -17,46 +17,11 @@ func init() {
     ydk.RegisterEntity("common-mpls-static:mpls-static", reflect.TypeOf(MplsStatic{}))
 }
 
-type BgpRouteNexthop struct {
-}
-
-func (id BgpRouteNexthop) String() string {
-	return "common-mpls-static:bgp-route-nexthop"
-}
-
-type NexthopResolutionType struct {
-}
-
-func (id NexthopResolutionType) String() string {
-	return "common-mpls-static:nexthop-resolution-type"
-}
-
-type IsisRouteNexthop struct {
-}
-
-func (id IsisRouteNexthop) String() string {
-	return "common-mpls-static:isis-route-nexthop"
-}
-
 type LspType struct {
 }
 
 func (id LspType) String() string {
 	return "common-mpls-static:lsp-type"
-}
-
-type StaticNexthop struct {
-}
-
-func (id StaticNexthop) String() string {
-	return "common-mpls-static:static-nexthop"
-}
-
-type LspIPv6 struct {
-}
-
-func (id LspIPv6) String() string {
-	return "common-mpls-static:lsp-IPv6"
 }
 
 type LspIPv4 struct {
@@ -66,11 +31,18 @@ func (id LspIPv4) String() string {
 	return "common-mpls-static:lsp-IPv4"
 }
 
-type OspfRouteNexthop struct {
+type LspIPv6 struct {
 }
 
-func (id OspfRouteNexthop) String() string {
-	return "common-mpls-static:ospf-route-nexthop"
+func (id LspIPv6) String() string {
+	return "common-mpls-static:lsp-IPv6"
+}
+
+type LspVrf struct {
+}
+
+func (id LspVrf) String() string {
+	return "common-mpls-static:lsp-vrf"
 }
 
 type Lsp struct {
@@ -80,11 +52,39 @@ func (id Lsp) String() string {
 	return "common-mpls-static:lsp"
 }
 
-type LspVrf struct {
+type NexthopResolutionType struct {
 }
 
-func (id LspVrf) String() string {
-	return "common-mpls-static:lsp-vrf"
+func (id NexthopResolutionType) String() string {
+	return "common-mpls-static:nexthop-resolution-type"
+}
+
+type StaticNexthop struct {
+}
+
+func (id StaticNexthop) String() string {
+	return "common-mpls-static:static-nexthop"
+}
+
+type BgpRouteNexthop struct {
+}
+
+func (id BgpRouteNexthop) String() string {
+	return "common-mpls-static:bgp-route-nexthop"
+}
+
+type OspfRouteNexthop struct {
+}
+
+func (id OspfRouteNexthop) String() string {
+	return "common-mpls-static:ospf-route-nexthop"
+}
+
+type IsisRouteNexthop struct {
+}
+
+func (id IsisRouteNexthop) String() string {
+	return "common-mpls-static:isis-route-nexthop"
 }
 
 // Hoptype represents The Nexthop type
@@ -138,20 +138,20 @@ type MplsStatic_MplsStaticCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // The LSPs indexed by in-label.
+    InLabelLsps MplsStatic_MplsStaticCfg_InLabelLsps
+
     // The LSPs indexed by ipv6 prefix.
     Ipv6IngressLsps MplsStatic_MplsStaticCfg_Ipv6IngressLsps
 
     // The list of interfaces configured with mpls.
     Interfaces MplsStatic_MplsStaticCfg_Interfaces
 
-    // The LSPs indexed by ipv4 prefix.
-    Ipv4IngressLsps MplsStatic_MplsStaticCfg_Ipv4IngressLsps
-
-    // The LSPs indexed by in-label.
-    InLabelLsps MplsStatic_MplsStaticCfg_InLabelLsps
-
     // The LSPs indexed by name.
     NamedLsps MplsStatic_MplsStaticCfg_NamedLsps
+
+    // The LSPs indexed by ipv4 prefix.
+    Ipv4IngressLsps MplsStatic_MplsStaticCfg_Ipv4IngressLsps
 }
 
 func (mplsStaticCfg *MplsStatic_MplsStaticCfg) GetEntityData() *types.CommonEntityData {
@@ -166,1230 +166,16 @@ func (mplsStaticCfg *MplsStatic_MplsStaticCfg) GetEntityData() *types.CommonEnti
     mplsStaticCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
     mplsStaticCfg.EntityData.Children = types.NewOrderedMap()
+    mplsStaticCfg.EntityData.Children.Append("in-label-lsps", types.YChild{"InLabelLsps", &mplsStaticCfg.InLabelLsps})
     mplsStaticCfg.EntityData.Children.Append("ipv6-ingress-lsps", types.YChild{"Ipv6IngressLsps", &mplsStaticCfg.Ipv6IngressLsps})
     mplsStaticCfg.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mplsStaticCfg.Interfaces})
-    mplsStaticCfg.EntityData.Children.Append("ipv4-ingress-lsps", types.YChild{"Ipv4IngressLsps", &mplsStaticCfg.Ipv4IngressLsps})
-    mplsStaticCfg.EntityData.Children.Append("in-label-lsps", types.YChild{"InLabelLsps", &mplsStaticCfg.InLabelLsps})
     mplsStaticCfg.EntityData.Children.Append("named-lsps", types.YChild{"NamedLsps", &mplsStaticCfg.NamedLsps})
+    mplsStaticCfg.EntityData.Children.Append("ipv4-ingress-lsps", types.YChild{"Ipv4IngressLsps", &mplsStaticCfg.Ipv4IngressLsps})
     mplsStaticCfg.EntityData.Leafs = types.NewOrderedMap()
 
     mplsStaticCfg.EntityData.YListKeys = []string {}
 
     return &(mplsStaticCfg.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps
-// The LSPs indexed by ipv6 prefix
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // MPLS Static IPv6 Label Switched Path Configuration at Ingress. The type is
-    // slice of MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp.
-    Ipv6IngressLsp []*MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp
-}
-
-func (ipv6IngressLsps *MplsStatic_MplsStaticCfg_Ipv6IngressLsps) GetEntityData() *types.CommonEntityData {
-    ipv6IngressLsps.EntityData.YFilter = ipv6IngressLsps.YFilter
-    ipv6IngressLsps.EntityData.YangName = "ipv6-ingress-lsps"
-    ipv6IngressLsps.EntityData.BundleName = "cisco_ios_xe"
-    ipv6IngressLsps.EntityData.ParentYangName = "mpls-static-cfg"
-    ipv6IngressLsps.EntityData.SegmentPath = "ipv6-ingress-lsps"
-    ipv6IngressLsps.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + ipv6IngressLsps.EntityData.SegmentPath
-    ipv6IngressLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipv6IngressLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipv6IngressLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    ipv6IngressLsps.EntityData.Children = types.NewOrderedMap()
-    ipv6IngressLsps.EntityData.Children.Append("ipv6-ingress-lsp", types.YChild{"Ipv6IngressLsp", nil})
-    for i := range ipv6IngressLsps.Ipv6IngressLsp {
-        ipv6IngressLsps.EntityData.Children.Append(types.GetSegmentPath(ipv6IngressLsps.Ipv6IngressLsp[i]), types.YChild{"Ipv6IngressLsp", ipv6IngressLsps.Ipv6IngressLsp[i]})
-    }
-    ipv6IngressLsps.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv6IngressLsps.EntityData.YListKeys = []string {}
-
-    return &(ipv6IngressLsps.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp
-// MPLS Static IPv6 Label Switched Path
-// Configuration at Ingress
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Name of the VRF. The type is string.
-    VrfName interface{}
-
-    // This attribute is a key. IPv6 prefix of packets that will ingress on this
-    // LSP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
-    Prefix interface{}
-
-    // Name of the LSP. The type is string.
-    Name interface{}
-
-    // Value of the local label. Optional for ingress. The type is one of the
-    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
-    InLabel interface{}
-
-    // Fowarding path.
-    Path MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path
-}
-
-func (ipv6IngressLsp *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp) GetEntityData() *types.CommonEntityData {
-    ipv6IngressLsp.EntityData.YFilter = ipv6IngressLsp.YFilter
-    ipv6IngressLsp.EntityData.YangName = "ipv6-ingress-lsp"
-    ipv6IngressLsp.EntityData.BundleName = "cisco_ios_xe"
-    ipv6IngressLsp.EntityData.ParentYangName = "ipv6-ingress-lsps"
-    ipv6IngressLsp.EntityData.SegmentPath = "ipv6-ingress-lsp" + types.AddKeyToken(ipv6IngressLsp.VrfName, "vrf-name") + types.AddKeyToken(ipv6IngressLsp.Prefix, "prefix")
-    ipv6IngressLsp.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/" + ipv6IngressLsp.EntityData.SegmentPath
-    ipv6IngressLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipv6IngressLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipv6IngressLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    ipv6IngressLsp.EntityData.Children = types.NewOrderedMap()
-    ipv6IngressLsp.EntityData.Children.Append("path", types.YChild{"Path", &ipv6IngressLsp.Path})
-    ipv6IngressLsp.EntityData.Leafs = types.NewOrderedMap()
-    ipv6IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6IngressLsp.VrfName})
-    ipv6IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6IngressLsp.Prefix})
-    ipv6IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv6IngressLsp.Name})
-    ipv6IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv6IngressLsp.InLabel})
-
-    ipv6IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
-
-    return &(ipv6IngressLsp.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path
-// Fowarding path
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enables automatic protection if true. The type is bool. The default value
-    // is false.
-    AutoProtect interface{}
-
-    // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations
-
-    // next-hops list. The type is slice of
-    // MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop.
-    NextHop []*MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop
-}
-
-func (path *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path) GetEntityData() *types.CommonEntityData {
-    path.EntityData.YFilter = path.YFilter
-    path.EntityData.YangName = "path"
-    path.EntityData.BundleName = "cisco_ios_xe"
-    path.EntityData.ParentYangName = "ipv6-ingress-lsp"
-    path.EntityData.SegmentPath = "path"
-    path.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/" + path.EntityData.SegmentPath
-    path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    path.EntityData.Children = types.NewOrderedMap()
-    path.EntityData.Children.Append("operations", types.YChild{"Operations", &path.Operations})
-    path.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range path.NextHop {
-        path.EntityData.Children.Append(types.GetSegmentPath(path.NextHop[i]), types.YChild{"NextHop", path.NextHop[i]})
-    }
-    path.EntityData.Leafs = types.NewOrderedMap()
-    path.EntityData.Leafs.Append("auto-protect", types.YLeaf{"AutoProtect", path.AutoProtect})
-
-    path.EntityData.YListKeys = []string {}
-
-    return &(path.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations
-// The incoming label processing
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // preserve incoming label stack. The type is interface{}. This attribute is
-    // mandatory.
-    Preserve interface{}
-
-    // Pop the incoming label and forward. The type is interface{}. This attribute
-    // is mandatory.
-    PopAndForward interface{}
-
-    // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap
-
-    // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push
-}
-
-func (operations *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
-    operations.EntityData.YFilter = operations.YFilter
-    operations.EntityData.YangName = "operations"
-    operations.EntityData.BundleName = "cisco_ios_xe"
-    operations.EntityData.ParentYangName = "path"
-    operations.EntityData.SegmentPath = "operations"
-    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/" + operations.EntityData.SegmentPath
-    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    operations.EntityData.Children = types.NewOrderedMap()
-    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
-    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
-    operations.EntityData.Leafs = types.NewOrderedMap()
-    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
-    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
-
-    operations.EntityData.YListKeys = []string {}
-
-    return &(operations.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack
-}
-
-func (swap *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
-    swap.EntityData.YFilter = swap.YFilter
-    swap.EntityData.YangName = "swap"
-    swap.EntityData.BundleName = "cisco_ios_xe"
-    swap.EntityData.ParentYangName = "operations"
-    swap.EntityData.SegmentPath = "swap"
-    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/" + swap.EntityData.SegmentPath
-    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    swap.EntityData.Children = types.NewOrderedMap()
-    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
-    swap.EntityData.Leafs = types.NewOrderedMap()
-
-    swap.EntityData.YListKeys = []string {}
-
-    return &(swap.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "swap"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/swap/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack
-}
-
-func (push *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
-    push.EntityData.YFilter = push.YFilter
-    push.EntityData.YangName = "push"
-    push.EntityData.BundleName = "cisco_ios_xe"
-    push.EntityData.ParentYangName = "operations"
-    push.EntityData.SegmentPath = "push"
-    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/" + push.EntityData.SegmentPath
-    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    push.EntityData.Children = types.NewOrderedMap()
-    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
-    push.EntityData.Leafs = types.NewOrderedMap()
-
-    push.EntityData.YListKeys = []string {}
-
-    return &(push.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "push"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/push/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop
-// next-hops list
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Index of the nexthop. The type is interface{} with
-    // range: 0..4294967295. This attribute is mandatory.
-    Index interface{}
-
-    // The forwarding path's hoptype. The type is Hoptype. This attribute is
-    // mandatory.
-    Type interface{}
-
-    // Index of the nexthop that protects this nexthop. The type is interface{}
-    // with range: 0..4294967295.
-    ProtectedBy interface{}
-
-    // Next-hop.
-    NextHopType MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType
-
-    // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations
-}
-
-func (nextHop *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "cisco_ios_xe"
-    nextHop.EntityData.ParentYangName = "path"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
-    nextHop.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Children.Append("next-hop-type", types.YChild{"NextHopType", &nextHop.NextHopType})
-    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
-    nextHop.EntityData.Leafs.Append("type", types.YLeaf{"Type", nextHop.Type})
-    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
-
-    nextHop.EntityData.YListKeys = []string {"Index"}
-
-    return &(nextHop.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType
-// Next-hop
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The interface index. The type is interface{} with range: 0..4294967295.
-    // This attribute is mandatory.
-    IfIndex interface{}
-
-    // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv4Address interface{}
-
-    // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv6Address interface{}
-
-    // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
-    MacAddress interface{}
-
-    // Name of the outgoing interface. The type is string. Refers to
-    // ietf_interfaces.Interfaces_Interface_Name
-    OutInterfaceName interface{}
-}
-
-func (nextHopType *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
-    nextHopType.EntityData.YFilter = nextHopType.YFilter
-    nextHopType.EntityData.YangName = "next-hop-type"
-    nextHopType.EntityData.BundleName = "cisco_ios_xe"
-    nextHopType.EntityData.ParentYangName = "next-hop"
-    nextHopType.EntityData.SegmentPath = "next-hop-type"
-    nextHopType.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/" + nextHopType.EntityData.SegmentPath
-    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    nextHopType.EntityData.Children = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
-    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
-    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
-    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
-    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
-
-    nextHopType.EntityData.YListKeys = []string {}
-
-    return &(nextHopType.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations
-// The incoming label processing
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // preserve incoming label stack. The type is interface{}. This attribute is
-    // mandatory.
-    Preserve interface{}
-
-    // Pop the incoming label and forward. The type is interface{}. This attribute
-    // is mandatory.
-    PopAndForward interface{}
-
-    // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap
-
-    // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push
-}
-
-func (operations *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
-    operations.EntityData.YFilter = operations.YFilter
-    operations.EntityData.YangName = "operations"
-    operations.EntityData.BundleName = "cisco_ios_xe"
-    operations.EntityData.ParentYangName = "next-hop"
-    operations.EntityData.SegmentPath = "operations"
-    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/" + operations.EntityData.SegmentPath
-    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    operations.EntityData.Children = types.NewOrderedMap()
-    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
-    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
-    operations.EntityData.Leafs = types.NewOrderedMap()
-    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
-    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
-
-    operations.EntityData.YListKeys = []string {}
-
-    return &(operations.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack
-}
-
-func (swap *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
-    swap.EntityData.YFilter = swap.YFilter
-    swap.EntityData.YangName = "swap"
-    swap.EntityData.BundleName = "cisco_ios_xe"
-    swap.EntityData.ParentYangName = "operations"
-    swap.EntityData.SegmentPath = "swap"
-    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/" + swap.EntityData.SegmentPath
-    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    swap.EntityData.Children = types.NewOrderedMap()
-    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
-    swap.EntityData.Leafs = types.NewOrderedMap()
-
-    swap.EntityData.YListKeys = []string {}
-
-    return &(swap.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "swap"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/swap/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack
-}
-
-func (push *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
-    push.EntityData.YFilter = push.YFilter
-    push.EntityData.YangName = "push"
-    push.EntityData.BundleName = "cisco_ios_xe"
-    push.EntityData.ParentYangName = "operations"
-    push.EntityData.SegmentPath = "push"
-    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/" + push.EntityData.SegmentPath
-    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    push.EntityData.Children = types.NewOrderedMap()
-    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
-    push.EntityData.Leafs = types.NewOrderedMap()
-
-    push.EntityData.YListKeys = []string {}
-
-    return &(push.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "push"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/push/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Interfaces
-// The list of interfaces configured with mpls
-type MplsStatic_MplsStaticCfg_Interfaces struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of interfaces that can be enabled under mpls static. The type is slice
-    // of MplsStatic_MplsStaticCfg_Interfaces_Interface.
-    Interface []*MplsStatic_MplsStaticCfg_Interfaces_Interface
-}
-
-func (interfaces *MplsStatic_MplsStaticCfg_Interfaces) GetEntityData() *types.CommonEntityData {
-    interfaces.EntityData.YFilter = interfaces.YFilter
-    interfaces.EntityData.YangName = "interfaces"
-    interfaces.EntityData.BundleName = "cisco_ios_xe"
-    interfaces.EntityData.ParentYangName = "mpls-static-cfg"
-    interfaces.EntityData.SegmentPath = "interfaces"
-    interfaces.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + interfaces.EntityData.SegmentPath
-    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    interfaces.EntityData.Children = types.NewOrderedMap()
-    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaces.Interface {
-        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
-    }
-    interfaces.EntityData.Leafs = types.NewOrderedMap()
-
-    interfaces.EntityData.YListKeys = []string {}
-
-    return &(interfaces.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Interfaces_Interface
-// List of interfaces that can be enabled under
-// mpls static
-type MplsStatic_MplsStaticCfg_Interfaces_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Interface name. The type is string. Refers to
-    // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
-    Name interface{}
-
-    // Interface Enabled boolean. The type is interface{} with range:
-    // 0..4294967295. This attribute is mandatory.
-    Enabled interface{}
-}
-
-func (self *MplsStatic_MplsStaticCfg_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xe"
-    self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
-    self.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/interfaces/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
-    self.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", self.Enabled})
-
-    self.EntityData.YListKeys = []string {"Name"}
-
-    return &(self.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps
-// The LSPs indexed by ipv4 prefix
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // MPLS Static IPv4 Label Switched Path Configuration at Ingress. The type is
-    // slice of MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp.
-    Ipv4IngressLsp []*MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp
-}
-
-func (ipv4IngressLsps *MplsStatic_MplsStaticCfg_Ipv4IngressLsps) GetEntityData() *types.CommonEntityData {
-    ipv4IngressLsps.EntityData.YFilter = ipv4IngressLsps.YFilter
-    ipv4IngressLsps.EntityData.YangName = "ipv4-ingress-lsps"
-    ipv4IngressLsps.EntityData.BundleName = "cisco_ios_xe"
-    ipv4IngressLsps.EntityData.ParentYangName = "mpls-static-cfg"
-    ipv4IngressLsps.EntityData.SegmentPath = "ipv4-ingress-lsps"
-    ipv4IngressLsps.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + ipv4IngressLsps.EntityData.SegmentPath
-    ipv4IngressLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipv4IngressLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipv4IngressLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    ipv4IngressLsps.EntityData.Children = types.NewOrderedMap()
-    ipv4IngressLsps.EntityData.Children.Append("ipv4-ingress-lsp", types.YChild{"Ipv4IngressLsp", nil})
-    for i := range ipv4IngressLsps.Ipv4IngressLsp {
-        ipv4IngressLsps.EntityData.Children.Append(types.GetSegmentPath(ipv4IngressLsps.Ipv4IngressLsp[i]), types.YChild{"Ipv4IngressLsp", ipv4IngressLsps.Ipv4IngressLsp[i]})
-    }
-    ipv4IngressLsps.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4IngressLsps.EntityData.YListKeys = []string {}
-
-    return &(ipv4IngressLsps.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp
-// MPLS Static IPv4 Label Switched
-// Path Configuration at Ingress
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Name of the VRF. The type is string.
-    VrfName interface{}
-
-    // This attribute is a key. IPv4 prefix of packets that will ingress on this
-    // LSP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
-    Prefix interface{}
-
-    // Name of the LSP. The type is string.
-    Name interface{}
-
-    // Value of the local label. Optional for ingress. The type is one of the
-    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
-    InLabel interface{}
-
-    // Fowarding path.
-    Path MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
-}
-
-func (ipv4IngressLsp *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp) GetEntityData() *types.CommonEntityData {
-    ipv4IngressLsp.EntityData.YFilter = ipv4IngressLsp.YFilter
-    ipv4IngressLsp.EntityData.YangName = "ipv4-ingress-lsp"
-    ipv4IngressLsp.EntityData.BundleName = "cisco_ios_xe"
-    ipv4IngressLsp.EntityData.ParentYangName = "ipv4-ingress-lsps"
-    ipv4IngressLsp.EntityData.SegmentPath = "ipv4-ingress-lsp" + types.AddKeyToken(ipv4IngressLsp.VrfName, "vrf-name") + types.AddKeyToken(ipv4IngressLsp.Prefix, "prefix")
-    ipv4IngressLsp.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/" + ipv4IngressLsp.EntityData.SegmentPath
-    ipv4IngressLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    ipv4IngressLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    ipv4IngressLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    ipv4IngressLsp.EntityData.Children = types.NewOrderedMap()
-    ipv4IngressLsp.EntityData.Children.Append("path", types.YChild{"Path", &ipv4IngressLsp.Path})
-    ipv4IngressLsp.EntityData.Leafs = types.NewOrderedMap()
-    ipv4IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4IngressLsp.VrfName})
-    ipv4IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4IngressLsp.Prefix})
-    ipv4IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv4IngressLsp.Name})
-    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
-
-    ipv4IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
-
-    return &(ipv4IngressLsp.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
-// Fowarding path
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enables automatic protection if true. The type is bool. The default value
-    // is false.
-    AutoProtect interface{}
-
-    // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations
-
-    // next-hops list. The type is slice of
-    // MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop.
-    NextHop []*MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop
-}
-
-func (path *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path) GetEntityData() *types.CommonEntityData {
-    path.EntityData.YFilter = path.YFilter
-    path.EntityData.YangName = "path"
-    path.EntityData.BundleName = "cisco_ios_xe"
-    path.EntityData.ParentYangName = "ipv4-ingress-lsp"
-    path.EntityData.SegmentPath = "path"
-    path.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/" + path.EntityData.SegmentPath
-    path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    path.EntityData.Children = types.NewOrderedMap()
-    path.EntityData.Children.Append("operations", types.YChild{"Operations", &path.Operations})
-    path.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range path.NextHop {
-        path.EntityData.Children.Append(types.GetSegmentPath(path.NextHop[i]), types.YChild{"NextHop", path.NextHop[i]})
-    }
-    path.EntityData.Leafs = types.NewOrderedMap()
-    path.EntityData.Leafs.Append("auto-protect", types.YLeaf{"AutoProtect", path.AutoProtect})
-
-    path.EntityData.YListKeys = []string {}
-
-    return &(path.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations
-// The incoming label processing
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // preserve incoming label stack. The type is interface{}. This attribute is
-    // mandatory.
-    Preserve interface{}
-
-    // Pop the incoming label and forward. The type is interface{}. This attribute
-    // is mandatory.
-    PopAndForward interface{}
-
-    // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap
-
-    // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push
-}
-
-func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
-    operations.EntityData.YFilter = operations.YFilter
-    operations.EntityData.YangName = "operations"
-    operations.EntityData.BundleName = "cisco_ios_xe"
-    operations.EntityData.ParentYangName = "path"
-    operations.EntityData.SegmentPath = "operations"
-    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/" + operations.EntityData.SegmentPath
-    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    operations.EntityData.Children = types.NewOrderedMap()
-    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
-    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
-    operations.EntityData.Leafs = types.NewOrderedMap()
-    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
-    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
-
-    operations.EntityData.YListKeys = []string {}
-
-    return &(operations.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack
-}
-
-func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
-    swap.EntityData.YFilter = swap.YFilter
-    swap.EntityData.YangName = "swap"
-    swap.EntityData.BundleName = "cisco_ios_xe"
-    swap.EntityData.ParentYangName = "operations"
-    swap.EntityData.SegmentPath = "swap"
-    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/" + swap.EntityData.SegmentPath
-    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    swap.EntityData.Children = types.NewOrderedMap()
-    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
-    swap.EntityData.Leafs = types.NewOrderedMap()
-
-    swap.EntityData.YListKeys = []string {}
-
-    return &(swap.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "swap"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/swap/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack
-}
-
-func (push *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
-    push.EntityData.YFilter = push.YFilter
-    push.EntityData.YangName = "push"
-    push.EntityData.BundleName = "cisco_ios_xe"
-    push.EntityData.ParentYangName = "operations"
-    push.EntityData.SegmentPath = "push"
-    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/" + push.EntityData.SegmentPath
-    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    push.EntityData.Children = types.NewOrderedMap()
-    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
-    push.EntityData.Leafs = types.NewOrderedMap()
-
-    push.EntityData.YListKeys = []string {}
-
-    return &(push.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "push"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/push/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop
-// next-hops list
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Index of the nexthop. The type is interface{} with
-    // range: 0..4294967295. This attribute is mandatory.
-    Index interface{}
-
-    // The forwarding path's hoptype. The type is Hoptype. This attribute is
-    // mandatory.
-    Type interface{}
-
-    // Index of the nexthop that protects this nexthop. The type is interface{}
-    // with range: 0..4294967295.
-    ProtectedBy interface{}
-
-    // Next-hop.
-    NextHopType MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
-
-    // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
-}
-
-func (nextHop *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "cisco_ios_xe"
-    nextHop.EntityData.ParentYangName = "path"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
-    nextHop.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Children.Append("next-hop-type", types.YChild{"NextHopType", &nextHop.NextHopType})
-    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
-    nextHop.EntityData.Leafs.Append("type", types.YLeaf{"Type", nextHop.Type})
-    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
-
-    nextHop.EntityData.YListKeys = []string {"Index"}
-
-    return &(nextHop.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
-// Next-hop
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The interface index. The type is interface{} with range: 0..4294967295.
-    // This attribute is mandatory.
-    IfIndex interface{}
-
-    // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv4Address interface{}
-
-    // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
-    MacAddress interface{}
-
-    // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv6Address interface{}
-
-    // Name of the outgoing interface. The type is string. Refers to
-    // ietf_interfaces.Interfaces_Interface_Name
-    OutInterfaceName interface{}
-}
-
-func (nextHopType *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
-    nextHopType.EntityData.YFilter = nextHopType.YFilter
-    nextHopType.EntityData.YangName = "next-hop-type"
-    nextHopType.EntityData.BundleName = "cisco_ios_xe"
-    nextHopType.EntityData.ParentYangName = "next-hop"
-    nextHopType.EntityData.SegmentPath = "next-hop-type"
-    nextHopType.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/" + nextHopType.EntityData.SegmentPath
-    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    nextHopType.EntityData.Children = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
-    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
-    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
-    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
-    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
-
-    nextHopType.EntityData.YListKeys = []string {}
-
-    return &(nextHopType.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
-// The incoming label processing
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Pop the incoming label and forward. The type is interface{}. This attribute
-    // is mandatory.
-    PopAndForward interface{}
-
-    // preserve incoming label stack. The type is interface{}. This attribute is
-    // mandatory.
-    Preserve interface{}
-
-    // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
-
-    // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
-}
-
-func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
-    operations.EntityData.YFilter = operations.YFilter
-    operations.EntityData.YangName = "operations"
-    operations.EntityData.BundleName = "cisco_ios_xe"
-    operations.EntityData.ParentYangName = "next-hop"
-    operations.EntityData.SegmentPath = "operations"
-    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/" + operations.EntityData.SegmentPath
-    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    operations.EntityData.Children = types.NewOrderedMap()
-    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
-    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
-    operations.EntityData.Leafs = types.NewOrderedMap()
-    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
-    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
-
-    operations.EntityData.YListKeys = []string {}
-
-    return &(operations.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
-}
-
-func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
-    swap.EntityData.YFilter = swap.YFilter
-    swap.EntityData.YangName = "swap"
-    swap.EntityData.BundleName = "cisco_ios_xe"
-    swap.EntityData.ParentYangName = "operations"
-    swap.EntityData.SegmentPath = "swap"
-    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/" + swap.EntityData.SegmentPath
-    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    swap.EntityData.Children = types.NewOrderedMap()
-    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
-    swap.EntityData.Leafs = types.NewOrderedMap()
-
-    swap.EntityData.YListKeys = []string {}
-
-    return &(swap.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "swap"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/swap/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack
-}
-
-func (push *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
-    push.EntityData.YFilter = push.YFilter
-    push.EntityData.YangName = "push"
-    push.EntityData.BundleName = "cisco_ios_xe"
-    push.EntityData.ParentYangName = "operations"
-    push.EntityData.SegmentPath = "push"
-    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/" + push.EntityData.SegmentPath
-    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    push.EntityData.Children = types.NewOrderedMap()
-    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
-    push.EntityData.Leafs = types.NewOrderedMap()
-
-    push.EntityData.YListKeys = []string {}
-
-    return &(push.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "push"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/push/" + stack.EntityData.SegmentPath
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
 }
 
 // MplsStatic_MplsStaticCfg_InLabelLsps
@@ -1741,17 +527,17 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType st
     IfIndex interface{}
 
     // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv4Address interface{}
 
     // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv6Address interface{}
 
     // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
     MacAddress interface{}
 
     // Name of the outgoing interface. The type is string. Refers to
@@ -1953,6 +739,649 @@ func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operat
     return &(stack.EntityData)
 }
 
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps
+// The LSPs indexed by ipv6 prefix
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MPLS Static IPv6 Label Switched Path Configuration at Ingress. The type is
+    // slice of MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp.
+    Ipv6IngressLsp []*MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp
+}
+
+func (ipv6IngressLsps *MplsStatic_MplsStaticCfg_Ipv6IngressLsps) GetEntityData() *types.CommonEntityData {
+    ipv6IngressLsps.EntityData.YFilter = ipv6IngressLsps.YFilter
+    ipv6IngressLsps.EntityData.YangName = "ipv6-ingress-lsps"
+    ipv6IngressLsps.EntityData.BundleName = "cisco_ios_xe"
+    ipv6IngressLsps.EntityData.ParentYangName = "mpls-static-cfg"
+    ipv6IngressLsps.EntityData.SegmentPath = "ipv6-ingress-lsps"
+    ipv6IngressLsps.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + ipv6IngressLsps.EntityData.SegmentPath
+    ipv6IngressLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6IngressLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6IngressLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ipv6IngressLsps.EntityData.Children = types.NewOrderedMap()
+    ipv6IngressLsps.EntityData.Children.Append("ipv6-ingress-lsp", types.YChild{"Ipv6IngressLsp", nil})
+    for i := range ipv6IngressLsps.Ipv6IngressLsp {
+        ipv6IngressLsps.EntityData.Children.Append(types.GetSegmentPath(ipv6IngressLsps.Ipv6IngressLsp[i]), types.YChild{"Ipv6IngressLsp", ipv6IngressLsps.Ipv6IngressLsp[i]})
+    }
+    ipv6IngressLsps.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6IngressLsps.EntityData.YListKeys = []string {}
+
+    return &(ipv6IngressLsps.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp
+// MPLS Static IPv6 Label Switched Path
+// Configuration at Ingress
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of the VRF. The type is string.
+    VrfName interface{}
+
+    // This attribute is a key. IPv6 prefix of packets that will ingress on this
+    // LSP. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    Prefix interface{}
+
+    // Name of the LSP. The type is string.
+    Name interface{}
+
+    // Value of the local label. Optional for ingress. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
+    InLabel interface{}
+
+    // Fowarding path.
+    Path MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path
+}
+
+func (ipv6IngressLsp *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp) GetEntityData() *types.CommonEntityData {
+    ipv6IngressLsp.EntityData.YFilter = ipv6IngressLsp.YFilter
+    ipv6IngressLsp.EntityData.YangName = "ipv6-ingress-lsp"
+    ipv6IngressLsp.EntityData.BundleName = "cisco_ios_xe"
+    ipv6IngressLsp.EntityData.ParentYangName = "ipv6-ingress-lsps"
+    ipv6IngressLsp.EntityData.SegmentPath = "ipv6-ingress-lsp" + types.AddKeyToken(ipv6IngressLsp.VrfName, "vrf-name") + types.AddKeyToken(ipv6IngressLsp.Prefix, "prefix")
+    ipv6IngressLsp.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/" + ipv6IngressLsp.EntityData.SegmentPath
+    ipv6IngressLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6IngressLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6IngressLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ipv6IngressLsp.EntityData.Children = types.NewOrderedMap()
+    ipv6IngressLsp.EntityData.Children.Append("path", types.YChild{"Path", &ipv6IngressLsp.Path})
+    ipv6IngressLsp.EntityData.Leafs = types.NewOrderedMap()
+    ipv6IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6IngressLsp.VrfName})
+    ipv6IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6IngressLsp.Prefix})
+    ipv6IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv6IngressLsp.Name})
+    ipv6IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv6IngressLsp.InLabel})
+
+    ipv6IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
+
+    return &(ipv6IngressLsp.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path
+// Fowarding path
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enables automatic protection if true. The type is bool. The default value
+    // is false.
+    AutoProtect interface{}
+
+    // The incoming label processing.
+    Operations MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations
+
+    // next-hops list. The type is slice of
+    // MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop.
+    NextHop []*MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop
+}
+
+func (path *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path) GetEntityData() *types.CommonEntityData {
+    path.EntityData.YFilter = path.YFilter
+    path.EntityData.YangName = "path"
+    path.EntityData.BundleName = "cisco_ios_xe"
+    path.EntityData.ParentYangName = "ipv6-ingress-lsp"
+    path.EntityData.SegmentPath = "path"
+    path.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/" + path.EntityData.SegmentPath
+    path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    path.EntityData.Children = types.NewOrderedMap()
+    path.EntityData.Children.Append("operations", types.YChild{"Operations", &path.Operations})
+    path.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
+    for i := range path.NextHop {
+        path.EntityData.Children.Append(types.GetSegmentPath(path.NextHop[i]), types.YChild{"NextHop", path.NextHop[i]})
+    }
+    path.EntityData.Leafs = types.NewOrderedMap()
+    path.EntityData.Leafs.Append("auto-protect", types.YLeaf{"AutoProtect", path.AutoProtect})
+
+    path.EntityData.YListKeys = []string {}
+
+    return &(path.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations
+// The incoming label processing
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // preserve incoming label stack. The type is interface{}. This attribute is
+    // mandatory.
+    Preserve interface{}
+
+    // Pop the incoming label and forward. The type is interface{}. This attribute
+    // is mandatory.
+    PopAndForward interface{}
+
+    // Push outgoing label stack.
+    Swap MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap
+
+    // Push outgoing label stack.
+    Push MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push
+}
+
+func (operations *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
+    operations.EntityData.YFilter = operations.YFilter
+    operations.EntityData.YangName = "operations"
+    operations.EntityData.BundleName = "cisco_ios_xe"
+    operations.EntityData.ParentYangName = "path"
+    operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/" + operations.EntityData.SegmentPath
+    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    operations.EntityData.Children = types.NewOrderedMap()
+    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
+    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
+    operations.EntityData.Leafs = types.NewOrderedMap()
+    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
+    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
+
+    operations.EntityData.YListKeys = []string {}
+
+    return &(operations.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack
+}
+
+func (swap *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
+    swap.EntityData.YFilter = swap.YFilter
+    swap.EntityData.YangName = "swap"
+    swap.EntityData.BundleName = "cisco_ios_xe"
+    swap.EntityData.ParentYangName = "operations"
+    swap.EntityData.SegmentPath = "swap"
+    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/" + swap.EntityData.SegmentPath
+    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    swap.EntityData.Children = types.NewOrderedMap()
+    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
+    swap.EntityData.Leafs = types.NewOrderedMap()
+
+    swap.EntityData.YListKeys = []string {}
+
+    return &(swap.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "swap"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/swap/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack
+}
+
+func (push *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
+    push.EntityData.YFilter = push.YFilter
+    push.EntityData.YangName = "push"
+    push.EntityData.BundleName = "cisco_ios_xe"
+    push.EntityData.ParentYangName = "operations"
+    push.EntityData.SegmentPath = "push"
+    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/" + push.EntityData.SegmentPath
+    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    push.EntityData.Children = types.NewOrderedMap()
+    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
+    push.EntityData.Leafs = types.NewOrderedMap()
+
+    push.EntityData.YListKeys = []string {}
+
+    return &(push.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "push"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/operations/push/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop
+// next-hops list
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index of the nexthop. The type is interface{} with
+    // range: 0..4294967295. This attribute is mandatory.
+    Index interface{}
+
+    // The forwarding path's hoptype. The type is Hoptype. This attribute is
+    // mandatory.
+    Type interface{}
+
+    // Index of the nexthop that protects this nexthop. The type is interface{}
+    // with range: 0..4294967295.
+    ProtectedBy interface{}
+
+    // Next-hop.
+    NextHopType MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType
+
+    // The incoming label processing.
+    Operations MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations
+}
+
+func (nextHop *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
+    nextHop.EntityData.YFilter = nextHop.YFilter
+    nextHop.EntityData.YangName = "next-hop"
+    nextHop.EntityData.BundleName = "cisco_ios_xe"
+    nextHop.EntityData.ParentYangName = "path"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nextHop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Children.Append("next-hop-type", types.YChild{"NextHopType", &nextHop.NextHopType})
+    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
+    nextHop.EntityData.Leafs.Append("type", types.YLeaf{"Type", nextHop.Type})
+    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
+
+    nextHop.EntityData.YListKeys = []string {"Index"}
+
+    return &(nextHop.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType
+// Next-hop
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The interface index. The type is interface{} with range: 0..4294967295.
+    // This attribute is mandatory.
+    IfIndex interface{}
+
+    // IPv4 Address of the nexthop. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // This attribute is mandatory.
+    Ipv4Address interface{}
+
+    // IPv6 Address of the nexthop. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // This attribute is mandatory.
+    Ipv6Address interface{}
+
+    // MAC address of the nexthop. The type is string with pattern:
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
+    MacAddress interface{}
+
+    // Name of the outgoing interface. The type is string. Refers to
+    // ietf_interfaces.Interfaces_Interface_Name
+    OutInterfaceName interface{}
+}
+
+func (nextHopType *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
+    nextHopType.EntityData.YFilter = nextHopType.YFilter
+    nextHopType.EntityData.YangName = "next-hop-type"
+    nextHopType.EntityData.BundleName = "cisco_ios_xe"
+    nextHopType.EntityData.ParentYangName = "next-hop"
+    nextHopType.EntityData.SegmentPath = "next-hop-type"
+    nextHopType.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/" + nextHopType.EntityData.SegmentPath
+    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nextHopType.EntityData.Children = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
+    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
+    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
+    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
+    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
+
+    nextHopType.EntityData.YListKeys = []string {}
+
+    return &(nextHopType.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations
+// The incoming label processing
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // preserve incoming label stack. The type is interface{}. This attribute is
+    // mandatory.
+    Preserve interface{}
+
+    // Pop the incoming label and forward. The type is interface{}. This attribute
+    // is mandatory.
+    PopAndForward interface{}
+
+    // Push outgoing label stack.
+    Swap MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap
+
+    // Push outgoing label stack.
+    Push MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push
+}
+
+func (operations *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
+    operations.EntityData.YFilter = operations.YFilter
+    operations.EntityData.YangName = "operations"
+    operations.EntityData.BundleName = "cisco_ios_xe"
+    operations.EntityData.ParentYangName = "next-hop"
+    operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/" + operations.EntityData.SegmentPath
+    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    operations.EntityData.Children = types.NewOrderedMap()
+    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
+    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
+    operations.EntityData.Leafs = types.NewOrderedMap()
+    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
+    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
+
+    operations.EntityData.YListKeys = []string {}
+
+    return &(operations.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack
+}
+
+func (swap *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
+    swap.EntityData.YFilter = swap.YFilter
+    swap.EntityData.YangName = "swap"
+    swap.EntityData.BundleName = "cisco_ios_xe"
+    swap.EntityData.ParentYangName = "operations"
+    swap.EntityData.SegmentPath = "swap"
+    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/" + swap.EntityData.SegmentPath
+    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    swap.EntityData.Children = types.NewOrderedMap()
+    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
+    swap.EntityData.Leafs = types.NewOrderedMap()
+
+    swap.EntityData.YListKeys = []string {}
+
+    return &(swap.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "swap"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/swap/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack
+}
+
+func (push *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
+    push.EntityData.YFilter = push.YFilter
+    push.EntityData.YangName = "push"
+    push.EntityData.BundleName = "cisco_ios_xe"
+    push.EntityData.ParentYangName = "operations"
+    push.EntityData.SegmentPath = "push"
+    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/" + push.EntityData.SegmentPath
+    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    push.EntityData.Children = types.NewOrderedMap()
+    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
+    push.EntityData.Leafs = types.NewOrderedMap()
+
+    push.EntityData.YListKeys = []string {}
+
+    return &(push.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "push"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv6-ingress-lsps/ipv6-ingress-lsp/path/next-hop/operations/push/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Interfaces
+// The list of interfaces configured with mpls
+type MplsStatic_MplsStaticCfg_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of interfaces that can be enabled under mpls static. The type is slice
+    // of MplsStatic_MplsStaticCfg_Interfaces_Interface.
+    Interface []*MplsStatic_MplsStaticCfg_Interfaces_Interface
+}
+
+func (interfaces *MplsStatic_MplsStaticCfg_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xe"
+    interfaces.EntityData.ParentYangName = "mpls-static-cfg"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + interfaces.EntityData.SegmentPath
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
+    }
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
+    return &(interfaces.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Interfaces_Interface
+// List of interfaces that can be enabled under
+// mpls static
+type MplsStatic_MplsStaticCfg_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Interface name. The type is string. Refers to
+    // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
+    Name interface{}
+
+    // Interface Enabled boolean. The type is interface{} with range:
+    // 0..4294967295. This attribute is mandatory.
+    Enabled interface{}
+}
+
+func (self *MplsStatic_MplsStaticCfg_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xe"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/interfaces/" + self.EntityData.SegmentPath
+    self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", self.Enabled})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
+    return &(self.EntityData)
+}
+
 // MplsStatic_MplsStaticCfg_NamedLsps
 // The LSPs indexed by name
 type MplsStatic_MplsStaticCfg_NamedLsps struct {
@@ -2011,7 +1440,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp struct {
     // attribute is mandatory.
     Name interface{}
 
-    // lsp type. The type is one of the following: LspIPv6LspIPv4LspLspVrf. This
+    // lsp type. The type is one of the following: LspIPv4LspIPv6LspVrfLsp. This
     // attribute is mandatory.
     LspType interface{}
 
@@ -2020,11 +1449,11 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp struct {
     InLabel interface{}
 
     // ipv4 prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
     Ipv4Prefix interface{}
 
     // ipv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     Ipv6Prefix interface{}
 
     // Fowarding path.
@@ -2331,17 +1760,17 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType struct
     IfIndex interface{}
 
     // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv4Address interface{}
 
     // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv6Address interface{}
 
     // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
     MacAddress interface{}
 
     // Name of the outgoing interface. The type is string. Refers to
@@ -2543,6 +1972,577 @@ func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
     return &(stack.EntityData)
 }
 
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps
+// The LSPs indexed by ipv4 prefix
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MPLS Static IPv4 Label Switched Path Configuration at Ingress. The type is
+    // slice of MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp.
+    Ipv4IngressLsp []*MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp
+}
+
+func (ipv4IngressLsps *MplsStatic_MplsStaticCfg_Ipv4IngressLsps) GetEntityData() *types.CommonEntityData {
+    ipv4IngressLsps.EntityData.YFilter = ipv4IngressLsps.YFilter
+    ipv4IngressLsps.EntityData.YangName = "ipv4-ingress-lsps"
+    ipv4IngressLsps.EntityData.BundleName = "cisco_ios_xe"
+    ipv4IngressLsps.EntityData.ParentYangName = "mpls-static-cfg"
+    ipv4IngressLsps.EntityData.SegmentPath = "ipv4-ingress-lsps"
+    ipv4IngressLsps.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/" + ipv4IngressLsps.EntityData.SegmentPath
+    ipv4IngressLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv4IngressLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv4IngressLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ipv4IngressLsps.EntityData.Children = types.NewOrderedMap()
+    ipv4IngressLsps.EntityData.Children.Append("ipv4-ingress-lsp", types.YChild{"Ipv4IngressLsp", nil})
+    for i := range ipv4IngressLsps.Ipv4IngressLsp {
+        ipv4IngressLsps.EntityData.Children.Append(types.GetSegmentPath(ipv4IngressLsps.Ipv4IngressLsp[i]), types.YChild{"Ipv4IngressLsp", ipv4IngressLsps.Ipv4IngressLsp[i]})
+    }
+    ipv4IngressLsps.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4IngressLsps.EntityData.YListKeys = []string {}
+
+    return &(ipv4IngressLsps.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp
+// MPLS Static IPv4 Label Switched
+// Path Configuration at Ingress
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Name of the VRF. The type is string.
+    VrfName interface{}
+
+    // This attribute is a key. IPv4 prefix of packets that will ingress on this
+    // LSP. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
+    Prefix interface{}
+
+    // Value of the local label. Optional for ingress. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
+    InLabel interface{}
+
+    // Name of the LSP. The type is string.
+    Name interface{}
+
+    // Fowarding path.
+    Path MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
+}
+
+func (ipv4IngressLsp *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp) GetEntityData() *types.CommonEntityData {
+    ipv4IngressLsp.EntityData.YFilter = ipv4IngressLsp.YFilter
+    ipv4IngressLsp.EntityData.YangName = "ipv4-ingress-lsp"
+    ipv4IngressLsp.EntityData.BundleName = "cisco_ios_xe"
+    ipv4IngressLsp.EntityData.ParentYangName = "ipv4-ingress-lsps"
+    ipv4IngressLsp.EntityData.SegmentPath = "ipv4-ingress-lsp" + types.AddKeyToken(ipv4IngressLsp.VrfName, "vrf-name") + types.AddKeyToken(ipv4IngressLsp.Prefix, "prefix")
+    ipv4IngressLsp.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/" + ipv4IngressLsp.EntityData.SegmentPath
+    ipv4IngressLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv4IngressLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv4IngressLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ipv4IngressLsp.EntityData.Children = types.NewOrderedMap()
+    ipv4IngressLsp.EntityData.Children.Append("path", types.YChild{"Path", &ipv4IngressLsp.Path})
+    ipv4IngressLsp.EntityData.Leafs = types.NewOrderedMap()
+    ipv4IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4IngressLsp.VrfName})
+    ipv4IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4IngressLsp.Prefix})
+    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
+    ipv4IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv4IngressLsp.Name})
+
+    ipv4IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
+
+    return &(ipv4IngressLsp.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
+// Fowarding path
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enables automatic protection if true. The type is bool. The default value
+    // is false.
+    AutoProtect interface{}
+
+    // next-hops list. The type is slice of
+    // MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop.
+    NextHop []*MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop
+
+    // The incoming label processing.
+    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations
+}
+
+func (path *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path) GetEntityData() *types.CommonEntityData {
+    path.EntityData.YFilter = path.YFilter
+    path.EntityData.YangName = "path"
+    path.EntityData.BundleName = "cisco_ios_xe"
+    path.EntityData.ParentYangName = "ipv4-ingress-lsp"
+    path.EntityData.SegmentPath = "path"
+    path.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/" + path.EntityData.SegmentPath
+    path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    path.EntityData.Children = types.NewOrderedMap()
+    path.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
+    for i := range path.NextHop {
+        path.EntityData.Children.Append(types.GetSegmentPath(path.NextHop[i]), types.YChild{"NextHop", path.NextHop[i]})
+    }
+    path.EntityData.Children.Append("operations", types.YChild{"Operations", &path.Operations})
+    path.EntityData.Leafs = types.NewOrderedMap()
+    path.EntityData.Leafs.Append("auto-protect", types.YLeaf{"AutoProtect", path.AutoProtect})
+
+    path.EntityData.YListKeys = []string {}
+
+    return &(path.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop
+// next-hops list
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Index of the nexthop. The type is interface{} with
+    // range: 0..4294967295. This attribute is mandatory.
+    Index interface{}
+
+    // Index of the nexthop that protects this nexthop. The type is interface{}
+    // with range: 0..4294967295.
+    ProtectedBy interface{}
+
+    // The forwarding path's hoptype. The type is Hoptype. This attribute is
+    // mandatory.
+    Type interface{}
+
+    // Next-hop.
+    NextHopType MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
+
+    // The incoming label processing.
+    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
+}
+
+func (nextHop *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
+    nextHop.EntityData.YFilter = nextHop.YFilter
+    nextHop.EntityData.YangName = "next-hop"
+    nextHop.EntityData.BundleName = "cisco_ios_xe"
+    nextHop.EntityData.ParentYangName = "path"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nextHop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Children.Append("next-hop-type", types.YChild{"NextHopType", &nextHop.NextHopType})
+    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
+    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
+    nextHop.EntityData.Leafs.Append("type", types.YLeaf{"Type", nextHop.Type})
+
+    nextHop.EntityData.YListKeys = []string {"Index"}
+
+    return &(nextHop.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
+// Next-hop
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the outgoing interface. The type is string. Refers to
+    // ietf_interfaces.Interfaces_Interface_Name
+    OutInterfaceName interface{}
+
+    // IPv4 Address of the nexthop. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // This attribute is mandatory.
+    Ipv4Address interface{}
+
+    // IPv6 Address of the nexthop. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // This attribute is mandatory.
+    Ipv6Address interface{}
+
+    // MAC address of the nexthop. The type is string with pattern:
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
+    MacAddress interface{}
+
+    // The interface index. The type is interface{} with range: 0..4294967295.
+    // This attribute is mandatory.
+    IfIndex interface{}
+}
+
+func (nextHopType *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
+    nextHopType.EntityData.YFilter = nextHopType.YFilter
+    nextHopType.EntityData.YangName = "next-hop-type"
+    nextHopType.EntityData.BundleName = "cisco_ios_xe"
+    nextHopType.EntityData.ParentYangName = "next-hop"
+    nextHopType.EntityData.SegmentPath = "next-hop-type"
+    nextHopType.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/" + nextHopType.EntityData.SegmentPath
+    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nextHopType.EntityData.Children = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
+    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
+    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
+    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
+    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
+
+    nextHopType.EntityData.YListKeys = []string {}
+
+    return &(nextHopType.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
+// The incoming label processing
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // preserve incoming label stack. The type is interface{}. This attribute is
+    // mandatory.
+    Preserve interface{}
+
+    // Pop the incoming label and forward. The type is interface{}. This attribute
+    // is mandatory.
+    PopAndForward interface{}
+
+    // Push outgoing label stack.
+    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
+
+    // Push outgoing label stack.
+    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
+}
+
+func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
+    operations.EntityData.YFilter = operations.YFilter
+    operations.EntityData.YangName = "operations"
+    operations.EntityData.BundleName = "cisco_ios_xe"
+    operations.EntityData.ParentYangName = "next-hop"
+    operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/" + operations.EntityData.SegmentPath
+    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    operations.EntityData.Children = types.NewOrderedMap()
+    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
+    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
+    operations.EntityData.Leafs = types.NewOrderedMap()
+    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
+    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
+
+    operations.EntityData.YListKeys = []string {}
+
+    return &(operations.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
+}
+
+func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
+    swap.EntityData.YFilter = swap.YFilter
+    swap.EntityData.YangName = "swap"
+    swap.EntityData.BundleName = "cisco_ios_xe"
+    swap.EntityData.ParentYangName = "operations"
+    swap.EntityData.SegmentPath = "swap"
+    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/" + swap.EntityData.SegmentPath
+    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    swap.EntityData.Children = types.NewOrderedMap()
+    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
+    swap.EntityData.Leafs = types.NewOrderedMap()
+
+    swap.EntityData.YListKeys = []string {}
+
+    return &(swap.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "swap"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/swap/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack
+}
+
+func (push *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
+    push.EntityData.YFilter = push.YFilter
+    push.EntityData.YangName = "push"
+    push.EntityData.BundleName = "cisco_ios_xe"
+    push.EntityData.ParentYangName = "operations"
+    push.EntityData.SegmentPath = "push"
+    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/" + push.EntityData.SegmentPath
+    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    push.EntityData.Children = types.NewOrderedMap()
+    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
+    push.EntityData.Leafs = types.NewOrderedMap()
+
+    push.EntityData.YListKeys = []string {}
+
+    return &(push.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "push"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/next-hop/operations/push/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations
+// The incoming label processing
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // preserve incoming label stack. The type is interface{}. This attribute is
+    // mandatory.
+    Preserve interface{}
+
+    // Pop the incoming label and forward. The type is interface{}. This attribute
+    // is mandatory.
+    PopAndForward interface{}
+
+    // Push outgoing label stack.
+    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap
+
+    // Push outgoing label stack.
+    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push
+}
+
+func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
+    operations.EntityData.YFilter = operations.YFilter
+    operations.EntityData.YangName = "operations"
+    operations.EntityData.BundleName = "cisco_ios_xe"
+    operations.EntityData.ParentYangName = "path"
+    operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/" + operations.EntityData.SegmentPath
+    operations.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    operations.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    operations.EntityData.Children = types.NewOrderedMap()
+    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
+    operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
+    operations.EntityData.Leafs = types.NewOrderedMap()
+    operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
+    operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
+
+    operations.EntityData.YListKeys = []string {}
+
+    return &(operations.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack
+}
+
+func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
+    swap.EntityData.YFilter = swap.YFilter
+    swap.EntityData.YangName = "swap"
+    swap.EntityData.BundleName = "cisco_ios_xe"
+    swap.EntityData.ParentYangName = "operations"
+    swap.EntityData.SegmentPath = "swap"
+    swap.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/" + swap.EntityData.SegmentPath
+    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    swap.EntityData.Children = types.NewOrderedMap()
+    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
+    swap.EntityData.Leafs = types.NewOrderedMap()
+
+    swap.EntityData.YListKeys = []string {}
+
+    return &(swap.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "swap"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/swap/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack
+}
+
+func (push *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
+    push.EntityData.YFilter = push.YFilter
+    push.EntityData.YangName = "push"
+    push.EntityData.BundleName = "cisco_ios_xe"
+    push.EntityData.ParentYangName = "operations"
+    push.EntityData.SegmentPath = "push"
+    push.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/" + push.EntityData.SegmentPath
+    push.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    push.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    push.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    push.EntityData.Children = types.NewOrderedMap()
+    push.EntityData.Children.Append("stack", types.YChild{"Stack", &push.Stack})
+    push.EntityData.Leafs = types.NewOrderedMap()
+
+    push.EntityData.YListKeys = []string {}
+
+    return &(push.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
+}
+
+func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "push"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "common-mpls-static:mpls-static/mpls-static-cfg/ipv4-ingress-lsps/ipv4-ingress-lsp/path/operations/push/" + stack.EntityData.SegmentPath
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
 // MplsStatic_MplsStaticState
 // MPLS static operational data
 type MplsStatic_MplsStaticState struct {
@@ -2619,9 +2619,9 @@ type MplsStatic_MplsStaticState_LabelSwitchedPaths_LabelSwitchedPath struct {
 
     // This attribute is a key. IP v4/v6 prefix. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     Prefix interface{}
 
     // Name of the LSP. The type is string.
@@ -3052,7 +3052,7 @@ type MplsStatic_MplsStaticState_LabelSwitchedPaths_LabelSwitchedPath_Path_NextHo
     ProtectedBy interface{}
 
     // The origin of this nexthop. The type is one of the following:
-    // BgpRouteNexthopIsisRouteNexthopStaticNexthopOspfRouteNexthop.
+    // StaticNexthopBgpRouteNexthopOspfRouteNexthopIsisRouteNexthop.
     Origin interface{}
 
     // Next-hop.
@@ -3102,17 +3102,17 @@ type MplsStatic_MplsStaticState_LabelSwitchedPaths_LabelSwitchedPath_Path_NextHo
     IfIndex interface{}
 
     // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv4Address interface{}
 
     // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Ipv6Address interface{}
 
     // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
     MacAddress interface{}
 
     // Name of the outgoing interface. The type is string. Refers to

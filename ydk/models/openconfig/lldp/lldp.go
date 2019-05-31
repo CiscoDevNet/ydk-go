@@ -72,9 +72,9 @@ type Lldp_Config struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
-    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
-    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
+    // transmitted by the local agent. The type is slice of ['CHASSISID',
+    // 'PORTID', 'PORTDESCRIPTION', 'SYSTEMNAME', 'SYSTEMDESCRIPTION',
+    // 'SYSTEMCAPABILITIES', 'MANAGEMENTADDRESS'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -146,9 +146,9 @@ type Lldp_State struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
-    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
-    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
+    // transmitted by the local agent. The type is slice of ['CHASSISID',
+    // 'PORTID', 'PORTDESCRIPTION', 'SYSTEMNAME', 'SYSTEMDESCRIPTION',
+    // 'SYSTEMCAPABILITIES', 'MANAGEMENTADDRESS'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -238,7 +238,8 @@ type Lldp_State_Counters struct {
     TlvUnknown interface{}
 
     // Indicates the last time the counters were cleared. The type is string with
-    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastClear interface{}
 
     // The number of valid TLVs received. The type is interface{} with range:
@@ -463,7 +464,8 @@ type Lldp_Interfaces_Interface_State_Counters struct {
     TlvUnknown interface{}
 
     // Indicates the last time the counters were cleared. The type is string with
-    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastClear interface{}
 
     // The number of frame transmit errors on the interface. The type is
@@ -916,7 +918,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability struct
 
     // This attribute is a key. Reference to capabilities list key. The type is
     // one of the following:
-    // MACBRIDGEDOCSISCABLEDEVICEREPEATERCVLANTWOPORTMACRELAYSVLANTELEPHONEOTHERROUTERSTATIONONLYWLANACCESSPOINT.
+    // OTHERREPEATERMACBRIDGEWLANACCESSPOINTROUTERTELEPHONEDOCSISCABLEDEVICESTATIONONLYCVLANSVLANTWOPORTMACRELAY.
     Name interface{}
 
     // Configuration data for LLDP capabilities.
@@ -984,7 +986,7 @@ type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability_State 
     // represented in a bitmap that defines the primary functions of the system.
     // The capabilities are defined in IEEE 802.1AB. The type is one of the
     // following:
-    // MACBRIDGEDOCSISCABLEDEVICEREPEATERCVLANTWOPORTMACRELAYSVLANTELEPHONEOTHERROUTERSTATIONONLYWLANACCESSPOINT.
+    // OTHERREPEATERMACBRIDGEWLANACCESSPOINTROUTERTELEPHONEDOCSISCABLEDEVICESTATIONONLYCVLANSVLANTWOPORTMACRELAY.
     Name interface{}
 
     // Indicates whether the corresponding system capability is enabled on the

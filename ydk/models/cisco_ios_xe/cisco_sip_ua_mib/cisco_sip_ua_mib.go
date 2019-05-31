@@ -457,7 +457,7 @@ type CISCOSIPUAMIB_CSipCfgTimer struct {
 
     // This object specifies the amount of time to wait before  disconnecting a
     // call already on hold. A value of 0 specifies that this functionality is
-    // disabled. The type is interface{} with range: 0..None | 15..2880. Units are
+    // disabled. The type is interface{} with range: 0..0 | 15..2880. Units are
     // minutes.
     CSipCfgTimerHold interface{}
 
@@ -474,7 +474,7 @@ type CISCOSIPUAMIB_CSipCfgTimer struct {
     // This object specifies the amount of time to buffer the INVITE  while
     // waiting for display name info in the Facility.  A value of 0 means that the
     // INVITE wouldn't be buffered waiting for the display name info in the
-    // Facility. The type is interface{} with range: 0..None | 50..5000. Units are
+    // Facility. The type is interface{} with range: 0..0 | 50..5000. Units are
     // milliseconds.
     CSipCfgTimerBufferInvite interface{}
 }

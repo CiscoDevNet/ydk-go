@@ -96,7 +96,7 @@ type PppoeEa_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // PPPoE parent interface info.
@@ -170,10 +170,10 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Is in sync. The type is bool.
@@ -213,7 +213,7 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId_SrgvMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Macaddr interface{}
 }
 
@@ -279,16 +279,16 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Session ID. The type is interface{} with range: 0..65535.
     SessionId interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     ParentInterface interface{}
 
     // Is Priority Set. The type is bool.
@@ -354,7 +354,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_PeerMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Macaddr interface{}
 }
 
@@ -385,7 +385,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_LocalMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Macaddr interface{}
 }
 
@@ -416,7 +416,7 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_SrgvMac struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Macaddr interface{}
 }
 

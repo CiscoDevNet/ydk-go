@@ -102,7 +102,7 @@ type Ipv4Virtual_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of VRF. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 sddress and mask.
@@ -139,7 +139,7 @@ type Ipv4Virtual_Vrfs_Vrf_Address struct {
     YPresence bool
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Address interface{}
 

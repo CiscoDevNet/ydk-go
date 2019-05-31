@@ -14,26 +14,15 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ethernet_cfm_datatypes"))
 }
 
-// BandwidthNotificationState represents Bandwidth notification state
-type BandwidthNotificationState string
+// CfmBandwidthNotificationState represents Cfm bandwidth notification state
+type CfmBandwidthNotificationState string
 
 const (
     // Link is not degraded
-    BandwidthNotificationState_ok BandwidthNotificationState = "ok"
+    CfmBandwidthNotificationState_ok CfmBandwidthNotificationState = "ok"
 
     // Link is in degraded state
-    BandwidthNotificationState_degraded BandwidthNotificationState = "degraded"
-)
-
-// CfmMepDir represents Cfm mep dir
-type CfmMepDir string
-
-const (
-    // Up MEP
-    CfmMepDir_up CfmMepDir = "up"
-
-    // Down MEP
-    CfmMepDir_down CfmMepDir = "down"
+    CfmBandwidthNotificationState_degraded CfmBandwidthNotificationState = "degraded"
 )
 
 // CfmCcmInterval represents Cfm ccm interval
@@ -71,5 +60,16 @@ const (
 
     // 1m
     CfmAisInterval_Y_1m CfmAisInterval = "1m"
+)
+
+// CfmMepDir represents Cfm mep dir
+type CfmMepDir string
+
+const (
+    // Up MEP
+    CfmMepDir_up CfmMepDir = "up"
+
+    // Down MEP
+    CfmMepDir_down CfmMepDir = "down"
 )
 

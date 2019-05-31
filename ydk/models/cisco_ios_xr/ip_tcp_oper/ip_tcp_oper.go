@@ -30,6 +30,113 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-tcp-oper:tcp-nsr", reflect.TypeOf(TcpNsr{}))
 }
 
+// Show represents Show
+type Show string
+
+const (
+    // To dispay all
+    Show_all Show = "all"
+
+    // To display static policy
+    Show_static_policy Show = "static-policy"
+
+    // To display interface filter
+    Show_interface_filter Show = "interface-filter"
+
+    // To display packet type filter
+    Show_packet_filter Show = "packet-filter"
+)
+
+// MessageTypeIgmp represents LPTS IGMP message types
+type MessageTypeIgmp string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
+)
+
+// MessageTypeIgmp_ represents LPTS IGMP message types
+type MessageTypeIgmp_ string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp__membership_query MessageTypeIgmp_ = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp__v1_membership_report MessageTypeIgmp_ = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp__dvmrp MessageTypeIgmp_ = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp__pi_mv1 MessageTypeIgmp_ = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp__cisco_trace_messages MessageTypeIgmp_ = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp__v2_membership_report MessageTypeIgmp_ = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp__v2_leave_group MessageTypeIgmp_ = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp__multicast_traceroute_response MessageTypeIgmp_ = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp__multicast_traceroute MessageTypeIgmp_ = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp__v3_membership_report MessageTypeIgmp_ = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp__multicast_router_advertisement MessageTypeIgmp_ = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp__multicast_router_solicitation MessageTypeIgmp_ = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp__multicast_router_termination MessageTypeIgmp_ = "multicast-router-termination"
+)
+
 // MessageTypeIcmpv6 represents LPTS ICMPv6 message types
 type MessageTypeIcmpv6 string
 
@@ -138,443 +245,6 @@ const (
 
     // ICMPv6 Packet type: FMIPv6 messages
     MessageTypeIcmpv6_fmipv6_messages MessageTypeIcmpv6 = "fmipv6-messages"
-)
-
-// Show represents Show
-type Show string
-
-const (
-    // To dispay all
-    Show_all Show = "all"
-
-    // To display static policy
-    Show_static_policy Show = "static-policy"
-
-    // To display interface filter
-    Show_interface_filter Show = "interface-filter"
-
-    // To display packet type filter
-    Show_packet_filter Show = "packet-filter"
-)
-
-// MessageTypeIgmp represents LPTS IGMP message types
-type MessageTypeIgmp string
-
-const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
-
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
-
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
-
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
-
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
-
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
-
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
-
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
-
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
-
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
-
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
-
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
-
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
-)
-
-// TcpConnState represents TCP Connection State
-type TcpConnState string
-
-const (
-    // Closed
-    TcpConnState_closed TcpConnState = "closed"
-
-    // Listen
-    TcpConnState_listen TcpConnState = "listen"
-
-    // Syn sent
-    TcpConnState_syn_sent TcpConnState = "syn-sent"
-
-    // Syn received
-    TcpConnState_syn_received TcpConnState = "syn-received"
-
-    // Established
-    TcpConnState_established TcpConnState = "established"
-
-    // Close wait
-    TcpConnState_close_wait TcpConnState = "close-wait"
-
-    // FIN Wait1
-    TcpConnState_fin_wait1 TcpConnState = "fin-wait1"
-
-    // Closing
-    TcpConnState_closing TcpConnState = "closing"
-
-    // Last ack
-    TcpConnState_last_ack TcpConnState = "last-ack"
-
-    // FIN Wait2
-    TcpConnState_fin_wait2 TcpConnState = "fin-wait2"
-
-    // Time wait
-    TcpConnState_time_wait TcpConnState = "time-wait"
-)
-
-// PakPrio represents Packet Priority Types
-type PakPrio string
-
-const (
-    // Unspecified
-    PakPrio_unspecified_packet PakPrio = "unspecified-packet"
-
-    // Normal: all traffic routed via this router,
-    // Telnet/FTP traffic generated from within this
-    // router
-    PakPrio_normal_packet PakPrio = "normal-packet"
-
-    // Medium: Packets with low drop probability e.g.
-    // Routing updates & requests
-    PakPrio_medium_packet PakPrio = "medium-packet"
-
-    // High: Packets with very low drop probability
-    // and normal delivery e.g. L3 Keepalives like
-    // OSPF/ISIS Hellos
-    PakPrio_high_packet PakPrio = "high-packet"
-
-    // Crucial: Packets with very low drop probability
-    // and expedited delivery e.g L2 keepalives, HDLC
-    // Keepalives
-    PakPrio_crucial_packet PakPrio = "crucial-packet"
-)
-
-// MessageTypeIcmp represents LPTS ICMP message types
-type MessageTypeIcmp string
-
-const (
-    // ICMP Packet type: Echo reply
-    MessageTypeIcmp_echo_reply MessageTypeIcmp = "echo-reply"
-
-    // ICMP Packet type: Destination unreachable
-    MessageTypeIcmp_destination_unreachable MessageTypeIcmp = "destination-unreachable"
-
-    // ICMP Packet type: Source quench
-    MessageTypeIcmp_source_quench MessageTypeIcmp = "source-quench"
-
-    // ICMP Packet type: Redirect
-    MessageTypeIcmp_redirect MessageTypeIcmp = "redirect"
-
-    // ICMP Packet type: Alternate host address
-    MessageTypeIcmp_alternate_host_address MessageTypeIcmp = "alternate-host-address"
-
-    // ICMP Packet type: Echo
-    MessageTypeIcmp_echo MessageTypeIcmp = "echo"
-
-    // ICMP Packet type: Router advertisement
-    MessageTypeIcmp_router_advertisement MessageTypeIcmp = "router-advertisement"
-
-    // ICMP Packet type: Router selection
-    MessageTypeIcmp_router_selection MessageTypeIcmp = "router-selection"
-
-    // ICMP Packet type: Time exceeded
-    MessageTypeIcmp_time_exceeded MessageTypeIcmp = "time-exceeded"
-
-    // ICMP Packet type: Parameter problem
-    MessageTypeIcmp_parameter_problem MessageTypeIcmp = "parameter-problem"
-
-    // ICMP Packet type: Time stamp
-    MessageTypeIcmp_time_stamp MessageTypeIcmp = "time-stamp"
-
-    // ICMP Packet type: Time stamp reply
-    MessageTypeIcmp_time_stamp_reply MessageTypeIcmp = "time-stamp-reply"
-
-    // ICMP Packet type: Information request
-    MessageTypeIcmp_information_request MessageTypeIcmp = "information-request"
-
-    // ICMP Packet type: Information reply
-    MessageTypeIcmp_information_reply MessageTypeIcmp = "information-reply"
-
-    // ICMP Packet type: Address mask request
-    MessageTypeIcmp_address_mask_request MessageTypeIcmp = "address-mask-request"
-
-    // ICMP Packet type: Address mask reply
-    MessageTypeIcmp_address_mask_reply MessageTypeIcmp = "address-mask-reply"
-
-    // ICMP Packet type: Trace route
-    MessageTypeIcmp_trace_route MessageTypeIcmp = "trace-route"
-
-    // ICMP Packet type: Datagram Conversion error
-    MessageTypeIcmp_datagram_conversion_error MessageTypeIcmp = "datagram-conversion-error"
-
-    // ICMP Packet type: Mobile host redirect
-    MessageTypeIcmp_mobile_host_redirect MessageTypeIcmp = "mobile-host-redirect"
-
-    // ICMP Packet type: IPv6 where-are-you
-    MessageTypeIcmp_where_are_you MessageTypeIcmp = "where-are-you"
-
-    // ICMP Packet type: IPv6 i-am-here
-    MessageTypeIcmp_iam_here MessageTypeIcmp = "iam-here"
-
-    // ICMP Packet type: Mobile registration request
-    MessageTypeIcmp_mobile_registration_request MessageTypeIcmp = "mobile-registration-request"
-
-    // ICMP Packet type: Mobile registration reply
-    MessageTypeIcmp_mobile_registration_reply MessageTypeIcmp = "mobile-registration-reply"
-
-    // ICMP Packet type: Domain name request
-    MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
-)
-
-// MessageTypeIgmp_ represents LPTS IGMP message types
-type MessageTypeIgmp_ string
-
-const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp__membership_query MessageTypeIgmp_ = "membership-query"
-
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp__v1_membership_report MessageTypeIgmp_ = "v1-membership-report"
-
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp__dvmrp MessageTypeIgmp_ = "dvmrp"
-
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp__pi_mv1 MessageTypeIgmp_ = "pi-mv1"
-
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp__cisco_trace_messages MessageTypeIgmp_ = "cisco-trace-messages"
-
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp__v2_membership_report MessageTypeIgmp_ = "v2-membership-report"
-
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp__v2_leave_group MessageTypeIgmp_ = "v2-leave-group"
-
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp__multicast_traceroute_response MessageTypeIgmp_ = "multicast-traceroute-response"
-
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp__multicast_traceroute MessageTypeIgmp_ = "multicast-traceroute"
-
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp__v3_membership_report MessageTypeIgmp_ = "v3-membership-report"
-
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp__multicast_router_advertisement MessageTypeIgmp_ = "multicast-router-advertisement"
-
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp__multicast_router_solicitation MessageTypeIgmp_ = "multicast-router-solicitation"
-
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp__multicast_router_termination MessageTypeIgmp_ = "multicast-router-termination"
-)
-
-// Packet represents Packet type
-type Packet string
-
-const (
-    // ICMP packet type
-    Packet_icmp Packet = "icmp"
-
-    // ICMPv6 packet type
-    Packet_icm_pv6 Packet = "icm-pv6"
-
-    // IGMP packet type
-    Packet_igmp Packet = "igmp"
-
-    // Packet type unknown
-    Packet_unknown Packet = "unknown"
-)
-
-// MessageTypeIcmp_ represents LPTS ICMP message types
-type MessageTypeIcmp_ string
-
-const (
-    // ICMP Packet type: Echo reply
-    MessageTypeIcmp__echo_reply MessageTypeIcmp_ = "echo-reply"
-
-    // ICMP Packet type: Destination unreachable
-    MessageTypeIcmp__destination_unreachable MessageTypeIcmp_ = "destination-unreachable"
-
-    // ICMP Packet type: Source quench
-    MessageTypeIcmp__source_quench MessageTypeIcmp_ = "source-quench"
-
-    // ICMP Packet type: Redirect
-    MessageTypeIcmp__redirect MessageTypeIcmp_ = "redirect"
-
-    // ICMP Packet type: Alternate host address
-    MessageTypeIcmp__alternate_host_address MessageTypeIcmp_ = "alternate-host-address"
-
-    // ICMP Packet type: Echo
-    MessageTypeIcmp__echo MessageTypeIcmp_ = "echo"
-
-    // ICMP Packet type: Router advertisement
-    MessageTypeIcmp__router_advertisement MessageTypeIcmp_ = "router-advertisement"
-
-    // ICMP Packet type: Router selection
-    MessageTypeIcmp__router_selection MessageTypeIcmp_ = "router-selection"
-
-    // ICMP Packet type: Time exceeded
-    MessageTypeIcmp__time_exceeded MessageTypeIcmp_ = "time-exceeded"
-
-    // ICMP Packet type: Parameter problem
-    MessageTypeIcmp__parameter_problem MessageTypeIcmp_ = "parameter-problem"
-
-    // ICMP Packet type: Time stamp
-    MessageTypeIcmp__time_stamp MessageTypeIcmp_ = "time-stamp"
-
-    // ICMP Packet type: Time stamp reply
-    MessageTypeIcmp__time_stamp_reply MessageTypeIcmp_ = "time-stamp-reply"
-
-    // ICMP Packet type: Information request
-    MessageTypeIcmp__information_request MessageTypeIcmp_ = "information-request"
-
-    // ICMP Packet type: Information reply
-    MessageTypeIcmp__information_reply MessageTypeIcmp_ = "information-reply"
-
-    // ICMP Packet type: Address mask request
-    MessageTypeIcmp__address_mask_request MessageTypeIcmp_ = "address-mask-request"
-
-    // ICMP Packet type: Address mask reply
-    MessageTypeIcmp__address_mask_reply MessageTypeIcmp_ = "address-mask-reply"
-
-    // ICMP Packet type: Trace route
-    MessageTypeIcmp__trace_route MessageTypeIcmp_ = "trace-route"
-
-    // ICMP Packet type: Datagram Conversion error
-    MessageTypeIcmp__datagram_conversion_error MessageTypeIcmp_ = "datagram-conversion-error"
-
-    // ICMP Packet type: Mobile host redirect
-    MessageTypeIcmp__mobile_host_redirect MessageTypeIcmp_ = "mobile-host-redirect"
-
-    // ICMP Packet type: IPv6 where-are-you
-    MessageTypeIcmp__where_are_you MessageTypeIcmp_ = "where-are-you"
-
-    // ICMP Packet type: IPv6 i-am-here
-    MessageTypeIcmp__iam_here MessageTypeIcmp_ = "iam-here"
-
-    // ICMP Packet type: Mobile registration request
-    MessageTypeIcmp__mobile_registration_request MessageTypeIcmp_ = "mobile-registration-request"
-
-    // ICMP Packet type: Mobile registration reply
-    MessageTypeIcmp__mobile_registration_reply MessageTypeIcmp_ = "mobile-registration-reply"
-
-    // ICMP Packet type: Domain name request
-    MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
-)
-
-// TcpKeyInvalidReason represents TCP AO key state invalid reason
-type TcpKeyInvalidReason string
-
-const (
-    // No reason
-    TcpKeyInvalidReason_none TcpKeyInvalidReason = "none"
-
-    // Incomplete
-    TcpKeyInvalidReason_incomplete TcpKeyInvalidReason = "incomplete"
-
-    // Send and accept lifetime are not same
-    TcpKeyInvalidReason_lifetime_not_same TcpKeyInvalidReason = "lifetime-not-same"
-
-    // Send ID is invalid
-    TcpKeyInvalidReason_send_id_invalid TcpKeyInvalidReason = "send-id-invalid"
-
-    // Receive ID is invalid
-    TcpKeyInvalidReason_recv_id_invalid TcpKeyInvalidReason = "recv-id-invalid"
-)
-
-// AddrFamily represents Address Family Types
-type AddrFamily string
-
-const (
-    // Internetwork: UDP, TCP, etc.
-    AddrFamily_internetwork AddrFamily = "internetwork"
-
-    // IP version 6
-    AddrFamily_ip_version6 AddrFamily = "ip-version6"
-)
-
-// NsrStatus represents NSR Stream Status
-type NsrStatus string
-
-const (
-    // NSR Stream Down
-    NsrStatus_down NsrStatus = "down"
-
-    // NSR Stream Up
-    NsrStatus_up NsrStatus = "up"
-
-    // NSR Stream Not applicable
-    NsrStatus_na NsrStatus = "na"
-)
-
-// TcpMacAlgo represents TCP AO MAC algorithm type
-type TcpMacAlgo string
-
-const (
-    // Not configured
-    TcpMacAlgo_not_configured TcpMacAlgo = "not-configured"
-
-    // CMAC 96
-    TcpMacAlgo_aes_128_cmac_96 TcpMacAlgo = "aes-128-cmac-96"
-
-    // HMAC SHA1 12
-    TcpMacAlgo_hmac_sha1_12 TcpMacAlgo = "hmac-sha1-12"
-
-    // MD5 16
-    TcpMacAlgo_md5_16 TcpMacAlgo = "md5-16"
-
-    // SHA1 20
-    TcpMacAlgo_sha1_20 TcpMacAlgo = "sha1-20"
-
-    // HMAC MD5 16
-    TcpMacAlgo_hmac_md5_16 TcpMacAlgo = "hmac-md5-16"
-
-    // HMAC SHA1 20
-    TcpMacAlgo_hmac_sha1_20 TcpMacAlgo = "hmac-sha1-20"
-
-    // AES 128 CMAC
-    TcpMacAlgo_aes_128_cmac TcpMacAlgo = "aes-128-cmac"
-
-    // AES 256 CMAC
-    TcpMacAlgo_aes_256_cmac TcpMacAlgo = "aes-256-cmac"
-
-    // HMAC SHA1 96
-    TcpMacAlgo_hmac_sha1_96 TcpMacAlgo = "hmac-sha1-96"
-
-    // HMAC SHA1 256
-    TcpMacAlgo_hmac_sha_256 TcpMacAlgo = "hmac-sha-256"
-)
-
-// TcpAddressFamily represents Address Family Type
-type TcpAddressFamily string
-
-const (
-    // IPv4
-    TcpAddressFamily_ipv4 TcpAddressFamily = "ipv4"
-
-    // IPv6
-    TcpAddressFamily_ipv6 TcpAddressFamily = "ipv6"
 )
 
 // MessageTypeIcmpv6_ represents LPTS ICMPv6 message types
@@ -687,6 +357,177 @@ const (
     MessageTypeIcmpv6__fmipv6_messages MessageTypeIcmpv6_ = "fmipv6-messages"
 )
 
+// MessageTypeIcmp represents LPTS ICMP message types
+type MessageTypeIcmp string
+
+const (
+    // ICMP Packet type: Echo reply
+    MessageTypeIcmp_echo_reply MessageTypeIcmp = "echo-reply"
+
+    // ICMP Packet type: Destination unreachable
+    MessageTypeIcmp_destination_unreachable MessageTypeIcmp = "destination-unreachable"
+
+    // ICMP Packet type: Source quench
+    MessageTypeIcmp_source_quench MessageTypeIcmp = "source-quench"
+
+    // ICMP Packet type: Redirect
+    MessageTypeIcmp_redirect MessageTypeIcmp = "redirect"
+
+    // ICMP Packet type: Alternate host address
+    MessageTypeIcmp_alternate_host_address MessageTypeIcmp = "alternate-host-address"
+
+    // ICMP Packet type: Echo
+    MessageTypeIcmp_echo MessageTypeIcmp = "echo"
+
+    // ICMP Packet type: Router advertisement
+    MessageTypeIcmp_router_advertisement MessageTypeIcmp = "router-advertisement"
+
+    // ICMP Packet type: Router selection
+    MessageTypeIcmp_router_selection MessageTypeIcmp = "router-selection"
+
+    // ICMP Packet type: Time exceeded
+    MessageTypeIcmp_time_exceeded MessageTypeIcmp = "time-exceeded"
+
+    // ICMP Packet type: Parameter problem
+    MessageTypeIcmp_parameter_problem MessageTypeIcmp = "parameter-problem"
+
+    // ICMP Packet type: Time stamp
+    MessageTypeIcmp_time_stamp MessageTypeIcmp = "time-stamp"
+
+    // ICMP Packet type: Time stamp reply
+    MessageTypeIcmp_time_stamp_reply MessageTypeIcmp = "time-stamp-reply"
+
+    // ICMP Packet type: Information request
+    MessageTypeIcmp_information_request MessageTypeIcmp = "information-request"
+
+    // ICMP Packet type: Information reply
+    MessageTypeIcmp_information_reply MessageTypeIcmp = "information-reply"
+
+    // ICMP Packet type: Address mask request
+    MessageTypeIcmp_address_mask_request MessageTypeIcmp = "address-mask-request"
+
+    // ICMP Packet type: Address mask reply
+    MessageTypeIcmp_address_mask_reply MessageTypeIcmp = "address-mask-reply"
+
+    // ICMP Packet type: Trace route
+    MessageTypeIcmp_trace_route MessageTypeIcmp = "trace-route"
+
+    // ICMP Packet type: Datagram Conversion error
+    MessageTypeIcmp_datagram_conversion_error MessageTypeIcmp = "datagram-conversion-error"
+
+    // ICMP Packet type: Mobile host redirect
+    MessageTypeIcmp_mobile_host_redirect MessageTypeIcmp = "mobile-host-redirect"
+
+    // ICMP Packet type: IPv6 where-are-you
+    MessageTypeIcmp_where_are_you MessageTypeIcmp = "where-are-you"
+
+    // ICMP Packet type: IPv6 i-am-here
+    MessageTypeIcmp_iam_here MessageTypeIcmp = "iam-here"
+
+    // ICMP Packet type: Mobile registration request
+    MessageTypeIcmp_mobile_registration_request MessageTypeIcmp = "mobile-registration-request"
+
+    // ICMP Packet type: Mobile registration reply
+    MessageTypeIcmp_mobile_registration_reply MessageTypeIcmp = "mobile-registration-reply"
+
+    // ICMP Packet type: Domain name request
+    MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
+)
+
+// MessageTypeIcmp_ represents LPTS ICMP message types
+type MessageTypeIcmp_ string
+
+const (
+    // ICMP Packet type: Echo reply
+    MessageTypeIcmp__echo_reply MessageTypeIcmp_ = "echo-reply"
+
+    // ICMP Packet type: Destination unreachable
+    MessageTypeIcmp__destination_unreachable MessageTypeIcmp_ = "destination-unreachable"
+
+    // ICMP Packet type: Source quench
+    MessageTypeIcmp__source_quench MessageTypeIcmp_ = "source-quench"
+
+    // ICMP Packet type: Redirect
+    MessageTypeIcmp__redirect MessageTypeIcmp_ = "redirect"
+
+    // ICMP Packet type: Alternate host address
+    MessageTypeIcmp__alternate_host_address MessageTypeIcmp_ = "alternate-host-address"
+
+    // ICMP Packet type: Echo
+    MessageTypeIcmp__echo MessageTypeIcmp_ = "echo"
+
+    // ICMP Packet type: Router advertisement
+    MessageTypeIcmp__router_advertisement MessageTypeIcmp_ = "router-advertisement"
+
+    // ICMP Packet type: Router selection
+    MessageTypeIcmp__router_selection MessageTypeIcmp_ = "router-selection"
+
+    // ICMP Packet type: Time exceeded
+    MessageTypeIcmp__time_exceeded MessageTypeIcmp_ = "time-exceeded"
+
+    // ICMP Packet type: Parameter problem
+    MessageTypeIcmp__parameter_problem MessageTypeIcmp_ = "parameter-problem"
+
+    // ICMP Packet type: Time stamp
+    MessageTypeIcmp__time_stamp MessageTypeIcmp_ = "time-stamp"
+
+    // ICMP Packet type: Time stamp reply
+    MessageTypeIcmp__time_stamp_reply MessageTypeIcmp_ = "time-stamp-reply"
+
+    // ICMP Packet type: Information request
+    MessageTypeIcmp__information_request MessageTypeIcmp_ = "information-request"
+
+    // ICMP Packet type: Information reply
+    MessageTypeIcmp__information_reply MessageTypeIcmp_ = "information-reply"
+
+    // ICMP Packet type: Address mask request
+    MessageTypeIcmp__address_mask_request MessageTypeIcmp_ = "address-mask-request"
+
+    // ICMP Packet type: Address mask reply
+    MessageTypeIcmp__address_mask_reply MessageTypeIcmp_ = "address-mask-reply"
+
+    // ICMP Packet type: Trace route
+    MessageTypeIcmp__trace_route MessageTypeIcmp_ = "trace-route"
+
+    // ICMP Packet type: Datagram Conversion error
+    MessageTypeIcmp__datagram_conversion_error MessageTypeIcmp_ = "datagram-conversion-error"
+
+    // ICMP Packet type: Mobile host redirect
+    MessageTypeIcmp__mobile_host_redirect MessageTypeIcmp_ = "mobile-host-redirect"
+
+    // ICMP Packet type: IPv6 where-are-you
+    MessageTypeIcmp__where_are_you MessageTypeIcmp_ = "where-are-you"
+
+    // ICMP Packet type: IPv6 i-am-here
+    MessageTypeIcmp__iam_here MessageTypeIcmp_ = "iam-here"
+
+    // ICMP Packet type: Mobile registration request
+    MessageTypeIcmp__mobile_registration_request MessageTypeIcmp_ = "mobile-registration-request"
+
+    // ICMP Packet type: Mobile registration reply
+    MessageTypeIcmp__mobile_registration_reply MessageTypeIcmp_ = "mobile-registration-reply"
+
+    // ICMP Packet type: Domain name request
+    MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
+)
+
+// Packet represents Packet type
+type Packet string
+
+const (
+    // ICMP packet type
+    Packet_icmp Packet = "icmp"
+
+    // ICMPv6 packet type
+    Packet_icm_pv6 Packet = "icm-pv6"
+
+    // IGMP packet type
+    Packet_igmp Packet = "igmp"
+
+    // Packet type unknown
+    Packet_unknown Packet = "unknown"
+)
+
 // NsrDownReason represents NSR-Down Reasons
 type NsrDownReason string
 
@@ -742,6 +583,89 @@ const (
     NsrDownReason_partner_deleted NsrDownReason = "partner-deleted"
 )
 
+// NsrStatus represents NSR Stream Status
+type NsrStatus string
+
+const (
+    // NSR Stream Down
+    NsrStatus_down NsrStatus = "down"
+
+    // NSR Stream Up
+    NsrStatus_up NsrStatus = "up"
+
+    // NSR Stream Not applicable
+    NsrStatus_na NsrStatus = "na"
+)
+
+// AddrFamily represents Address Family Types
+type AddrFamily string
+
+const (
+    // Internetwork: UDP, TCP, etc.
+    AddrFamily_internetwork AddrFamily = "internetwork"
+
+    // IP version 6
+    AddrFamily_ip_version6 AddrFamily = "ip-version6"
+)
+
+// TcpMacAlgo represents TCP AO MAC algorithm type
+type TcpMacAlgo string
+
+const (
+    // Not configured
+    TcpMacAlgo_not_configured TcpMacAlgo = "not-configured"
+
+    // CMAC 96
+    TcpMacAlgo_aes_128_cmac_96 TcpMacAlgo = "aes-128-cmac-96"
+
+    // HMAC SHA1 12
+    TcpMacAlgo_hmac_sha1_12 TcpMacAlgo = "hmac-sha1-12"
+
+    // MD5 16
+    TcpMacAlgo_md5_16 TcpMacAlgo = "md5-16"
+
+    // SHA1 20
+    TcpMacAlgo_sha1_20 TcpMacAlgo = "sha1-20"
+
+    // HMAC MD5 16
+    TcpMacAlgo_hmac_md5_16 TcpMacAlgo = "hmac-md5-16"
+
+    // HMAC SHA1 20
+    TcpMacAlgo_hmac_sha1_20 TcpMacAlgo = "hmac-sha1-20"
+
+    // AES 128 CMAC
+    TcpMacAlgo_aes_128_cmac TcpMacAlgo = "aes-128-cmac"
+
+    // AES 256 CMAC
+    TcpMacAlgo_aes_256_cmac TcpMacAlgo = "aes-256-cmac"
+
+    // HMAC SHA1 96
+    TcpMacAlgo_hmac_sha1_96 TcpMacAlgo = "hmac-sha1-96"
+
+    // HMAC SHA1 256
+    TcpMacAlgo_hmac_sha_256 TcpMacAlgo = "hmac-sha-256"
+)
+
+// TcpKeyInvalidReason represents TCP AO key state invalid reason
+type TcpKeyInvalidReason string
+
+const (
+    // No reason
+    TcpKeyInvalidReason_none TcpKeyInvalidReason = "none"
+
+    // Incomplete
+    TcpKeyInvalidReason_incomplete TcpKeyInvalidReason = "incomplete"
+
+    // Send and accept lifetime are not same
+    TcpKeyInvalidReason_lifetime_not_same TcpKeyInvalidReason = "lifetime-not-same"
+
+    // Send ID is invalid
+    TcpKeyInvalidReason_send_id_invalid TcpKeyInvalidReason = "send-id-invalid"
+
+    // Receive ID is invalid
+    TcpKeyInvalidReason_recv_id_invalid TcpKeyInvalidReason = "recv-id-invalid"
+)
+
 // TcpTimer represents TCP Timer Type
 type TcpTimer string
 
@@ -769,6 +693,82 @@ const (
 
     // Throttle (for PAW/xipc) timer
     TcpTimer_throttle_timer TcpTimer = "throttle-timer"
+)
+
+// PakPrio represents Packet Priority Types
+type PakPrio string
+
+const (
+    // Unspecified
+    PakPrio_unspecified_packet PakPrio = "unspecified-packet"
+
+    // Normal: all traffic routed via this router,
+    // Telnet/FTP traffic generated from within this
+    // router
+    PakPrio_normal_packet PakPrio = "normal-packet"
+
+    // Medium: Packets with low drop probability e.g.
+    // Routing updates & requests
+    PakPrio_medium_packet PakPrio = "medium-packet"
+
+    // High: Packets with very low drop probability
+    // and normal delivery e.g. L3 Keepalives like
+    // OSPF/ISIS Hellos
+    PakPrio_high_packet PakPrio = "high-packet"
+
+    // Crucial: Packets with very low drop probability
+    // and expedited delivery e.g L2 keepalives, HDLC
+    // Keepalives
+    PakPrio_crucial_packet PakPrio = "crucial-packet"
+)
+
+// TcpConnState represents TCP Connection State
+type TcpConnState string
+
+const (
+    // Closed
+    TcpConnState_closed TcpConnState = "closed"
+
+    // Listen
+    TcpConnState_listen TcpConnState = "listen"
+
+    // Syn sent
+    TcpConnState_syn_sent TcpConnState = "syn-sent"
+
+    // Syn received
+    TcpConnState_syn_received TcpConnState = "syn-received"
+
+    // Established
+    TcpConnState_established TcpConnState = "established"
+
+    // Close wait
+    TcpConnState_close_wait TcpConnState = "close-wait"
+
+    // FIN Wait1
+    TcpConnState_fin_wait1 TcpConnState = "fin-wait1"
+
+    // Closing
+    TcpConnState_closing TcpConnState = "closing"
+
+    // Last ack
+    TcpConnState_last_ack TcpConnState = "last-ack"
+
+    // FIN Wait2
+    TcpConnState_fin_wait2 TcpConnState = "fin-wait2"
+
+    // Time wait
+    TcpConnState_time_wait TcpConnState = "time-wait"
+)
+
+// TcpAddressFamily represents Address Family Type
+type TcpAddressFamily string
+
+const (
+    // IPv4
+    TcpAddressFamily_ipv4 TcpAddressFamily = "ipv4"
+
+    // IPv6
+    TcpAddressFamily_ipv6 TcpAddressFamily = "ipv6"
 )
 
 // TcpConnection
@@ -844,7 +844,7 @@ type TcpConnection_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Describing a location. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Id interface{}
 
     // Statistics of all TCP connections.
@@ -1065,7 +1065,7 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb struct {
     YListKey string
 
     // This attribute is a key. Displaying statistics associated with a particular
-    // PCB. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // PCB. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Id interface{}
 
     // PCB Address. The type is interface{} with range: 0..18446744073709551615.
@@ -1397,7 +1397,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataWriteSuc
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of successful data write to XIPC. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -1428,7 +1429,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataReadSucc
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of successful data read from XIPC. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -1459,7 +1461,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataWriteErr
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of failed data write to XIPC. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -1490,7 +1493,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataReadErro
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of failed data read from XIPC. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -1521,7 +1525,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_ControlWrite
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of successful control write to XIPC. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -1552,7 +1557,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_ControlReadS
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of successful control read to XIPC. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -1583,7 +1589,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_ControlWrite
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of failed control write to XIPC. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -1614,7 +1621,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_ControlReadE
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of failed control read from XIPC. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -1645,8 +1653,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataWriteByt
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..18446744073709551615. Units are
-    // byte.
+    // Number of bytes data has been written. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
     Entry interface{}
 }
 
@@ -1677,8 +1685,8 @@ type TcpConnection_Nodes_Node_Statistics_Pcbs_Pcb_AsyncSessionStats_DataReadByte
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..18446744073709551615. Units are
-    // byte.
+    // Number of bytes data has been read. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
     Entry interface{}
 }
 
@@ -2054,6 +2062,10 @@ type TcpConnection_Nodes_Node_Statistics_Summary struct {
     // interface{} with range: 0..4294967295.
     SockbufPakResMax interface{}
 
+    // Total number of socket async buffer double free prevented. The type is
+    // interface{} with range: 0..4294967295.
+    SockAsyncDoubleFreePreventCount interface{}
+
     // Total Number of Ingress packets on TCP iqs. The type is slice of
     // TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalIngpacket.
     IqsTotalIngpacket []*TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalIngpacket
@@ -2176,6 +2188,7 @@ func (summary *TcpConnection_Nodes_Node_Statistics_Summary) GetEntityData() *typ
     summary.EntityData.Leafs.Append("total-i-qs", types.YLeaf{"TotalIQs", summary.TotalIQs})
     summary.EntityData.Leafs.Append("sockbuf-pak-res-cur", types.YLeaf{"SockbufPakResCur", summary.SockbufPakResCur})
     summary.EntityData.Leafs.Append("sockbuf-pak-res-max", types.YLeaf{"SockbufPakResMax", summary.SockbufPakResMax})
+    summary.EntityData.Leafs.Append("sock-async-double-free-prevent-count", types.YLeaf{"SockAsyncDoubleFreePreventCount", summary.SockAsyncDoubleFreePreventCount})
 
     summary.EntityData.YListKeys = []string {}
 
@@ -2189,7 +2202,8 @@ type TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalIngpacket struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Total Number of Ingress packets on TCP iqs. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2220,7 +2234,8 @@ type TcpConnection_Nodes_Node_Statistics_Summary_IqsTotalEgpacket struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Total Number of Egress packets on TCP iqs. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2356,7 +2371,7 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
 
     // This attribute is a key. Displaying inforamtion based on selected display
     // type associatedwith a particular PCB. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PcbId interface{}
 
     // Layer 4 protocol. The type is interface{} with range: 0..4294967295.
@@ -2414,11 +2429,11 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2454,11 +2469,11 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2702,7 +2717,7 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Remote address length. The type is interface{} with range: 0..65535.
@@ -2822,11 +2837,11 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2862,11 +2877,11 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2935,7 +2950,7 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation struct {
     YListKey string
 
     // This attribute is a key. Detail information about TCP connection, put null
-    // for all. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // for all. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PcbId interface{}
 
     // Address Family. The type is TcpAddressFamily.
@@ -3403,11 +3418,11 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_LocalAddress 
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -3443,11 +3458,11 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_ForeignAddres
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -3985,7 +4000,7 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_FibPdCtx stru
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Cached fib pd context. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -4016,7 +4031,7 @@ type TcpConnection_Nodes_Node_DetailInformations_DetailInformation_FibLabelOutpu
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Cached Label stack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -4210,7 +4225,7 @@ type TcpConnection_Nodes_Node_Keychains_Keychain struct {
     YListKey string
 
     // This attribute is a key. Keychain name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     KeychainName interface{}
 
     // Keychain name. The type is string.
@@ -4621,7 +4636,7 @@ type TcpConnection_Nodes_Node_BriefInformations_BriefInformation struct {
     YListKey string
 
     // This attribute is a key. Protocol Control Block ID. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PcbId interface{}
 
     // Address family. The type is TcpAddressFamily.
@@ -4701,11 +4716,11 @@ type TcpConnection_Nodes_Node_BriefInformations_BriefInformation_LocalAddress st
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -4741,11 +4756,11 @@ type TcpConnection_Nodes_Node_BriefInformations_BriefInformation_ForeignAddress 
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -4843,7 +4858,7 @@ type Tcp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Statistical TCP operational data for a node.
@@ -5075,7 +5090,7 @@ type TcpNsr_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Describing a location. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Id interface{}
 
     // Information about TCP NSR Sessions.
@@ -5191,7 +5206,7 @@ type TcpNsr_Nodes_Node_Session_BriefSessions_BriefSession struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Sesison. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address family. The type is AddrFamily.
@@ -5280,8 +5295,8 @@ type TcpNsr_Nodes_Node_Session_BriefSessions_BriefSession_LocalAddress struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Local address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -5312,8 +5327,8 @@ type TcpNsr_Nodes_Node_Session_BriefSessions_BriefSession_ForeignAddress struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Foreign address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -5379,7 +5394,7 @@ type TcpNsr_Nodes_Node_Session_DetailSessions_DetailSession struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Sesison. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address family. The type is AddrFamily.
@@ -5687,7 +5702,7 @@ type TcpNsr_Nodes_Node_Session_DetailSessions_DetailSession_SetInformation struc
     WellKnownPort interface{}
 
     // Local node of this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     LocalNode interface{}
 
     // Instance of the client application on the local node. The type is
@@ -5695,7 +5710,7 @@ type TcpNsr_Nodes_Node_Session_DetailSessions_DetailSession_SetInformation struc
     LocalInstance interface{}
 
     // The node protecting this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ProtectNode interface{}
 
     // Instance of the client application on the protection node. The type is
@@ -5765,8 +5780,8 @@ type TcpNsr_Nodes_Node_Session_DetailSessions_DetailSession_LocalAddress struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Local address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -5797,8 +5812,8 @@ type TcpNsr_Nodes_Node_Session_DetailSessions_DetailSession_ForeignAddress struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Foreign address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -5978,7 +5993,7 @@ type TcpNsr_Nodes_Node_Client_DetailClients_DetailClient struct {
     YListKey string
 
     // This attribute is a key. ID of NSR client. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address of the Client Control Block. The type is interface{} with range:
@@ -6090,7 +6105,7 @@ type TcpNsr_Nodes_Node_Client_BriefClients_BriefClient struct {
     YListKey string
 
     // This attribute is a key. ID of NSR client. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address of the Client Control Block. The type is interface{} with range:
@@ -6228,7 +6243,7 @@ type TcpNsr_Nodes_Node_SessionSet_DetailSets_DetailSet struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Sesison Set. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address of the Session Set Control Block. The type is interface{} with
@@ -6256,7 +6271,7 @@ type TcpNsr_Nodes_Node_SessionSet_DetailSets_DetailSet struct {
     WellKnownPort interface{}
 
     // Local node of this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     LocalNode interface{}
 
     // Instance of the client application on the local node. The type is
@@ -6264,7 +6279,7 @@ type TcpNsr_Nodes_Node_SessionSet_DetailSets_DetailSet struct {
     LocalInstance interface{}
 
     // The node protecting this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ProtectNode interface{}
 
     // Instance of the client application on the protection node. The type is
@@ -6456,7 +6471,7 @@ type TcpNsr_Nodes_Node_SessionSet_BriefSets_BriefSet struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Session Set. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address of the Session Set Control Block. The type is interface{} with
@@ -6491,7 +6506,7 @@ type TcpNsr_Nodes_Node_SessionSet_BriefSets_BriefSet struct {
     WellKnownPort interface{}
 
     // Local node of this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     LocalNode interface{}
 
     // Instance of the client application on the local node. The type is
@@ -6499,7 +6514,7 @@ type TcpNsr_Nodes_Node_SessionSet_BriefSets_BriefSet struct {
     LocalInstance interface{}
 
     // The node protecting this set. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ProtectNode interface{}
 
     // Instance of the client application on the protection node. The type is
@@ -7393,7 +7408,7 @@ type TcpNsr_Nodes_Node_Statistics_StatisticClients_StatisticClient struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Client. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // Address of the Client Control Block. The type is interface{} with range:
@@ -7558,7 +7573,7 @@ type TcpNsr_Nodes_Node_Statistics_StatisticSets_StatisticSet struct {
     YListKey string
 
     // This attribute is a key. ID of NSR Session Set. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // SSCB Address. The type is interface{} with range: 0..18446744073709551615.
@@ -7663,7 +7678,7 @@ type TcpNsr_Nodes_Node_Statistics_StatisticSessions_StatisticSession struct {
     YListKey string
 
     // This attribute is a key. ID of TCP connection. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Id interface{}
 
     // PCB Address. The type is interface{} with range: 0..18446744073709551615.

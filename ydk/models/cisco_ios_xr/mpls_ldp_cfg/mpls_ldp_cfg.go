@@ -28,28 +28,16 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp", reflect.TypeOf(MplsLdp{}))
 }
 
-// MplsLdpLabelAdvertise represents Mpls ldp label advertise
-type MplsLdpLabelAdvertise string
+// MplsLdpNbrPassword represents Mpls ldp nbr password
+type MplsLdpNbrPassword string
 
 const (
-    // Advertise label for prefix(es) permitted by
-    // prefix ACL
-    MplsLdpLabelAdvertise_for_ MplsLdpLabelAdvertise = "for"
+    // Disable the global default password for this
+    // neighbor
+    MplsLdpNbrPassword_disable MplsLdpNbrPassword = "disable"
 
-    // Advertise label for prefix(es) permitted by
-    // prefix ACL to peer(s) permitted by peer ACL
-    MplsLdpLabelAdvertise_for_to MplsLdpLabelAdvertise = "for-to"
-)
-
-// MldpPolicyMode represents Mldp policy mode
-type MldpPolicyMode string
-
-const (
-    // Inbound route policy
-    MldpPolicyMode_inbound MldpPolicyMode = "inbound"
-
-    // Outbound route policy
-    MldpPolicyMode_outbound MldpPolicyMode = "outbound"
+    // Specify a password for this neighbor
+    MplsLdpNbrPassword_specified MplsLdpNbrPassword = "specified"
 )
 
 // MplsLdpLabelAllocation represents Mpls ldp label allocation
@@ -63,6 +51,25 @@ const (
     MplsLdpLabelAllocation_host MplsLdpLabelAllocation = "host"
 )
 
+// MplsLdpDownstreamOnDemand represents Mpls ldp downstream on demand
+type MplsLdpDownstreamOnDemand string
+
+const (
+    // Downstream on Demand peers permitted by ACL
+    MplsLdpDownstreamOnDemand_peer_acl MplsLdpDownstreamOnDemand = "peer-acl"
+)
+
+// MldpPolicyMode represents Mldp policy mode
+type MldpPolicyMode string
+
+const (
+    // Inbound route policy
+    MldpPolicyMode_inbound MldpPolicyMode = "inbound"
+
+    // Outbound route policy
+    MldpPolicyMode_outbound MldpPolicyMode = "outbound"
+)
+
 // MplsLdpTargetedAccept represents Mpls ldp targeted accept
 type MplsLdpTargetedAccept string
 
@@ -72,26 +79,6 @@ const (
 
     // Accept targeted hello from peer ACL
     MplsLdpTargetedAccept_from MplsLdpTargetedAccept = "from"
-)
-
-// MplsLdpNbrPassword represents Mpls ldp nbr password
-type MplsLdpNbrPassword string
-
-const (
-    // Disable the global default password for this
-    // neighbor
-    MplsLdpNbrPassword_disable MplsLdpNbrPassword = "disable"
-
-    // Specify a password for this neighbor
-    MplsLdpNbrPassword_specified MplsLdpNbrPassword = "specified"
-)
-
-// MplsLdpDownstreamOnDemand represents Mpls ldp downstream on demand
-type MplsLdpDownstreamOnDemand string
-
-const (
-    // Downstream on Demand peers permitted by ACL
-    MplsLdpDownstreamOnDemand_peer_acl MplsLdpDownstreamOnDemand = "peer-acl"
 )
 
 // MplsLdpExpNull represents Mpls ldp exp null
@@ -114,15 +101,6 @@ const (
     // permitted by prefix ACL to peer(s) permitted by
     // peer ACL
     MplsLdpExpNull_for_to MplsLdpExpNull = "for-to"
-)
-
-// MplsLdpAdvertiseBgpAcl represents Mpls ldp advertise bgp acl
-type MplsLdpAdvertiseBgpAcl string
-
-const (
-    // BGP prefixes advertised to peers permitted by
-    // ACL
-    MplsLdpAdvertiseBgpAcl_peer_acl MplsLdpAdvertiseBgpAcl = "peer-acl"
 )
 
 // MplsLdpafName represents Mpls ldpaf name
@@ -172,6 +150,28 @@ const (
     // Protect peer session(s) permitted by peer ACL
     // and holdup protection forever
     MplsLdpSessionProtection_for_with_forever MplsLdpSessionProtection = "for-with-forever"
+)
+
+// MplsLdpLabelAdvertise represents Mpls ldp label advertise
+type MplsLdpLabelAdvertise string
+
+const (
+    // Advertise label for prefix(es) permitted by
+    // prefix ACL
+    MplsLdpLabelAdvertise_for_ MplsLdpLabelAdvertise = "for"
+
+    // Advertise label for prefix(es) permitted by
+    // prefix ACL to peer(s) permitted by peer ACL
+    MplsLdpLabelAdvertise_for_to MplsLdpLabelAdvertise = "for-to"
+)
+
+// MplsLdpAdvertiseBgpAcl represents Mpls ldp advertise bgp acl
+type MplsLdpAdvertiseBgpAcl string
+
+const (
+    // BGP prefixes advertised to peers permitted by
+    // ACL
+    MplsLdpAdvertiseBgpAcl_peer_acl MplsLdpAdvertiseBgpAcl = "peer-acl"
 )
 
 // MplsLdp
@@ -489,11 +489,11 @@ type MplsLdp_DefaultVrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAccept
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Name of prefix ACL. The type is string. This attribute is mandatory.
@@ -656,11 +656,11 @@ type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerA
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Name of prefix ACL. The type is string. This attribute is mandatory.
@@ -733,7 +733,7 @@ type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_PrefixAdvertisePolicies_Pre
     YListKey string
 
     // This attribute is a key. Name of prefix ACL. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PrefixAclName interface{}
 
     // Label advertise type. The type is MplsLdpLabelAdvertise.
@@ -848,7 +848,7 @@ type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -915,9 +915,9 @@ type MplsLdp_DefaultVrf_Afs_Af_Discovery struct {
 
     // Global discovery transport address for address family. The type is one of
     // the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     TransportAddress interface{}
 
     // Configure acceptance from and responding to targeted hellos.
@@ -1121,6 +1121,9 @@ type MplsLdp_DefaultVrf_Afs_Af_Neighbor struct {
 
     // Configuration related to neighbors using neighbor address.
     Addresses MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses
+
+    // Configuration related to SR policies.
+    SegmentRoutingPolicies MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies
 }
 
 func (neighbor *MplsLdp_DefaultVrf_Afs_Af_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -1136,6 +1139,7 @@ func (neighbor *MplsLdp_DefaultVrf_Afs_Af_Neighbor) GetEntityData() *types.Commo
 
     neighbor.EntityData.Children = types.NewOrderedMap()
     neighbor.EntityData.Children.Append("addresses", types.YChild{"Addresses", &neighbor.Addresses})
+    neighbor.EntityData.Children.Append("segment-routing-policies", types.YChild{"SegmentRoutingPolicies", &neighbor.SegmentRoutingPolicies})
     neighbor.EntityData.Leafs = types.NewOrderedMap()
 
     neighbor.EntityData.YListKeys = []string {}
@@ -1188,9 +1192,9 @@ type MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses_Address struct {
 
     // This attribute is a key. The IP address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Establish targeted session with given address. The type is interface{}.
@@ -1216,6 +1220,77 @@ func (address *MplsLdp_DefaultVrf_Afs_Af_Neighbor_Addresses_Address) GetEntityDa
     address.EntityData.YListKeys = []string {"IpAddress"}
 
     return &(address.EntityData)
+}
+
+// MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies
+// Configuration related to SR policies
+type MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name based configuration related to a SR policy. The type is slice of
+    // MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies_SegmentRoutingPolicy.
+    SegmentRoutingPolicy []*MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies_SegmentRoutingPolicy
+}
+
+func (segmentRoutingPolicies *MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies) GetEntityData() *types.CommonEntityData {
+    segmentRoutingPolicies.EntityData.YFilter = segmentRoutingPolicies.YFilter
+    segmentRoutingPolicies.EntityData.YangName = "segment-routing-policies"
+    segmentRoutingPolicies.EntityData.BundleName = "cisco_ios_xr"
+    segmentRoutingPolicies.EntityData.ParentYangName = "neighbor"
+    segmentRoutingPolicies.EntityData.SegmentPath = "segment-routing-policies"
+    segmentRoutingPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/neighbor/" + segmentRoutingPolicies.EntityData.SegmentPath
+    segmentRoutingPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentRoutingPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentRoutingPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segmentRoutingPolicies.EntityData.Children = types.NewOrderedMap()
+    segmentRoutingPolicies.EntityData.Children.Append("segment-routing-policy", types.YChild{"SegmentRoutingPolicy", nil})
+    for i := range segmentRoutingPolicies.SegmentRoutingPolicy {
+        segmentRoutingPolicies.EntityData.Children.Append(types.GetSegmentPath(segmentRoutingPolicies.SegmentRoutingPolicy[i]), types.YChild{"SegmentRoutingPolicy", segmentRoutingPolicies.SegmentRoutingPolicy[i]})
+    }
+    segmentRoutingPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    segmentRoutingPolicies.EntityData.YListKeys = []string {}
+
+    return &(segmentRoutingPolicies.EntityData)
+}
+
+// MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies_SegmentRoutingPolicy
+// Name based configuration related to a SR
+// policy
+type MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies_SegmentRoutingPolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. SR Policy Name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Name interface{}
+
+    // Establish targeted session with given address. The type is interface{}.
+    Targeted interface{}
+}
+
+func (segmentRoutingPolicy *MplsLdp_DefaultVrf_Afs_Af_Neighbor_SegmentRoutingPolicies_SegmentRoutingPolicy) GetEntityData() *types.CommonEntityData {
+    segmentRoutingPolicy.EntityData.YFilter = segmentRoutingPolicy.YFilter
+    segmentRoutingPolicy.EntityData.YangName = "segment-routing-policy"
+    segmentRoutingPolicy.EntityData.BundleName = "cisco_ios_xr"
+    segmentRoutingPolicy.EntityData.ParentYangName = "segment-routing-policies"
+    segmentRoutingPolicy.EntityData.SegmentPath = "segment-routing-policy" + types.AddKeyToken(segmentRoutingPolicy.Name, "name")
+    segmentRoutingPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp/default-vrf/afs/af/neighbor/segment-routing-policies/" + segmentRoutingPolicy.EntityData.SegmentPath
+    segmentRoutingPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentRoutingPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentRoutingPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segmentRoutingPolicy.EntityData.Children = types.NewOrderedMap()
+    segmentRoutingPolicy.EntityData.Leafs = types.NewOrderedMap()
+    segmentRoutingPolicy.EntityData.Leafs.Append("name", types.YLeaf{"Name", segmentRoutingPolicy.Name})
+    segmentRoutingPolicy.EntityData.Leafs.Append("targeted", types.YLeaf{"Targeted", segmentRoutingPolicy.Targeted})
+
+    segmentRoutingPolicy.EntityData.YListKeys = []string {"Name"}
+
+    return &(segmentRoutingPolicy.EntityData)
 }
 
 // MplsLdp_DefaultVrf_Afs_Af_RedistributionProtocol
@@ -1364,7 +1439,7 @@ type MplsLdp_DefaultVrf_Global struct {
     YFilter yfilter.YFilter
 
     // Configuration for LDP Router ID (LDP ID). The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // LDP Session parameters.
@@ -1514,7 +1589,7 @@ type MplsLdp_DefaultVrf_Global_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Default password for all neigbors. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Configuration related to Neighbors using LDP Id.
@@ -1591,11 +1666,11 @@ type MplsLdp_DefaultVrf_Global_Neighbor_LdpIds_LdpId struct {
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Password for MD5 authentication for this neighbor.
@@ -1634,7 +1709,7 @@ type MplsLdp_DefaultVrf_Global_Neighbor_LdpIds_LdpId_Password struct {
     // Command type for password configuration. The type is MplsLdpNbrPassword.
     CommandType interface{}
 
-    // The neighbor password. The type is string with pattern: (!.+)|([^!].+).
+    // The neighbor password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -1866,7 +1941,7 @@ type MplsLdp_DefaultVrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable Label Distribution Protocol (LDP) on thisinterface. The type is
@@ -2026,9 +2101,9 @@ type MplsLdp_DefaultVrf_Interfaces_Interface_Afs_Af_Discovery_TransportAddress s
     AddressType interface{}
 
     // IP address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -2390,7 +2465,7 @@ type MplsLdp_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Enable VRF. The type is interface{}.
@@ -2437,7 +2512,7 @@ type MplsLdp_Vrfs_Vrf_Global struct {
     YFilter yfilter.YFilter
 
     // Configuration for LDP Router ID (LDP ID). The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // LDP Session parameters.
@@ -2545,7 +2620,7 @@ type MplsLdp_Vrfs_Vrf_Global_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Default password for all neigbors. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Configuration related to neighbor transport.
@@ -2719,11 +2794,11 @@ type MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds_LdpId struct {
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Password for MD5 authentication for this neighbor.
@@ -2762,7 +2837,7 @@ type MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds_LdpId_Password struct {
     // Command type for password configuration. The type is MplsLdpNbrPassword.
     CommandType interface{}
 
-    // The neighbor password. The type is string with pattern: (!.+)|([^!].+).
+    // The neighbor password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -2935,9 +3010,9 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Discovery struct {
 
     // Global discovery transport address for address family. The type is one of
     // the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     TransportAddress interface{}
 }
 
@@ -3101,7 +3176,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAcceptPo
     YListKey string
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Data container.
@@ -3176,7 +3251,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Remote_Accept_PeerAcceptPolicies_PeerAcceptPo
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Name of prefix ACL. The type is string. This attribute is mandatory.
@@ -3333,7 +3408,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerAdv
     YListKey string
 
     // This attribute is a key. Label space ID of neighbor. The type is
-    // interface{} with range: 0..4294967295.
+    // interface{} with range: 0..0.
     LabelSpaceId interface{}
 
     // Data container.
@@ -3408,7 +3483,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_PeerAdvertisePolicies_PeerAdv
 
     // This attribute is a key. LSR ID of neighbor. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Name of prefix ACL. The type is string. This attribute is mandatory.
@@ -3480,7 +3555,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -3622,7 +3697,7 @@ type MplsLdp_Vrfs_Vrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable Label Distribution Protocol (LDP) on thisinterface. The type is
@@ -3770,9 +3845,9 @@ type MplsLdp_Vrfs_Vrf_Interfaces_Interface_Afs_Af_Discovery_TransportAddress str
     AddressType interface{}
 
     // IP address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -4654,7 +4729,7 @@ type MplsLdp_Global_Mldp_Vrfs_Vrf_Afs_Af_NeighborPolicies_NeighborPolicy struct 
     YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RootAddress interface{}
 
     // This attribute is a key. Inbound/Outbound Policy. The type is
@@ -5060,7 +5135,7 @@ type MplsLdp_Global_Mldp_DefaultVrf_Afs_Af_NeighborPolicies_NeighborPolicy struc
     YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RootAddress interface{}
 
     // This attribute is a key. Inbound/Outbound Policy. The type is

@@ -96,7 +96,7 @@ type InfraStatistics_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Cached stats data of interfaces.
@@ -232,7 +232,7 @@ type InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol struct {
     YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -847,7 +847,7 @@ type InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol struct {
     YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -1462,7 +1462,7 @@ type InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol struct {
     YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:
@@ -2035,7 +2035,7 @@ type InfraStatistics_Interfaces_Interface_Protocols_Protocol struct {
     YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProtocolName interface{}
 
     // Bytes received. The type is interface{} with range:

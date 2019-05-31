@@ -20,11 +20,11 @@ func init() {
     ydk.RegisterEntity("nvo:nvo-instances", reflect.TypeOf(NvoInstances{}))
 }
 
-type NvgreType struct {
+type OverlayEncapType struct {
 }
 
-func (id NvgreType) String() string {
-	return "nvo:nvgre-type"
+func (id OverlayEncapType) String() string {
+	return "nvo:overlay-encap-type"
 }
 
 type VxlanType struct {
@@ -34,11 +34,11 @@ func (id VxlanType) String() string {
 	return "nvo:vxlan-type"
 }
 
-type OverlayEncapType struct {
+type NvgreType struct {
 }
 
-func (id OverlayEncapType) String() string {
-	return "nvo:overlay-encap-type"
+func (id NvgreType) String() string {
+	return "nvo:nvgre-type"
 }
 
 // NvoInstances
@@ -89,7 +89,7 @@ type NvoInstances_NvoInstance struct {
     // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
     SourceInterface interface{}
 
-    // Encapsulation type. The type is one of the following: NvgreTypeVxlanType.
+    // Encapsulation type. The type is one of the following: VxlanTypeNvgreType.
     OverlayEncapsulation interface{}
 
     // VNI member attributes. The type is slice of
@@ -140,15 +140,15 @@ type NvoInstances_NvoInstance_VirtualNetwork struct {
     // 1..16777214. This attribute is mandatory.
     VniEnd interface{}
 
+    // Enable ARP request suppression for this VNI. The type is interface{}.
+    SuppressArp interface{}
+
     // Use control protocol BGP to discover  peers. The type is interface{}.
     Bgp interface{}
 
     // How to peform endpoint discovery. The type is EndHostDiscovery. The default
     // value is flood-and-learn.
     EndHostDiscovery interface{}
-
-    // Enable ARP request suppression for this VNI. The type is interface{}.
-    SuppressArp interface{}
 
     // VRF Name. The type is string. Refers to
     // ietf_routing.Routing_RoutingInstance_Name
@@ -182,9 +182,9 @@ func (virtualNetwork *NvoInstances_NvoInstance_VirtualNetwork) GetEntityData() *
     virtualNetwork.EntityData.Leafs = types.NewOrderedMap()
     virtualNetwork.EntityData.Leafs.Append("vni-start", types.YLeaf{"VniStart", virtualNetwork.VniStart})
     virtualNetwork.EntityData.Leafs.Append("vni-end", types.YLeaf{"VniEnd", virtualNetwork.VniEnd})
+    virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
     virtualNetwork.EntityData.Leafs.Append("bgp", types.YLeaf{"Bgp", virtualNetwork.Bgp})
     virtualNetwork.EntityData.Leafs.Append("end-host-discovery", types.YLeaf{"EndHostDiscovery", virtualNetwork.EndHostDiscovery})
-    virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
     virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
 
     virtualNetwork.EntityData.YListKeys = []string {"VniStart", "VniEnd"}
@@ -201,12 +201,12 @@ type NvoInstances_NvoInstance_VirtualNetwork_Multicast struct {
 
     // Single IPV4 Multicast group  address or start of range. The type is string
     // with pattern:
-    // (2((2[4-9])|(3[0-9]))\.)(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
+    // b'(2((2[4-9])|(3[0-9]))\\.)(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
     MulticastGroupMin interface{}
 
     // End of IPV4 Multicast group  address (leave unspecified for single value.
     // The type is string with pattern:
-    // (2((2[4-9])|(3[0-9]))\.)(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
+    // b'(2((2[4-9])|(3[0-9]))\\.)(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
     MulticastGroupMax interface{}
 }
 
@@ -240,9 +240,9 @@ type NvoInstances_NvoInstance_VirtualNetwork_Peers struct {
 
     // This attribute is a key. VTEP peer IP address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIp interface{}
 }
 

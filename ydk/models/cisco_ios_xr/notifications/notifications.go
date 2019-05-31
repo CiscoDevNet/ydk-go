@@ -1,4 +1,4 @@
-// Conversion of the 'ncEvent' XSD in the
+// Conversion of the 'ncEvent' XSD in the 
 // NETCONF Notifications RFC.
 package notifications
 
@@ -22,7 +22,7 @@ func init() {
 // takes as argument the name of the notification stream
 // and filter. Both of those options limit the content of
 // the subscription. In addition, there are two time-related
-// parameters, startTime and stopTime, which can be used to
+// parameters, startTime and stopTime, which can be used to 
 // select the time interval of interest to the notification
 // replay feature.
 type CreateSubscription struct {
@@ -58,28 +58,28 @@ type CreateSubscription_Input struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // An optional parameter that indicates which stream of events is of interest.
-    // If not present, then events in the default NETCONF stream will be sent. The
-    // type is string. The default value is NETCONF.
+    // An optional parameter that indicates which stream of  events is of
+    // interest. If not present, then events in the default NETCONF stream will be
+    // sent. The type is string. The default value is NETCONF.
     Stream interface{}
 
     // An optional parameter that indicates which subset of all possible events is
     // of interest. The format of this parameter is the same as that of the filter
     // parameter in the NETCONF protocol operations. If not present, all events
-    // not precluded by other parameters will be sent. The type is string.
+    // not precluded by other parameters will  be sent. The type is string.
     Filter interface{}
 
     // A parameter used to trigger the replay feature and indicates that the
     // replay should start at the time specified. If start time is not present,
     // this is not a replay subscription. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     StartTime interface{}
 
     // An optional parameter used with the optional replay feature to indicate the
     // newest notifications of interest. If stop time is not present, the
     // notifications will continue until the subscription is terminated. Must be
     // used with startTime. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     StopTime interface{}
 }
 

@@ -28,83 +28,70 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3", reflect.TypeOf(Ospfv3{}))
 }
 
-// Ospfv3DomainId represents Ospfv3 domain id
-type Ospfv3DomainId string
+// Ospfv3Protocol represents Ospfv3 protocol
+type Ospfv3Protocol string
 
 const (
-    // Type 0x0005
-    Ospfv3DomainId_type0005 Ospfv3DomainId = "type0005"
+    // All
+    Ospfv3Protocol_all Ospfv3Protocol = "all"
 
-    // Type 0x0105
-    Ospfv3DomainId_type0105 Ospfv3DomainId = "type0105"
+    // Connected
+    Ospfv3Protocol_connected Ospfv3Protocol = "connected"
 
-    // Type 0x0205
-    Ospfv3DomainId_type0205 Ospfv3DomainId = "type0205"
+    // Static
+    Ospfv3Protocol_static Ospfv3Protocol = "static"
 
-    // Type 0x8005
-    Ospfv3DomainId_type8005 Ospfv3DomainId = "type8005"
+    // BGP
+    Ospfv3Protocol_bgp Ospfv3Protocol = "bgp"
+
+    // ISIS
+    Ospfv3Protocol_isis Ospfv3Protocol = "isis"
+
+    // OSPFv3
+    Ospfv3Protocol_ospfv3 Ospfv3Protocol = "ospfv3"
+
+    // EIGRP
+    Ospfv3Protocol_eigrp Ospfv3Protocol = "eigrp"
 )
 
-// Ospfv3Network represents Ospfv3 network
-type Ospfv3Network string
+// Ospfv3FastRerouteTiebreakers represents Ospfv3 fast reroute tiebreakers
+type Ospfv3FastRerouteTiebreakers string
 
 const (
-    // Broadcast multi-access network
-    Ospfv3Network_broadcast Ospfv3Network = "broadcast"
+    // Downstream
+    Ospfv3FastRerouteTiebreakers_downstream Ospfv3FastRerouteTiebreakers = "downstream"
 
-    // Non-broadcast multi-access network
-    Ospfv3Network_non_broadcast Ospfv3Network = "non-broadcast"
+    // LC Disjoint
+    Ospfv3FastRerouteTiebreakers_line_card_disjoint Ospfv3FastRerouteTiebreakers = "line-card-disjoint"
 
-    // Point-to-point network
-    Ospfv3Network_point_to_point Ospfv3Network = "point-to-point"
+    // Lowest metric
+    Ospfv3FastRerouteTiebreakers_lowest_metric Ospfv3FastRerouteTiebreakers = "lowest-metric"
 
-    // Point-to-multipoint network
-    Ospfv3Network_point_to_multipoint Ospfv3Network = "point-to-multipoint"
+    // Node protection
+    Ospfv3FastRerouteTiebreakers_node_protect Ospfv3FastRerouteTiebreakers = "node-protect"
 
-    // Non-broadcast point-to-multipoint network
-    Ospfv3Network_non_broadcast_point_to_multipoint Ospfv3Network = "non-broadcast-point-to-multipoint"
+    // Primary path
+    Ospfv3FastRerouteTiebreakers_primary_path Ospfv3FastRerouteTiebreakers = "primary-path"
+
+    // Secondar path
+    Ospfv3FastRerouteTiebreakers_secondary_path Ospfv3FastRerouteTiebreakers = "secondary-path"
+
+    // SRLG
+    Ospfv3FastRerouteTiebreakers_srlg_disjoint Ospfv3FastRerouteTiebreakers = "srlg-disjoint"
 )
 
-// Ospfv3Metric represents Ospfv3 metric
-type Ospfv3Metric string
+// Ospfv3isisRoute represents Ospfv3isis route
+type Ospfv3isisRoute string
 
 const (
-    // OSPFv3 external type 1 metrics
-    Ospfv3Metric_type1 Ospfv3Metric = "type1"
+    // IS-IS level-1 routes
+    Ospfv3isisRoute_level1 Ospfv3isisRoute = "level1"
 
-    // OSPFv3 external type 2 metrics
-    Ospfv3Metric_type2 Ospfv3Metric = "type2"
-)
+    // IS-IS level-2 routes
+    Ospfv3isisRoute_level2 Ospfv3isisRoute = "level2"
 
-// Ospfv3AuthenticationType2 represents Ospfv3 authentication type2
-type Ospfv3AuthenticationType2 string
-
-const (
-    // NULL authentication
-    Ospfv3AuthenticationType2_null Ospfv3AuthenticationType2 = "null"
-
-    // MD5 algorithm
-    Ospfv3AuthenticationType2_md5 Ospfv3AuthenticationType2 = "md5"
-
-    // SHA1 algorithm
-    Ospfv3AuthenticationType2_sha1 Ospfv3AuthenticationType2 = "sha1"
-)
-
-// Ospfv3FastReroutePriority represents Ospfv3 fast reroute priority
-type Ospfv3FastReroutePriority string
-
-const (
-    // Critical
-    Ospfv3FastReroutePriority_critical Ospfv3FastReroutePriority = "critical"
-
-    // High
-    Ospfv3FastReroutePriority_high Ospfv3FastReroutePriority = "high"
-
-    // Medium
-    Ospfv3FastReroutePriority_medium Ospfv3FastReroutePriority = "medium"
-
-    // Low
-    Ospfv3FastReroutePriority_low Ospfv3FastReroutePriority = "low"
+    // IS-IS level-1 and level-2 routes
+    Ospfv3isisRoute_level1_and2 Ospfv3isisRoute = "level1-and2"
 )
 
 // Ospfv3bfdEnableMode represents Ospfv3bfd enable mode
@@ -133,6 +120,49 @@ const (
 
     // Verbose output
     Ospfv3LogAdj_detail Ospfv3LogAdj = "detail"
+)
+
+// Ospfv3ProtocolType2 represents Ospfv3 protocol type2
+type Ospfv3ProtocolType2 string
+
+const (
+    // Connected
+    Ospfv3ProtocolType2_connected Ospfv3ProtocolType2 = "connected"
+
+    // Static
+    Ospfv3ProtocolType2_static Ospfv3ProtocolType2 = "static"
+
+    // BGP
+    Ospfv3ProtocolType2_bgp Ospfv3ProtocolType2 = "bgp"
+
+    // ISIS
+    Ospfv3ProtocolType2_isis Ospfv3ProtocolType2 = "isis"
+
+    // OSPFv3
+    Ospfv3ProtocolType2_ospfv3 Ospfv3ProtocolType2 = "ospfv3"
+
+    // EIGRP
+    Ospfv3ProtocolType2_eigrp Ospfv3ProtocolType2 = "eigrp"
+
+    // Subscriber
+    Ospfv3ProtocolType2_subscriber Ospfv3ProtocolType2 = "subscriber"
+
+    // Application
+    Ospfv3ProtocolType2_application Ospfv3ProtocolType2 = "application"
+
+    // Mobile
+    Ospfv3ProtocolType2_mobile Ospfv3ProtocolType2 = "mobile"
+)
+
+// Ospfv3Metric represents Ospfv3 metric
+type Ospfv3Metric string
+
+const (
+    // OSPFv3 external type 1 metrics
+    Ospfv3Metric_type1 Ospfv3Metric = "type1"
+
+    // OSPFv3 external type 2 metrics
+    Ospfv3Metric_type2 Ospfv3Metric = "type2"
 )
 
 // Ospfv3TraceBufSize represents Ospfv3 trace buf size
@@ -170,48 +200,6 @@ const (
     Ospfv3TraceBufSize_size65536 Ospfv3TraceBufSize = "size65536"
 )
 
-// Ospfv3FastReroute represents Ospfv3 fast reroute
-type Ospfv3FastReroute string
-
-const (
-    // Disable
-    Ospfv3FastReroute_none Ospfv3FastReroute = "none"
-
-    // Per link
-    Ospfv3FastReroute_per_link Ospfv3FastReroute = "per-link"
-
-    // Per prefix
-    Ospfv3FastReroute_per_prefix Ospfv3FastReroute = "per-prefix"
-)
-
-// Ospfv3isisRoute represents Ospfv3isis route
-type Ospfv3isisRoute string
-
-const (
-    // IS-IS level-1 routes
-    Ospfv3isisRoute_level1 Ospfv3isisRoute = "level1"
-
-    // IS-IS level-2 routes
-    Ospfv3isisRoute_level2 Ospfv3isisRoute = "level2"
-
-    // IS-IS level-1 and level-2 routes
-    Ospfv3isisRoute_level1_and2 Ospfv3isisRoute = "level1-and2"
-)
-
-// Ospfv3nssaExternalRoute represents Ospfv3nssa external route
-type Ospfv3nssaExternalRoute string
-
-const (
-    // NSSA external type 1 routes
-    Ospfv3nssaExternalRoute_external1 Ospfv3nssaExternalRoute = "external1"
-
-    // NSSA external type 2 routes
-    Ospfv3nssaExternalRoute_external2 Ospfv3nssaExternalRoute = "external2"
-
-    // NSSA external (type 1 and 2) routes
-    Ospfv3nssaExternalRoute_external Ospfv3nssaExternalRoute = "external"
-)
-
 // Ospfv3ExternalRoute represents Ospfv3 external route
 type Ospfv3ExternalRoute string
 
@@ -226,15 +214,65 @@ const (
     Ospfv3ExternalRoute_external Ospfv3ExternalRoute = "external"
 )
 
-// Ospfv3nsr represents Ospfv3nsr
-type Ospfv3nsr string
+// Ospfv3SubsequentAddressFamily represents Ospfv3 subsequent address family
+type Ospfv3SubsequentAddressFamily string
 
 const (
-    // Enable non-stop routing
-    Ospfv3nsr_true_ Ospfv3nsr = "true"
+    // Unicast subsequent address family
+    Ospfv3SubsequentAddressFamily_unicast Ospfv3SubsequentAddressFamily = "unicast"
+)
 
-    // Disable non-stop routing
-    Ospfv3nsr_false_ Ospfv3nsr = "false"
+// Ospfv3InternalRoute represents Ospfv3 internal route
+type Ospfv3InternalRoute string
+
+const (
+    // OSPFv3 internal routes
+    Ospfv3InternalRoute_internal Ospfv3InternalRoute = "internal"
+)
+
+// Ospfv3FastReroute represents Ospfv3 fast reroute
+type Ospfv3FastReroute string
+
+const (
+    // Disable
+    Ospfv3FastReroute_none Ospfv3FastReroute = "none"
+
+    // Per link
+    Ospfv3FastReroute_per_link Ospfv3FastReroute = "per-link"
+
+    // Per prefix
+    Ospfv3FastReroute_per_prefix Ospfv3FastReroute = "per-prefix"
+)
+
+// Ospfv3DomainId represents Ospfv3 domain id
+type Ospfv3DomainId string
+
+const (
+    // Type 0x0005
+    Ospfv3DomainId_type0005 Ospfv3DomainId = "type0005"
+
+    // Type 0x0105
+    Ospfv3DomainId_type0105 Ospfv3DomainId = "type0105"
+
+    // Type 0x0205
+    Ospfv3DomainId_type0205 Ospfv3DomainId = "type0205"
+
+    // Type 0x8005
+    Ospfv3DomainId_type8005 Ospfv3DomainId = "type8005"
+)
+
+// Ospfv3AuthenticationType2 represents Ospfv3 authentication type2
+type Ospfv3AuthenticationType2 string
+
+const (
+    // NULL authentication
+    Ospfv3AuthenticationType2_null Ospfv3AuthenticationType2 = "null"
+
+    // MD5 algorithm
+    Ospfv3AuthenticationType2_md5 Ospfv3AuthenticationType2 = "md5"
+
+    // SHA1 algorithm
+    Ospfv3AuthenticationType2_sha1 Ospfv3AuthenticationType2 = "sha1"
 )
 
 // Ospfv3AddressFamily represents Ospfv3 address family
@@ -245,30 +283,15 @@ const (
     Ospfv3AddressFamily_ipv6 Ospfv3AddressFamily = "ipv6"
 )
 
-// Ospfv3Protocol represents Ospfv3 protocol
-type Ospfv3Protocol string
+// Ospfv3Authentication represents Ospfv3 authentication
+type Ospfv3Authentication string
 
 const (
-    // All
-    Ospfv3Protocol_all Ospfv3Protocol = "all"
+    // MD5 algorithm
+    Ospfv3Authentication_md5 Ospfv3Authentication = "md5"
 
-    // Connected
-    Ospfv3Protocol_connected Ospfv3Protocol = "connected"
-
-    // Static
-    Ospfv3Protocol_static Ospfv3Protocol = "static"
-
-    // BGP
-    Ospfv3Protocol_bgp Ospfv3Protocol = "bgp"
-
-    // ISIS
-    Ospfv3Protocol_isis Ospfv3Protocol = "isis"
-
-    // OSPFv3
-    Ospfv3Protocol_ospfv3 Ospfv3Protocol = "ospfv3"
-
-    // EIGRP
-    Ospfv3Protocol_eigrp Ospfv3Protocol = "eigrp"
+    // SHA1 algorithm
+    Ospfv3Authentication_sha1 Ospfv3Authentication = "sha1"
 )
 
 // Ospfv3EncryptionAlgorithm represents Ospfv3 encryption algorithm
@@ -294,44 +317,29 @@ const (
     Ospfv3EncryptionAlgorithm_aes256 Ospfv3EncryptionAlgorithm = "aes256"
 )
 
-// Ospfv3ProtocolType2 represents Ospfv3 protocol type2
-type Ospfv3ProtocolType2 string
+// Ospfv3nsr represents Ospfv3nsr
+type Ospfv3nsr string
 
 const (
-    // Connected
-    Ospfv3ProtocolType2_connected Ospfv3ProtocolType2 = "connected"
+    // Enable non-stop routing
+    Ospfv3nsr_true_ Ospfv3nsr = "true"
 
-    // Static
-    Ospfv3ProtocolType2_static Ospfv3ProtocolType2 = "static"
-
-    // BGP
-    Ospfv3ProtocolType2_bgp Ospfv3ProtocolType2 = "bgp"
-
-    // ISIS
-    Ospfv3ProtocolType2_isis Ospfv3ProtocolType2 = "isis"
-
-    // OSPFv3
-    Ospfv3ProtocolType2_ospfv3 Ospfv3ProtocolType2 = "ospfv3"
-
-    // EIGRP
-    Ospfv3ProtocolType2_eigrp Ospfv3ProtocolType2 = "eigrp"
-
-    // Subscriber
-    Ospfv3ProtocolType2_subscriber Ospfv3ProtocolType2 = "subscriber"
-
-    // Application
-    Ospfv3ProtocolType2_application Ospfv3ProtocolType2 = "application"
-
-    // Mobile
-    Ospfv3ProtocolType2_mobile Ospfv3ProtocolType2 = "mobile"
+    // Disable non-stop routing
+    Ospfv3nsr_false_ Ospfv3nsr = "false"
 )
 
-// Ospfv3SubsequentAddressFamily represents Ospfv3 subsequent address family
-type Ospfv3SubsequentAddressFamily string
+// Ospfv3nssaExternalRoute represents Ospfv3nssa external route
+type Ospfv3nssaExternalRoute string
 
 const (
-    // Unicast subsequent address family
-    Ospfv3SubsequentAddressFamily_unicast Ospfv3SubsequentAddressFamily = "unicast"
+    // NSSA external type 1 routes
+    Ospfv3nssaExternalRoute_external1 Ospfv3nssaExternalRoute = "external1"
+
+    // NSSA external type 2 routes
+    Ospfv3nssaExternalRoute_external2 Ospfv3nssaExternalRoute = "external2"
+
+    // NSSA external (type 1 and 2) routes
+    Ospfv3nssaExternalRoute_external Ospfv3nssaExternalRoute = "external"
 )
 
 // Ospfv3EigrpRoute represents Ospfv3 eigrp route
@@ -345,49 +353,41 @@ const (
     Ospfv3EigrpRoute_external Ospfv3EigrpRoute = "external"
 )
 
-// Ospfv3FastRerouteTiebreakers represents Ospfv3 fast reroute tiebreakers
-type Ospfv3FastRerouteTiebreakers string
+// Ospfv3FastReroutePriority represents Ospfv3 fast reroute priority
+type Ospfv3FastReroutePriority string
 
 const (
-    // Downstream
-    Ospfv3FastRerouteTiebreakers_downstream Ospfv3FastRerouteTiebreakers = "downstream"
+    // Critical
+    Ospfv3FastReroutePriority_critical Ospfv3FastReroutePriority = "critical"
 
-    // LC Disjoint
-    Ospfv3FastRerouteTiebreakers_line_card_disjoint Ospfv3FastRerouteTiebreakers = "line-card-disjoint"
+    // High
+    Ospfv3FastReroutePriority_high Ospfv3FastReroutePriority = "high"
 
-    // Lowest metric
-    Ospfv3FastRerouteTiebreakers_lowest_metric Ospfv3FastRerouteTiebreakers = "lowest-metric"
+    // Medium
+    Ospfv3FastReroutePriority_medium Ospfv3FastReroutePriority = "medium"
 
-    // Node protection
-    Ospfv3FastRerouteTiebreakers_node_protect Ospfv3FastRerouteTiebreakers = "node-protect"
-
-    // Primary path
-    Ospfv3FastRerouteTiebreakers_primary_path Ospfv3FastRerouteTiebreakers = "primary-path"
-
-    // Secondar path
-    Ospfv3FastRerouteTiebreakers_secondary_path Ospfv3FastRerouteTiebreakers = "secondary-path"
-
-    // SRLG
-    Ospfv3FastRerouteTiebreakers_srlg_disjoint Ospfv3FastRerouteTiebreakers = "srlg-disjoint"
+    // Low
+    Ospfv3FastReroutePriority_low Ospfv3FastReroutePriority = "low"
 )
 
-// Ospfv3Authentication represents Ospfv3 authentication
-type Ospfv3Authentication string
+// Ospfv3Network represents Ospfv3 network
+type Ospfv3Network string
 
 const (
-    // MD5 algorithm
-    Ospfv3Authentication_md5 Ospfv3Authentication = "md5"
+    // Broadcast multi-access network
+    Ospfv3Network_broadcast Ospfv3Network = "broadcast"
 
-    // SHA1 algorithm
-    Ospfv3Authentication_sha1 Ospfv3Authentication = "sha1"
-)
+    // Non-broadcast multi-access network
+    Ospfv3Network_non_broadcast Ospfv3Network = "non-broadcast"
 
-// Ospfv3InternalRoute represents Ospfv3 internal route
-type Ospfv3InternalRoute string
+    // Point-to-point network
+    Ospfv3Network_point_to_point Ospfv3Network = "point-to-point"
 
-const (
-    // OSPFv3 internal routes
-    Ospfv3InternalRoute_internal Ospfv3InternalRoute = "internal"
+    // Point-to-multipoint network
+    Ospfv3Network_point_to_multipoint Ospfv3Network = "point-to-multipoint"
+
+    // Non-broadcast point-to-multipoint network
+    Ospfv3Network_non_broadcast_point_to_multipoint Ospfv3Network = "non-broadcast-point-to-multipoint"
 )
 
 // Ospfv3
@@ -474,9 +474,6 @@ type Ospfv3_Processes_Process struct {
     // Enable protocol shutdown. The type is interface{}.
     ProtocolShutdown interface{}
 
-    // Enable OSPFv3. The type is interface{}.
-    Enable interface{}
-
     // Default VRF related configuration.
     DefaultVrf Ospfv3_Processes_Process_DefaultVrf
 
@@ -510,7 +507,6 @@ func (process *Ospfv3_Processes_Process) GetEntityData() *types.CommonEntityData
     process.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", process.ProcessName})
     process.EntityData.Leafs.Append("nsr", types.YLeaf{"Nsr", process.Nsr})
     process.EntityData.Leafs.Append("protocol-shutdown", types.YLeaf{"ProtocolShutdown", process.ProtocolShutdown})
-    process.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", process.Enable})
 
     process.EntityData.YListKeys = []string {"ProcessName"}
 
@@ -572,7 +568,7 @@ type Ospfv3_Processes_Process_DefaultVrf struct {
 
     // Specify the router ID for this OSPFv3 process in IPv4 address format. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Specify network type. The type is Ospfv3Network.
@@ -766,7 +762,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress struct {
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Specify area as a stub area.  Allowed only in non-backbone areas. The type
@@ -935,7 +931,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Authenticatio
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -1045,7 +1041,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Ranges_Range 
 
     // This attribute is a key. IPv6 prefix format. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -1100,14 +1096,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Encryption st
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -1348,7 +1344,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -1486,7 +1482,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -1555,7 +1551,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. IPV6 address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NeighborAddress interface{}
 
     // OSPFv3 priority of non-broadcast neighbor. The type is interface{} with
@@ -1619,14 +1615,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -1935,7 +1931,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2002,7 +1998,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2108,7 +2104,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2175,7 +2171,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2350,7 +2346,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2417,7 +2413,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2523,7 +2519,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2590,7 +2586,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -2657,12 +2653,12 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinks_Sha
 
     // This attribute is a key. Local sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // This attribute is a key. Remote sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Enable sham link. The type is interface{}.
@@ -2736,7 +2732,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinks_Sha
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -2779,14 +2775,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinks_Sha
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -2858,7 +2854,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinks_
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualLinkAddress interface{}
 
     // Enabled virtual link. The type is interface{}.
@@ -2931,7 +2927,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinks_
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -2974,14 +2970,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinks_
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -3187,7 +3183,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Authentication
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -3297,7 +3293,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Ranges_Range s
 
     // This attribute is a key. IPv6 prefix format. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -3352,14 +3348,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Encryption str
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -3600,7 +3596,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -3738,7 +3734,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -3807,7 +3803,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. IPV6 address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NeighborAddress interface{}
 
     // OSPFv3 priority of non-broadcast neighbor. The type is interface{} with
@@ -3871,14 +3867,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -4187,7 +4183,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4254,7 +4250,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4360,7 +4356,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4427,7 +4423,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4602,7 +4598,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4669,7 +4665,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4775,7 +4771,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4842,7 +4838,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -4909,12 +4905,12 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinks_Sham
 
     // This attribute is a key. Local sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // This attribute is a key. Remote sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Enable sham link. The type is interface{}.
@@ -4988,7 +4984,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinks_Sham
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -5031,14 +5027,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinks_Sham
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -5110,7 +5106,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinks_V
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualLinkAddress interface{}
 
     // Enabled virtual link. The type is interface{}.
@@ -5183,7 +5179,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinks_V
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -5226,14 +5222,14 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinks_V
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -5531,7 +5527,7 @@ type Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes_SummaryPrefix struct {
     YListKey string
 
     // This attribute is a key. IPv6 prefix string format. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -6247,7 +6243,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributes_Redistribute_Ospfv3OrIsis
 
     // This attribute is a key. ISIS process name if protocol is ISIS, or OSPFv3
     // process name if protocol is OSPFv3. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProcessName interface{}
 
     // Redistribute OSPFv3 routes. The type is Ospfv3InternalRoute.
@@ -6647,7 +6643,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DistributeListOut_DistributeOuts_Distri
     YListKey string
 
     // This attribute is a key. If ISIS or OSPFv3, specify the instance name. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProcessName interface{}
 
     // Prefix-list name. The type is string.
@@ -6811,9 +6807,11 @@ func (stubRouter *Ospfv3_Processes_Process_DefaultVrf_StubRouter) GetEntityData(
 
 // Ospfv3_Processes_Process_DefaultVrf_StubRouter_Rbit
 // Stub router R-bit configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_DefaultVrf_StubRouter_Rbit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -6826,9 +6824,6 @@ type Ospfv3_Processes_Process_DefaultVrf_StubRouter_Rbit struct {
     // Advertise stub links with maximum metric in stub router mode. The type is
     // interface{}.
     IncludeStub interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -6859,7 +6854,6 @@ func (rbit *Ospfv3_Processes_Process_DefaultVrf_StubRouter_Rbit) GetEntityData()
     rbit.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", rbit.OnSwitchover})
     rbit.EntityData.Leafs.Append("always", types.YLeaf{"Always", rbit.Always})
     rbit.EntityData.Leafs.Append("include-stub", types.YLeaf{"IncludeStub", rbit.IncludeStub})
-    rbit.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rbit.Enable})
     rbit.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", rbit.OnProcMigration})
     rbit.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", rbit.OnProcRestart})
 
@@ -6906,9 +6900,11 @@ func (onStartup *Ospfv3_Processes_Process_DefaultVrf_StubRouter_Rbit_OnStartup) 
 
 // Ospfv3_Processes_Process_DefaultVrf_StubRouter_V6bit
 // Stub router V6-bit configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_DefaultVrf_StubRouter_V6bit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -6917,9 +6913,6 @@ type Ospfv3_Processes_Process_DefaultVrf_StubRouter_V6bit struct {
     // Unconditionally enter stub router operational state. The type is
     // interface{}.
     Always interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -6949,7 +6942,6 @@ func (v6bit *Ospfv3_Processes_Process_DefaultVrf_StubRouter_V6bit) GetEntityData
     v6bit.EntityData.Leafs = types.NewOrderedMap()
     v6bit.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", v6bit.OnSwitchover})
     v6bit.EntityData.Leafs.Append("always", types.YLeaf{"Always", v6bit.Always})
-    v6bit.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", v6bit.Enable})
     v6bit.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", v6bit.OnProcMigration})
     v6bit.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", v6bit.OnProcRestart})
 
@@ -6996,9 +6988,11 @@ func (onStartup *Ospfv3_Processes_Process_DefaultVrf_StubRouter_V6bit_OnStartup)
 
 // Ospfv3_Processes_Process_DefaultVrf_StubRouter_MaxMetric
 // Stub router max-metric configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_DefaultVrf_StubRouter_MaxMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Advertise external LSAs with modified metric in stub router mode. The type
     // is interface{} with range: 1..16777214. The default value is 16711680.
@@ -7019,9 +7013,6 @@ type Ospfv3_Processes_Process_DefaultVrf_StubRouter_MaxMetric struct {
     // Advertise stub links with maximum metric in stub router mode. The type is
     // interface{}.
     IncludeStub interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -7054,7 +7045,6 @@ func (maxMetric *Ospfv3_Processes_Process_DefaultVrf_StubRouter_MaxMetric) GetEn
     maxMetric.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", maxMetric.OnSwitchover})
     maxMetric.EntityData.Leafs.Append("always", types.YLeaf{"Always", maxMetric.Always})
     maxMetric.EntityData.Leafs.Append("include-stub", types.YLeaf{"IncludeStub", maxMetric.IncludeStub})
-    maxMetric.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", maxMetric.Enable})
     maxMetric.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", maxMetric.OnProcMigration})
     maxMetric.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", maxMetric.OnProcRestart})
 
@@ -7253,7 +7243,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Authentication struct {
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -7560,7 +7550,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Candid
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -7627,7 +7617,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Exclud
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -7733,7 +7723,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Cand
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -7800,7 +7790,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Excl
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -7840,14 +7830,14 @@ type Ospfv3_Processes_Process_DefaultVrf_Encryption struct {
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -7956,11 +7946,8 @@ type Ospfv3_Processes_Process_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name for this VRF. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
-
-    // Enable OSPFv3 VRF configuration. The type is interface{}.
-    Enable interface{}
 
     // Enable SNMP trap configuration in a VRF. The type is interface{}.
     SnmpvrfTrap interface{}
@@ -8008,7 +7995,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf struct {
 
     // Specify the router ID for this OSPFv3 process in IPv4 address format. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Specify network type. The type is Ospfv3Network.
@@ -8130,7 +8117,6 @@ func (vrf *Ospfv3_Processes_Process_Vrfs_Vrf) GetEntityData() *types.CommonEntit
     vrf.EntityData.Children.Append("auto-cost", types.YChild{"AutoCost", &vrf.AutoCost})
     vrf.EntityData.Leafs = types.NewOrderedMap()
     vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
-    vrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrf.Enable})
     vrf.EntityData.Leafs.Append("snmpvrf-trap", types.YLeaf{"SnmpvrfTrap", vrf.SnmpvrfTrap})
     vrf.EntityData.Leafs.Append("prefix-suppression", types.YLeaf{"PrefixSuppression", vrf.PrefixSuppression})
     vrf.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", vrf.RetransmitInterval})
@@ -8236,7 +8222,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DomainId_SecondaryDomainIds_SecondaryDoma
     DomainIdType interface{}
 
     // This attribute is a key. Secondary domain ID value. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     DomainIdName interface{}
 }
 
@@ -8346,7 +8332,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress struct {
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Specify area as a stub area.  Allowed only in non-backbone areas. The type
@@ -8515,7 +8501,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Authentication 
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -8625,7 +8611,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Ranges_Range st
 
     // This attribute is a key. IPv6 prefix format. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -8680,14 +8666,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Encryption stru
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -8928,7 +8914,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -9066,7 +9052,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -9135,7 +9121,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. IPV6 address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NeighborAddress interface{}
 
     // OSPFv3 priority of non-broadcast neighbor. The type is interface{} with
@@ -9199,14 +9185,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -9515,7 +9501,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -9582,7 +9568,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -9688,7 +9674,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -9755,7 +9741,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -9930,7 +9916,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -9997,7 +9983,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -10103,7 +10089,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -10170,7 +10156,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -10237,12 +10223,12 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinks_ShamL
 
     // This attribute is a key. Local sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // This attribute is a key. Remote sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Enable sham link. The type is interface{}.
@@ -10316,7 +10302,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinks_ShamL
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -10359,14 +10345,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinks_ShamL
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -10438,7 +10424,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinks_Vi
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualLinkAddress interface{}
 
     // Enabled virtual link. The type is interface{}.
@@ -10511,7 +10497,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinks_Vi
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -10554,14 +10540,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinks_Vi
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -10767,7 +10753,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Authentication s
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -10877,7 +10863,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Ranges_Range str
 
     // This attribute is a key. IPv6 prefix format. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -10932,14 +10918,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Encryption struc
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -11180,7 +11166,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -11318,7 +11304,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -11387,7 +11373,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. IPV6 address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NeighborAddress interface{}
 
     // OSPFv3 priority of non-broadcast neighbor. The type is interface{} with
@@ -11451,14 +11437,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -11767,7 +11753,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -11834,7 +11820,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -11940,7 +11926,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12007,7 +11993,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12182,7 +12168,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12249,7 +12235,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12355,7 +12341,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12422,7 +12408,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -12489,12 +12475,12 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinks_ShamLi
 
     // This attribute is a key. Local sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // This attribute is a key. Remote sham-link endpoint. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Enable sham link. The type is interface{}.
@@ -12568,7 +12554,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinks_ShamLi
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -12611,14 +12597,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinks_ShamLi
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -12690,7 +12676,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinks_Vir
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualLinkAddress interface{}
 
     // Enabled virtual link. The type is interface{}.
@@ -12763,7 +12749,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinks_Vir
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -12806,14 +12792,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinks_Vir
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -13111,7 +13097,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes_SummaryPrefix struct {
     YListKey string
 
     // This attribute is a key. IPv6 prefix string format. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Prefix interface{}
 
     // This attribute is a key. IPV6 prefix length. The type is interface{} with
@@ -13827,7 +13813,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributes_Redistribute_Ospfv3OrIsisOr
 
     // This attribute is a key. ISIS process name if protocol is ISIS, or OSPFv3
     // process name if protocol is OSPFv3. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProcessName interface{}
 
     // Redistribute OSPFv3 routes. The type is Ospfv3InternalRoute.
@@ -14227,7 +14213,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DistributeListOut_DistributeOuts_Distribu
     YListKey string
 
     // This attribute is a key. If ISIS or OSPFv3, specify the instance name. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProcessName interface{}
 
     // Prefix-list name. The type is string.
@@ -14391,9 +14377,11 @@ func (stubRouter *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter) GetEntityData() 
 
 // Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_Rbit
 // Stub router R-bit configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_Rbit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -14406,9 +14394,6 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_Rbit struct {
     // Advertise stub links with maximum metric in stub router mode. The type is
     // interface{}.
     IncludeStub interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -14439,7 +14424,6 @@ func (rbit *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_Rbit) GetEntityData() *
     rbit.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", rbit.OnSwitchover})
     rbit.EntityData.Leafs.Append("always", types.YLeaf{"Always", rbit.Always})
     rbit.EntityData.Leafs.Append("include-stub", types.YLeaf{"IncludeStub", rbit.IncludeStub})
-    rbit.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rbit.Enable})
     rbit.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", rbit.OnProcMigration})
     rbit.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", rbit.OnProcRestart})
 
@@ -14486,9 +14470,11 @@ func (onStartup *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_Rbit_OnStartup) Ge
 
 // Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_V6bit
 // Stub router V6-bit configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_V6bit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -14497,9 +14483,6 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_V6bit struct {
     // Unconditionally enter stub router operational state. The type is
     // interface{}.
     Always interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -14529,7 +14512,6 @@ func (v6bit *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_V6bit) GetEntityData()
     v6bit.EntityData.Leafs = types.NewOrderedMap()
     v6bit.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", v6bit.OnSwitchover})
     v6bit.EntityData.Leafs.Append("always", types.YLeaf{"Always", v6bit.Always})
-    v6bit.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", v6bit.Enable})
     v6bit.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", v6bit.OnProcMigration})
     v6bit.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", v6bit.OnProcRestart})
 
@@ -14576,9 +14558,11 @@ func (onStartup *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_V6bit_OnStartup) G
 
 // Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_MaxMetric
 // Stub router max-metric configuration
+// This type is a presence type.
 type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_MaxMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Advertise external LSAs with modified metric in stub router mode. The type
     // is interface{} with range: 1..16777214. The default value is 16711680.
@@ -14599,9 +14583,6 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_MaxMetric struct {
     // Advertise stub links with maximum metric in stub router mode. The type is
     // interface{}.
     IncludeStub interface{}
-
-    // Enabled stub router configuration mode. The type is interface{}.
-    Enable interface{}
 
     // Time (in seconds) to stay in stub router operational state. The type is
     // interface{} with range: 5..86400. Units are second.
@@ -14634,7 +14615,6 @@ func (maxMetric *Ospfv3_Processes_Process_Vrfs_Vrf_StubRouter_MaxMetric) GetEnti
     maxMetric.EntityData.Leafs.Append("on-switchover", types.YLeaf{"OnSwitchover", maxMetric.OnSwitchover})
     maxMetric.EntityData.Leafs.Append("always", types.YLeaf{"Always", maxMetric.Always})
     maxMetric.EntityData.Leafs.Append("include-stub", types.YLeaf{"IncludeStub", maxMetric.IncludeStub})
-    maxMetric.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", maxMetric.Enable})
     maxMetric.EntityData.Leafs.Append("on-proc-migration", types.YLeaf{"OnProcMigration", maxMetric.OnProcMigration})
     maxMetric.EntityData.Leafs.Append("on-proc-restart", types.YLeaf{"OnProcRestart", maxMetric.OnProcRestart})
 
@@ -14833,7 +14813,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Authentication struct {
     Algorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 }
 
@@ -15140,7 +15120,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_Candidat
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -15207,7 +15187,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_ExcludeI
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -15313,7 +15293,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Candid
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -15380,7 +15360,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Exclud
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -15420,14 +15400,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Encryption struct {
     // Specify the encryption algorithm. The type is Ospfv3EncryptionAlgorithm.
     EncryptionAlgorithm interface{}
 
-    // Encryption password. The type is string with pattern: (!.+)|([^!].+).
+    // Encryption password. The type is string with pattern: b'(!.+)|([^!].+)'.
     EncryptionPassword interface{}
 
     // Use the NULL, MD5 or SHA1 algorithm. The type is Ospfv3AuthenticationType2.
     AuthenticationAlgorithm interface{}
 
     // Specify MD5 or SHA1 password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 }
 
@@ -15575,7 +15555,7 @@ type Ospfv3_Processes_Process_TraceBufs_TraceBuf struct {
     YListKey string
 
     // This attribute is a key. Name for this trace buffer. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TraceBufName interface{}
 
     // Buffer size. The type is Ospfv3TraceBufSize. This attribute is mandatory.

@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   platform-qos: QoS Skywarp platform operational data
+//   platform-qos: QoS Skywarp platform operational data 
 //   platform-qos-ea: platform qos ea
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
@@ -60,83 +60,6 @@ const (
 
     // wred invalid cmd
     Wred_wred_invalid_cmd Wred = "wred-invalid-cmd"
-)
-
-// ActionOpcode represents Action opcode
-type ActionOpcode string
-
-const (
-    // Precedence
-    ActionOpcode_precedence ActionOpcode = "precedence"
-
-    // DSCP
-    ActionOpcode_dscp ActionOpcode = "dscp"
-
-    // Discard class
-    ActionOpcode_discard_class ActionOpcode = "discard-class"
-
-    // QoS group
-    ActionOpcode_qos_group ActionOpcode = "qos-group"
-
-    // COS inner
-    ActionOpcode_cos_inner ActionOpcode = "cos-inner"
-
-    // COS
-    ActionOpcode_cos ActionOpcode = "cos"
-
-    // EXP top
-    ActionOpcode_exp_top ActionOpcode = "exp-top"
-
-    // EXP IMP
-    ActionOpcode_exp_imp ActionOpcode = "exp-imp"
-
-    // Tunnel precedence
-    ActionOpcode_tunnel_precedence ActionOpcode = "tunnel-precedence"
-
-    // Tunnel DSCP
-    ActionOpcode_tunnel_dscp ActionOpcode = "tunnel-dscp"
-
-    // ITAG DEI
-    ActionOpcode_itag_dei ActionOpcode = "itag-dei"
-
-    // ITAG COS
-    ActionOpcode_itag_cos ActionOpcode = "itag-cos"
-
-    // COS imposition
-    ActionOpcode_cos_imposition ActionOpcode = "cos-imposition"
-
-    // DEI imposition
-    ActionOpcode_dei_imposition ActionOpcode = "dei-imposition"
-
-    // DEI
-    ActionOpcode_dei ActionOpcode = "dei"
-
-    // No marking
-    ActionOpcode_no_marking ActionOpcode = "no-marking"
-)
-
-// TbAlgorithm represents Tokenbucket type
-type TbAlgorithm string
-
-const (
-    // Inactive, configured but disabled
-    TbAlgorithm_inactive TbAlgorithm = "inactive"
-
-    // Single token bucket
-    TbAlgorithm_single TbAlgorithm = "single"
-
-    // Single rate three color marker
-    TbAlgorithm_single_rate_tcm TbAlgorithm = "single-rate-tcm"
-
-    // Two rate three color marker
-    TbAlgorithm_two_rate_tcm TbAlgorithm = "two-rate-tcm"
-
-    // Allows coupling between CIR and PIR tb's
-    TbAlgorithm_mef_tcm TbAlgorithm = "mef-tcm"
-
-    // Internal dummy token bucket for coupled-policer
-    // child
-    TbAlgorithm_dummy TbAlgorithm = "dummy"
 )
 
 // PolicyParamUnit represents Policy param unit
@@ -216,6 +139,34 @@ const (
     PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
 )
 
+// CacState represents CAC/UBRL class states
+type CacState string
+
+const (
+    // unknown
+    CacState_unknown CacState = "unknown"
+
+    // admit
+    CacState_admit CacState = "admit"
+
+    // redirect
+    CacState_redirect CacState = "redirect"
+
+    // ubrl
+    CacState_ubrl CacState = "ubrl"
+)
+
+// PolicyState represents Different Interface states
+type PolicyState string
+
+const (
+    // active
+    PolicyState_active PolicyState = "active"
+
+    // suspended
+    PolicyState_suspended PolicyState = "suspended"
+)
+
 // Action represents Action type
 type Action string
 
@@ -233,21 +184,81 @@ const (
     Action_police_unknown Action = "police-unknown"
 )
 
-// CacState represents CAC/UBRL class states
-type CacState string
+// ActionOpcode represents Action opcode
+type ActionOpcode string
 
 const (
-    // unknown
-    CacState_unknown CacState = "unknown"
+    // Precedence
+    ActionOpcode_precedence ActionOpcode = "precedence"
 
-    // admit
-    CacState_admit CacState = "admit"
+    // DSCP
+    ActionOpcode_dscp ActionOpcode = "dscp"
 
-    // redirect
-    CacState_redirect CacState = "redirect"
+    // Discard class
+    ActionOpcode_discard_class ActionOpcode = "discard-class"
 
-    // ubrl
-    CacState_ubrl CacState = "ubrl"
+    // QoS group
+    ActionOpcode_qos_group ActionOpcode = "qos-group"
+
+    // COS inner
+    ActionOpcode_cos_inner ActionOpcode = "cos-inner"
+
+    // COS
+    ActionOpcode_cos ActionOpcode = "cos"
+
+    // EXP top
+    ActionOpcode_exp_top ActionOpcode = "exp-top"
+
+    // EXP IMP
+    ActionOpcode_exp_imp ActionOpcode = "exp-imp"
+
+    // Tunnel precedence
+    ActionOpcode_tunnel_precedence ActionOpcode = "tunnel-precedence"
+
+    // Tunnel DSCP
+    ActionOpcode_tunnel_dscp ActionOpcode = "tunnel-dscp"
+
+    // ITAG DEI
+    ActionOpcode_itag_dei ActionOpcode = "itag-dei"
+
+    // ITAG COS
+    ActionOpcode_itag_cos ActionOpcode = "itag-cos"
+
+    // COS imposition
+    ActionOpcode_cos_imposition ActionOpcode = "cos-imposition"
+
+    // DEI imposition
+    ActionOpcode_dei_imposition ActionOpcode = "dei-imposition"
+
+    // DEI
+    ActionOpcode_dei ActionOpcode = "dei"
+
+    // No marking
+    ActionOpcode_no_marking ActionOpcode = "no-marking"
+)
+
+// TbAlgorithm represents Tokenbucket type
+type TbAlgorithm string
+
+const (
+    // Inactive, configured but disabled
+    TbAlgorithm_inactive TbAlgorithm = "inactive"
+
+    // Single token bucket
+    TbAlgorithm_single TbAlgorithm = "single"
+
+    // Single rate three color marker
+    TbAlgorithm_single_rate_tcm TbAlgorithm = "single-rate-tcm"
+
+    // Two rate three color marker
+    TbAlgorithm_two_rate_tcm TbAlgorithm = "two-rate-tcm"
+
+    // Allows coupling between CIR and PIR tb's
+    TbAlgorithm_mef_tcm TbAlgorithm = "mef-tcm"
+
+    // Internal dummy token bucket for coupled-policer
+    // child
+    TbAlgorithm_dummy TbAlgorithm = "dummy"
 )
 
 // QosUnit represents QoS parameter unit
@@ -304,17 +315,6 @@ const (
 
     // Ratio
     QosUnit_ratio QosUnit = "ratio"
-)
-
-// PolicyState represents Different Interface states
-type PolicyState string
-
-const (
-    // active
-    PolicyState_active PolicyState = "active"
-
-    // suspended
-    PolicyState_suspended PolicyState = "suspended"
 )
 
 // PlatformQos
@@ -390,7 +390,7 @@ type PlatformQos_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // QoS list of bundle interfaces.
@@ -468,7 +468,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS list of member interfaces.
@@ -538,7 +538,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction input.
@@ -2670,7 +2670,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -4764,7 +4764,7 @@ type PlatformQosEa_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // QoS-EA list of bundle interfaces.
@@ -4838,7 +4838,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS-EA list of member interfaces.
@@ -4908,7 +4908,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS-EA policy direction output.
@@ -5072,11 +5072,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -5835,11 +5835,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -6508,7 +6508,7 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS-EA policy direction egress.
@@ -6672,11 +6672,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_InterfaceParam
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -7435,11 +7435,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_InterfaceParame
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.

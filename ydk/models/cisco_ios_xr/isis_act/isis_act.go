@@ -315,7 +315,7 @@ type ClearIsisStat_Input_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+. This
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'. This
     // attribute is mandatory.
     InterfaceName interface{}
 }

@@ -33,24 +33,233 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-fib-common-oper:mpls-forwarding", reflect.TypeOf(MplsForwarding{}))
 }
 
-// MgmtFibMplsFrrState represents MPLS FRR entry state
-type MgmtFibMplsFrrState string
+// FibRouteSource represents Fib route source
+type FibRouteSource string
 
 const (
-    // Partial
-    MgmtFibMplsFrrState_partial MgmtFibMplsFrrState = "partial"
+    // LSD
+    FibRouteSource_lsd FibRouteSource = "lsd"
 
-    // Active
-    MgmtFibMplsFrrState_active MgmtFibMplsFrrState = "active"
+    // RIB
+    FibRouteSource_rib FibRouteSource = "rib"
 
-    // Ready
-    MgmtFibMplsFrrState_ready MgmtFibMplsFrrState = "ready"
+    // MRIB
+    FibRouteSource_mrib FibRouteSource = "mrib"
+)
 
-    // Complete
-    MgmtFibMplsFrrState_complete MgmtFibMplsFrrState = "complete"
+// FibProtocol represents Fib protocol
+type FibProtocol string
 
-    // Any
-    MgmtFibMplsFrrState_any MgmtFibMplsFrrState = "any"
+const (
+    // ipv4 protocol
+    FibProtocol_ipv4 FibProtocol = "ipv4"
+
+    // ipv6 protocol
+    FibProtocol_ipv6 FibProtocol = "ipv6"
+
+    // MPLS protocol
+    FibProtocol_mpls FibProtocol = "mpls"
+)
+
+// FibafiProto represents Fibafi proto
+type FibafiProto string
+
+const (
+    // ipv4 protocol
+    FibafiProto_ipv4 FibafiProto = "ipv4"
+
+    // ipv4 mpls protocol
+    FibafiProto_ipv4_mpls FibafiProto = "ipv4-mpls"
+
+    // ipv6 protocol
+    FibafiProto_ipv6 FibafiProto = "ipv6"
+
+    // ipv6 mpls protocol
+    FibafiProto_ipv6_mpls FibafiProto = "ipv6-mpls"
+)
+
+// FibllcEntry represents Fibllc entry
+type FibllcEntry string
+
+const (
+    // LabelXconnect
+    FibllcEntry_xc FibllcEntry = "xc"
+
+    // IPPrefix
+    FibllcEntry_pfx FibllcEntry = "pfx"
+)
+
+// FibnhInfoRepl represents Fibnh info repl
+type FibnhInfoRepl string
+
+const (
+    // None Replicated NHINFO
+    FibnhInfoRepl_fib_nh_repl_none FibnhInfoRepl = "fib-nh-repl-none"
+
+    // Replicated NHINFO for TE Accounting
+    FibnhInfoRepl_fib_nh_repl_rsvpte FibnhInfoRepl = "fib-nh-repl-rsvpte"
+
+    // Replicated NHINFO for SR MPLS Accounting
+    FibnhInfoRepl_fib_nh_repl_sr_mpls FibnhInfoRepl = "fib-nh-repl-sr-mpls"
+
+    // Replicated NHINFO for Bundle member
+    FibnhInfoRepl_fib_nh_repl_bm FibnhInfoRepl = "fib-nh-repl-bm"
+)
+
+// Fibfrr represents Fibfrr
+type Fibfrr string
+
+const (
+    // TE FRR
+    Fibfrr_fib_te_frr_node Fibfrr = "fib-te-frr-node"
+
+    // TE Interface FRR
+    Fibfrr_fib_te_frr_intf Fibfrr = "fib-te-frr-intf"
+
+    // TE Protected FRR
+    Fibfrr_fib_te_frr_protected_nh Fibfrr = "fib-te-frr-protected-nh"
+
+    // TE Backup FRR
+    Fibfrr_fib_te_frr_backup_nh Fibfrr = "fib-te-frr-backup-nh"
+
+    // Per Link Protected FRR
+    Fibfrr_fib_per_link_frr_protected_nh Fibfrr = "fib-per-link-frr-protected-nh"
+
+    // Per Link Backup FRR
+    Fibfrr_fib_per_link_frr_backup_nh Fibfrr = "fib-per-link-frr-backup-nh"
+
+    // Per Prefix Protected FRR
+    Fibfrr_fib_prefix_frr_protected_nh Fibfrr = "fib-prefix-frr-protected-nh"
+
+    // Per Prefix Backup FRR
+    Fibfrr_fib_prefix_frr_backup_nh Fibfrr = "fib-prefix-frr-backup-nh"
+
+    // BGP PIC Protected FRR
+    Fibfrr_fib_pic_frr_protected_nh Fibfrr = "fib-pic-frr-protected-nh"
+
+    // BGP PIC Backup FRR
+    Fibfrr_fib_pic_frr_backup_nh Fibfrr = "fib-pic-frr-backup-nh"
+)
+
+// FibLink represents Fib link
+type FibLink string
+
+const (
+    // IPv4 link protocol
+    FibLink_link_ipv4 FibLink = "link-ipv4"
+
+    // IPv6 link protocol
+    FibLink_link_ipv6 FibLink = "link-ipv6"
+
+    // MPLS link protocol
+    FibLink_link_mpls FibLink = "link-mpls"
+)
+
+// Mplseos represents Mplseos
+type Mplseos string
+
+const (
+    // EOS Disable
+    Mplseos_eos0 Mplseos = "eos0"
+
+    // EOS Enable
+    Mplseos_eos1 Mplseos = "eos1"
+)
+
+// FibMplsLlcEntryBag represents Fib mpls llc entry bag
+type FibMplsLlcEntryBag string
+
+const (
+    // fib mpls llc bag type xc
+    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_xc FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-xc"
+
+    // fib mpls llc bag type pfx
+    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_pfx FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-pfx"
+
+    // fib mpls llc bag type lsm
+    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_lsm FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-lsm"
+
+    // fib mpls llc bag type max
+    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_max FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-max"
+)
+
+// FibRpfMode represents RPF mode types
+type FibRpfMode string
+
+const (
+    // RPF mode strict
+    FibRpfMode_fib_rpf_mode_strict FibRpfMode = "fib-rpf-mode-strict"
+
+    // RPF mode loose
+    FibRpfMode_fib_rpf_mode_loose FibRpfMode = "fib-rpf-mode-loose"
+
+    // RPF mode unknown
+    FibRpfMode_fib_rpf_mode_unknown FibRpfMode = "fib-rpf-mode-unknown"
+)
+
+// FibidbOper represents Fibidb oper
+type FibidbOper string
+
+const (
+    // fibidb none
+    FibidbOper_fibidb_none FibidbOper = "fibidb-none"
+
+    // fibidb create
+    FibidbOper_fibidb_create FibidbOper = "fibidb-create"
+
+    // fibidb delete
+    FibidbOper_fibidb_delete FibidbOper = "fibidb-delete"
+
+    // fibidb modify
+    FibidbOper_fibidb_modify FibidbOper = "fibidb-modify"
+
+    // fibidb max
+    FibidbOper_fibidb_max FibidbOper = "fibidb-max"
+)
+
+// FibShTblFibExtBag represents Fib sh tbl fib ext bag
+type FibShTblFibExtBag string
+
+const (
+    // Leaf Extension
+    FibShTblFibExtBag_leaf_extension FibShTblFibExtBag = "leaf-extension"
+)
+
+// FibUpdatePathLfaProtection represents LFA protection type
+type FibUpdatePathLfaProtection string
+
+const (
+    // Not LFA-protected
+    FibUpdatePathLfaProtection_not_lfa_protected FibUpdatePathLfaProtection = "not-lfa-protected"
+
+    // Local-LFA protected
+    FibUpdatePathLfaProtection_local_lfa_protected FibUpdatePathLfaProtection = "local-lfa-protected"
+
+    // Remote-LFA protected
+    FibUpdatePathLfaProtection_remote_lfa_protected FibUpdatePathLfaProtection = "remote-lfa-protected"
+
+    // TI-LFA protected
+    FibUpdatePathLfaProtection_ti_lfa_protected FibUpdatePathLfaProtection = "ti-lfa-protected"
+)
+
+// FibShIpencapHdr represents IP Encap Header Type
+type FibShIpencapHdr string
+
+const (
+    // No Header
+    FibShIpencapHdr_fib_sh_ip_encap_none FibShIpencapHdr = "fib-sh-ip-encap-none"
+
+    // IPv4 Header
+    FibShIpencapHdr_fib_sh_ip_encap_ip4 FibShIpencapHdr = "fib-sh-ip-encap-ip4"
+
+    // IPv6 Header
+    FibShIpencapHdr_fib_sh_ip_encap_ip6 FibShIpencapHdr = "fib-sh-ip-encap-ip6"
+
+    // UDP Header
+    FibShIpencapHdr_fib_sh_ip_encap_udp FibShIpencapHdr = "fib-sh-ip-encap-udp"
+
+    // Lisp Header
+    FibShIpencapHdr_fib_sh_ip_encap_lisp FibShIpencapHdr = "fib-sh-ip-encap-lisp"
 )
 
 // FibNehSpecial represents Fib neh special
@@ -91,38 +300,18 @@ const (
     FibNehSpecial_nh_max_type FibNehSpecial = "nh-max-type"
 )
 
-// Proto represents MPLS Forwarding Protocol Type
-type Proto string
+// FibNeh represents Fib neh
+type FibNeh string
 
 const (
-    // IPv4
-    Proto_ipv4 Proto = "ipv4"
+    // nh local
+    FibNeh_nh_local FibNeh = "nh-local"
 
-    // IPv6
-    Proto_ipv6 Proto = "ipv6"
+    // nh remote
+    FibNeh_nh_remote FibNeh = "nh-remote"
 
-    // MPLS
-    Proto_mpls Proto = "mpls"
-)
-
-// FibShIpencapHdr represents IP Encap Header Type
-type FibShIpencapHdr string
-
-const (
-    // No Header
-    FibShIpencapHdr_fib_sh_ip_encap_none FibShIpencapHdr = "fib-sh-ip-encap-none"
-
-    // IPv4 Header
-    FibShIpencapHdr_fib_sh_ip_encap_ip4 FibShIpencapHdr = "fib-sh-ip-encap-ip4"
-
-    // IPv6 Header
-    FibShIpencapHdr_fib_sh_ip_encap_ip6 FibShIpencapHdr = "fib-sh-ip-encap-ip6"
-
-    // UDP Header
-    FibShIpencapHdr_fib_sh_ip_encap_udp FibShIpencapHdr = "fib-sh-ip-encap-udp"
-
-    // Lisp Header
-    FibShIpencapHdr_fib_sh_ip_encap_lisp FibShIpencapHdr = "fib-sh-ip-encap-lisp"
+    // nh special
+    FibNeh_nh_special FibNeh = "nh-special"
 )
 
 // FibAdjacencyShow represents Adjacency types
@@ -160,154 +349,6 @@ const (
     FibAdjacencyShow_fib_adjacency_unknown FibAdjacencyShow = "fib-adjacency-unknown"
 )
 
-// FibNhinfoExtBag represents FIB NHINFO extension type
-type FibNhinfoExtBag string
-
-const (
-    // Replicated NHINFO
-    FibNhinfoExtBag_replicated_nh_info FibNhinfoExtBag = "replicated-nh-info"
-
-    // Shared NHINFO
-    FibNhinfoExtBag_shared_nh_info FibNhinfoExtBag = "shared-nh-info"
-)
-
-// SsLbaState represents Load Balance config
-type SsLbaState string
-
-const (
-    // L3 Load Balance config
-    SsLbaState_l3 SsLbaState = "l3"
-
-    // L4 Load Balance config
-    SsLbaState_l4 SsLbaState = "l4"
-)
-
-// FibRouteSource represents Fib route source
-type FibRouteSource string
-
-const (
-    // LSD
-    FibRouteSource_lsd FibRouteSource = "lsd"
-
-    // RIB
-    FibRouteSource_rib FibRouteSource = "rib"
-
-    // MRIB
-    FibRouteSource_mrib FibRouteSource = "mrib"
-)
-
-// FibMplsLlcEntryBag represents Fib mpls llc entry bag
-type FibMplsLlcEntryBag string
-
-const (
-    // fib mpls llc bag type xc
-    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_xc FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-xc"
-
-    // fib mpls llc bag type pfx
-    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_pfx FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-pfx"
-
-    // fib mpls llc bag type lsm
-    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_lsm FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-lsm"
-
-    // fib mpls llc bag type max
-    FibMplsLlcEntryBag_fib_mpls_llc_bag_type_max FibMplsLlcEntryBag = "fib-mpls-llc-bag-type-max"
-)
-
-// FibRpfMode represents RPF mode types
-type FibRpfMode string
-
-const (
-    // RPF mode strict
-    FibRpfMode_fib_rpf_mode_strict FibRpfMode = "fib-rpf-mode-strict"
-
-    // RPF mode loose
-    FibRpfMode_fib_rpf_mode_loose FibRpfMode = "fib-rpf-mode-loose"
-
-    // RPF mode unknown
-    FibRpfMode_fib_rpf_mode_unknown FibRpfMode = "fib-rpf-mode-unknown"
-)
-
-// FibafiProto represents Fibafi proto
-type FibafiProto string
-
-const (
-    // ipv4 protocol
-    FibafiProto_ipv4 FibafiProto = "ipv4"
-
-    // ipv4 mpls protocol
-    FibafiProto_ipv4_mpls FibafiProto = "ipv4-mpls"
-
-    // ipv6 protocol
-    FibafiProto_ipv6 FibafiProto = "ipv6"
-
-    // ipv6 mpls protocol
-    FibafiProto_ipv6_mpls FibafiProto = "ipv6-mpls"
-)
-
-// Mplseos represents Mplseos
-type Mplseos string
-
-const (
-    // EOS Disable
-    Mplseos_eos0 Mplseos = "eos0"
-
-    // EOS Enable
-    Mplseos_eos1 Mplseos = "eos1"
-)
-
-// FibFrrProtocolShow represents Fib frr protocol show
-type FibFrrProtocolShow string
-
-const (
-    // frr protocol ipv4
-    FibFrrProtocolShow_frr_protocol_ipv4 FibFrrProtocolShow = "frr-protocol-ipv4"
-
-    // frr protocol ipv6
-    FibFrrProtocolShow_frr_protocol_ipv6 FibFrrProtocolShow = "frr-protocol-ipv6"
-
-    // frr protocol mpls
-    FibFrrProtocolShow_frr_protocol_mpls FibFrrProtocolShow = "frr-protocol-mpls"
-)
-
-// FibShTblFibExtBag represents Fib sh tbl fib ext bag
-type FibShTblFibExtBag string
-
-const (
-    // Leaf Extension
-    FibShTblFibExtBag_leaf_extension FibShTblFibExtBag = "leaf-extension"
-)
-
-// FibLink represents Fib link
-type FibLink string
-
-const (
-    // IPv4 link protocol
-    FibLink_link_ipv4 FibLink = "link-ipv4"
-
-    // IPv6 link protocol
-    FibLink_link_ipv6 FibLink = "link-ipv6"
-
-    // MPLS link protocol
-    FibLink_link_mpls FibLink = "link-mpls"
-)
-
-// FibUpdatePathLfaProtection represents LFA protection type
-type FibUpdatePathLfaProtection string
-
-const (
-    // Not LFA-protected
-    FibUpdatePathLfaProtection_not_lfa_protected FibUpdatePathLfaProtection = "not-lfa-protected"
-
-    // Local-LFA protected
-    FibUpdatePathLfaProtection_local_lfa_protected FibUpdatePathLfaProtection = "local-lfa-protected"
-
-    // Remote-LFA protected
-    FibUpdatePathLfaProtection_remote_lfa_protected FibUpdatePathLfaProtection = "remote-lfa-protected"
-
-    // TI-LFA protected
-    FibUpdatePathLfaProtection_ti_lfa_protected FibUpdatePathLfaProtection = "ti-lfa-protected"
-)
-
 // FibLoadshareShow represents Loadsharing type
 type FibLoadshareShow string
 
@@ -322,29 +363,43 @@ const (
     FibLoadshareShow_fib_load_share_dest_sharing FibLoadshareShow = "fib-load-share-dest-sharing"
 )
 
-// FibllcEntry represents Fibllc entry
-type FibllcEntry string
+// FibNhinfoExtBag represents FIB NHINFO extension type
+type FibNhinfoExtBag string
 
 const (
-    // LabelXconnect
-    FibllcEntry_xc FibllcEntry = "xc"
+    // Replicated NHINFO
+    FibNhinfoExtBag_replicated_nh_info FibNhinfoExtBag = "replicated-nh-info"
 
-    // IPPrefix
-    FibllcEntry_pfx FibllcEntry = "pfx"
+    // Shared NHINFO
+    FibNhinfoExtBag_shared_nh_info FibNhinfoExtBag = "shared-nh-info"
+
+    // Tunnel Endpoint
+    FibNhinfoExtBag_tunnel_endpoint FibNhinfoExtBag = "tunnel-endpoint"
 )
 
-// FibNeh represents Fib neh
-type FibNeh string
+// FibBagProtocol represents Protocol definitions for FIB Bags
+type FibBagProtocol string
 
 const (
-    // nh local
-    FibNeh_nh_local FibNeh = "nh-local"
+    // IPv4 Protocol
+    FibBagProtocol_ipv4 FibBagProtocol = "ipv4"
 
-    // nh remote
-    FibNeh_nh_remote FibNeh = "nh-remote"
+    // IPv6 Protocol
+    FibBagProtocol_ipv6 FibBagProtocol = "ipv6"
 
-    // nh special
-    FibNeh_nh_special FibNeh = "nh-special"
+    // MPLS Protocol
+    FibBagProtocol_mpls FibBagProtocol = "mpls"
+)
+
+// SsLbaState represents Load Balance config
+type SsLbaState string
+
+const (
+    // L3 Load Balance config
+    SsLbaState_l3 SsLbaState = "l3"
+
+    // L4 Load Balance config
+    SsLbaState_l4 SsLbaState = "l4"
 )
 
 // NextHop represents MPLS Forwarding Next Hop Type
@@ -361,6 +416,40 @@ const (
     NextHop_special NextHop = "special"
 )
 
+// Proto represents MPLS Forwarding Protocol Type
+type Proto string
+
+const (
+    // IPv4
+    Proto_ipv4 Proto = "ipv4"
+
+    // IPv6
+    Proto_ipv6 Proto = "ipv6"
+
+    // MPLS
+    Proto_mpls Proto = "mpls"
+)
+
+// MgmtFibMplsFrrState represents MPLS FRR entry state
+type MgmtFibMplsFrrState string
+
+const (
+    // Partial
+    MgmtFibMplsFrrState_partial MgmtFibMplsFrrState = "partial"
+
+    // Active
+    MgmtFibMplsFrrState_active MgmtFibMplsFrrState = "active"
+
+    // Ready
+    MgmtFibMplsFrrState_ready MgmtFibMplsFrrState = "ready"
+
+    // Complete
+    MgmtFibMplsFrrState_complete MgmtFibMplsFrrState = "complete"
+
+    // Any
+    MgmtFibMplsFrrState_any MgmtFibMplsFrrState = "any"
+)
+
 // MgmtFibMplsLspRole represents MPLS FRR entry role
 type MgmtFibMplsLspRole string
 
@@ -370,92 +459,6 @@ const (
 
     // Midpoint
     MgmtFibMplsLspRole_midpoint MgmtFibMplsLspRole = "midpoint"
-)
-
-// FibProtocol represents Fib protocol
-type FibProtocol string
-
-const (
-    // ipv4 protocol
-    FibProtocol_ipv4 FibProtocol = "ipv4"
-
-    // ipv6 protocol
-    FibProtocol_ipv6 FibProtocol = "ipv6"
-
-    // MPLS protocol
-    FibProtocol_mpls FibProtocol = "mpls"
-)
-
-// FibnhInfoRepl represents Fibnh info repl
-type FibnhInfoRepl string
-
-const (
-    // None Replicated NHINFO
-    FibnhInfoRepl_fib_nh_repl_none FibnhInfoRepl = "fib-nh-repl-none"
-
-    // Replicated NHINFO for TE Accounting
-    FibnhInfoRepl_fib_nh_repl_rsvpte FibnhInfoRepl = "fib-nh-repl-rsvpte"
-
-    // Replicated NHINFO for SR MPLS Accounting
-    FibnhInfoRepl_fib_nh_repl_sr_mpls FibnhInfoRepl = "fib-nh-repl-sr-mpls"
-
-    // Replicated NHINFO for Bundle member
-    FibnhInfoRepl_fib_nh_repl_bm FibnhInfoRepl = "fib-nh-repl-bm"
-)
-
-// FibidbOper represents Fibidb oper
-type FibidbOper string
-
-const (
-    // fibidb none
-    FibidbOper_fibidb_none FibidbOper = "fibidb-none"
-
-    // fibidb create
-    FibidbOper_fibidb_create FibidbOper = "fibidb-create"
-
-    // fibidb delete
-    FibidbOper_fibidb_delete FibidbOper = "fibidb-delete"
-
-    // fibidb modify
-    FibidbOper_fibidb_modify FibidbOper = "fibidb-modify"
-
-    // fibidb max
-    FibidbOper_fibidb_max FibidbOper = "fibidb-max"
-)
-
-// Fibfrr represents Fibfrr
-type Fibfrr string
-
-const (
-    // TE FRR
-    Fibfrr_fib_te_frr_node Fibfrr = "fib-te-frr-node"
-
-    // TE Interface FRR
-    Fibfrr_fib_te_frr_intf Fibfrr = "fib-te-frr-intf"
-
-    // TE Protected FRR
-    Fibfrr_fib_te_frr_protected_nh Fibfrr = "fib-te-frr-protected-nh"
-
-    // TE Backup FRR
-    Fibfrr_fib_te_frr_backup_nh Fibfrr = "fib-te-frr-backup-nh"
-
-    // Per Link Protected FRR
-    Fibfrr_fib_per_link_frr_protected_nh Fibfrr = "fib-per-link-frr-protected-nh"
-
-    // Per Link Backup FRR
-    Fibfrr_fib_per_link_frr_backup_nh Fibfrr = "fib-per-link-frr-backup-nh"
-
-    // Per Prefix Protected FRR
-    Fibfrr_fib_prefix_frr_protected_nh Fibfrr = "fib-prefix-frr-protected-nh"
-
-    // Per Prefix Backup FRR
-    Fibfrr_fib_prefix_frr_backup_nh Fibfrr = "fib-prefix-frr-backup-nh"
-
-    // BGP PIC Protected FRR
-    Fibfrr_fib_pic_frr_protected_nh Fibfrr = "fib-pic-frr-protected-nh"
-
-    // BGP PIC Backup FRR
-    Fibfrr_fib_pic_frr_backup_nh Fibfrr = "fib-pic-frr-backup-nh"
 )
 
 // FibStatistics
@@ -530,7 +533,7 @@ type FibStatistics_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Specific node drops.
@@ -777,7 +780,7 @@ type Fib_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // FIB Global info.
@@ -1225,7 +1228,7 @@ type Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdEntries_FibCofoT
     Protocol interface{}
 
     // Route Distinguisher. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Rd interface{}
 
     // Table Id. The type is interface{} with range: 0..4294967295.
@@ -1238,7 +1241,7 @@ type Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdEntries_FibCofoT
     ProtocolType interface{}
 
     // Route Distinguisher. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RouteDistinguisher interface{}
 
     // Table ID. The type is interface{} with range: 0..4294967295.
@@ -2501,7 +2504,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInfo struct {
     SrCurrMode interface{}
 
     // Opaque hardware rsrc state info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SrHwrsrcInfo interface{}
 
     // sr shmwin oor count. The type is interface{} with range: 0..255.
@@ -2567,7 +2570,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInfo_SrHwrsrcMode 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Hardware resource mode. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2644,7 +2647,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareIngressInfo stru
     SrCurrMode interface{}
 
     // Opaque hardware rsrc state info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SrHwrsrcInfo interface{}
 
     // sr shmwin oor count. The type is interface{} with range: 0..255.
@@ -2710,7 +2713,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareIngressInfo_SrHw
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Hardware resource mode. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2787,7 +2790,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareEgressInfo struc
     SrCurrMode interface{}
 
     // Opaque hardware rsrc state info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SrHwrsrcInfo interface{}
 
     // sr shmwin oor count. The type is interface{} with range: 0..255.
@@ -2853,7 +2856,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareEgressInfo_SrHwr
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Hardware resource mode. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2930,7 +2933,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryInfo struct {
     SrCurrMode interface{}
 
     // Opaque hardware rsrc state info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SrHwrsrcInfo interface{}
 
     // sr shmwin oor count. The type is interface{} with range: 0..255.
@@ -2996,7 +2999,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryInfo_SrHwrsrcMode
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Hardware resource mode. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -3104,14 +3107,14 @@ type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
-    // FIB table id. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // FIB table id. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     TableId interface{}
 
     // The router-id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Prefix interface{}
 
     // Table Id. The type is interface{} with range: 0..4294967295.
@@ -3252,12 +3255,16 @@ type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary struct {
     // with range: 0..4294967295.
     LispRlocObjects interface{}
 
+    // Number of SRv6 transit routes. The type is interface{} with range:
+    // 0..4294967295.
+    NumberRoutesSrv6Transit interface{}
+
+    // Number of SRv6 end routes. The type is interface{} with range:
+    // 0..4294967295.
+    NumberRoutesSrv6End interface{}
+
     // Number of SR labels. The type is interface{} with range: 0..4294967295.
     NumberOfSrLabels interface{}
-
-    // VXLAN local Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    SsVxlanLtepIfh interface{}
 
     // Number of dropped pathlists. The type is interface{} with range:
     // 0..4294967295.
@@ -3336,8 +3343,9 @@ func (fibSummary *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary) Get
     fibSummary.EntityData.Leafs.Append("lisp-eid-prefixes", types.YLeaf{"LispEidPrefixes", fibSummary.LispEidPrefixes})
     fibSummary.EntityData.Leafs.Append("lisp-eid-valid-prefixes", types.YLeaf{"LispEidValidPrefixes", fibSummary.LispEidValidPrefixes})
     fibSummary.EntityData.Leafs.Append("lisp-rloc-objects", types.YLeaf{"LispRlocObjects", fibSummary.LispRlocObjects})
+    fibSummary.EntityData.Leafs.Append("number-routes-srv6-transit", types.YLeaf{"NumberRoutesSrv6Transit", fibSummary.NumberRoutesSrv6Transit})
+    fibSummary.EntityData.Leafs.Append("number-routes-srv6-end", types.YLeaf{"NumberRoutesSrv6End", fibSummary.NumberRoutesSrv6End})
     fibSummary.EntityData.Leafs.Append("number-of-sr-labels", types.YLeaf{"NumberOfSrLabels", fibSummary.NumberOfSrLabels})
-    fibSummary.EntityData.Leafs.Append("ss-vxlan-ltep-ifh", types.YLeaf{"SsVxlanLtepIfh", fibSummary.SsVxlanLtepIfh})
     fibSummary.EntityData.Leafs.Append("ss-drop-pl-count", types.YLeaf{"SsDropPlCount", fibSummary.SsDropPlCount})
 
     fibSummary.EntityData.YListKeys = []string {}
@@ -3895,7 +3903,8 @@ type Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll_SesaPlSum_SepNumEcdPlP
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of ECD pathlists per interest. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -3991,7 +4000,7 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface struct 
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // FRR log table.
@@ -4064,11 +4073,11 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_Logs_Lo
     // 0..4294967295.
     LogIndex interface{}
 
-    // FIB Protocol Type. The type is FibFrrProtocolShow.
+    // FIB Protocol Type. The type is FibBagProtocol.
     FrrProtocolType interface{}
 
     // Interface assoc w frr nh. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // nh prefix. The type is string with length: 0..52.
@@ -4077,7 +4086,7 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_Logs_Lo
     // frr switching time. The type is interface{} with range: 0..4294967295.
     FrrSwitchingTime interface{}
 
-    // bundle member. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // bundle member. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BundleMemberInterfaceName interface{}
 
     // frr timestamp.
@@ -4186,7 +4195,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // NHInfoTable is accessed by two keys; {NHInterface,NHAddress}.
@@ -4367,7 +4376,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -4378,7 +4387,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -4391,7 +4400,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -4418,7 +4427,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -4446,7 +4455,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -4461,7 +4471,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -4473,11 +4483,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -4784,6 +4795,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -4799,6 +4813,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -4825,7 +4840,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -4850,6 +4865,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress
@@ -4895,7 +4944,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -4906,7 +4955,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -4919,7 +4968,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -4946,7 +4995,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -4974,7 +5023,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -4989,7 +5039,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -5001,11 +5051,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -5312,6 +5363,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -5327,6 +5381,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -5353,7 +5408,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -5378,6 +5433,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress
@@ -5423,7 +5512,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -5434,7 +5523,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -5447,7 +5536,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -5474,7 +5563,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -5502,7 +5591,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -5517,7 +5607,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -5529,11 +5619,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -5840,6 +5931,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -5855,6 +5949,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -5881,7 +5976,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -5906,6 +6001,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress
@@ -5951,7 +6080,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -5962,7 +6091,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -5975,7 +6104,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -6002,7 +6131,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -6030,7 +6159,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -6045,7 +6175,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -6057,11 +6187,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -6368,6 +6499,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -6383,6 +6517,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -6409,7 +6544,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -6434,6 +6569,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses
@@ -6478,7 +6647,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -6488,7 +6657,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -6527,7 +6696,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -6538,7 +6707,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -6551,7 +6720,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -6578,7 +6747,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -6606,7 +6775,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -6621,7 +6791,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -6633,11 +6803,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -6948,6 +7119,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -6963,6 +7137,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -6989,7 +7164,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -7014,6 +7189,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses
@@ -7059,7 +7268,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -7069,7 +7278,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -7108,7 +7317,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -7119,7 +7328,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -7132,7 +7341,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -7159,7 +7368,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -7187,7 +7396,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -7202,7 +7412,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -7214,11 +7424,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -7529,6 +7740,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -7544,6 +7758,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -7570,7 +7785,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -7595,6 +7810,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
@@ -7641,9 +7890,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail s
 
     // Destination IP address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // IP prefix length. The type is interface{} with range: 0..128.
@@ -7654,7 +7903,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail s
     ProtocolTypeFibEntry interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardware interface{}
 
     // Number of references to the pathlist. The type is interface{} with range:
@@ -7787,6 +8036,15 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail s
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
+    // This route is SRv6 Transit function. The type is bool.
+    RouteIsSrv6Transit interface{}
+
+    // This route is SRv6 End function. The type is bool.
+    RouteIsSrv6End interface{}
+
+    // SRv6 Operation Type. The type is string.
+    Srv6OperationType interface{}
+
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation
 
@@ -7860,6 +8118,9 @@ func (ipPrefixDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
     ipPrefixDetail.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixDetail.RouteForExternalReachLinecardFlag})
     ipPrefixDetail.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", ipPrefixDetail.RouteSourceNotPreferred})
     ipPrefixDetail.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixDetail.RouteIsSrFlag})
+    ipPrefixDetail.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", ipPrefixDetail.RouteIsSrv6Transit})
+    ipPrefixDetail.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", ipPrefixDetail.RouteIsSrv6End})
+    ipPrefixDetail.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", ipPrefixDetail.Srv6OperationType})
 
     ipPrefixDetail.EntityData.YListKeys = []string {}
 
@@ -7892,7 +8153,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     AfiFibProtocolType interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     AibL3Address interface{}
 
     // ADJ ADDR LEN. The type is interface{} with range: 0..4294967295.
@@ -7905,7 +8166,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     FibSpecialNhInformationType interface{}
 
     // FIB entry adj address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     FibEntryAdjacencyAddress interface{}
 
     // FIB entry adjacency interface. The type is interface{} with range:
@@ -7960,16 +8221,15 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     // 0..4294967295.
     BgpAttributeNextHopAs interface{}
 
-    // As path string. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // As path string. The type is string.
     PathString interface{}
 
     // extcom st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ExtcomString interface{}
 
     // com st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ComString interface{}
 
     // extended community. The type is interface{} with range: 0..4294967295.
@@ -8166,37 +8426,37 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     MaximumIndexArrays interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathIndices interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathLdiNumbers interface{}
 
     // Maximum slots. The type is interface{} with range: 0..4294967295.
     MaximumSlots interface{}
 
     // Normalized weights. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     NormalizedWeights interface{}
 
     // Tunnel class value. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TunnelClassValue interface{}
 
     // PBTS info valid flag. The type is bool.
     IsPbtsInfoValid interface{}
 
     // PBTS class offset. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassOffset interface{}
 
     // PBTS class num paths. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassNumPaths interface{}
 
     // PBTS class falls back to class. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsFallbackMappedClass interface{}
 
     // Round Robin Disable. The type is bool.
@@ -8206,7 +8466,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     LdiNextHopBuckets interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardwareInformation interface{}
 
     // Sanity flag. The type is slice of
@@ -8314,7 +8574,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is bool.
+    // Sanity flag. The type is bool.
     Entry interface{}
 }
 
@@ -8345,7 +8605,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Entry interface{}
 }
 
@@ -8376,7 +8636,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Weights of paths. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -8530,7 +8790,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // fib sh tbl path. The type is slice of
+    // Next entry in the path. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath.
     FibShTblPath []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath
 }
@@ -8560,17 +8820,17 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath
-// fib sh tbl path
+// Next entry in the path
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -8628,17 +8888,24 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Parent Interface Handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
     RecursionviaLen interface{}
+
+    // Next entry in the path.
+    NextFibEntryPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_NextFibEntryPath
 
     // More detail about this path entry.
     MoreDetailAboutPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath
+
+    // SRv6 info for this path entry.
+    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -8653,8 +8920,10 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
+    fibShTblPath.EntityData.Children.Append("next-fib-entry-path", types.YChild{"NextFibEntryPath", &fibShTblPath.NextFibEntryPath})
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
+    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -8684,6 +8953,32 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     return &(fibShTblPath.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_NextFibEntryPath
+// Next entry in the path
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_NextFibEntryPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextFibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_NextFibEntryPath) GetEntityData() *types.CommonEntityData {
+    nextFibEntryPath.EntityData.YFilter = nextFibEntryPath.YFilter
+    nextFibEntryPath.EntityData.YangName = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.BundleName = "cisco_ios_xr"
+    nextFibEntryPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    nextFibEntryPath.EntityData.SegmentPath = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/" + nextFibEntryPath.EntityData.SegmentPath
+    nextFibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextFibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextFibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextFibEntryPath.EntityData.Children = types.NewOrderedMap()
+    nextFibEntryPath.EntityData.Leafs = types.NewOrderedMap()
+
+    nextFibEntryPath.EntityData.YListKeys = []string {}
+
+    return &(nextFibEntryPath.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 // More detail about this path entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath struct {
@@ -8704,13 +8999,13 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
-    // Next hop VRF. The type is string with length: 0..33.
+    // Next hop VRF. The type is string.
     NextHopVrf interface{}
 
     // Tunnel endpoint id. The type is interface{} with range: 0..4294967295.
@@ -8729,8 +9024,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // Is recursion object a leaf?. The type is bool.
     RecursePrefixObject interface{}
 
-    // Next prefix recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix recursion in the path. The type is string.
     NextPrefixRecursion interface{}
 
     // Next prefix length. The type is interface{} with range: 0..255.
@@ -8739,8 +9033,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // Recursion has two leaves (e.g. implicit-null path). The type is bool.
     RecursePrefixObject2 interface{}
 
-    // Next prefix2 recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix2 recursion in the path. The type is string.
     NextPrefixRecursion2 interface{}
 
     // Next prefix2 length. The type is interface{} with range: 0..255.
@@ -8920,7 +9213,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     IpEncapHdrType interface{}
 
     // Static Header. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IpEncapHdrp interface{}
 
     // Dynamic Header Fields. The type is interface{} with range: 0..4294967295.
@@ -9056,7 +9349,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Recursive Label(s). The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -9090,7 +9383,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // OutInterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -9135,7 +9428,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // lstack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -9157,6 +9450,40 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefi
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath
+// SRv6 info for this path entry
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SRv6 Per-path Encapsulation Behavior. The type is string.
+    Srv6EncapsulationBehavior interface{}
+
+    // SRv6 SID list. The type is string.
+    Srv6SidList interface{}
+}
+
+func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
+    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
+    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
+    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/" + srv6InformationForPath.EntityData.SegmentPath
+    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-encapsulation-behavior", types.YLeaf{"Srv6EncapsulationBehavior", srv6InformationForPath.Srv6EncapsulationBehavior})
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
+
+    srv6InformationForPath.EntityData.YListKeys = []string {}
+
+    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_ExtensionObject
@@ -9309,7 +9636,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -9319,7 +9646,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -9358,7 +9685,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -9369,7 +9696,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -9382,7 +9709,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -9409,7 +9736,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -9437,7 +9764,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -9452,7 +9780,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -9464,11 +9792,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -9779,6 +10108,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -9794,6 +10126,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -9820,7 +10153,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -9845,6 +10178,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLo
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
@@ -9931,7 +10298,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -9942,7 +10309,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -9955,7 +10322,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -9982,7 +10349,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -10010,7 +10377,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -10025,7 +10393,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -10037,11 +10405,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -10348,6 +10717,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -10363,6 +10735,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -10389,7 +10762,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -10414,6 +10787,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail
@@ -10458,7 +10865,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -10469,7 +10876,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -10482,7 +10889,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -10509,7 +10916,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -10537,7 +10944,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -10552,7 +10960,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -10564,11 +10972,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -10875,6 +11284,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -10890,6 +11302,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -10916,7 +11329,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -10941,6 +11354,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail
@@ -10985,7 +11432,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -10996,7 +11443,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -11009,7 +11456,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -11036,7 +11483,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -11064,7 +11511,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -11079,7 +11527,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -11091,11 +11539,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -11402,6 +11851,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -11417,6 +11869,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -11443,7 +11896,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -11468,6 +11921,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail
@@ -11512,7 +11999,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -11523,7 +12010,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -11536,7 +12023,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -11563,7 +12050,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -11591,7 +12078,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -11606,7 +12094,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -11618,11 +12106,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -11929,6 +12418,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -11944,6 +12436,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -11970,7 +12463,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -11995,6 +12488,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
@@ -12039,7 +12566,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -12049,7 +12576,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -12088,7 +12615,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -12099,7 +12626,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -12112,7 +12639,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -12139,7 +12666,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -12167,7 +12694,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -12182,7 +12710,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -12194,11 +12722,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -12509,6 +13038,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -12524,6 +13056,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -12550,7 +13083,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -12577,6 +13110,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRe
     return &(snecdNhr.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary
 // Operational data for FIB Tablee
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary struct {
@@ -12584,7 +13151,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary struct {
     YFilter yfilter.YFilter
 
     // The router-id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Prefix interface{}
 
     // Table Id. The type is interface{} with range: 0..4294967295.
@@ -12725,12 +13292,16 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary struct {
     // with range: 0..4294967295.
     LispRlocObjects interface{}
 
+    // Number of SRv6 transit routes. The type is interface{} with range:
+    // 0..4294967295.
+    NumberRoutesSrv6Transit interface{}
+
+    // Number of SRv6 end routes. The type is interface{} with range:
+    // 0..4294967295.
+    NumberRoutesSrv6End interface{}
+
     // Number of SR labels. The type is interface{} with range: 0..4294967295.
     NumberOfSrLabels interface{}
-
-    // VXLAN local Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
-    SsVxlanLtepIfh interface{}
 
     // Number of dropped pathlists. The type is interface{} with range:
     // 0..4294967295.
@@ -12807,8 +13378,9 @@ func (summary *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary) GetEntityData
     summary.EntityData.Leafs.Append("lisp-eid-prefixes", types.YLeaf{"LispEidPrefixes", summary.LispEidPrefixes})
     summary.EntityData.Leafs.Append("lisp-eid-valid-prefixes", types.YLeaf{"LispEidValidPrefixes", summary.LispEidValidPrefixes})
     summary.EntityData.Leafs.Append("lisp-rloc-objects", types.YLeaf{"LispRlocObjects", summary.LispRlocObjects})
+    summary.EntityData.Leafs.Append("number-routes-srv6-transit", types.YLeaf{"NumberRoutesSrv6Transit", summary.NumberRoutesSrv6Transit})
+    summary.EntityData.Leafs.Append("number-routes-srv6-end", types.YLeaf{"NumberRoutesSrv6End", summary.NumberRoutesSrv6End})
     summary.EntityData.Leafs.Append("number-of-sr-labels", types.YLeaf{"NumberOfSrLabels", summary.NumberOfSrLabels})
-    summary.EntityData.Leafs.Append("ss-vxlan-ltep-ifh", types.YLeaf{"SsVxlanLtepIfh", summary.SsVxlanLtepIfh})
     summary.EntityData.Leafs.Append("ss-drop-pl-count", types.YLeaf{"SsDropPlCount", summary.SsDropPlCount})
 
     summary.EntityData.YListKeys = []string {}
@@ -13392,10 +13964,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Int
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     PerInterface interface{}
 
     // FIB Interface type. The type is interface{} with range: 0..4294967295.
@@ -13768,7 +14340,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Int
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Optional data. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -13894,7 +14466,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Int
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Optional data. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -13962,9 +14534,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief str
 
     // Destination IP address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // IP prefix length. The type is interface{} with range: 0..128.
@@ -13975,7 +14547,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief str
     ProtocolTypeFibEntry interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardware interface{}
 
     // Number of references to the pathlist. The type is interface{} with range:
@@ -14108,6 +14680,15 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief str
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
+    // This route is SRv6 Transit function. The type is bool.
+    RouteIsSrv6Transit interface{}
+
+    // This route is SRv6 End function. The type is bool.
+    RouteIsSrv6End interface{}
+
+    // SRv6 Operation Type. The type is string.
+    Srv6OperationType interface{}
+
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation
 
@@ -14181,6 +14762,9 @@ func (ipPrefixBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     ipPrefixBrief.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixBrief.RouteForExternalReachLinecardFlag})
     ipPrefixBrief.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", ipPrefixBrief.RouteSourceNotPreferred})
     ipPrefixBrief.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixBrief.RouteIsSrFlag})
+    ipPrefixBrief.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", ipPrefixBrief.RouteIsSrv6Transit})
+    ipPrefixBrief.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", ipPrefixBrief.RouteIsSrv6End})
+    ipPrefixBrief.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", ipPrefixBrief.Srv6OperationType})
 
     ipPrefixBrief.EntityData.YListKeys = []string {}
 
@@ -14213,7 +14797,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     AfiFibProtocolType interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     AibL3Address interface{}
 
     // ADJ ADDR LEN. The type is interface{} with range: 0..4294967295.
@@ -14226,7 +14810,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     FibSpecialNhInformationType interface{}
 
     // FIB entry adj address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     FibEntryAdjacencyAddress interface{}
 
     // FIB entry adjacency interface. The type is interface{} with range:
@@ -14281,16 +14865,15 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     // 0..4294967295.
     BgpAttributeNextHopAs interface{}
 
-    // As path string. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // As path string. The type is string.
     PathString interface{}
 
     // extcom st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ExtcomString interface{}
 
     // com st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ComString interface{}
 
     // extended community. The type is interface{} with range: 0..4294967295.
@@ -14487,37 +15070,37 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     MaximumIndexArrays interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathIndices interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathLdiNumbers interface{}
 
     // Maximum slots. The type is interface{} with range: 0..4294967295.
     MaximumSlots interface{}
 
     // Normalized weights. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     NormalizedWeights interface{}
 
     // Tunnel class value. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TunnelClassValue interface{}
 
     // PBTS info valid flag. The type is bool.
     IsPbtsInfoValid interface{}
 
     // PBTS class offset. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassOffset interface{}
 
     // PBTS class num paths. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassNumPaths interface{}
 
     // PBTS class falls back to class. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsFallbackMappedClass interface{}
 
     // Round Robin Disable. The type is bool.
@@ -14527,7 +15110,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     LdiNextHopBuckets interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardwareInformation interface{}
 
     // Sanity flag. The type is slice of
@@ -14635,7 +15218,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is bool.
+    // Sanity flag. The type is bool.
     Entry interface{}
 }
 
@@ -14666,7 +15249,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Entry interface{}
 }
 
@@ -14697,7 +15280,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Weights of paths. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -14851,7 +15434,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // fib sh tbl path. The type is slice of
+    // Next entry in the path. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath.
     FibShTblPath []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath
 }
@@ -14881,17 +15464,17 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath
-// fib sh tbl path
+// Next entry in the path
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -14949,17 +15532,24 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Parent Interface Handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
     RecursionviaLen interface{}
+
+    // Next entry in the path.
+    NextFibEntryPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_NextFibEntryPath
 
     // More detail about this path entry.
     MoreDetailAboutPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath
+
+    // SRv6 info for this path entry.
+    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -14974,8 +15564,10 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
+    fibShTblPath.EntityData.Children.Append("next-fib-entry-path", types.YChild{"NextFibEntryPath", &fibShTblPath.NextFibEntryPath})
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
+    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -15005,6 +15597,32 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     return &(fibShTblPath.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_NextFibEntryPath
+// Next entry in the path
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_NextFibEntryPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextFibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_NextFibEntryPath) GetEntityData() *types.CommonEntityData {
+    nextFibEntryPath.EntityData.YFilter = nextFibEntryPath.YFilter
+    nextFibEntryPath.EntityData.YangName = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.BundleName = "cisco_ios_xr"
+    nextFibEntryPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    nextFibEntryPath.EntityData.SegmentPath = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/" + nextFibEntryPath.EntityData.SegmentPath
+    nextFibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextFibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextFibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextFibEntryPath.EntityData.Children = types.NewOrderedMap()
+    nextFibEntryPath.EntityData.Leafs = types.NewOrderedMap()
+
+    nextFibEntryPath.EntityData.YListKeys = []string {}
+
+    return &(nextFibEntryPath.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 // More detail about this path entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath struct {
@@ -15025,13 +15643,13 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
-    // Next hop VRF. The type is string with length: 0..33.
+    // Next hop VRF. The type is string.
     NextHopVrf interface{}
 
     // Tunnel endpoint id. The type is interface{} with range: 0..4294967295.
@@ -15050,8 +15668,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // Is recursion object a leaf?. The type is bool.
     RecursePrefixObject interface{}
 
-    // Next prefix recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix recursion in the path. The type is string.
     NextPrefixRecursion interface{}
 
     // Next prefix length. The type is interface{} with range: 0..255.
@@ -15060,8 +15677,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // Recursion has two leaves (e.g. implicit-null path). The type is bool.
     RecursePrefixObject2 interface{}
 
-    // Next prefix2 recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix2 recursion in the path. The type is string.
     NextPrefixRecursion2 interface{}
 
     // Next prefix2 length. The type is interface{} with range: 0..255.
@@ -15241,7 +15857,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     IpEncapHdrType interface{}
 
     // Static Header. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IpEncapHdrp interface{}
 
     // Dynamic Header Fields. The type is interface{} with range: 0..4294967295.
@@ -15377,7 +15993,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Recursive Label(s). The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -15411,7 +16027,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // OutInterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -15456,7 +16072,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // lstack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -15478,6 +16094,40 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefix
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath
+// SRv6 info for this path entry
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SRv6 Per-path Encapsulation Behavior. The type is string.
+    Srv6EncapsulationBehavior interface{}
+
+    // SRv6 SID list. The type is string.
+    Srv6SidList interface{}
+}
+
+func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
+    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
+    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
+    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/" + srv6InformationForPath.EntityData.SegmentPath
+    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-encapsulation-behavior", types.YLeaf{"Srv6EncapsulationBehavior", srv6InformationForPath.Srv6EncapsulationBehavior})
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
+
+    srv6InformationForPath.EntityData.YListKeys = []string {}
+
+    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_ExtensionObject
@@ -15631,7 +16281,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -15641,7 +16291,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -15680,7 +16330,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -15691,7 +16341,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -15704,7 +16354,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -15731,7 +16381,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -15759,7 +16409,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -15774,7 +16425,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -15786,11 +16437,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -16101,6 +16753,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -16116,6 +16771,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -16142,7 +16798,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -16167,6 +16823,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses
@@ -16211,7 +16901,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -16221,7 +16911,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -16260,7 +16950,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -16271,7 +16961,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -16284,7 +16974,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -16311,7 +17001,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -16339,7 +17029,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -16354,7 +17045,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -16366,11 +17057,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -16681,6 +17373,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -16696,6 +17391,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -16722,7 +17418,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -16747,6 +17443,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress
@@ -16834,7 +17564,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -16845,7 +17575,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -16858,7 +17588,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -16885,7 +17615,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -16913,7 +17643,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -16928,7 +17659,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -16940,11 +17671,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -17251,6 +17983,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -17266,6 +18001,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -17292,7 +18028,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -17317,6 +18053,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress
@@ -17362,7 +18132,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -17373,7 +18143,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -17386,7 +18156,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -17413,7 +18183,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -17441,7 +18211,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -17456,7 +18227,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -17468,11 +18239,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -17779,6 +18551,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -17794,6 +18569,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -17820,7 +18596,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -17845,6 +18621,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress
@@ -17890,7 +18700,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -17901,7 +18711,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -17914,7 +18724,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -17941,7 +18751,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -17969,7 +18779,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -17984,7 +18795,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -17996,11 +18807,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -18307,6 +19119,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -18322,6 +19137,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -18348,7 +19164,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -18373,6 +19189,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress
@@ -18418,7 +19268,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -18429,7 +19279,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -18442,7 +19292,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -18469,7 +19319,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -18497,7 +19347,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -18512,7 +19363,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -18524,11 +19375,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -18835,6 +19687,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -18850,6 +19705,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -18876,7 +19732,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -18901,6 +19757,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
@@ -19026,7 +19916,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -19037,7 +19927,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -19050,7 +19940,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -19077,7 +19967,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -19105,7 +19995,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -19120,7 +20011,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -19132,11 +20023,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -19443,6 +20335,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -19458,6 +20353,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -19484,7 +20380,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -19509,6 +20405,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief
@@ -19553,7 +20483,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -19564,7 +20494,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -19577,7 +20507,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -19604,7 +20534,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -19632,7 +20562,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -19647,7 +20578,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -19659,11 +20590,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -19970,6 +20902,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -19985,6 +20920,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -20011,7 +20947,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -20036,6 +20972,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief
@@ -20080,7 +21050,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -20091,7 +21061,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -20104,7 +21074,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -20131,7 +21101,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -20159,7 +21129,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -20174,7 +21145,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -20186,11 +21157,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -20497,6 +21469,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -20512,6 +21487,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -20538,7 +21514,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -20563,6 +21539,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief
@@ -20607,7 +21617,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -20618,7 +21628,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -20631,7 +21641,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -20658,7 +21668,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -20686,7 +21696,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -20701,7 +21712,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -20713,11 +21724,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -21024,6 +22036,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -21039,6 +22054,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -21065,7 +22081,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -21090,6 +22106,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs
@@ -21134,7 +22184,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -21144,7 +22194,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -21183,7 +22233,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -21194,7 +22244,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -21207,7 +22257,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -21234,7 +22284,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -21262,7 +22312,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -21277,7 +22328,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -21289,11 +22340,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -21604,6 +22656,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -21619,6 +22674,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -21645,7 +22701,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -21670,6 +22726,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRem
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs
@@ -21714,7 +22804,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop proto. The type is FibProtocol.
@@ -21724,7 +22814,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
     // FIB Protocol Type for NHINFO linktype. The type is interface{} with range:
@@ -21763,7 +22853,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     SiAdjIf interface{}
 
     // Extension Prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiExtPfx interface{}
 
     // Extension Prefix Len. The type is interface{} with range: 0..4294967295.
@@ -21774,7 +22864,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     SiExtPfxProto interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjAddress interface{}
 
     // ADJ L3 address length. The type is interface{} with range: 0..4294967295.
@@ -21787,7 +22877,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     SiAdjRwLen interface{}
 
     // Macstring for Adjacency. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiAdjRw interface{}
 
     // Depenedent nhinfo type. The type is interface{} with range: 0..4294967295.
@@ -21814,7 +22904,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     SiBkupIfh interface{}
 
     // Bkup L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiBkupAddr interface{}
 
     // BKup L3 address length. The type is interface{} with range: 0..4294967295.
@@ -21842,7 +22932,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     // NH is assoc w a GRE tunnel. The type is bool.
     SiAttrIsGreTunnel interface{}
 
-    // GRE tunnel info. The type is interface{} with range: 0..4294967295.
+    // GRE tunnel info. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTi interface{}
 
     // Flags on GRE tunnel info. The type is interface{} with range:
@@ -21857,7 +22948,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     SiGreTosPropagate interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiHardware interface{}
 
     // nhinfo pointer. The type is interface{} with range: 0..4294967295.
@@ -21869,11 +22960,12 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     // Ancestor IFH. The type is interface{} with range: 0..4294967295.
     SiAncIfh interface{}
 
-    // GRE resolving ip-leaf. The type is interface{} with range: 0..4294967295.
+    // GRE resolving ip-leaf. The type is interface{} with range:
+    // 0..18446744073709551615.
     SiGreTiResolvingLeafp interface{}
 
     // GRE dest address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiGreDestAddr interface{}
 
     // NHID value in the TX NH. The type is interface{} with range: 0..4294967295.
@@ -22184,6 +23276,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
 
     // snecd nhr.
     SnecdNhr Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdNhr
+
+    // snecd tep.
+    SnecdTep Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
 }
 
 func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail) GetEntityData() *types.CommonEntityData {
@@ -22199,6 +23294,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
 
     nhInfoExtensionDetail.EntityData.Children = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Children.Append("snecd-nhr", types.YChild{"SnecdNhr", &nhInfoExtensionDetail.SnecdNhr})
+    nhInfoExtensionDetail.EntityData.Children.Append("snecd-tep", types.YChild{"SnecdTep", &nhInfoExtensionDetail.SnecdTep})
     nhInfoExtensionDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoExtensionDetail.EntityData.Leafs.Append("type", types.YLeaf{"Type", nhInfoExtensionDetail.Type})
 
@@ -22225,7 +23321,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     NhInfoReplicatedEncapId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -22250,6 +23346,40 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLoc
     snecdNhr.EntityData.YListKeys = []string {}
 
     return &(snecdNhr.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep
+// snecd tep
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TEP type. The type is interface{} with range: 0..255.
+    NhInfoTepType interface{}
+
+    // Is TEP is Single Pass. The type is bool.
+    IsTepSinglePass interface{}
+}
+
+func (snecdTep *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionDetail_SnecdTep) GetEntityData() *types.CommonEntityData {
+    snecdTep.EntityData.YFilter = snecdTep.YFilter
+    snecdTep.EntityData.YangName = "snecd-tep"
+    snecdTep.EntityData.BundleName = "cisco_ios_xr"
+    snecdTep.EntityData.ParentYangName = "nh-info-extension-detail"
+    snecdTep.EntityData.SegmentPath = "snecd-tep"
+    snecdTep.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdTep.EntityData.SegmentPath
+    snecdTep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snecdTep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snecdTep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    snecdTep.EntityData.Children = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs = types.NewOrderedMap()
+    snecdTep.EntityData.Leafs.Append("nh-info-tep-type", types.YLeaf{"NhInfoTepType", snecdTep.NhInfoTepType})
+    snecdTep.EntityData.Leafs.Append("is-tep-single-pass", types.YLeaf{"IsTepSinglePass", snecdTep.IsTepSinglePass})
+
+    snecdTep.EntityData.YListKeys = []string {}
+
+    return &(snecdTep.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes
@@ -22298,14 +23428,15 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     // Protocol Name. The type is FibProtocol.
     ProtocolName interface{}
 
-    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
-    // Source address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Source address. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Source interface{}
 
     // Destination address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Destination interface{}
 
     // IPv6 flow label (applies only to and used only for IPv6). The type is
@@ -22317,7 +23448,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     ProtocolTypeFibEntry interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardware interface{}
 
     // Number of references to the pathlist. The type is interface{} with range:
@@ -22450,6 +23581,15 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
+    // This route is SRv6 Transit function. The type is bool.
+    RouteIsSrv6Transit interface{}
+
+    // This route is SRv6 End function. The type is bool.
+    RouteIsSrv6End interface{}
+
+    // SRv6 Operation Type. The type is string.
+    Srv6OperationType interface{}
+
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation
 
@@ -22526,6 +23666,9 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", exactRoute.RouteForExternalReachLinecardFlag})
     exactRoute.EntityData.Leafs.Append("route-source-not-preferred", types.YLeaf{"RouteSourceNotPreferred", exactRoute.RouteSourceNotPreferred})
     exactRoute.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", exactRoute.RouteIsSrFlag})
+    exactRoute.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", exactRoute.RouteIsSrv6Transit})
+    exactRoute.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", exactRoute.RouteIsSrv6End})
+    exactRoute.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", exactRoute.Srv6OperationType})
 
     exactRoute.EntityData.YListKeys = []string {}
 
@@ -22558,7 +23701,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     AfiFibProtocolType interface{}
 
     // AIB L3 Address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     AibL3Address interface{}
 
     // ADJ ADDR LEN. The type is interface{} with range: 0..4294967295.
@@ -22571,7 +23714,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     FibSpecialNhInformationType interface{}
 
     // FIB entry adj address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     FibEntryAdjacencyAddress interface{}
 
     // FIB entry adjacency interface. The type is interface{} with range:
@@ -22626,16 +23769,15 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     // 0..4294967295.
     BgpAttributeNextHopAs interface{}
 
-    // As path string. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // As path string. The type is string.
     PathString interface{}
 
     // extcom st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ExtcomString interface{}
 
     // com st. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ComString interface{}
 
     // extended community. The type is interface{} with range: 0..4294967295.
@@ -22832,37 +23974,37 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     MaximumIndexArrays interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathIndices interface{}
 
     // Path indices. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PathLdiNumbers interface{}
 
     // Maximum slots. The type is interface{} with range: 0..4294967295.
     MaximumSlots interface{}
 
     // Normalized weights. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     NormalizedWeights interface{}
 
     // Tunnel class value. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TunnelClassValue interface{}
 
     // PBTS info valid flag. The type is bool.
     IsPbtsInfoValid interface{}
 
     // PBTS class offset. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassOffset interface{}
 
     // PBTS class num paths. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsClassNumPaths interface{}
 
     // PBTS class falls back to class. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PbtsFallbackMappedClass interface{}
 
     // Round Robin Disable. The type is bool.
@@ -22872,7 +24014,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     LdiNextHopBuckets interface{}
 
     // Platform Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PlatformHardwareInformation interface{}
 
     // Sanity flag. The type is slice of
@@ -22980,7 +24122,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is bool.
+    // Sanity flag. The type is bool.
     Entry interface{}
 }
 
@@ -23011,7 +24153,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Entry interface{}
 }
 
@@ -23042,7 +24184,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Weights of paths. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -23196,7 +24338,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // fib sh tbl path. The type is slice of
+    // Next entry in the path. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath.
     FibShTblPath []*Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath
 }
@@ -23226,17 +24368,17 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath
-// fib sh tbl path
+// Next entry in the path
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -23294,17 +24436,24 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Parent Interface Handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
     RecursionviaLen interface{}
+
+    // Next entry in the path.
+    NextFibEntryPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_NextFibEntryPath
 
     // More detail about this path entry.
     MoreDetailAboutPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath
+
+    // SRv6 info for this path entry.
+    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -23319,8 +24468,10 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
+    fibShTblPath.EntityData.Children.Append("next-fib-entry-path", types.YChild{"NextFibEntryPath", &fibShTblPath.NextFibEntryPath})
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
+    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -23350,6 +24501,32 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     return &(fibShTblPath.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_NextFibEntryPath
+// Next entry in the path
+type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_NextFibEntryPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextFibEntryPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_NextFibEntryPath) GetEntityData() *types.CommonEntityData {
+    nextFibEntryPath.EntityData.YFilter = nextFibEntryPath.YFilter
+    nextFibEntryPath.EntityData.YangName = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.BundleName = "cisco_ios_xr"
+    nextFibEntryPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    nextFibEntryPath.EntityData.SegmentPath = "next-fib-entry-path"
+    nextFibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/" + nextFibEntryPath.EntityData.SegmentPath
+    nextFibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextFibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextFibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextFibEntryPath.EntityData.Children = types.NewOrderedMap()
+    nextFibEntryPath.EntityData.Leafs = types.NewOrderedMap()
+
+    nextFibEntryPath.EntityData.YListKeys = []string {}
+
+    return &(nextFibEntryPath.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath
 // More detail about this path entry
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath struct {
@@ -23370,13 +24547,13 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
-    // Next hop VRF. The type is string with length: 0..33.
+    // Next hop VRF. The type is string.
     NextHopVrf interface{}
 
     // Tunnel endpoint id. The type is interface{} with range: 0..4294967295.
@@ -23395,8 +24572,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // Is recursion object a leaf?. The type is bool.
     RecursePrefixObject interface{}
 
-    // Next prefix recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix recursion in the path. The type is string.
     NextPrefixRecursion interface{}
 
     // Next prefix length. The type is interface{} with range: 0..255.
@@ -23405,8 +24581,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // Recursion has two leaves (e.g. implicit-null path). The type is bool.
     RecursePrefixObject2 interface{}
 
-    // Next prefix2 recursion in the path. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // Next prefix2 recursion in the path. The type is string.
     NextPrefixRecursion2 interface{}
 
     // Next prefix2 length. The type is interface{} with range: 0..255.
@@ -23586,7 +24761,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     IpEncapHdrType interface{}
 
     // Static Header. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IpEncapHdrp interface{}
 
     // Dynamic Header Fields. The type is interface{} with range: 0..4294967295.
@@ -23722,7 +24897,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Recursive Label(s). The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -23756,7 +24931,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // OutInterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -23801,7 +24976,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // lstack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -23823,6 +24998,40 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryP
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath
+// SRv6 info for this path entry
+type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SRv6 Per-path Encapsulation Behavior. The type is string.
+    Srv6EncapsulationBehavior interface{}
+
+    // SRv6 SID list. The type is string.
+    Srv6SidList interface{}
+}
+
+func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
+    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
+    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
+    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
+    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
+    srv6InformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/" + srv6InformationForPath.EntityData.SegmentPath
+    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-encapsulation-behavior", types.YLeaf{"Srv6EncapsulationBehavior", srv6InformationForPath.Srv6EncapsulationBehavior})
+    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
+
+    srv6InformationForPath.EntityData.YListKeys = []string {}
+
+    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_ExtensionObject
@@ -23965,11 +25174,14 @@ type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6 struct
     Srv6Enabled interface{}
 
     // Encap Source Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     EncapSourceAddress interface{}
 
     // Locator Count. The type is interface{} with range: 0..4294967295.
     LocatorCount interface{}
+
+    // Encap Hop-limit info.
+    EncapHopLimit Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_EncapHopLimit
 
     // Locator Array. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator.
@@ -23988,6 +25200,7 @@ func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
     srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srv6.EntityData.Children = types.NewOrderedMap()
+    srv6.EntityData.Children.Append("encap-hop-limit", types.YChild{"EncapHopLimit", &srv6.EncapHopLimit})
     srv6.EntityData.Children.Append("locator", types.YChild{"Locator", nil})
     for i := range srv6.Locator {
         types.SetYListKey(srv6.Locator[i], i)
@@ -24001,6 +25214,45 @@ func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
     srv6.EntityData.YListKeys = []string {}
 
     return &(srv6.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_EncapHopLimit
+// Encap Hop-limit info
+type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_EncapHopLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Use default IPv6 hop-limit value. The type is bool.
+    UseDefault interface{}
+
+    // Propagate IP TTL to Encap IPv6 hop-limit. The type is bool.
+    DoPropagate interface{}
+
+    // Specific value set for hop-limit count. The type is interface{} with range:
+    // 0..255.
+    Value interface{}
+}
+
+func (encapHopLimit *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_EncapHopLimit) GetEntityData() *types.CommonEntityData {
+    encapHopLimit.EntityData.YFilter = encapHopLimit.YFilter
+    encapHopLimit.EntityData.YangName = "encap-hop-limit"
+    encapHopLimit.EntityData.BundleName = "cisco_ios_xr"
+    encapHopLimit.EntityData.ParentYangName = "srv6"
+    encapHopLimit.EntityData.SegmentPath = "encap-hop-limit"
+    encapHopLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/protocol-global/segment-routing/srv6/" + encapHopLimit.EntityData.SegmentPath
+    encapHopLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    encapHopLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    encapHopLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    encapHopLimit.EntityData.Children = types.NewOrderedMap()
+    encapHopLimit.EntityData.Leafs = types.NewOrderedMap()
+    encapHopLimit.EntityData.Leafs.Append("use-default", types.YLeaf{"UseDefault", encapHopLimit.UseDefault})
+    encapHopLimit.EntityData.Leafs.Append("do-propagate", types.YLeaf{"DoPropagate", encapHopLimit.DoPropagate})
+    encapHopLimit.EntityData.Leafs.Append("value", types.YLeaf{"Value", encapHopLimit.Value})
+
+    encapHopLimit.EntityData.YListKeys = []string {}
+
+    return &(encapHopLimit.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator
@@ -24088,14 +25340,14 @@ type Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId struct {
     // NexthopId Value. The type is interface{} with range: 0..4294967295.
     NhId interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceName interface{}
 
     // Next-hop address in string format (e.g., 1 .2.3.4). The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NhAddress interface{}
 
-    // Next-hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next-hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NhInterfaceNameXr interface{}
 
     // Next-hop address. The type is string.
@@ -24216,17 +25468,17 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending struct
     // Prefix Length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Main Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     MainInterfaceName interface{}
 
     // NextHop Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopPrefix interface{}
 
     // Replicated NextHop Type. The type is FibnhInfoRepl.
@@ -24257,7 +25509,7 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrNhinfoPendings_FrrNhinfoPending struct
     SiNhPfxProto interface{}
 
     // nh prefix. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SiNhPfx interface{}
 
     // prefix len. The type is interface{} with range: 0..4294967295.
@@ -24483,7 +25735,8 @@ type Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_ExternalClientSum
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of ECD pathlists per interest. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -24589,6 +25842,9 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc struct {
 
     // Prefer AIB routes over RIB/LSD configured state. The type is bool.
     MiPreferAibRoutesOverRibCfg interface{}
+
+    // Proactive-ARP-ND feature. The type is bool.
+    MiProactiveArpNdEnabled interface{}
 
     // XPL loadinfo is enabled. The type is bool.
     MiXplLdiEnabled interface{}
@@ -24752,6 +26008,7 @@ func (misc *Fib_Nodes_Node_Protocols_Protocol_Misc) GetEntityData() *types.Commo
     misc.EntityData.Leafs.Append("mi-cpuless-count", types.YLeaf{"MiCpulessCount", misc.MiCpulessCount})
     misc.EntityData.Leafs.Append("mi-prefer-aib-routes-over-rib-oper", types.YLeaf{"MiPreferAibRoutesOverRibOper", misc.MiPreferAibRoutesOverRibOper})
     misc.EntityData.Leafs.Append("mi-prefer-aib-routes-over-rib-cfg", types.YLeaf{"MiPreferAibRoutesOverRibCfg", misc.MiPreferAibRoutesOverRibCfg})
+    misc.EntityData.Leafs.Append("mi-proactive-arp-nd-enabled", types.YLeaf{"MiProactiveArpNdEnabled", misc.MiProactiveArpNdEnabled})
     misc.EntityData.Leafs.Append("mi-xpl-ldi-enabled", types.YLeaf{"MiXplLdiEnabled", misc.MiXplLdiEnabled})
     misc.EntityData.Leafs.Append("mi-frr-follow-bgp-pic", types.YLeaf{"MiFrrFollowBgpPic", misc.MiFrrFollowBgpPic})
     misc.EntityData.Leafs.Append("mi-encap-sharing-disable", types.YLeaf{"MiEncapSharingDisable", misc.MiEncapSharingDisable})
@@ -25226,7 +26483,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbExtCleanupFailedCount struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of recycled idb extensions that failed  cleanup. The type is
+    // interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -25257,7 +26515,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsFail struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Per protocol Failure stats for label RPF. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -25288,7 +26547,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsAct struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Per protocol actions stats for label RPF. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -25319,7 +26579,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfNum struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Per protocol number of label RPFs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -25352,7 +26613,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbLsecEnabledNum struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Number of interfaces having label security  enabled. The type is
+    // interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -25383,7 +26645,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispEid struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // number of LISP EID prefixes. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -25416,7 +26679,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispValidEid struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // number of LISP EID prefixes eligible for  forwarding. The type is
+    // interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -25447,7 +26711,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiCpulessNode struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // list of cpuless line cards. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -25675,11 +26940,13 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat struct {
     // Gtrie timing statistics.
     FpdGtrieTiming Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGtrieTiming
 
-    // Number of global routes from  each route source. The type is slice of
+    // Number of global routes from                      each route source. The
+    // type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry.
     FpdGbltblSrcEntry []*Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry
 
-    // Number of vrf routes from  each route source. The type is slice of
+    // Number of vrf routes from                         each route source. The
+    // type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry.
     FpdVrftblSrcEntry []*Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry
 
@@ -26037,7 +27304,7 @@ func (fgtGtrieFnTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry
-// Number of global routes from
+// Number of global routes from                    
 // 
 // each route source
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry struct {
@@ -26045,7 +27312,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry str
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..18446744073709551615.
+    // Number of global routes from                      each route source. The
+    // type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
 }
 
@@ -26070,7 +27338,7 @@ func (fpdGbltblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry
-// Number of vrf routes from
+// Number of vrf routes from                       
 // 
 // each route source
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry struct {
@@ -26078,7 +27346,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry str
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..18446744073709551615.
+    // Number of vrf routes from                         each route source. The
+    // type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
 }
 
@@ -26109,7 +27378,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdNumRetry struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..18446744073709551615.
+    // the number of retries of each type. The type is interface{} with range:
+    // 0..18446744073709551615.
     Entry interface{}
 }
 
@@ -26177,7 +27447,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr_FppCntr struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // the number of frees for this proto. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -26432,7 +27703,7 @@ type Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict struct {
     // Table ID of IP prefix. The type is interface{} with range: 0..4294967295.
     PfxTblId interface{}
 
-    // IP Prefix. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP Prefix. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Prefix interface{}
 
     // Length of IP Prefix. The type is interface{} with range: 0..4294967295.
@@ -26665,7 +27936,7 @@ type OcAftL3_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Network Instance Name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Abstract forwarding table per FIB protocol.
@@ -27772,7 +29043,7 @@ type MplsForwarding_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // MPLS forwarding summary.
@@ -27833,6 +29104,18 @@ type MplsForwarding_Nodes_Node_ForwardingSummary struct {
     // Number of label swap/disposition entries. The type is interface{} with
     // range: 0..4294967295.
     LabelSwitchedEntries interface{}
+
+    // Number of FRR protected label swap/disposition entries. The type is
+    // interface{} with range: 0..4294967295.
+    ProtectedLabelSwitchedEntries interface{}
+
+    // Number of FRR Ready label swap/disposition entries. The type is interface{}
+    // with range: 0..4294967295.
+    FrrReadyLabelSwitchedEntries interface{}
+
+    // Number of FRR Active label swap/disposition entries. The type is
+    // interface{} with range: 0..4294967295.
+    FrrActiveLabelSwitchedEntries interface{}
 
     // Number of delete stale label entries. The type is interface{} with range:
     // 0..4294967295.
@@ -27953,6 +29236,9 @@ func (forwardingSummary *MplsForwarding_Nodes_Node_ForwardingSummary) GetEntityD
     forwardingSummary.EntityData.Leafs.Append("ipv4-imposition-entries", types.YLeaf{"Ipv4ImpositionEntries", forwardingSummary.Ipv4ImpositionEntries})
     forwardingSummary.EntityData.Leafs.Append("reserved-label-entries", types.YLeaf{"ReservedLabelEntries", forwardingSummary.ReservedLabelEntries})
     forwardingSummary.EntityData.Leafs.Append("label-switched-entries", types.YLeaf{"LabelSwitchedEntries", forwardingSummary.LabelSwitchedEntries})
+    forwardingSummary.EntityData.Leafs.Append("protected-label-switched-entries", types.YLeaf{"ProtectedLabelSwitchedEntries", forwardingSummary.ProtectedLabelSwitchedEntries})
+    forwardingSummary.EntityData.Leafs.Append("frr-ready-label-switched-entries", types.YLeaf{"FrrReadyLabelSwitchedEntries", forwardingSummary.FrrReadyLabelSwitchedEntries})
+    forwardingSummary.EntityData.Leafs.Append("frr-active-label-switched-entries", types.YLeaf{"FrrActiveLabelSwitchedEntries", forwardingSummary.FrrActiveLabelSwitchedEntries})
     forwardingSummary.EntityData.Leafs.Append("deleted-stale-entries", types.YLeaf{"DeletedStaleEntries", forwardingSummary.DeletedStaleEntries})
     forwardingSummary.EntityData.Leafs.Append("te-head-entries", types.YLeaf{"TeHeadEntries", forwardingSummary.TeHeadEntries})
     forwardingSummary.EntityData.Leafs.Append("te-frr-head-entries", types.YLeaf{"TeFrrHeadEntries", forwardingSummary.TeFrrHeadEntries})
@@ -28030,7 +29316,7 @@ type MplsForwarding_Nodes_Node_FrrLogs_FrrLog struct {
     // 0..4294967295.
     EventId interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     ProtectedFrrInterfaceName interface{}
 
     // Next Hop. The type is interface{} with range: 0..4294967295.
@@ -28052,7 +29338,7 @@ type MplsForwarding_Nodes_Node_FrrLogs_FrrLog struct {
     FastBundleMemberDownInterface interface{}
 
     // Node on which the FRR event happened. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     FrrEventNodeId interface{}
 
     // Time of FRR event processing start, Seconds in UTC, and Nano Seconds.
@@ -28217,7 +29503,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail struc
     EosBit interface{}
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
     // Number of references to the leaf. The type is interface{} with range:
@@ -28349,7 +29635,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_LdiIn
     YFilter yfilter.YFilter
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     LdiHardwareInformation interface{}
 }
 
@@ -28388,7 +29674,8 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Multi
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // multicast mpls tunnel. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -28426,7 +29713,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Multi
     MulticastPlatformDataLength interface{}
 
     // The multicast platform data. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     MulticastPlatformData interface{}
 }
 
@@ -28607,7 +29894,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -28661,7 +29948,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Label stack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -28774,7 +30061,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information struct {
     EosBit interface{}
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
     // Number of references to the leaf. The type is interface{} with range:
@@ -28906,7 +30193,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LdiInformation 
     YFilter yfilter.YFilter
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     LdiHardwareInformation interface{}
 }
 
@@ -28945,7 +30232,8 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_MulticastInform
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // multicast mpls tunnel. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -28983,7 +30271,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_MulticastInform
     MulticastPlatformDataLength interface{}
 
     // The multicast platform data. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     MulticastPlatformData interface{}
 }
 
@@ -29164,7 +30452,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -29218,7 +30506,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Label stack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -29352,7 +30640,7 @@ type MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interface struc
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // RPF is enabled on interface. The type is bool.
@@ -29374,7 +30662,7 @@ type MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interface struc
     // 0..18446744073709551615.
     MultiLabelDrops interface{}
 
-    // RPF interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // RPF interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Rpfifh interface{}
 }
 
@@ -29512,7 +30800,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel struct 
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Tunnel head information.
@@ -29550,7 +30838,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_TunnelI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TunnelInterfaceName interface{}
 
     // Tunnel Local label. The type is interface{} with range: 0..4294967295.
@@ -29616,7 +30904,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg st
     EosBit interface{}
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HardwareInformation interface{}
 
     // Number of references to the leaf. The type is interface{} with range:
@@ -29746,7 +31034,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_Ld
     YFilter yfilter.YFilter
 
     // Hardware info. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     LdiHardwareInformation interface{}
 }
 
@@ -29785,7 +31073,8 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_Mu
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // multicast mpls tunnel. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -29823,7 +31112,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_Mu
     MulticastPlatformDataLength interface{}
 
     // The multicast platform data. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     MulticastPlatformData interface{}
 }
 
@@ -30004,7 +31293,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Next hop interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -30058,7 +31347,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Label stack. The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -30261,7 +31550,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbProtectedInterfaceTableSummaries
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -30438,19 +31727,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -30460,7 +31749,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     EntryFrrState interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     FrrNextHopIpv4Address interface{}
 
     // MLDP or P2MP-TE. The type is bool.
@@ -30562,7 +31851,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range:
@@ -30598,7 +31887,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -30637,19 +31926,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     YFilter yfilter.YFilter
     YListKey string
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -30659,7 +31948,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     EntryFrrState interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     FrrNextHopIpv4Address interface{}
 
     // MLDP or P2MP-TE. The type is bool.
@@ -30743,7 +32032,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range:
@@ -30779,7 +32068,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -30855,7 +32144,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead stru
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Output label in string format. The type is string.
@@ -30897,19 +32186,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -30919,7 +32208,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     EntryFrrState interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     FrrNextHopIpv4Address interface{}
 
     // MLDP or P2MP-TE. The type is bool.
@@ -31021,7 +32310,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range:
@@ -31057,7 +32346,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -31096,19 +32385,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     YFilter yfilter.YFilter
     YListKey string
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -31118,7 +32407,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     EntryFrrState interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     FrrNextHopIpv4Address interface{}
 
     // MLDP or P2MP-TE. The type is bool.
@@ -31202,7 +32491,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range:
@@ -31238,7 +32527,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -31361,7 +32650,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbBackupInterfaceSummaries_FrrdbBa
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:

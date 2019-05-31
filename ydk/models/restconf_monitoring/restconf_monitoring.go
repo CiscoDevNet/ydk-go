@@ -151,7 +151,7 @@ type RestconfState_Streams_Stream struct {
 
     // Indicates the time the replay log for this stream was created. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     ReplayLogCreationTime interface{}
 
     // The server will create an entry in this list for each encoding format that

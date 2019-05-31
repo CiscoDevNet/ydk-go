@@ -96,7 +96,7 @@ type CrossBarStats_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Table of stats information.
@@ -205,23 +205,23 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Asic ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Asic ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AsicId interface{}
 
-    // Port. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Port. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Port interface{}
 
-    // internal err cnt. The type is interface{} with range:
+    // Internal Error Count. The type is interface{} with range:
     // 0..18446744073709551615.
     InternalErrCnt interface{}
 
-    // in stats.
+    // Ingress Stats.
     InStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats
 
-    // eg stats.
+    // Egress Stats.
     EgStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats
 
-    // xps stats.
+    // Crosspoint Scheduler Stats.
     XpsStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_XpsStats
 }
 
@@ -251,30 +251,30 @@ func (skbStat *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat) GetEntit
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats
-// in stats
+// Ingress Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ibb stats.
+    // Input Buffer Block Stats.
     IbbStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbStats
 
-    // ibf stats.
+    // Input Forwarding Block Stats.
     IbfStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfStats
 
-    // ibb uc stats.
+    // Input Buffer Block UC Stats.
     IbbUcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbUcStats
 
-    // ibf uc stats.
+    // Input Forwarding Block UC Stats.
     IbfUcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfUcStats
 
-    // ibb mc stats.
+    // Input Buffer Block MC Stats.
     IbbMcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbMcStats
 
-    // ibf mc stats.
+    // Input Forwarding Block MC Stats.
     IbfMcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfMcStats
 
-    // cfl stats.
+    // Ingress Common Fabric Link Stats.
     CflStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats
 }
 
@@ -305,7 +305,7 @@ func (inStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats) 
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbStats
-// ibb stats
+// Input Buffer Block Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -357,12 +357,13 @@ func (ibbStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfStats
-// ibf stats
+// Input Forwarding Block Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // unused. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress Unused Counter. The type is interface{} with range:
+    // 0..18446744073709551615.
     Unused interface{}
 }
 
@@ -387,7 +388,7 @@ func (ibfStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbUcStats
-// ibb uc stats
+// Input Buffer Block UC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -481,7 +482,7 @@ func (ibbUcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfUcStats
-// ibf uc stats
+// Input Forwarding Block UC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -537,7 +538,7 @@ func (ibfUcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbMcStats
-// ibb mc stats
+// Input Buffer Block MC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbbMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -635,7 +636,7 @@ func (ibbMcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfMcStats
-// ibf mc stats
+// Input Forwarding Block MC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_IbfMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -712,18 +713,18 @@ func (ibfMcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats
-// cfl stats
+// Ingress Common Fabric Link Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // cfl uc stats.
+    // Ingress CFL Unicast Stats.
     CflUcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflUcStats
 
-    // cfl mc stats.
+    // Ingress CFL Multicast Stats.
     CflMcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMcStats
 
-    // cfl misc stats.
+    // Ingress CFL Miscellaneous Stats.
     CflMiscStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMiscStats
 }
 
@@ -750,7 +751,7 @@ func (cflStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflUcStats
-// cfl uc stats
+// Ingress CFL Unicast Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -781,7 +782,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_Cf
     // 0..18446744073709551615.
     PktsToIbFromPort interface{}
 
-    // in uc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress CFL Unicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     InUcRate interface{}
 }
 
@@ -813,7 +815,7 @@ func (cflUcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMcStats
-// cfl mc stats
+// Ingress CFL Multicast Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -844,7 +846,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_Cf
     // 0..18446744073709551615.
     PktsToIbFromPort interface{}
 
-    // in mc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress CFL Multicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     InMcRate interface{}
 }
 
@@ -876,7 +879,7 @@ func (cflMcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMiscStats
-// cfl misc stats
+// Ingress CFL Miscellaneous Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_CflMiscStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -887,7 +890,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InStats_CflStats_Cf
     // CRC NEW ERR. The type is interface{} with range: 0..18446744073709551615.
     CrcNewErr interface{}
 
-    // in total rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress CFL Total Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     InTotalRate interface{}
 }
 
@@ -914,21 +918,21 @@ func (cflMiscStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_InSt
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats
-// eg stats
+// Egress Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // obu stats.
+    // Output Buffer Stats.
     ObuStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats
 
-    // obu uc stats.
+    // Output Buffer UC Stats.
     ObuUcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuUcStats
 
-    // obu mc stats.
+    // Output Buffer MC Stats.
     ObuMcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuMcStats
 
-    // cfl stats.
+    // Egress Common Fabric Link Stats.
     CflStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats
 }
 
@@ -956,13 +960,14 @@ func (egStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats) 
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats
-// obu stats
+// Output Buffer Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // data queque. The type is slice of interface{} with range: 0..4294967295.
-    DataQueque []interface{}
+    // Output Buffer Data Queue Queue Count. The type is slice of
+    // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats_DataQueque.
+    DataQueque []*CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats_DataQueque
 }
 
 func (obuStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats) GetEntityData() *types.CommonEntityData {
@@ -977,16 +982,52 @@ func (obuStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_
     obuStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     obuStats.EntityData.Children = types.NewOrderedMap()
+    obuStats.EntityData.Children.Append("data-queque", types.YChild{"DataQueque", nil})
+    for i := range obuStats.DataQueque {
+        types.SetYListKey(obuStats.DataQueque[i], i)
+        obuStats.EntityData.Children.Append(types.GetSegmentPath(obuStats.DataQueque[i]), types.YChild{"DataQueque", obuStats.DataQueque[i]})
+    }
     obuStats.EntityData.Leafs = types.NewOrderedMap()
-    obuStats.EntityData.Leafs.Append("data-queque", types.YLeaf{"DataQueque", obuStats.DataQueque})
 
     obuStats.EntityData.YListKeys = []string {}
 
     return &(obuStats.EntityData)
 }
 
+// CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats_DataQueque
+// Output Buffer Data Queue Queue Count
+type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats_DataQueque struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Output Buffer Data Queue Queue Count. The type is interface{} with range:
+    // 0..4294967295.
+    Entry interface{}
+}
+
+func (dataQueque *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuStats_DataQueque) GetEntityData() *types.CommonEntityData {
+    dataQueque.EntityData.YFilter = dataQueque.YFilter
+    dataQueque.EntityData.YangName = "data-queque"
+    dataQueque.EntityData.BundleName = "cisco_ios_xr"
+    dataQueque.EntityData.ParentYangName = "obu-stats"
+    dataQueque.EntityData.SegmentPath = "data-queque" + types.AddNoKeyToken(dataQueque)
+    dataQueque.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-xbar-oper:cross-bar-stats/nodes/node/cross-bar-table/skb-stats/skb-stat/eg-stats/obu-stats/" + dataQueque.EntityData.SegmentPath
+    dataQueque.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataQueque.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataQueque.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dataQueque.EntityData.Children = types.NewOrderedMap()
+    dataQueque.EntityData.Leafs = types.NewOrderedMap()
+    dataQueque.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", dataQueque.Entry})
+
+    dataQueque.EntityData.YListKeys = []string {}
+
+    return &(dataQueque.EntityData)
+}
+
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuUcStats
-// obu uc stats
+// Output Buffer UC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1032,7 +1073,7 @@ func (obuUcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuMcStats
-// obu mc stats
+// Output Buffer MC Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_ObuMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1078,18 +1119,18 @@ func (obuMcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats
-// cfl stats
+// Egress Common Fabric Link Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // cfl uc stats.
+    // Egress CFL Unicast Stats.
     CflUcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflUcStats
 
-    // cfl mc stats.
+    // Egress CFL Multicast Stats.
     CflMcStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMcStats
 
-    // cfl misc stats.
+    // Egress CFL Miscellaneous Stats.
     CflMiscStats CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMiscStats
 }
 
@@ -1116,7 +1157,7 @@ func (cflStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflUcStats
-// cfl uc stats
+// Egress CFL Unicast Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1129,7 +1170,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_Cf
     // 0..18446744073709551615.
     PktsFromObToPort interface{}
 
-    // eg uc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress CFL Unicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     EgUcRate interface{}
 }
 
@@ -1156,7 +1198,7 @@ func (cflUcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMcStats
-// cfl mc stats
+// Egress CFL Multicast Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1169,7 +1211,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_Cf
     // 0..18446744073709551615.
     PktsFromObToPort interface{}
 
-    // eg mc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress CFL Multicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     EgMcRate interface{}
 }
 
@@ -1196,7 +1239,7 @@ func (cflMcStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStat
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMiscStats
-// cfl misc stats
+// Egress CFL Miscellaneous Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_CflMiscStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1216,7 +1259,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgStats_CflStats_Cf
     // 0..18446744073709551615.
     EccRawUncorrErr interface{}
 
-    // eg total rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress CFL Total Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     EgTotalRate interface{}
 }
 
@@ -1245,7 +1289,7 @@ func (cflMiscStats *CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_EgSt
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_XpsStats
-// xps stats
+// Crosspoint Scheduler Stats
 type CrossBarStats_Nodes_Node_CrossBarTable_SkbStats_SkbStat_XpsStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1331,10 +1375,10 @@ type CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Asic ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Asic ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AsicId interface{}
 
-    // Port. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Port. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Port interface{}
 
     // The type is interface{} with range: 0..18446744073709551615.
@@ -1582,53 +1626,53 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Asic ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Asic ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AsicId interface{}
 
-    // Port. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Port. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Port interface{}
 
-    // internal err cnt. The type is interface{} with range:
+    // Internal Error Count. The type is interface{} with range:
     // 0..18446744073709551615.
     InternalErrCnt interface{}
 
-    // ua0 stats.
+    // Unicast Arbiter0 stats.
     Ua0Stats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats
 
-    // ua1 stats.
+    // Unicast Arbiter1 stats.
     Ua1Stats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats
 
-    // ua2 stats.
+    // Unicast Arbiter2 stats.
     Ua2Stats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats
 
-    // ma stats.
+    // Multicast Arbiter stats.
     MaStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats
 
-    // ca stats.
+    // Control Cast stats.
     CaStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats
 
-    // pi stats.
+    // Port Ingress stats.
     PiStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats
 
-    // pe stats.
+    // Port Egress stats.
     PeStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats
 
-    // pi uc stats.
+    // Ingress Unicast stats.
     PiUcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats
 
-    // pi mc stats.
+    // Ingress Multicast stats.
     PiMcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats
 
-    // pi cc stats.
+    // Ingress Control Cast stats.
     PiCcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats
 
-    // pe uc stats.
+    // Egress Unicast stats.
     PeUcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats
 
-    // pe mc stats.
+    // Egress Multicast stats.
     PeMcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats
 
-    // pe cc stats.
+    // Egress Control Cast stats.
     PeCcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats
 }
 
@@ -1668,7 +1712,7 @@ func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetEn
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats
-// ua0 stats
+// Unicast Arbiter0 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1731,7 +1775,7 @@ func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Sta
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats
-// ua1 stats
+// Unicast Arbiter1 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1794,7 +1838,7 @@ func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Sta
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats
-// ua2 stats
+// Unicast Arbiter2 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1857,7 +1901,7 @@ func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Sta
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats
-// ma stats
+// Multicast Arbiter stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1925,7 +1969,7 @@ func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats
-// ca stats
+// Control Cast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1979,7 +2023,7 @@ func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats
-// pi stats
+// Port Ingress stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1996,7 +2040,7 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats struct {
     // 0..18446744073709551615.
     TotalRate3Cnt interface{}
 
-    // total calc rate. The type is interface{} with range:
+    // Ingress Total Rate. The type is interface{} with range:
     // 0..18446744073709551615.
     TotalCalcRate interface{}
 }
@@ -2025,7 +2069,7 @@ func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats
-// pe stats
+// Port Egress stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2042,7 +2086,7 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats struct {
     // 0..18446744073709551615.
     TotalRate3Cnt interface{}
 
-    // total calc rate. The type is interface{} with range:
+    // Egress Total Rate. The type is interface{} with range:
     // 0..18446744073709551615.
     TotalCalcRate interface{}
 
@@ -2076,7 +2120,7 @@ func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats
-// pi uc stats
+// Ingress Unicast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2214,7 +2258,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress Unicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 
     // CRC STOMP PKT CNT. The type is interface{} with range:
@@ -2278,7 +2323,7 @@ func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcS
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats
-// pi mc stats
+// Ingress Multicast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2404,7 +2449,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress Multicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 
     // CRC STOMP PKT CNT. The type is interface{} with range:
@@ -2465,7 +2511,7 @@ func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcS
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats
-// pi cc stats
+// Ingress Control Cast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2571,7 +2617,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Ingress Control Cast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 }
 
@@ -2625,7 +2672,7 @@ func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcS
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats
-// pe uc stats
+// Egress Unicast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2749,7 +2796,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress Unicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 }
 
@@ -2804,7 +2852,7 @@ func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcS
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats
-// pe mc stats
+// Egress Multicast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2871,7 +2919,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress Multicast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 }
 
@@ -2912,7 +2961,7 @@ func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcS
 }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats
-// pe cc stats
+// Egress Control Cast stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2974,7 +3023,8 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats struct 
     // RATE CNT. The type is interface{} with range: 0..18446744073709551615.
     RateCnt interface{}
 
-    // calc rate. The type is interface{} with range: 0..18446744073709551615.
+    // Egress Control Cast Rate. The type is interface{} with range:
+    // 0..18446744073709551615.
     CalcRate interface{}
 }
 

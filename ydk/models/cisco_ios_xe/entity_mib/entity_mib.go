@@ -236,7 +236,7 @@ type ENTITYMIB_EntPhysicalTable_EntPhysicalEntry struct {
     // type of hardware device.  If no vendor-specific registration identifier
     // exists for this physical entity, or the value is unknown by this agent,
     // then the value { 0 0 } is returned. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     EntPhysicalVendorType interface{}
 
     // The value of entPhysicalIndex for the physical entity which 'contains' this
@@ -571,7 +571,7 @@ type ENTITYMIB_EntLogicalTable_EntLogicalEntry struct {
     // dot1dBridge    a logical entity of a 802.3 repeater -> snmpDot3RptrMgmt If
     // an appropriate node in the SMI's naming hierarchy cannot be identified, the
     // value 'mib-2' should be used. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     EntLogicalType interface{}
 
     // An SNMPv1 or SNMPv2C community-string, which can be used to access detailed
@@ -617,7 +617,7 @@ type ENTITYMIB_EntLogicalTable_EntLogicalEntry struct {
     // receives network management traffic. Possible values for this object are
     // presently found in the Transport Mappings for Simple Network Management
     // Protocol' (STD 62, RFC 3417 [RFC3417]). The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     EntLogicalTDomain interface{}
 
     // The authoritative contextEngineID that can be used to send an SNMP message
@@ -892,7 +892,7 @@ type ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry struct {
     // future, as required.  Bridge ports are identified by examining the Bridge
     // MIB and appropriate ifEntries associated with each 'dot1dBasePort', and are
     // thus not represented in this table. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     EntAliasMappingIdentifier interface{}
 }
 

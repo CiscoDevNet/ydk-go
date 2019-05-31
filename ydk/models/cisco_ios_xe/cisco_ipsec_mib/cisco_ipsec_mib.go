@@ -48,17 +48,6 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-MIB:CISCO-IPSEC-MIB", reflect.TypeOf(CISCOIPSECMIB{}))
 }
 
-// IkeHashAlgo represents IKE negotiations.
-type IkeHashAlgo string
-
-const (
-    IkeHashAlgo_none IkeHashAlgo = "none"
-
-    IkeHashAlgo_md5 IkeHashAlgo = "md5"
-
-    IkeHashAlgo_sha IkeHashAlgo = "sha"
-)
-
 // CryptomapType represents is a unit of IOS IPSec policy specification.
 type CryptomapType string
 
@@ -76,35 +65,26 @@ const (
     CryptomapType_cryptomapTypeDYNAMICDISCOVERY CryptomapType = "cryptomapTypeDYNAMICDISCOVERY"
 )
 
-// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
-type IkeIdentityType string
+// CryptomapSetBindStatus represents SNMP General Error.
+type CryptomapSetBindStatus string
 
 const (
-    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
+    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
 
-    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
+    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
 
-    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
+    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
 )
 
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
+// IkeHashAlgo represents IKE negotiations.
+type IkeHashAlgo string
 
 const (
-    TrapStatus_enabled TrapStatus = "enabled"
+    IkeHashAlgo_none IkeHashAlgo = "none"
 
-    TrapStatus_disabled TrapStatus = "disabled"
-)
+    IkeHashAlgo_md5 IkeHashAlgo = "md5"
 
-// EncryptAlgo represents The encryption algorithm used in negotiations.
-type EncryptAlgo string
-
-const (
-    EncryptAlgo_none EncryptAlgo = "none"
-
-    EncryptAlgo_des EncryptAlgo = "des"
-
-    EncryptAlgo_des3 EncryptAlgo = "des3"
+    IkeHashAlgo_sha IkeHashAlgo = "sha"
 )
 
 // IkeAuthMethod represents negotiations.
@@ -122,15 +102,15 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
-// CryptomapSetBindStatus represents SNMP General Error.
-type CryptomapSetBindStatus string
+// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
+type IkeIdentityType string
 
 const (
-    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
+    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
 
-    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
+    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
 
-    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
+    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
 )
 
 // DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
@@ -142,6 +122,26 @@ const (
     DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
 
     DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
+)
+
+// EncryptAlgo represents The encryption algorithm used in negotiations.
+type EncryptAlgo string
+
+const (
+    EncryptAlgo_none EncryptAlgo = "none"
+
+    EncryptAlgo_des EncryptAlgo = "des"
+
+    EncryptAlgo_des3 EncryptAlgo = "des3"
+)
+
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
+
+const (
+    TrapStatus_enabled TrapStatus = "enabled"
+
+    TrapStatus_disabled TrapStatus = "disabled"
 )
 
 // CISCOIPSECMIB
@@ -847,7 +847,7 @@ type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     // The IP address of the current peer associated with  this IPSec policy item.
     // Traffic that is protected by this cryptomap is protected by a tunnel that
     // terminates at the device whose IP address is specified by this object. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CipsStaticCryptomapPeer interface{}
 
     // The number of peers associated with this cryptomap  entry. The peers other
@@ -864,13 +864,13 @@ type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     // This object identifies the lifetime of the IPSec Security Associations (SA)
     // created using this IPSec policy entry. If this value is zero, the lifetime
     // assumes the  value specified by the global lifetime parameter. The type is
-    // interface{} with range: 0..None | 120..86400.
+    // interface{} with range: 0..0 | 120..86400.
     CipsStaticCryptomapLifetime interface{}
 
     // This object identifies the lifesize (maximum traffic in bytes that may be
     // carried) of the IPSec SAs created using this IPSec policy entry.  If this
     // value is zero, the lifetime assumes the  value specified by the global
-    // lifesize parameter. The type is interface{} with range: 0..None |
+    // lifesize parameter. The type is interface{} with range: 0..0 |
     // 2560..536870912.
     CipsStaticCryptomapLifesize interface{}
 

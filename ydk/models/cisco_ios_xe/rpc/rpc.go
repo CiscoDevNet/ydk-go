@@ -221,7 +221,7 @@ type Default_Input struct {
     YFilter yfilter.YFilter
 
     // Select an interface to configure. The type is string with pattern:
-    // [A-Za-z]([\w/.-]+).
+    // b'[A-Za-z]([\\w/.-]+)'.
     Interface interface{}
 }
 
@@ -314,11 +314,11 @@ type Clear_Input struct {
     YFilter yfilter.YFilter
 
     // Select an interface to clear. The type is string with pattern:
-    // [A-Za-z]([\w/.-]+).
+    // b'[A-Za-z]([\\w/.-]+)'.
     Interface interface{}
 
     // Select an interface to clear. The type is string with pattern:
-    // [A-Za-z]([\w/.-]+).
+    // b'[A-Za-z]([\\w/.-]+)'.
     Count interface{}
 
     // Flow monitor clear commands.
@@ -580,7 +580,7 @@ type Clear_Input_Ip_Dhcp_Binding struct {
     // DHCP vrf bindings. The type is string.
     Vrf interface{}
 
-    // Clear all automatic bindings. The type is string with pattern: [*]. This
+    // Clear all automatic bindings. The type is string with pattern: b'[*]'. This
     // attribute is mandatory.
     _All interface{}
 }
@@ -647,9 +647,9 @@ type Clear_Input_Ip_Bgp struct {
 
     // BGP neighbor address to clear. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     _PeerAddress interface{}
 
     // Select a VPN Routing/Forwarding instance. The type is string.
@@ -689,11 +689,11 @@ type Clear_Input_ArpCache struct {
     Vrf interface{}
 
     // Clear the entire ARP cache on the interface. The type is string with
-    // pattern: [A-Za-z]([\w/.-]+).
+    // pattern: b'[A-Za-z]([\\w/.-]+)'.
     Interface interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     _Ip interface{}
 }
 
@@ -1928,7 +1928,7 @@ type Service_Input_SdAvc_Configure_Gateway struct {
     Interface interface{}
 
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServiceIp interface{}
 
     // The type is interface{}.
@@ -2283,12 +2283,12 @@ type Copy_Input struct {
     YFilter yfilter.YFilter
 
     // The type is string with pattern:
-    // ((((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)).*)|((running-config)|(startup-config))).
+    // b'((((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)).*)|((running-config)|(startup-config)))'.
     // This attribute is mandatory.
     _Source interface{}
 
     // The type is string with pattern:
-    // ((((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)).*)|((running-config)|(startup-config))).
+    // b'((((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)).*)|((running-config)|(startup-config)))'.
     // This attribute is mandatory.
     _Destination interface{}
 }
@@ -2383,7 +2383,7 @@ type Delete_Input struct {
     YFilter yfilter.YFilter
 
     // The type is string with pattern:
-    // (((bootflash:)|(harddisk:)|(flash:)|(nvram:)).*). This attribute is
+    // b'(((bootflash:)|(harddisk:)|(flash:)|(nvram:)).*)'. This attribute is
     // mandatory.
     _Filename interface{}
 }

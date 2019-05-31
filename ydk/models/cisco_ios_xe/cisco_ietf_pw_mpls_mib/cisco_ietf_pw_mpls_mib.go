@@ -374,11 +374,11 @@ type CISCOIETFPWMPLSMIB_CpwVcMplsOutboundTable_CpwVcMplsOutboundEntry struct {
     CpwVcMplsOutboundTunnelInstance interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
-    // tunnel, otherwise set to zero. The type is string with length: 4.
+    // tunnel, otherwise set to zero. The type is string with length: 4..4.
     CpwVcMplsOutboundTunnelLclLSR interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
-    // tunnel, otherwise set to zero. The type is string with length: 4.
+    // tunnel, otherwise set to zero. The type is string with length: 4..4.
     CpwVcMplsOutboundTunnelPeerLSR interface{}
 
     // In case of VC only (no outer tunnel), this object holds  the ifIndex of the
@@ -543,11 +543,11 @@ type CISCOIETFPWMPLSMIB_CpwVcMplsInboundTable_CpwVcMplsInboundEntry struct {
     CpwVcMplsInboundTunnelInstance interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
-    // tunnel, otherwise set to zero. The type is string with length: 4.
+    // tunnel, otherwise set to zero. The type is string with length: 4..4.
     CpwVcMplsInboundTunnelLclLSR interface{}
 
     // Part of set of indexes for outbound tunnel in the case of   MPLS-TE outer
-    // tunnel, otherwise set to zero. The type is string with length: 4.
+    // tunnel, otherwise set to zero. The type is string with length: 4..4.
     CpwVcMplsInboundTunnelPeerLSR interface{}
 
     // In case of VC only (no outer tunnel), this object holds the  ifIndex of the
@@ -791,11 +791,11 @@ type CISCOIETFPWMPLSMIB_CpwVcMplsTeMappingTable_CpwVcMplsTeMappingEntry struct {
     CpwVcMplsTeMappingTunnelInstance interface{}
 
     // This attribute is a key. Identifies an Peer LSR when the outer tunnel is
-    // MPLS-TE   based. The type is string with length: 4.
+    // MPLS-TE   based. The type is string with length: 4..4.
     CpwVcMplsTeMappingTunnelPeerLsrID interface{}
 
     // This attribute is a key. Identifies the local LSR. The type is string with
-    // length: 4.
+    // length: 4..4.
     CpwVcMplsTeMappingTunnelLocalLsrID interface{}
 
     // This attribute is a key. The value that represent the VC in the cpwVcTable.

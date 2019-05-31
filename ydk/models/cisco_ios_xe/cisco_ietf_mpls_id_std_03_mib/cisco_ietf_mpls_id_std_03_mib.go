@@ -57,7 +57,7 @@ type CISCOIETFMPLSIDSTD03MIB_CmplsIdObjects struct {
     YFilter yfilter.YFilter
 
     // This object allows the administrator to assign a unique operator identifier
-    // also called MPLS-TP Global_ID. The type is string with length: 4.
+    // also called MPLS-TP Global_ID. The type is string with length: 4..4.
     CmplsGlobalId interface{}
 
     // This object allows the operator or service provider to assign a unique

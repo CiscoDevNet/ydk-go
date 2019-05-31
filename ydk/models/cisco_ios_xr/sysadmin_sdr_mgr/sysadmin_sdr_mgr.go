@@ -34,6 +34,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr", reflect.TypeOf(PrivateSdr{}))
 }
 
+// CardType represents The List of supported Card Types
+type CardType string
+
+const (
+    CardType_RP CardType = "RP"
+
+    CardType_LC CardType = "LC"
+
+    CardType_CC CardType = "CC"
+)
+
 // VmReloadReason represents The List of vm reload reasons
 type VmReloadReason string
 
@@ -59,17 +70,6 @@ const (
     VmReloadReason_SMU VmReloadReason = "SMU"
 
     VmReloadReason_REASON_UNKNOWN VmReloadReason = "REASON_UNKNOWN"
-)
-
-// CardType represents The List of supported Card Types
-type CardType string
-
-const (
-    CardType_RP CardType = "RP"
-
-    CardType_LC CardType = "LC"
-
-    CardType_CC CardType = "CC"
 )
 
 // SdrConfig
@@ -113,7 +113,7 @@ type SdrConfig_Sdr struct {
     YListKey string
 
     // This attribute is a key. Name of the Secure Domain Router , 30 max
-    // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
+    // characters. The type is string with pattern: b'[a-zA-Z0-9_-]{1,30}'.
     Name interface{}
 
     // List of the initial image and packages for the Secure Domain Router. The
@@ -209,10 +209,6 @@ type SdrConfig_Sdr_Resources struct {
     // with range: 2..4094.
     MgmtExtVlan interface{}
 
-    // Edit disk space size for a Secure Domain Router, unit in [MB]. The type is
-    // interface{} with range: 0..4294967295.
-    DiskSpaceSize interface{}
-
     // The type is slice of SdrConfig_Sdr_Resources_CardType.
     CardType []*SdrConfig_Sdr_Resources_CardType
 }
@@ -236,7 +232,6 @@ func (resources *SdrConfig_Sdr_Resources) GetEntityData() *types.CommonEntityDat
     resources.EntityData.Leafs = types.NewOrderedMap()
     resources.EntityData.Leafs.Append("fgid", types.YLeaf{"Fgid", resources.Fgid})
     resources.EntityData.Leafs.Append("mgmt_ext_vlan", types.YLeaf{"MgmtExtVlan", resources.MgmtExtVlan})
-    resources.EntityData.Leafs.Append("disk-space-size", types.YLeaf{"DiskSpaceSize", resources.DiskSpaceSize})
 
     resources.EntityData.YListKeys = []string {}
 
@@ -291,8 +286,12 @@ type SdrConfig_Sdr_Location struct {
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[lL][cC]|[cC][bB])?\d{1,2}))(/[cC][pP][uU]0)?|all.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/(([rR][pP]|[lL][cC]|[cC][bB])?\\d{1,2}))(/[cC][pP][uU]0)?|all'.
     NodeLocation interface{}
+
+    // Enter list of slices to add to this SDR. The type is slice of interface{}
+    // with range: 0..4.
+    Slice []interface{}
 }
 
 func (location *SdrConfig_Sdr_Location) GetEntityData() *types.CommonEntityData {
@@ -309,6 +308,7 @@ func (location *SdrConfig_Sdr_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.Children = types.NewOrderedMap()
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("slice", types.YLeaf{"Slice", location.Slice})
 
     location.EntityData.YListKeys = []string {"NodeLocation"}
 
@@ -355,7 +355,7 @@ type SdrConfig_Sdr_Action_Location struct {
 
     // This attribute is a key. Enter location or all. The type is string with
     // pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?|all.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?|all'.
     NodeLocation interface{}
 }
 
@@ -418,7 +418,7 @@ type SdrConfig_Sdr_Detail_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
     NodeLocation interface{}
 
     // The type is interface{} with range: 0..4294967295.
@@ -426,9 +426,9 @@ type SdrConfig_Sdr_Detail_Location struct {
 
     // IP address of VM. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddr interface{}
 
     // MAC address of VM. The type is string.
@@ -460,6 +460,10 @@ type SdrConfig_Sdr_Detail_Location struct {
 
     // The type is string.
     RackType interface{}
+
+    // Slice numbers if configured. The type is one of the following types: slice
+    // of int with range: 0..255, or slice of string.
+    Slice []interface{}
 
     // The type is string.
     ChassisSerial interface{}
@@ -518,6 +522,7 @@ func (location *SdrConfig_Sdr_Detail_Location) GetEntityData() *types.CommonEnti
     location.EntityData.Leafs.Append("card-type", types.YLeaf{"CardType", location.CardType})
     location.EntityData.Leafs.Append("card_serial", types.YLeaf{"CardSerial", location.CardSerial})
     location.EntityData.Leafs.Append("rack-type", types.YLeaf{"RackType", location.RackType})
+    location.EntityData.Leafs.Append("slice", types.YLeaf{"Slice", location.Slice})
     location.EntityData.Leafs.Append("chassis_serial", types.YLeaf{"ChassisSerial", location.ChassisSerial})
     location.EntityData.Leafs.Append("hw_version", types.YLeaf{"HwVersion", location.HwVersion})
     location.EntityData.Leafs.Append("mgmt_ext_vlan", types.YLeaf{"MgmtExtVlan", location.MgmtExtVlan})
@@ -641,7 +646,7 @@ type SdrConfig_Sdr_RebootHistory_Reverse_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
     NodeLocation interface{}
 
     // Number of times rebooted since first boot. The type is interface{} with
@@ -760,7 +765,7 @@ type SdrConfig_Sdr_RebootHistory_DefaultDisp_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
     NodeLocation interface{}
 
     // Number of times rebooted since first boot. The type is interface{} with
@@ -879,7 +884,7 @@ type SdrConfig_Sdr_Nodes_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\d{1,2})/[V][M](0?[0-9]|1[1-5]))?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/((([rR]([sS]){0,1}[pP])|[cC][bB])?\\d{1,2})/[V][M](0?[0-9]|1[1-5]))?'.
     NodeLocation interface{}
 
     // The type is interface{} with range: 0..4294967295.
@@ -887,9 +892,9 @@ type SdrConfig_Sdr_Nodes_Location struct {
 
     // IP address of VM. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddr interface{}
 
     // MAC address of VM. The type is string.
@@ -1060,16 +1065,16 @@ type SdrConfig_Sdr_Pairing struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // [a-zA-Z0-9_-]{1,64}.
+    // b'[a-zA-Z0-9_-]{1,64}'.
     Name interface{}
 
     // Enter RP Node location. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/(([rR][pP]|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?'.
     // This attribute is mandatory.
     Rp1 interface{}
 
     // Enter RP Node location. The type is string with pattern:
-    // ((0?[0-9]|1[1-5]|[bB]\d)/(([rR][pP]|[cC][bB])\d{1,2}))(/[cC][pP][uU]0)?.
+    // b'((0?[0-9]|1[1-5]|[bB]\\d)/(([rR][pP]|[cC][bB])\\d{1,2}))(/[cC][pP][uU]0)?'.
     // This attribute is mandatory.
     Rp2 interface{}
 }
@@ -1357,7 +1362,7 @@ type SdrOperation_Sdr struct {
     YListKey string
 
     // This attribute is a key. Name of the Secure Domain Router, 30 max
-    // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
+    // characters. The type is string with pattern: b'[a-zA-Z0-9_-]{1,30}'.
     Name interface{}
 
     

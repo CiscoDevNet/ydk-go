@@ -30,48 +30,6 @@ func init() {
     ydk.RegisterEntity("cisco-pw:pseudowire-state", reflect.TypeOf(PseudowireState{}))
 }
 
-type PwVcTypeEther struct {
-}
-
-func (id PwVcTypeEther) String() string {
-	return "cisco-pw:pw-vc-type-ether"
-}
-
-type PwLbEthSrcDstMac struct {
-}
-
-func (id PwLbEthSrcDstMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-dst-mac"
-}
-
-type PwSignalingProtocolType struct {
-}
-
-func (id PwSignalingProtocolType) String() string {
-	return "cisco-pw:pw-signaling-protocol-type"
-}
-
-type PwLoadBalanceType struct {
-}
-
-func (id PwLoadBalanceType) String() string {
-	return "cisco-pw:pw-load-balance-type"
-}
-
-type PwSequencingTransmit struct {
-}
-
-func (id PwSequencingTransmit) String() string {
-	return "cisco-pw:pw-sequencing-transmit"
-}
-
-type PwVcTypeVlanPassthrough struct {
-}
-
-func (id PwVcTypeVlanPassthrough) String() string {
-	return "cisco-pw:pw-vc-type-vlan-passthrough"
-}
-
 type PwEncapsulationType struct {
 }
 
@@ -93,11 +51,74 @@ func (id PwVcType) String() string {
 	return "cisco-pw:pw-vc-type"
 }
 
+type PwVcTypeEther struct {
+}
+
+func (id PwVcTypeEther) String() string {
+	return "cisco-pw:pw-vc-type-ether"
+}
+
+type PwVcTypeVlan struct {
+}
+
+func (id PwVcTypeVlan) String() string {
+	return "cisco-pw:pw-vc-type-vlan"
+}
+
+type PwVcTypeVlanPassthrough struct {
+}
+
+func (id PwVcTypeVlanPassthrough) String() string {
+	return "cisco-pw:pw-vc-type-vlan-passthrough"
+}
+
+type PwLoadBalanceType struct {
+}
+
+func (id PwLoadBalanceType) String() string {
+	return "cisco-pw:pw-load-balance-type"
+}
+
+type PwLbEthernetType struct {
+}
+
+func (id PwLbEthernetType) String() string {
+	return "cisco-pw:pw-lb-ethernet-type"
+}
+
+type PwLbEthSrcMac struct {
+}
+
+func (id PwLbEthSrcMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-mac"
+}
+
 type PwLbEthDstMac struct {
 }
 
 func (id PwLbEthDstMac) String() string {
 	return "cisco-pw:pw-lb-eth-dst-mac"
+}
+
+type PwLbEthSrcDstMac struct {
+}
+
+func (id PwLbEthSrcDstMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-dst-mac"
+}
+
+type PwLbIpType struct {
+}
+
+func (id PwLbIpType) String() string {
+	return "cisco-pw:pw-lb-ip-type"
+}
+
+type PwLbIpSrcIp struct {
+}
+
+func (id PwLbIpSrcIp) String() string {
+	return "cisco-pw:pw-lb-ip-src-ip"
 }
 
 type PwLbIpDstIp struct {
@@ -114,60 +135,11 @@ func (id PwLbIpSrcDstIp) String() string {
 	return "cisco-pw:pw-lb-ip-src-dst-ip"
 }
 
-type PwSequencingReceive struct {
+type PwSignalingProtocolType struct {
 }
 
-func (id PwSequencingReceive) String() string {
-	return "cisco-pw:pw-sequencing-receive"
-}
-
-type PwLbEthSrcMac struct {
-}
-
-func (id PwLbEthSrcMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-mac"
-}
-
-type PwLbEthernetType struct {
-}
-
-func (id PwLbEthernetType) String() string {
-	return "cisco-pw:pw-lb-ethernet-type"
-}
-
-type PwSequencingType struct {
-}
-
-func (id PwSequencingType) String() string {
-	return "cisco-pw:pw-sequencing-type"
-}
-
-type PwSignalingProtocolLdp struct {
-}
-
-func (id PwSignalingProtocolLdp) String() string {
-	return "cisco-pw:pw-signaling-protocol-ldp"
-}
-
-type PwSequencingBoth struct {
-}
-
-func (id PwSequencingBoth) String() string {
-	return "cisco-pw:pw-sequencing-both"
-}
-
-type PwVcTypeVlan struct {
-}
-
-func (id PwVcTypeVlan) String() string {
-	return "cisco-pw:pw-vc-type-vlan"
-}
-
-type PwLbIpType struct {
-}
-
-func (id PwLbIpType) String() string {
-	return "cisco-pw:pw-lb-ip-type"
+func (id PwSignalingProtocolType) String() string {
+	return "cisco-pw:pw-signaling-protocol-type"
 }
 
 type PwSignalingProtocolNone struct {
@@ -177,6 +149,13 @@ func (id PwSignalingProtocolNone) String() string {
 	return "cisco-pw:pw-signaling-protocol-none"
 }
 
+type PwSignalingProtocolLdp struct {
+}
+
+func (id PwSignalingProtocolLdp) String() string {
+	return "cisco-pw:pw-signaling-protocol-ldp"
+}
+
 type PwSignalingProtocolBgp struct {
 }
 
@@ -184,11 +163,32 @@ func (id PwSignalingProtocolBgp) String() string {
 	return "cisco-pw:pw-signaling-protocol-bgp"
 }
 
-type PwLbIpSrcIp struct {
+type PwSequencingType struct {
 }
 
-func (id PwLbIpSrcIp) String() string {
-	return "cisco-pw:pw-lb-ip-src-ip"
+func (id PwSequencingType) String() string {
+	return "cisco-pw:pw-sequencing-type"
+}
+
+type PwSequencingReceive struct {
+}
+
+func (id PwSequencingReceive) String() string {
+	return "cisco-pw:pw-sequencing-receive"
+}
+
+type PwSequencingTransmit struct {
+}
+
+func (id PwSequencingTransmit) String() string {
+	return "cisco-pw:pw-sequencing-transmit"
+}
+
+type PwSequencingBoth struct {
+}
+
+func (id PwSequencingBoth) String() string {
+	return "cisco-pw:pw-sequencing-both"
 }
 
 // PwOperStateType represents Indicates the operational status of the PW VC
@@ -401,18 +401,18 @@ type PseudowireConfig_PwTemplates_PwTemplate struct {
     ControlWord interface{}
 
     // Signaling protocol to use. The type is one of the following:
-    // PwSignalingProtocolLdpPwSignalingProtocolNonePwSignalingProtocolBgp.
+    // PwSignalingProtocolNonePwSignalingProtocolLdpPwSignalingProtocolBgp.
     SignalingProtocol interface{}
 
     // Type of VC in the PW. The type is one of the following:
-    // PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
+    // PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
     VcType interface{}
 
     // Send switching TLV. The type is bool.
     SwitchingTlv interface{}
 
     // The local source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceIp interface{}
 
     // Configure ingress tag rewrite vlan. The type is interface{} with range:
@@ -488,12 +488,12 @@ type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance struct {
     YFilter yfilter.YFilter
 
     // Ethernet mac address based load balancing. The type is one of the
-    // following: PwLbEthSrcDstMacPwLbEthDstMacPwLbEthSrcMac. The default value is
+    // following: PwLbEthSrcMacPwLbEthDstMacPwLbEthSrcDstMac. The default value is
     // pw-lb-eth-src-dst-mac.
     Ethernet interface{}
 
     // IP address based load balancing. The type is one of the following:
-    // PwLbIpSrcDstIpPwLbIpSrcIp.
+    // PwLbIpSrcIpPwLbIpSrcDstIp.
     Ip interface{}
 
     // Enable Flow Aware Label (FAT) PW - the capability to carry flow label on
@@ -589,9 +589,9 @@ type PseudowireConfig_PwTemplates_PwTemplate_PreferredPath struct {
     Interface interface{}
 
     // TODO. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // TODO. The type is string.
@@ -631,7 +631,7 @@ type PseudowireConfig_PwTemplates_PwTemplate_Sequencing struct {
     YFilter yfilter.YFilter
 
     // TODO. The type is one of the following:
-    // PwSequencingTransmitPwSequencingReceivePwSequencingBoth.
+    // PwSequencingReceivePwSequencingTransmitPwSequencingBoth.
     Direction interface{}
 
     // TODO. The type is interface{} with range: 5..65535.
@@ -976,9 +976,9 @@ type PseudowireState_Pseudowires struct {
     // This attribute is a key. This object contains the value of the peer node
     // address of the PW/PE protocol entity. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VcPeerAddress interface{}
 
     // This attribute is a key. Used to distinguish between pseudowires going to
@@ -999,7 +999,7 @@ type PseudowireState_Pseudowires struct {
     VcIndex interface{}
 
     // Indicates the service to be carried over this VC. The type is one of the
-    // following: PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
+    // following: PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
     VcType interface{}
 
     // Name of the L2VPN service instance that created the pseudowire VC. The type
@@ -1131,8 +1131,8 @@ type PseudowireState_Pseudowires_Statistics struct {
     // since the last re-initialization of the local management subsystem, then
     // this node contains the time the local management subsystem re-initialized
     // itself. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
-    // attribute is mandatory.
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // This attribute is mandatory.
     DiscontinuityTime interface{}
 
     // The total number of octets received on this pseudowire.  Discontinuities in

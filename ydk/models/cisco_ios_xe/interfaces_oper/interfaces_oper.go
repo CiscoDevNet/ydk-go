@@ -36,30 +36,6 @@ const (
     QosMatchType_qos_match_proto QosMatchType = "qos-match-proto"
 )
 
-// EtherDuplex represents The duplex setting of the interface
-type EtherDuplex string
-
-const (
-    EtherDuplex_full_duplex EtherDuplex = "full-duplex"
-
-    EtherDuplex_half_duplex EtherDuplex = "half-duplex"
-
-    EtherDuplex_auto_duplex EtherDuplex = "auto-duplex"
-
-    EtherDuplex_unknown_duplex EtherDuplex = "unknown-duplex"
-)
-
-// SerialCrc represents The Cyclic Redundancy Code type
-type SerialCrc string
-
-const (
-    // 32-bit Cyclic Redundancy Code
-    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
-
-    // 16 bit Cyclic Redundancy Code
-    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
-)
-
 // ThreshUnit represents Units of threshold
 type ThreshUnit string
 
@@ -77,57 +53,32 @@ const (
     ThreshUnit_thresh_units_percent ThreshUnit = "thresh-units-percent"
 )
 
-// T1e1LoopbackMode represents Loopback mode type
-type T1e1LoopbackMode string
+// QosDirection represents QoS direction indication
+type QosDirection string
 
 const (
-    // No loopback mode
-    T1e1LoopbackMode_t1e1_no_loopback T1e1LoopbackMode = "t1e1-no-loopback"
+    // Direction of traffic coming into the network entry
+    QosDirection_qos_inbound QosDirection = "qos-inbound"
 
-    // Command line interface enforced local loopback
-    T1e1LoopbackMode_t1e1_cli_local_loopback T1e1LoopbackMode = "t1e1-cli-local-loopback"
+    // Direction of traffic going out of the network entry
+    QosDirection_qos_outbound QosDirection = "qos-outbound"
+)
 
-    // Command line interface enforced line local loopback
-    T1e1LoopbackMode_t1e1_line_cli_local_loopback T1e1LoopbackMode = "t1e1-line-cli-local-loopback"
+// AggregationType represents defined and managed
+type AggregationType string
 
-    // Command line interface enforced payload local loopback
-    T1e1LoopbackMode_t1e1_payload_cli_local_loopback T1e1LoopbackMode = "t1e1-payload-cli-local-loopback"
+const (
+    // LAG mode is off
+    AggregationType_lag_off AggregationType = "lag-off"
 
-    // Local line loopback
-    T1e1LoopbackMode_t1e1_local_line_loopback T1e1LoopbackMode = "t1e1-local-line-loopback"
+    // LAG mode is auto
+    AggregationType_lag_auto AggregationType = "lag-auto"
 
-    // Local payload loopback
-    T1e1LoopbackMode_t1e1_local_payload_loopback T1e1LoopbackMode = "t1e1-local-payload-loopback"
+    // LAG mode is active
+    AggregationType_lag_active AggregationType = "lag-active"
 
-    // Line ANSI FDL remote loopback
-    T1e1LoopbackMode_t1e1_local_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-local-ansi-fdl-remote-loopback"
-
-    // Line ATT FDL remote loopback
-    T1e1LoopbackMode_t1e1_line_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-remote-loopback"
-
-    // Payload ANSI FDL remote loopback
-    T1e1LoopbackMode_t1e1_payload_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-remote-loopback"
-
-    // Payload ATT FDL remote loopback
-    T1e1LoopbackMode_t1e1_payload_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-remote-loopback"
-
-    // Line IBOC remote loopback
-    T1e1LoopbackMode_t1e1_line_iboc_remote_loopback T1e1LoopbackMode = "t1e1-line-iboc-remote-loopback"
-
-    // Line ANSI FDL local loopback
-    T1e1LoopbackMode_t1e1_line_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-ansi-fdl-local-loopback"
-
-    // Line ATT FDL local loopback
-    T1e1LoopbackMode_t1e1_line_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-local-loopback"
-
-    // Payload ANSI FDL local loopback
-    T1e1LoopbackMode_t1e1_payload_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-local-loopback"
-
-    // Payload ATT FDL local loopback
-    T1e1LoopbackMode_t1e1_payload_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-local-loopback"
-
-    // Line IBOC local loopback
-    T1e1LoopbackMode_t1e1_line_iboc_local_loopback T1e1LoopbackMode = "t1e1-line-iboc-local-loopback"
+    // LAG mode is passive
+    AggregationType_lag_passive AggregationType = "lag-passive"
 )
 
 // IntfState represents RFC 2863: The Interfaces Group MIB - ifAdminStatus
@@ -141,6 +92,44 @@ const (
     IntfState_if_state_down IntfState = "if-state-down"
 
     IntfState_if_state_test IntfState = "if-state-test"
+)
+
+// EtherDuplex represents The duplex setting of the interface
+type EtherDuplex string
+
+const (
+    EtherDuplex_full_duplex EtherDuplex = "full-duplex"
+
+    EtherDuplex_half_duplex EtherDuplex = "half-duplex"
+
+    EtherDuplex_auto_duplex EtherDuplex = "auto-duplex"
+
+    EtherDuplex_unknown_duplex EtherDuplex = "unknown-duplex"
+)
+
+// EtherSpeed represents The speed setting of the interface
+type EtherSpeed string
+
+const (
+    EtherSpeed_speed_10mb EtherSpeed = "speed-10mb"
+
+    EtherSpeed_speed_100mb EtherSpeed = "speed-100mb"
+
+    EtherSpeed_speed_1gb EtherSpeed = "speed-1gb"
+
+    EtherSpeed_speed_10gb EtherSpeed = "speed-10gb"
+
+    EtherSpeed_speed_25gb EtherSpeed = "speed-25gb"
+
+    EtherSpeed_speed_40gb EtherSpeed = "speed-40gb"
+
+    EtherSpeed_speed_50gb EtherSpeed = "speed-50gb"
+
+    EtherSpeed_speed_100gb EtherSpeed = "speed-100gb"
+
+    EtherSpeed_speed_unknown EtherSpeed = "speed-unknown"
+
+    EtherSpeed_speed_auto EtherSpeed = "speed-auto"
 )
 
 // OperState represents RFC 2863: The Interfaces Group MIB - ifOperStatus
@@ -162,34 +151,6 @@ const (
     OperState_if_oper_state_not_present OperState = "if-oper-state-not-present"
 
     OperState_if_oper_state_lower_layer_down OperState = "if-oper-state-lower-layer-down"
-)
-
-// AggregationType represents defined and managed
-type AggregationType string
-
-const (
-    // LAG mode is off
-    AggregationType_lag_off AggregationType = "lag-off"
-
-    // LAG mode is auto
-    AggregationType_lag_auto AggregationType = "lag-auto"
-
-    // LAG mode is active
-    AggregationType_lag_active AggregationType = "lag-active"
-
-    // LAG mode is passive
-    AggregationType_lag_passive AggregationType = "lag-passive"
-)
-
-// SubrateSpeed represents The subrate on a serial interface
-type SubrateSpeed string
-
-const (
-    // 56 kilobits per second subrate
-    SubrateSpeed_dsx1_subrate_56kbps SubrateSpeed = "dsx1-subrate-56kbps"
-
-    // 64 kilobits per second subrate
-    SubrateSpeed_dsx1_subrate_64kbps SubrateSpeed = "dsx1-subrate-64kbps"
 )
 
 // IetfIntfType represents object in the (updated) definition of MIB-II's ifTable
@@ -753,40 +714,79 @@ const (
     IetfIntfType_iana_iftype_fastdsl IetfIntfType = "iana-iftype-fastdsl"
 )
 
-// QosDirection represents QoS direction indication
-type QosDirection string
+// SerialCrc represents The Cyclic Redundancy Code type
+type SerialCrc string
 
 const (
-    // Direction of traffic coming into the network entry
-    QosDirection_qos_inbound QosDirection = "qos-inbound"
+    // 32-bit Cyclic Redundancy Code
+    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
 
-    // Direction of traffic going out of the network entry
-    QosDirection_qos_outbound QosDirection = "qos-outbound"
+    // 16 bit Cyclic Redundancy Code
+    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
 )
 
-// EtherSpeed represents The speed setting of the interface
-type EtherSpeed string
+// SubrateSpeed represents The subrate on a serial interface
+type SubrateSpeed string
 
 const (
-    EtherSpeed_speed_10mb EtherSpeed = "speed-10mb"
+    // 56 kilobits per second subrate
+    SubrateSpeed_dsx1_subrate_56kbps SubrateSpeed = "dsx1-subrate-56kbps"
 
-    EtherSpeed_speed_100mb EtherSpeed = "speed-100mb"
+    // 64 kilobits per second subrate
+    SubrateSpeed_dsx1_subrate_64kbps SubrateSpeed = "dsx1-subrate-64kbps"
+)
 
-    EtherSpeed_speed_1gb EtherSpeed = "speed-1gb"
+// T1e1LoopbackMode represents Loopback mode type
+type T1e1LoopbackMode string
 
-    EtherSpeed_speed_10gb EtherSpeed = "speed-10gb"
+const (
+    // No loopback mode
+    T1e1LoopbackMode_t1e1_no_loopback T1e1LoopbackMode = "t1e1-no-loopback"
 
-    EtherSpeed_speed_25gb EtherSpeed = "speed-25gb"
+    // Command line interface enforced local loopback
+    T1e1LoopbackMode_t1e1_cli_local_loopback T1e1LoopbackMode = "t1e1-cli-local-loopback"
 
-    EtherSpeed_speed_40gb EtherSpeed = "speed-40gb"
+    // Command line interface enforced line local loopback
+    T1e1LoopbackMode_t1e1_line_cli_local_loopback T1e1LoopbackMode = "t1e1-line-cli-local-loopback"
 
-    EtherSpeed_speed_50gb EtherSpeed = "speed-50gb"
+    // Command line interface enforced payload local loopback
+    T1e1LoopbackMode_t1e1_payload_cli_local_loopback T1e1LoopbackMode = "t1e1-payload-cli-local-loopback"
 
-    EtherSpeed_speed_100gb EtherSpeed = "speed-100gb"
+    // Local line loopback
+    T1e1LoopbackMode_t1e1_local_line_loopback T1e1LoopbackMode = "t1e1-local-line-loopback"
 
-    EtherSpeed_speed_unknown EtherSpeed = "speed-unknown"
+    // Local payload loopback
+    T1e1LoopbackMode_t1e1_local_payload_loopback T1e1LoopbackMode = "t1e1-local-payload-loopback"
 
-    EtherSpeed_speed_auto EtherSpeed = "speed-auto"
+    // Line ANSI FDL remote loopback
+    T1e1LoopbackMode_t1e1_local_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-local-ansi-fdl-remote-loopback"
+
+    // Line ATT FDL remote loopback
+    T1e1LoopbackMode_t1e1_line_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-remote-loopback"
+
+    // Payload ANSI FDL remote loopback
+    T1e1LoopbackMode_t1e1_payload_ansi_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-remote-loopback"
+
+    // Payload ATT FDL remote loopback
+    T1e1LoopbackMode_t1e1_payload_att_fdl_remote_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-remote-loopback"
+
+    // Line IBOC remote loopback
+    T1e1LoopbackMode_t1e1_line_iboc_remote_loopback T1e1LoopbackMode = "t1e1-line-iboc-remote-loopback"
+
+    // Line ANSI FDL local loopback
+    T1e1LoopbackMode_t1e1_line_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-ansi-fdl-local-loopback"
+
+    // Line ATT FDL local loopback
+    T1e1LoopbackMode_t1e1_line_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-line-att-fdl-local-loopback"
+
+    // Payload ANSI FDL local loopback
+    T1e1LoopbackMode_t1e1_payload_ansi_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-ansi-fdl-local-loopback"
+
+    // Payload ATT FDL local loopback
+    T1e1LoopbackMode_t1e1_payload_att_fdl_local_loopback T1e1LoopbackMode = "t1e1-payload-att-fdl-local-loopback"
+
+    // Line IBOC local loopback
+    T1e1LoopbackMode_t1e1_line_iboc_local_loopback T1e1LoopbackMode = "t1e1-line-iboc-local-loopback"
 )
 
 // Interfaces
@@ -858,7 +858,7 @@ type Interfaces_Interface struct {
     // current state was entered prior to the last re-initialization of the local
     // network management subsystem, then this node is not present. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastChange interface{}
 
     // The ifIndex value for the ifEntry represented by this interface. The type
@@ -871,7 +871,7 @@ type Interfaces_Interface struct {
     // byte ordering and the format of the value of this object.  For interfaces
     // that do not have such an address (e.g., a serial line), this node is not
     // present. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PhysAddress interface{}
 
     // A list of references to interfaces layered on top of this interface. The
@@ -895,16 +895,16 @@ type Interfaces_Interface struct {
 
     // IPv4 address configured on interface. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv4 Subnet Mask. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv4SubnetMask interface{}
 
     // Interface description. The type is string.
@@ -923,16 +923,16 @@ type Interfaces_Interface struct {
     // The burnt-in mac address that was associated with this interface from
     // manufacturing. This is only relevant for interfaces that have the concept
     // of burnt in ethernet  addresses, otherwise it is zero. The type is string
-    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     BiaAddress interface{}
 
     // A list of the IPv6 addresses associated with the interface. This conatins
     // all the IPv6 addresses, including the link local addresses, assigned to the
     // interface. The type is one of the following types: slice of string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Addrs []interface{}
 
     // When ip tcp adjust-mss is configured, this vlaue shows the tcp mss, or the
@@ -1043,7 +1043,7 @@ type Interfaces_Interface_Statistics struct {
     // have occurred since the last re-initialization of the local management
     // subsystem, then this node contains the time the local management subsystem
     // re-initialized itself. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     DiscontinuityTime interface{}
 
     // The total number of octets received on the interface, including framing

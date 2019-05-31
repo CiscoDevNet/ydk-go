@@ -182,7 +182,7 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     // interface{} with range: 1..2147483646.
     SequenceNumber interface{}
 
-    // Forwarding action for the packet. This is required for any non-remark ACE.
+    // Forwarding action for the packet. This is required  for any non-remark ACE.
     // Leave unspecified otherwise. The type is EsAclGrantEnum.
     Grant interface{}
 
@@ -197,31 +197,31 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     // range will be rejected. The type is interface{} with range: 0..4095.
     Vlan2 interface{}
 
-    // Class of Service value. Any value not in the permissible range will be
+    // Class of Service value. Any value not in the  permissible range will be
     // rejected. The type is interface{} with range: 0..7.
     Cos interface{}
 
-    // Discard Eligibility Indication bit. User can specify 1 to indicate the bit
+    // Discard Eligibility Indication bit. User can specify  1 to indicate the bit
     // is set. Leave unspecified otherwise. The type is interface{} with range:
     // 0..1.
     Dei interface{}
 
     // This represents the QinQ vlan identifier. It can be used for the lower
-    // bound (in range) or single value. Any value not in the permissible range
+    // bound (in range) or single value. Any value not  in the permissible range
     // will be rejected. The type is interface{} with range: 0..4095.
     InnerVlan1 interface{}
 
-    // This represents the QinQ vlan identifier. It is used in the upper bound (in
-    // range). Any value not in the permissible range will be rejected. The type
-    // is interface{} with range: 0..4095.
+    // This represents the QinQ vlan identifier. It is used in  the upper bound
+    // (in range). Any value not in the permissible range will be rejected. The
+    // type is interface{} with range: 0..4095.
     InnerVlan2 interface{}
 
     // Class of Service of Inner Header. Any value not in the permissible range
     // will be rejected. The type is interface{} with range: 0..7.
     InnerCos interface{}
 
-    // Discard Eligibility Indication for Inner Header. User can specify 1 to
-    // indicate the bit is set. Leave unspecified otherwise. The type is
+    // Discard Eligibility Indication for Inner Header. User  can specify 1 to
+    // indicate the bit is set. Leave  unspecified otherwise. The type is
     // interface{} with range: 0..1.
     InnerDei interface{}
 
@@ -230,7 +230,7 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     Remark interface{}
 
     // Ethernet type Number in Hex. Any value not in the permissible range will be
-    // rejected. The type is string with pattern: [0-9a-fA-F]{1,4}.
+    // rejected. The type is string with pattern: b'[0-9a-fA-F]{1,4}'.
     EtherTypeNumber interface{}
 
     // Enable capture if set to TRUE. The type is bool.
@@ -294,12 +294,12 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork struc
     YFilter yfilter.YFilter
 
     // Source address to match, leave unspecified for any. The type is string with
-    // pattern: ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // pattern: b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     SourceAddress interface{}
 
     // Wildcard bits to apply to source address (if specified), leave unspecified
     // for no wildcarding. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     SourceWildCardBits interface{}
 }
 
@@ -332,12 +332,12 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork 
 
     // Destination address to match (if a protocol was specified), leave
     // unspecified for any. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     DestinationAddress interface{}
 
     // Wildcard bits to apply to destination address (if specified), leave
     // unspecified for no wildcarding. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     DestinationWildCardBits interface{}
 }
 

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CiscoDevNet/ydk-go.svg?branch=master)](https://travis-ci.org/CiscoDevNet/ydk-go)
+[![Build Status](https://travis-ci.com/CiscoDevNet/ydk-go.svg?branch=master)](https://travis-ci.com/CiscoDevNet/ydk-go)
 [![GoDoc](https://godoc.org/github.com/CiscoDevNet/ydk-go?status.svg)](https://godoc.org/github.com/CiscoDevNet/ydk-go)
 [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/ydkdev/ydk-go/)
 
@@ -30,7 +30,7 @@ A [docker image](https://docs.docker.com/engine/reference/run/) is automatically
 To use the docker image, [install docker](https://docs.docker.com/install/) on your system and run the below command. See the [docker documentation](https://docs.docker.com/engine/reference/run/) for more details.
 
 ```
-docker run -it ydkdev/ydk-go
+  docker run -it ydkdev/ydk-go
 ```
 
 ## How to Install
@@ -46,8 +46,8 @@ The following packages must be present in your system before installing YDK-Go:
 Install third-party dependency software:
 
 ```
-$ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
-$ sudo apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev libxml2-dev libxslt1-dev cmake
+  sudo apt-get install gdebi-core python3-dev python-dev libtool-bin
+  sudo apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev libxml2-dev libxslt1-dev cmake
 ```
 
 Install YDK core library:
@@ -55,20 +55,20 @@ Install YDK core library:
 For Xenial (Ubuntu 16.04.4):
 
 ```
-$ # Upgrade compiler to gcc 5.*
-$ sudo apt-get install gcc-5 g++-5 -y > /dev/null
-$ sudo ln -sf /usr/bin/g++-5 /usr/bin/g++
-$ sudo ln -sf /usr/bin/gcc-5 /usr/bin/gcc
+  # Upgrade compiler to gcc 5.*
+  sudo apt-get install gcc-5 g++-5 -y > /dev/null
+  sudo ln -sf /usr/bin/g++-5 /usr/bin/g++
+  sudo ln -sf /usr/bin/gcc-5 /usr/bin/gcc
 
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/xenial/libydk-0.8.2-1.amd64.deb
-$ sudo gdebi libydk-0.8.2-1.amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/xenial/libydk-0.8.3-1.amd64.deb
+  sudo gdebi libydk-0.8.3-1.amd64.deb
 ```
 
 For Bionic (Ubuntu 18.04.1):
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/bionic/libydk-0.8.2-1.amd64.deb
-$ sudo gdebi libydk-0.8.2-1.amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/bionic/libydk-0.8.3-1.amd64.deb
+  sudo gdebi libydk-0.8.3-1.amd64.deb
 ```
 
 #### Centos (Fedora-based)
@@ -76,17 +76,17 @@ $ sudo gdebi libydk-0.8.2-1.amd64.deb
 The following packages must be present in your system before installing YDK-Go:
 
 ```
-$ sudo yum install epel-release
-$ sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake libstdc++-static git
+  sudo yum install epel-release
+  sudo yum install libxml2-devel libxslt-devel libssh-devel libtool gcc-c++ pcre-devel cmake libstdc++-static git
 
-# Install gcc-5 and g++-5
-$ yum install centos-release-scl -y > /dev/null
-$ yum install devtoolset-4-gcc* -y > /dev/null
-$ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
-$ ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
+  # Install gcc-5 and g++-5
+  yum install centos-release-scl -y > /dev/null
+  yum install devtoolset-4-gcc* -y > /dev/null
+  ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
+  ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
-# Install YDK core library
-$ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8.2-1.x86_64.rpm
+  # Install YDK core library
+  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk-0.8.3-1.x86_64.rpm
 ```
 
 #### Mac OS
@@ -94,13 +94,13 @@ $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk-0.8
 It is recommended to install [homebrew](http://brew.sh) and Xcode command line tools on your system before installing YDK-Go:
 
 ```
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ brew install pkg-config libssh libxml2 xml2 curl pcre cmake
-$ xcode-select --install
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install pkg-config libssh libxml2 xml2 curl pcre cmake
+  xcode-select --install
 
-# Install YDK core library
-$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
-$ sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
+  # Install YDK core library
+  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk-0.8.3-Darwin.pkg
+  sudo installer -pkg libydk-0.8.3-Darwin.pkg -target /
 ```
 
 #### Libssh installation
@@ -110,32 +110,41 @@ which is required for YDK. Therefore, if after installation of libssh package yo
 please downgrade the installation of libssh to version 0.7.6, or upgrade to 0.8.1 or higher. Example:
 
 ```
-$ wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
-$ tar zxf libssh-0.7.6.tar.gz && rm -f libssh-0.7.6.tar.gz
-$ mkdir libssh-0.7.6/build && cd libssh-0.7.6/build
-$ cmake ..
-$ sudo make install
+  wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
+  tar zxf libssh-0.7.6.tar.gz && rm -f libssh-0.7.6.tar.gz
+  mkdir libssh-0.7.6/build && cd libssh-0.7.6/build
+  cmake ..
+  sudo make install
 ```
 
 ### Golang
 
-The YDK requires Go version 1.9 or higher. If this is not the case, follow below installation steps. Make sure that environment variables GOROOT and GOPATH are properly set.
+The YDK requires Go version 1.9.2 or higher. If this is not the case, follow below installation steps. Make sure that environment variables GOROOT and GOPATH are properly set.
 
 #### Linux
 
 ```
-$ sudo wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
-$ sudo tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
-$ export GOROOT="/usr/local/go"
-$ export PATH=$GOROOT/bin:$PATH
+  sudo wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
+  sudo tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
+  export GOROOT="/usr/local/go"
+  export PATH=$GOROOT/bin:$PATH
 ```
 
 #### Mac OS
 
 ```
-$ export CGO_ENABLED=0
-$ export GOROOT_BOOTSTRAP=$GOROOT
-$ gvm install go1.9.2
+  export CGO_ENABLED=0
+  export GOROOT_BOOTSTRAP=$GOROOT
+  gvm install go1.9.2
+```
+
+#### Runtime Setting
+
+For security reasons starting from Go version 1.10 only a limited set of flags is allowed in the CGO code, notably -D, -I, and -l.
+Current ydk-go code includes few additional CGO LDFLAGS flags in order to allow coverage testing; they are: "-fprofile-arcs -ftest-coverage --coverage". In order to allow these additional flags to be used, it is necessary to set environment variable CGO_LDFLAGS_ALLOW before running ydk-go based application:
+
+```
+  export CGO_LDFLAGS_ALLOW="-fprofile-arcs|-ftest-coverage|--coverage"
 ```
 
 ### gNMI Requirements
@@ -145,24 +154,24 @@ In order to enable YDK support for gNMI protocol, which is optional, the followi
 #### Install protobuf and protoc
 
 ```
-wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-cpp-3.5.0.zip
-unzip protobuf-cpp-3.5.0.zip
-cd protobuf-3.5.0
-./configure
-make
-sudo make install
-sudo ldconfig
+  wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-cpp-3.5.0.zip
+  unzip protobuf-cpp-3.5.0.zip
+  cd protobuf-3.5.0
+  ./configure
+  make
+  sudo make install
+  sudo ldconfig
 ```
 
 #### Install gRPC
 
 ```
-git clone -b v1.9.1 https://github.com/grpc/grpc
-cd grpc
-git submodule update --init
-make
-sudo make install
-sudo ldconfig
+  git clone -b v1.9.1 https://github.com/grpc/grpc
+  cd grpc
+  git submodule update --init
+  make
+  sudo make install
+  sudo ldconfig
 ```
 
 #### Install gNMI library
@@ -172,28 +181,28 @@ sudo ldconfig
 For Ubuntu/Xenial:
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/xenial/libydk_gnmi_0.4.0-2_amd64.deb
-$ sudo gdebi libydk_gnmi_0.4.0-2_amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/xenial/libydk_gnmi_0.4.0-2_amd64.deb
+  sudo gdebi libydk_gnmi_0.4.0-2_amd64.deb
 ```
 
 For Ubuntu/Bionic:
 
 ```
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.2/bionic/libydk_gnmi_0.4.0-2.amd64.deb
-$ sudo gdebi libydk_gnmi_0.4.0-2.amd64.deb
+  wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/bionic/libydk_gnmi_0.4.0-2.amd64.deb
+  sudo gdebi libydk_gnmi_0.4.0-2.amd64.deb
 ```
 
 For CentOS
 
 ```
-   sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.2/libydk_gnmi_0.4.0-2.x86_64.rpm
+  sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.3/libydk_gnmi_0.4.0-2.x86_64.rpm
 ```
 
 ##### MacOS:
 
 ```
-$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk_gnmi-0.4.0-2_Darwin.pkg
-$ sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
+  curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk_gnmi-0.4.0-2_Darwin.pkg
+  sudo installer -pkg libydk_gnmi-0.4.0-2_Darwin.pkg -target /
 ```
 
 #### Runtime environment
@@ -203,8 +212,8 @@ See this issue on [GRPC GitHub](https://github.com/grpc/grpc/issues/10942#issuec
 As a workaround, the YDK based application runtime environment must include setting of `LD_LIBRARY_PATH` variable:
 
 ```
-PROTO="/Your-Protobuf-and-Grpc-installation-directory"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PROTO/grpc/libs/opt:$PROTO/protobuf-3.5.0/src/.libs:/usr/local/lib64
+  PROTO="/Your-Protobuf-and-Grpc-installation-directory"
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PROTO/grpc/libs/opt:$PROTO/protobuf-3.5.0/src/.libs:/usr/local/lib64
 ```
 
 ### YDK Go Source
@@ -212,7 +221,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PROTO/grpc/libs/opt:$PROTO/protobuf-3.5
 You can download the latest YDK Go source code, which include core, and model bundles, from GitHub:
 
 ```
-$ go get github.com/CiscoDevNet/ydk-go/ydk
+  go get github.com/CiscoDevNet/ydk-go/ydk
 ```
 
 ## Documentation and Support
@@ -224,5 +233,4 @@ $ go get github.com/CiscoDevNet/ydk-go/ydk
 
 ## Release Notes
 
-
-The current YDK release version is 0.8.2. YDK-Go is licensed under the Apache 2.0 License.
+The current YDK release version is 0.8.3. YDK-Go is licensed under the Apache 2.0 License.

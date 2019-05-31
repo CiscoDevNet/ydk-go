@@ -122,7 +122,7 @@ type TUNNELMIB_TunnelIfTable_TunnelIfEntry struct {
     // used in the outer IP header), or 0.0.0.0 if unknown or if the tunnel is
     // over IPv6.  Since this object does not support IPv6, it is deprecated in
     // favor of tunnelIfLocalInetAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TunnelIfLocalAddress interface{}
 
     // The address of the remote endpoint of the tunnel (i.e., the destination
@@ -130,7 +130,7 @@ type TUNNELMIB_TunnelIfTable_TunnelIfEntry struct {
     // address, or  the tunnel is not a point-to-point link (e.g., if it is a 6to4
     // tunnel).  Since this object does not support IPv6, it is deprecated in
     // favor of tunnelIfRemoteInetAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TunnelIfRemoteAddress interface{}
 
     // The encapsulation method used by the tunnel. The type is IANAtunnelType.
@@ -297,13 +297,13 @@ type TUNNELMIB_TunnelConfigTable_TunnelConfigEntry struct {
     // establishment time.  Since this object does not support IPv6, it is
     // deprecated in favor of tunnelInetConfigLocalAddress. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TunnelConfigLocalAddress interface{}
 
     // This attribute is a key. The address of the remote endpoint of the tunnel. 
     // Since this object does not support IPv6, it is deprecated in favor of
     // tunnelInetConfigRemoteAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TunnelConfigRemoteAddress interface{}
 
     // This attribute is a key. The encapsulation method used by the tunnel. 

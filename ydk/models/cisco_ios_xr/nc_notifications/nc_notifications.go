@@ -24,7 +24,7 @@ type Netconf struct {
     YFilter yfilter.YFilter
 
     // The list of event streams supported by the system. When a query is issued,
-    // the returned set of streams is determined based on user privileges.
+    // the returned set of streams is  determined based on user privileges.
     Streams Netconf_Streams
 }
 
@@ -50,7 +50,7 @@ func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
 
 // Netconf_Streams
 // The list of event streams supported by the system. When
-// a query is issued, the returned set of streams is
+// a query is issued, the returned set of streams is 
 // determined based on user privileges.
 type Netconf_Streams struct {
     EntityData types.CommonEntityData
@@ -109,9 +109,9 @@ type Netconf_Streams_Stream struct {
     // The timestamp of the creation of the log used to support the replay
     // function on this stream. Note that this might be earlier then the earliest
     // available notification in the log. This object is updated if the log resets
-    // for some reason.  This object MUST be present if replay is supported. The
+    // for  some reason.  This object MUST be present if replay is supported. The
     // type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     ReplayLogCreationTime interface{}
 }
 

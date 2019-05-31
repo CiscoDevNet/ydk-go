@@ -13,6 +13,20 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package bgp_route_oper"))
 }
 
+// BgpOriginCode represents BGP origin code
+type BgpOriginCode string
+
+const (
+    // BGP origin code IGP
+    BgpOriginCode_origin_igp BgpOriginCode = "origin-igp"
+
+    // BGP origin code EGP
+    BgpOriginCode_origin_egp BgpOriginCode = "origin-egp"
+
+    // BGP origin code incomplete
+    BgpOriginCode_origin_incomplete BgpOriginCode = "origin-incomplete"
+)
+
 // BgpRpkiStatus represents BGP RPKI status
 type BgpRpkiStatus string
 
@@ -78,19 +92,5 @@ const (
 
     // BGP post advertised post policy
     BgpNeighborRouteFilters_bgp_nrf_post_advertised BgpNeighborRouteFilters = "bgp-nrf-post-advertised"
-)
-
-// BgpOriginCode represents BGP origin code
-type BgpOriginCode string
-
-const (
-    // BGP origin code IGP
-    BgpOriginCode_origin_igp BgpOriginCode = "origin-igp"
-
-    // BGP origin code EGP
-    BgpOriginCode_origin_egp BgpOriginCode = "origin-egp"
-
-    // BGP origin code incomplete
-    BgpOriginCode_origin_incomplete BgpOriginCode = "origin-incomplete"
 )
 

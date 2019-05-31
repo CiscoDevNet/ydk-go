@@ -20,8 +20,8 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package lpts_pre_ifib_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-lpts-pre-ifib-oper lpts-pifib}", reflect.TypeOf(LptsPifib{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib", reflect.TypeOf(LptsPifib{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-lpts-pre-ifib-oper lpts-pifib}", reflect.TypeOf(LptsPifib_{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib", reflect.TypeOf(LptsPifib_{}))
 }
 
 // LptsPifib represents Lpts pifib
@@ -59,48 +59,48 @@ const (
     LptsPifib_all LptsPifib = "all"
 )
 
-// LptsPifib
+// LptsPifib_
 // lpts pre-ifib data
-type LptsPifib struct {
+type LptsPifib_ struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of Pre-ifib Nodes.
-    Nodes LptsPifib_Nodes
+    Nodes LptsPifib__Nodes
 }
 
-func (lptsPifib *LptsPifib) GetEntityData() *types.CommonEntityData {
-    lptsPifib.EntityData.YFilter = lptsPifib.YFilter
-    lptsPifib.EntityData.YangName = "lpts-pifib"
-    lptsPifib.EntityData.BundleName = "cisco_ios_xr"
-    lptsPifib.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-pre-ifib-oper"
-    lptsPifib.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib"
-    lptsPifib.EntityData.AbsolutePath = lptsPifib.EntityData.SegmentPath
-    lptsPifib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lptsPifib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lptsPifib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (lptsPifib_ *LptsPifib_) GetEntityData() *types.CommonEntityData {
+    lptsPifib_.EntityData.YFilter = lptsPifib_.YFilter
+    lptsPifib_.EntityData.YangName = "lpts-pifib"
+    lptsPifib_.EntityData.BundleName = "cisco_ios_xr"
+    lptsPifib_.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-pre-ifib-oper"
+    lptsPifib_.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib"
+    lptsPifib_.EntityData.AbsolutePath = lptsPifib_.EntityData.SegmentPath
+    lptsPifib_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lptsPifib_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lptsPifib_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    lptsPifib.EntityData.Children = types.NewOrderedMap()
-    lptsPifib.EntityData.Children.Append("nodes", types.YChild{"Nodes", &lptsPifib.Nodes})
-    lptsPifib.EntityData.Leafs = types.NewOrderedMap()
+    lptsPifib_.EntityData.Children = types.NewOrderedMap()
+    lptsPifib_.EntityData.Children.Append("nodes", types.YChild{"Nodes", &lptsPifib_.Nodes})
+    lptsPifib_.EntityData.Leafs = types.NewOrderedMap()
 
-    lptsPifib.EntityData.YListKeys = []string {}
+    lptsPifib_.EntityData.YListKeys = []string {}
 
-    return &(lptsPifib.EntityData)
+    return &(lptsPifib_.EntityData)
 }
 
-// LptsPifib_Nodes
+// LptsPifib__Nodes
 // List of Pre-ifib Nodes
-type LptsPifib_Nodes struct {
+type LptsPifib__Nodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pre-ifib data for particular node. The type is slice of
-    // LptsPifib_Nodes_Node.
-    Node []*LptsPifib_Nodes_Node
+    // LptsPifib__Nodes_Node.
+    Node []*LptsPifib__Nodes_Node
 }
 
-func (nodes *LptsPifib_Nodes) GetEntityData() *types.CommonEntityData {
+func (nodes *LptsPifib__Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.YFilter = nodes.YFilter
     nodes.EntityData.YangName = "nodes"
     nodes.EntityData.BundleName = "cisco_ios_xr"
@@ -123,28 +123,28 @@ func (nodes *LptsPifib_Nodes) GetEntityData() *types.CommonEntityData {
     return &(nodes.EntityData)
 }
 
-// LptsPifib_Nodes_Node
+// LptsPifib__Nodes_Node
 // Pre-ifib data for particular node
-type LptsPifib_Nodes_Node struct {
+type LptsPifib__Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Type specific.
-    TypeValues LptsPifib_Nodes_Node_TypeValues
+    TypeValues LptsPifib__Nodes_Node_TypeValues
 
     // Dynamic Flows Statistics.
-    DynamicFlowsStats LptsPifib_Nodes_Node_DynamicFlowsStats
+    DynamicFlowsStats LptsPifib__Nodes_Node_DynamicFlowsStats
 
     // Hardware specific.
-    Hardware LptsPifib_Nodes_Node_Hardware
+    Hardware LptsPifib__Nodes_Node_Hardware
 }
 
-func (node *LptsPifib_Nodes_Node) GetEntityData() *types.CommonEntityData {
+func (node *LptsPifib__Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YFilter = node.YFilter
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
@@ -167,18 +167,18 @@ func (node *LptsPifib_Nodes_Node) GetEntityData() *types.CommonEntityData {
     return &(node.EntityData)
 }
 
-// LptsPifib_Nodes_Node_TypeValues
+// LptsPifib__Nodes_Node_TypeValues
 // Type specific
-type LptsPifib_Nodes_Node_TypeValues struct {
+type LptsPifib__Nodes_Node_TypeValues struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // pifib types. The type is slice of
-    // LptsPifib_Nodes_Node_TypeValues_TypeValue.
-    TypeValue []*LptsPifib_Nodes_Node_TypeValues_TypeValue
+    // LptsPifib__Nodes_Node_TypeValues_TypeValue.
+    TypeValue []*LptsPifib__Nodes_Node_TypeValues_TypeValue
 }
 
-func (typeValues *LptsPifib_Nodes_Node_TypeValues) GetEntityData() *types.CommonEntityData {
+func (typeValues *LptsPifib__Nodes_Node_TypeValues) GetEntityData() *types.CommonEntityData {
     typeValues.EntityData.YFilter = typeValues.YFilter
     typeValues.EntityData.YangName = "type-values"
     typeValues.EntityData.BundleName = "cisco_ios_xr"
@@ -201,9 +201,9 @@ func (typeValues *LptsPifib_Nodes_Node_TypeValues) GetEntityData() *types.Common
     return &(typeValues.EntityData)
 }
 
-// LptsPifib_Nodes_Node_TypeValues_TypeValue
+// LptsPifib__Nodes_Node_TypeValues_TypeValue
 // pifib types
-type LptsPifib_Nodes_Node_TypeValues_TypeValue struct {
+type LptsPifib__Nodes_Node_TypeValues_TypeValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -212,11 +212,11 @@ type LptsPifib_Nodes_Node_TypeValues_TypeValue struct {
     PifibType interface{}
 
     // Data for single pre-ifib entry. The type is slice of
-    // LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry.
-    Entry []*LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry
+    // LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry.
+    Entry []*LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry
 }
 
-func (typeValue *LptsPifib_Nodes_Node_TypeValues_TypeValue) GetEntityData() *types.CommonEntityData {
+func (typeValue *LptsPifib__Nodes_Node_TypeValues_TypeValue) GetEntityData() *types.CommonEntityData {
     typeValue.EntityData.YFilter = typeValue.YFilter
     typeValue.EntityData.YangName = "type-value"
     typeValue.EntityData.BundleName = "cisco_ios_xr"
@@ -240,15 +240,15 @@ func (typeValue *LptsPifib_Nodes_Node_TypeValues_TypeValue) GetEntityData() *typ
     return &(typeValue.EntityData)
 }
 
-// LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry
+// LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry
 // Data for single pre-ifib entry
-type LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry struct {
+type LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // This attribute is a key. Single Pre-ifib entry. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Entry interface{}
 
     // VRF Name. The type is string.
@@ -332,7 +332,7 @@ type LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry struct {
     PifibProgramTime interface{}
 }
 
-func (entry *LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry) GetEntityData() *types.CommonEntityData {
+func (entry *LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.YFilter = entry.YFilter
     entry.EntityData.YangName = "entry"
     entry.EntityData.BundleName = "cisco_ios_xr"
@@ -378,9 +378,9 @@ func (entry *LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry) GetEntityData() *t
     return &(entry.EntityData)
 }
 
-// LptsPifib_Nodes_Node_DynamicFlowsStats
+// LptsPifib__Nodes_Node_DynamicFlowsStats
 // Dynamic Flows Statistics
-type LptsPifib_Nodes_Node_DynamicFlowsStats struct {
+type LptsPifib__Nodes_Node_DynamicFlowsStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -404,11 +404,11 @@ type LptsPifib_Nodes_Node_DynamicFlowsStats struct {
     TotalSwEntries interface{}
 
     // Flow Datalist. The type is slice of
-    // LptsPifib_Nodes_Node_DynamicFlowsStats_Flow.
-    Flow []*LptsPifib_Nodes_Node_DynamicFlowsStats_Flow
+    // LptsPifib__Nodes_Node_DynamicFlowsStats_Flow.
+    Flow []*LptsPifib__Nodes_Node_DynamicFlowsStats_Flow
 }
 
-func (dynamicFlowsStats *LptsPifib_Nodes_Node_DynamicFlowsStats) GetEntityData() *types.CommonEntityData {
+func (dynamicFlowsStats *LptsPifib__Nodes_Node_DynamicFlowsStats) GetEntityData() *types.CommonEntityData {
     dynamicFlowsStats.EntityData.YFilter = dynamicFlowsStats.YFilter
     dynamicFlowsStats.EntityData.YangName = "dynamic-flows-stats"
     dynamicFlowsStats.EntityData.BundleName = "cisco_ios_xr"
@@ -438,9 +438,9 @@ func (dynamicFlowsStats *LptsPifib_Nodes_Node_DynamicFlowsStats) GetEntityData()
     return &(dynamicFlowsStats.EntityData)
 }
 
-// LptsPifib_Nodes_Node_DynamicFlowsStats_Flow
+// LptsPifib__Nodes_Node_DynamicFlowsStats_Flow
 // Flow Datalist
-type LptsPifib_Nodes_Node_DynamicFlowsStats_Flow struct {
+type LptsPifib__Nodes_Node_DynamicFlowsStats_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -473,7 +473,7 @@ type LptsPifib_Nodes_Node_DynamicFlowsStats_Flow struct {
     PendingSoftwareEntries interface{}
 }
 
-func (flow *LptsPifib_Nodes_Node_DynamicFlowsStats_Flow) GetEntityData() *types.CommonEntityData {
+func (flow *LptsPifib__Nodes_Node_DynamicFlowsStats_Flow) GetEntityData() *types.CommonEntityData {
     flow.EntityData.YFilter = flow.YFilter
     flow.EntityData.YangName = "flow"
     flow.EntityData.BundleName = "cisco_ios_xr"
@@ -501,32 +501,32 @@ func (flow *LptsPifib_Nodes_Node_DynamicFlowsStats_Flow) GetEntityData() *types.
     return &(flow.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware
+// LptsPifib__Nodes_Node_Hardware
 // Hardware specific
-type LptsPifib_Nodes_Node_Hardware struct {
+type LptsPifib__Nodes_Node_Hardware struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Usage Table options.
-    UsageEntries LptsPifib_Nodes_Node_Hardware_UsageEntries
+    UsageEntries LptsPifib__Nodes_Node_Hardware_UsageEntries
 
     // Police details.
-    Police LptsPifib_Nodes_Node_Hardware_Police
+    Police LptsPifib__Nodes_Node_Hardware_Police
 
     // Static Police details.
-    StaticPolice LptsPifib_Nodes_Node_Hardware_StaticPolice
+    StaticPolice LptsPifib__Nodes_Node_Hardware_StaticPolice
 
     // Bfd details.
-    Bfd LptsPifib_Nodes_Node_Hardware_Bfd
+    Bfd LptsPifib__Nodes_Node_Hardware_Bfd
 
     // Hardware Entry type.
-    Statistics LptsPifib_Nodes_Node_Hardware_Statistics
+    Statistics LptsPifib__Nodes_Node_Hardware_Statistics
 
     // Hardware Entry options.
-    IndexEntries LptsPifib_Nodes_Node_Hardware_IndexEntries
+    IndexEntries LptsPifib__Nodes_Node_Hardware_IndexEntries
 }
 
-func (hardware *LptsPifib_Nodes_Node_Hardware) GetEntityData() *types.CommonEntityData {
+func (hardware *LptsPifib__Nodes_Node_Hardware) GetEntityData() *types.CommonEntityData {
     hardware.EntityData.YFilter = hardware.YFilter
     hardware.EntityData.YangName = "hardware"
     hardware.EntityData.BundleName = "cisco_ios_xr"
@@ -551,18 +551,18 @@ func (hardware *LptsPifib_Nodes_Node_Hardware) GetEntityData() *types.CommonEnti
     return &(hardware.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_UsageEntries
+// LptsPifib__Nodes_Node_Hardware_UsageEntries
 // Usage Table options
-type LptsPifib_Nodes_Node_Hardware_UsageEntries struct {
+type LptsPifib__Nodes_Node_Hardware_UsageEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Usage details. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry.
-    UsageEntry []*LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry
+    // LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry.
+    UsageEntry []*LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry
 }
 
-func (usageEntries *LptsPifib_Nodes_Node_Hardware_UsageEntries) GetEntityData() *types.CommonEntityData {
+func (usageEntries *LptsPifib__Nodes_Node_Hardware_UsageEntries) GetEntityData() *types.CommonEntityData {
     usageEntries.EntityData.YFilter = usageEntries.YFilter
     usageEntries.EntityData.YangName = "usage-entries"
     usageEntries.EntityData.BundleName = "cisco_ios_xr"
@@ -585,9 +585,9 @@ func (usageEntries *LptsPifib_Nodes_Node_Hardware_UsageEntries) GetEntityData() 
     return &(usageEntries.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry
+// LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry
 // Usage details
-type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry struct {
+type LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -596,11 +596,11 @@ type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry struct {
     RegionId interface{}
 
     // Per TCAM type usage info. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo.
-    UsageInfo []*LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
+    // LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo.
+    UsageInfo []*LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
 }
 
-func (usageEntry *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEntityData() *types.CommonEntityData {
+func (usageEntry *LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEntityData() *types.CommonEntityData {
     usageEntry.EntityData.YFilter = usageEntry.YFilter
     usageEntry.EntityData.YangName = "usage-entry"
     usageEntry.EntityData.BundleName = "cisco_ios_xr"
@@ -625,9 +625,9 @@ func (usageEntry *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEnti
     return &(usageEntry.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
+// LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
 // Per TCAM type usage info
-type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo struct {
+type LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -650,7 +650,7 @@ type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo struct {
     Used interface{}
 }
 
-func (usageInfo *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo) GetEntityData() *types.CommonEntityData {
+func (usageInfo *LptsPifib__Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo) GetEntityData() *types.CommonEntityData {
     usageInfo.EntityData.YFilter = usageInfo.YFilter
     usageInfo.EntityData.YangName = "usage-info"
     usageInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -674,18 +674,18 @@ func (usageInfo *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
     return &(usageInfo.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_Police
+// LptsPifib__Nodes_Node_Hardware_Police
 // Police details
-type LptsPifib_Nodes_Node_Hardware_Police struct {
+type LptsPifib__Nodes_Node_Hardware_Police struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per flow type police info. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo.
-    PoliceInfo []*LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo
+    // LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo.
+    PoliceInfo []*LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo
 }
 
-func (police *LptsPifib_Nodes_Node_Hardware_Police) GetEntityData() *types.CommonEntityData {
+func (police *LptsPifib__Nodes_Node_Hardware_Police) GetEntityData() *types.CommonEntityData {
     police.EntityData.YFilter = police.YFilter
     police.EntityData.YangName = "police"
     police.EntityData.BundleName = "cisco_ios_xr"
@@ -709,9 +709,9 @@ func (police *LptsPifib_Nodes_Node_Hardware_Police) GetEntityData() *types.Commo
     return &(police.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo
+// LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo
 // Per flow type police info
-type LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo struct {
+type LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -748,11 +748,11 @@ type LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo struct {
     AclConfig interface{}
 
     // acl str. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     AclStr interface{}
 }
 
-func (policeInfo *LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo) GetEntityData() *types.CommonEntityData {
+func (policeInfo *LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo) GetEntityData() *types.CommonEntityData {
     policeInfo.EntityData.YFilter = policeInfo.YFilter
     policeInfo.EntityData.YangName = "police-info"
     policeInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -782,18 +782,18 @@ func (policeInfo *LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo) GetEntityData
     return &(policeInfo.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_StaticPolice
+// LptsPifib__Nodes_Node_Hardware_StaticPolice
 // Static Police details
-type LptsPifib_Nodes_Node_Hardware_StaticPolice struct {
+type LptsPifib__Nodes_Node_Hardware_StaticPolice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per punt reason info. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo.
-    StaticInfo []*LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo
+    // LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo.
+    StaticInfo []*LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo
 }
 
-func (staticPolice *LptsPifib_Nodes_Node_Hardware_StaticPolice) GetEntityData() *types.CommonEntityData {
+func (staticPolice *LptsPifib__Nodes_Node_Hardware_StaticPolice) GetEntityData() *types.CommonEntityData {
     staticPolice.EntityData.YFilter = staticPolice.YFilter
     staticPolice.EntityData.YangName = "static-police"
     staticPolice.EntityData.BundleName = "cisco_ios_xr"
@@ -817,9 +817,9 @@ func (staticPolice *LptsPifib_Nodes_Node_Hardware_StaticPolice) GetEntityData() 
     return &(staticPolice.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo
+// LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo
 // Per punt reason info
-type LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo struct {
+type LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -843,14 +843,14 @@ type LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo struct {
     Dropped interface{}
 
     // punt reason string. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PuntReasonString interface{}
 
     // change type. The type is interface{} with range: 0..255.
     ChangeType interface{}
 }
 
-func (staticInfo *LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo) GetEntityData() *types.CommonEntityData {
+func (staticInfo *LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo) GetEntityData() *types.CommonEntityData {
     staticInfo.EntityData.YFilter = staticInfo.YFilter
     staticInfo.EntityData.YangName = "static-info"
     staticInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -877,18 +877,18 @@ func (staticInfo *LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo) GetEnti
     return &(staticInfo.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_Bfd
+// LptsPifib__Nodes_Node_Hardware_Bfd
 // Bfd details
-type LptsPifib_Nodes_Node_Hardware_Bfd struct {
+type LptsPifib__Nodes_Node_Hardware_Bfd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per bfd disc entry info. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo.
-    BfdEntryInfo []*LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo
+    // LptsPifib__Nodes_Node_Hardware_Bfd_BfdEntryInfo.
+    BfdEntryInfo []*LptsPifib__Nodes_Node_Hardware_Bfd_BfdEntryInfo
 }
 
-func (bfd *LptsPifib_Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntityData {
+func (bfd *LptsPifib__Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.YFilter = bfd.YFilter
     bfd.EntityData.YangName = "bfd"
     bfd.EntityData.BundleName = "cisco_ios_xr"
@@ -912,9 +912,9 @@ func (bfd *LptsPifib_Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntit
     return &(bfd.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo
+// LptsPifib__Nodes_Node_Hardware_Bfd_BfdEntryInfo
 // Per bfd disc entry info
-type LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo struct {
+type LptsPifib__Nodes_Node_Hardware_Bfd_BfdEntryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -935,7 +935,7 @@ type LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo struct {
     PolicerId interface{}
 }
 
-func (bfdEntryInfo *LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo) GetEntityData() *types.CommonEntityData {
+func (bfdEntryInfo *LptsPifib__Nodes_Node_Hardware_Bfd_BfdEntryInfo) GetEntityData() *types.CommonEntityData {
     bfdEntryInfo.EntityData.YFilter = bfdEntryInfo.YFilter
     bfdEntryInfo.EntityData.YangName = "bfd-entry-info"
     bfdEntryInfo.EntityData.BundleName = "cisco_ios_xr"
@@ -959,9 +959,9 @@ func (bfdEntryInfo *LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo) GetEntityDat
     return &(bfdEntryInfo.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_Statistics
+// LptsPifib__Nodes_Node_Hardware_Statistics
 // Hardware Entry type
-type LptsPifib_Nodes_Node_Hardware_Statistics struct {
+type LptsPifib__Nodes_Node_Hardware_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -982,7 +982,7 @@ type LptsPifib_Nodes_Node_Hardware_Statistics struct {
     NoStatsMemErr interface{}
 }
 
-func (statistics *LptsPifib_Nodes_Node_Hardware_Statistics) GetEntityData() *types.CommonEntityData {
+func (statistics *LptsPifib__Nodes_Node_Hardware_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.YFilter = statistics.YFilter
     statistics.EntityData.YangName = "statistics"
     statistics.EntityData.BundleName = "cisco_ios_xr"
@@ -1005,18 +1005,18 @@ func (statistics *LptsPifib_Nodes_Node_Hardware_Statistics) GetEntityData() *typ
     return &(statistics.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_IndexEntries
+// LptsPifib__Nodes_Node_Hardware_IndexEntries
 // Hardware Entry options
-type LptsPifib_Nodes_Node_Hardware_IndexEntries struct {
+type LptsPifib__Nodes_Node_Hardware_IndexEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Entry options. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry.
-    IndexEntry []*LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry
+    // LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry.
+    IndexEntry []*LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry
 }
 
-func (indexEntries *LptsPifib_Nodes_Node_Hardware_IndexEntries) GetEntityData() *types.CommonEntityData {
+func (indexEntries *LptsPifib__Nodes_Node_Hardware_IndexEntries) GetEntityData() *types.CommonEntityData {
     indexEntries.EntityData.YFilter = indexEntries.YFilter
     indexEntries.EntityData.YangName = "index-entries"
     indexEntries.EntityData.BundleName = "cisco_ios_xr"
@@ -1039,9 +1039,9 @@ func (indexEntries *LptsPifib_Nodes_Node_Hardware_IndexEntries) GetEntityData() 
     return &(indexEntries.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry
+// LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry
 // Entry options
-type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry struct {
+type LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -1194,18 +1194,18 @@ type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry struct {
     RemoteFgid interface{}
 
     // Acl name. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     AclStr interface{}
 
     // Stats not available. The type is interface{} with range: 0..255.
     NoStats interface{}
 
     // Per pipe type hardware info. The type is slice of
-    // LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo.
-    HwInfo []*LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo
+    // LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo.
+    HwInfo []*LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo
 }
 
-func (indexEntry *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEntityData() *types.CommonEntityData {
+func (indexEntry *LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEntityData() *types.CommonEntityData {
     indexEntry.EntityData.YFilter = indexEntry.YFilter
     indexEntry.EntityData.YangName = "index-entry"
     indexEntry.EntityData.BundleName = "cisco_ios_xr"
@@ -1276,9 +1276,9 @@ func (indexEntry *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEnti
     return &(indexEntry.EntityData)
 }
 
-// LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo
+// LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo
 // Per pipe type hardware info
-type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo struct {
+type LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -1306,7 +1306,7 @@ type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo struct {
     TmStartOffset interface{}
 }
 
-func (hwInfo *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo) GetEntityData() *types.CommonEntityData {
+func (hwInfo *LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo) GetEntityData() *types.CommonEntityData {
     hwInfo.EntityData.YFilter = hwInfo.YFilter
     hwInfo.EntityData.YangName = "hw-info"
     hwInfo.EntityData.BundleName = "cisco_ios_xr"

@@ -171,7 +171,7 @@ type CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbAreaId
     OspfLsdbAreaId interface{}
 
@@ -181,12 +181,12 @@ type CISCOOSPFMIB_CospfLsdbTable_CospfLsdbEntry struct {
     CospfLsdbType interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbLsid
     OspfLsdbLsid interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to ospf_mib.OSPFMIB_OspfLsdbTable_OspfLsdbEntry_OspfLsdbRouterId
     OspfLsdbRouterId interface{}
 
@@ -294,17 +294,17 @@ type CISCOOSPFMIB_CospfShamLinkTable_CospfShamLinkEntry struct {
     // This attribute is a key. The  Transit  Area  that  the   Virtual   Link
     // traverses.  By definition, this is not 0.0.0.0. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinkAreaId interface{}
 
     // This attribute is a key. The Local IP address of the sham link. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinkLocalIpAddress interface{}
 
     // This attribute is a key. The Router ID of the other end router of the sham
     // link. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinkNeighborId interface{}
 
     // The number of seconds between  link-state  advertisement retransmissions, 
@@ -417,7 +417,7 @@ type CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry struct {
 
     // This attribute is a key. The IP Address of the interface from which the LSA
     // was received if the interface is numbered. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfLocalLsdbIpAddress interface{}
 
     // This attribute is a key. The Interface Index of the interface from which
@@ -434,13 +434,13 @@ type CISCOOSPFMIB_CospfLocalLsdbTable_CospfLocalLsdbEntry struct {
     // containing a 32 bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfLocalLsdbLsid interface{}
 
     // This attribute is a key. The 32 bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfLocalLsdbRouterId interface{}
 
     // The sequence number field is a signed 32-bit integer. It is used to detect
@@ -545,12 +545,12 @@ type CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry struct {
 
     // This attribute is a key. The Transit Area that the Virtual Link traverses.
     // By definition, this is not 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfVirtLocalLsdbTransitArea interface{}
 
     // This attribute is a key. The Router ID of the Virtual Neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfVirtLocalLsdbNeighbor interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each 
@@ -562,13 +562,13 @@ type CISCOOSPFMIB_CospfVirtLocalLsdbTable_CospfVirtLocalLsdbEntry struct {
     // containing a 32 bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfVirtLocalLsdbLsid interface{}
 
     // This attribute is a key. The 32 bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfVirtLocalLsdbRouterId interface{}
 
     // The sequence number field is a  signed  32-bit integer. It is used to
@@ -681,7 +681,7 @@ type CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry struct {
 
     // This attribute is a key. The area to which the sham link is part of. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinkNbrArea interface{}
 
     // This attribute is a key. The type of internet address of this sham link
@@ -694,7 +694,7 @@ type CISCOOSPFMIB_CospfShamLinkNbrTable_CospfShamLinkNbrEntry struct {
 
     // A 32-bit integer uniquely identifying the neighboring router. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinkNbrRtrId interface{}
 
     // A Bit Mask corresponding to the neighbor's options field.  Bit 1, if set,
@@ -817,7 +817,7 @@ type CISCOOSPFMIB_CospfShamLinksTable_CospfShamLinksEntry struct {
 
     // This attribute is a key. The area that this sham link is part of. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CospfShamLinksAreaId interface{}
 
     // This attribute is a key. The type of internet address of this sham link's

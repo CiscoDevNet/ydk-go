@@ -18,18 +18,18 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package tty_management_oper"))
 }
 
-type Ipv4 struct {
-}
-
-func (id Ipv4) String() string {
-	return "Cisco-IOS-XR-tty-management-oper-sub1:ipv4"
-}
-
 type HostAfIdBase struct {
 }
 
 func (id HostAfIdBase) String() string {
 	return "Cisco-IOS-XR-tty-management-oper-sub1:Host-af-id-base"
+}
+
+type Ipv4 struct {
+}
+
+func (id Ipv4) String() string {
+	return "Cisco-IOS-XR-tty-management-oper-sub1:ipv4"
 }
 
 type Ipv6 struct {

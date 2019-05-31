@@ -24,6 +24,26 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-fti-oper:dci-fabric-interconnect", reflect.TypeOf(DciFabricInterconnect{}))
 }
 
+// FtiBagFabricPeerState represents FTI Fabric Peer States
+type FtiBagFabricPeerState string
+
+const (
+    // Disconnected
+    FtiBagFabricPeerState_fti_bag_fabric_peer_status_disconnected FtiBagFabricPeerState = "fti-bag-fabric-peer-status-disconnected"
+
+    // Connecting
+    FtiBagFabricPeerState_fti_bag_fabric_peer_status_connecting FtiBagFabricPeerState = "fti-bag-fabric-peer-status-connecting"
+
+    // Connected
+    FtiBagFabricPeerState_fti_bag_fabric_peer_status_connected FtiBagFabricPeerState = "fti-bag-fabric-peer-status-connected"
+
+    // Ready
+    FtiBagFabricPeerState_fti_bag_fabric_peer_status_ready FtiBagFabricPeerState = "fti-bag-fabric-peer-status-ready"
+
+    // Closing
+    FtiBagFabricPeerState_fti_bag_fabric_peer_status_closing FtiBagFabricPeerState = "fti-bag-fabric-peer-status-closing"
+)
+
 // FtiBagFabricState represents FTI Fabric States
 type FtiBagFabricState string
 
@@ -50,26 +70,6 @@ const (
 
     // Config Incomplete
     FtiBagFabricConfigState_fti_bag_config_incomplete FtiBagFabricConfigState = "fti-bag-config-incomplete"
-)
-
-// FtiBagFabricPeerState represents FTI Fabric Peer States
-type FtiBagFabricPeerState string
-
-const (
-    // Disconnected
-    FtiBagFabricPeerState_fti_bag_fabric_peer_status_disconnected FtiBagFabricPeerState = "fti-bag-fabric-peer-status-disconnected"
-
-    // Connecting
-    FtiBagFabricPeerState_fti_bag_fabric_peer_status_connecting FtiBagFabricPeerState = "fti-bag-fabric-peer-status-connecting"
-
-    // Connected
-    FtiBagFabricPeerState_fti_bag_fabric_peer_status_connected FtiBagFabricPeerState = "fti-bag-fabric-peer-status-connected"
-
-    // Ready
-    FtiBagFabricPeerState_fti_bag_fabric_peer_status_ready FtiBagFabricPeerState = "fti-bag-fabric-peer-status-ready"
-
-    // Closing
-    FtiBagFabricPeerState_fti_bag_fabric_peer_status_closing FtiBagFabricPeerState = "fti-bag-fabric-peer-status-closing"
 )
 
 // DciFabricInterconnect
@@ -219,7 +219,7 @@ type DciFabricInterconnect_OpflexSessionInfos_OpflexSessionInfo_PeerInfo struct 
     YListKey string
 
     // Peer IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIp interface{}
 
     // Peer Port. The type is interface{} with range: 0..4294967295.
@@ -592,7 +592,7 @@ type DciFabricInterconnect_DciVrfs_DciVrf struct {
     YListKey string
 
     // This attribute is a key. vrf name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Vrf1 interface{}
 
     // DCI VRF. The type is string.

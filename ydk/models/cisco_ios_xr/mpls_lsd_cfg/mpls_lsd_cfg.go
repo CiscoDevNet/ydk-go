@@ -200,7 +200,7 @@ type MplsLsd_LabelDatabases_LabelDatabase struct {
     YListKey string
 
     // This attribute is a key. Label database identifier. The type is interface{}
-    // with range: 0..4294967295.
+    // with range: 0..0.
     LabelDatabaseId interface{}
 
     // Label range.

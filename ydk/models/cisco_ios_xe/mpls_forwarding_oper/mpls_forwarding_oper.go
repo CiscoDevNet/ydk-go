@@ -19,39 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data", reflect.TypeOf(MplsForwardingOperData{}))
 }
 
-// ForwardingNextHopType represents Describes supported next hop types
-type ForwardingNextHopType string
-
-const (
-    // Next hop is via a P2P link
-    ForwardingNextHopType_point2point ForwardingNextHopType = "point2point"
-
-    // Next hop IP address
-    ForwardingNextHopType_next_hop_ip_address ForwardingNextHopType = "next-hop-ip-address"
-)
-
-// OutgoingInterfaceDescriptionType represents Describes outgoing interface information types
-type OutgoingInterfaceDescriptionType string
-
-const (
-    // Forwarding path's outgoing interface type
-    OutgoingInterfaceDescriptionType_interface_type OutgoingInterfaceDescriptionType = "interface-type"
-
-    // Forwarding path's outgoing interface value
-    OutgoingInterfaceDescriptionType_interface_value OutgoingInterfaceDescriptionType = "interface-value"
-)
-
-// ConnectionInfoType represents Describes connection information types
-type ConnectionInfoType string
-
-const (
-    // Connection information string
-    ConnectionInfoType_information_string ConnectionInfoType = "information-string"
-
-    // IP prefix for the connection
-    ConnectionInfoType_ip_prefix ConnectionInfoType = "ip-prefix"
-)
-
 // OutgoingInterfaceType represents Describes supported outgoing interface types
 type OutgoingInterfaceType string
 
@@ -70,6 +37,17 @@ const (
 
     // No outgoing interface
     OutgoingInterfaceType_none OutgoingInterfaceType = "none"
+)
+
+// OutgoingInterfaceDescriptionType represents Describes outgoing interface information types
+type OutgoingInterfaceDescriptionType string
+
+const (
+    // Forwarding path's outgoing interface type
+    OutgoingInterfaceDescriptionType_interface_type OutgoingInterfaceDescriptionType = "interface-type"
+
+    // Forwarding path's outgoing interface value
+    OutgoingInterfaceDescriptionType_interface_value OutgoingInterfaceDescriptionType = "interface-value"
 )
 
 // OutgoingLabelType represents Describes supported outgoing label types
@@ -93,6 +71,28 @@ const (
 
     // An invalid label is present
     OutgoingLabelType_invalid_label OutgoingLabelType = "invalid-label"
+)
+
+// ConnectionInfoType represents Describes connection information types
+type ConnectionInfoType string
+
+const (
+    // Connection information string
+    ConnectionInfoType_information_string ConnectionInfoType = "information-string"
+
+    // IP prefix for the connection
+    ConnectionInfoType_ip_prefix ConnectionInfoType = "ip-prefix"
+)
+
+// ForwardingNextHopType represents Describes supported next hop types
+type ForwardingNextHopType string
+
+const (
+    // Next hop is via a P2P link
+    ForwardingNextHopType_point2point ForwardingNextHopType = "point2point"
+
+    // Next hop IP address
+    ForwardingNextHopType_next_hop_ip_address ForwardingNextHopType = "next-hop-ip-address"
 )
 
 // MplsForwardingOperData
@@ -193,9 +193,9 @@ type MplsForwardingOperData_MplsLocalLabel_ConnectionInformation struct {
 
     // IP prefix for the connection. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     IpPrefix interface{}
 }
 
@@ -357,9 +357,9 @@ type MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_NextHop struct {
 
     // Next hop ip address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 }
 

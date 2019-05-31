@@ -24,15 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6", reflect.TypeOf(Dhcpv6{}))
 }
 
-// Action represents Action
-type Action string
+// Ipv6dhcpMode represents Ipv6dhcp mode
+type Ipv6dhcpMode string
 
 const (
-    // Allow vendor specific DHCP Solicit
-    Action_allow Action = "allow"
+    // Specify mode-class based Server option
+    Ipv6dhcpMode_server Ipv6dhcpMode = "server"
 
-    // Drop vendor specific DHCP Solicit
-    Action_drop Action = "drop"
+    // Specify mode-class based Proxy option
+    Ipv6dhcpMode_proxy Ipv6dhcpMode = "proxy"
 )
 
 // Insert represents Insert
@@ -53,12 +53,12 @@ const (
     Insert_received_nodefault Insert = "received-nodefault"
 )
 
-// LinkLayerAddr represents Link layer addr
-type LinkLayerAddr string
+// Ipv6dhcpDefaultMode represents Ipv6dhcp default mode
+type Ipv6dhcpDefaultMode string
 
 const (
-    // Insert Received LinkLayerAddr Value from SADB
-    LinkLayerAddr_set LinkLayerAddr = "set"
+    // Specify mode-class based Server option
+    Ipv6dhcpDefaultMode_server Ipv6dhcpDefaultMode = "server"
 )
 
 // SubscriberId represents Subscriber id
@@ -67,6 +67,25 @@ type SubscriberId string
 const (
     // Insert Received Subscriber-ID Value from SADB
     SubscriberId_pppoe SubscriberId = "pppoe"
+)
+
+// Action represents Action
+type Action string
+
+const (
+    // Allow vendor specific DHCP Solicit
+    Action_allow Action = "allow"
+
+    // Drop vendor specific DHCP Solicit
+    Action_drop Action = "drop"
+)
+
+// LinkLayerAddr represents Link layer addr
+type LinkLayerAddr string
+
+const (
+    // Insert Received LinkLayerAddr Value from SADB
+    LinkLayerAddr_set LinkLayerAddr = "set"
 )
 
 // Dhcpv6
@@ -222,7 +241,7 @@ type Dhcpv6_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // None.
@@ -272,13 +291,13 @@ type Dhcpv6_Profiles_Profile_Relay struct {
 
     // IPv6 address to be filled in link-address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LinkAddress interface{}
 
     // Relay profile Source Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
@@ -370,14 +389,14 @@ type Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress struct {
 
     // This attribute is a key. Server Global unicast address. The type is string
     // with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HelperAddress interface{}
 
     // Enable. The type is interface{}. This attribute is mandatory.
     Enable interface{}
 
     // Helper-address Specific Source Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SrcIntfName interface{}
 }
 
@@ -446,8 +465,11 @@ type Dhcpv6_Profiles_Profile_Base struct {
     // objects under Base. The type is interface{}. This attribute is mandatory.
     Enable interface{}
 
+    // Enable to provide the list of options need to send to aaa.
+    Dhcpv6ToAaa Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa
+
     // Default match option.
-    Default Dhcpv6_Profiles_Profile_Base_Default
+    MatchDefault Dhcpv6_Profiles_Profile_Base_MatchDefault
 
     // Enter match option.
     Match Dhcpv6_Profiles_Profile_Base_Match
@@ -465,7 +487,8 @@ func (base *Dhcpv6_Profiles_Profile_Base) GetEntityData() *types.CommonEntityDat
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     base.EntityData.Children = types.NewOrderedMap()
-    base.EntityData.Children.Append("default", types.YChild{"Default", &base.Default})
+    base.EntityData.Children.Append("dhcpv6-to-aaa", types.YChild{"Dhcpv6ToAaa", &base.Dhcpv6ToAaa})
+    base.EntityData.Children.Append("match-default", types.YChild{"MatchDefault", &base.MatchDefault})
     base.EntityData.Children.Append("match", types.YChild{"Match", &base.Match})
     base.EntityData.Leafs = types.NewOrderedMap()
     base.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", base.Enable})
@@ -475,65 +498,151 @@ func (base *Dhcpv6_Profiles_Profile_Base) GetEntityData() *types.CommonEntityDat
     return &(base.EntityData)
 }
 
-// Dhcpv6_Profiles_Profile_Base_Default
+// Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa
+// Enable to provide the list of options need to
+// send to aaa
+type Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // option type.
+    BaseOption Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption
+}
+
+func (dhcpv6ToAaa *Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa) GetEntityData() *types.CommonEntityData {
+    dhcpv6ToAaa.EntityData.YFilter = dhcpv6ToAaa.YFilter
+    dhcpv6ToAaa.EntityData.YangName = "dhcpv6-to-aaa"
+    dhcpv6ToAaa.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6ToAaa.EntityData.ParentYangName = "base"
+    dhcpv6ToAaa.EntityData.SegmentPath = "dhcpv6-to-aaa"
+    dhcpv6ToAaa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/" + dhcpv6ToAaa.EntityData.SegmentPath
+    dhcpv6ToAaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6ToAaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6ToAaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dhcpv6ToAaa.EntityData.Children = types.NewOrderedMap()
+    dhcpv6ToAaa.EntityData.Children.Append("base-option", types.YChild{"BaseOption", &dhcpv6ToAaa.BaseOption})
+    dhcpv6ToAaa.EntityData.Leafs = types.NewOrderedMap()
+
+    dhcpv6ToAaa.EntityData.YListKeys = []string {}
+
+    return &(dhcpv6ToAaa.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption
+// option type
+type Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of options.
+    List Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption_List
+}
+
+func (baseOption *Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption) GetEntityData() *types.CommonEntityData {
+    baseOption.EntityData.YFilter = baseOption.YFilter
+    baseOption.EntityData.YangName = "base-option"
+    baseOption.EntityData.BundleName = "cisco_ios_xr"
+    baseOption.EntityData.ParentYangName = "dhcpv6-to-aaa"
+    baseOption.EntityData.SegmentPath = "base-option"
+    baseOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/dhcpv6-to-aaa/" + baseOption.EntityData.SegmentPath
+    baseOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    baseOption.EntityData.Children = types.NewOrderedMap()
+    baseOption.EntityData.Children.Append("list", types.YChild{"List", &baseOption.List})
+    baseOption.EntityData.Leafs = types.NewOrderedMap()
+
+    baseOption.EntityData.YListKeys = []string {}
+
+    return &(baseOption.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption_List
+// List of options
+type Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption_List struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set constant integer. The type is interface{} with range: 0..4294967295.
+    OptionAll interface{}
+
+    // Option number. The type is slice of interface{} with range: 0..4294967295.
+    OptionNumber []interface{}
+}
+
+func (list *Dhcpv6_Profiles_Profile_Base_Dhcpv6ToAaa_BaseOption_List) GetEntityData() *types.CommonEntityData {
+    list.EntityData.YFilter = list.YFilter
+    list.EntityData.YangName = "list"
+    list.EntityData.BundleName = "cisco_ios_xr"
+    list.EntityData.ParentYangName = "base-option"
+    list.EntityData.SegmentPath = "list"
+    list.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/dhcpv6-to-aaa/base-option/" + list.EntityData.SegmentPath
+    list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    list.EntityData.Children = types.NewOrderedMap()
+    list.EntityData.Leafs = types.NewOrderedMap()
+    list.EntityData.Leafs.Append("option-all", types.YLeaf{"OptionAll", list.OptionAll})
+    list.EntityData.Leafs.Append("option-number", types.YLeaf{"OptionNumber", list.OptionNumber})
+
+    list.EntityData.YListKeys = []string {}
+
+    return &(list.EntityData)
+}
+
+// Dhcpv6_Profiles_Profile_Base_MatchDefault
 // Default match option
-type Dhcpv6_Profiles_Profile_Base_Default struct {
+type Dhcpv6_Profiles_Profile_Base_MatchDefault struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enter proxy or server profile. The type is slice of
-    // Dhcpv6_Profiles_Profile_Base_Default_Profile.
-    Profile []*Dhcpv6_Profiles_Profile_Base_Default_Profile
+    // None.
+    Profile Dhcpv6_Profiles_Profile_Base_MatchDefault_Profile
 }
 
-func (self *Dhcpv6_Profiles_Profile_Base_Default) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "default"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "base"
-    self.EntityData.SegmentPath = "default"
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (matchDefault *Dhcpv6_Profiles_Profile_Base_MatchDefault) GetEntityData() *types.CommonEntityData {
+    matchDefault.EntityData.YFilter = matchDefault.YFilter
+    matchDefault.EntityData.YangName = "match-default"
+    matchDefault.EntityData.BundleName = "cisco_ios_xr"
+    matchDefault.EntityData.ParentYangName = "base"
+    matchDefault.EntityData.SegmentPath = "match-default"
+    matchDefault.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/" + matchDefault.EntityData.SegmentPath
+    matchDefault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    matchDefault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    matchDefault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
-    for i := range self.Profile {
-        self.EntityData.Children.Append(types.GetSegmentPath(self.Profile[i]), types.YChild{"Profile", self.Profile[i]})
-    }
-    self.EntityData.Leafs = types.NewOrderedMap()
+    matchDefault.EntityData.Children = types.NewOrderedMap()
+    matchDefault.EntityData.Children.Append("profile", types.YChild{"Profile", &matchDefault.Profile})
+    matchDefault.EntityData.Leafs = types.NewOrderedMap()
 
-    self.EntityData.YListKeys = []string {}
+    matchDefault.EntityData.YListKeys = []string {}
 
-    return &(self.EntityData)
+    return &(matchDefault.EntityData)
 }
 
-// Dhcpv6_Profiles_Profile_Base_Default_Profile
-// Enter proxy or server profile
-type Dhcpv6_Profiles_Profile_Base_Default_Profile struct {
+// Dhcpv6_Profiles_Profile_Base_MatchDefault_Profile
+// None
+type Dhcpv6_Profiles_Profile_Base_MatchDefault_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YListKey string
 
-    // This attribute is a key. Profile name. The type is string with length:
-    // 1..64.
+    // Profile name. The type is string with length: 1..64.
     ProfileName interface{}
 
-    // Specify mode-class based Server option. The type is interface{}.
-    ServerMode interface{}
-
-    // Specify mode-class based Proxy Option. The type is interface{}.
-    ProxyMode interface{}
+    // Set constant integer. The type is Ipv6dhcpDefaultMode.
+    DefaultMode interface{}
 }
 
-func (profile *Dhcpv6_Profiles_Profile_Base_Default_Profile) GetEntityData() *types.CommonEntityData {
+func (profile *Dhcpv6_Profiles_Profile_Base_MatchDefault_Profile) GetEntityData() *types.CommonEntityData {
     profile.EntityData.YFilter = profile.YFilter
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
-    profile.EntityData.ParentYangName = "default"
-    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
-    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/default/" + profile.EntityData.SegmentPath
+    profile.EntityData.ParentYangName = "match-default"
+    profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/match-default/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,10 +650,9 @@ func (profile *Dhcpv6_Profiles_Profile_Base_Default_Profile) GetEntityData() *ty
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("server-mode", types.YLeaf{"ServerMode", profile.ServerMode})
-    profile.EntityData.Leafs.Append("proxy-mode", types.YLeaf{"ProxyMode", profile.ProxyMode})
+    profile.EntityData.Leafs.Append("default-mode", types.YLeaf{"DefaultMode", profile.DefaultMode})
 
-    profile.EntityData.YListKeys = []string {"ProfileName"}
+    profile.EntityData.YListKeys = []string {}
 
     return &(profile.EntityData)
 }
@@ -620,13 +728,11 @@ type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Class name. The type is string with length:
-    // 1..128.
+    // This attribute is a key. Class name. The type is string with length: 1..64.
     ClassName interface{}
 
-    // Enter proxy or server profile. The type is slice of
-    // Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile.
-    Profile []*Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile
+    // Enter proxy or server profile.
+    Profile Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile
 }
 
 func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEntityData() *types.CommonEntityData {
@@ -641,10 +747,7 @@ func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEn
     modeClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     modeClass.EntityData.Children = types.NewOrderedMap()
-    modeClass.EntityData.Children.Append("profile", types.YChild{"Profile", nil})
-    for i := range modeClass.Profile {
-        modeClass.EntityData.Children.Append(types.GetSegmentPath(modeClass.Profile[i]), types.YChild{"Profile", modeClass.Profile[i]})
-    }
+    modeClass.EntityData.Children.Append("profile", types.YChild{"Profile", &modeClass.Profile})
     modeClass.EntityData.Leafs = types.NewOrderedMap()
     modeClass.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", modeClass.ClassName})
 
@@ -658,17 +761,12 @@ func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEn
 type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YListKey string
 
-    // This attribute is a key. Profile name. The type is string with length:
-    // 1..64.
+    // Profile name. The type is string with length: 1..64.
     ProfileName interface{}
 
-    // Specify mode-class based Server option. The type is interface{}.
-    ServerMode interface{}
-
-    // Specify mode-class based Proxy Option. The type is interface{}.
-    ProxyMode interface{}
+    // Set constant integer. The type is Ipv6dhcpMode.
+    Mode interface{}
 }
 
 func (profile *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile) GetEntityData() *types.CommonEntityData {
@@ -676,7 +774,7 @@ func (profile *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile)
     profile.EntityData.YangName = "profile"
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "mode-class"
-    profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.SegmentPath = "profile"
     profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/match/mode-classes/mode-class/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -685,10 +783,9 @@ func (profile *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile)
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("server-mode", types.YLeaf{"ServerMode", profile.ServerMode})
-    profile.EntityData.Leafs.Append("proxy-mode", types.YLeaf{"ProxyMode", profile.ProxyMode})
+    profile.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", profile.Mode})
 
-    profile.EntityData.YListKeys = []string {"ProfileName"}
+    profile.EntityData.YListKeys = []string {}
 
     return &(profile.EntityData)
 }
@@ -710,13 +807,13 @@ type Dhcpv6_Profiles_Profile_Proxy struct {
 
     // IPv6 address to be filled in link-address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LinkAddress interface{}
 
     // Create or enter proxy profile Source Interface Name. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
@@ -814,7 +911,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Physical interface ID. The type is string.
@@ -991,7 +1088,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Table of HelperAddress.
@@ -1062,11 +1159,11 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress struct
 
     // This attribute is a key. DHCPv6 Helper Address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HelperAddress interface{}
 
     // DHCPv6 HelperAddress Specific Output Interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     OutInterface interface{}
 
     // DHCPv6 HelperAddress Output Interface. The type is interface{}.
@@ -1165,15 +1262,14 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes_Class struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Class name. The type is string with length:
-    // 1..128.
+    // This attribute is a key. Class name. The type is string with length: 1..64.
     ClassName interface{}
 
     // IPv6 address to be filled in link-address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LinkAddress interface{}
 
     // Table of HelperAddress.
@@ -1247,7 +1343,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress s
     VrfName interface{}
 
     // This attribute is a key. Server address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HelperAddress interface{}
 }
 
@@ -1573,9 +1669,9 @@ type Dhcpv6_Profiles_Profile_Server_DnsServers struct {
 
     // Server's IPv6 address. The type is one of the following types: slice of
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsServer []interface{}
 }
 
@@ -1639,8 +1735,7 @@ type Dhcpv6_Profiles_Profile_Server_Classes_Class struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. class name. The type is string with length:
-    // 1..128.
+    // This attribute is a key. class name. The type is string with length: 1..64.
     ClassName interface{}
 
     // Address pool name. The type is string with length: 1..64.
@@ -1696,9 +1791,9 @@ type Dhcpv6_Profiles_Profile_Server_Classes_Class_DnsServers struct {
 
     // Server's IPv6 address. The type is one of the following types: slice of
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsServer []interface{}
 }
 
@@ -1938,7 +2033,7 @@ type Dhcpv6_Profiles_Profile_Server_Options_Option struct {
     YListKey string
 
     // This attribute is a key. Set string. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Type interface{}
 
     // This attribute is a key. Set constant integer. The type is interface{} with
@@ -1946,7 +2041,7 @@ type Dhcpv6_Profiles_Profile_Server_Options_Option struct {
     Format interface{}
 
     // This attribute is a key. Set string. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Value interface{}
 
     // match enterprise number.
@@ -2273,7 +2368,7 @@ type Dhcpv6_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // PPPoE subscriber interface.

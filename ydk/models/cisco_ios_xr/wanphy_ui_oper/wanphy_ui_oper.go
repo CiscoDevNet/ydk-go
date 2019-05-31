@@ -118,7 +118,7 @@ type Wanphy_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // WANPHY controller operational data.

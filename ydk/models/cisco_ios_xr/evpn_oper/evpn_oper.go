@@ -24,21 +24,52 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-evpn-oper:evpn", reflect.TypeOf(Evpn{}))
 }
 
-// L2vpnRgRole represents L2vpn rg role
-type L2vpnRgRole string
+// BgpRouteTargetRole represents Bgp route target role
+type BgpRouteTargetRole string
 
 const (
-    // l2vpn rg role not defined
-    L2vpnRgRole_l2vpn_rg_role_not_defined L2vpnRgRole = "l2vpn-rg-role-not-defined"
+    // Both Import and export roles
+    BgpRouteTargetRole_both BgpRouteTargetRole = "both"
 
-    // l2vpn rg role active
-    L2vpnRgRole_l2vpn_rg_role_active L2vpnRgRole = "l2vpn-rg-role-active"
+    // Import role
+    BgpRouteTargetRole_import_ BgpRouteTargetRole = "import"
 
-    // l2vpn rg role standby
-    L2vpnRgRole_l2vpn_rg_role_standby L2vpnRgRole = "l2vpn-rg-role-standby"
+    // Export role
+    BgpRouteTargetRole_export BgpRouteTargetRole = "export"
+)
 
-    // l2vpn rg role max
-    L2vpnRgRole_l2vpn_rg_role_max L2vpnRgRole = "l2vpn-rg-role-max"
+// BgpRouteTargetFormat represents Bgp route target format
+type BgpRouteTargetFormat string
+
+const (
+    // No route target
+    BgpRouteTargetFormat_none BgpRouteTargetFormat = "none"
+
+    // 2 Byte AS:nn format
+    BgpRouteTargetFormat_two_byte_as BgpRouteTargetFormat = "two-byte-as"
+
+    // 4 byte AS:nn format
+    BgpRouteTargetFormat_four_byte_as BgpRouteTargetFormat = "four-byte-as"
+
+    // IP:nn format
+    BgpRouteTargetFormat_ipv4_address BgpRouteTargetFormat = "ipv4-address"
+
+    // a.a.i format
+    BgpRouteTargetFormat_es_import BgpRouteTargetFormat = "es-import"
+)
+
+// L2vpnEvpnScMcastMode represents mode
+type L2vpnEvpnScMcastMode string
+
+const (
+    // multicast service carving is disabled
+    L2vpnEvpnScMcastMode_disabled L2vpnEvpnScMcastMode = "disabled"
+
+    // Multicast HRW S,G
+    L2vpnEvpnScMcastMode_hrw_s_g L2vpnEvpnScMcastMode = "hrw-s-g"
+
+    // Multicast HRW *,G
+    L2vpnEvpnScMcastMode_hrw_g L2vpnEvpnScMcastMode = "hrw-g"
 )
 
 // L2vpnEvpnScMode represents EVPN Ethernet-Segment service carving mode
@@ -64,18 +95,30 @@ const (
     L2vpnEvpnScMode_pref L2vpnEvpnScMode = "pref"
 )
 
-// L2vpnEvpnMfMode represents L2VPN EVPN MAC flushing mode
-type L2vpnEvpnMfMode string
+// L2vpnEvpnSmacSrc represents L2vpn evpn smac src
+type L2vpnEvpnSmacSrc string
 
 const (
-    // Invalid MAC Flushing mode
-    L2vpnEvpnMfMode_invalid L2vpnEvpnMfMode = "invalid"
+    // Incomplete Configuration
+    L2vpnEvpnSmacSrc_invalid L2vpnEvpnSmacSrc = "invalid"
 
-    // TCN STP MAC Flushing mode
-    L2vpnEvpnMfMode_tcn_stp L2vpnEvpnMfMode = "tcn-stp"
+    // Source MAC Not Applicable (EVPN)
+    L2vpnEvpnSmacSrc_not_applicable L2vpnEvpnSmacSrc = "not-applicable"
 
-    // MVRP MAC Flushing mode
-    L2vpnEvpnMfMode_mvrp L2vpnEvpnMfMode = "mvrp"
+    // Local
+    L2vpnEvpnSmacSrc_local L2vpnEvpnSmacSrc = "local"
+
+    // PBB BSA
+    L2vpnEvpnSmacSrc_pbb_bsa L2vpnEvpnSmacSrc = "pbb-bsa"
+
+    // From ESI
+    L2vpnEvpnSmacSrc_esi L2vpnEvpnSmacSrc = "esi"
+
+    // From ESI, Error
+    L2vpnEvpnSmacSrc_esi_invalid L2vpnEvpnSmacSrc = "esi-invalid"
+
+    // PBB BSA, no ESI
+    L2vpnEvpnSmacSrc_pbb_bsa_overrride L2vpnEvpnSmacSrc = "pbb-bsa-overrride"
 )
 
 // L2vpnEvpnLbMode represents L2VPN EVPN load balancing mode
@@ -95,6 +138,77 @@ const (
     // Multi-homed access network active/active per
     // service
     L2vpnEvpnLbMode_multi_homed_aa_per_service L2vpnEvpnLbMode = "multi-homed-aa-per-service"
+
+    // Multi-homed access network single-flow-active
+    L2vpnEvpnLbMode_multi_homed_single_flow_active L2vpnEvpnLbMode = "multi-homed-single-flow-active"
+
+    // Multi-homed access network port-active
+    L2vpnEvpnLbMode_multi_homed_port_active L2vpnEvpnLbMode = "multi-homed-port-active"
+)
+
+// L2vpnEvpnMfMode represents L2VPN EVPN MAC flushing mode
+type L2vpnEvpnMfMode string
+
+const (
+    // Invalid MAC Flushing mode
+    L2vpnEvpnMfMode_invalid L2vpnEvpnMfMode = "invalid"
+
+    // TCN STP MAC Flushing mode
+    L2vpnEvpnMfMode_tcn_stp L2vpnEvpnMfMode = "tcn-stp"
+
+    // MVRP MAC Flushing mode
+    L2vpnEvpnMfMode_mvrp L2vpnEvpnMfMode = "mvrp"
+)
+
+// L2vpnEvpnRtOrigin represents L2vpn evpn rt origin
+type L2vpnEvpnRtOrigin string
+
+const (
+    // Incomplete Configuration
+    L2vpnEvpnRtOrigin_invalid L2vpnEvpnRtOrigin = "invalid"
+
+    // From ESI
+    L2vpnEvpnRtOrigin_extracted L2vpnEvpnRtOrigin = "extracted"
+
+    // Locally configured
+    L2vpnEvpnRtOrigin_configured L2vpnEvpnRtOrigin = "configured"
+)
+
+// L2vpnRgRole represents L2vpn rg role
+type L2vpnRgRole string
+
+const (
+    // l2vpn rg role not defined
+    L2vpnRgRole_l2vpn_rg_role_not_defined L2vpnRgRole = "l2vpn-rg-role-not-defined"
+
+    // l2vpn rg role active
+    L2vpnRgRole_l2vpn_rg_role_active L2vpnRgRole = "l2vpn-rg-role-active"
+
+    // l2vpn rg role standby
+    L2vpnRgRole_l2vpn_rg_role_standby L2vpnRgRole = "l2vpn-rg-role-standby"
+
+    // l2vpn rg role max
+    L2vpnRgRole_l2vpn_rg_role_max L2vpnRgRole = "l2vpn-rg-role-max"
+)
+
+// L2vpnEvpnEsState represents L2vpn evpn es state
+type L2vpnEvpnEsState string
+
+const (
+    // Not Ready
+    L2vpnEvpnEsState_not_ready L2vpnEvpnEsState = "not-ready"
+
+    // Peering
+    L2vpnEvpnEsState_peering L2vpnEvpnEsState = "peering"
+
+    // Up
+    L2vpnEvpnEsState_up L2vpnEvpnEsState = "up"
+
+    // Down
+    L2vpnEvpnEsState_down L2vpnEvpnEsState = "down"
+
+    // Standby
+    L2vpnEvpnEsState_standby L2vpnEvpnEsState = "standby"
 )
 
 // L2vpnEvpnEsi represents EVPN ESI types
@@ -129,32 +243,58 @@ const (
     L2vpnEvpnEsi_esi_type_invalid L2vpnEvpnEsi = "esi-type-invalid"
 )
 
-// L2vpnTdmRtpOption represents L2VPN TDM RTP option
-type L2vpnTdmRtpOption string
+// L2vpnAdRtRole represents L2vpn ad rt role
+type L2vpnAdRtRole string
 
 const (
-    // Unknown RTP option
-    L2vpnTdmRtpOption_unknown L2vpnTdmRtpOption = "unknown"
+    // Both
+    L2vpnAdRtRole_both L2vpnAdRtRole = "both"
 
-    // RTP option present
-    L2vpnTdmRtpOption_present L2vpnTdmRtpOption = "present"
+    // Import
+    L2vpnAdRtRole_import_ L2vpnAdRtRole = "import"
 
-    // RTP option absent
-    L2vpnTdmRtpOption_absent L2vpnTdmRtpOption = "absent"
+    // Export
+    L2vpnAdRtRole_export L2vpnAdRtRole = "export"
 )
 
-// BgpRouteTargetRole represents Bgp route target role
-type BgpRouteTargetRole string
+// L2vpnAdRt represents L2vpn ad rt
+type L2vpnAdRt string
 
 const (
-    // Both Import and export roles
-    BgpRouteTargetRole_both BgpRouteTargetRole = "both"
+    // Route target not set
+    L2vpnAdRt_l2vpn_ad_rt_none L2vpnAdRt = "l2vpn-ad-rt-none"
 
-    // Import role
-    BgpRouteTargetRole_import_ BgpRouteTargetRole = "import"
+    // Route Target with 2 Byte AS number
+    L2vpnAdRt_l2vpn_ad_rt_as L2vpnAdRt = "l2vpn-ad-rt-as"
 
-    // Export role
-    BgpRouteTargetRole_export BgpRouteTargetRole = "export"
+    // Route Target with 4 Byte AS number
+    L2vpnAdRt_l2vpn_ad_rt_4byte_as L2vpnAdRt = "l2vpn-ad-rt-4byte-as"
+
+    // Route Target with IPv4 Address
+    L2vpnAdRt_l2vpn_ad_rt_v4_addr L2vpnAdRt = "l2vpn-ad-rt-v4-addr"
+
+    // Ethernet Segment Route Target from BGP
+    L2vpnAdRt_es_import L2vpnAdRt = "es-import"
+)
+
+// L2vpnAdRd represents L2vpn ad rd
+type L2vpnAdRd string
+
+const (
+    // Route Distinguisher not set
+    L2vpnAdRd_l2vpn_ad_rd_none L2vpnAdRd = "l2vpn-ad-rd-none"
+
+    // Route Distinguisher auto-generated
+    L2vpnAdRd_l2vpn_ad_rd_auto L2vpnAdRd = "l2vpn-ad-rd-auto"
+
+    // Route Distinguisher with 2 Byte AS number
+    L2vpnAdRd_l2vpn_ad_rd_as L2vpnAdRd = "l2vpn-ad-rd-as"
+
+    // Route Distinguisher with 4 Byte AS number
+    L2vpnAdRd_l2vpn_ad_rd_4byte_as L2vpnAdRd = "l2vpn-ad-rd-4byte-as"
+
+    // Route Distinguisher with IPv4 Address
+    L2vpnAdRd_l2vpn_ad_rd_v4_addr L2vpnAdRd = "l2vpn-ad-rd-v4-addr"
 )
 
 // L2vpnEvpn represents L2vpn evpn
@@ -180,73 +320,29 @@ const (
     L2vpnEvpn_evpn_type_max L2vpnEvpn = "evpn-type-max"
 )
 
-// L2vpnFrMode represents L2vpn fr mode
-type L2vpnFrMode string
+// EvpnIgmpGrp represents Evpn igmp grp
+type EvpnIgmpGrp string
 
 const (
-    // Frame Relay port mode
-    L2vpnFrMode_l2vpn_fr_port_mode L2vpnFrMode = "l2vpn-fr-port-mode"
+    // Include
+    EvpnIgmpGrp_include EvpnIgmpGrp = "include"
 
-    // Frame Relay DLCI mode
-    L2vpnFrMode_l2vpn_fr_dlci_mode L2vpnFrMode = "l2vpn-fr-dlci-mode"
+    // Exclude
+    EvpnIgmpGrp_exclude EvpnIgmpGrp = "exclude"
 )
 
-// L2vpnEvpnRtOrigin represents L2vpn evpn rt origin
-type L2vpnEvpnRtOrigin string
+// EvpnIgmpVersion represents Evpn igmp version
+type EvpnIgmpVersion string
 
 const (
-    // Incomplete Configuration
-    L2vpnEvpnRtOrigin_invalid L2vpnEvpnRtOrigin = "invalid"
+    // Version 1
+    EvpnIgmpVersion_v1 EvpnIgmpVersion = "v1"
 
-    // From ESI
-    L2vpnEvpnRtOrigin_extracted L2vpnEvpnRtOrigin = "extracted"
+    // Version 2
+    EvpnIgmpVersion_v2 EvpnIgmpVersion = "v2"
 
-    // Locally configured
-    L2vpnEvpnRtOrigin_configured L2vpnEvpnRtOrigin = "configured"
-)
-
-// L2vpnInterface represents L2vpn interface
-type L2vpnInterface string
-
-const (
-    // Unknown
-    L2vpnInterface_l2vpn_intf_type_unknown L2vpnInterface = "l2vpn-intf-type-unknown"
-
-    // Ethernet
-    L2vpnInterface_l2vpn_intf_type_ethernet L2vpnInterface = "l2vpn-intf-type-ethernet"
-
-    // Ethernet Vlan
-    L2vpnInterface_l2vpn_intf_type_vlan L2vpnInterface = "l2vpn-intf-type-vlan"
-
-    // ATM
-    L2vpnInterface_l2vpn_intf_type_atm L2vpnInterface = "l2vpn-intf-type-atm"
-
-    // Frame Relay
-    L2vpnInterface_l2vpn_intf_type_frame_relay L2vpnInterface = "l2vpn-intf-type-frame-relay"
-
-    // HDLC
-    L2vpnInterface_l2vpn_intf_type_hdlc L2vpnInterface = "l2vpn-intf-type-hdlc"
-
-    // PPP
-    L2vpnInterface_l2vpn_intf_type_ppp L2vpnInterface = "l2vpn-intf-type-ppp"
-
-    // SPAN
-    L2vpnInterface_l2vpn_intf_type_span L2vpnInterface = "l2vpn-intf-type-span"
-
-    // BVI
-    L2vpnInterface_l2vpn_intf_type_bvi L2vpnInterface = "l2vpn-intf-type-bvi"
-
-    // CEM
-    L2vpnInterface_l2vpn_intf_type_cem L2vpnInterface = "l2vpn-intf-type-cem"
-
-    // PsuedowireEther
-    L2vpnInterface_l2vpn_intf_type_pw_ether L2vpnInterface = "l2vpn-intf-type-pw-ether"
-
-    // PsuedowireIW
-    L2vpnInterface_l2vpn_intf_type_pw_iw L2vpnInterface = "l2vpn-intf-type-pw-iw"
-
-    // VXLAN
-    L2vpnInterface_l2vpn_intf_type_vni L2vpnInterface = "l2vpn-intf-type-vni"
+    // Version 3
+    EvpnIgmpVersion_v3 EvpnIgmpVersion = "v3"
 )
 
 // EvpnIgmpSource represents Evpn igmp source
@@ -260,32 +356,15 @@ const (
     EvpnIgmpSource_remote EvpnIgmpSource = "remote"
 )
 
-// L2vpnAtmMode represents L2vpn atm mode
-type L2vpnAtmMode string
+// EvpnIgmpMsg represents Evpn igmp msg
+type EvpnIgmpMsg string
 
 const (
-    // ATM port mode
-    L2vpnAtmMode_l2vpn_atm_port_mode L2vpnAtmMode = "l2vpn-atm-port-mode"
+    // Join
+    EvpnIgmpMsg_join EvpnIgmpMsg = "join"
 
-    // ATM Virtual Path mode
-    L2vpnAtmMode_l2vpn_atm_vp_mode L2vpnAtmMode = "l2vpn-atm-vp-mode"
-
-    // ATM Virtual Channel mode
-    L2vpnAtmMode_l2vpn_atm_vc_mode L2vpnAtmMode = "l2vpn-atm-vc-mode"
-)
-
-// L2vpnAdRtRole represents L2vpn ad rt role
-type L2vpnAdRtRole string
-
-const (
-    // Both
-    L2vpnAdRtRole_both L2vpnAdRtRole = "both"
-
-    // Import
-    L2vpnAdRtRole_import_ L2vpnAdRtRole = "import"
-
-    // Export
-    L2vpnAdRtRole_export L2vpnAdRtRole = "export"
+    // Leave
+    EvpnIgmpMsg_leave EvpnIgmpMsg = "leave"
 )
 
 // ImStateEnum represents Im state enum
@@ -350,91 +429,6 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
-// L2vpnTdmMode represents L2VPN TDM modes
-type L2vpnTdmMode string
-
-const (
-    // Unknown mode
-    L2vpnTdmMode_unknown L2vpnTdmMode = "unknown"
-
-    // CESoPSN mode
-    L2vpnTdmMode_ce_so_psn L2vpnTdmMode = "ce-so-psn"
-
-    // SAToP E1 mode
-    L2vpnTdmMode_sa_to_p_e1 L2vpnTdmMode = "sa-to-p-e1"
-
-    // SAToP T1 mode
-    L2vpnTdmMode_sa_to_p_t1 L2vpnTdmMode = "sa-to-p-t1"
-
-    // SAToP E3 mode
-    L2vpnTdmMode_sa_to_p_e3 L2vpnTdmMode = "sa-to-p-e3"
-
-    // SAToP T3 mode
-    L2vpnTdmMode_sa_to_p_t3 L2vpnTdmMode = "sa-to-p-t3"
-)
-
-// IflistRepStatus represents Interface list replication status
-type IflistRepStatus string
-
-const (
-    // Invalid
-    IflistRepStatus_invalid IflistRepStatus = "invalid"
-
-    // Pending
-    IflistRepStatus_pending IflistRepStatus = "pending"
-
-    // Done
-    IflistRepStatus_done IflistRepStatus = "done"
-
-    // Not supported
-    IflistRepStatus_not_supported IflistRepStatus = "not-supported"
-
-    // Failed
-    IflistRepStatus_failed IflistRepStatus = "failed"
-)
-
-// EvpnIgmpGrp represents Evpn igmp grp
-type EvpnIgmpGrp string
-
-const (
-    // Include
-    EvpnIgmpGrp_include EvpnIgmpGrp = "include"
-
-    // Exclude
-    EvpnIgmpGrp_exclude EvpnIgmpGrp = "exclude"
-)
-
-// EvpnIgmpMsg represents Evpn igmp msg
-type EvpnIgmpMsg string
-
-const (
-    // Join
-    EvpnIgmpMsg_join EvpnIgmpMsg = "join"
-
-    // Leave
-    EvpnIgmpMsg_leave EvpnIgmpMsg = "leave"
-)
-
-// BgpRouteTargetFormat represents Bgp route target format
-type BgpRouteTargetFormat string
-
-const (
-    // No route target
-    BgpRouteTargetFormat_none BgpRouteTargetFormat = "none"
-
-    // 2 Byte AS:nn format
-    BgpRouteTargetFormat_two_byte_as BgpRouteTargetFormat = "two-byte-as"
-
-    // 4 byte AS:nn format
-    BgpRouteTargetFormat_four_byte_as BgpRouteTargetFormat = "four-byte-as"
-
-    // IP:nn format
-    BgpRouteTargetFormat_ipv4_address BgpRouteTargetFormat = "ipv4-address"
-
-    // a.a.i format
-    BgpRouteTargetFormat_es_import BgpRouteTargetFormat = "es-import"
-)
-
 // EvpnGrp represents EVPN Group State
 type EvpnGrp string
 
@@ -450,103 +444,6 @@ const (
 
     // Incomplete
     EvpnGrp_incomplete EvpnGrp = "incomplete"
-)
-
-// L2vpnEvpnSmacSrc represents L2vpn evpn smac src
-type L2vpnEvpnSmacSrc string
-
-const (
-    // Incomplete Configuration
-    L2vpnEvpnSmacSrc_invalid L2vpnEvpnSmacSrc = "invalid"
-
-    // Source MAC Not Applicable (EVPN)
-    L2vpnEvpnSmacSrc_not_applicable L2vpnEvpnSmacSrc = "not-applicable"
-
-    // Local
-    L2vpnEvpnSmacSrc_local L2vpnEvpnSmacSrc = "local"
-
-    // PBB BSA
-    L2vpnEvpnSmacSrc_pbb_bsa L2vpnEvpnSmacSrc = "pbb-bsa"
-
-    // From ESI
-    L2vpnEvpnSmacSrc_esi L2vpnEvpnSmacSrc = "esi"
-
-    // From ESI, Error
-    L2vpnEvpnSmacSrc_esi_invalid L2vpnEvpnSmacSrc = "esi-invalid"
-
-    // PBB BSA, no ESI
-    L2vpnEvpnSmacSrc_pbb_bsa_overrride L2vpnEvpnSmacSrc = "pbb-bsa-overrride"
-)
-
-// L2vpnAdRt represents L2vpn ad rt
-type L2vpnAdRt string
-
-const (
-    // Route target not set
-    L2vpnAdRt_l2vpn_ad_rt_none L2vpnAdRt = "l2vpn-ad-rt-none"
-
-    // Route Target with 2 Byte AS number
-    L2vpnAdRt_l2vpn_ad_rt_as L2vpnAdRt = "l2vpn-ad-rt-as"
-
-    // Route Target with 4 Byte AS number
-    L2vpnAdRt_l2vpn_ad_rt_4byte_as L2vpnAdRt = "l2vpn-ad-rt-4byte-as"
-
-    // Route Target with IPv4 Address
-    L2vpnAdRt_l2vpn_ad_rt_v4_addr L2vpnAdRt = "l2vpn-ad-rt-v4-addr"
-
-    // Ethernet Segment Route Target from BGP
-    L2vpnAdRt_es_import L2vpnAdRt = "es-import"
-)
-
-// EvpnIgmpVersion represents Evpn igmp version
-type EvpnIgmpVersion string
-
-const (
-    // Version 1
-    EvpnIgmpVersion_version1 EvpnIgmpVersion = "version1"
-
-    // Version 2
-    EvpnIgmpVersion_version2 EvpnIgmpVersion = "version2"
-
-    // Version 3
-    EvpnIgmpVersion_version3 EvpnIgmpVersion = "version3"
-)
-
-// L2vpnTimeStampMode represents L2VPN TDM Time stamp modes
-type L2vpnTimeStampMode string
-
-const (
-    // Unknown time stamp mode
-    L2vpnTimeStampMode_unknown L2vpnTimeStampMode = "unknown"
-
-    // Differential time stamp mode
-    L2vpnTimeStampMode_differential L2vpnTimeStampMode = "differential"
-
-    // Absolute Time Stamp mode
-    L2vpnTimeStampMode_absolute L2vpnTimeStampMode = "absolute"
-
-    // time stamp mode none
-    L2vpnTimeStampMode_none L2vpnTimeStampMode = "none"
-)
-
-// L2vpnAdRd represents L2vpn ad rd
-type L2vpnAdRd string
-
-const (
-    // Route Distinguisher not set
-    L2vpnAdRd_l2vpn_ad_rd_none L2vpnAdRd = "l2vpn-ad-rd-none"
-
-    // Route Distinguisher auto-generated
-    L2vpnAdRd_l2vpn_ad_rd_auto L2vpnAdRd = "l2vpn-ad-rd-auto"
-
-    // Route Distinguisher with 2 Byte AS number
-    L2vpnAdRd_l2vpn_ad_rd_as L2vpnAdRd = "l2vpn-ad-rd-as"
-
-    // Route Distinguisher with 4 Byte AS number
-    L2vpnAdRd_l2vpn_ad_rd_4byte_as L2vpnAdRd = "l2vpn-ad-rd-4byte-as"
-
-    // Route Distinguisher with IPv4 Address
-    L2vpnAdRd_l2vpn_ad_rd_v4_addr L2vpnAdRd = "l2vpn-ad-rd-v4-addr"
 )
 
 // Evpn
@@ -630,7 +527,7 @@ type Evpn_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // EVPN Group Table.
@@ -901,20 +798,30 @@ type Evpn_Nodes_Node_RemoteShgs_RemoteShg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // EVPN id. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
+
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
+
+    // Ethernet VPN id. The type is interface{} with range: 0..4294967295.
+    EthernetVpnId interface{}
+
+    // EVPN Instance transport encapsulation. The type is interface{} with range:
+    // 0..255.
+    Encapsulation interface{}
 
     // Ethernet Segment id. The type is slice of
     // Evpn_Nodes_Node_RemoteShgs_RemoteShg_EthernetSegmentIdentifier.
@@ -948,11 +855,14 @@ func (remoteShg *Evpn_Nodes_Node_RemoteShgs_RemoteShg) GetEntityData() *types.Co
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
+    remoteShg.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", remoteShg.Evi})
     remoteShg.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", remoteShg.Esi1})
     remoteShg.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", remoteShg.Esi2})
     remoteShg.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", remoteShg.Esi3})
     remoteShg.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", remoteShg.Esi4})
     remoteShg.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", remoteShg.Esi5})
+    remoteShg.EntityData.Leafs.Append("ethernet-vpn-id", types.YLeaf{"EthernetVpnId", remoteShg.EthernetVpnId})
+    remoteShg.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", remoteShg.Encapsulation})
 
     remoteShg.EntityData.YListKeys = []string {}
 
@@ -966,7 +876,7 @@ type Evpn_Nodes_Node_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -998,7 +908,7 @@ type Evpn_Nodes_Node_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -1059,7 +969,7 @@ type Evpn_Nodes_Node_Igmps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // EVPN Remote. The type is slice of Evpn_Nodes_Node_Igmps_Igmp.
+    // IGMP Route. The type is slice of Evpn_Nodes_Node_Igmps_Igmp.
     Igmp []*Evpn_Nodes_Node_Igmps_Igmp
 }
 
@@ -1088,68 +998,77 @@ func (igmps *Evpn_Nodes_Node_Igmps) GetEntityData() *types.CommonEntityData {
 }
 
 // Evpn_Nodes_Node_Igmps_Igmp
-// EVPN Remote
+// IGMP Route
 type Evpn_Nodes_Node_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
+    // Local=0,Remote=1. The type is interface{} with range: 0..4294967295.
+    SourceType interface{}
+
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
 
-    // BP xcid. The type is interface{} with range: 0..4294967295.
-    Bpxcid interface{}
+    // EVI. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
 
-    // EVI/BD. The type is interface{} with range: 0..4294967295.
-    Evibd interface{}
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi1 interface{}
+
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi2 interface{}
+
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi3 interface{}
+
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi4 interface{}
+
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi5 interface{}
+
+    // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
+    EthernetTag interface{}
 
     // Source IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SrcIp interface{}
 
     // Group IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GrpIp interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi1 interface{}
+    // BD ID. The type is interface{} with range: 0..4294967295.
+    BdId interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi2 interface{}
-
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi3 interface{}
-
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi4 interface{}
-
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi5 interface{}
+    // BP XCID. The type is interface{} with range: 0..4294967295.
+    BpXcid interface{}
 
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
     // E-VPN id. The type is interface{} with range: 0..4294967295.
-    Evi interface{}
+    EviXr interface{}
 
     // BD id. The type is interface{} with range: 0..4294967295.
-    BdId interface{}
+    BdIdXr interface{}
 
     // Route Type. The type is EvpnIgmpMsg.
     RouteType interface{}
 
     // Source IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddr interface{}
 
     // Group IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GroupAddr interface{}
 
     // Ethernet Tag id. The type is interface{} with range: 0..4294967295.
@@ -1162,7 +1081,7 @@ type Evpn_Nodes_Node_Igmps_Igmp struct {
     IgmpGroupType interface{}
 
     // Max Response Time. The type is interface{} with range: 0..255.
-    MaXResponseTime interface{}
+    MaxResponseTime interface{}
 
     // Resolved. The type is bool.
     Resolved interface{}
@@ -1173,10 +1092,6 @@ type Evpn_Nodes_Node_Igmps_Igmp struct {
     // Ethernet Segment id. The type is slice of
     // Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdentifier.
     EthernetSegmentIdentifier []*Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdentifier
-
-    // List of nexthop IPv6 addresses. The type is slice of
-    // Evpn_Nodes_Node_Igmps_Igmp_NextHop.
-    NextHop []*Evpn_Nodes_Node_Igmps_Igmp_NextHop
 }
 
 func (igmp *Evpn_Nodes_Node_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
@@ -1197,32 +1112,30 @@ func (igmp *Evpn_Nodes_Node_Igmps_Igmp) GetEntityData() *types.CommonEntityData 
         types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
-    igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range igmp.NextHop {
-        types.SetYListKey(igmp.NextHop[i], i)
-        igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
-    }
     igmp.EntityData.Leafs = types.NewOrderedMap()
+    igmp.EntityData.Leafs.Append("source-type", types.YLeaf{"SourceType", igmp.SourceType})
     igmp.EntityData.Leafs.Append("is-leave", types.YLeaf{"IsLeave", igmp.IsLeave})
-    igmp.EntityData.Leafs.Append("bpxcid", types.YLeaf{"Bpxcid", igmp.Bpxcid})
-    igmp.EntityData.Leafs.Append("evibd", types.YLeaf{"Evibd", igmp.Evibd})
-    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
-    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
+    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
     igmp.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", igmp.Esi1})
     igmp.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", igmp.Esi2})
     igmp.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", igmp.Esi3})
     igmp.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", igmp.Esi4})
     igmp.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", igmp.Esi5})
-    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
-    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
+    igmp.EntityData.Leafs.Append("ethernet-tag", types.YLeaf{"EthernetTag", igmp.EthernetTag})
+    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
+    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
     igmp.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", igmp.BdId})
+    igmp.EntityData.Leafs.Append("bp-xcid", types.YLeaf{"BpXcid", igmp.BpXcid})
+    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
+    igmp.EntityData.Leafs.Append("evi-xr", types.YLeaf{"EviXr", igmp.EviXr})
+    igmp.EntityData.Leafs.Append("bd-id-xr", types.YLeaf{"BdIdXr", igmp.BdIdXr})
     igmp.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", igmp.RouteType})
     igmp.EntityData.Leafs.Append("source-addr", types.YLeaf{"SourceAddr", igmp.SourceAddr})
     igmp.EntityData.Leafs.Append("group-addr", types.YLeaf{"GroupAddr", igmp.GroupAddr})
     igmp.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", igmp.EthernetTagId})
     igmp.EntityData.Leafs.Append("igmp-version", types.YLeaf{"IgmpVersion", igmp.IgmpVersion})
     igmp.EntityData.Leafs.Append("igmp-group-type", types.YLeaf{"IgmpGroupType", igmp.IgmpGroupType})
-    igmp.EntityData.Leafs.Append("ma-x-response-time", types.YLeaf{"MaXResponseTime", igmp.MaXResponseTime})
+    igmp.EntityData.Leafs.Append("max-response-time", types.YLeaf{"MaxResponseTime", igmp.MaxResponseTime})
     igmp.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", igmp.Resolved})
 
     igmp.EntityData.YListKeys = []string {}
@@ -1240,7 +1153,7 @@ type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo struct {
     Type interface{}
 
     // remote info. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteInfo interface{}
 
     // local info.
@@ -1275,18 +1188,8 @@ type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with length: 0..81.
-    Name interface{}
-
-    // Interface MTU. The type is interface{} with range: 0..4294967295.
-    Mtu interface{}
-
-    // Payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // Interface parameters.
-    Parameters Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
+    // Interface name internal format. The type is string with length: 0..65.
+    IfName interface{}
 }
 
 func (localInfo *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *types.CommonEntityData {
@@ -1301,657 +1204,12 @@ func (localInfo *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData(
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localInfo.EntityData.Children = types.NewOrderedMap()
-    localInfo.EntityData.Children.Append("parameters", types.YChild{"Parameters", &localInfo.Parameters})
     localInfo.EntityData.Leafs = types.NewOrderedMap()
-    localInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", localInfo.Name})
-    localInfo.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", localInfo.Mtu})
-    localInfo.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", localInfo.PayloadBytes})
+    localInfo.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", localInfo.IfName})
 
     localInfo.EntityData.YListKeys = []string {}
 
     return &(localInfo.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
-// Interface parameters
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Type. The type is L2vpnInterface.
-    Type interface{}
-
-    // Ethernet.
-    Ethernet Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-
-    // VLAN.
-    Vlan Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-
-    // TDM.
-    Tdm Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-
-    // ATM.
-    Atm Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-
-    // Frame Relay.
-    Fr Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-
-    // PW Ether.
-    PseudowireEther Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-
-    // PW IW.
-    PseudowireIw Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-}
-
-func (parameters *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) GetEntityData() *types.CommonEntityData {
-    parameters.EntityData.YFilter = parameters.YFilter
-    parameters.EntityData.YangName = "parameters"
-    parameters.EntityData.BundleName = "cisco_ios_xr"
-    parameters.EntityData.ParentYangName = "local-info"
-    parameters.EntityData.SegmentPath = "parameters"
-    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
-    parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    parameters.EntityData.Children = types.NewOrderedMap()
-    parameters.EntityData.Children.Append("ethernet", types.YChild{"Ethernet", &parameters.Ethernet})
-    parameters.EntityData.Children.Append("vlan", types.YChild{"Vlan", &parameters.Vlan})
-    parameters.EntityData.Children.Append("tdm", types.YChild{"Tdm", &parameters.Tdm})
-    parameters.EntityData.Children.Append("atm", types.YChild{"Atm", &parameters.Atm})
-    parameters.EntityData.Children.Append("fr", types.YChild{"Fr", &parameters.Fr})
-    parameters.EntityData.Children.Append("pseudowire-ether", types.YChild{"PseudowireEther", &parameters.PseudowireEther})
-    parameters.EntityData.Children.Append("pseudowire-iw", types.YChild{"PseudowireIw", &parameters.PseudowireIw})
-    parameters.EntityData.Leafs = types.NewOrderedMap()
-    parameters.EntityData.Leafs.Append("type", types.YLeaf{"Type", parameters.Type})
-
-    parameters.EntityData.YListKeys = []string {}
-
-    return &(parameters.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-// Ethernet
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-}
-
-func (ethernet *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet) GetEntityData() *types.CommonEntityData {
-    ethernet.EntityData.YFilter = ethernet.YFilter
-    ethernet.EntityData.YangName = "ethernet"
-    ethernet.EntityData.BundleName = "cisco_ios_xr"
-    ethernet.EntityData.ParentYangName = "parameters"
-    ethernet.EntityData.SegmentPath = "ethernet"
-    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
-    ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ethernet.EntityData.Children = types.NewOrderedMap()
-    ethernet.EntityData.Leafs = types.NewOrderedMap()
-    ethernet.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", ethernet.XconnectTags})
-
-    ethernet.EntityData.YListKeys = []string {}
-
-    return &(ethernet.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-// VLAN
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-
-    // VLAN rewrite tag. The type is interface{} with range: 0..65535.
-    VlanRewriteTag interface{}
-
-    // Simple EFP. The type is interface{} with range: 0..255.
-    SimpleEfp interface{}
-
-    // Encapsulation Type. The type is interface{} with range: 0..255.
-    EncapsulationType interface{}
-
-    // Outer Tag. The type is interface{} with range: 0..65535.
-    OuterTag interface{}
-
-    // Rewrite Tags. The type is slice of
-    // Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag.
-    RewriteTag []*Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-
-    // vlan range. The type is slice of
-    // Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange.
-    VlanRange []*Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-}
-
-func (vlan *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEntityData() *types.CommonEntityData {
-    vlan.EntityData.YFilter = vlan.YFilter
-    vlan.EntityData.YangName = "vlan"
-    vlan.EntityData.BundleName = "cisco_ios_xr"
-    vlan.EntityData.ParentYangName = "parameters"
-    vlan.EntityData.SegmentPath = "vlan"
-    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
-    vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlan.EntityData.Children = types.NewOrderedMap()
-    vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
-    for i := range vlan.RewriteTag {
-        types.SetYListKey(vlan.RewriteTag[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
-    }
-    vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
-    for i := range vlan.VlanRange {
-        types.SetYListKey(vlan.VlanRange[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
-    }
-    vlan.EntityData.Leafs = types.NewOrderedMap()
-    vlan.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", vlan.XconnectTags})
-    vlan.EntityData.Leafs.Append("vlan-rewrite-tag", types.YLeaf{"VlanRewriteTag", vlan.VlanRewriteTag})
-    vlan.EntityData.Leafs.Append("simple-efp", types.YLeaf{"SimpleEfp", vlan.SimpleEfp})
-    vlan.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vlan.EncapsulationType})
-    vlan.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", vlan.OuterTag})
-
-    vlan.EntityData.YListKeys = []string {}
-
-    return &(vlan.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-// Rewrite Tags
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // The type is interface{} with range: 0..65535.
-    Entry interface{}
-}
-
-func (rewriteTag *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag) GetEntityData() *types.CommonEntityData {
-    rewriteTag.EntityData.YFilter = rewriteTag.YFilter
-    rewriteTag.EntityData.YangName = "rewrite-tag"
-    rewriteTag.EntityData.BundleName = "cisco_ios_xr"
-    rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
-    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
-    rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rewriteTag.EntityData.Children = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", rewriteTag.Entry})
-
-    rewriteTag.EntityData.YListKeys = []string {}
-
-    return &(rewriteTag.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-// vlan range
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Lower. The type is interface{} with range: 0..65535.
-    Lower interface{}
-
-    // Upper. The type is interface{} with range: 0..65535.
-    Upper interface{}
-}
-
-func (vlanRange *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange) GetEntityData() *types.CommonEntityData {
-    vlanRange.EntityData.YFilter = vlanRange.YFilter
-    vlanRange.EntityData.YangName = "vlan-range"
-    vlanRange.EntityData.BundleName = "cisco_ios_xr"
-    vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
-    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
-    vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlanRange.EntityData.Children = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", vlanRange.Lower})
-    vlanRange.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", vlanRange.Upper})
-
-    vlanRange.EntityData.YListKeys = []string {}
-
-    return &(vlanRange.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-// TDM
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Timeslots separated by , or - from 1 to 31. : indicates individual timeslot
-    // and - represents a range.E.g. 1-3,5 represents timeslots 1, 2, 3, and 5.
-    // The type is string.
-    TimeslotGroup interface{}
-
-    // Timeslot rate in units of Kbps. The type is interface{} with range: 0..255.
-    // Units are kbit/s.
-    TimeslotRate interface{}
-
-    // TDM mode. The type is L2vpnTdmMode.
-    TdmMode interface{}
-
-    // TDM options.
-    TdmOptions Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-}
-
-func (tdm *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEntityData() *types.CommonEntityData {
-    tdm.EntityData.YFilter = tdm.YFilter
-    tdm.EntityData.YangName = "tdm"
-    tdm.EntityData.BundleName = "cisco_ios_xr"
-    tdm.EntityData.ParentYangName = "parameters"
-    tdm.EntityData.SegmentPath = "tdm"
-    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
-    tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdm.EntityData.Children = types.NewOrderedMap()
-    tdm.EntityData.Children.Append("tdm-options", types.YChild{"TdmOptions", &tdm.TdmOptions})
-    tdm.EntityData.Leafs = types.NewOrderedMap()
-    tdm.EntityData.Leafs.Append("timeslot-group", types.YLeaf{"TimeslotGroup", tdm.TimeslotGroup})
-    tdm.EntityData.Leafs.Append("timeslot-rate", types.YLeaf{"TimeslotRate", tdm.TimeslotRate})
-    tdm.EntityData.Leafs.Append("tdm-mode", types.YLeaf{"TdmMode", tdm.TdmMode})
-
-    tdm.EntityData.YListKeys = []string {}
-
-    return &(tdm.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-// TDM options
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // TDM payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // TDM bit rate in units of Kbps. The type is interface{} with range:
-    // 0..4294967295. Units are kbit/s.
-    BitRate interface{}
-
-    // RTP header. The type is L2vpnTdmRtpOption.
-    Rtp interface{}
-
-    // TDM Timestamping mode. The type is L2vpnTimeStampMode.
-    TimestampMode interface{}
-
-    // Signalling packets. The type is interface{} with range: 0..255.
-    SignallingPackets interface{}
-
-    // CAS. The type is interface{} with range: 0..255.
-    Cas interface{}
-
-    // RTP header payload type. The type is interface{} with range: 0..255.
-    RtpHeaderPayloadType interface{}
-
-    // Timestamping clock frequency in units of 8Khz. The type is interface{} with
-    // range: 0..65535.
-    TimestampClockFreq interface{}
-
-    // Synchronization Source identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Ssrc interface{}
-}
-
-func (tdmOptions *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions) GetEntityData() *types.CommonEntityData {
-    tdmOptions.EntityData.YFilter = tdmOptions.YFilter
-    tdmOptions.EntityData.YangName = "tdm-options"
-    tdmOptions.EntityData.BundleName = "cisco_ios_xr"
-    tdmOptions.EntityData.ParentYangName = "tdm"
-    tdmOptions.EntityData.SegmentPath = "tdm-options"
-    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
-    tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdmOptions.EntityData.Children = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", tdmOptions.PayloadBytes})
-    tdmOptions.EntityData.Leafs.Append("bit-rate", types.YLeaf{"BitRate", tdmOptions.BitRate})
-    tdmOptions.EntityData.Leafs.Append("rtp", types.YLeaf{"Rtp", tdmOptions.Rtp})
-    tdmOptions.EntityData.Leafs.Append("timestamp-mode", types.YLeaf{"TimestampMode", tdmOptions.TimestampMode})
-    tdmOptions.EntityData.Leafs.Append("signalling-packets", types.YLeaf{"SignallingPackets", tdmOptions.SignallingPackets})
-    tdmOptions.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", tdmOptions.Cas})
-    tdmOptions.EntityData.Leafs.Append("rtp-header-payload-type", types.YLeaf{"RtpHeaderPayloadType", tdmOptions.RtpHeaderPayloadType})
-    tdmOptions.EntityData.Leafs.Append("timestamp-clock-freq", types.YLeaf{"TimestampClockFreq", tdmOptions.TimestampClockFreq})
-    tdmOptions.EntityData.Leafs.Append("ssrc", types.YLeaf{"Ssrc", tdmOptions.Ssrc})
-
-    tdmOptions.EntityData.YListKeys = []string {}
-
-    return &(tdmOptions.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-// ATM
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Max number of cells packed. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsPacked interface{}
-
-    // Max number of cells unpacked. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsUnPacked interface{}
-
-    // ATM mode. The type is L2vpnAtmMode.
-    AtmMode interface{}
-
-    // Virtual path identifier. The type is interface{} with range: 0..65535.
-    Vpi interface{}
-
-    // Virtual channel identifier. The type is interface{} with range: 0..65535.
-    Vci interface{}
-}
-
-func (atm *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEntityData() *types.CommonEntityData {
-    atm.EntityData.YFilter = atm.YFilter
-    atm.EntityData.YangName = "atm"
-    atm.EntityData.BundleName = "cisco_ios_xr"
-    atm.EntityData.ParentYangName = "parameters"
-    atm.EntityData.SegmentPath = "atm"
-    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
-    atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    atm.EntityData.Children = types.NewOrderedMap()
-    atm.EntityData.Leafs = types.NewOrderedMap()
-    atm.EntityData.Leafs.Append("maximum-number-cells-packed", types.YLeaf{"MaximumNumberCellsPacked", atm.MaximumNumberCellsPacked})
-    atm.EntityData.Leafs.Append("maximum-number-cells-un-packed", types.YLeaf{"MaximumNumberCellsUnPacked", atm.MaximumNumberCellsUnPacked})
-    atm.EntityData.Leafs.Append("atm-mode", types.YLeaf{"AtmMode", atm.AtmMode})
-    atm.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", atm.Vpi})
-    atm.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", atm.Vci})
-
-    atm.EntityData.YListKeys = []string {}
-
-    return &(atm.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-// Frame Relay
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Frame Relay mode. The type is L2vpnFrMode.
-    FrMode interface{}
-
-    // Data-link connection identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Dlci interface{}
-}
-
-func (fr *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEntityData() *types.CommonEntityData {
-    fr.EntityData.YFilter = fr.YFilter
-    fr.EntityData.YangName = "fr"
-    fr.EntityData.BundleName = "cisco_ios_xr"
-    fr.EntityData.ParentYangName = "parameters"
-    fr.EntityData.SegmentPath = "fr"
-    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
-    fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fr.EntityData.Children = types.NewOrderedMap()
-    fr.EntityData.Leafs = types.NewOrderedMap()
-    fr.EntityData.Leafs.Append("fr-mode", types.YLeaf{"FrMode", fr.FrMode})
-    fr.EntityData.Leafs.Append("dlci", types.YLeaf{"Dlci", fr.Dlci})
-
-    fr.EntityData.YListKeys = []string {}
-
-    return &(fr.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-// PW Ether
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-}
-
-func (pseudowireEther *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther) GetEntityData() *types.CommonEntityData {
-    pseudowireEther.EntityData.YFilter = pseudowireEther.YFilter
-    pseudowireEther.EntityData.YangName = "pseudowire-ether"
-    pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireEther.EntityData.ParentYangName = "parameters"
-    pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
-    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
-    pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireEther.EntityData.Children = types.NewOrderedMap()
-    pseudowireEther.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireEther.InterfaceList})
-    pseudowireEther.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireEther.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireEther.IsValid})
-    pseudowireEther.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireEther.InternalLabel})
-
-    pseudowireEther.EntityData.YListKeys = []string {}
-
-    return &(pseudowireEther.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-// Interface list data
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface.
-    Interface []*Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-ether"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-// Interfaces
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-// PW IW
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-}
-
-func (pseudowireIw *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw) GetEntityData() *types.CommonEntityData {
-    pseudowireIw.EntityData.YFilter = pseudowireIw.YFilter
-    pseudowireIw.EntityData.YangName = "pseudowire-iw"
-    pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireIw.EntityData.ParentYangName = "parameters"
-    pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
-    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
-    pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireIw.EntityData.Children = types.NewOrderedMap()
-    pseudowireIw.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireIw.InterfaceList})
-    pseudowireIw.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireIw.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireIw.IsValid})
-    pseudowireIw.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireIw.InternalLabel})
-
-    pseudowireIw.EntityData.YListKeys = []string {}
-
-    return &(pseudowireIw.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-// Interface list data
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface.
-    Interface []*Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-iw"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-// Interfaces
-type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
 }
 
 // Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdentifier
@@ -1961,7 +1219,7 @@ type Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1983,50 +1241,6 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdent
     ethernetSegmentIdentifier.EntityData.YListKeys = []string {}
 
     return &(ethernetSegmentIdentifier.EntityData)
-}
-
-// Evpn_Nodes_Node_Igmps_Igmp_NextHop
-// List of nexthop IPv6 addresses
-type Evpn_Nodes_Node_Igmps_Igmp_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NextHop interface{}
-
-    // DF Dont Premption. The type is bool.
-    DfDontPrempt interface{}
-
-    // DF Election Mode Configured. The type is interface{} with range: 0..255.
-    DfType interface{}
-
-    // DF Election Preference Set. The type is interface{} with range: 0..65535.
-    DfPref interface{}
-}
-
-func (nextHop *Evpn_Nodes_Node_Igmps_Igmp_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", nextHop.NextHop})
-    nextHop.EntityData.Leafs.Append("df-dont-prempt", types.YLeaf{"DfDontPrempt", nextHop.DfDontPrempt})
-    nextHop.EntityData.Leafs.Append("df-type", types.YLeaf{"DfType", nextHop.DfType})
-    nextHop.EntityData.Leafs.Append("df-pref", types.YLeaf{"DfPref", nextHop.DfPref})
-
-    nextHop.EntityData.YListKeys = []string {}
-
-    return &(nextHop.EntityData)
 }
 
 // Evpn_Nodes_Node_Evis
@@ -2122,7 +1336,7 @@ type Evpn_Nodes_Node_Summary struct {
     YFilter yfilter.YFilter
 
     // EVPN Router ID. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // BGP AS number. The type is interface{} with range: 0..4294967295.
@@ -2197,7 +1411,7 @@ type Evpn_Nodes_Node_Summary struct {
     RemoteEadRoutes interface{}
 
     // Global Source MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     GlobalSourceMac interface{}
 
     // EVPN ES Peering Time (seconds). The type is interface{} with range:
@@ -2211,22 +1425,6 @@ type Evpn_Nodes_Node_Summary struct {
     // EVPN ES Carving Time (seconds). The type is interface{} with range:
     // 0..4294967295. Units are second.
     CarvingTime interface{}
-
-    // Number of moves within the move interval before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveCount interface{}
-
-    // Interval to watch for subsequent mac moves before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveInterval interface{}
-
-    // Length of time to lock the mac after a MAC security violation. The type is
-    // interface{} with range: 0..4294967295.
-    MacSecureFreezeTime interface{}
-
-    // Number of times to retry after a MAC un-freezes. The type is interface{}
-    // with range: 0..4294967295.
-    MacSecureRetryCount interface{}
 
     // EVPN Node Cost-out. The type is bool.
     CostOut interface{}
@@ -2278,10 +1476,6 @@ func (summary *Evpn_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData 
     summary.EntityData.Leafs.Append("peering-time", types.YLeaf{"PeeringTime", summary.PeeringTime})
     summary.EntityData.Leafs.Append("recovery-time", types.YLeaf{"RecoveryTime", summary.RecoveryTime})
     summary.EntityData.Leafs.Append("carving-time", types.YLeaf{"CarvingTime", summary.CarvingTime})
-    summary.EntityData.Leafs.Append("mac-secure-move-count", types.YLeaf{"MacSecureMoveCount", summary.MacSecureMoveCount})
-    summary.EntityData.Leafs.Append("mac-secure-move-interval", types.YLeaf{"MacSecureMoveInterval", summary.MacSecureMoveInterval})
-    summary.EntityData.Leafs.Append("mac-secure-freeze-time", types.YLeaf{"MacSecureFreezeTime", summary.MacSecureFreezeTime})
-    summary.EntityData.Leafs.Append("mac-secure-retry-count", types.YLeaf{"MacSecureRetryCount", summary.MacSecureRetryCount})
     summary.EntityData.Leafs.Append("cost-out", types.YLeaf{"CostOut", summary.CostOut})
     summary.EntityData.Leafs.Append("startup-cost-in-time", types.YLeaf{"StartupCostInTime", summary.StartupCostInTime})
     summary.EntityData.Leafs.Append("l2rib-throttle", types.YLeaf{"L2ribThrottle", summary.L2ribThrottle})
@@ -2413,6 +1607,9 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element struct {
     // Advertise MAC-only routes on this EVI. The type is bool.
     AdvertiseMac interface{}
 
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
+
     // Advertise BVI MACs routes on this EVI. The type is bool.
     AdvertiseBviMac interface{}
 
@@ -2486,6 +1683,7 @@ func (element *Evpn_Nodes_Node_EviDetail_Elements_Element) GetEntityData() *type
     element.EntityData.Leafs.Append("rt-import-block-set", types.YLeaf{"RtImportBlockSet", element.RtImportBlockSet})
     element.EntityData.Leafs.Append("rt-export-block-set", types.YLeaf{"RtExportBlockSet", element.RtExportBlockSet})
     element.EntityData.Leafs.Append("advertise-mac", types.YLeaf{"AdvertiseMac", element.AdvertiseMac})
+    element.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", element.EtreeLeaf})
     element.EntityData.Leafs.Append("advertise-bvi-mac", types.YLeaf{"AdvertiseBviMac", element.AdvertiseBviMac})
     element.EntityData.Leafs.Append("aliasing-disabled", types.YLeaf{"AliasingDisabled", element.AliasingDisabled})
     element.EntityData.Leafs.Append("unknown-unicast-flooding-disabled", types.YLeaf{"UnknownUnicastFloodingDisabled", element.UnknownUnicastFloodingDisabled})
@@ -2630,7 +1828,7 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -2733,7 +1931,7 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -2814,7 +2012,7 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -2917,7 +2115,7 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -3066,7 +2264,7 @@ type Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -3224,17 +2422,21 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor struct {
     Encapsulation interface{}
 
     // Neighbor IP. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NeighborIp interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_EvpnInstance
+
+    // Leaf EVIs. The type is slice of
+    // Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis.
+    LeafEvis []*Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
 }
 
 func (neighbor *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -3250,6 +2452,11 @@ func (neighbor *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor) GetEnt
 
     neighbor.EntityData.Children = types.NewOrderedMap()
     neighbor.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &neighbor.EvpnInstance})
+    neighbor.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range neighbor.LeafEvis {
+        types.SetYListKey(neighbor.LeafEvis[i], i)
+        neighbor.EntityData.Children.Append(types.GetSegmentPath(neighbor.LeafEvis[i]), types.YChild{"LeafEvis", neighbor.LeafEvis[i]})
+    }
     neighbor.EntityData.Leafs = types.NewOrderedMap()
     neighbor.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", neighbor.Evi})
     neighbor.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", neighbor.Encapsulation})
@@ -3304,6 +2511,37 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_Evp
     return &(evpnInstance.EntityData)
 }
 
+// Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
+// Leaf EVIs
+type Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "neighbor"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/neighbors/neighbor/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
+}
+
 // Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries
 // EVPN Ethernet Auto-Discovery table
 type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries struct {
@@ -3352,19 +2590,19 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoD
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
@@ -3374,7 +2612,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoD
     EthernetTagXr interface{}
 
     // Local nexthop IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalNextHop interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -3500,7 +2738,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoD
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -3536,14 +2774,14 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoD
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -3623,23 +2861,26 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticas
 
     // Originating IP. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIp interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // Originating IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIpXr interface{}
 
     // Tunnel Endpoint ID. The type is interface{} with range: 0..4294967295.
     TunnelEndpointId interface{}
 
+    // PMSI Tunnel Type. The type is interface{} with range: 0..4294967295.
+    PmsiTunnelType interface{}
+
     // IP of nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output label. The type is interface{} with range: 0..4294967295.
@@ -3651,8 +2892,11 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticas
     // Proxy entry. The type is bool.
     IsProxyEntry interface{}
 
-    // SR-TE Policy. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SR-TE Policy. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrtePolicy interface{}
+
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast_EvpnInstance
@@ -3679,11 +2923,13 @@ func (inclusiveMulticast *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMultica
     inclusiveMulticast.EntityData.Leafs.Append("ethernet-tag-xr", types.YLeaf{"EthernetTagXr", inclusiveMulticast.EthernetTagXr})
     inclusiveMulticast.EntityData.Leafs.Append("originating-ip-xr", types.YLeaf{"OriginatingIpXr", inclusiveMulticast.OriginatingIpXr})
     inclusiveMulticast.EntityData.Leafs.Append("tunnel-endpoint-id", types.YLeaf{"TunnelEndpointId", inclusiveMulticast.TunnelEndpointId})
+    inclusiveMulticast.EntityData.Leafs.Append("pmsi-tunnel-type", types.YLeaf{"PmsiTunnelType", inclusiveMulticast.PmsiTunnelType})
     inclusiveMulticast.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", inclusiveMulticast.NextHop})
     inclusiveMulticast.EntityData.Leafs.Append("output-label", types.YLeaf{"OutputLabel", inclusiveMulticast.OutputLabel})
     inclusiveMulticast.EntityData.Leafs.Append("is-local-entry", types.YLeaf{"IsLocalEntry", inclusiveMulticast.IsLocalEntry})
     inclusiveMulticast.EntityData.Leafs.Append("is-proxy-entry", types.YLeaf{"IsProxyEntry", inclusiveMulticast.IsProxyEntry})
     inclusiveMulticast.EntityData.Leafs.Append("srte-policy", types.YLeaf{"SrtePolicy", inclusiveMulticast.SrtePolicy})
+    inclusiveMulticast.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", inclusiveMulticast.EtreeLeaf})
 
     inclusiveMulticast.EntityData.YListKeys = []string {}
 
@@ -3798,7 +3044,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     AddrIndex interface{}
 
     // RT IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // RT Role. The type is L2vpnAdRtRole.
@@ -4009,7 +3255,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget_RouteTarget_
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -4124,24 +3370,24 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac struct {
     EthernetTag interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IP Address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddressXr interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddressXr interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -4161,11 +3407,11 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac struct {
     IsRemoteMac interface{}
 
     // SOO nexthop (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SooNexthop interface{}
 
     // IP nexthop address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpnhAddress interface{}
 
     // ESI port key. The type is interface{} with range: 0..65535.
@@ -4190,7 +3436,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac struct {
     LocalL3Label interface{}
 
     // Router MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouterMacAddress interface{}
 
     // Number of flushes requested . The type is interface{} with range: 0..65535.
@@ -4211,6 +3457,20 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac struct {
 
     // Indication if Remote MAC is statically configured. The type is bool.
     RemoteIsStatic interface{}
+
+    // Local E-Tree Leaf Indication. The type is bool.
+    LocalEtreeLeaf interface{}
+
+    // Remote E-Tree Leaf Indication. The type is bool.
+    RemoteEtreeLeaf interface{}
+
+    // Local Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    LocalAttachmentCircuitId interface{}
+
+    // Remote Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    RemoteAttachmentCircuitId interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_EvpnInstance
@@ -4286,6 +3546,10 @@ func (mac *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac) GetEntityData() *type
     mac.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", mac.Resolved})
     mac.EntityData.Leafs.Append("local-is-static", types.YLeaf{"LocalIsStatic", mac.LocalIsStatic})
     mac.EntityData.Leafs.Append("remote-is-static", types.YLeaf{"RemoteIsStatic", mac.RemoteIsStatic})
+    mac.EntityData.Leafs.Append("local-etree-leaf", types.YLeaf{"LocalEtreeLeaf", mac.LocalEtreeLeaf})
+    mac.EntityData.Leafs.Append("remote-etree-leaf", types.YLeaf{"RemoteEtreeLeaf", mac.RemoteEtreeLeaf})
+    mac.EntityData.Leafs.Append("local-attachment-circuit-id", types.YLeaf{"LocalAttachmentCircuitId", mac.LocalAttachmentCircuitId})
+    mac.EntityData.Leafs.Append("remote-attachment-circuit-id", types.YLeaf{"RemoteAttachmentCircuitId", mac.RemoteAttachmentCircuitId})
 
     mac.EntityData.YListKeys = []string {}
 
@@ -4342,7 +3606,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifi
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Local Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -4373,7 +3637,7 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentif
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Remote Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -4409,14 +3673,14 @@ type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -4553,7 +3817,7 @@ type Evpn_Nodes_Node_Teps_Tep_LocalInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -4592,7 +3856,7 @@ type Evpn_Nodes_Node_Teps_Tep_RemoteInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -4666,26 +3930,26 @@ type Evpn_Nodes_Node_InternalLabels_InternalLabel struct {
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
     EthernetTag interface{}
 
     // Ethernet Segment id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Esi interface{}
 
     // Label Tag. The type is interface{} with range: 0..4294967295.
@@ -4862,14 +4126,14 @@ type Evpn_Nodes_Node_InternalLabels_InternalLabel_MacPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -4908,14 +4172,14 @@ type Evpn_Nodes_Node_InternalLabels_InternalLabel_EadPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -4954,14 +4218,14 @@ type Evpn_Nodes_Node_InternalLabels_InternalLabel_EviPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -5000,14 +4264,14 @@ type Evpn_Nodes_Node_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -5076,22 +4340,22 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // ESI Type. The type is L2vpnEvpnEsi.
@@ -5109,18 +4373,17 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
-    // State of the ethernet segment. The type is interface{} with range:
-    // 0..4294967295.
+    // State of the ethernet segment. The type is L2vpnEvpnEsState.
     EthernetSegmentState interface{}
 
-    // Main port ifhandle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main port ifhandle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     IfHandle interface{}
 
     // Main port redundancy group role. The type is L2vpnRgRole.
     MainPortRole interface{}
 
     // Main Port MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MainPortMac interface{}
 
     // Number of PWs in Up state. The type is interface{} with range:
@@ -5128,7 +4391,7 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
     NumUpPWs interface{}
 
     // ES-Import Route Target. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouteTarget interface{}
 
     // Origin of operational ES-Import RT. The type is L2vpnEvpnRtOrigin.
@@ -5156,7 +4419,7 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
     ForceSingleHome interface{}
 
     // Operational Source MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SourceMacOper interface{}
 
     // Origin of operational source MAC address. The type is L2vpnEvpnSmacSrc.
@@ -5188,6 +4451,9 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
 
     // Service carving mode. The type is L2vpnEvpnScMode.
     ServiceCarvingMode interface{}
+
+    // Service carving multicast mode. The type is L2vpnEvpnScMcastMode.
+    ServiceCarvingMcastMode interface{}
 
     // Input string of Primary services ESI/I-SIDs. The type is string.
     PrimaryServicesInput interface{}
@@ -5387,6 +4653,7 @@ func (ethernetSegment *Evpn_Nodes_Node_EthernetSegments_EthernetSegment) GetEnti
     ethernetSegment.EntityData.Leafs.Append("carving-timer", types.YLeaf{"CarvingTimer", ethernetSegment.CarvingTimer})
     ethernetSegment.EntityData.Leafs.Append("carving-timer-left", types.YLeaf{"CarvingTimerLeft", ethernetSegment.CarvingTimerLeft})
     ethernetSegment.EntityData.Leafs.Append("service-carving-mode", types.YLeaf{"ServiceCarvingMode", ethernetSegment.ServiceCarvingMode})
+    ethernetSegment.EntityData.Leafs.Append("service-carving-mcast-mode", types.YLeaf{"ServiceCarvingMcastMode", ethernetSegment.ServiceCarvingMcastMode})
     ethernetSegment.EntityData.Leafs.Append("primary-services-input", types.YLeaf{"PrimaryServicesInput", ethernetSegment.PrimaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("secondary-services-input", types.YLeaf{"SecondaryServicesInput", ethernetSegment.SecondaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("forwarder-ports", types.YLeaf{"ForwarderPorts", ethernetSegment.ForwarderPorts})
@@ -5412,7 +4679,7 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -5443,7 +4710,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_PrimaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Primary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5474,7 +4742,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_SecondaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Secondary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5505,7 +4774,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedR
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected ISID service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5536,7 +4806,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElect
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected ISID service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5567,7 +4838,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected EVI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5598,7 +4870,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElecte
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected EVI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5629,7 +4902,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected VNI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5660,7 +4934,8 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElecte
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected VNI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5692,7 +4967,7 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_NextHop struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // DF Dont Premption. The type is bool.
@@ -5775,7 +5050,7 @@ type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLab
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -5852,11 +5127,14 @@ type Evpn_Nodes_Node_AcIds_AcId struct {
     AcId interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Nodes_Node_AcIds_AcId_EvpnInstance
+
+    // Leaf EVIs. The type is slice of Evpn_Nodes_Node_AcIds_AcId_LeafEvis.
+    LeafEvis []*Evpn_Nodes_Node_AcIds_AcId_LeafEvis
 }
 
 func (acId *Evpn_Nodes_Node_AcIds_AcId) GetEntityData() *types.CommonEntityData {
@@ -5872,6 +5150,11 @@ func (acId *Evpn_Nodes_Node_AcIds_AcId) GetEntityData() *types.CommonEntityData 
 
     acId.EntityData.Children = types.NewOrderedMap()
     acId.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &acId.EvpnInstance})
+    acId.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range acId.LeafEvis {
+        types.SetYListKey(acId.LeafEvis[i], i)
+        acId.EntityData.Children.Append(types.GetSegmentPath(acId.LeafEvis[i]), types.YChild{"LeafEvis", acId.LeafEvis[i]})
+    }
     acId.EntityData.Leafs = types.NewOrderedMap()
     acId.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", acId.Evi})
     acId.EntityData.Leafs.Append("ac-id", types.YLeaf{"AcId", acId.AcId})
@@ -5923,6 +5206,37 @@ func (evpnInstance *Evpn_Nodes_Node_AcIds_AcId_EvpnInstance) GetEntityData() *ty
     evpnInstance.EntityData.YListKeys = []string {}
 
     return &(evpnInstance.EntityData)
+}
+
+// Evpn_Nodes_Node_AcIds_AcId_LeafEvis
+// Leaf EVIs
+type Evpn_Nodes_Node_AcIds_AcId_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Nodes_Node_AcIds_AcId_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "ac-id"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ac-ids/ac-id/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
 }
 
 // Evpn_Active
@@ -6198,20 +5512,30 @@ type Evpn_Active_RemoteShgs_RemoteShg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // EVPN id. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
+
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
+
+    // Ethernet VPN id. The type is interface{} with range: 0..4294967295.
+    EthernetVpnId interface{}
+
+    // EVPN Instance transport encapsulation. The type is interface{} with range:
+    // 0..255.
+    Encapsulation interface{}
 
     // Ethernet Segment id. The type is slice of
     // Evpn_Active_RemoteShgs_RemoteShg_EthernetSegmentIdentifier.
@@ -6245,11 +5569,14 @@ func (remoteShg *Evpn_Active_RemoteShgs_RemoteShg) GetEntityData() *types.Common
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
+    remoteShg.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", remoteShg.Evi})
     remoteShg.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", remoteShg.Esi1})
     remoteShg.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", remoteShg.Esi2})
     remoteShg.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", remoteShg.Esi3})
     remoteShg.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", remoteShg.Esi4})
     remoteShg.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", remoteShg.Esi5})
+    remoteShg.EntityData.Leafs.Append("ethernet-vpn-id", types.YLeaf{"EthernetVpnId", remoteShg.EthernetVpnId})
+    remoteShg.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", remoteShg.Encapsulation})
 
     remoteShg.EntityData.YListKeys = []string {}
 
@@ -6263,7 +5590,7 @@ type Evpn_Active_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -6295,7 +5622,7 @@ type Evpn_Active_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -6356,7 +5683,7 @@ type Evpn_Active_Igmps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // EVPN Remote. The type is slice of Evpn_Active_Igmps_Igmp.
+    // IGMP Route. The type is slice of Evpn_Active_Igmps_Igmp.
     Igmp []*Evpn_Active_Igmps_Igmp
 }
 
@@ -6385,68 +5712,77 @@ func (igmps *Evpn_Active_Igmps) GetEntityData() *types.CommonEntityData {
 }
 
 // Evpn_Active_Igmps_Igmp
-// EVPN Remote
+// IGMP Route
 type Evpn_Active_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
+    // Local=0,Remote=1. The type is interface{} with range: 0..4294967295.
+    SourceType interface{}
+
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
 
-    // BP xcid. The type is interface{} with range: 0..4294967295.
-    Bpxcid interface{}
+    // EVI. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
 
-    // EVI/BD. The type is interface{} with range: 0..4294967295.
-    Evibd interface{}
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi1 interface{}
+
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi2 interface{}
+
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi3 interface{}
+
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi4 interface{}
+
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi5 interface{}
+
+    // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
+    EthernetTag interface{}
 
     // Source IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SrcIp interface{}
 
     // Group IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GrpIp interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi1 interface{}
+    // BD ID. The type is interface{} with range: 0..4294967295.
+    BdId interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi2 interface{}
-
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi3 interface{}
-
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi4 interface{}
-
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi5 interface{}
+    // BP XCID. The type is interface{} with range: 0..4294967295.
+    BpXcid interface{}
 
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
     // E-VPN id. The type is interface{} with range: 0..4294967295.
-    Evi interface{}
+    EviXr interface{}
 
     // BD id. The type is interface{} with range: 0..4294967295.
-    BdId interface{}
+    BdIdXr interface{}
 
     // Route Type. The type is EvpnIgmpMsg.
     RouteType interface{}
 
     // Source IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddr interface{}
 
     // Group IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GroupAddr interface{}
 
     // Ethernet Tag id. The type is interface{} with range: 0..4294967295.
@@ -6459,7 +5795,7 @@ type Evpn_Active_Igmps_Igmp struct {
     IgmpGroupType interface{}
 
     // Max Response Time. The type is interface{} with range: 0..255.
-    MaXResponseTime interface{}
+    MaxResponseTime interface{}
 
     // Resolved. The type is bool.
     Resolved interface{}
@@ -6470,10 +5806,6 @@ type Evpn_Active_Igmps_Igmp struct {
     // Ethernet Segment id. The type is slice of
     // Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifier.
     EthernetSegmentIdentifier []*Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifier
-
-    // List of nexthop IPv6 addresses. The type is slice of
-    // Evpn_Active_Igmps_Igmp_NextHop.
-    NextHop []*Evpn_Active_Igmps_Igmp_NextHop
 }
 
 func (igmp *Evpn_Active_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
@@ -6494,32 +5826,30 @@ func (igmp *Evpn_Active_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
         types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
-    igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range igmp.NextHop {
-        types.SetYListKey(igmp.NextHop[i], i)
-        igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
-    }
     igmp.EntityData.Leafs = types.NewOrderedMap()
+    igmp.EntityData.Leafs.Append("source-type", types.YLeaf{"SourceType", igmp.SourceType})
     igmp.EntityData.Leafs.Append("is-leave", types.YLeaf{"IsLeave", igmp.IsLeave})
-    igmp.EntityData.Leafs.Append("bpxcid", types.YLeaf{"Bpxcid", igmp.Bpxcid})
-    igmp.EntityData.Leafs.Append("evibd", types.YLeaf{"Evibd", igmp.Evibd})
-    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
-    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
+    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
     igmp.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", igmp.Esi1})
     igmp.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", igmp.Esi2})
     igmp.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", igmp.Esi3})
     igmp.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", igmp.Esi4})
     igmp.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", igmp.Esi5})
-    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
-    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
+    igmp.EntityData.Leafs.Append("ethernet-tag", types.YLeaf{"EthernetTag", igmp.EthernetTag})
+    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
+    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
     igmp.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", igmp.BdId})
+    igmp.EntityData.Leafs.Append("bp-xcid", types.YLeaf{"BpXcid", igmp.BpXcid})
+    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
+    igmp.EntityData.Leafs.Append("evi-xr", types.YLeaf{"EviXr", igmp.EviXr})
+    igmp.EntityData.Leafs.Append("bd-id-xr", types.YLeaf{"BdIdXr", igmp.BdIdXr})
     igmp.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", igmp.RouteType})
     igmp.EntityData.Leafs.Append("source-addr", types.YLeaf{"SourceAddr", igmp.SourceAddr})
     igmp.EntityData.Leafs.Append("group-addr", types.YLeaf{"GroupAddr", igmp.GroupAddr})
     igmp.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", igmp.EthernetTagId})
     igmp.EntityData.Leafs.Append("igmp-version", types.YLeaf{"IgmpVersion", igmp.IgmpVersion})
     igmp.EntityData.Leafs.Append("igmp-group-type", types.YLeaf{"IgmpGroupType", igmp.IgmpGroupType})
-    igmp.EntityData.Leafs.Append("ma-x-response-time", types.YLeaf{"MaXResponseTime", igmp.MaXResponseTime})
+    igmp.EntityData.Leafs.Append("max-response-time", types.YLeaf{"MaxResponseTime", igmp.MaxResponseTime})
     igmp.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", igmp.Resolved})
 
     igmp.EntityData.YListKeys = []string {}
@@ -6537,7 +5867,7 @@ type Evpn_Active_Igmps_Igmp_SourceInfo struct {
     Type interface{}
 
     // remote info. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteInfo interface{}
 
     // local info.
@@ -6572,18 +5902,8 @@ type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with length: 0..81.
-    Name interface{}
-
-    // Interface MTU. The type is interface{} with range: 0..4294967295.
-    Mtu interface{}
-
-    // Payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // Interface parameters.
-    Parameters Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
+    // Interface name internal format. The type is string with length: 0..65.
+    IfName interface{}
 }
 
 func (localInfo *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *types.CommonEntityData {
@@ -6598,657 +5918,12 @@ func (localInfo *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *t
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localInfo.EntityData.Children = types.NewOrderedMap()
-    localInfo.EntityData.Children.Append("parameters", types.YChild{"Parameters", &localInfo.Parameters})
     localInfo.EntityData.Leafs = types.NewOrderedMap()
-    localInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", localInfo.Name})
-    localInfo.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", localInfo.Mtu})
-    localInfo.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", localInfo.PayloadBytes})
+    localInfo.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", localInfo.IfName})
 
     localInfo.EntityData.YListKeys = []string {}
 
     return &(localInfo.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
-// Interface parameters
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Type. The type is L2vpnInterface.
-    Type interface{}
-
-    // Ethernet.
-    Ethernet Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-
-    // VLAN.
-    Vlan Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-
-    // TDM.
-    Tdm Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-
-    // ATM.
-    Atm Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-
-    // Frame Relay.
-    Fr Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-
-    // PW Ether.
-    PseudowireEther Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-
-    // PW IW.
-    PseudowireIw Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-}
-
-func (parameters *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) GetEntityData() *types.CommonEntityData {
-    parameters.EntityData.YFilter = parameters.YFilter
-    parameters.EntityData.YangName = "parameters"
-    parameters.EntityData.BundleName = "cisco_ios_xr"
-    parameters.EntityData.ParentYangName = "local-info"
-    parameters.EntityData.SegmentPath = "parameters"
-    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
-    parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    parameters.EntityData.Children = types.NewOrderedMap()
-    parameters.EntityData.Children.Append("ethernet", types.YChild{"Ethernet", &parameters.Ethernet})
-    parameters.EntityData.Children.Append("vlan", types.YChild{"Vlan", &parameters.Vlan})
-    parameters.EntityData.Children.Append("tdm", types.YChild{"Tdm", &parameters.Tdm})
-    parameters.EntityData.Children.Append("atm", types.YChild{"Atm", &parameters.Atm})
-    parameters.EntityData.Children.Append("fr", types.YChild{"Fr", &parameters.Fr})
-    parameters.EntityData.Children.Append("pseudowire-ether", types.YChild{"PseudowireEther", &parameters.PseudowireEther})
-    parameters.EntityData.Children.Append("pseudowire-iw", types.YChild{"PseudowireIw", &parameters.PseudowireIw})
-    parameters.EntityData.Leafs = types.NewOrderedMap()
-    parameters.EntityData.Leafs.Append("type", types.YLeaf{"Type", parameters.Type})
-
-    parameters.EntityData.YListKeys = []string {}
-
-    return &(parameters.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-// Ethernet
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-}
-
-func (ethernet *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet) GetEntityData() *types.CommonEntityData {
-    ethernet.EntityData.YFilter = ethernet.YFilter
-    ethernet.EntityData.YangName = "ethernet"
-    ethernet.EntityData.BundleName = "cisco_ios_xr"
-    ethernet.EntityData.ParentYangName = "parameters"
-    ethernet.EntityData.SegmentPath = "ethernet"
-    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
-    ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ethernet.EntityData.Children = types.NewOrderedMap()
-    ethernet.EntityData.Leafs = types.NewOrderedMap()
-    ethernet.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", ethernet.XconnectTags})
-
-    ethernet.EntityData.YListKeys = []string {}
-
-    return &(ethernet.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-// VLAN
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-
-    // VLAN rewrite tag. The type is interface{} with range: 0..65535.
-    VlanRewriteTag interface{}
-
-    // Simple EFP. The type is interface{} with range: 0..255.
-    SimpleEfp interface{}
-
-    // Encapsulation Type. The type is interface{} with range: 0..255.
-    EncapsulationType interface{}
-
-    // Outer Tag. The type is interface{} with range: 0..65535.
-    OuterTag interface{}
-
-    // Rewrite Tags. The type is slice of
-    // Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag.
-    RewriteTag []*Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-
-    // vlan range. The type is slice of
-    // Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange.
-    VlanRange []*Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-}
-
-func (vlan *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEntityData() *types.CommonEntityData {
-    vlan.EntityData.YFilter = vlan.YFilter
-    vlan.EntityData.YangName = "vlan"
-    vlan.EntityData.BundleName = "cisco_ios_xr"
-    vlan.EntityData.ParentYangName = "parameters"
-    vlan.EntityData.SegmentPath = "vlan"
-    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
-    vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlan.EntityData.Children = types.NewOrderedMap()
-    vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
-    for i := range vlan.RewriteTag {
-        types.SetYListKey(vlan.RewriteTag[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
-    }
-    vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
-    for i := range vlan.VlanRange {
-        types.SetYListKey(vlan.VlanRange[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
-    }
-    vlan.EntityData.Leafs = types.NewOrderedMap()
-    vlan.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", vlan.XconnectTags})
-    vlan.EntityData.Leafs.Append("vlan-rewrite-tag", types.YLeaf{"VlanRewriteTag", vlan.VlanRewriteTag})
-    vlan.EntityData.Leafs.Append("simple-efp", types.YLeaf{"SimpleEfp", vlan.SimpleEfp})
-    vlan.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vlan.EncapsulationType})
-    vlan.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", vlan.OuterTag})
-
-    vlan.EntityData.YListKeys = []string {}
-
-    return &(vlan.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-// Rewrite Tags
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // The type is interface{} with range: 0..65535.
-    Entry interface{}
-}
-
-func (rewriteTag *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag) GetEntityData() *types.CommonEntityData {
-    rewriteTag.EntityData.YFilter = rewriteTag.YFilter
-    rewriteTag.EntityData.YangName = "rewrite-tag"
-    rewriteTag.EntityData.BundleName = "cisco_ios_xr"
-    rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
-    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
-    rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rewriteTag.EntityData.Children = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", rewriteTag.Entry})
-
-    rewriteTag.EntityData.YListKeys = []string {}
-
-    return &(rewriteTag.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-// vlan range
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Lower. The type is interface{} with range: 0..65535.
-    Lower interface{}
-
-    // Upper. The type is interface{} with range: 0..65535.
-    Upper interface{}
-}
-
-func (vlanRange *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange) GetEntityData() *types.CommonEntityData {
-    vlanRange.EntityData.YFilter = vlanRange.YFilter
-    vlanRange.EntityData.YangName = "vlan-range"
-    vlanRange.EntityData.BundleName = "cisco_ios_xr"
-    vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
-    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
-    vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlanRange.EntityData.Children = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", vlanRange.Lower})
-    vlanRange.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", vlanRange.Upper})
-
-    vlanRange.EntityData.YListKeys = []string {}
-
-    return &(vlanRange.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-// TDM
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Timeslots separated by , or - from 1 to 31. : indicates individual timeslot
-    // and - represents a range.E.g. 1-3,5 represents timeslots 1, 2, 3, and 5.
-    // The type is string.
-    TimeslotGroup interface{}
-
-    // Timeslot rate in units of Kbps. The type is interface{} with range: 0..255.
-    // Units are kbit/s.
-    TimeslotRate interface{}
-
-    // TDM mode. The type is L2vpnTdmMode.
-    TdmMode interface{}
-
-    // TDM options.
-    TdmOptions Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-}
-
-func (tdm *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEntityData() *types.CommonEntityData {
-    tdm.EntityData.YFilter = tdm.YFilter
-    tdm.EntityData.YangName = "tdm"
-    tdm.EntityData.BundleName = "cisco_ios_xr"
-    tdm.EntityData.ParentYangName = "parameters"
-    tdm.EntityData.SegmentPath = "tdm"
-    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
-    tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdm.EntityData.Children = types.NewOrderedMap()
-    tdm.EntityData.Children.Append("tdm-options", types.YChild{"TdmOptions", &tdm.TdmOptions})
-    tdm.EntityData.Leafs = types.NewOrderedMap()
-    tdm.EntityData.Leafs.Append("timeslot-group", types.YLeaf{"TimeslotGroup", tdm.TimeslotGroup})
-    tdm.EntityData.Leafs.Append("timeslot-rate", types.YLeaf{"TimeslotRate", tdm.TimeslotRate})
-    tdm.EntityData.Leafs.Append("tdm-mode", types.YLeaf{"TdmMode", tdm.TdmMode})
-
-    tdm.EntityData.YListKeys = []string {}
-
-    return &(tdm.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-// TDM options
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // TDM payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // TDM bit rate in units of Kbps. The type is interface{} with range:
-    // 0..4294967295. Units are kbit/s.
-    BitRate interface{}
-
-    // RTP header. The type is L2vpnTdmRtpOption.
-    Rtp interface{}
-
-    // TDM Timestamping mode. The type is L2vpnTimeStampMode.
-    TimestampMode interface{}
-
-    // Signalling packets. The type is interface{} with range: 0..255.
-    SignallingPackets interface{}
-
-    // CAS. The type is interface{} with range: 0..255.
-    Cas interface{}
-
-    // RTP header payload type. The type is interface{} with range: 0..255.
-    RtpHeaderPayloadType interface{}
-
-    // Timestamping clock frequency in units of 8Khz. The type is interface{} with
-    // range: 0..65535.
-    TimestampClockFreq interface{}
-
-    // Synchronization Source identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Ssrc interface{}
-}
-
-func (tdmOptions *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions) GetEntityData() *types.CommonEntityData {
-    tdmOptions.EntityData.YFilter = tdmOptions.YFilter
-    tdmOptions.EntityData.YangName = "tdm-options"
-    tdmOptions.EntityData.BundleName = "cisco_ios_xr"
-    tdmOptions.EntityData.ParentYangName = "tdm"
-    tdmOptions.EntityData.SegmentPath = "tdm-options"
-    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
-    tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdmOptions.EntityData.Children = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", tdmOptions.PayloadBytes})
-    tdmOptions.EntityData.Leafs.Append("bit-rate", types.YLeaf{"BitRate", tdmOptions.BitRate})
-    tdmOptions.EntityData.Leafs.Append("rtp", types.YLeaf{"Rtp", tdmOptions.Rtp})
-    tdmOptions.EntityData.Leafs.Append("timestamp-mode", types.YLeaf{"TimestampMode", tdmOptions.TimestampMode})
-    tdmOptions.EntityData.Leafs.Append("signalling-packets", types.YLeaf{"SignallingPackets", tdmOptions.SignallingPackets})
-    tdmOptions.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", tdmOptions.Cas})
-    tdmOptions.EntityData.Leafs.Append("rtp-header-payload-type", types.YLeaf{"RtpHeaderPayloadType", tdmOptions.RtpHeaderPayloadType})
-    tdmOptions.EntityData.Leafs.Append("timestamp-clock-freq", types.YLeaf{"TimestampClockFreq", tdmOptions.TimestampClockFreq})
-    tdmOptions.EntityData.Leafs.Append("ssrc", types.YLeaf{"Ssrc", tdmOptions.Ssrc})
-
-    tdmOptions.EntityData.YListKeys = []string {}
-
-    return &(tdmOptions.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-// ATM
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Max number of cells packed. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsPacked interface{}
-
-    // Max number of cells unpacked. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsUnPacked interface{}
-
-    // ATM mode. The type is L2vpnAtmMode.
-    AtmMode interface{}
-
-    // Virtual path identifier. The type is interface{} with range: 0..65535.
-    Vpi interface{}
-
-    // Virtual channel identifier. The type is interface{} with range: 0..65535.
-    Vci interface{}
-}
-
-func (atm *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEntityData() *types.CommonEntityData {
-    atm.EntityData.YFilter = atm.YFilter
-    atm.EntityData.YangName = "atm"
-    atm.EntityData.BundleName = "cisco_ios_xr"
-    atm.EntityData.ParentYangName = "parameters"
-    atm.EntityData.SegmentPath = "atm"
-    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
-    atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    atm.EntityData.Children = types.NewOrderedMap()
-    atm.EntityData.Leafs = types.NewOrderedMap()
-    atm.EntityData.Leafs.Append("maximum-number-cells-packed", types.YLeaf{"MaximumNumberCellsPacked", atm.MaximumNumberCellsPacked})
-    atm.EntityData.Leafs.Append("maximum-number-cells-un-packed", types.YLeaf{"MaximumNumberCellsUnPacked", atm.MaximumNumberCellsUnPacked})
-    atm.EntityData.Leafs.Append("atm-mode", types.YLeaf{"AtmMode", atm.AtmMode})
-    atm.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", atm.Vpi})
-    atm.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", atm.Vci})
-
-    atm.EntityData.YListKeys = []string {}
-
-    return &(atm.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-// Frame Relay
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Frame Relay mode. The type is L2vpnFrMode.
-    FrMode interface{}
-
-    // Data-link connection identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Dlci interface{}
-}
-
-func (fr *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEntityData() *types.CommonEntityData {
-    fr.EntityData.YFilter = fr.YFilter
-    fr.EntityData.YangName = "fr"
-    fr.EntityData.BundleName = "cisco_ios_xr"
-    fr.EntityData.ParentYangName = "parameters"
-    fr.EntityData.SegmentPath = "fr"
-    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
-    fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fr.EntityData.Children = types.NewOrderedMap()
-    fr.EntityData.Leafs = types.NewOrderedMap()
-    fr.EntityData.Leafs.Append("fr-mode", types.YLeaf{"FrMode", fr.FrMode})
-    fr.EntityData.Leafs.Append("dlci", types.YLeaf{"Dlci", fr.Dlci})
-
-    fr.EntityData.YListKeys = []string {}
-
-    return &(fr.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-// PW Ether
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-}
-
-func (pseudowireEther *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther) GetEntityData() *types.CommonEntityData {
-    pseudowireEther.EntityData.YFilter = pseudowireEther.YFilter
-    pseudowireEther.EntityData.YangName = "pseudowire-ether"
-    pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireEther.EntityData.ParentYangName = "parameters"
-    pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
-    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
-    pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireEther.EntityData.Children = types.NewOrderedMap()
-    pseudowireEther.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireEther.InterfaceList})
-    pseudowireEther.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireEther.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireEther.IsValid})
-    pseudowireEther.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireEther.InternalLabel})
-
-    pseudowireEther.EntityData.YListKeys = []string {}
-
-    return &(pseudowireEther.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-// Interface list data
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface.
-    Interface []*Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-ether"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-// Interfaces
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-// PW IW
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-}
-
-func (pseudowireIw *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw) GetEntityData() *types.CommonEntityData {
-    pseudowireIw.EntityData.YFilter = pseudowireIw.YFilter
-    pseudowireIw.EntityData.YangName = "pseudowire-iw"
-    pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireIw.EntityData.ParentYangName = "parameters"
-    pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
-    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
-    pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireIw.EntityData.Children = types.NewOrderedMap()
-    pseudowireIw.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireIw.InterfaceList})
-    pseudowireIw.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireIw.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireIw.IsValid})
-    pseudowireIw.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireIw.InternalLabel})
-
-    pseudowireIw.EntityData.YListKeys = []string {}
-
-    return &(pseudowireIw.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-// Interface list data
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface.
-    Interface []*Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-iw"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-// Interfaces
-type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
 }
 
 // Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifier
@@ -7258,7 +5933,7 @@ type Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -7280,50 +5955,6 @@ func (ethernetSegmentIdentifier *Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifie
     ethernetSegmentIdentifier.EntityData.YListKeys = []string {}
 
     return &(ethernetSegmentIdentifier.EntityData)
-}
-
-// Evpn_Active_Igmps_Igmp_NextHop
-// List of nexthop IPv6 addresses
-type Evpn_Active_Igmps_Igmp_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NextHop interface{}
-
-    // DF Dont Premption. The type is bool.
-    DfDontPrempt interface{}
-
-    // DF Election Mode Configured. The type is interface{} with range: 0..255.
-    DfType interface{}
-
-    // DF Election Preference Set. The type is interface{} with range: 0..65535.
-    DfPref interface{}
-}
-
-func (nextHop *Evpn_Active_Igmps_Igmp_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", nextHop.NextHop})
-    nextHop.EntityData.Leafs.Append("df-dont-prempt", types.YLeaf{"DfDontPrempt", nextHop.DfDontPrempt})
-    nextHop.EntityData.Leafs.Append("df-type", types.YLeaf{"DfType", nextHop.DfType})
-    nextHop.EntityData.Leafs.Append("df-pref", types.YLeaf{"DfPref", nextHop.DfPref})
-
-    nextHop.EntityData.YListKeys = []string {}
-
-    return &(nextHop.EntityData)
 }
 
 // Evpn_Active_Evis
@@ -7419,7 +6050,7 @@ type Evpn_Active_Summary struct {
     YFilter yfilter.YFilter
 
     // EVPN Router ID. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // BGP AS number. The type is interface{} with range: 0..4294967295.
@@ -7494,7 +6125,7 @@ type Evpn_Active_Summary struct {
     RemoteEadRoutes interface{}
 
     // Global Source MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     GlobalSourceMac interface{}
 
     // EVPN ES Peering Time (seconds). The type is interface{} with range:
@@ -7508,22 +6139,6 @@ type Evpn_Active_Summary struct {
     // EVPN ES Carving Time (seconds). The type is interface{} with range:
     // 0..4294967295. Units are second.
     CarvingTime interface{}
-
-    // Number of moves within the move interval before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveCount interface{}
-
-    // Interval to watch for subsequent mac moves before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveInterval interface{}
-
-    // Length of time to lock the mac after a MAC security violation. The type is
-    // interface{} with range: 0..4294967295.
-    MacSecureFreezeTime interface{}
-
-    // Number of times to retry after a MAC un-freezes. The type is interface{}
-    // with range: 0..4294967295.
-    MacSecureRetryCount interface{}
 
     // EVPN Node Cost-out. The type is bool.
     CostOut interface{}
@@ -7575,10 +6190,6 @@ func (summary *Evpn_Active_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.Leafs.Append("peering-time", types.YLeaf{"PeeringTime", summary.PeeringTime})
     summary.EntityData.Leafs.Append("recovery-time", types.YLeaf{"RecoveryTime", summary.RecoveryTime})
     summary.EntityData.Leafs.Append("carving-time", types.YLeaf{"CarvingTime", summary.CarvingTime})
-    summary.EntityData.Leafs.Append("mac-secure-move-count", types.YLeaf{"MacSecureMoveCount", summary.MacSecureMoveCount})
-    summary.EntityData.Leafs.Append("mac-secure-move-interval", types.YLeaf{"MacSecureMoveInterval", summary.MacSecureMoveInterval})
-    summary.EntityData.Leafs.Append("mac-secure-freeze-time", types.YLeaf{"MacSecureFreezeTime", summary.MacSecureFreezeTime})
-    summary.EntityData.Leafs.Append("mac-secure-retry-count", types.YLeaf{"MacSecureRetryCount", summary.MacSecureRetryCount})
     summary.EntityData.Leafs.Append("cost-out", types.YLeaf{"CostOut", summary.CostOut})
     summary.EntityData.Leafs.Append("startup-cost-in-time", types.YLeaf{"StartupCostInTime", summary.StartupCostInTime})
     summary.EntityData.Leafs.Append("l2rib-throttle", types.YLeaf{"L2ribThrottle", summary.L2ribThrottle})
@@ -7710,6 +6321,9 @@ type Evpn_Active_EviDetail_Elements_Element struct {
     // Advertise MAC-only routes on this EVI. The type is bool.
     AdvertiseMac interface{}
 
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
+
     // Advertise BVI MACs routes on this EVI. The type is bool.
     AdvertiseBviMac interface{}
 
@@ -7783,6 +6397,7 @@ func (element *Evpn_Active_EviDetail_Elements_Element) GetEntityData() *types.Co
     element.EntityData.Leafs.Append("rt-import-block-set", types.YLeaf{"RtImportBlockSet", element.RtImportBlockSet})
     element.EntityData.Leafs.Append("rt-export-block-set", types.YLeaf{"RtExportBlockSet", element.RtExportBlockSet})
     element.EntityData.Leafs.Append("advertise-mac", types.YLeaf{"AdvertiseMac", element.AdvertiseMac})
+    element.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", element.EtreeLeaf})
     element.EntityData.Leafs.Append("advertise-bvi-mac", types.YLeaf{"AdvertiseBviMac", element.AdvertiseBviMac})
     element.EntityData.Leafs.Append("aliasing-disabled", types.YLeaf{"AliasingDisabled", element.AliasingDisabled})
     element.EntityData.Leafs.Append("unknown-unicast-flooding-disabled", types.YLeaf{"UnknownUnicastFloodingDisabled", element.UnknownUnicastFloodingDisabled})
@@ -7927,7 +6542,7 @@ type Evpn_Active_EviDetail_Elements_Element_RdAuto_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -8030,7 +6645,7 @@ type Evpn_Active_EviDetail_Elements_Element_RdAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -8111,7 +6726,7 @@ type Evpn_Active_EviDetail_Elements_Element_RdConfigured_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -8214,7 +6829,7 @@ type Evpn_Active_EviDetail_Elements_Element_RdConfigured_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -8363,7 +6978,7 @@ type Evpn_Active_EviDetail_Elements_Element_RtAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -8521,17 +7136,21 @@ type Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor struct {
     Encapsulation interface{}
 
     // Neighbor IP. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NeighborIp interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_EvpnInstance
+
+    // Leaf EVIs. The type is slice of
+    // Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis.
+    LeafEvis []*Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
 }
 
 func (neighbor *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -8547,6 +7166,11 @@ func (neighbor *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor) GetEntityD
 
     neighbor.EntityData.Children = types.NewOrderedMap()
     neighbor.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &neighbor.EvpnInstance})
+    neighbor.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range neighbor.LeafEvis {
+        types.SetYListKey(neighbor.LeafEvis[i], i)
+        neighbor.EntityData.Children.Append(types.GetSegmentPath(neighbor.LeafEvis[i]), types.YChild{"LeafEvis", neighbor.LeafEvis[i]})
+    }
     neighbor.EntityData.Leafs = types.NewOrderedMap()
     neighbor.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", neighbor.Evi})
     neighbor.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", neighbor.Encapsulation})
@@ -8601,6 +7225,37 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_EvpnIns
     return &(evpnInstance.EntityData)
 }
 
+// Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
+// Leaf EVIs
+type Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "neighbor"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/neighbor/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
+}
+
 // Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries
 // EVPN Ethernet Auto-Discovery table
 type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries struct {
@@ -8649,19 +7304,19 @@ type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisco
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
@@ -8671,7 +7326,7 @@ type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisco
     EthernetTagXr interface{}
 
     // Local nexthop IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalNextHop interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -8797,7 +7452,7 @@ type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisco
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -8833,14 +7488,14 @@ type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisco
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -8920,23 +7575,26 @@ type Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast st
 
     // Originating IP. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIp interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // Originating IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIpXr interface{}
 
     // Tunnel Endpoint ID. The type is interface{} with range: 0..4294967295.
     TunnelEndpointId interface{}
 
+    // PMSI Tunnel Type. The type is interface{} with range: 0..4294967295.
+    PmsiTunnelType interface{}
+
     // IP of nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output label. The type is interface{} with range: 0..4294967295.
@@ -8948,8 +7606,11 @@ type Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast st
     // Proxy entry. The type is bool.
     IsProxyEntry interface{}
 
-    // SR-TE Policy. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SR-TE Policy. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrtePolicy interface{}
+
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast_EvpnInstance
@@ -8976,11 +7637,13 @@ func (inclusiveMulticast *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_
     inclusiveMulticast.EntityData.Leafs.Append("ethernet-tag-xr", types.YLeaf{"EthernetTagXr", inclusiveMulticast.EthernetTagXr})
     inclusiveMulticast.EntityData.Leafs.Append("originating-ip-xr", types.YLeaf{"OriginatingIpXr", inclusiveMulticast.OriginatingIpXr})
     inclusiveMulticast.EntityData.Leafs.Append("tunnel-endpoint-id", types.YLeaf{"TunnelEndpointId", inclusiveMulticast.TunnelEndpointId})
+    inclusiveMulticast.EntityData.Leafs.Append("pmsi-tunnel-type", types.YLeaf{"PmsiTunnelType", inclusiveMulticast.PmsiTunnelType})
     inclusiveMulticast.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", inclusiveMulticast.NextHop})
     inclusiveMulticast.EntityData.Leafs.Append("output-label", types.YLeaf{"OutputLabel", inclusiveMulticast.OutputLabel})
     inclusiveMulticast.EntityData.Leafs.Append("is-local-entry", types.YLeaf{"IsLocalEntry", inclusiveMulticast.IsLocalEntry})
     inclusiveMulticast.EntityData.Leafs.Append("is-proxy-entry", types.YLeaf{"IsProxyEntry", inclusiveMulticast.IsProxyEntry})
     inclusiveMulticast.EntityData.Leafs.Append("srte-policy", types.YLeaf{"SrtePolicy", inclusiveMulticast.SrtePolicy})
+    inclusiveMulticast.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", inclusiveMulticast.EtreeLeaf})
 
     inclusiveMulticast.EntityData.YListKeys = []string {}
 
@@ -9095,7 +7758,7 @@ type Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     AddrIndex interface{}
 
     // RT IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // RT Role. The type is L2vpnAdRtRole.
@@ -9306,7 +7969,7 @@ type Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_RouteTarget_V4Ad
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -9421,24 +8084,24 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac struct {
     EthernetTag interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IP Address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddressXr interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddressXr interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -9458,11 +8121,11 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac struct {
     IsRemoteMac interface{}
 
     // SOO nexthop (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SooNexthop interface{}
 
     // IP nexthop address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpnhAddress interface{}
 
     // ESI port key. The type is interface{} with range: 0..65535.
@@ -9487,7 +8150,7 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac struct {
     LocalL3Label interface{}
 
     // Router MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouterMacAddress interface{}
 
     // Number of flushes requested . The type is interface{} with range: 0..65535.
@@ -9508,6 +8171,20 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac struct {
 
     // Indication if Remote MAC is statically configured. The type is bool.
     RemoteIsStatic interface{}
+
+    // Local E-Tree Leaf Indication. The type is bool.
+    LocalEtreeLeaf interface{}
+
+    // Remote E-Tree Leaf Indication. The type is bool.
+    RemoteEtreeLeaf interface{}
+
+    // Local Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    LocalAttachmentCircuitId interface{}
+
+    // Remote Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    RemoteAttachmentCircuitId interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Active_EviDetail_EviChildren_Macs_Mac_EvpnInstance
@@ -9583,6 +8260,10 @@ func (mac *Evpn_Active_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.Co
     mac.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", mac.Resolved})
     mac.EntityData.Leafs.Append("local-is-static", types.YLeaf{"LocalIsStatic", mac.LocalIsStatic})
     mac.EntityData.Leafs.Append("remote-is-static", types.YLeaf{"RemoteIsStatic", mac.RemoteIsStatic})
+    mac.EntityData.Leafs.Append("local-etree-leaf", types.YLeaf{"LocalEtreeLeaf", mac.LocalEtreeLeaf})
+    mac.EntityData.Leafs.Append("remote-etree-leaf", types.YLeaf{"RemoteEtreeLeaf", mac.RemoteEtreeLeaf})
+    mac.EntityData.Leafs.Append("local-attachment-circuit-id", types.YLeaf{"LocalAttachmentCircuitId", mac.LocalAttachmentCircuitId})
+    mac.EntityData.Leafs.Append("remote-attachment-circuit-id", types.YLeaf{"RemoteAttachmentCircuitId", mac.RemoteAttachmentCircuitId})
 
     mac.EntityData.YListKeys = []string {}
 
@@ -9639,7 +8320,7 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifier s
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Local Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -9670,7 +8351,7 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentifier 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Remote Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -9706,14 +8387,14 @@ type Evpn_Active_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -9850,7 +8531,7 @@ type Evpn_Active_Teps_Tep_LocalInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -9889,7 +8570,7 @@ type Evpn_Active_Teps_Tep_RemoteInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -9963,26 +8644,26 @@ type Evpn_Active_InternalLabels_InternalLabel struct {
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
     EthernetTag interface{}
 
     // Ethernet Segment id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Esi interface{}
 
     // Label Tag. The type is interface{} with range: 0..4294967295.
@@ -10159,14 +8840,14 @@ type Evpn_Active_InternalLabels_InternalLabel_MacPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -10205,14 +8886,14 @@ type Evpn_Active_InternalLabels_InternalLabel_EadPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -10251,14 +8932,14 @@ type Evpn_Active_InternalLabels_InternalLabel_EviPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -10297,14 +8978,14 @@ type Evpn_Active_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -10373,22 +9054,22 @@ type Evpn_Active_EthernetSegments_EthernetSegment struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // ESI Type. The type is L2vpnEvpnEsi.
@@ -10406,18 +9087,17 @@ type Evpn_Active_EthernetSegments_EthernetSegment struct {
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
-    // State of the ethernet segment. The type is interface{} with range:
-    // 0..4294967295.
+    // State of the ethernet segment. The type is L2vpnEvpnEsState.
     EthernetSegmentState interface{}
 
-    // Main port ifhandle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main port ifhandle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     IfHandle interface{}
 
     // Main port redundancy group role. The type is L2vpnRgRole.
     MainPortRole interface{}
 
     // Main Port MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MainPortMac interface{}
 
     // Number of PWs in Up state. The type is interface{} with range:
@@ -10425,7 +9105,7 @@ type Evpn_Active_EthernetSegments_EthernetSegment struct {
     NumUpPWs interface{}
 
     // ES-Import Route Target. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouteTarget interface{}
 
     // Origin of operational ES-Import RT. The type is L2vpnEvpnRtOrigin.
@@ -10453,7 +9133,7 @@ type Evpn_Active_EthernetSegments_EthernetSegment struct {
     ForceSingleHome interface{}
 
     // Operational Source MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SourceMacOper interface{}
 
     // Origin of operational source MAC address. The type is L2vpnEvpnSmacSrc.
@@ -10485,6 +9165,9 @@ type Evpn_Active_EthernetSegments_EthernetSegment struct {
 
     // Service carving mode. The type is L2vpnEvpnScMode.
     ServiceCarvingMode interface{}
+
+    // Service carving multicast mode. The type is L2vpnEvpnScMcastMode.
+    ServiceCarvingMcastMode interface{}
 
     // Input string of Primary services ESI/I-SIDs. The type is string.
     PrimaryServicesInput interface{}
@@ -10684,6 +9367,7 @@ func (ethernetSegment *Evpn_Active_EthernetSegments_EthernetSegment) GetEntityDa
     ethernetSegment.EntityData.Leafs.Append("carving-timer", types.YLeaf{"CarvingTimer", ethernetSegment.CarvingTimer})
     ethernetSegment.EntityData.Leafs.Append("carving-timer-left", types.YLeaf{"CarvingTimerLeft", ethernetSegment.CarvingTimerLeft})
     ethernetSegment.EntityData.Leafs.Append("service-carving-mode", types.YLeaf{"ServiceCarvingMode", ethernetSegment.ServiceCarvingMode})
+    ethernetSegment.EntityData.Leafs.Append("service-carving-mcast-mode", types.YLeaf{"ServiceCarvingMcastMode", ethernetSegment.ServiceCarvingMcastMode})
     ethernetSegment.EntityData.Leafs.Append("primary-services-input", types.YLeaf{"PrimaryServicesInput", ethernetSegment.PrimaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("secondary-services-input", types.YLeaf{"SecondaryServicesInput", ethernetSegment.SecondaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("forwarder-ports", types.YLeaf{"ForwarderPorts", ethernetSegment.ForwarderPorts})
@@ -10709,7 +9393,7 @@ type Evpn_Active_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier stru
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -10740,7 +9424,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_PrimaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Primary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10771,7 +9456,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_SecondaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Secondary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10802,7 +9488,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedResul
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected ISID service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10833,7 +9520,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElectedRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected ISID service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -10864,7 +9552,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedResult
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected EVI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10895,7 +9584,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElectedRes
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected EVI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -10926,7 +9616,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedResult
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected VNI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10957,7 +9648,8 @@ type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElectedRes
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected VNI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -10989,7 +9681,7 @@ type Evpn_Active_EthernetSegments_EthernetSegment_NextHop struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // DF Dont Premption. The type is bool.
@@ -11072,7 +9764,7 @@ type Evpn_Active_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLabel s
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -11149,11 +9841,14 @@ type Evpn_Active_AcIds_AcId struct {
     AcId interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Active_AcIds_AcId_EvpnInstance
+
+    // Leaf EVIs. The type is slice of Evpn_Active_AcIds_AcId_LeafEvis.
+    LeafEvis []*Evpn_Active_AcIds_AcId_LeafEvis
 }
 
 func (acId *Evpn_Active_AcIds_AcId) GetEntityData() *types.CommonEntityData {
@@ -11169,6 +9864,11 @@ func (acId *Evpn_Active_AcIds_AcId) GetEntityData() *types.CommonEntityData {
 
     acId.EntityData.Children = types.NewOrderedMap()
     acId.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &acId.EvpnInstance})
+    acId.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range acId.LeafEvis {
+        types.SetYListKey(acId.LeafEvis[i], i)
+        acId.EntityData.Children.Append(types.GetSegmentPath(acId.LeafEvis[i]), types.YChild{"LeafEvis", acId.LeafEvis[i]})
+    }
     acId.EntityData.Leafs = types.NewOrderedMap()
     acId.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", acId.Evi})
     acId.EntityData.Leafs.Append("ac-id", types.YLeaf{"AcId", acId.AcId})
@@ -11220,6 +9920,37 @@ func (evpnInstance *Evpn_Active_AcIds_AcId_EvpnInstance) GetEntityData() *types.
     evpnInstance.EntityData.YListKeys = []string {}
 
     return &(evpnInstance.EntityData)
+}
+
+// Evpn_Active_AcIds_AcId_LeafEvis
+// Leaf EVIs
+type Evpn_Active_AcIds_AcId_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Active_AcIds_AcId_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "ac-id"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/ac-id/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
 }
 
 // Evpn_Standby
@@ -11495,20 +10226,30 @@ type Evpn_Standby_RemoteShgs_RemoteShg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // EVPN id. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
+
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
+
+    // Ethernet VPN id. The type is interface{} with range: 0..4294967295.
+    EthernetVpnId interface{}
+
+    // EVPN Instance transport encapsulation. The type is interface{} with range:
+    // 0..255.
+    Encapsulation interface{}
 
     // Ethernet Segment id. The type is slice of
     // Evpn_Standby_RemoteShgs_RemoteShg_EthernetSegmentIdentifier.
@@ -11542,11 +10283,14 @@ func (remoteShg *Evpn_Standby_RemoteShgs_RemoteShg) GetEntityData() *types.Commo
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
+    remoteShg.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", remoteShg.Evi})
     remoteShg.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", remoteShg.Esi1})
     remoteShg.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", remoteShg.Esi2})
     remoteShg.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", remoteShg.Esi3})
     remoteShg.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", remoteShg.Esi4})
     remoteShg.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", remoteShg.Esi5})
+    remoteShg.EntityData.Leafs.Append("ethernet-vpn-id", types.YLeaf{"EthernetVpnId", remoteShg.EthernetVpnId})
+    remoteShg.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", remoteShg.Encapsulation})
 
     remoteShg.EntityData.YListKeys = []string {}
 
@@ -11560,7 +10304,7 @@ type Evpn_Standby_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -11592,7 +10336,7 @@ type Evpn_Standby_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -11653,7 +10397,7 @@ type Evpn_Standby_Igmps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // EVPN Remote. The type is slice of Evpn_Standby_Igmps_Igmp.
+    // IGMP Route. The type is slice of Evpn_Standby_Igmps_Igmp.
     Igmp []*Evpn_Standby_Igmps_Igmp
 }
 
@@ -11682,68 +10426,77 @@ func (igmps *Evpn_Standby_Igmps) GetEntityData() *types.CommonEntityData {
 }
 
 // Evpn_Standby_Igmps_Igmp
-// EVPN Remote
+// IGMP Route
 type Evpn_Standby_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
+    // Local=0,Remote=1. The type is interface{} with range: 0..4294967295.
+    SourceType interface{}
+
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
 
-    // BP xcid. The type is interface{} with range: 0..4294967295.
-    Bpxcid interface{}
+    // EVI. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
 
-    // EVI/BD. The type is interface{} with range: 0..4294967295.
-    Evibd interface{}
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi1 interface{}
+
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi2 interface{}
+
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi3 interface{}
+
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi4 interface{}
+
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    Esi5 interface{}
+
+    // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
+    EthernetTag interface{}
 
     // Source IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SrcIp interface{}
 
     // Group IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GrpIp interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi1 interface{}
+    // BD ID. The type is interface{} with range: 0..4294967295.
+    BdId interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi2 interface{}
-
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi3 interface{}
-
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi4 interface{}
-
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
-    Esi5 interface{}
+    // BP XCID. The type is interface{} with range: 0..4294967295.
+    BpXcid interface{}
 
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
     // E-VPN id. The type is interface{} with range: 0..4294967295.
-    Evi interface{}
+    EviXr interface{}
 
     // BD id. The type is interface{} with range: 0..4294967295.
-    BdId interface{}
+    BdIdXr interface{}
 
     // Route Type. The type is EvpnIgmpMsg.
     RouteType interface{}
 
     // Source IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddr interface{}
 
     // Group IP Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GroupAddr interface{}
 
     // Ethernet Tag id. The type is interface{} with range: 0..4294967295.
@@ -11756,7 +10509,7 @@ type Evpn_Standby_Igmps_Igmp struct {
     IgmpGroupType interface{}
 
     // Max Response Time. The type is interface{} with range: 0..255.
-    MaXResponseTime interface{}
+    MaxResponseTime interface{}
 
     // Resolved. The type is bool.
     Resolved interface{}
@@ -11767,10 +10520,6 @@ type Evpn_Standby_Igmps_Igmp struct {
     // Ethernet Segment id. The type is slice of
     // Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifier.
     EthernetSegmentIdentifier []*Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifier
-
-    // List of nexthop IPv6 addresses. The type is slice of
-    // Evpn_Standby_Igmps_Igmp_NextHop.
-    NextHop []*Evpn_Standby_Igmps_Igmp_NextHop
 }
 
 func (igmp *Evpn_Standby_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
@@ -11791,32 +10540,30 @@ func (igmp *Evpn_Standby_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
         types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
-    igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
-    for i := range igmp.NextHop {
-        types.SetYListKey(igmp.NextHop[i], i)
-        igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
-    }
     igmp.EntityData.Leafs = types.NewOrderedMap()
+    igmp.EntityData.Leafs.Append("source-type", types.YLeaf{"SourceType", igmp.SourceType})
     igmp.EntityData.Leafs.Append("is-leave", types.YLeaf{"IsLeave", igmp.IsLeave})
-    igmp.EntityData.Leafs.Append("bpxcid", types.YLeaf{"Bpxcid", igmp.Bpxcid})
-    igmp.EntityData.Leafs.Append("evibd", types.YLeaf{"Evibd", igmp.Evibd})
-    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
-    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
+    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
     igmp.EntityData.Leafs.Append("esi1", types.YLeaf{"Esi1", igmp.Esi1})
     igmp.EntityData.Leafs.Append("esi2", types.YLeaf{"Esi2", igmp.Esi2})
     igmp.EntityData.Leafs.Append("esi3", types.YLeaf{"Esi3", igmp.Esi3})
     igmp.EntityData.Leafs.Append("esi4", types.YLeaf{"Esi4", igmp.Esi4})
     igmp.EntityData.Leafs.Append("esi5", types.YLeaf{"Esi5", igmp.Esi5})
-    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
-    igmp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", igmp.Evi})
+    igmp.EntityData.Leafs.Append("ethernet-tag", types.YLeaf{"EthernetTag", igmp.EthernetTag})
+    igmp.EntityData.Leafs.Append("src-ip", types.YLeaf{"SrcIp", igmp.SrcIp})
+    igmp.EntityData.Leafs.Append("grp-ip", types.YLeaf{"GrpIp", igmp.GrpIp})
     igmp.EntityData.Leafs.Append("bd-id", types.YLeaf{"BdId", igmp.BdId})
+    igmp.EntityData.Leafs.Append("bp-xcid", types.YLeaf{"BpXcid", igmp.BpXcid})
+    igmp.EntityData.Leafs.Append("ethernet-segment-name", types.YLeaf{"EthernetSegmentName", igmp.EthernetSegmentName})
+    igmp.EntityData.Leafs.Append("evi-xr", types.YLeaf{"EviXr", igmp.EviXr})
+    igmp.EntityData.Leafs.Append("bd-id-xr", types.YLeaf{"BdIdXr", igmp.BdIdXr})
     igmp.EntityData.Leafs.Append("route-type", types.YLeaf{"RouteType", igmp.RouteType})
     igmp.EntityData.Leafs.Append("source-addr", types.YLeaf{"SourceAddr", igmp.SourceAddr})
     igmp.EntityData.Leafs.Append("group-addr", types.YLeaf{"GroupAddr", igmp.GroupAddr})
     igmp.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", igmp.EthernetTagId})
     igmp.EntityData.Leafs.Append("igmp-version", types.YLeaf{"IgmpVersion", igmp.IgmpVersion})
     igmp.EntityData.Leafs.Append("igmp-group-type", types.YLeaf{"IgmpGroupType", igmp.IgmpGroupType})
-    igmp.EntityData.Leafs.Append("ma-x-response-time", types.YLeaf{"MaXResponseTime", igmp.MaXResponseTime})
+    igmp.EntityData.Leafs.Append("max-response-time", types.YLeaf{"MaxResponseTime", igmp.MaxResponseTime})
     igmp.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", igmp.Resolved})
 
     igmp.EntityData.YListKeys = []string {}
@@ -11834,7 +10581,7 @@ type Evpn_Standby_Igmps_Igmp_SourceInfo struct {
     Type interface{}
 
     // remote info. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteInfo interface{}
 
     // local info.
@@ -11869,18 +10616,8 @@ type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with length: 0..81.
-    Name interface{}
-
-    // Interface MTU. The type is interface{} with range: 0..4294967295.
-    Mtu interface{}
-
-    // Payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // Interface parameters.
-    Parameters Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
+    // Interface name internal format. The type is string with length: 0..65.
+    IfName interface{}
 }
 
 func (localInfo *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *types.CommonEntityData {
@@ -11895,657 +10632,12 @@ func (localInfo *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localInfo.EntityData.Children = types.NewOrderedMap()
-    localInfo.EntityData.Children.Append("parameters", types.YChild{"Parameters", &localInfo.Parameters})
     localInfo.EntityData.Leafs = types.NewOrderedMap()
-    localInfo.EntityData.Leafs.Append("name", types.YLeaf{"Name", localInfo.Name})
-    localInfo.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", localInfo.Mtu})
-    localInfo.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", localInfo.PayloadBytes})
+    localInfo.EntityData.Leafs.Append("if-name", types.YLeaf{"IfName", localInfo.IfName})
 
     localInfo.EntityData.YListKeys = []string {}
 
     return &(localInfo.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters
-// Interface parameters
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Type. The type is L2vpnInterface.
-    Type interface{}
-
-    // Ethernet.
-    Ethernet Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-
-    // VLAN.
-    Vlan Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-
-    // TDM.
-    Tdm Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-
-    // ATM.
-    Atm Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-
-    // Frame Relay.
-    Fr Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-
-    // PW Ether.
-    PseudowireEther Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-
-    // PW IW.
-    PseudowireIw Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-}
-
-func (parameters *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) GetEntityData() *types.CommonEntityData {
-    parameters.EntityData.YFilter = parameters.YFilter
-    parameters.EntityData.YangName = "parameters"
-    parameters.EntityData.BundleName = "cisco_ios_xr"
-    parameters.EntityData.ParentYangName = "local-info"
-    parameters.EntityData.SegmentPath = "parameters"
-    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
-    parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    parameters.EntityData.Children = types.NewOrderedMap()
-    parameters.EntityData.Children.Append("ethernet", types.YChild{"Ethernet", &parameters.Ethernet})
-    parameters.EntityData.Children.Append("vlan", types.YChild{"Vlan", &parameters.Vlan})
-    parameters.EntityData.Children.Append("tdm", types.YChild{"Tdm", &parameters.Tdm})
-    parameters.EntityData.Children.Append("atm", types.YChild{"Atm", &parameters.Atm})
-    parameters.EntityData.Children.Append("fr", types.YChild{"Fr", &parameters.Fr})
-    parameters.EntityData.Children.Append("pseudowire-ether", types.YChild{"PseudowireEther", &parameters.PseudowireEther})
-    parameters.EntityData.Children.Append("pseudowire-iw", types.YChild{"PseudowireIw", &parameters.PseudowireIw})
-    parameters.EntityData.Leafs = types.NewOrderedMap()
-    parameters.EntityData.Leafs.Append("type", types.YLeaf{"Type", parameters.Type})
-
-    parameters.EntityData.YListKeys = []string {}
-
-    return &(parameters.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
-// Ethernet
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-}
-
-func (ethernet *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet) GetEntityData() *types.CommonEntityData {
-    ethernet.EntityData.YFilter = ethernet.YFilter
-    ethernet.EntityData.YangName = "ethernet"
-    ethernet.EntityData.BundleName = "cisco_ios_xr"
-    ethernet.EntityData.ParentYangName = "parameters"
-    ethernet.EntityData.SegmentPath = "ethernet"
-    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
-    ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ethernet.EntityData.Children = types.NewOrderedMap()
-    ethernet.EntityData.Leafs = types.NewOrderedMap()
-    ethernet.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", ethernet.XconnectTags})
-
-    ethernet.EntityData.YListKeys = []string {}
-
-    return &(ethernet.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
-// VLAN
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // XConnect tags. The type is interface{} with range: 0..255.
-    XconnectTags interface{}
-
-    // VLAN rewrite tag. The type is interface{} with range: 0..65535.
-    VlanRewriteTag interface{}
-
-    // Simple EFP. The type is interface{} with range: 0..255.
-    SimpleEfp interface{}
-
-    // Encapsulation Type. The type is interface{} with range: 0..255.
-    EncapsulationType interface{}
-
-    // Outer Tag. The type is interface{} with range: 0..65535.
-    OuterTag interface{}
-
-    // Rewrite Tags. The type is slice of
-    // Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag.
-    RewriteTag []*Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-
-    // vlan range. The type is slice of
-    // Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange.
-    VlanRange []*Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-}
-
-func (vlan *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEntityData() *types.CommonEntityData {
-    vlan.EntityData.YFilter = vlan.YFilter
-    vlan.EntityData.YangName = "vlan"
-    vlan.EntityData.BundleName = "cisco_ios_xr"
-    vlan.EntityData.ParentYangName = "parameters"
-    vlan.EntityData.SegmentPath = "vlan"
-    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
-    vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlan.EntityData.Children = types.NewOrderedMap()
-    vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
-    for i := range vlan.RewriteTag {
-        types.SetYListKey(vlan.RewriteTag[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
-    }
-    vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
-    for i := range vlan.VlanRange {
-        types.SetYListKey(vlan.VlanRange[i], i)
-        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
-    }
-    vlan.EntityData.Leafs = types.NewOrderedMap()
-    vlan.EntityData.Leafs.Append("xconnect-tags", types.YLeaf{"XconnectTags", vlan.XconnectTags})
-    vlan.EntityData.Leafs.Append("vlan-rewrite-tag", types.YLeaf{"VlanRewriteTag", vlan.VlanRewriteTag})
-    vlan.EntityData.Leafs.Append("simple-efp", types.YLeaf{"SimpleEfp", vlan.SimpleEfp})
-    vlan.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vlan.EncapsulationType})
-    vlan.EntityData.Leafs.Append("outer-tag", types.YLeaf{"OuterTag", vlan.OuterTag})
-
-    vlan.EntityData.YListKeys = []string {}
-
-    return &(vlan.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag
-// Rewrite Tags
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // The type is interface{} with range: 0..65535.
-    Entry interface{}
-}
-
-func (rewriteTag *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag) GetEntityData() *types.CommonEntityData {
-    rewriteTag.EntityData.YFilter = rewriteTag.YFilter
-    rewriteTag.EntityData.YangName = "rewrite-tag"
-    rewriteTag.EntityData.BundleName = "cisco_ios_xr"
-    rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
-    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
-    rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rewriteTag.EntityData.Children = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs = types.NewOrderedMap()
-    rewriteTag.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", rewriteTag.Entry})
-
-    rewriteTag.EntityData.YListKeys = []string {}
-
-    return &(rewriteTag.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange
-// vlan range
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Lower. The type is interface{} with range: 0..65535.
-    Lower interface{}
-
-    // Upper. The type is interface{} with range: 0..65535.
-    Upper interface{}
-}
-
-func (vlanRange *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange) GetEntityData() *types.CommonEntityData {
-    vlanRange.EntityData.YFilter = vlanRange.YFilter
-    vlanRange.EntityData.YangName = "vlan-range"
-    vlanRange.EntityData.BundleName = "cisco_ios_xr"
-    vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
-    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
-    vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vlanRange.EntityData.Children = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs = types.NewOrderedMap()
-    vlanRange.EntityData.Leafs.Append("lower", types.YLeaf{"Lower", vlanRange.Lower})
-    vlanRange.EntityData.Leafs.Append("upper", types.YLeaf{"Upper", vlanRange.Upper})
-
-    vlanRange.EntityData.YListKeys = []string {}
-
-    return &(vlanRange.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
-// TDM
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Timeslots separated by , or - from 1 to 31. : indicates individual timeslot
-    // and - represents a range.E.g. 1-3,5 represents timeslots 1, 2, 3, and 5.
-    // The type is string.
-    TimeslotGroup interface{}
-
-    // Timeslot rate in units of Kbps. The type is interface{} with range: 0..255.
-    // Units are kbit/s.
-    TimeslotRate interface{}
-
-    // TDM mode. The type is L2vpnTdmMode.
-    TdmMode interface{}
-
-    // TDM options.
-    TdmOptions Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-}
-
-func (tdm *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEntityData() *types.CommonEntityData {
-    tdm.EntityData.YFilter = tdm.YFilter
-    tdm.EntityData.YangName = "tdm"
-    tdm.EntityData.BundleName = "cisco_ios_xr"
-    tdm.EntityData.ParentYangName = "parameters"
-    tdm.EntityData.SegmentPath = "tdm"
-    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
-    tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdm.EntityData.Children = types.NewOrderedMap()
-    tdm.EntityData.Children.Append("tdm-options", types.YChild{"TdmOptions", &tdm.TdmOptions})
-    tdm.EntityData.Leafs = types.NewOrderedMap()
-    tdm.EntityData.Leafs.Append("timeslot-group", types.YLeaf{"TimeslotGroup", tdm.TimeslotGroup})
-    tdm.EntityData.Leafs.Append("timeslot-rate", types.YLeaf{"TimeslotRate", tdm.TimeslotRate})
-    tdm.EntityData.Leafs.Append("tdm-mode", types.YLeaf{"TdmMode", tdm.TdmMode})
-
-    tdm.EntityData.YListKeys = []string {}
-
-    return &(tdm.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions
-// TDM options
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // TDM payload bytes. The type is interface{} with range: 0..65535. Units are
-    // byte.
-    PayloadBytes interface{}
-
-    // TDM bit rate in units of Kbps. The type is interface{} with range:
-    // 0..4294967295. Units are kbit/s.
-    BitRate interface{}
-
-    // RTP header. The type is L2vpnTdmRtpOption.
-    Rtp interface{}
-
-    // TDM Timestamping mode. The type is L2vpnTimeStampMode.
-    TimestampMode interface{}
-
-    // Signalling packets. The type is interface{} with range: 0..255.
-    SignallingPackets interface{}
-
-    // CAS. The type is interface{} with range: 0..255.
-    Cas interface{}
-
-    // RTP header payload type. The type is interface{} with range: 0..255.
-    RtpHeaderPayloadType interface{}
-
-    // Timestamping clock frequency in units of 8Khz. The type is interface{} with
-    // range: 0..65535.
-    TimestampClockFreq interface{}
-
-    // Synchronization Source identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Ssrc interface{}
-}
-
-func (tdmOptions *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_TdmOptions) GetEntityData() *types.CommonEntityData {
-    tdmOptions.EntityData.YFilter = tdmOptions.YFilter
-    tdmOptions.EntityData.YangName = "tdm-options"
-    tdmOptions.EntityData.BundleName = "cisco_ios_xr"
-    tdmOptions.EntityData.ParentYangName = "tdm"
-    tdmOptions.EntityData.SegmentPath = "tdm-options"
-    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
-    tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tdmOptions.EntityData.Children = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs = types.NewOrderedMap()
-    tdmOptions.EntityData.Leafs.Append("payload-bytes", types.YLeaf{"PayloadBytes", tdmOptions.PayloadBytes})
-    tdmOptions.EntityData.Leafs.Append("bit-rate", types.YLeaf{"BitRate", tdmOptions.BitRate})
-    tdmOptions.EntityData.Leafs.Append("rtp", types.YLeaf{"Rtp", tdmOptions.Rtp})
-    tdmOptions.EntityData.Leafs.Append("timestamp-mode", types.YLeaf{"TimestampMode", tdmOptions.TimestampMode})
-    tdmOptions.EntityData.Leafs.Append("signalling-packets", types.YLeaf{"SignallingPackets", tdmOptions.SignallingPackets})
-    tdmOptions.EntityData.Leafs.Append("cas", types.YLeaf{"Cas", tdmOptions.Cas})
-    tdmOptions.EntityData.Leafs.Append("rtp-header-payload-type", types.YLeaf{"RtpHeaderPayloadType", tdmOptions.RtpHeaderPayloadType})
-    tdmOptions.EntityData.Leafs.Append("timestamp-clock-freq", types.YLeaf{"TimestampClockFreq", tdmOptions.TimestampClockFreq})
-    tdmOptions.EntityData.Leafs.Append("ssrc", types.YLeaf{"Ssrc", tdmOptions.Ssrc})
-
-    tdmOptions.EntityData.YListKeys = []string {}
-
-    return &(tdmOptions.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm
-// ATM
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Max number of cells packed. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsPacked interface{}
-
-    // Max number of cells unpacked. The type is interface{} with range: 0..65535.
-    MaximumNumberCellsUnPacked interface{}
-
-    // ATM mode. The type is L2vpnAtmMode.
-    AtmMode interface{}
-
-    // Virtual path identifier. The type is interface{} with range: 0..65535.
-    Vpi interface{}
-
-    // Virtual channel identifier. The type is interface{} with range: 0..65535.
-    Vci interface{}
-}
-
-func (atm *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEntityData() *types.CommonEntityData {
-    atm.EntityData.YFilter = atm.YFilter
-    atm.EntityData.YangName = "atm"
-    atm.EntityData.BundleName = "cisco_ios_xr"
-    atm.EntityData.ParentYangName = "parameters"
-    atm.EntityData.SegmentPath = "atm"
-    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
-    atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    atm.EntityData.Children = types.NewOrderedMap()
-    atm.EntityData.Leafs = types.NewOrderedMap()
-    atm.EntityData.Leafs.Append("maximum-number-cells-packed", types.YLeaf{"MaximumNumberCellsPacked", atm.MaximumNumberCellsPacked})
-    atm.EntityData.Leafs.Append("maximum-number-cells-un-packed", types.YLeaf{"MaximumNumberCellsUnPacked", atm.MaximumNumberCellsUnPacked})
-    atm.EntityData.Leafs.Append("atm-mode", types.YLeaf{"AtmMode", atm.AtmMode})
-    atm.EntityData.Leafs.Append("vpi", types.YLeaf{"Vpi", atm.Vpi})
-    atm.EntityData.Leafs.Append("vci", types.YLeaf{"Vci", atm.Vci})
-
-    atm.EntityData.YListKeys = []string {}
-
-    return &(atm.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr
-// Frame Relay
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Frame Relay mode. The type is L2vpnFrMode.
-    FrMode interface{}
-
-    // Data-link connection identifier. The type is interface{} with range:
-    // 0..4294967295.
-    Dlci interface{}
-}
-
-func (fr *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEntityData() *types.CommonEntityData {
-    fr.EntityData.YFilter = fr.YFilter
-    fr.EntityData.YangName = "fr"
-    fr.EntityData.BundleName = "cisco_ios_xr"
-    fr.EntityData.ParentYangName = "parameters"
-    fr.EntityData.SegmentPath = "fr"
-    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
-    fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fr.EntityData.Children = types.NewOrderedMap()
-    fr.EntityData.Leafs = types.NewOrderedMap()
-    fr.EntityData.Leafs.Append("fr-mode", types.YLeaf{"FrMode", fr.FrMode})
-    fr.EntityData.Leafs.Append("dlci", types.YLeaf{"Dlci", fr.Dlci})
-
-    fr.EntityData.YListKeys = []string {}
-
-    return &(fr.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther
-// PW Ether
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-}
-
-func (pseudowireEther *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther) GetEntityData() *types.CommonEntityData {
-    pseudowireEther.EntityData.YFilter = pseudowireEther.YFilter
-    pseudowireEther.EntityData.YangName = "pseudowire-ether"
-    pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireEther.EntityData.ParentYangName = "parameters"
-    pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
-    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
-    pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireEther.EntityData.Children = types.NewOrderedMap()
-    pseudowireEther.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireEther.InterfaceList})
-    pseudowireEther.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireEther.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireEther.IsValid})
-    pseudowireEther.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireEther.InternalLabel})
-
-    pseudowireEther.EntityData.YListKeys = []string {}
-
-    return &(pseudowireEther.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList
-// Interface list data
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface.
-    Interface []*Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-ether"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface
-// Interfaces
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
-// PW IW
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Is this Interface list valid. The type is bool.
-    IsValid interface{}
-
-    // Internal Label. The type is interface{} with range: 0..4294967295.
-    InternalLabel interface{}
-
-    // Interface list data.
-    InterfaceList Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-}
-
-func (pseudowireIw *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw) GetEntityData() *types.CommonEntityData {
-    pseudowireIw.EntityData.YFilter = pseudowireIw.YFilter
-    pseudowireIw.EntityData.YangName = "pseudowire-iw"
-    pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
-    pseudowireIw.EntityData.ParentYangName = "parameters"
-    pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
-    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
-    pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pseudowireIw.EntityData.Children = types.NewOrderedMap()
-    pseudowireIw.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &pseudowireIw.InterfaceList})
-    pseudowireIw.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireIw.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", pseudowireIw.IsValid})
-    pseudowireIw.EntityData.Leafs.Append("internal-label", types.YLeaf{"InternalLabel", pseudowireIw.InternalLabel})
-
-    pseudowireIw.EntityData.YListKeys = []string {}
-
-    return &(pseudowireIw.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList
-// Interface list data
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface-list name. The type is string with length: 0..33.
-    InterfaceListName interface{}
-
-    // Interface internal ID. The type is interface{} with range: 0..4294967295.
-    InterfaceListId interface{}
-
-    // Interfaces. The type is slice of
-    // Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface.
-    Interface []*Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-}
-
-func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList) GetEntityData() *types.CommonEntityData {
-    interfaceList.EntityData.YFilter = interfaceList.YFilter
-    interfaceList.EntityData.YangName = "interface-list"
-    interfaceList.EntityData.BundleName = "cisco_ios_xr"
-    interfaceList.EntityData.ParentYangName = "pseudowire-iw"
-    interfaceList.EntityData.SegmentPath = "interface-list"
-    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
-    interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceList.EntityData.Children = types.NewOrderedMap()
-    interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaceList.Interface {
-        types.SetYListKey(interfaceList.Interface[i], i)
-        interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
-    }
-    interfaceList.EntityData.Leafs = types.NewOrderedMap()
-    interfaceList.EntityData.Leafs.Append("interface-list-name", types.YLeaf{"InterfaceListName", interfaceList.InterfaceListName})
-    interfaceList.EntityData.Leafs.Append("interface-list-id", types.YLeaf{"InterfaceListId", interfaceList.InterfaceListId})
-
-    interfaceList.EntityData.YListKeys = []string {}
-
-    return &(interfaceList.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface
-// Interfaces
-type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Interface name. The type is string.
-    InterfaceName interface{}
-
-    // Replicate status. The type is IflistRepStatus.
-    ReplicateStatus interface{}
-}
-
-func (self *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("replicate-status", types.YLeaf{"ReplicateStatus", self.ReplicateStatus})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
 }
 
 // Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifier
@@ -12555,7 +10647,7 @@ type Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifier struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -12577,50 +10669,6 @@ func (ethernetSegmentIdentifier *Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifi
     ethernetSegmentIdentifier.EntityData.YListKeys = []string {}
 
     return &(ethernetSegmentIdentifier.EntityData)
-}
-
-// Evpn_Standby_Igmps_Igmp_NextHop
-// List of nexthop IPv6 addresses
-type Evpn_Standby_Igmps_Igmp_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NextHop interface{}
-
-    // DF Dont Premption. The type is bool.
-    DfDontPrempt interface{}
-
-    // DF Election Mode Configured. The type is interface{} with range: 0..255.
-    DfType interface{}
-
-    // DF Election Preference Set. The type is interface{} with range: 0..65535.
-    DfPref interface{}
-}
-
-func (nextHop *Evpn_Standby_Igmps_Igmp_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
-    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", nextHop.NextHop})
-    nextHop.EntityData.Leafs.Append("df-dont-prempt", types.YLeaf{"DfDontPrempt", nextHop.DfDontPrempt})
-    nextHop.EntityData.Leafs.Append("df-type", types.YLeaf{"DfType", nextHop.DfType})
-    nextHop.EntityData.Leafs.Append("df-pref", types.YLeaf{"DfPref", nextHop.DfPref})
-
-    nextHop.EntityData.YListKeys = []string {}
-
-    return &(nextHop.EntityData)
 }
 
 // Evpn_Standby_Evis
@@ -12716,7 +10764,7 @@ type Evpn_Standby_Summary struct {
     YFilter yfilter.YFilter
 
     // EVPN Router ID. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // BGP AS number. The type is interface{} with range: 0..4294967295.
@@ -12791,7 +10839,7 @@ type Evpn_Standby_Summary struct {
     RemoteEadRoutes interface{}
 
     // Global Source MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     GlobalSourceMac interface{}
 
     // EVPN ES Peering Time (seconds). The type is interface{} with range:
@@ -12805,22 +10853,6 @@ type Evpn_Standby_Summary struct {
     // EVPN ES Carving Time (seconds). The type is interface{} with range:
     // 0..4294967295. Units are second.
     CarvingTime interface{}
-
-    // Number of moves within the move interval before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveCount interface{}
-
-    // Interval to watch for subsequent mac moves before locking the MAC. The type
-    // is interface{} with range: 0..4294967295.
-    MacSecureMoveInterval interface{}
-
-    // Length of time to lock the mac after a MAC security violation. The type is
-    // interface{} with range: 0..4294967295.
-    MacSecureFreezeTime interface{}
-
-    // Number of times to retry after a MAC un-freezes. The type is interface{}
-    // with range: 0..4294967295.
-    MacSecureRetryCount interface{}
 
     // EVPN Node Cost-out. The type is bool.
     CostOut interface{}
@@ -12872,10 +10904,6 @@ func (summary *Evpn_Standby_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.Leafs.Append("peering-time", types.YLeaf{"PeeringTime", summary.PeeringTime})
     summary.EntityData.Leafs.Append("recovery-time", types.YLeaf{"RecoveryTime", summary.RecoveryTime})
     summary.EntityData.Leafs.Append("carving-time", types.YLeaf{"CarvingTime", summary.CarvingTime})
-    summary.EntityData.Leafs.Append("mac-secure-move-count", types.YLeaf{"MacSecureMoveCount", summary.MacSecureMoveCount})
-    summary.EntityData.Leafs.Append("mac-secure-move-interval", types.YLeaf{"MacSecureMoveInterval", summary.MacSecureMoveInterval})
-    summary.EntityData.Leafs.Append("mac-secure-freeze-time", types.YLeaf{"MacSecureFreezeTime", summary.MacSecureFreezeTime})
-    summary.EntityData.Leafs.Append("mac-secure-retry-count", types.YLeaf{"MacSecureRetryCount", summary.MacSecureRetryCount})
     summary.EntityData.Leafs.Append("cost-out", types.YLeaf{"CostOut", summary.CostOut})
     summary.EntityData.Leafs.Append("startup-cost-in-time", types.YLeaf{"StartupCostInTime", summary.StartupCostInTime})
     summary.EntityData.Leafs.Append("l2rib-throttle", types.YLeaf{"L2ribThrottle", summary.L2ribThrottle})
@@ -13007,6 +11035,9 @@ type Evpn_Standby_EviDetail_Elements_Element struct {
     // Advertise MAC-only routes on this EVI. The type is bool.
     AdvertiseMac interface{}
 
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
+
     // Advertise BVI MACs routes on this EVI. The type is bool.
     AdvertiseBviMac interface{}
 
@@ -13080,6 +11111,7 @@ func (element *Evpn_Standby_EviDetail_Elements_Element) GetEntityData() *types.C
     element.EntityData.Leafs.Append("rt-import-block-set", types.YLeaf{"RtImportBlockSet", element.RtImportBlockSet})
     element.EntityData.Leafs.Append("rt-export-block-set", types.YLeaf{"RtExportBlockSet", element.RtExportBlockSet})
     element.EntityData.Leafs.Append("advertise-mac", types.YLeaf{"AdvertiseMac", element.AdvertiseMac})
+    element.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", element.EtreeLeaf})
     element.EntityData.Leafs.Append("advertise-bvi-mac", types.YLeaf{"AdvertiseBviMac", element.AdvertiseBviMac})
     element.EntityData.Leafs.Append("aliasing-disabled", types.YLeaf{"AliasingDisabled", element.AliasingDisabled})
     element.EntityData.Leafs.Append("unknown-unicast-flooding-disabled", types.YLeaf{"UnknownUnicastFloodingDisabled", element.UnknownUnicastFloodingDisabled})
@@ -13224,7 +11256,7 @@ type Evpn_Standby_EviDetail_Elements_Element_RdAuto_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -13327,7 +11359,7 @@ type Evpn_Standby_EviDetail_Elements_Element_RdAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -13408,7 +11440,7 @@ type Evpn_Standby_EviDetail_Elements_Element_RdConfigured_Auto struct {
     YFilter yfilter.YFilter
 
     // BGP Router ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // Auto-generated Index. The type is interface{} with range: 0..65535.
@@ -13511,7 +11543,7 @@ type Evpn_Standby_EviDetail_Elements_Element_RdConfigured_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -13660,7 +11692,7 @@ type Evpn_Standby_EviDetail_Elements_Element_RtAuto_V4Addr struct {
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -13818,17 +11850,21 @@ type Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor struct {
     Encapsulation interface{}
 
     // Neighbor IP. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NeighborIp interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_EvpnInstance
+
+    // Leaf EVIs. The type is slice of
+    // Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis.
+    LeafEvis []*Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
 }
 
 func (neighbor *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
@@ -13844,6 +11880,11 @@ func (neighbor *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor) GetEntity
 
     neighbor.EntityData.Children = types.NewOrderedMap()
     neighbor.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &neighbor.EvpnInstance})
+    neighbor.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range neighbor.LeafEvis {
+        types.SetYListKey(neighbor.LeafEvis[i], i)
+        neighbor.EntityData.Children.Append(types.GetSegmentPath(neighbor.LeafEvis[i]), types.YChild{"LeafEvis", neighbor.LeafEvis[i]})
+    }
     neighbor.EntityData.Leafs = types.NewOrderedMap()
     neighbor.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", neighbor.Evi})
     neighbor.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", neighbor.Encapsulation})
@@ -13898,6 +11939,37 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_EvpnIn
     return &(evpnInstance.EntityData)
 }
 
+// Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis
+// Leaf EVIs
+type Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "neighbor"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/neighbor/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
+}
+
 // Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries
 // EVPN Ethernet Auto-Discovery table
 type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries struct {
@@ -13946,19 +12018,19 @@ type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisc
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
@@ -13968,7 +12040,7 @@ type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisc
     EthernetTagXr interface{}
 
     // Local nexthop IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalNextHop interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -14094,7 +12166,7 @@ type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisc
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -14130,14 +12202,14 @@ type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDisc
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -14217,23 +12289,26 @@ type Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast s
 
     // Originating IP. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIp interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // Originating IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     OriginatingIpXr interface{}
 
     // Tunnel Endpoint ID. The type is interface{} with range: 0..4294967295.
     TunnelEndpointId interface{}
 
+    // PMSI Tunnel Type. The type is interface{} with range: 0..4294967295.
+    PmsiTunnelType interface{}
+
     // IP of nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output label. The type is interface{} with range: 0..4294967295.
@@ -14245,8 +12320,11 @@ type Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast s
     // Proxy entry. The type is bool.
     IsProxyEntry interface{}
 
-    // SR-TE Policy. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SR-TE Policy. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrtePolicy interface{}
+
+    // E-Tree Leaf Indication. The type is bool.
+    EtreeLeaf interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast_EvpnInstance
@@ -14273,11 +12351,13 @@ func (inclusiveMulticast *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts
     inclusiveMulticast.EntityData.Leafs.Append("ethernet-tag-xr", types.YLeaf{"EthernetTagXr", inclusiveMulticast.EthernetTagXr})
     inclusiveMulticast.EntityData.Leafs.Append("originating-ip-xr", types.YLeaf{"OriginatingIpXr", inclusiveMulticast.OriginatingIpXr})
     inclusiveMulticast.EntityData.Leafs.Append("tunnel-endpoint-id", types.YLeaf{"TunnelEndpointId", inclusiveMulticast.TunnelEndpointId})
+    inclusiveMulticast.EntityData.Leafs.Append("pmsi-tunnel-type", types.YLeaf{"PmsiTunnelType", inclusiveMulticast.PmsiTunnelType})
     inclusiveMulticast.EntityData.Leafs.Append("next-hop", types.YLeaf{"NextHop", inclusiveMulticast.NextHop})
     inclusiveMulticast.EntityData.Leafs.Append("output-label", types.YLeaf{"OutputLabel", inclusiveMulticast.OutputLabel})
     inclusiveMulticast.EntityData.Leafs.Append("is-local-entry", types.YLeaf{"IsLocalEntry", inclusiveMulticast.IsLocalEntry})
     inclusiveMulticast.EntityData.Leafs.Append("is-proxy-entry", types.YLeaf{"IsProxyEntry", inclusiveMulticast.IsProxyEntry})
     inclusiveMulticast.EntityData.Leafs.Append("srte-policy", types.YLeaf{"SrtePolicy", inclusiveMulticast.SrtePolicy})
+    inclusiveMulticast.EntityData.Leafs.Append("etree-leaf", types.YLeaf{"EtreeLeaf", inclusiveMulticast.EtreeLeaf})
 
     inclusiveMulticast.EntityData.YListKeys = []string {}
 
@@ -14392,7 +12472,7 @@ type Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     AddrIndex interface{}
 
     // RT IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // RT Role. The type is L2vpnAdRtRole.
@@ -14603,7 +12683,7 @@ type Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_RouteTarget_V4A
     YFilter yfilter.YFilter
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // 2 Byte Index. The type is interface{} with range: 0..65535.
@@ -14718,24 +12798,24 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac struct {
     EthernetTag interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IP Address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Ethernet Tag. The type is interface{} with range: 0..4294967295.
     EthernetTagXr interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddressXr interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddressXr interface{}
 
     // Associated local label. The type is interface{} with range: 0..4294967295.
@@ -14755,11 +12835,11 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac struct {
     IsRemoteMac interface{}
 
     // SOO nexthop (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SooNexthop interface{}
 
     // IP nexthop address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpnhAddress interface{}
 
     // ESI port key. The type is interface{} with range: 0..65535.
@@ -14784,7 +12864,7 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac struct {
     LocalL3Label interface{}
 
     // Router MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouterMacAddress interface{}
 
     // Number of flushes requested . The type is interface{} with range: 0..65535.
@@ -14805,6 +12885,20 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac struct {
 
     // Indication if Remote MAC is statically configured. The type is bool.
     RemoteIsStatic interface{}
+
+    // Local E-Tree Leaf Indication. The type is bool.
+    LocalEtreeLeaf interface{}
+
+    // Remote E-Tree Leaf Indication. The type is bool.
+    RemoteEtreeLeaf interface{}
+
+    // Local Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    LocalAttachmentCircuitId interface{}
+
+    // Remote Attachement Circuit ID used in ac-aware-vlan-bundling. The type is
+    // interface{} with range: 0..4294967295.
+    RemoteAttachmentCircuitId interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Standby_EviDetail_EviChildren_Macs_Mac_EvpnInstance
@@ -14880,6 +12974,10 @@ func (mac *Evpn_Standby_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.C
     mac.EntityData.Leafs.Append("resolved", types.YLeaf{"Resolved", mac.Resolved})
     mac.EntityData.Leafs.Append("local-is-static", types.YLeaf{"LocalIsStatic", mac.LocalIsStatic})
     mac.EntityData.Leafs.Append("remote-is-static", types.YLeaf{"RemoteIsStatic", mac.RemoteIsStatic})
+    mac.EntityData.Leafs.Append("local-etree-leaf", types.YLeaf{"LocalEtreeLeaf", mac.LocalEtreeLeaf})
+    mac.EntityData.Leafs.Append("remote-etree-leaf", types.YLeaf{"RemoteEtreeLeaf", mac.RemoteEtreeLeaf})
+    mac.EntityData.Leafs.Append("local-attachment-circuit-id", types.YLeaf{"LocalAttachmentCircuitId", mac.LocalAttachmentCircuitId})
+    mac.EntityData.Leafs.Append("remote-attachment-circuit-id", types.YLeaf{"RemoteAttachmentCircuitId", mac.RemoteAttachmentCircuitId})
 
     mac.EntityData.YListKeys = []string {}
 
@@ -14936,7 +13034,7 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifier 
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Local Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -14967,7 +13065,7 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentifier
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Remote Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -15003,14 +13101,14 @@ type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -15147,7 +13245,7 @@ type Evpn_Standby_Teps_Tep_LocalInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -15186,7 +13284,7 @@ type Evpn_Standby_Teps_Tep_RemoteInfo struct {
     Encapsulation interface{}
 
     // IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 }
 
@@ -15260,26 +13358,26 @@ type Evpn_Standby_InternalLabels_InternalLabel struct {
     // Encap. The type is interface{} with range: 0..4294967295.
     Encapsulation interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
     EthernetTag interface{}
 
     // Ethernet Segment id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Esi interface{}
 
     // Label Tag. The type is interface{} with range: 0..4294967295.
@@ -15456,14 +13554,14 @@ type Evpn_Standby_InternalLabels_InternalLabel_MacPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -15502,14 +13600,14 @@ type Evpn_Standby_InternalLabels_InternalLabel_EadPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -15548,14 +13646,14 @@ type Evpn_Standby_InternalLabels_InternalLabel_EviPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -15594,14 +13692,14 @@ type Evpn_Standby_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     TunnelEndpointId interface{}
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Output Label. The type is interface{} with range: 0..4294967295.
     OutputLabel interface{}
 
     // Segment-Routing Traffic Engineering Tunnel Interface Handle. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     SrteTunnel interface{}
 }
 
@@ -15670,22 +13768,22 @@ type Evpn_Standby_EthernetSegments_EthernetSegment struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 1/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi1 interface{}
 
-    // ES id (part 2/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 2/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi2 interface{}
 
-    // ES id (part 3/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 3/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi3 interface{}
 
-    // ES id (part 4/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 4/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi4 interface{}
 
-    // ES id (part 5/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // ES id (part 5/5). The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Esi5 interface{}
 
     // ESI Type. The type is L2vpnEvpnEsi.
@@ -15703,18 +13801,17 @@ type Evpn_Standby_EthernetSegments_EthernetSegment struct {
     // Ethernet Segment Name. The type is string.
     EthernetSegmentName interface{}
 
-    // State of the ethernet segment. The type is interface{} with range:
-    // 0..4294967295.
+    // State of the ethernet segment. The type is L2vpnEvpnEsState.
     EthernetSegmentState interface{}
 
-    // Main port ifhandle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main port ifhandle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     IfHandle interface{}
 
     // Main port redundancy group role. The type is L2vpnRgRole.
     MainPortRole interface{}
 
     // Main Port MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MainPortMac interface{}
 
     // Number of PWs in Up state. The type is interface{} with range:
@@ -15722,7 +13819,7 @@ type Evpn_Standby_EthernetSegments_EthernetSegment struct {
     NumUpPWs interface{}
 
     // ES-Import Route Target. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RouteTarget interface{}
 
     // Origin of operational ES-Import RT. The type is L2vpnEvpnRtOrigin.
@@ -15750,7 +13847,7 @@ type Evpn_Standby_EthernetSegments_EthernetSegment struct {
     ForceSingleHome interface{}
 
     // Operational Source MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SourceMacOper interface{}
 
     // Origin of operational source MAC address. The type is L2vpnEvpnSmacSrc.
@@ -15782,6 +13879,9 @@ type Evpn_Standby_EthernetSegments_EthernetSegment struct {
 
     // Service carving mode. The type is L2vpnEvpnScMode.
     ServiceCarvingMode interface{}
+
+    // Service carving multicast mode. The type is L2vpnEvpnScMcastMode.
+    ServiceCarvingMcastMode interface{}
 
     // Input string of Primary services ESI/I-SIDs. The type is string.
     PrimaryServicesInput interface{}
@@ -15981,6 +14081,7 @@ func (ethernetSegment *Evpn_Standby_EthernetSegments_EthernetSegment) GetEntityD
     ethernetSegment.EntityData.Leafs.Append("carving-timer", types.YLeaf{"CarvingTimer", ethernetSegment.CarvingTimer})
     ethernetSegment.EntityData.Leafs.Append("carving-timer-left", types.YLeaf{"CarvingTimerLeft", ethernetSegment.CarvingTimerLeft})
     ethernetSegment.EntityData.Leafs.Append("service-carving-mode", types.YLeaf{"ServiceCarvingMode", ethernetSegment.ServiceCarvingMode})
+    ethernetSegment.EntityData.Leafs.Append("service-carving-mcast-mode", types.YLeaf{"ServiceCarvingMcastMode", ethernetSegment.ServiceCarvingMcastMode})
     ethernetSegment.EntityData.Leafs.Append("primary-services-input", types.YLeaf{"PrimaryServicesInput", ethernetSegment.PrimaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("secondary-services-input", types.YLeaf{"SecondaryServicesInput", ethernetSegment.SecondaryServicesInput})
     ethernetSegment.EntityData.Leafs.Append("forwarder-ports", types.YLeaf{"ForwarderPorts", ethernetSegment.ForwarderPorts})
@@ -16006,7 +14107,7 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier str
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..255.
+    // Ethernet Segment id. The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -16037,7 +14138,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_PrimaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Primary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16068,7 +14170,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_SecondaryService struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // List of Secondary services ESI/I-SIDs. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16099,7 +14202,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedResu
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected ISID service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16130,7 +14234,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElectedR
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected ISID service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16161,7 +14266,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedResul
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected EVI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16192,7 +14298,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElectedRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected EVI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16223,7 +14330,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedResul
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Elected VNI service carving results. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16254,7 +14362,8 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElectedRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Not elected VNI service carving results. The type is interface{} with
+    // range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16286,7 +14395,7 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_NextHop struct {
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // DF Dont Premption. The type is bool.
@@ -16369,7 +14478,7 @@ type Evpn_Standby_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLabel 
     YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Split horizon label associated with next-hop address. The type is
@@ -16446,11 +14555,14 @@ type Evpn_Standby_AcIds_AcId struct {
     AcId interface{}
 
     // Neighbor IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // EVPN Instance summary information.
     EvpnInstance Evpn_Standby_AcIds_AcId_EvpnInstance
+
+    // Leaf EVIs. The type is slice of Evpn_Standby_AcIds_AcId_LeafEvis.
+    LeafEvis []*Evpn_Standby_AcIds_AcId_LeafEvis
 }
 
 func (acId *Evpn_Standby_AcIds_AcId) GetEntityData() *types.CommonEntityData {
@@ -16466,6 +14578,11 @@ func (acId *Evpn_Standby_AcIds_AcId) GetEntityData() *types.CommonEntityData {
 
     acId.EntityData.Children = types.NewOrderedMap()
     acId.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &acId.EvpnInstance})
+    acId.EntityData.Children.Append("leaf-evis", types.YChild{"LeafEvis", nil})
+    for i := range acId.LeafEvis {
+        types.SetYListKey(acId.LeafEvis[i], i)
+        acId.EntityData.Children.Append(types.GetSegmentPath(acId.LeafEvis[i]), types.YChild{"LeafEvis", acId.LeafEvis[i]})
+    }
     acId.EntityData.Leafs = types.NewOrderedMap()
     acId.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", acId.Evi})
     acId.EntityData.Leafs.Append("ac-id", types.YLeaf{"AcId", acId.AcId})
@@ -16517,5 +14634,36 @@ func (evpnInstance *Evpn_Standby_AcIds_AcId_EvpnInstance) GetEntityData() *types
     evpnInstance.EntityData.YListKeys = []string {}
 
     return &(evpnInstance.EntityData)
+}
+
+// Evpn_Standby_AcIds_AcId_LeafEvis
+// Leaf EVIs
+type Evpn_Standby_AcIds_AcId_LeafEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Leaf EVIs. The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (leafEvis *Evpn_Standby_AcIds_AcId_LeafEvis) GetEntityData() *types.CommonEntityData {
+    leafEvis.EntityData.YFilter = leafEvis.YFilter
+    leafEvis.EntityData.YangName = "leaf-evis"
+    leafEvis.EntityData.BundleName = "cisco_ios_xr"
+    leafEvis.EntityData.ParentYangName = "ac-id"
+    leafEvis.EntityData.SegmentPath = "leaf-evis" + types.AddNoKeyToken(leafEvis)
+    leafEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/ac-id/" + leafEvis.EntityData.SegmentPath
+    leafEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leafEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leafEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    leafEvis.EntityData.Children = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs = types.NewOrderedMap()
+    leafEvis.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", leafEvis.Entry})
+
+    leafEvis.EntityData.YListKeys = []string {}
+
+    return &(leafEvis.EntityData)
 }
 

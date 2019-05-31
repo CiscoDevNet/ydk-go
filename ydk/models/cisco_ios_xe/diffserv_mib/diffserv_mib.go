@@ -19,25 +19,11 @@ func init() {
     ydk.RegisterEntity("DIFFSERV-MIB:DIFFSERV-MIB", reflect.TypeOf(DIFFSERVMIB{}))
 }
 
-type DiffServTBParamTrTCMBlind struct {
+type DiffServTBParamSimpleTokenBucket struct {
 }
 
-func (id DiffServTBParamTrTCMBlind) String() string {
-	return "DIFFSERV-MIB:diffServTBParamTrTCMBlind"
-}
-
-type DiffServSchedulerWFQ struct {
-}
-
-func (id DiffServSchedulerWFQ) String() string {
-	return "DIFFSERV-MIB:diffServSchedulerWFQ"
-}
-
-type DiffServTBParamTswTCM struct {
-}
-
-func (id DiffServTBParamTswTCM) String() string {
-	return "DIFFSERV-MIB:diffServTBParamTswTCM"
+func (id DiffServTBParamSimpleTokenBucket) String() string {
+	return "DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"
 }
 
 type DiffServTBParamAvgRate struct {
@@ -47,11 +33,11 @@ func (id DiffServTBParamAvgRate) String() string {
 	return "DIFFSERV-MIB:diffServTBParamAvgRate"
 }
 
-type DiffServSchedulerWRR struct {
+type DiffServTBParamSrTCMBlind struct {
 }
 
-func (id DiffServSchedulerWRR) String() string {
-	return "DIFFSERV-MIB:diffServSchedulerWRR"
+func (id DiffServTBParamSrTCMBlind) String() string {
+	return "DIFFSERV-MIB:diffServTBParamSrTCMBlind"
 }
 
 type DiffServTBParamSrTCMAware struct {
@@ -61,18 +47,25 @@ func (id DiffServTBParamSrTCMAware) String() string {
 	return "DIFFSERV-MIB:diffServTBParamSrTCMAware"
 }
 
-type DiffServTBParamSrTCMBlind struct {
+type DiffServTBParamTrTCMBlind struct {
 }
 
-func (id DiffServTBParamSrTCMBlind) String() string {
-	return "DIFFSERV-MIB:diffServTBParamSrTCMBlind"
+func (id DiffServTBParamTrTCMBlind) String() string {
+	return "DIFFSERV-MIB:diffServTBParamTrTCMBlind"
 }
 
-type DiffServTBParamSimpleTokenBucket struct {
+type DiffServTBParamTrTCMAware struct {
 }
 
-func (id DiffServTBParamSimpleTokenBucket) String() string {
-	return "DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"
+func (id DiffServTBParamTrTCMAware) String() string {
+	return "DIFFSERV-MIB:diffServTBParamTrTCMAware"
+}
+
+type DiffServTBParamTswTCM struct {
+}
+
+func (id DiffServTBParamTswTCM) String() string {
+	return "DIFFSERV-MIB:diffServTBParamTswTCM"
 }
 
 type DiffServSchedulerPriority struct {
@@ -82,11 +75,18 @@ func (id DiffServSchedulerPriority) String() string {
 	return "DIFFSERV-MIB:diffServSchedulerPriority"
 }
 
-type DiffServTBParamTrTCMAware struct {
+type DiffServSchedulerWRR struct {
 }
 
-func (id DiffServTBParamTrTCMAware) String() string {
-	return "DIFFSERV-MIB:diffServTBParamTrTCMAware"
+func (id DiffServSchedulerWRR) String() string {
+	return "DIFFSERV-MIB:diffServSchedulerWRR"
+}
+
+type DiffServSchedulerWFQ struct {
+}
+
+func (id DiffServSchedulerWFQ) String() string {
+	return "DIFFSERV-MIB:diffServSchedulerWFQ"
 }
 
 // IfDirection represents transmission on the interface.
@@ -601,7 +601,7 @@ type DIFFSERVMIB_DiffServDataPathTable_DiffServDataPathEntry struct {
     // error.  If the row pointed to is removed or becomes inactive by other
     // means, the treatment is as if this attribute contains a value of
     // zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServDataPathStart interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
@@ -841,7 +841,7 @@ type DIFFSERVMIB_DiffServClfrElementTable_DiffServClfrElementEntry struct {
     // results in an inconsistentValue error.  If the row pointed to is removed or
     // becomes inactive by other means, the treatment is as if this attribute
     // contains a value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServClfrElementNext interface{}
 
     // A pointer to a valid entry in another table, filter table, that describes
@@ -852,7 +852,7 @@ type DIFFSERVMIB_DiffServClfrElementTable_DiffServClfrElementEntry struct {
     // not exist results in an inconsistentValue error.  If the row pointed to is
     // removed or    becomes inactive by other means, the element is ignored. The
     // type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServClfrElementSpecific interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
@@ -1133,7 +1133,7 @@ type DIFFSERVMIB_DiffServMeterTable_DiffServMeterEntry struct {
     // error.  If the row pointed to is removed or becomes inactive by other
     // means, the treatment is as if this attribute contains a value of
     // zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServMeterSucceedNext interface{}
 
     // If the traffic does not conform, this selects the next Differentiated
@@ -1148,7 +1148,7 @@ type DIFFSERVMIB_DiffServMeterTable_DiffServMeterEntry struct {
     // error.  If the row pointed to is removed or becomes inactive by other
     // means, the treatment is as if this attribute contains a value of
     // zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServMeterFailNext interface{}
 
     // This indicates the behavior of the meter by pointing to an entry containing
@@ -1159,7 +1159,7 @@ type DIFFSERVMIB_DiffServMeterTable_DiffServMeterEntry struct {
     // not exist results in an inconsistentValue error.  If the row pointed to is
     // removed or becomes inactive by other means, the meter always succeeds. The
     // type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServMeterSpecific interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
@@ -1259,7 +1259,7 @@ type DIFFSERVMIB_DiffServTBParamTable_DiffServTBParamEntry struct {
     // diffServTBParamTswTCM are specified in this MIB as OBJECT- IDENTITYs;
     // additional values may be further specified in other MIBs. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServTBParamType interface{}
 
     // The token-bucket rate, in kilobits per second (kbps). This attribute is
@@ -1399,7 +1399,7 @@ type DIFFSERVMIB_DiffServActionTable_DiffServActionEntry struct {
     // results in an inconsistentValue error.  If the row pointed to is removed or
     // becomes inactive by other means, the treatment is as if this attribute
     // contains a value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServActionNext interface{}
 
     // A pointer to an object instance providing additional information for the
@@ -1411,7 +1411,7 @@ type DIFFSERVMIB_DiffServActionTable_DiffServActionEntry struct {
     // error.  If the row pointed to is removed or becomes inactive by other
     // means, the Meter should be treated as if it were not present.  This may
     // lead to incorrect policy behavior. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServActionSpecific interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
@@ -1716,7 +1716,7 @@ type DIFFSERVMIB_DiffServAlgDropTable_DiffServAlgDropEntry struct {
     // inconsistentValue error.  If the row pointed to is removed or becomes
     // inactive by other means, the treatment is as if this attribute contains a
     // value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServAlgDropNext interface{}
 
     // Points to an entry in the diffServQTable to indicate the queue that a drop
@@ -1726,7 +1726,7 @@ type DIFFSERVMIB_DiffServAlgDropTable_DiffServAlgDropEntry struct {
     // in an inconsistentValue error.  If the row pointed to is removed or becomes
     // inactive by other means, the treatment is as if this attribute contains a
     // value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServAlgDropQMeasure interface{}
 
     // A threshold on the depth in bytes of the queue being measured at which a
@@ -1750,7 +1750,7 @@ type DIFFSERVMIB_DiffServAlgDropTable_DiffServAlgDropEntry struct {
     // results in an inconsistentValue error.  If the row pointed to is removed or
     // becomes inactive by other means, the treatment is as if this attribute
     // contains a value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServAlgDropSpecific interface{}
 
     // The number of octets that have been deterministically dropped by this drop
@@ -2044,7 +2044,7 @@ type DIFFSERVMIB_DiffServQTable_DiffServQEntry struct {
     // an inconsistentValue error.  If the row pointed to is removed or becomes
     // inactive by other means, the treatment is as if this attribute contains a
     // value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServQNext interface{}
 
     // This RowPointer indicates the diffServMinRateEntry that the scheduler,
@@ -2054,7 +2054,7 @@ type DIFFSERVMIB_DiffServQTable_DiffServQEntry struct {
     // inconsistentValue error.  If the row pointed to is removed or becomes
     // inactive by other means, the treatment is as if this attribute contains a
     // value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServQMinRate interface{}
 
     // This RowPointer indicates the diffServMaxRateEntry that the scheduler,
@@ -2064,7 +2064,7 @@ type DIFFSERVMIB_DiffServQTable_DiffServQEntry struct {
     // results in an inconsistentValue error.  If the row pointed to is removed or
     // becomes inactive by other means, the treatment is as if this attribute
     // contains a value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServQMaxRate interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value
@@ -2171,7 +2171,7 @@ type DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedulerEntry struct {
     // row pointed to is removed or becomes inactive by other means, the treatment
     // is as if this attribute contains a value of zeroDotZero. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServSchedulerNext interface{}
 
     // The scheduling algorithm used by this Scheduler. zeroDotZero indicates that
@@ -2179,7 +2179,7 @@ type DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedulerEntry struct {
     // diffServSchedulerPriority, diffServSchedulerWRR, and diffServSchedulerWFQ
     // are specified in this MIB; additional values    may be further specified in
     // other MIBs. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServSchedulerMethod interface{}
 
     // This RowPointer indicates the entry in diffServMinRateTable which indicates
@@ -2190,7 +2190,7 @@ type DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedulerEntry struct {
     // an inconsistentValue error.  If the row pointed to is removed or becomes
     // inactive by other means, the treatment is as if this attribute contains a
     // value of zeroDotZero. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServSchedulerMinRate interface{}
 
     // This RowPointer indicates the entry in diffServMaxRateTable which indicates
@@ -2203,7 +2203,7 @@ type DIFFSERVMIB_DiffServSchedulerTable_DiffServSchedulerEntry struct {
     // row pointed to is removed or becomes inactive by other means, the treatment
     // is as if this attribute contains a value of zeroDotZero. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DiffServSchedulerMaxRate interface{}
 
     // The storage type for this conceptual row.  Conceptual rows having the value

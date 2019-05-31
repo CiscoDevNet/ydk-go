@@ -29,14 +29,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-perf-meas-oper:performance-measurement-responder", reflect.TypeOf(PerformanceMeasurementResponder{}))
 }
 
-// PmMeasurement represents PM Measurement Type
-type PmMeasurement string
-
-const (
-    // Delay Measurement Type
-    PmMeasurement_delay_measurement_type PmMeasurement = "delay-measurement-type"
-)
-
 // PmAdvertReason represents PM advertisement reason
 type PmAdvertReason string
 
@@ -88,6 +80,9 @@ const (
     // Recevied control code error, as per RFC 6374,
     // from the responder
     PmAdvertReason_received_control_code_error PmAdvertReason = "received-control-code-error"
+
+    // Link is in down state
+    PmAdvertReason_link_is_down PmAdvertReason = "link-is-down"
 )
 
 // PmProbeNotRunningReason represents PM probe not running reason
@@ -122,15 +117,12 @@ const (
     PmProbeNotRunningReason_ip_address_not_configured PmProbeNotRunningReason = "ip-address-not-configured"
 )
 
-// PmDelayMode represents PM Delay Mode Type
-type PmDelayMode string
+// PmMeasurement represents PM Measurement Type
+type PmMeasurement string
 
 const (
-    // One-way delay-measurement mode
-    PmDelayMode_delay_mode_one_way PmDelayMode = "delay-mode-one-way"
-
-    // Two-way delay-measurement mode
-    PmDelayMode_delay_mode_two_way PmDelayMode = "delay-mode-two-way"
+    // Delay Measurement Type
+    PmMeasurement_delay_measurement_type PmMeasurement = "delay-measurement-type"
 )
 
 // PmTransport represents PM Transport Type
@@ -145,6 +137,17 @@ const (
 
     // SR Policy transport type
     PmTransport_sr_policy_transport_type PmTransport = "sr-policy-transport-type"
+)
+
+// PmDelayMode represents PM Delay Mode Type
+type PmDelayMode string
+
+const (
+    // One-way delay-measurement mode
+    PmDelayMode_delay_mode_one_way PmDelayMode = "delay-mode-one-way"
+
+    // Two-way delay-measurement mode
+    PmDelayMode_delay_mode_two_way PmDelayMode = "delay-mode-two-way"
 )
 
 // PerformanceMeasurement
@@ -219,7 +222,7 @@ type PerformanceMeasurement_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Summary.
@@ -771,7 +774,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetails_InterfaceDeta
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -784,15 +787,15 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDetails_InterfaceDeta
     InterfaceState interface{}
 
     // Source Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Source IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceV6Address interface{}
 
     // Source Mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SourceMacAddress interface{}
 
     // Primary VLAN Tag. The type is interface{} with range: 0..65535.
@@ -1589,7 +1592,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastAg
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Last probe aggregation.
@@ -1740,7 +1743,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceProbeH
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -1909,7 +1912,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceAggreg
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -2074,7 +2077,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastPr
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Last probe.
@@ -2229,7 +2232,7 @@ type PerformanceMeasurement_Nodes_Node_Interfaces_InterfaceDelay_InterfaceLastAd
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Last advertisement.
@@ -2410,7 +2413,7 @@ type PerformanceMeasurementResponder_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Summary.
@@ -2615,7 +2618,7 @@ type PerformanceMeasurementResponder_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -2625,11 +2628,11 @@ type PerformanceMeasurementResponder_Nodes_Node_Interfaces_Interface struct {
     InterfaceHandle interface{}
 
     // Source Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Source V6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceV6Address interface{}
 
     // Incoming packet rate. The type is interface{} with range: 0..4294967295.

@@ -2778,7 +2778,7 @@ type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry struct {
     // of CIST (Common and Internal  Spanning Tree) Regional Root for the MST
     // region.  This object is only instantiated when the object value of
     // stpxSpanningTreeType is mst(4) and stpxSMSTInstanceIndex is 0. The type is
-    // string with length: 8.
+    // string with length: 8..8.
     StpxSMSTInstanceCISTRegionalRoot interface{}
 
     // Indicates the CIST Internal Root Path Cost, i.e., the path cost to the CIST

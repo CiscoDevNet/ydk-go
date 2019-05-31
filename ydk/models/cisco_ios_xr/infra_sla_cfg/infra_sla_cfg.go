@@ -156,12 +156,13 @@ type Sla_Protocols_Ethernet_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // The possible packet types are cfm-loopback, cfm-delay-measurement,
     // cfm-delay-measurement-version-0, cfm-loss-measurement and
-    // cfm-synthetic-loss-measurement. The type is string.
+    // cfm-synthetic-loss-measurement. The type is string. This attribute is
+    // mandatory.
     PacketType interface{}
 
     // Statistics configuration for the SLA profile.
@@ -425,7 +426,8 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation st
     // is interface{} with range: 0..100. This attribute is mandatory.
     BinsCount interface{}
 
-    // Width of each bin. The type is interface{} with range: 1..10000.
+    // Width of each bin. The type is interface{} with range: 1..10000. This
+    // attribute is mandatory.
     BinsWidth interface{}
 
     // Tenths portion of the bin width. The type is interface{} with range: 0..9.
@@ -468,7 +470,7 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Schedule struct {
     // range: 1..90.
     ProbeInterval interface{}
 
-    // Day of week on which to schedule probes. This must be specified if, and
+    // Day of week on which to schedule probes.  This must be specified if, and
     // only if, ProbeIntervalUnit is 'Week'. The type is SlaProbeIntervalDayEnum.
     ProbeIntervalDay interface{}
 
@@ -544,7 +546,7 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe struct {
     // with range: 10..12096000.
     SyntheticLossCalculationPackets interface{}
 
-    // Schedule to use for packets within a burst. The default value is to send a
+    // Schedule to use for packets within a burst.  The default value is to send a
     // single packet once.
     Send Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send
 
@@ -576,7 +578,7 @@ func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetEntityData() *typ
 }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send
-// Schedule to use for packets within a burst.
+// Schedule to use for packets within a burst. 
 // The default value is to send a single packet
 // once.
 // This type is a presence type.
@@ -655,7 +657,7 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding struct {
 
     // Pattern to be used for hex padding. This can be specified if, and only if,
     // the PaddingType is 'Hex'. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     PaddingValue interface{}
 }
 

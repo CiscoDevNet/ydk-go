@@ -107,7 +107,7 @@ type Pbr_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Operational data for policymaps.
@@ -207,7 +207,7 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // PBR direction.

@@ -29,20 +29,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features", reflect.TypeOf(EthernetFeatures{}))
 }
 
-// EgressFiltering represents Egress filtering
-type EgressFiltering string
-
-const (
-    // Strict Egress Filtering
-    EgressFiltering_egress_filtering_type_strict EgressFiltering = "egress-filtering-type-strict"
-
-    // Egress Filtering Disabled
-    EgressFiltering_egress_filtering_type_disable EgressFiltering = "egress-filtering-type-disable"
-
-    // Default Egress Filtering Behavior
-    EgressFiltering_egress_filtering_type_default EgressFiltering = "egress-filtering-type-default"
-)
-
 // L2ProtocolName represents L2 protocol name
 type L2ProtocolName string
 
@@ -63,19 +49,6 @@ const (
     L2ProtocolName_cpsv L2ProtocolName = "cpsv"
 )
 
-// Filtering represents Filtering
-type Filtering string
-
-const (
-    // C-Vlan ingress frame filtering (Table 8-1 of
-    // 802.1ad standard)
-    Filtering_filtering_type_dot1q Filtering = "filtering-type-dot1q"
-
-    // S-Vlan ingress frame filtering (Table 8-2 of
-    // 802.1ad standard)
-    Filtering_filtering_type_dot1ad Filtering = "filtering-type-dot1ad"
-)
-
 // L2ProtocolMode represents L2 protocol mode
 type L2ProtocolMode string
 
@@ -91,6 +64,33 @@ const (
 
     // Tunnel egress frames, untunnel ingress frames
     L2ProtocolMode_reverse_tunnel L2ProtocolMode = "reverse-tunnel"
+)
+
+// EgressFiltering represents Egress filtering
+type EgressFiltering string
+
+const (
+    // Strict Egress Filtering
+    EgressFiltering_egress_filtering_type_strict EgressFiltering = "egress-filtering-type-strict"
+
+    // Egress Filtering Disabled
+    EgressFiltering_egress_filtering_type_disable EgressFiltering = "egress-filtering-type-disable"
+
+    // Default Egress Filtering Behavior
+    EgressFiltering_egress_filtering_type_default EgressFiltering = "egress-filtering-type-default"
+)
+
+// Filtering represents Filtering
+type Filtering string
+
+const (
+    // C-Vlan ingress frame filtering (Table 8-1 of
+    // 802.1ad standard)
+    Filtering_filtering_type_dot1q Filtering = "filtering-type-dot1q"
+
+    // S-Vlan ingress frame filtering (Table 8-2 of
+    // 802.1ad standard)
+    Filtering_filtering_type_dot1ad Filtering = "filtering-type-dot1ad"
 )
 
 // EthernetFeatures
@@ -279,7 +279,7 @@ type EthernetFeatures_Cfm_Domains_Domain struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..79.
+    // length: 1..127.
     Domain interface{}
 
     // Service-specific global configuration.
@@ -354,7 +354,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service struct {
     YListKey string
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..79.
+    // string with length: 1..127.
     Service interface{}
 
     // Limit on the number of MEPs in the service. The type is interface{} with
@@ -369,7 +369,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service struct {
     ContinuityCheckArchiveHoldTime interface{}
 
     // The number of tags to use when sending CFM packets from up MEPs in this
-    // Service. The type is interface{} with range: 0..4294967295.
+    // Service. The type is interface{} with range: 1..1.
     Tags interface{}
 
     // Log peer MEPs state changes. The type is interface{}.
@@ -705,7 +705,7 @@ type EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckM
     EnableMacAddress interface{}
 
     // MAC Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 }
 
@@ -835,7 +835,7 @@ type EthernetFeatures_Cfm_Domains_Domain_DomainProperties struct {
     MdidFormat interface{}
 
     // MAC Address, if MDID Format is MACAddress. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MdidMacAddress interface{}
 
     // Unsigned 16-bit Interger, if MDID Format is MACAddress. The type is
@@ -943,7 +943,7 @@ type EthernetFeatures_EtherLinkOam_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Profile interface{}
 
     // Enable or disable MIB retrieval support. The type is bool.

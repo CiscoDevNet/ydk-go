@@ -30,6 +30,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", reflect.TypeOf(FrequencySynchronization{}))
 }
 
+// FsyncSystemTimingMode represents Fsync system timing mode
+type FsyncSystemTimingMode string
+
+const (
+    // Line-interfaces only
+    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
+
+    // Clock-interfaces only
+    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
+)
+
 // FsyncClockSource represents Fsync clock source
 type FsyncClockSource string
 
@@ -50,17 +61,6 @@ const (
 
     // Log selection errors
     FsyncSourceSelectionLogging_errors FsyncSourceSelectionLogging = "errors"
-)
-
-// FsyncSystemTimingMode represents Fsync system timing mode
-type FsyncSystemTimingMode string
-
-const (
-    // Line-interfaces only
-    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
-
-    // Clock-interfaces only
-    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
 )
 
 // FrequencySynchronization

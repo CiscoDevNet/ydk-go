@@ -148,7 +148,7 @@ type IpArm_Ipv4_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     MulticastHostInterface interface{}
 }
 
@@ -243,7 +243,7 @@ type IpArm_Ipv6_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     MulticastHostInterface interface{}
 }
 

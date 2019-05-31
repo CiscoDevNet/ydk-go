@@ -100,7 +100,7 @@ type Tty_TtyLines_TtyLine struct {
     YListKey string
 
     // This attribute is a key. Name of the template. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // TTY line general configuration.
@@ -232,11 +232,11 @@ type Tty_TtyLines_TtyLine_Aaa struct {
     LoginTimeout interface{}
 
     // Configure a secure one way encrypted password. The type is string with
-    // pattern: (!.+)|([^!].+).
+    // pattern: b'(!.+)|([^!].+)'.
     Secret interface{}
 
     // Configure the password for the user. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Users characteristics.
@@ -320,7 +320,7 @@ type Tty_TtyLines_TtyLine_Aaa_UserGroups_UserGroup struct {
     YListKey string
 
     // This attribute is a key. Name of the group. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Specify as 'root-system' for root-system group and 'other' for remaining
@@ -532,7 +532,8 @@ type Tty_TtyLines_TtyLine_Connection struct {
 
     // Disconnect character's decimal equivalent value or Character . The type is
     // one of the following types: string with pattern:
-    // (\p{IsBasicLatin}|\p{IsLatin-1Supplement})*, or int with range: 0..255.
+    // b'(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*', or int with range:
+    // 0..255.
     DisconnectCharacter interface{}
 
     // ACL to filter ingoing connections. The type is string.
@@ -551,8 +552,9 @@ type Tty_TtyLines_TtyLine_Connection struct {
     // Escape character or ASCII decimal equivalent value orspecial strings
     // NONE,DEFAULT,BREAK. The type is one of the following types: string with
     // pattern:
-    // (\p{IsBasicLatin}|\p{IsLatin-1Supplement})|(DEFAULT)|(BREAK)|(NONE) The
-    // default value is 30., or int with range: 0..255 The default value is 30..
+    // b'(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})|(DEFAULT)|(BREAK)|(NONE)'
+    // The default value is 30., or int with range: 0..255 The default value is
+    // 30..
     EscapeCharacter interface{}
 
     // The preferred protocol to use. The type is TtyTransportProtocol.

@@ -24,18 +24,89 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-icpe-infra-oper:nv-satellite", reflect.TypeOf(NvSatellite{}))
 }
 
-// IcpeOpmSyncFsmState represents Icpe opm sync fsm state
-type IcpeOpmSyncFsmState string
+// IcpeOperMultichassisRedundancy represents Icpe oper multichassis redundancy
+type IcpeOperMultichassisRedundancy string
 
 const (
-    // Split brain
-    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_split_brain IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-split-brain"
+    // Not redundant
+    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_not_redundant IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-not-redundant"
 
-    // Waiting
-    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_waiting IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-waiting"
+    // Active
+    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_active IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-active"
 
-    // Whole brain
-    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_whole_brain IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-whole-brain"
+    // Standby
+    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_standby IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-standby"
+)
+
+// IcpeOperDiscdLinkState represents Icpe oper discd link state
+type IcpeOperDiscdLinkState string
+
+const (
+    // Stopped
+    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_stopped IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-stopped"
+
+    // Probing
+    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_probing IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-probing"
+
+    // Configuring
+    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_configuring IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-configuring"
+
+    // Ready
+    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_ready IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-ready"
+)
+
+// IcpeOperPort represents Icpe oper port
+type IcpeOperPort string
+
+const (
+    // Unknown
+    IcpeOperPort_icpe_oper_port_unknown IcpeOperPort = "icpe-oper-port-unknown"
+
+    // Gigabit ethernet
+    IcpeOperPort_icpe_oper_port_gigabit_ethernet IcpeOperPort = "icpe-oper-port-gigabit-ethernet"
+
+    // Ten gig e
+    IcpeOperPort_icpe_oper_port_ten_gig_e IcpeOperPort = "icpe-oper-port-ten-gig-e"
+)
+
+// IcpeOperInstallState represents Icpe oper install state
+type IcpeOperInstallState string
+
+const (
+    // Stable
+    IcpeOperInstallState_icpe_oper_install_state_stable IcpeOperInstallState = "icpe-oper-install-state-stable"
+
+    // Transferring
+    IcpeOperInstallState_icpe_oper_install_state_transferring IcpeOperInstallState = "icpe-oper-install-state-transferring"
+
+    // Transferred
+    IcpeOperInstallState_icpe_oper_install_state_transferred IcpeOperInstallState = "icpe-oper-install-state-transferred"
+
+    // Installing
+    IcpeOperInstallState_icpe_oper_install_state_installing IcpeOperInstallState = "icpe-oper-install-state-installing"
+
+    // In progress
+    IcpeOperInstallState_icpe_oper_install_state_in_progress IcpeOperInstallState = "icpe-oper-install-state-in-progress"
+)
+
+// IcpeGcoOperControlReason represents Icpe gco oper control reason
+type IcpeGcoOperControlReason string
+
+const (
+    // Unknown error
+    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_unknown_error IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-unknown-error"
+
+    // Wrong chassis type
+    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_wrong_chassis_type IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-wrong-chassis-type"
+
+    // Wrong chassis serial
+    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_wrong_chassis_serial IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-wrong-chassis-serial"
+
+    // Needs to upgrade
+    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_needs_to_upgrade IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-needs-to-upgrade"
+
+    // None
+    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_none IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-none"
 )
 
 // IcpeOperSdacpSessState represents Icpe oper sdacp sess state
@@ -62,310 +133,6 @@ const (
 
     // ISSU
     IcpeOperSdacpSessState_icpe_oper_sdacp_sess_state_issu IcpeOperSdacpSessState = "icpe-oper-sdacp-sess-state-issu"
-)
-
-// IcpeOpmTransportState represents Icpe opm transport state
-type IcpeOpmTransportState string
-
-const (
-    // Disconnected
-    IcpeOpmTransportState_icpe_opm_transport_state_disconnected IcpeOpmTransportState = "icpe-opm-transport-state-disconnected"
-
-    // ICCP unavailable
-    IcpeOpmTransportState_icpe_opm_transport_state_iccp_unavailable IcpeOpmTransportState = "icpe-opm-transport-state-iccp-unavailable"
-
-    // No member present
-    IcpeOpmTransportState_icpe_opm_transport_state_no_member_present IcpeOpmTransportState = "icpe-opm-transport-state-no-member-present"
-
-    // Member down
-    IcpeOpmTransportState_icpe_opm_transport_state_member_down IcpeOpmTransportState = "icpe-opm-transport-state-member-down"
-
-    // Member not reachable
-    IcpeOpmTransportState_icpe_opm_transport_state_member_not_reachable IcpeOpmTransportState = "icpe-opm-transport-state-member-not-reachable"
-
-    // Waiting for app connect
-    IcpeOpmTransportState_icpe_opm_transport_state_waiting_for_app_connect IcpeOpmTransportState = "icpe-opm-transport-state-waiting-for-app-connect"
-
-    // Waiting for app connect response
-    IcpeOpmTransportState_icpe_opm_transport_state_waiting_for_app_connect_response IcpeOpmTransportState = "icpe-opm-transport-state-waiting-for-app-connect-response"
-
-    // Connected
-    IcpeOpmTransportState_icpe_opm_transport_state_connected IcpeOpmTransportState = "icpe-opm-transport-state-connected"
-)
-
-// IcpeOperRefType represents Icpe oper ref type
-type IcpeOperRefType string
-
-const (
-    // Invalid
-    IcpeOperRefType_icpe_oper_ref_type_invalid IcpeOperRefType = "icpe-oper-ref-type-invalid"
-
-    // SMU
-    IcpeOperRefType_icpe_oper_ref_type_smu IcpeOperRefType = "icpe-oper-ref-type-smu"
-
-    // Base image
-    IcpeOperRefType_icpe_oper_ref_type_base_image IcpeOperRefType = "icpe-oper-ref-type-base-image"
-)
-
-// IcpeOpmAuthFsmState represents Icpe opm auth fsm state
-type IcpeOpmAuthFsmState string
-
-const (
-    // Unauth
-    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_unauth IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-unauth"
-
-    // Waiting
-    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting"
-
-    // Waiting for auth
-    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting_for_auth IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting-for-auth"
-
-    // Waiting for reply
-    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting_for_reply IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting-for-reply"
-
-    // Authed
-    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_authed IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-authed"
-)
-
-// IcpeOpmController represents Icpe opm controller
-type IcpeOpmController string
-
-const (
-    // Unknown
-    IcpeOpmController_icpe_opm_controller_unknown IcpeOpmController = "icpe-opm-controller-unknown"
-
-    // Primary
-    IcpeOpmController_icpe_opm_controller_primary IcpeOpmController = "icpe-opm-controller-primary"
-
-    // Secondary
-    IcpeOpmController_icpe_opm_controller_secondary IcpeOpmController = "icpe-opm-controller-secondary"
-)
-
-// IcpeOpmResyncFsmState represents Icpe opm resync fsm state
-type IcpeOpmResyncFsmState string
-
-const (
-    // Not open
-    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_not_open IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-not-open"
-
-    // Stable
-    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_stable IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-stable"
-
-    // In resync
-    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_in_resync IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-in-resync"
-
-    // Queued
-    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_queued IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-queued"
-
-    // Resync req
-    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_resync_req IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-resync-req"
-)
-
-// IcpeOpmChanFsmState represents Icpe opm chan fsm state
-type IcpeOpmChanFsmState string
-
-const (
-    // Down
-    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_down IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-down"
-
-    // Closed
-    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_closed IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-closed"
-
-    // Opening
-    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_opening IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-opening"
-
-    // Opened
-    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_opened IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-opened"
-
-    // Open
-    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_open IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-open"
-)
-
-// IcpeOpmSessState represents Icpe opm sess state
-type IcpeOpmSessState string
-
-const (
-    // Disconnected
-    IcpeOpmSessState_icpe_opm_sess_state_disconnected IcpeOpmSessState = "icpe-opm-sess-state-disconnected"
-
-    // Connecting
-    IcpeOpmSessState_icpe_opm_sess_state_connecting IcpeOpmSessState = "icpe-opm-sess-state-connecting"
-
-    // Authenticating
-    IcpeOpmSessState_icpe_opm_sess_state_authenticating IcpeOpmSessState = "icpe-opm-sess-state-authenticating"
-
-    // Arbitrating
-    IcpeOpmSessState_icpe_opm_sess_state_arbitrating IcpeOpmSessState = "icpe-opm-sess-state-arbitrating"
-
-    // Waiting for resyncs
-    IcpeOpmSessState_icpe_opm_sess_state_waiting_for_resyncs IcpeOpmSessState = "icpe-opm-sess-state-waiting-for-resyncs"
-
-    // Connected
-    IcpeOpmSessState_icpe_opm_sess_state_connected IcpeOpmSessState = "icpe-opm-sess-state-connected"
-)
-
-// IcpeOperInstallState represents Icpe oper install state
-type IcpeOperInstallState string
-
-const (
-    // Stable
-    IcpeOperInstallState_icpe_oper_install_state_stable IcpeOperInstallState = "icpe-oper-install-state-stable"
-
-    // Transferring
-    IcpeOperInstallState_icpe_oper_install_state_transferring IcpeOperInstallState = "icpe-oper-install-state-transferring"
-
-    // Transferred
-    IcpeOperInstallState_icpe_oper_install_state_transferred IcpeOperInstallState = "icpe-oper-install-state-transferred"
-
-    // Installing
-    IcpeOperInstallState_icpe_oper_install_state_installing IcpeOperInstallState = "icpe-oper-install-state-installing"
-
-    // In progress
-    IcpeOperInstallState_icpe_oper_install_state_in_progress IcpeOperInstallState = "icpe-oper-install-state-in-progress"
-)
-
-// IcpeOperPort represents Icpe oper port
-type IcpeOperPort string
-
-const (
-    // Unknown
-    IcpeOperPort_icpe_oper_port_unknown IcpeOperPort = "icpe-oper-port-unknown"
-
-    // Gigabit ethernet
-    IcpeOperPort_icpe_oper_port_gigabit_ethernet IcpeOperPort = "icpe-oper-port-gigabit-ethernet"
-
-    // Ten gig e
-    IcpeOperPort_icpe_oper_port_ten_gig_e IcpeOperPort = "icpe-oper-port-ten-gig-e"
-)
-
-// IcpeOperFabricPort represents Icpe oper fabric port
-type IcpeOperFabricPort string
-
-const (
-    // Unknown
-    IcpeOperFabricPort_icpe_oper_fabric_port_unknown IcpeOperFabricPort = "icpe-oper-fabric-port-unknown"
-
-    // n v fabric- gig e
-    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-gig-e"
-
-    // n v fabric- ten gig e
-    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_ten_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-ten-gig-e"
-
-    // n v fabric- forty gig e
-    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_forty_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-forty-gig-e"
-
-    // n v fabric- hundred gig e
-    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_hundred_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e"
-)
-
-// IcpeInstallPkgSupp represents Icpe install pkg supp
-type IcpeInstallPkgSupp string
-
-const (
-    // Unknown
-    IcpeInstallPkgSupp_icpe_install_pkg_supp_unknown IcpeInstallPkgSupp = "icpe-install-pkg-supp-unknown"
-
-    // Not supported
-    IcpeInstallPkgSupp_icpe_install_pkg_supp_not_supported IcpeInstallPkgSupp = "icpe-install-pkg-supp-not-supported"
-
-    // Supported
-    IcpeInstallPkgSupp_icpe_install_pkg_supp_supported IcpeInstallPkgSupp = "icpe-install-pkg-supp-supported"
-)
-
-// IcpeGcoOperControlReason represents Icpe gco oper control reason
-type IcpeGcoOperControlReason string
-
-const (
-    // Unknown error
-    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_unknown_error IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-unknown-error"
-
-    // Wrong chassis type
-    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_wrong_chassis_type IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-wrong-chassis-type"
-
-    // Wrong chassis serial
-    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_wrong_chassis_serial IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-wrong-chassis-serial"
-
-    // Needs to upgrade
-    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_needs_to_upgrade IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-needs-to-upgrade"
-
-    // None
-    IcpeGcoOperControlReason_icpe_gco_oper_control_reason_none IcpeGcoOperControlReason = "icpe-gco-oper-control-reason-none"
-)
-
-// IcpeInstallSatState represents Icpe install sat state
-type IcpeInstallSatState string
-
-const (
-    // Unknown
-    IcpeInstallSatState_icpe_install_sat_state_unknown IcpeInstallSatState = "icpe-install-sat-state-unknown"
-
-    // Not initiated
-    IcpeInstallSatState_icpe_install_sat_state_not_initiat_ed IcpeInstallSatState = "icpe-install-sat-state-not-initiat-ed"
-
-    // Transferring
-    IcpeInstallSatState_icpe_install_sat_state_transferring IcpeInstallSatState = "icpe-install-sat-state-transferring"
-
-    // Activating
-    IcpeInstallSatState_icpe_install_sat_state_activating IcpeInstallSatState = "icpe-install-sat-state-activating"
-
-    // Updating
-    IcpeInstallSatState_icpe_install_sat_state_updating IcpeInstallSatState = "icpe-install-sat-state-updating"
-
-    // Replacing
-    IcpeInstallSatState_icpe_install_sat_state_replacing IcpeInstallSatState = "icpe-install-sat-state-replacing"
-
-    // Deactivating
-    IcpeInstallSatState_icpe_install_sat_state_deactivating IcpeInstallSatState = "icpe-install-sat-state-deactivating"
-
-    // Removing
-    IcpeInstallSatState_icpe_install_sat_state_removing IcpeInstallSatState = "icpe-install-sat-state-removing"
-
-    // Success
-    IcpeInstallSatState_icpe_install_sat_state_success IcpeInstallSatState = "icpe-install-sat-state-success"
-
-    // Failure
-    IcpeInstallSatState_icpe_install_sat_state_failure IcpeInstallSatState = "icpe-install-sat-state-failure"
-
-    // Multiple ops
-    IcpeInstallSatState_icpe_install_sat_state_multiple_ops IcpeInstallSatState = "icpe-install-sat-state-multiple-ops"
-
-    // Aborted
-    IcpeInstallSatState_icpe_install_sat_state_aborted IcpeInstallSatState = "icpe-install-sat-state-aborted"
-
-    // Protocol version
-    IcpeInstallSatState_icpe_install_sat_state_protocol_version IcpeInstallSatState = "icpe-install-sat-state-protocol-version"
-
-    // Pkg not present
-    IcpeInstallSatState_icpe_install_sat_state_pkg_not_present IcpeInstallSatState = "icpe-install-sat-state-pkg-not-present"
-
-    // No image
-    IcpeInstallSatState_icpe_install_sat_state_no_image IcpeInstallSatState = "icpe-install-sat-state-no-image"
-
-    // No such file
-    IcpeInstallSatState_icpe_install_sat_state_no_such_file IcpeInstallSatState = "icpe-install-sat-state-no-such-file"
-
-    // Sat uncfgd
-    IcpeInstallSatState_icpe_install_sat_state_sat_uncfgd IcpeInstallSatState = "icpe-install-sat-state-sat-uncfgd"
-
-    // Processing
-    IcpeInstallSatState_icpe_install_sat_state_processing IcpeInstallSatState = "icpe-install-sat-state-processing"
-)
-
-// IcpeOpmArbitrationFsmState represents Icpe opm arbitration fsm state
-type IcpeOpmArbitrationFsmState string
-
-const (
-    // Unarbitrated
-    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_unarbitrated IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-unarbitrated"
-
-    // Waiting
-    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_waiting IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-waiting"
-
-    // Arbitrating
-    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_arbitrating IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-arbitrating"
-
-    // Arbitrated
-    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_arbitrated IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-arbitrated"
 )
 
 // IcpeOperConflict represents Icpe oper conflict
@@ -487,6 +254,37 @@ const (
     IcpeOperConflict_icpe_oper_conflict_multiple_mac_address IcpeOperConflict = "icpe-oper-conflict-multiple-mac-address"
 )
 
+// IcpeOperReloadLevel represents Icpe oper reload level
+type IcpeOperReloadLevel string
+
+const (
+    // Unknown
+    IcpeOperReloadLevel_icpe_oper_reload_level_unknown IcpeOperReloadLevel = "icpe-oper-reload-level-unknown"
+
+    // System
+    IcpeOperReloadLevel_icpe_oper_reload_level_system IcpeOperReloadLevel = "icpe-oper-reload-level-system"
+
+    // Container
+    IcpeOperReloadLevel_icpe_oper_reload_level_container IcpeOperReloadLevel = "icpe-oper-reload-level-container"
+)
+
+// IcpeOpticalSyncState represents Icpe optical sync state
+type IcpeOpticalSyncState string
+
+const (
+    // Unknown
+    IcpeOpticalSyncState_icpe_optical_sync_state_unknown IcpeOpticalSyncState = "icpe-optical-sync-state-unknown"
+
+    // Syncing
+    IcpeOpticalSyncState_icpe_optical_sync_state_syncing IcpeOpticalSyncState = "icpe-optical-sync-state-syncing"
+
+    // Synced
+    IcpeOpticalSyncState_icpe_optical_sync_state_synced IcpeOpticalSyncState = "icpe-optical-sync-state-synced"
+
+    // Not connected
+    IcpeOpticalSyncState_icpe_optical_sync_state_not_connected IcpeOpticalSyncState = "icpe-optical-sync-state-not-connected"
+)
+
 // IcpeOperVerCheckState represents Icpe oper ver check state
 type IcpeOperVerCheckState string
 
@@ -507,49 +305,254 @@ const (
     IcpeOperVerCheckState_icpe_oper_ver_check_state_compatible_newer IcpeOperVerCheckState = "icpe-oper-ver-check-state-compatible-newer"
 )
 
-// IcpeOperReloadLevel represents Icpe oper reload level
-type IcpeOperReloadLevel string
+// IcpeOperFabricPort represents Icpe oper fabric port
+type IcpeOperFabricPort string
 
 const (
     // Unknown
-    IcpeOperReloadLevel_icpe_oper_reload_level_unknown IcpeOperReloadLevel = "icpe-oper-reload-level-unknown"
+    IcpeOperFabricPort_icpe_oper_fabric_port_unknown IcpeOperFabricPort = "icpe-oper-fabric-port-unknown"
 
-    // System
-    IcpeOperReloadLevel_icpe_oper_reload_level_system IcpeOperReloadLevel = "icpe-oper-reload-level-system"
+    // n v fabric- gig e
+    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-gig-e"
 
-    // Container
-    IcpeOperReloadLevel_icpe_oper_reload_level_container IcpeOperReloadLevel = "icpe-oper-reload-level-container"
+    // n v fabric- ten gig e
+    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_ten_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-ten-gig-e"
+
+    // n v fabric- forty gig e
+    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_forty_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-forty-gig-e"
+
+    // n v fabric- hundred gig e
+    IcpeOperFabricPort_icpe_oper_fabric_port_n_v_fabric_hundred_gig_e IcpeOperFabricPort = "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e"
 )
 
-// IcpeOperMultichassisRedundancy represents Icpe oper multichassis redundancy
-type IcpeOperMultichassisRedundancy string
+// IcpeOperRefType represents Icpe oper ref type
+type IcpeOperRefType string
 
 const (
-    // Not redundant
-    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_not_redundant IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-not-redundant"
+    // Invalid
+    IcpeOperRefType_icpe_oper_ref_type_invalid IcpeOperRefType = "icpe-oper-ref-type-invalid"
 
-    // Active
-    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_active IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-active"
+    // SMU
+    IcpeOperRefType_icpe_oper_ref_type_smu IcpeOperRefType = "icpe-oper-ref-type-smu"
 
-    // Standby
-    IcpeOperMultichassisRedundancy_icpe_oper_multi_chassis_redundancy_standby IcpeOperMultichassisRedundancy = "icpe-oper-multi-chassis-redundancy-standby"
+    // Base image
+    IcpeOperRefType_icpe_oper_ref_type_base_image IcpeOperRefType = "icpe-oper-ref-type-base-image"
 )
 
-// IcpeOperDiscdLinkState represents Icpe oper discd link state
-type IcpeOperDiscdLinkState string
+// IcpeOpmResyncFsmState represents Icpe opm resync fsm state
+type IcpeOpmResyncFsmState string
 
 const (
-    // Stopped
-    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_stopped IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-stopped"
+    // Not open
+    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_not_open IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-not-open"
 
-    // Probing
-    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_probing IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-probing"
+    // Stable
+    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_stable IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-stable"
 
-    // Configuring
-    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_configuring IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-configuring"
+    // In resync
+    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_in_resync IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-in-resync"
 
-    // Ready
-    IcpeOperDiscdLinkState_icpe_oper_discd_link_state_ready IcpeOperDiscdLinkState = "icpe-oper-discd-link-state-ready"
+    // Queued
+    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_queued IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-queued"
+
+    // Resync req
+    IcpeOpmResyncFsmState_icpe_opm_resync_fsm_state_resync_req IcpeOpmResyncFsmState = "icpe-opm-resync-fsm-state-resync-req"
+)
+
+// IcpeOpmChanFsmState represents Icpe opm chan fsm state
+type IcpeOpmChanFsmState string
+
+const (
+    // Down
+    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_down IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-down"
+
+    // Closed
+    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_closed IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-closed"
+
+    // Opening
+    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_opening IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-opening"
+
+    // Opened
+    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_opened IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-opened"
+
+    // Open
+    IcpeOpmChanFsmState_icpe_opm_chan_fsm_state_open IcpeOpmChanFsmState = "icpe-opm-chan-fsm-state-open"
+)
+
+// IcpeOpmController represents Icpe opm controller
+type IcpeOpmController string
+
+const (
+    // Unknown
+    IcpeOpmController_icpe_opm_controller_unknown IcpeOpmController = "icpe-opm-controller-unknown"
+
+    // Primary
+    IcpeOpmController_icpe_opm_controller_primary IcpeOpmController = "icpe-opm-controller-primary"
+
+    // Secondary
+    IcpeOpmController_icpe_opm_controller_secondary IcpeOpmController = "icpe-opm-controller-secondary"
+)
+
+// IcpeOpmSyncFsmState represents Icpe opm sync fsm state
+type IcpeOpmSyncFsmState string
+
+const (
+    // Split brain
+    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_split_brain IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-split-brain"
+
+    // Waiting
+    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_waiting IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-waiting"
+
+    // Whole brain
+    IcpeOpmSyncFsmState_icpe_opm_sync_fsm_state_whole_brain IcpeOpmSyncFsmState = "icpe-opm-sync-fsm-state-whole-brain"
+)
+
+// IcpeOpmArbitrationFsmState represents Icpe opm arbitration fsm state
+type IcpeOpmArbitrationFsmState string
+
+const (
+    // Unarbitrated
+    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_unarbitrated IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-unarbitrated"
+
+    // Waiting
+    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_waiting IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-waiting"
+
+    // Arbitrating
+    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_arbitrating IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-arbitrating"
+
+    // Arbitrated
+    IcpeOpmArbitrationFsmState_icpe_opm_arbitration_fsm_state_arbitrated IcpeOpmArbitrationFsmState = "icpe-opm-arbitration-fsm-state-arbitrated"
+)
+
+// IcpeOpmAuthFsmState represents Icpe opm auth fsm state
+type IcpeOpmAuthFsmState string
+
+const (
+    // Unauth
+    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_unauth IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-unauth"
+
+    // Waiting
+    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting"
+
+    // Waiting for auth
+    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting_for_auth IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting-for-auth"
+
+    // Waiting for reply
+    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_waiting_for_reply IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-waiting-for-reply"
+
+    // Authed
+    IcpeOpmAuthFsmState_icpe_opm_auth_fsm_state_authed IcpeOpmAuthFsmState = "icpe-opm-auth-fsm-state-authed"
+)
+
+// IcpeOpmTransportState represents Icpe opm transport state
+type IcpeOpmTransportState string
+
+const (
+    // Disconnected
+    IcpeOpmTransportState_icpe_opm_transport_state_disconnected IcpeOpmTransportState = "icpe-opm-transport-state-disconnected"
+
+    // ICCP unavailable
+    IcpeOpmTransportState_icpe_opm_transport_state_iccp_unavailable IcpeOpmTransportState = "icpe-opm-transport-state-iccp-unavailable"
+
+    // No member present
+    IcpeOpmTransportState_icpe_opm_transport_state_no_member_present IcpeOpmTransportState = "icpe-opm-transport-state-no-member-present"
+
+    // Member down
+    IcpeOpmTransportState_icpe_opm_transport_state_member_down IcpeOpmTransportState = "icpe-opm-transport-state-member-down"
+
+    // Member not reachable
+    IcpeOpmTransportState_icpe_opm_transport_state_member_not_reachable IcpeOpmTransportState = "icpe-opm-transport-state-member-not-reachable"
+
+    // Waiting for app connect
+    IcpeOpmTransportState_icpe_opm_transport_state_waiting_for_app_connect IcpeOpmTransportState = "icpe-opm-transport-state-waiting-for-app-connect"
+
+    // Waiting for app connect response
+    IcpeOpmTransportState_icpe_opm_transport_state_waiting_for_app_connect_response IcpeOpmTransportState = "icpe-opm-transport-state-waiting-for-app-connect-response"
+
+    // Connected
+    IcpeOpmTransportState_icpe_opm_transport_state_connected IcpeOpmTransportState = "icpe-opm-transport-state-connected"
+)
+
+// IcpeOpmSessState represents Icpe opm sess state
+type IcpeOpmSessState string
+
+const (
+    // Disconnected
+    IcpeOpmSessState_icpe_opm_sess_state_disconnected IcpeOpmSessState = "icpe-opm-sess-state-disconnected"
+
+    // Connecting
+    IcpeOpmSessState_icpe_opm_sess_state_connecting IcpeOpmSessState = "icpe-opm-sess-state-connecting"
+
+    // Authenticating
+    IcpeOpmSessState_icpe_opm_sess_state_authenticating IcpeOpmSessState = "icpe-opm-sess-state-authenticating"
+
+    // Arbitrating
+    IcpeOpmSessState_icpe_opm_sess_state_arbitrating IcpeOpmSessState = "icpe-opm-sess-state-arbitrating"
+
+    // Waiting for resyncs
+    IcpeOpmSessState_icpe_opm_sess_state_waiting_for_resyncs IcpeOpmSessState = "icpe-opm-sess-state-waiting-for-resyncs"
+
+    // Connected
+    IcpeOpmSessState_icpe_opm_sess_state_connected IcpeOpmSessState = "icpe-opm-sess-state-connected"
+)
+
+// IcpeInstallSatState represents Icpe install sat state
+type IcpeInstallSatState string
+
+const (
+    // Unknown
+    IcpeInstallSatState_icpe_install_sat_state_unknown IcpeInstallSatState = "icpe-install-sat-state-unknown"
+
+    // Not initiated
+    IcpeInstallSatState_icpe_install_sat_state_not_initiat_ed IcpeInstallSatState = "icpe-install-sat-state-not-initiat-ed"
+
+    // Transferring
+    IcpeInstallSatState_icpe_install_sat_state_transferring IcpeInstallSatState = "icpe-install-sat-state-transferring"
+
+    // Activating
+    IcpeInstallSatState_icpe_install_sat_state_activating IcpeInstallSatState = "icpe-install-sat-state-activating"
+
+    // Updating
+    IcpeInstallSatState_icpe_install_sat_state_updating IcpeInstallSatState = "icpe-install-sat-state-updating"
+
+    // Replacing
+    IcpeInstallSatState_icpe_install_sat_state_replacing IcpeInstallSatState = "icpe-install-sat-state-replacing"
+
+    // Deactivating
+    IcpeInstallSatState_icpe_install_sat_state_deactivating IcpeInstallSatState = "icpe-install-sat-state-deactivating"
+
+    // Removing
+    IcpeInstallSatState_icpe_install_sat_state_removing IcpeInstallSatState = "icpe-install-sat-state-removing"
+
+    // Success
+    IcpeInstallSatState_icpe_install_sat_state_success IcpeInstallSatState = "icpe-install-sat-state-success"
+
+    // Failure
+    IcpeInstallSatState_icpe_install_sat_state_failure IcpeInstallSatState = "icpe-install-sat-state-failure"
+
+    // Multiple ops
+    IcpeInstallSatState_icpe_install_sat_state_multiple_ops IcpeInstallSatState = "icpe-install-sat-state-multiple-ops"
+
+    // Aborted
+    IcpeInstallSatState_icpe_install_sat_state_aborted IcpeInstallSatState = "icpe-install-sat-state-aborted"
+
+    // Protocol version
+    IcpeInstallSatState_icpe_install_sat_state_protocol_version IcpeInstallSatState = "icpe-install-sat-state-protocol-version"
+
+    // Pkg not present
+    IcpeInstallSatState_icpe_install_sat_state_pkg_not_present IcpeInstallSatState = "icpe-install-sat-state-pkg-not-present"
+
+    // No image
+    IcpeInstallSatState_icpe_install_sat_state_no_image IcpeInstallSatState = "icpe-install-sat-state-no-image"
+
+    // No such file
+    IcpeInstallSatState_icpe_install_sat_state_no_such_file IcpeInstallSatState = "icpe-install-sat-state-no-such-file"
+
+    // Sat uncfgd
+    IcpeInstallSatState_icpe_install_sat_state_sat_uncfgd IcpeInstallSatState = "icpe-install-sat-state-sat-uncfgd"
+
+    // Processing
+    IcpeInstallSatState_icpe_install_sat_state_processing IcpeInstallSatState = "icpe-install-sat-state-processing"
 )
 
 // IcpeOperTopoRemoteSource represents Icpe oper topo remote source
@@ -575,21 +578,18 @@ const (
     IcpeOperTopoRemoteSource_icpe_oper_topo_remote_source_direct_host IcpeOperTopoRemoteSource = "icpe-oper-topo-remote-source-direct-host"
 )
 
-// IcpeOpticalSyncState represents Icpe optical sync state
-type IcpeOpticalSyncState string
+// IcpeInstallPkgSupp represents Icpe install pkg supp
+type IcpeInstallPkgSupp string
 
 const (
     // Unknown
-    IcpeOpticalSyncState_icpe_optical_sync_state_unknown IcpeOpticalSyncState = "icpe-optical-sync-state-unknown"
+    IcpeInstallPkgSupp_icpe_install_pkg_supp_unknown IcpeInstallPkgSupp = "icpe-install-pkg-supp-unknown"
 
-    // Syncing
-    IcpeOpticalSyncState_icpe_optical_sync_state_syncing IcpeOpticalSyncState = "icpe-optical-sync-state-syncing"
+    // Not supported
+    IcpeInstallPkgSupp_icpe_install_pkg_supp_not_supported IcpeInstallPkgSupp = "icpe-install-pkg-supp-not-supported"
 
-    // Synced
-    IcpeOpticalSyncState_icpe_optical_sync_state_synced IcpeOpticalSyncState = "icpe-optical-sync-state-synced"
-
-    // Not connected
-    IcpeOpticalSyncState_icpe_optical_sync_state_not_connected IcpeOpticalSyncState = "icpe-optical-sync-state-not-connected"
+    // Supported
+    IcpeInstallPkgSupp_icpe_install_pkg_supp_supported IcpeInstallPkgSupp = "icpe-install-pkg-supp-supported"
 )
 
 // NvSatellite
@@ -840,7 +840,7 @@ type NvSatellite_SdacpRedundancies_SdacpRedundancy struct {
     Primacy interface{}
 
     // System MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SystemMac interface{}
 
     // Isolated. The type is bool.
@@ -1395,7 +1395,7 @@ type NvSatellite_SatelliteStatuses_SatelliteStatus struct {
     OpticalSupported interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // IP address present. The type is bool.
@@ -1405,7 +1405,7 @@ type NvSatellite_SatelliteStatuses_SatelliteStatus struct {
     IpAddressAuto interface{}
 
     // IPV6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // IPV6 address present. The type is bool.
@@ -1424,7 +1424,7 @@ type NvSatellite_SatelliteStatuses_SatelliteStatus struct {
     DescriptionPresent interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // MAC address present. The type is bool.
@@ -1886,11 +1886,11 @@ type NvSatellite_SatelliteStatuses_SatelliteStatus_ConfiguredLink struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // IP address auto. The type is bool.
@@ -2035,7 +2035,7 @@ type NvSatellite_SatelliteStatuses_SatelliteStatus_ConfiguredLink_DiscoveredLink
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // State. The type is IcpeOperDiscdLinkState.
@@ -2416,13 +2416,13 @@ type NvSatellite_SatelliteTopologies_SatelliteTopology struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     InterfaceNameXr interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // Redundancy ICCP group. The type is interface{} with range: 0..4294967295.
@@ -2488,7 +2488,7 @@ type NvSatellite_SatelliteTopologies_SatelliteTopology_DiscoveredLink struct {
     // Interface name. The type is string.
     InterfaceName interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // Discovery running. The type is bool.
@@ -2525,7 +2525,7 @@ type NvSatellite_SatelliteTopologies_SatelliteTopology_Satellite struct {
     YListKey string
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Configured. The type is bool.
@@ -2666,7 +2666,7 @@ type NvSatellite_SatelliteTopologies_SatelliteTopology_Satellite_FabricLink_Remo
     YListKey string
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Source. The type is IcpeOperTopoRemoteSource.
@@ -2681,7 +2681,7 @@ type NvSatellite_SatelliteTopologies_SatelliteTopology_Satellite_FabricLink_Remo
     // ICL ID. The type is interface{} with range: 0..4294967295.
     IclId interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // Interface name. The type is string.
@@ -2786,7 +2786,7 @@ type NvSatellite_InstallReferenceInfo_References_Reference struct {
     YListKey string
 
     // This attribute is a key. Reference name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ReferenceName interface{}
 
     // Reference name. The type is string.
@@ -3510,7 +3510,7 @@ type NvSatellite_InstallImageReferenceInfo_References_Reference struct {
     YListKey string
 
     // This attribute is a key. Reference name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ReferenceName interface{}
 
     // Reference name. The type is string.
@@ -3614,7 +3614,7 @@ type NvSatellite_SatelliteProperties_IdRanges_IdRange struct {
     YListKey string
 
     // This attribute is a key. Sat ID range. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SatIdRange interface{}
 
     // Min. The type is interface{} with range: 100..65534.
@@ -3689,7 +3689,7 @@ type NvSatellite_SdacpDiscovery2s_SdacpDiscovery2 struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -3787,11 +3787,11 @@ type NvSatellite_SdacpDiscovery2s_SdacpDiscovery2_Satellite struct {
     ConflictReason interface{}
 
     // Satellite IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SatelliteIpAddress interface{}
 
     // Host IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HostIpAddress interface{}
 
     // ICPE Discovered satellite state information table. The type is slice of
@@ -3836,7 +3836,7 @@ type NvSatellite_SdacpDiscovery2s_SdacpDiscovery2_Satellite_Interface struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceHandle interface{}
 
     // Satellite status. The type is DpmProtoState.
@@ -3852,11 +3852,11 @@ type NvSatellite_SdacpDiscovery2s_SdacpDiscovery2_Satellite_Interface struct {
     SatelliteInterfaceId interface{}
 
     // Satellite interface MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SatelliteInterfaceMac interface{}
 
     // Satellite chassis MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SatelliteChassisMac interface{}
 
     // Satellite serial id. The type is string.
@@ -3936,14 +3936,14 @@ type NvSatellite_IcpeDpms_IcpeDpm struct {
     YListKey string
 
     // This attribute is a key. Discovery interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     DiscoveryInterface interface{}
 
     // Discovery interface. The type is string.
     DiscoveryInterfaceXr interface{}
 
     // Discovery interface handle. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     DiscoveryInterfaceHandle interface{}
 
     // Discovery interface status. The type is DpmProtoState.
@@ -4060,15 +4060,15 @@ type NvSatellite_IcpeDpms_IcpeDpm_Satellite struct {
     SatelliteInterfaceId interface{}
 
     // Satellite interface MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SatelliteInterfaceMac interface{}
 
     // Satellite IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SatelliteIpAddress interface{}
 
     // Host IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HostIpAddress interface{}
 
     // Satellite chassis type. The type is string.
@@ -4078,7 +4078,7 @@ type NvSatellite_IcpeDpms_IcpeDpm_Satellite struct {
     SatelliteChassisVendor interface{}
 
     // Satellite chassis MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SatelliteChassisMac interface{}
 
     // Satellite serial id. The type is string.
@@ -4091,14 +4091,14 @@ type NvSatellite_IcpeDpms_IcpeDpm_Satellite struct {
     SatelliteModuleVendor interface{}
 
     // Satellite module MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SatelliteModuleMac interface{}
 
     // Conflict reason. The type is interface{} with range: 0..4294967295.
     ConflictReason interface{}
 
     // Received sys MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     ReceivedSysMac interface{}
 
     // Host chassis type. The type is string.
@@ -4108,7 +4108,7 @@ type NvSatellite_IcpeDpms_IcpeDpm_Satellite struct {
     HostChassisVendor interface{}
 
     // Host chassis MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HostChassisMac interface{}
 
     // Discovery protocol state. The type is DpmProtoState.
@@ -4229,11 +4229,11 @@ type NvSatellite_IcpeDpms_IcpeDpm_RemoteHost struct {
     YListKey string
 
     // Host chassis MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HostChassisMac interface{}
 
     // Host interface MAC. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HostInterfaceMac interface{}
 
     // Discovery protocol state. The type is DpmProtoHostState.
@@ -4334,7 +4334,7 @@ type NvSatellite_SdacpControls_SdacpControl struct {
     SatelliteIdXr interface{}
 
     // Satellite IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SatelliteIpAddress interface{}
 
     // IP address auto. The type is bool.

@@ -99,7 +99,7 @@ type LptsPa_EntryXr_Entry struct {
     YListKey string
 
     // This attribute is a key. Single Binding entry. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Entry interface{}
 
     // Rack/slot/instance. The type is interface{} with range: 0..4294967295.
@@ -130,11 +130,11 @@ type LptsPa_EntryXr_Entry struct {
     Ptype interface{}
 
     // Local address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     LocalIp interface{}
 
     // Remote address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RemoteIp interface{}
 
     // Local address length. The type is interface{} with range: 0..255.
@@ -328,7 +328,7 @@ type LptsPa_Entries_Entry struct {
     YListKey string
 
     // This attribute is a key. Single Client entry. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Entry interface{}
 
     // Client flags. The type is interface{} with range: 0..4294967295.
@@ -344,7 +344,7 @@ type LptsPa_Entries_Entry struct {
     ClientId interface{}
 
     // Transaction statisitics. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Times interface{}
 }
 

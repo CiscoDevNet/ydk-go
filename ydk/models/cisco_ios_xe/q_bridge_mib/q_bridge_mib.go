@@ -250,8 +250,8 @@ type QBRIDGEMIB_Dot1qVlan struct {
     // already got in during the intervening time interval. In this case,
     // dot1qNextFreeLocalVlanIndex should be re-read  and the creation re-tried
     // with the new value.  This value will automatically change when the current
-    // value is used to create a new row. The type is interface{} with range:
-    // 0..None | 4096..2147483647.
+    // value is used to create a new row. The type is interface{} with range: 0..0
+    // | 4096..2147483647.
     Dot1qNextFreeLocalVlanIndex interface{}
 
     // The identity of the constraint set to which a VLAN belongs, if there is not
@@ -429,7 +429,7 @@ type QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry struct {
 
     // This attribute is a key. A unicast MAC address for which the device has
     // forwarding and/or filtering information. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1qTpFdbAddress interface{}
 
     // Either the value '0', or the port number of the port on which a frame
@@ -561,7 +561,7 @@ type QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry struct {
 
     // This attribute is a key. The destination Group MAC address in a frame to
     // which this entry's filtering information applies. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1qTpGroupAddress interface{}
 
     // The complete set of ports, in this VLAN, to which frames destined for this
@@ -889,7 +889,7 @@ type QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry struct {
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a unicast address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1qStaticUnicastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the
@@ -1031,7 +1031,7 @@ type QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry struct {
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a Multicast or Broadcast address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1qStaticMulticastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the
@@ -1739,7 +1739,7 @@ type QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry struct {
     // 'llcOther',     this is the 2-octet IEEE 802.2 Link Service Access    
     // Point (LSAP) pair: first octet for Destination Service     Access Point
     // (DSAP) and second octet for Source Service     Access Point (SSAP). The
-    // type is string with length: 2 | 5.
+    // type is string with length: 2..2 | 5..5.
     Dot1vProtocolTemplateProtocolValue interface{}
 
     // Represents a group of protocols that are associated together when assigning

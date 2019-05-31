@@ -24,37 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6", reflect.TypeOf(Dhcpv6{}))
 }
 
-// LeaseLimit represents Profile lease limit type
-type LeaseLimit string
-
-const (
-    // Lease limit type none
-    LeaseLimit_none LeaseLimit = "none"
-
-    // Lease limit type interface
-    LeaseLimit_interface_ LeaseLimit = "interface"
-
-    // Lease limit type circuit ID
-    LeaseLimit_circuit_id LeaseLimit = "circuit-id"
-
-    // Lease limit type remote ID
-    LeaseLimit_remote_id LeaseLimit = "remote-id"
-)
-
-// BagDhcpv6dSubMode represents Bag dhcpv6d sub mode
-type BagDhcpv6dSubMode string
-
-const (
-    // DHCPv6 Base mode
-    BagDhcpv6dSubMode_base BagDhcpv6dSubMode = "base"
-
-    // DHCPv6 Server mode
-    BagDhcpv6dSubMode_server BagDhcpv6dSubMode = "server"
-
-    // DHCPv6 Proxy mode
-    BagDhcpv6dSubMode_proxy BagDhcpv6dSubMode = "proxy"
-)
-
 // BagDhcpv6dFsmState represents Bag dhcpv6d fsm state
 type BagDhcpv6dFsmState string
 
@@ -104,31 +73,6 @@ const (
     BagDhcpv6dFsmState_proxy_bound_client BagDhcpv6dFsmState = "proxy-bound-client"
 )
 
-// BagDhcpv6dIntfSrgRole represents Bag dhcpv6d intf srg role
-type BagDhcpv6dIntfSrgRole string
-
-const (
-    // DHCPv6 Interface SRG role NONE
-    BagDhcpv6dIntfSrgRole_none BagDhcpv6dIntfSrgRole = "none"
-
-    // DHCPv6 Interface SRG role Master
-    BagDhcpv6dIntfSrgRole_master BagDhcpv6dIntfSrgRole = "master"
-
-    // DHCPv6 Interface SRG role Slave
-    BagDhcpv6dIntfSrgRole_slave BagDhcpv6dIntfSrgRole = "slave"
-)
-
-// Dhcpv6IssuVersion represents Dhcpv6 issu version
-type Dhcpv6IssuVersion string
-
-const (
-    // Version 1
-    Dhcpv6IssuVersion_version1 Dhcpv6IssuVersion = "version1"
-
-    // Version 2
-    Dhcpv6IssuVersion_version2 Dhcpv6IssuVersion = "version2"
-)
-
 // BagDhcpv6dIaId represents Bag dhcpv6d ia id
 type BagDhcpv6dIaId string
 
@@ -143,17 +87,6 @@ const (
     BagDhcpv6dIaId_iata BagDhcpv6dIaId = "iata"
 )
 
-// Dhcpv6IssuRole represents Dhcpv6 issu role
-type Dhcpv6IssuRole string
-
-const (
-    // Primary role
-    Dhcpv6IssuRole_role_primary Dhcpv6IssuRole = "role-primary"
-
-    // Secondary role
-    Dhcpv6IssuRole_role_secondary Dhcpv6IssuRole = "role-secondary"
-)
-
 // BagDhcpv6dIntfSergRole represents Bag dhcpv6d intf serg role
 type BagDhcpv6dIntfSergRole string
 
@@ -166,6 +99,62 @@ const (
 
     // DHCPv6 Interface SERG role Slave
     BagDhcpv6dIntfSergRole_slave BagDhcpv6dIntfSergRole = "slave"
+)
+
+// BagDhcpv6dIntfSrgRole represents Bag dhcpv6d intf srg role
+type BagDhcpv6dIntfSrgRole string
+
+const (
+    // DHCPv6 Interface SRG role NONE
+    BagDhcpv6dIntfSrgRole_none BagDhcpv6dIntfSrgRole = "none"
+
+    // DHCPv6 Interface SRG role Master
+    BagDhcpv6dIntfSrgRole_master BagDhcpv6dIntfSrgRole = "master"
+
+    // DHCPv6 Interface SRG role Slave
+    BagDhcpv6dIntfSrgRole_slave BagDhcpv6dIntfSrgRole = "slave"
+)
+
+// LeaseLimit represents Profile lease limit type
+type LeaseLimit string
+
+const (
+    // Lease limit type none
+    LeaseLimit_none LeaseLimit = "none"
+
+    // Lease limit type interface
+    LeaseLimit_interface_ LeaseLimit = "interface"
+
+    // Lease limit type circuit ID
+    LeaseLimit_circuit_id LeaseLimit = "circuit-id"
+
+    // Lease limit type remote ID
+    LeaseLimit_remote_id LeaseLimit = "remote-id"
+)
+
+// BagDhcpv6dSubMode represents Bag dhcpv6d sub mode
+type BagDhcpv6dSubMode string
+
+const (
+    // DHCPv6 Base mode
+    BagDhcpv6dSubMode_base BagDhcpv6dSubMode = "base"
+
+    // DHCPv6 Server mode
+    BagDhcpv6dSubMode_server BagDhcpv6dSubMode = "server"
+
+    // DHCPv6 Proxy mode
+    BagDhcpv6dSubMode_proxy BagDhcpv6dSubMode = "proxy"
+)
+
+// Dhcpv6IssuVersion represents Dhcpv6 issu version
+type Dhcpv6IssuVersion string
+
+const (
+    // Version 1
+    Dhcpv6IssuVersion_version1 Dhcpv6IssuVersion = "version1"
+
+    // Version 2
+    Dhcpv6IssuVersion_version2 Dhcpv6IssuVersion = "version2"
 )
 
 // DhcpIssuPhase represents Dhcp issu phase
@@ -186,6 +175,17 @@ const (
 
     // An ISSU event has aborted
     DhcpIssuPhase_phase_aborted DhcpIssuPhase = "phase-aborted"
+)
+
+// Dhcpv6IssuRole represents Dhcpv6 issu role
+type Dhcpv6IssuRole string
+
+const (
+    // Primary role
+    Dhcpv6IssuRole_role_primary Dhcpv6IssuRole = "role-primary"
+
+    // Secondary role
+    Dhcpv6IssuRole_role_secondary Dhcpv6IssuRole = "role-secondary"
 )
 
 // Dhcpv6
@@ -343,7 +343,7 @@ type Dhcpv6_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv6 DHCP proxy operational data.
@@ -475,7 +475,7 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP proxy statistics.
@@ -1336,7 +1336,7 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // DHCPV6 throttle table.
@@ -1414,11 +1414,11 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo struct 
     YListKey string
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     BindingChaddr interface{}
 
     // DHCP access interface. The type is string with length: 0..65.
@@ -1498,14 +1498,14 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass struct {
     YListKey string
 
     // This attribute is a key. Class name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClassName interface{}
 
     // Class name. The type is string with length: 0..65.
     ClassNameXr interface{}
 
     // Helper addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileHelperAddress []interface{}
 
     // VRF names. The type is slice of string with length: 0..33.
@@ -1548,14 +1548,14 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info struct {
     RemoteId interface{}
 
     // Link address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileLinkAddress interface{}
 
     // LinkAddress From RA mesage. The type is bool.
     ProxyProfileLinkaddressFromRaEnable interface{}
 
     // Helper addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileHelperAddress []interface{}
 
     // VRF names. The type is slice of string with length: 0..33.
@@ -1650,6 +1650,9 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhc
 
     // Interface id. The type is string with length: 0..257.
     ProxyInterfaceId interface{}
+
+    // next interface id.
+    NextInterfaceId Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6dProxyIidReference_NextInterfaceId
 }
 
 func (ipv6Dhcpv6dProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6dProxyIidReference) GetEntityData() *types.CommonEntityData {
@@ -1664,6 +1667,7 @@ func (ipv6Dhcpv6dProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Inf
     ipv6Dhcpv6dProxyIidReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv6Dhcpv6dProxyIidReference.EntityData.Children = types.NewOrderedMap()
+    ipv6Dhcpv6dProxyIidReference.EntityData.Children.Append("next-interface-id", types.YChild{"NextInterfaceId", &ipv6Dhcpv6dProxyIidReference.NextInterfaceId})
     ipv6Dhcpv6dProxyIidReference.EntityData.Leafs = types.NewOrderedMap()
     ipv6Dhcpv6dProxyIidReference.EntityData.Leafs.Append("proxy-iid-interface-name", types.YLeaf{"ProxyIidInterfaceName", ipv6Dhcpv6dProxyIidReference.ProxyIidInterfaceName})
     ipv6Dhcpv6dProxyIidReference.EntityData.Leafs.Append("proxy-interface-id", types.YLeaf{"ProxyInterfaceId", ipv6Dhcpv6dProxyIidReference.ProxyInterfaceId})
@@ -1671,6 +1675,32 @@ func (ipv6Dhcpv6dProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Inf
     ipv6Dhcpv6dProxyIidReference.EntityData.YListKeys = []string {}
 
     return &(ipv6Dhcpv6dProxyIidReference.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6dProxyIidReference_NextInterfaceId
+// next interface id
+type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6dProxyIidReference_NextInterfaceId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextInterfaceId *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6dProxyIidReference_NextInterfaceId) GetEntityData() *types.CommonEntityData {
+    nextInterfaceId.EntityData.YFilter = nextInterfaceId.YFilter
+    nextInterfaceId.EntityData.YangName = "next-interface-id"
+    nextInterfaceId.EntityData.BundleName = "cisco_ios_xr"
+    nextInterfaceId.EntityData.ParentYangName = "ipv6-dhcpv6d-proxy-iid-reference"
+    nextInterfaceId.EntityData.SegmentPath = "next-interface-id"
+    nextInterfaceId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/profiles/profile/info/interface-id-references/ipv6-dhcpv6d-proxy-iid-reference/" + nextInterfaceId.EntityData.SegmentPath
+    nextInterfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextInterfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextInterfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextInterfaceId.EntityData.Children = types.NewOrderedMap()
+    nextInterfaceId.EntityData.Leafs = types.NewOrderedMap()
+
+    nextInterfaceId.EntityData.YListKeys = []string {}
+
+    return &(nextInterfaceId.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences
@@ -1717,6 +1747,9 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProx
 
     // VRF name. The type is string with length: 0..33.
     ProxyReferenceVrfName interface{}
+
+    // next vrf.
+    NextVrf Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProxyVrfReference_NextVrf
 }
 
 func (ipv6Dhcpv6dProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProxyVrfReference) GetEntityData() *types.CommonEntityData {
@@ -1731,12 +1764,39 @@ func (ipv6Dhcpv6dProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Inf
     ipv6Dhcpv6dProxyVrfReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv6Dhcpv6dProxyVrfReference.EntityData.Children = types.NewOrderedMap()
+    ipv6Dhcpv6dProxyVrfReference.EntityData.Children.Append("next-vrf", types.YChild{"NextVrf", &ipv6Dhcpv6dProxyVrfReference.NextVrf})
     ipv6Dhcpv6dProxyVrfReference.EntityData.Leafs = types.NewOrderedMap()
     ipv6Dhcpv6dProxyVrfReference.EntityData.Leafs.Append("proxy-reference-vrf-name", types.YLeaf{"ProxyReferenceVrfName", ipv6Dhcpv6dProxyVrfReference.ProxyReferenceVrfName})
 
     ipv6Dhcpv6dProxyVrfReference.EntityData.YListKeys = []string {}
 
     return &(ipv6Dhcpv6dProxyVrfReference.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProxyVrfReference_NextVrf
+// next vrf
+type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProxyVrfReference_NextVrf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextVrf *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6dProxyVrfReference_NextVrf) GetEntityData() *types.CommonEntityData {
+    nextVrf.EntityData.YFilter = nextVrf.YFilter
+    nextVrf.EntityData.YangName = "next-vrf"
+    nextVrf.EntityData.BundleName = "cisco_ios_xr"
+    nextVrf.EntityData.ParentYangName = "ipv6-dhcpv6d-proxy-vrf-reference"
+    nextVrf.EntityData.SegmentPath = "next-vrf"
+    nextVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/profiles/profile/info/vrf-references/ipv6-dhcpv6d-proxy-vrf-reference/" + nextVrf.EntityData.SegmentPath
+    nextVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextVrf.EntityData.Children = types.NewOrderedMap()
+    nextVrf.EntityData.Leafs = types.NewOrderedMap()
+
+    nextVrf.EntityData.YListKeys = []string {}
+
+    return &(nextVrf.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences
@@ -1783,6 +1843,9 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv
 
     // Interface name. The type is string with length: 0..65.
     ProxyReferenceInterfaceName interface{}
+
+    // next interface.
+    NextInterface Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dProxyInterfaceReference_NextInterface
 }
 
 func (ipv6Dhcpv6dProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dProxyInterfaceReference) GetEntityData() *types.CommonEntityData {
@@ -1797,12 +1860,39 @@ func (ipv6Dhcpv6dProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profi
     ipv6Dhcpv6dProxyInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv6Dhcpv6dProxyInterfaceReference.EntityData.Children = types.NewOrderedMap()
+    ipv6Dhcpv6dProxyInterfaceReference.EntityData.Children.Append("next-interface", types.YChild{"NextInterface", &ipv6Dhcpv6dProxyInterfaceReference.NextInterface})
     ipv6Dhcpv6dProxyInterfaceReference.EntityData.Leafs = types.NewOrderedMap()
     ipv6Dhcpv6dProxyInterfaceReference.EntityData.Leafs.Append("proxy-reference-interface-name", types.YLeaf{"ProxyReferenceInterfaceName", ipv6Dhcpv6dProxyInterfaceReference.ProxyReferenceInterfaceName})
 
     ipv6Dhcpv6dProxyInterfaceReference.EntityData.YListKeys = []string {}
 
     return &(ipv6Dhcpv6dProxyInterfaceReference.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dProxyInterfaceReference_NextInterface
+// next interface
+type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dProxyInterfaceReference_NextInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextInterface *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dProxyInterfaceReference_NextInterface) GetEntityData() *types.CommonEntityData {
+    nextInterface.EntityData.YFilter = nextInterface.YFilter
+    nextInterface.EntityData.YangName = "next-interface"
+    nextInterface.EntityData.BundleName = "cisco_ios_xr"
+    nextInterface.EntityData.ParentYangName = "ipv6-dhcpv6d-proxy-interface-reference"
+    nextInterface.EntityData.SegmentPath = "next-interface"
+    nextInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/profiles/profile/info/interface-references/ipv6-dhcpv6d-proxy-interface-reference/" + nextInterface.EntityData.SegmentPath
+    nextInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextInterface.EntityData.Children = types.NewOrderedMap()
+    nextInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    nextInterface.EntityData.YListKeys = []string {}
+
+    return &(nextInterface.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Proxy_DisconnectHistories
@@ -1847,7 +1937,7 @@ type Dhcpv6_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory struct {
     YListKey string
 
     // This attribute is a key. Index. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Index interface{}
 
     // session start time epoch. The type is interface{} with range:
@@ -1947,7 +2037,7 @@ type Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // VRF name. The type is string with length: 0..33.
@@ -2204,7 +2294,7 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -2226,7 +2316,7 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     IaIdPDs interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -2260,14 +2350,17 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     TxInterfaceId interface{}
 
     // DHCPV6 server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ServerIpv6Address interface{}
 
     // DHCPV6 profile name. The type is string with length: 0..65.
     ProfileName interface{}
 
+    // DHCPV6 selected profile name. The type is string with length: 0..65.
+    SelectedProfileName interface{}
+
     // DHCPV6 framed ipv6 addess used by ND. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FramedIpv6Prefix interface{}
 
     // DHCPV6 framed ipv6 prefix length used by ND. The type is interface{} with
@@ -2333,6 +2426,7 @@ func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetEntityData() *t
     client.EntityData.Leafs.Append("tx-interface-id", types.YLeaf{"TxInterfaceId", client.TxInterfaceId})
     client.EntityData.Leafs.Append("server-ipv6-address", types.YLeaf{"ServerIpv6Address", client.ServerIpv6Address})
     client.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", client.ProfileName})
+    client.EntityData.Leafs.Append("selected-profile-name", types.YLeaf{"SelectedProfileName", client.SelectedProfileName})
     client.EntityData.Leafs.Append("framed-ipv6-prefix", types.YLeaf{"FramedIpv6Prefix", client.FramedIpv6Prefix})
     client.EntityData.Leafs.Append("framed-prefix-length", types.YLeaf{"FramedPrefixLength", client.FramedPrefixLength})
     client.EntityData.Leafs.Append("is-nak-next-renew", types.YLeaf{"IsNakNextRenew", client.IsNakNextRenew})
@@ -2407,6 +2501,9 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo 
 
     // List of addresses in this IA.
     Addresses Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses
+
+    // next iaiapd.
+    NextIaiapd Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd
 }
 
 func (bagDhcpv6dIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo) GetEntityData() *types.CommonEntityData {
@@ -2422,6 +2519,7 @@ func (bagDhcpv6dIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdP
 
     bagDhcpv6dIaIdPdInfo.EntityData.Children = types.NewOrderedMap()
     bagDhcpv6dIaIdPdInfo.EntityData.Children.Append("addresses", types.YChild{"Addresses", &bagDhcpv6dIaIdPdInfo.Addresses})
+    bagDhcpv6dIaIdPdInfo.EntityData.Children.Append("next-iaiapd", types.YChild{"NextIaiapd", &bagDhcpv6dIaIdPdInfo.NextIaiapd})
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs = types.NewOrderedMap()
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs.Append("ia-type", types.YLeaf{"IaType", bagDhcpv6dIaIdPdInfo.IaType})
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs.Append("ia-id", types.YLeaf{"IaId", bagDhcpv6dIaIdPdInfo.IaId})
@@ -2477,7 +2575,7 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_
     YListKey string
 
     // IPv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -2490,6 +2588,9 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_
     // Remaining lease time in seconds. The type is interface{} with range:
     // 0..4294967295. Units are second.
     RemainingLeaseTime interface{}
+
+    // next addr attrb.
+    NextAddrAttrb Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb
 }
 
 func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb) GetEntityData() *types.CommonEntityData {
@@ -2504,6 +2605,7 @@ func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd
     bagDhcpv6dAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     bagDhcpv6dAddrAttrb.EntityData.Children = types.NewOrderedMap()
+    bagDhcpv6dAddrAttrb.EntityData.Children.Append("next-addr-attrb", types.YChild{"NextAddrAttrb", &bagDhcpv6dAddrAttrb.NextAddrAttrb})
     bagDhcpv6dAddrAttrb.EntityData.Leafs = types.NewOrderedMap()
     bagDhcpv6dAddrAttrb.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", bagDhcpv6dAddrAttrb.Prefix})
     bagDhcpv6dAddrAttrb.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", bagDhcpv6dAddrAttrb.PrefixLength})
@@ -2513,6 +2615,58 @@ func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd
     bagDhcpv6dAddrAttrb.EntityData.YListKeys = []string {}
 
     return &(bagDhcpv6dAddrAttrb.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb
+// next addr attrb
+type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb) GetEntityData() *types.CommonEntityData {
+    nextAddrAttrb.EntityData.YFilter = nextAddrAttrb.YFilter
+    nextAddrAttrb.EntityData.YangName = "next-addr-attrb"
+    nextAddrAttrb.EntityData.BundleName = "cisco_ios_xr"
+    nextAddrAttrb.EntityData.ParentYangName = "bag-dhcpv6d-addr-attrb"
+    nextAddrAttrb.EntityData.SegmentPath = "next-addr-attrb"
+    nextAddrAttrb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/binding/clients/client/ia-id-pd/bag-dhcpv6d-ia-id-pd-info/addresses/bag-dhcpv6d-addr-attrb/" + nextAddrAttrb.EntityData.SegmentPath
+    nextAddrAttrb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextAddrAttrb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextAddrAttrb.EntityData.Children = types.NewOrderedMap()
+    nextAddrAttrb.EntityData.Leafs = types.NewOrderedMap()
+
+    nextAddrAttrb.EntityData.YListKeys = []string {}
+
+    return &(nextAddrAttrb.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd
+// next iaiapd
+type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextIaiapd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd) GetEntityData() *types.CommonEntityData {
+    nextIaiapd.EntityData.YFilter = nextIaiapd.YFilter
+    nextIaiapd.EntityData.YangName = "next-iaiapd"
+    nextIaiapd.EntityData.BundleName = "cisco_ios_xr"
+    nextIaiapd.EntityData.ParentYangName = "bag-dhcpv6d-ia-id-pd-info"
+    nextIaiapd.EntityData.SegmentPath = "next-iaiapd"
+    nextIaiapd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/proxy/binding/clients/client/ia-id-pd/bag-dhcpv6d-ia-id-pd-info/" + nextIaiapd.EntityData.SegmentPath
+    nextIaiapd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextIaiapd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextIaiapd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextIaiapd.EntityData.Children = types.NewOrderedMap()
+    nextIaiapd.EntityData.Leafs = types.NewOrderedMap()
+
+    nextIaiapd.EntityData.YListKeys = []string {}
+
+    return &(nextIaiapd.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Summary
@@ -2851,7 +3005,7 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     YListKey string
 
     // This attribute is a key. Address String. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AddrString interface{}
 
     // DHCPV6 client MAC address. The type is string.
@@ -2864,15 +3018,15 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     ServerVrfName interface{}
 
     // DHCPV6 IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // DHCPV6 server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ServerIpv6Address interface{}
 
     // DHCPV6 reply server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ReplyServerIpv6Address interface{}
 
     // Lease time in seconds. The type is interface{} with range: 0..4294967295.
@@ -2887,7 +3041,7 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     State interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access interface VRF name. The type is string with length: 0..33.
@@ -3074,7 +3228,7 @@ type Dhcpv6_Nodes_Node_Server_DisconnectHistories_DisconnectHistory struct {
     YListKey string
 
     // This attribute is a key. Index. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Index interface{}
 
     // session start time epoch. The type is interface{} with range:
@@ -3368,7 +3522,7 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -3394,11 +3548,11 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     IaIdPDs interface{}
 
     // DHCPV6 IPv6 client link local address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LinkLocalAddress interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -3419,8 +3573,11 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     // DHCPV6 profile name. The type is string with length: 0..64.
     ProfileName interface{}
 
+    // DHCPV6 selected profile name. The type is string with length: 0..64.
+    SelecetedProfileName interface{}
+
     // DHCPV6 framed ipv6 addess used by ND. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FramedIpv6Prefix interface{}
 
     // DHCPV6 framed ipv6 prefix length used by ND. The type is interface{} with
@@ -3500,6 +3657,7 @@ func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetEntityData() *
     client.EntityData.Leafs.Append("server-binding-inner-tag", types.YLeaf{"ServerBindingInnerTag", client.ServerBindingInnerTag})
     client.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", client.PoolName})
     client.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", client.ProfileName})
+    client.EntityData.Leafs.Append("seleceted-profile-name", types.YLeaf{"SelecetedProfileName", client.SelecetedProfileName})
     client.EntityData.Leafs.Append("framed-ipv6-prefix", types.YLeaf{"FramedIpv6Prefix", client.FramedIpv6Prefix})
     client.EntityData.Leafs.Append("framed-prefix-length", types.YLeaf{"FramedPrefixLength", client.FramedPrefixLength})
     client.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", client.ClassName})
@@ -3580,6 +3738,9 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo
 
     // List of addresses in this IA.
     Addresses Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses
+
+    // next iaiapd.
+    NextIaiapd Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd
 }
 
 func (bagDhcpv6dIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo) GetEntityData() *types.CommonEntityData {
@@ -3595,6 +3756,7 @@ func (bagDhcpv6dIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaId
 
     bagDhcpv6dIaIdPdInfo.EntityData.Children = types.NewOrderedMap()
     bagDhcpv6dIaIdPdInfo.EntityData.Children.Append("addresses", types.YChild{"Addresses", &bagDhcpv6dIaIdPdInfo.Addresses})
+    bagDhcpv6dIaIdPdInfo.EntityData.Children.Append("next-iaiapd", types.YChild{"NextIaiapd", &bagDhcpv6dIaIdPdInfo.NextIaiapd})
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs = types.NewOrderedMap()
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs.Append("ia-type", types.YLeaf{"IaType", bagDhcpv6dIaIdPdInfo.IaType})
     bagDhcpv6dIaIdPdInfo.EntityData.Leafs.Append("ia-id", types.YLeaf{"IaId", bagDhcpv6dIaIdPdInfo.IaId})
@@ -3650,7 +3812,7 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo
     YListKey string
 
     // IPv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -3663,6 +3825,9 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo
     // Remaining lease time in seconds. The type is interface{} with range:
     // 0..4294967295. Units are second.
     RemainingLeaseTime interface{}
+
+    // next addr attrb.
+    NextAddrAttrb Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb
 }
 
 func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb) GetEntityData() *types.CommonEntityData {
@@ -3677,6 +3842,7 @@ func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdP
     bagDhcpv6dAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     bagDhcpv6dAddrAttrb.EntityData.Children = types.NewOrderedMap()
+    bagDhcpv6dAddrAttrb.EntityData.Children.Append("next-addr-attrb", types.YChild{"NextAddrAttrb", &bagDhcpv6dAddrAttrb.NextAddrAttrb})
     bagDhcpv6dAddrAttrb.EntityData.Leafs = types.NewOrderedMap()
     bagDhcpv6dAddrAttrb.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", bagDhcpv6dAddrAttrb.Prefix})
     bagDhcpv6dAddrAttrb.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", bagDhcpv6dAddrAttrb.PrefixLength})
@@ -3686,6 +3852,58 @@ func (bagDhcpv6dAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdP
     bagDhcpv6dAddrAttrb.EntityData.YListKeys = []string {}
 
     return &(bagDhcpv6dAddrAttrb.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb
+// next addr attrb
+type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_Addresses_BagDhcpv6dAddrAttrb_NextAddrAttrb) GetEntityData() *types.CommonEntityData {
+    nextAddrAttrb.EntityData.YFilter = nextAddrAttrb.YFilter
+    nextAddrAttrb.EntityData.YangName = "next-addr-attrb"
+    nextAddrAttrb.EntityData.BundleName = "cisco_ios_xr"
+    nextAddrAttrb.EntityData.ParentYangName = "bag-dhcpv6d-addr-attrb"
+    nextAddrAttrb.EntityData.SegmentPath = "next-addr-attrb"
+    nextAddrAttrb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/server/binding/clients/client/ia-id-pd/bag-dhcpv6d-ia-id-pd-info/addresses/bag-dhcpv6d-addr-attrb/" + nextAddrAttrb.EntityData.SegmentPath
+    nextAddrAttrb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextAddrAttrb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextAddrAttrb.EntityData.Children = types.NewOrderedMap()
+    nextAddrAttrb.EntityData.Leafs = types.NewOrderedMap()
+
+    nextAddrAttrb.EntityData.YListKeys = []string {}
+
+    return &(nextAddrAttrb.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd
+// next iaiapd
+type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextIaiapd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6dIaIdPdInfo_NextIaiapd) GetEntityData() *types.CommonEntityData {
+    nextIaiapd.EntityData.YFilter = nextIaiapd.YFilter
+    nextIaiapd.EntityData.YangName = "next-iaiapd"
+    nextIaiapd.EntityData.BundleName = "cisco_ios_xr"
+    nextIaiapd.EntityData.ParentYangName = "bag-dhcpv6d-ia-id-pd-info"
+    nextIaiapd.EntityData.SegmentPath = "next-iaiapd"
+    nextIaiapd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/server/binding/clients/client/ia-id-pd/bag-dhcpv6d-ia-id-pd-info/" + nextIaiapd.EntityData.SegmentPath
+    nextIaiapd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextIaiapd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextIaiapd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextIaiapd.EntityData.Children = types.NewOrderedMap()
+    nextIaiapd.EntityData.Leafs = types.NewOrderedMap()
+
+    nextIaiapd.EntityData.YListKeys = []string {}
+
+    return &(nextIaiapd.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs
@@ -3730,7 +3948,7 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP server statistics.
@@ -4591,7 +4809,7 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // IPv6 DHCP server profile Info.
@@ -4658,7 +4876,7 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info struct {
     RapidCommit interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileDnsAddress []interface{}
 
     // Server lease time.
@@ -4777,6 +4995,9 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcp
 
     // Interface name. The type is string with length: 0..65.
     ServerReferenceInterfaceName interface{}
+
+    // next interface.
+    NextInterface Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dServerInterfaceReference_NextInterface
 }
 
 func (ipv6Dhcpv6dServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dServerInterfaceReference) GetEntityData() *types.CommonEntityData {
@@ -4791,12 +5012,39 @@ func (ipv6Dhcpv6dServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Pro
     ipv6Dhcpv6dServerInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv6Dhcpv6dServerInterfaceReference.EntityData.Children = types.NewOrderedMap()
+    ipv6Dhcpv6dServerInterfaceReference.EntityData.Children.Append("next-interface", types.YChild{"NextInterface", &ipv6Dhcpv6dServerInterfaceReference.NextInterface})
     ipv6Dhcpv6dServerInterfaceReference.EntityData.Leafs = types.NewOrderedMap()
     ipv6Dhcpv6dServerInterfaceReference.EntityData.Leafs.Append("server-reference-interface-name", types.YLeaf{"ServerReferenceInterfaceName", ipv6Dhcpv6dServerInterfaceReference.ServerReferenceInterfaceName})
 
     ipv6Dhcpv6dServerInterfaceReference.EntityData.YListKeys = []string {}
 
     return &(ipv6Dhcpv6dServerInterfaceReference.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dServerInterfaceReference_NextInterface
+// next interface
+type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dServerInterfaceReference_NextInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextInterface *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6dServerInterfaceReference_NextInterface) GetEntityData() *types.CommonEntityData {
+    nextInterface.EntityData.YFilter = nextInterface.YFilter
+    nextInterface.EntityData.YangName = "next-interface"
+    nextInterface.EntityData.BundleName = "cisco_ios_xr"
+    nextInterface.EntityData.ParentYangName = "ipv6-dhcpv6d-server-interface-reference"
+    nextInterface.EntityData.SegmentPath = "next-interface"
+    nextInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/node/server/profiles/profile/info/interface-references/ipv6-dhcpv6d-server-interface-reference/" + nextInterface.EntityData.SegmentPath
+    nextInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextInterface.EntityData.Children = types.NewOrderedMap()
+    nextInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    nextInterface.EntityData.YListKeys = []string {}
+
+    return &(nextInterface.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos
@@ -4841,11 +5089,11 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo struct
     YListKey string
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     BindingChaddr interface{}
 
     // DHCP access interface. The type is string with length: 0..65.
@@ -4925,7 +5173,7 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass struct 
     YListKey string
 
     // This attribute is a key. Class name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClassName interface{}
 
     // Class name. The type is string with length: 0..65.
@@ -4944,7 +5192,7 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass struct 
     DelegatedPrefixPoolName interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileDnsAddress []interface{}
 }
 
@@ -5016,7 +5264,7 @@ type Dhcpv6_Nodes_Node_Server_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // VRF name. The type is string with length: 0..33.
@@ -5273,7 +5521,7 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption struct
     YListKey string
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string.
@@ -5289,7 +5537,7 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption struct
     Opt17 interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddress []interface{}
 }
 
@@ -5360,7 +5608,7 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption stru
     YListKey string
 
     // This attribute is a key. DUID of Binding. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Duid interface{}
 
     // Client MAC address. The type is string.
@@ -5376,7 +5624,7 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption stru
     Opt17 interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddress []interface{}
 }
 
@@ -5660,7 +5908,7 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -5674,7 +5922,7 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     PrefixLength interface{}
 
     // DHCPV6 IPv6 Prefix allotted to client. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // DHCPv6 client/subscriber Vrf name. The type is string with length: 0..33.
@@ -5691,7 +5939,7 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     InterfaceName interface{}
 
     // Next hop is our address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddr interface{}
 
     // IA_ID of this IA. The type is interface{} with range: 0..4294967295.
@@ -5699,6 +5947,22 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
 
     // Relay Profile name. The type is string with length: 0..65.
     RelayProfileName interface{}
+
+    // L2Intf AC Name. The type is string with length: 0..65.
+    L2IntfAcName interface{}
+
+    // DHCP access interface. The type is string with length: 0..65.
+    Ifname interface{}
+
+    // DHCPV6 SERG state. The type is interface{} with range: 0..4294967295.
+    SergState interface{}
+
+    // DHCPV6 SERG Intf Role. The type is interface{} with range: 0..4294967295.
+    SergIntfRole interface{}
+
+    // Client MAC address. The type is string with pattern:
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    RelayBindingChaddr interface{}
 }
 
 func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetEntityData() *types.CommonEntityData {
@@ -5726,6 +5990,11 @@ func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetEntityData() *t
     client.EntityData.Leafs.Append("next-hop-addr", types.YLeaf{"NextHopAddr", client.NextHopAddr})
     client.EntityData.Leafs.Append("ia-id", types.YLeaf{"IaId", client.IaId})
     client.EntityData.Leafs.Append("relay-profile-name", types.YLeaf{"RelayProfileName", client.RelayProfileName})
+    client.EntityData.Leafs.Append("l2-intf-ac-name", types.YLeaf{"L2IntfAcName", client.L2IntfAcName})
+    client.EntityData.Leafs.Append("ifname", types.YLeaf{"Ifname", client.Ifname})
+    client.EntityData.Leafs.Append("serg-state", types.YLeaf{"SergState", client.SergState})
+    client.EntityData.Leafs.Append("serg-intf-role", types.YLeaf{"SergIntfRole", client.SergIntfRole})
+    client.EntityData.Leafs.Append("relay-binding-chaddr", types.YLeaf{"RelayBindingChaddr", client.RelayBindingChaddr})
 
     client.EntityData.YListKeys = []string {"ClientId"}
 
@@ -5774,7 +6043,7 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP relay statistics.

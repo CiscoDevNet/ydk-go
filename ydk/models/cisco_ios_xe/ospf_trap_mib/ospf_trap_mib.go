@@ -61,7 +61,7 @@ type OSPFTRAPMIB_OspfTrapControl struct {
     // where a 1 in the bit field represents enabled.  The right-most bit (least
     // significant) represents trap 0.  This object is persistent and when written
     // the entity SHOULD save the change to non-volatile storage. The type is
-    // string with length: 4.
+    // string with length: 4..4.
     OspfSetTrap interface{}
 
     // Potential types of configuration conflicts. Used by the ospfConfigError and
@@ -80,7 +80,7 @@ type OSPFTRAPMIB_OspfTrapControl struct {
     // instance.  When the last value of a trap using this object is needed, but
     // no traps of that type have been sent, this value pertaining to this object
     // should be returned as 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     OspfPacketSrc interface{}
 }
 

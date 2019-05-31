@@ -120,7 +120,7 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -732,10 +732,12 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP Address. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Prefix Mask. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -1022,7 +1024,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct 
     YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -1307,10 +1309,12 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP Address. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Prefix Mask. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -1597,7 +1601,7 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
     YListKey string
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.

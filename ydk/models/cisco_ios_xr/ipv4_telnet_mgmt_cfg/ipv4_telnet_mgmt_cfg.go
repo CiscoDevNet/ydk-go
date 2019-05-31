@@ -95,7 +95,7 @@ type Telnet_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 configuration.

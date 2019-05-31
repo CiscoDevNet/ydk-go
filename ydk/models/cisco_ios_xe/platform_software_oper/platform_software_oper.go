@@ -825,7 +825,7 @@ type CiscoPlatformSoftware_QFilesystem_CoreFiles struct {
     Filename interface{}
 
     // The date of generation. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Time interface{}
 }
 

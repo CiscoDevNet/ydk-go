@@ -20,35 +20,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package iana_rtproto_mib"))
 }
 
-// IANAipMRouteProtocol represents those protocols need be supported.
-type IANAipMRouteProtocol string
-
-const (
-    IANAipMRouteProtocol_other IANAipMRouteProtocol = "other"
-
-    IANAipMRouteProtocol_local IANAipMRouteProtocol = "local"
-
-    IANAipMRouteProtocol_netmgmt IANAipMRouteProtocol = "netmgmt"
-
-    IANAipMRouteProtocol_dvmrp IANAipMRouteProtocol = "dvmrp"
-
-    IANAipMRouteProtocol_mospf IANAipMRouteProtocol = "mospf"
-
-    IANAipMRouteProtocol_pimSparseDense IANAipMRouteProtocol = "pimSparseDense"
-
-    IANAipMRouteProtocol_cbt IANAipMRouteProtocol = "cbt"
-
-    IANAipMRouteProtocol_pimSparseMode IANAipMRouteProtocol = "pimSparseMode"
-
-    IANAipMRouteProtocol_pimDenseMode IANAipMRouteProtocol = "pimDenseMode"
-
-    IANAipMRouteProtocol_igmpOnly IANAipMRouteProtocol = "igmpOnly"
-
-    IANAipMRouteProtocol_bgmp IANAipMRouteProtocol = "bgmp"
-
-    IANAipMRouteProtocol_msdp IANAipMRouteProtocol = "msdp"
-)
-
 // IANAipRouteProtocol represents protocols need be supported.
 type IANAipRouteProtocol string
 
@@ -86,5 +57,34 @@ const (
     IANAipRouteProtocol_ciscoEigrp IANAipRouteProtocol = "ciscoEigrp"
 
     IANAipRouteProtocol_dvmrp IANAipRouteProtocol = "dvmrp"
+)
+
+// IANAipMRouteProtocol represents those protocols need be supported.
+type IANAipMRouteProtocol string
+
+const (
+    IANAipMRouteProtocol_other IANAipMRouteProtocol = "other"
+
+    IANAipMRouteProtocol_local IANAipMRouteProtocol = "local"
+
+    IANAipMRouteProtocol_netmgmt IANAipMRouteProtocol = "netmgmt"
+
+    IANAipMRouteProtocol_dvmrp IANAipMRouteProtocol = "dvmrp"
+
+    IANAipMRouteProtocol_mospf IANAipMRouteProtocol = "mospf"
+
+    IANAipMRouteProtocol_pimSparseDense IANAipMRouteProtocol = "pimSparseDense"
+
+    IANAipMRouteProtocol_cbt IANAipMRouteProtocol = "cbt"
+
+    IANAipMRouteProtocol_pimSparseMode IANAipMRouteProtocol = "pimSparseMode"
+
+    IANAipMRouteProtocol_pimDenseMode IANAipMRouteProtocol = "pimDenseMode"
+
+    IANAipMRouteProtocol_igmpOnly IANAipMRouteProtocol = "igmpOnly"
+
+    IANAipMRouteProtocol_bgmp IANAipMRouteProtocol = "bgmp"
+
+    IANAipMRouteProtocol_msdp IANAipMRouteProtocol = "msdp"
 )
 

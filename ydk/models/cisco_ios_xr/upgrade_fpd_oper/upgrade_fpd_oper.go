@@ -20,144 +20,9 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package upgrade_fpd_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-upgrade-fpd-oper fpd}", reflect.TypeOf(Fpd{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-upgrade-fpd-oper:fpd", reflect.TypeOf(Fpd{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-upgrade-fpd-oper fpd}", reflect.TypeOf(Fpd_{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-upgrade-fpd-oper:fpd", reflect.TypeOf(Fpd_{}))
 }
-
-// FpdSub1 represents FPD sub types
-type FpdSub1 string
-
-const (
-    // FPGA device
-    FpdSub1_fpga1 FpdSub1 = "fpga1"
-
-    // ROMMON device
-    FpdSub1_rommon FpdSub1 = "rommon"
-
-    // ROMMONA device
-    FpdSub1_rommona FpdSub1 = "rommona"
-
-    // Fabric loader
-    FpdSub1_fabric_loader FpdSub1 = "fabric-loader"
-
-    // FPGA device
-    FpdSub1_fpga2 FpdSub1 = "fpga2"
-
-    // FPGA device
-    FpdSub1_fpga3 FpdSub1 = "fpga3"
-
-    // FPGA device
-    FpdSub1_fpga4 FpdSub1 = "fpga4"
-
-    // FPGA device
-    FpdSub1_fpga5 FpdSub1 = "fpga5"
-
-    // FPGA device
-    FpdSub1_fpga6 FpdSub1 = "fpga6"
-
-    // FPGA device
-    FpdSub1_fpga7 FpdSub1 = "fpga7"
-
-    // FPGA device
-    FpdSub1_fpga8 FpdSub1 = "fpga8"
-
-    // FPGA device
-    FpdSub1_fpga9 FpdSub1 = "fpga9"
-
-    // FPGA device
-    FpdSub1_fpga10 FpdSub1 = "fpga10"
-
-    // FPGA device
-    FpdSub1_fpga11 FpdSub1 = "fpga11"
-
-    // FPGA device
-    FpdSub1_fpga12 FpdSub1 = "fpga12"
-
-    // FPGA device
-    FpdSub1_fpga13 FpdSub1 = "fpga13"
-
-    // FPGA device
-    FpdSub1_fpga14 FpdSub1 = "fpga14"
-
-    // CPLD device
-    FpdSub1_cpld1 FpdSub1 = "cpld1"
-
-    // CPLD device
-    FpdSub1_cpld2 FpdSub1 = "cpld2"
-
-    // CPLD device
-    FpdSub1_cpld3 FpdSub1 = "cpld3"
-
-    // CPLD device
-    FpdSub1_cpld4 FpdSub1 = "cpld4"
-
-    // CPLD device
-    FpdSub1_cpld5 FpdSub1 = "cpld5"
-
-    // CPLD device
-    FpdSub1_cpld6 FpdSub1 = "cpld6"
-
-    // CAN bus controller
-    FpdSub1_cbc FpdSub1 = "cbc"
-
-    // HSBI image
-    FpdSub1_hsbi FpdSub1 = "hsbi"
-
-    // Fabric Tx POD
-    FpdSub1_txpod FpdSub1 = "txpod"
-
-    // Fabric Rx POD
-    FpdSub1_rxpod FpdSub1 = "rxpod"
-
-    // IBMC
-    FpdSub1_ibmc FpdSub1 = "ibmc"
-
-    // FSBL
-    FpdSub1_fsbl FpdSub1 = "fsbl"
-
-    // Linux firmware
-    FpdSub1_lnx FpdSub1 = "lnx"
-
-    // FPGA device
-    FpdSub1_fpga15 FpdSub1 = "fpga15"
-
-    // FPGA device
-    FpdSub1_fpga16 FpdSub1 = "fpga16"
-
-    // FC FSBL
-    FpdSub1_fc_fsbl FpdSub1 = "fc-fsbl"
-
-    // FC linux firmware
-    FpdSub1_fc_lnx FpdSub1 = "fc-lnx"
-)
-
-// Fpd represents Fpd
-type Fpd string
-
-const (
-    // SPA class of fpd
-    Fpd_spa Fpd = "spa"
-
-    // Linecard class of fpd
-    Fpd_lc Fpd = "lc"
-
-    // SAM class of fpd
-    Fpd_sam Fpd = "sam"
-)
-
-// Fpd1 represents FPD types
-type Fpd1 string
-
-const (
-    // Shared port adapter
-    Fpd1_spa Fpd1 = "spa"
-
-    // Line card
-    Fpd1_lc Fpd1 = "lc"
-
-    // Service acceleration module
-    Fpd1_sam Fpd1 = "sam"
-)
 
 // FpdSub represents Fpd sub
 type FpdSub string
@@ -266,51 +131,186 @@ const (
     FpdSub_fc_lnx FpdSub = "fc-lnx"
 )
 
-// Fpd
+// Fpd represents Fpd
+type Fpd string
+
+const (
+    // SPA class of fpd
+    Fpd_spa Fpd = "spa"
+
+    // Linecard class of fpd
+    Fpd_lc Fpd = "lc"
+
+    // SAM class of fpd
+    Fpd_sam Fpd = "sam"
+)
+
+// FpdSub1 represents FPD sub types
+type FpdSub1 string
+
+const (
+    // FPGA device
+    FpdSub1_fpga1 FpdSub1 = "fpga1"
+
+    // ROMMON device
+    FpdSub1_rommon FpdSub1 = "rommon"
+
+    // ROMMONA device
+    FpdSub1_rommona FpdSub1 = "rommona"
+
+    // Fabric loader
+    FpdSub1_fabric_loader FpdSub1 = "fabric-loader"
+
+    // FPGA device
+    FpdSub1_fpga2 FpdSub1 = "fpga2"
+
+    // FPGA device
+    FpdSub1_fpga3 FpdSub1 = "fpga3"
+
+    // FPGA device
+    FpdSub1_fpga4 FpdSub1 = "fpga4"
+
+    // FPGA device
+    FpdSub1_fpga5 FpdSub1 = "fpga5"
+
+    // FPGA device
+    FpdSub1_fpga6 FpdSub1 = "fpga6"
+
+    // FPGA device
+    FpdSub1_fpga7 FpdSub1 = "fpga7"
+
+    // FPGA device
+    FpdSub1_fpga8 FpdSub1 = "fpga8"
+
+    // FPGA device
+    FpdSub1_fpga9 FpdSub1 = "fpga9"
+
+    // FPGA device
+    FpdSub1_fpga10 FpdSub1 = "fpga10"
+
+    // FPGA device
+    FpdSub1_fpga11 FpdSub1 = "fpga11"
+
+    // FPGA device
+    FpdSub1_fpga12 FpdSub1 = "fpga12"
+
+    // FPGA device
+    FpdSub1_fpga13 FpdSub1 = "fpga13"
+
+    // FPGA device
+    FpdSub1_fpga14 FpdSub1 = "fpga14"
+
+    // CPLD device
+    FpdSub1_cpld1 FpdSub1 = "cpld1"
+
+    // CPLD device
+    FpdSub1_cpld2 FpdSub1 = "cpld2"
+
+    // CPLD device
+    FpdSub1_cpld3 FpdSub1 = "cpld3"
+
+    // CPLD device
+    FpdSub1_cpld4 FpdSub1 = "cpld4"
+
+    // CPLD device
+    FpdSub1_cpld5 FpdSub1 = "cpld5"
+
+    // CPLD device
+    FpdSub1_cpld6 FpdSub1 = "cpld6"
+
+    // CAN bus controller
+    FpdSub1_cbc FpdSub1 = "cbc"
+
+    // HSBI image
+    FpdSub1_hsbi FpdSub1 = "hsbi"
+
+    // Fabric Tx POD
+    FpdSub1_txpod FpdSub1 = "txpod"
+
+    // Fabric Rx POD
+    FpdSub1_rxpod FpdSub1 = "rxpod"
+
+    // IBMC
+    FpdSub1_ibmc FpdSub1 = "ibmc"
+
+    // FSBL
+    FpdSub1_fsbl FpdSub1 = "fsbl"
+
+    // Linux firmware
+    FpdSub1_lnx FpdSub1 = "lnx"
+
+    // FPGA device
+    FpdSub1_fpga15 FpdSub1 = "fpga15"
+
+    // FPGA device
+    FpdSub1_fpga16 FpdSub1 = "fpga16"
+
+    // FC FSBL
+    FpdSub1_fc_fsbl FpdSub1 = "fc-fsbl"
+
+    // FC linux firmware
+    FpdSub1_fc_lnx FpdSub1 = "fc-lnx"
+)
+
+// Fpd1 represents FPD types
+type Fpd1 string
+
+const (
+    // Shared port adapter
+    Fpd1_spa Fpd1 = "spa"
+
+    // Line card
+    Fpd1_lc Fpd1 = "lc"
+
+    // Service acceleration module
+    Fpd1_sam Fpd1 = "sam"
+)
+
+// Fpd_
 // Field programmable device (FPD) operational data
-type Fpd struct {
+type Fpd_ struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of FPD supported nodes.
-    Nodes Fpd_Nodes
+    Nodes Fpd__Nodes
 
     // FPD packages information.
-    Packages Fpd_Packages
+    Packages Fpd__Packages
 }
 
-func (fpd *Fpd) GetEntityData() *types.CommonEntityData {
-    fpd.EntityData.YFilter = fpd.YFilter
-    fpd.EntityData.YangName = "fpd"
-    fpd.EntityData.BundleName = "cisco_ios_xr"
-    fpd.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-oper"
-    fpd.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-oper:fpd"
-    fpd.EntityData.AbsolutePath = fpd.EntityData.SegmentPath
-    fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fpd_ *Fpd_) GetEntityData() *types.CommonEntityData {
+    fpd_.EntityData.YFilter = fpd_.YFilter
+    fpd_.EntityData.YangName = "fpd"
+    fpd_.EntityData.BundleName = "cisco_ios_xr"
+    fpd_.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-oper"
+    fpd_.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-oper:fpd"
+    fpd_.EntityData.AbsolutePath = fpd_.EntityData.SegmentPath
+    fpd_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpd_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpd_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd.EntityData.Children = types.NewOrderedMap()
-    fpd.EntityData.Children.Append("nodes", types.YChild{"Nodes", &fpd.Nodes})
-    fpd.EntityData.Children.Append("packages", types.YChild{"Packages", &fpd.Packages})
-    fpd.EntityData.Leafs = types.NewOrderedMap()
+    fpd_.EntityData.Children = types.NewOrderedMap()
+    fpd_.EntityData.Children.Append("nodes", types.YChild{"Nodes", &fpd_.Nodes})
+    fpd_.EntityData.Children.Append("packages", types.YChild{"Packages", &fpd_.Packages})
+    fpd_.EntityData.Leafs = types.NewOrderedMap()
 
-    fpd.EntityData.YListKeys = []string {}
+    fpd_.EntityData.YListKeys = []string {}
 
-    return &(fpd.EntityData)
+    return &(fpd_.EntityData)
 }
 
-// Fpd_Nodes
+// Fpd__Nodes
 // List of FPD supported nodes
-type Fpd_Nodes struct {
+type Fpd__Nodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Information about a particular node. The type is slice of Fpd_Nodes_Node.
-    Node []*Fpd_Nodes_Node
+    // Information about a particular node. The type is slice of Fpd__Nodes_Node.
+    Node []*Fpd__Nodes_Node
 }
 
-func (nodes *Fpd_Nodes) GetEntityData() *types.CommonEntityData {
+func (nodes *Fpd__Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.YFilter = nodes.YFilter
     nodes.EntityData.YangName = "nodes"
     nodes.EntityData.BundleName = "cisco_ios_xr"
@@ -333,22 +333,22 @@ func (nodes *Fpd_Nodes) GetEntityData() *types.CommonEntityData {
     return &(nodes.EntityData)
 }
 
-// Fpd_Nodes_Node
+// Fpd__Nodes_Node
 // Information about a particular node
-type Fpd_Nodes_Node struct {
+type Fpd__Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // FPD information table.
-    Devices Fpd_Nodes_Node_Devices
+    Devices Fpd__Nodes_Node_Devices
 }
 
-func (node *Fpd_Nodes_Node) GetEntityData() *types.CommonEntityData {
+func (node *Fpd__Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YFilter = node.YFilter
     node.EntityData.YangName = "node"
     node.EntityData.BundleName = "cisco_ios_xr"
@@ -369,18 +369,18 @@ func (node *Fpd_Nodes_Node) GetEntityData() *types.CommonEntityData {
     return &(node.EntityData)
 }
 
-// Fpd_Nodes_Node_Devices
+// Fpd__Nodes_Node_Devices
 // FPD information table
-type Fpd_Nodes_Node_Devices struct {
+type Fpd__Nodes_Node_Devices struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FPD information for a particular fpd type. The type is slice of
-    // Fpd_Nodes_Node_Devices_Device.
-    Device []*Fpd_Nodes_Node_Devices_Device
+    // Fpd__Nodes_Node_Devices_Device.
+    Device []*Fpd__Nodes_Node_Devices_Device
 }
 
-func (devices *Fpd_Nodes_Node_Devices) GetEntityData() *types.CommonEntityData {
+func (devices *Fpd__Nodes_Node_Devices) GetEntityData() *types.CommonEntityData {
     devices.EntityData.YFilter = devices.YFilter
     devices.EntityData.YangName = "devices"
     devices.EntityData.BundleName = "cisco_ios_xr"
@@ -404,9 +404,9 @@ func (devices *Fpd_Nodes_Node_Devices) GetEntityData() *types.CommonEntityData {
     return &(devices.EntityData)
 }
 
-// Fpd_Nodes_Node_Devices_Device
+// Fpd__Nodes_Node_Devices_Device
 // FPD information for a particular fpd type
-type Fpd_Nodes_Node_Devices_Device struct {
+type Fpd__Nodes_Node_Devices_Device struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -436,7 +436,7 @@ type Fpd_Nodes_Node_Devices_Device struct {
     IsUpgradeDowngrade interface{}
 }
 
-func (device *Fpd_Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntityData {
+func (device *Fpd__Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntityData {
     device.EntityData.YFilter = device.YFilter
     device.EntityData.YangName = "device"
     device.EntityData.BundleName = "cisco_ios_xr"
@@ -462,17 +462,17 @@ func (device *Fpd_Nodes_Node_Devices_Device) GetEntityData() *types.CommonEntity
     return &(device.EntityData)
 }
 
-// Fpd_Packages
+// Fpd__Packages
 // FPD packages information
-type Fpd_Packages struct {
+type Fpd__Packages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of packages. The type is slice of Fpd_Packages_AllPackage.
-    AllPackage []*Fpd_Packages_AllPackage
+    // List of packages. The type is slice of Fpd__Packages_AllPackage.
+    AllPackage []*Fpd__Packages_AllPackage
 }
 
-func (packages *Fpd_Packages) GetEntityData() *types.CommonEntityData {
+func (packages *Fpd__Packages) GetEntityData() *types.CommonEntityData {
     packages.EntityData.YFilter = packages.YFilter
     packages.EntityData.YangName = "packages"
     packages.EntityData.BundleName = "cisco_ios_xr"
@@ -496,9 +496,9 @@ func (packages *Fpd_Packages) GetEntityData() *types.CommonEntityData {
     return &(packages.EntityData)
 }
 
-// Fpd_Packages_AllPackage
+// Fpd__Packages_AllPackage
 // List of packages
-type Fpd_Packages_AllPackage struct {
+type Fpd__Packages_AllPackage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -530,7 +530,7 @@ type Fpd_Packages_AllPackage struct {
     MinimumRequiredHardwareVersion interface{}
 }
 
-func (allPackage *Fpd_Packages_AllPackage) GetEntityData() *types.CommonEntityData {
+func (allPackage *Fpd__Packages_AllPackage) GetEntityData() *types.CommonEntityData {
     allPackage.EntityData.YFilter = allPackage.YFilter
     allPackage.EntityData.YangName = "all-package"
     allPackage.EntityData.BundleName = "cisco_ios_xr"

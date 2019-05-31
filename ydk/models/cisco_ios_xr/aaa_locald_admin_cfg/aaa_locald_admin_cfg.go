@@ -183,7 +183,7 @@ type Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername struc
     YListKey string
 
     // This attribute is a key. Name of the usergroup. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 }
 
@@ -217,13 +217,13 @@ type Aaa_Usernames_Username_Secret struct {
     Type interface{}
 
     // The user's secret password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Secret5 interface{}
 
-    // Type 8 password. The type is string with pattern: (!.+)|([^!].+).
+    // Type 8 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Secret8 interface{}
 
-    // Type 9 password. The type is string with pattern: (!.+)|([^!].+).
+    // Type 9 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Secret9 interface{}
 }
 

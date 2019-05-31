@@ -19,6 +19,23 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-dhcp-oper:dhcp-oper-data", reflect.TypeOf(DhcpOperData{}))
 }
 
+// DhcpServerBindingState represents DHCP server binding states 
+type DhcpServerBindingState string
+
+const (
+    // Server state is in Selecting mode
+    DhcpServerBindingState_dhcp_server_binding_state_selecting DhcpServerBindingState = "dhcp-server-binding-state-selecting"
+
+    // Server state Active new address provided
+    DhcpServerBindingState_dhcp_server_binding_state_active DhcpServerBindingState = "dhcp-server-binding-state-active"
+
+    // Server terminated the connection with a client
+    DhcpServerBindingState_dhcp_server_binding_state_terminated DhcpServerBindingState = "dhcp-server-binding-state-terminated"
+
+    // Server state unknown
+    DhcpServerBindingState_dhcp_server_binding_state_unknown DhcpServerBindingState = "dhcp-server-binding-state-unknown"
+)
+
 // DhcpServerBindingType represents DHCP server binding type
 type DhcpServerBindingType string
 
@@ -43,34 +60,6 @@ const (
 
     // Server binding type remembered
     DhcpServerBindingType_dhcp_server_binding_type_remembered DhcpServerBindingType = "dhcp-server-binding-type-remembered"
-)
-
-// DhcpExpiryOption represents DHCP expiration option 
-type DhcpExpiryOption string
-
-const (
-    // Expiration option time
-    DhcpExpiryOption_dhcp_expiration_time DhcpExpiryOption = "dhcp-expiration-time"
-
-    // Expiration option infinite
-    DhcpExpiryOption_dhcp_expiration_infinite DhcpExpiryOption = "dhcp-expiration-infinite"
-)
-
-// DhcpClientIdType represents DHCP Client id hardware types 
-type DhcpClientIdType string
-
-const (
-    // DHCP Client hardware type Ethernet
-    DhcpClientIdType_dhcp_htype_ethernet DhcpClientIdType = "dhcp-htype-ethernet"
-
-    // DHCP Client hardware type 802
-    DhcpClientIdType_dhcp_htype_ieee802 DhcpClientIdType = "dhcp-htype-ieee802"
-
-    // DHCP Client hardware type RFCLIMIT
-    DhcpClientIdType_dhcp_htype_rfclimit DhcpClientIdType = "dhcp-htype-rfclimit"
-
-    // DHCP Client hardware type CLIENTID
-    DhcpClientIdType_dhcp_htype_clientid DhcpClientIdType = "dhcp-htype-clientid"
 )
 
 // DhcpClientState represents DHCP Client state
@@ -120,21 +109,32 @@ const (
     DhcpClientState_dhcp_client_state_unknown DhcpClientState = "dhcp-client-state-unknown"
 )
 
-// DhcpServerBindingState represents DHCP server binding states 
-type DhcpServerBindingState string
+// DhcpExpiryOption represents DHCP expiration option 
+type DhcpExpiryOption string
 
 const (
-    // Server state is in Selecting mode
-    DhcpServerBindingState_dhcp_server_binding_state_selecting DhcpServerBindingState = "dhcp-server-binding-state-selecting"
+    // Expiration option time
+    DhcpExpiryOption_dhcp_expiration_time DhcpExpiryOption = "dhcp-expiration-time"
 
-    // Server state Active new address provided
-    DhcpServerBindingState_dhcp_server_binding_state_active DhcpServerBindingState = "dhcp-server-binding-state-active"
+    // Expiration option infinite
+    DhcpExpiryOption_dhcp_expiration_infinite DhcpExpiryOption = "dhcp-expiration-infinite"
+)
 
-    // Server terminated the connection with a client
-    DhcpServerBindingState_dhcp_server_binding_state_terminated DhcpServerBindingState = "dhcp-server-binding-state-terminated"
+// DhcpClientIdType represents DHCP Client id hardware types 
+type DhcpClientIdType string
 
-    // Server state unknown
-    DhcpServerBindingState_dhcp_server_binding_state_unknown DhcpServerBindingState = "dhcp-server-binding-state-unknown"
+const (
+    // DHCP Client hardware type Ethernet
+    DhcpClientIdType_dhcp_htype_ethernet DhcpClientIdType = "dhcp-htype-ethernet"
+
+    // DHCP Client hardware type 802
+    DhcpClientIdType_dhcp_htype_ieee802 DhcpClientIdType = "dhcp-htype-ieee802"
+
+    // DHCP Client hardware type RFCLIMIT
+    DhcpClientIdType_dhcp_htype_rfclimit DhcpClientIdType = "dhcp-htype-rfclimit"
+
+    // DHCP Client hardware type CLIENTID
+    DhcpClientIdType_dhcp_htype_clientid DhcpClientIdType = "dhcp-htype-clientid"
 )
 
 // DhcpOperData
@@ -191,9 +191,9 @@ type DhcpOperData_Dhcpv4ServerOper struct {
 
     // This attribute is a key. ipaddress released for a speicfic Client  from
     // Server. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ClientIp interface{}
 
     // This attribute is a key. Query based on the vrfname speicfic to that pool
@@ -255,7 +255,7 @@ type DhcpOperData_Dhcpv4ServerOper_Expiration struct {
     YFilter yfilter.YFilter
 
     // Date and time of expiry . The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Time interface{}
 
     // Expiry time infinite. The type is interface{}.
@@ -296,9 +296,9 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // This attribute is a key. Client_addr address Allocated from Server. The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ClientAddr interface{}
 
     // This attribute is a key. Vrfname infomation related to Client. The type is
@@ -310,16 +310,16 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // IP address of Server from where we got IP. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LeaseServerAddr interface{}
 
     // Gateway Address we got from Server. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GatewayAddr interface{}
 
     // Total Lease Time in Seconds. The type is interface{} with range:
@@ -332,23 +332,23 @@ type DhcpOperData_Dhcpv4ClientOper struct {
 
     // First DNS address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddress interface{}
 
     // Secondary DNS address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddressSecondary interface{}
 
     // Subnet mask address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SubnetMask interface{}
 
     // Lease Expiry time for the IP address we got.
@@ -393,7 +393,7 @@ type DhcpOperData_Dhcpv4ClientOper_LeaseExpiry struct {
     YFilter yfilter.YFilter
 
     // Date and time of expiry . The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Time interface{}
 
     // Expiry time infinite. The type is interface{}.

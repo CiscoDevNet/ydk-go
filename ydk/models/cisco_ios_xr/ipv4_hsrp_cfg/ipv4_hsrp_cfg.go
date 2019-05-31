@@ -119,7 +119,7 @@ type Hsrp_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // HSRP MGO slave MAC refresh rate. The type is interface{} with range:
@@ -293,7 +293,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group struct {
     SessionName interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Enable use of Bidirectional Forwarding Detection.
@@ -353,11 +353,11 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -425,7 +425,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_Trac
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -497,7 +497,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_Tracked
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -589,7 +589,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_LinkLocalIpv6Address s
     YFilter yfilter.YFilter
 
     // HSRP IPv6 virtual linklocal address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Linklocal Configuration Type. The type is HsrpLinklocal. The default value
@@ -662,7 +662,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_Gl
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -735,7 +735,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup struct {
     Follow interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // The HSRP IPv6 virtual linklocal address.
@@ -776,7 +776,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_LinkLocalIpv6Address 
     YFilter yfilter.YFilter
 
     // HSRP IPv6 virtual linklocal address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Linklocal Configuration Type. The type is HsrpLinklocal. The default value
@@ -849,7 +849,7 @@ type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_G
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1034,11 +1034,11 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup struct {
     Follow interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Primary HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryIpv4Address interface{}
 
     // Secondary HSRP IP address Table.
@@ -1111,7 +1111,7 @@ type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresse
     YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1226,7 +1226,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group struct {
     Preempt interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // The HSRP tracked interface configuration table.
@@ -1322,7 +1322,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_Trac
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1359,11 +1359,11 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -1431,7 +1431,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_Tracked
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1527,7 +1527,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_PrimaryIpv4Address str
     VirtualIpLearn interface{}
 
     // HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1594,7 +1594,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses
     YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1702,7 +1702,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group struct {
     Priority interface{}
 
     // HSRP MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // HSRP Session name (for MGO). The type is string with length: 1..16.
@@ -1799,7 +1799,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses
     YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1831,11 +1831,11 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Bfd struct {
     YFilter yfilter.YFilter
 
     // Enable BFD for this remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -1871,7 +1871,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_PrimaryIpv4Address str
     VirtualIpLearn interface{}
 
     // HSRP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -1939,7 +1939,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_Tracked
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -2011,7 +2011,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_Trac
     YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This

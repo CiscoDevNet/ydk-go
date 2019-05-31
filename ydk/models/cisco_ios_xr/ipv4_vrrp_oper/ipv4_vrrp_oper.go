@@ -24,6 +24,23 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-vrrp-oper:vrrp", reflect.TypeOf(Vrrp{}))
 }
 
+// VrrpVmacState represents Vrrp vmac state
+type VrrpVmacState string
+
+const (
+    // VMAC stored locally
+    VrrpVmacState_stored VrrpVmacState = "stored"
+
+    // VMAC reserved in mac table
+    VrrpVmacState_reserved VrrpVmacState = "reserved"
+
+    // VMAC active in mac table
+    VrrpVmacState_active VrrpVmacState = "active"
+
+    // VMAC not yet reserved in mac table
+    VrrpVmacState_reserving VrrpVmacState = "reserving"
+)
+
 // VrrpStateChangeReason represents Vrrp state change reason
 type VrrpStateChangeReason string
 
@@ -68,62 +85,6 @@ const (
     VrrpStateChangeReason_state_change_issu_resync VrrpStateChangeReason = "state-change-issu-resync"
 )
 
-// VrrpVmacState represents Vrrp vmac state
-type VrrpVmacState string
-
-const (
-    // VMAC stored locally
-    VrrpVmacState_stored VrrpVmacState = "stored"
-
-    // VMAC reserved in mac table
-    VrrpVmacState_reserved VrrpVmacState = "reserved"
-
-    // VMAC active in mac table
-    VrrpVmacState_active VrrpVmacState = "active"
-
-    // VMAC not yet reserved in mac table
-    VrrpVmacState_reserving VrrpVmacState = "reserving"
-)
-
-// VrrpBAf represents Vrrp b af
-type VrrpBAf string
-
-const (
-    // IPv4 Address Family
-    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
-
-    // IPv6 Address Family
-    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
-
-    // Number of Adddress Families
-    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
-)
-
-// VrrpVipState represents Vrrp vip state
-type VrrpVipState string
-
-const (
-    // Down
-    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
-
-    // Up
-    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
-)
-
-// VrrpProtAuth represents Vrrp prot auth
-type VrrpProtAuth string
-
-const (
-    // Down
-    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
-
-    // Simple Text
-    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
-
-    // IP header
-    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
-)
-
 // VrrpBfdSessionState represents Vrrp bfd session state
 type VrrpBfdSessionState string
 
@@ -141,6 +102,20 @@ const (
     VrrpBfdSessionState_bfd_state_down VrrpBfdSessionState = "bfd-state-down"
 )
 
+// VrrpProtAuth represents Vrrp prot auth
+type VrrpProtAuth string
+
+const (
+    // Down
+    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
+
+    // Simple Text
+    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
+
+    // IP header
+    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
+)
+
 // VrrpBagProtocolState represents VRRP protocol state
 type VrrpBagProtocolState string
 
@@ -153,6 +128,31 @@ const (
 
     // Master
     VrrpBagProtocolState_state_master VrrpBagProtocolState = "state-master"
+)
+
+// VrrpVipState represents Vrrp vip state
+type VrrpVipState string
+
+const (
+    // Down
+    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
+
+    // Up
+    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
+)
+
+// VrrpBAf represents Vrrp b af
+type VrrpBAf string
+
+const (
+    // IPv4 Address Family
+    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
+
+    // IPv6 Address Family
+    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
+
+    // Number of Adddress Families
+    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
 )
 
 // Vrrp
@@ -533,7 +533,7 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     YListKey string
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -541,10 +541,10 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -633,7 +633,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -673,7 +673,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -681,18 +681,18 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -847,38 +847,38 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -1096,7 +1096,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1128,7 +1128,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1159,7 +1159,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1324,10 +1324,10 @@ type Vrrp_Ipv6_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
@@ -1449,10 +1449,10 @@ type Vrrp_Ipv4_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
@@ -1536,7 +1536,7 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     YListKey string
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -1544,10 +1544,10 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1636,7 +1636,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -1676,7 +1676,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -1684,18 +1684,18 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -1850,38 +1850,38 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -2099,7 +2099,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2131,7 +2131,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2162,7 +2162,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -2326,14 +2326,14 @@ type Vrrp_MgoSessions_MgoSession struct {
     YListKey string
 
     // This attribute is a key. The name of the session. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SessionName interface{}
 
     // Session Name. The type is string with length: 0..16.
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is VrrpBAf.

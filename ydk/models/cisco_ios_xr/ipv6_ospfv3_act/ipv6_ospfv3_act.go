@@ -410,10 +410,10 @@ type ClearOspfv3StatisticsNeighbor_Input_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NeighborId interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -732,7 +732,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NeighborId interface{}
 
     
@@ -766,7 +766,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_Vrf_Stats_Neighbor_Interface struct {
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -877,7 +877,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NeighborId interface{}
 
     
@@ -911,7 +911,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_All_Stats_Neighbor_Interface struct {
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -1022,7 +1022,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor struct {
     YFilter yfilter.YFilter
 
     // Neighbor ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NeighborId interface{}
 
     
@@ -1056,7 +1056,7 @@ type ClearOspfv3InstanceVrf_Input_Instance_AllInclusive_Stats_Neighbor_Interface
     YFilter yfilter.YFilter
 
     // OSPFv3 interface statistics. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 

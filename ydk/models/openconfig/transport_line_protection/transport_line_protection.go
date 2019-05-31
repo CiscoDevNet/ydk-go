@@ -24,18 +24,18 @@ func init() {
     ydk.RegisterEntity("openconfig-transport-line-protection:aps", reflect.TypeOf(Aps{}))
 }
 
-type PRIMARY struct {
-}
-
-func (id PRIMARY) String() string {
-	return "openconfig-transport-line-protection:PRIMARY"
-}
-
 type APSPATHS struct {
 }
 
 func (id APSPATHS) String() string {
 	return "openconfig-transport-line-protection:APS_PATHS"
+}
+
+type PRIMARY struct {
+}
+
+func (id PRIMARY) String() string {
+	return "openconfig-transport-line-protection:PRIMARY"
 }
 
 type SECONDARY struct {

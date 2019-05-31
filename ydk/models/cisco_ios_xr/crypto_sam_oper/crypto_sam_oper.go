@@ -24,6 +24,35 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-sam-oper:sam", reflect.TypeOf(Sam{}))
 }
 
+// LogTables represents Log tables
+type LogTables string
+
+const (
+    // Table is not known
+    LogTables_unkown LogTables = "unkown"
+
+    // Table is memory digest table
+    LogTables_memory_digest_table LogTables = "memory-digest-table"
+
+    // Table is system database digest table
+    LogTables_system_database_digest LogTables = "system-database-digest"
+
+    // Table is SAM table
+    LogTables_sam_tables LogTables = "sam-tables"
+)
+
+// CertificateIssuer represents Certificate issuers
+type CertificateIssuer string
+
+const (
+    // Issuer is not known
+    CertificateIssuer_unknown CertificateIssuer = "unknown"
+
+    // Issuer is code signing server certificate
+    // authority
+    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
+)
+
 // LogError represents Log errors
 type LogError string
 
@@ -109,35 +138,6 @@ const (
     // Log code is SAM system database name space
     // deleted/recovered by SAM
     LogCode_namespace_deleted_recovered_by_sam LogCode = "namespace-deleted-recovered-by-sam"
-)
-
-// CertificateIssuer represents Certificate issuers
-type CertificateIssuer string
-
-const (
-    // Issuer is not known
-    CertificateIssuer_unknown CertificateIssuer = "unknown"
-
-    // Issuer is code signing server certificate
-    // authority
-    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
-)
-
-// LogTables represents Log tables
-type LogTables string
-
-const (
-    // Table is not known
-    LogTables_unkown LogTables = "unkown"
-
-    // Table is memory digest table
-    LogTables_memory_digest_table LogTables = "memory-digest-table"
-
-    // Table is system database digest table
-    LogTables_system_database_digest LogTables = "system-database-digest"
-
-    // Table is SAM table
-    LogTables_sam_tables LogTables = "sam-tables"
 )
 
 // Sam
@@ -426,7 +426,7 @@ type Sam_Devices_Device struct {
     YListKey string
 
     // This attribute is a key. Specify device name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     DeviceName interface{}
 
     // Certificate table information.

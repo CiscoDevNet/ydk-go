@@ -256,7 +256,7 @@ type Suppression_RuleDetails_RuleDetail struct {
     AlarmSeverity interface{}
 
     // Sources (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplySource []interface{}
 
     // Rule summary, name, etc.
@@ -488,7 +488,7 @@ type Correlator_Rules_Rule struct {
     RuleState interface{}
 
     // Locations (R/S/M) to which the rule is  applied. The type is slice of
-    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of
@@ -1014,7 +1014,7 @@ type Correlator_RuleDetails_RuleDetail struct {
     ContextCorrelation interface{}
 
     // Locations (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of

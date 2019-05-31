@@ -443,7 +443,7 @@ type NOTIFICATIONLOGMIB_NlmLogTable_NlmLogEntry struct {
     // received.  Possible values for this object are presently found in the
     // Transport Mappings for SNMPv2 document (RFC 1906 [8]). The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     NlmLogEngineTDomain interface{}
 
     // If the Notification was received in a protocol which has a contextEngineID
@@ -458,7 +458,7 @@ type NOTIFICATIONLOGMIB_NlmLogTable_NlmLogEntry struct {
 
     // The NOTIFICATION-TYPE object identifier of the Notification that occurred.
     // The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     NlmLogNotificationID interface{}
 }
 
@@ -552,7 +552,7 @@ type NOTIFICATIONLOGMIB_NlmLogVariableTable_NlmLogVariableEntry struct {
     NlmLogVariableIndex interface{}
 
     // The variable's object identifier. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     NlmLogVariableID interface{}
 
     // The type of the value.  One and only one of the value objects that follow
@@ -585,11 +585,12 @@ type NOTIFICATIONLOGMIB_NlmLogVariableTable_NlmLogVariableEntry struct {
     // addresses are represented using TAddress or InetAddress, and so the
     // underlying datatype is OCTET STRING, and their value would be stored in the
     // nlmLogVariableOctetStringVal column. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NlmLogVariableIpAddressVal interface{}
 
     // The value when nlmLogVariableType is 'objectId'. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     NlmLogVariableOidVal interface{}
 
     // The value when nlmLogVariableType is 'counter64'. The type is interface{}

@@ -97,7 +97,7 @@ type Ipv6Io_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Statistical IPv6 network operational data for a node.
@@ -302,6 +302,9 @@ type Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6 struct {
 
     // Lisp Decap errors. The type is interface{} with range: 0..4294967295.
     LispDecapErrors interface{}
+
+    // IPv6 IO Puntback. The type is interface{} with range: 0..4294967295.
+    IoPuntback interface{}
 }
 
 func (ipv6 *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6) GetEntityData() *types.CommonEntityData {
@@ -348,6 +351,7 @@ func (ipv6 *Ipv6Io_Nodes_Node_Statistics_Traffic_Ipv6) GetEntityData() *types.Co
     ipv6.EntityData.Leafs.Append("lisp-v6-decap-packets", types.YLeaf{"LispV6DecapPackets", ipv6.LispV6DecapPackets})
     ipv6.EntityData.Leafs.Append("lisp-encap-errors", types.YLeaf{"LispEncapErrors", ipv6.LispEncapErrors})
     ipv6.EntityData.Leafs.Append("lisp-decap-errors", types.YLeaf{"LispDecapErrors", ipv6.LispDecapErrors})
+    ipv6.EntityData.Leafs.Append("io-puntback", types.YLeaf{"IoPuntback", ipv6.IoPuntback})
 
     ipv6.EntityData.YListKeys = []string {}
 

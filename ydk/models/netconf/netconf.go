@@ -53,17 +53,6 @@ func init() {
     ydk.RegisterEntity("ietf-netconf:validate", reflect.TypeOf(Validate{}))
 }
 
-// ErrorSeverityType represents NETCONF Error Severity
-type ErrorSeverityType string
-
-const (
-    // Error severity
-    ErrorSeverityType_error_ ErrorSeverityType = "error"
-
-    // Warning severity
-    ErrorSeverityType_warning ErrorSeverityType = "warning"
-)
-
 // ErrorTagType represents NETCONF Error Tag
 type ErrorTagType string
 
@@ -149,6 +138,17 @@ const (
     // be parsed correctly.  For example, the message is not
     // well-formed XML or it uses an invalid character set.
     ErrorTagType_malformed_message ErrorTagType = "malformed-message"
+)
+
+// ErrorSeverityType represents NETCONF Error Severity
+type ErrorSeverityType string
+
+const (
+    // Error severity
+    ErrorSeverityType_error_ ErrorSeverityType = "error"
+
+    // Warning severity
+    ErrorSeverityType_warning ErrorSeverityType = "warning"
 )
 
 // EditOperationType represents NETCONF 'operation' attribute values

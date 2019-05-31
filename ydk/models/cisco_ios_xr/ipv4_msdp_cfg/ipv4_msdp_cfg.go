@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-msdp-cfg:msdp", reflect.TypeOf(Msdp{}))
 }
 
-// MsdpListTypeVrf represents Msdp list type vrf
-type MsdpListTypeVrf string
-
-const (
-    // List
-    MsdpListTypeVrf_list MsdpListTypeVrf = "list"
-
-    // RPList
-    MsdpListTypeVrf_rp_list MsdpListTypeVrf = "rp-list"
-)
-
 // MsdpFilterTypeVrf represents Msdp filter type vrf
 type MsdpFilterTypeVrf string
 
@@ -44,6 +33,17 @@ const (
 
     // Outgoing Mode
     MsdpFilterTypeVrf_outgoing MsdpFilterTypeVrf = "outgoing"
+)
+
+// MsdpListTypeVrf represents Msdp list type vrf
+type MsdpListTypeVrf string
+
+const (
+    // List
+    MsdpListTypeVrf_list MsdpListTypeVrf = "list"
+
+    // RPList
+    MsdpListTypeVrf_rp_list MsdpListTypeVrf = "rp-list"
 )
 
 // Msdp
@@ -142,11 +142,11 @@ type Msdp_Vrfs_Vrf struct {
     MaxPeerSa interface{}
 
     // Configure default peers for the box. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -154,7 +154,7 @@ type Msdp_Vrfs_Vrf struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -318,7 +318,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     YListKey string
 
     // This attribute is a key. Peer address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 
     // MSDP Peer Shutdown. The type is interface{}.
@@ -339,7 +339,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     NsrDown interface{}
 
     // Configuration of password of peer. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     PeerPassword interface{}
 
     // Configure an MSDP mesh-group. The type is string with length: 1..32.
@@ -350,7 +350,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.
@@ -636,11 +636,11 @@ type Msdp_DefaultContext struct {
     MaxPeerSa interface{}
 
     // Configure default peers for the box. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -648,7 +648,7 @@ type Msdp_DefaultContext struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -811,7 +811,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     YListKey string
 
     // This attribute is a key. Peer address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 
     // MSDP Peer Shutdown. The type is interface{}.
@@ -832,7 +832,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     NsrDown interface{}
 
     // Configuration of password of peer. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     PeerPassword interface{}
 
     // Configure an MSDP mesh-group. The type is string with length: 1..32.
@@ -843,7 +843,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.

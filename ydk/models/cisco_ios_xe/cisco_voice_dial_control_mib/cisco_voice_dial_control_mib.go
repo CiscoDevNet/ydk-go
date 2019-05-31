@@ -65,20 +65,15 @@ const (
     CvCallVolumeWMIntvlType_fromReloadStats CvCallVolumeWMIntvlType = "fromReloadStats"
 )
 
-// CvIlbcFrameMode represents              frame is packetized in 50 bytes.
-type CvIlbcFrameMode string
+// CvCallVolumeStatsIntvlType represents 3 : Hours Table: Here each entry corresponds to an hour
+type CvCallVolumeStatsIntvlType string
 
 const (
-    CvIlbcFrameMode_frameMode20 CvIlbcFrameMode = "frameMode20"
+    CvCallVolumeStatsIntvlType_secondStats CvCallVolumeStatsIntvlType = "secondStats"
 
-    CvIlbcFrameMode_frameMode30 CvIlbcFrameMode = "frameMode30"
-)
+    CvCallVolumeStatsIntvlType_minuteStats CvCallVolumeStatsIntvlType = "minuteStats"
 
-// CvAmrNbRtpEncap represents Represents GSM AMR-NB codec RTP encapsulation type.
-type CvAmrNbRtpEncap string
-
-const (
-    CvAmrNbRtpEncap_rfc3267 CvAmrNbRtpEncap = "rfc3267"
+    CvCallVolumeStatsIntvlType_hourStats CvCallVolumeStatsIntvlType = "hourStats"
 )
 
 // CvSessionProtocol represents sccp  - Skinny Call Control Protocol.
@@ -98,6 +93,22 @@ const (
     CvSessionProtocol_sccp CvSessionProtocol = "sccp"
 )
 
+// CvAmrNbRtpEncap represents Represents GSM AMR-NB codec RTP encapsulation type.
+type CvAmrNbRtpEncap string
+
+const (
+    CvAmrNbRtpEncap_rfc3267 CvAmrNbRtpEncap = "rfc3267"
+)
+
+// CvIlbcFrameMode represents              frame is packetized in 50 bytes.
+type CvIlbcFrameMode string
+
+const (
+    CvIlbcFrameMode_frameMode20 CvIlbcFrameMode = "frameMode20"
+
+    CvIlbcFrameMode_frameMode30 CvIlbcFrameMode = "frameMode30"
+)
+
 // CvCallConnectionType represents telephony  - telephony signal call connections.
 type CvCallConnectionType string
 
@@ -115,17 +126,6 @@ const (
     CvCallConnectionType_cacontrol CvCallConnectionType = "cacontrol"
 
     CvCallConnectionType_telephony CvCallConnectionType = "telephony"
-)
-
-// CvCallVolumeStatsIntvlType represents 3 : Hours Table: Here each entry corresponds to an hour
-type CvCallVolumeStatsIntvlType string
-
-const (
-    CvCallVolumeStatsIntvlType_secondStats CvCallVolumeStatsIntvlType = "secondStats"
-
-    CvCallVolumeStatsIntvlType_minuteStats CvCallVolumeStatsIntvlType = "minuteStats"
-
-    CvCallVolumeStatsIntvlType_hourStats CvCallVolumeStatsIntvlType = "hourStats"
 )
 
 // CISCOVOICEDIALCONTROLMIB
@@ -1122,13 +1122,13 @@ type CISCOVOICEDIALCONTROLMIB_CvVoIPPeerCfgTable_CvVoIPPeerCfgEntry struct {
     // produces 10 bytes of voice payload. The specified value will be rounded
     // down to the nearest valid size.  A value of 0, specifies that the coder
     // defined by cvVoIPPeerCfgCoderRate should produce its default payload size.
-    // The type is interface{} with range: 0..None | 10..240. Units are bytes.
+    // The type is interface{} with range: 0..0 | 10..240. Units are bytes.
     CvVoIPPeerCfgCoderBytes interface{}
 
     // This object specifies the payload size to be produced by the coder when it
     // is generating fax data. A value of 0, specifies that the coder specified in
     // cvVoIPCfgPeerCoderRate should produce its default fax payload size. The
-    // type is interface{} with range: 0..None | 10..255. Units are bytes.
+    // type is interface{} with range: 0..0 | 10..255. Units are bytes.
     CvVoIPPeerCfgFaxBytes interface{}
 
     // This object specifies the type of in-band signaling that will be used
@@ -1367,7 +1367,7 @@ type CISCOVOICEDIALCONTROLMIB_CvPeerCommonCfgTable_CvPeerCommonCfgEntry struct {
 
     // The object specifies the maximum allowed connection to/from the peer. A
     // value of -1 disables the limit of maximum connections. The type is
-    // interface{} with range: -1..None | 1..2147483647. Units are connections.
+    // interface{} with range: -1..-1 | 1..2147483647. Units are connections.
     CvPeerCommonCfgMaxConnections interface{}
 
     // The object specifies the application to handle the incoming call after the
@@ -1738,7 +1738,7 @@ type CISCOVOICEDIALCONTROLMIB_CvVoIPCallActiveTable_CvVoIPCallActiveEntry struct
 
     // Remote system IP address for the VoIP call. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CvVoIPCallActiveRemoteIPAddress interface{}
 
     // Remote system UDP listener port to which to transmit voice packets. The
@@ -2450,7 +2450,7 @@ type CISCOVOICEDIALCONTROLMIB_CvVoIPCallHistoryTable_CvVoIPCallHistoryEntry stru
     CvVoIPCallHistoryConnectionId interface{}
 
     // Remote system IP address for the call. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CvVoIPCallHistoryRemoteIPAddress interface{}
 
     // Remote system UDP listener port to which to transmit voice packets for the

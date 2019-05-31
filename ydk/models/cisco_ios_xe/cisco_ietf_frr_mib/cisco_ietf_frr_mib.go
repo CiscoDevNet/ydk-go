@@ -433,7 +433,7 @@ type CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry struct {
     CmplsFrrLogEventDuration interface{}
 
     // This object contains an implementation-specific explanation of the event.
-    // The type is string with length: 128.
+    // The type is string with length: 128..128.
     CmplsFrrLogEventReasonString interface{}
 }
 
@@ -558,11 +558,11 @@ type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry struct {
     CmplsFrrFacRouteProtectedTunInstance interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
-    // being protected by FRR. The type is string with length: 4.
+    // being protected by FRR. The type is string with length: 4..4.
     CmplsFrrFacRouteProtectedTunIngressLSRId interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
-    // being protected by FRR. The type is string with length: 4.
+    // being protected by FRR. The type is string with length: 4..4.
     CmplsFrrFacRouteProtectedTunEgressLSRId interface{}
 
     // Specifies the state of the protected tunnel.  active  This tunnel's label

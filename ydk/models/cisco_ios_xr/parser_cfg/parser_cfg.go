@@ -36,6 +36,9 @@ type Parser struct {
     // Alias for command mapping.
     Alias Parser_Alias
 
+    // logging suppress deprecated.
+    LoggingSuppress Parser_LoggingSuppress
+
     // cli commands history.
     History Parser_History
 
@@ -75,6 +78,7 @@ func (parser *Parser) GetEntityData() *types.CommonEntityData {
     parser.EntityData.Children = types.NewOrderedMap()
     parser.EntityData.Children.Append("indentation", types.YChild{"Indentation", &parser.Indentation})
     parser.EntityData.Children.Append("alias", types.YChild{"Alias", &parser.Alias})
+    parser.EntityData.Children.Append("logging-suppress", types.YChild{"LoggingSuppress", &parser.LoggingSuppress})
     parser.EntityData.Children.Append("history", types.YChild{"History", &parser.History})
     parser.EntityData.Children.Append("interactive", types.YChild{"Interactive", &parser.Interactive})
     parser.EntityData.Children.Append("commit-optimized", types.YChild{"CommitOptimized", &parser.CommitOptimized})
@@ -363,6 +367,36 @@ func (all *Parser_Alias_Alls_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.YListKeys = []string {"Identifier"}
 
     return &(all.EntityData)
+}
+
+// Parser_LoggingSuppress
+// logging suppress deprecated
+type Parser_LoggingSuppress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // deprecating the logging suppress. The type is bool.
+    Deprecated interface{}
+}
+
+func (loggingSuppress *Parser_LoggingSuppress) GetEntityData() *types.CommonEntityData {
+    loggingSuppress.EntityData.YFilter = loggingSuppress.YFilter
+    loggingSuppress.EntityData.YangName = "logging-suppress"
+    loggingSuppress.EntityData.BundleName = "cisco_ios_xr"
+    loggingSuppress.EntityData.ParentYangName = "parser"
+    loggingSuppress.EntityData.SegmentPath = "logging-suppress"
+    loggingSuppress.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + loggingSuppress.EntityData.SegmentPath
+    loggingSuppress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loggingSuppress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loggingSuppress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loggingSuppress.EntityData.Children = types.NewOrderedMap()
+    loggingSuppress.EntityData.Leafs = types.NewOrderedMap()
+    loggingSuppress.EntityData.Leafs.Append("deprecated", types.YLeaf{"Deprecated", loggingSuppress.Deprecated})
+
+    loggingSuppress.EntityData.YListKeys = []string {}
+
+    return &(loggingSuppress.EntityData)
 }
 
 // Parser_History

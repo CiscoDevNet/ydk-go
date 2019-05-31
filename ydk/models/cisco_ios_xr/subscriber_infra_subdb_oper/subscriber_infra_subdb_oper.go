@@ -24,26 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database", reflect.TypeOf(SubscriberDatabase{}))
 }
 
-// SubdbObjectTypeData represents Template types
-type SubdbObjectTypeData string
-
-const (
-    // User profile
-    SubdbObjectTypeData_user_profile SubdbObjectTypeData = "user-profile"
-
-    // Service profile
-    SubdbObjectTypeData_service_profile SubdbObjectTypeData = "service-profile"
-
-    // Subscriber service template
-    SubdbObjectTypeData_subscriber_service SubdbObjectTypeData = "subscriber-service"
-
-    // PPP template
-    SubdbObjectTypeData_ppp SubdbObjectTypeData = "ppp"
-
-    // IP subscriber template
-    SubdbObjectTypeData_ip_subscriber SubdbObjectTypeData = "ip-subscriber"
-)
-
 // SessionState represents Session states
 type SessionState string
 
@@ -77,6 +57,26 @@ const (
 
     // Sync
     SessionState_sync SessionState = "sync"
+)
+
+// SubdbObjectTypeData represents Template types
+type SubdbObjectTypeData string
+
+const (
+    // User profile
+    SubdbObjectTypeData_user_profile SubdbObjectTypeData = "user-profile"
+
+    // Service profile
+    SubdbObjectTypeData_service_profile SubdbObjectTypeData = "service-profile"
+
+    // Subscriber service template
+    SubdbObjectTypeData_subscriber_service SubdbObjectTypeData = "subscriber-service"
+
+    // PPP template
+    SubdbObjectTypeData_ppp SubdbObjectTypeData = "ppp"
+
+    // IP subscriber template
+    SubdbObjectTypeData_ip_subscriber SubdbObjectTypeData = "ip-subscriber"
 )
 
 // SubscriberDatabase
@@ -152,8 +152,11 @@ type SubscriberDatabase_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
+
+    // Subscriber data for associated templates.
+    SubdbAssoc SubscriberDatabase_Nodes_Node_SubdbAssoc
 
     // Subscriber data for associated templates.
     Association SubscriberDatabase_Nodes_Node_Association
@@ -177,6 +180,7 @@ func (node *SubscriberDatabase_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("subdb-assoc", types.YChild{"SubdbAssoc", &node.SubdbAssoc})
     node.EntityData.Children.Append("association", types.YChild{"Association", &node.Association})
     node.EntityData.Children.Append("summary", types.YChild{"Summary", &node.Summary})
     node.EntityData.Children.Append("session", types.YChild{"Session", &node.Session})
@@ -186,6 +190,197 @@ func (node *SubscriberDatabase_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.YListKeys = []string {"NodeName"}
 
     return &(node.EntityData)
+}
+
+// SubscriberDatabase_Nodes_Node_SubdbAssoc
+// Subscriber data for associated templates
+type SubscriberDatabase_Nodes_Node_SubdbAssoc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of associated subscriber labels.
+    Labels SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels
+}
+
+func (subdbAssoc *SubscriberDatabase_Nodes_Node_SubdbAssoc) GetEntityData() *types.CommonEntityData {
+    subdbAssoc.EntityData.YFilter = subdbAssoc.YFilter
+    subdbAssoc.EntityData.YangName = "subdb-assoc"
+    subdbAssoc.EntityData.BundleName = "cisco_ios_xr"
+    subdbAssoc.EntityData.ParentYangName = "node"
+    subdbAssoc.EntityData.SegmentPath = "subdb-assoc"
+    subdbAssoc.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/" + subdbAssoc.EntityData.SegmentPath
+    subdbAssoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subdbAssoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subdbAssoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subdbAssoc.EntityData.Children = types.NewOrderedMap()
+    subdbAssoc.EntityData.Children.Append("labels", types.YChild{"Labels", &subdbAssoc.Labels})
+    subdbAssoc.EntityData.Leafs = types.NewOrderedMap()
+
+    subdbAssoc.EntityData.YListKeys = []string {}
+
+    return &(subdbAssoc.EntityData)
+}
+
+// SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels
+// List of associated subscriber labels
+type SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Association for a given subscriber label. The type is slice of
+    // SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label.
+    Label []*SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label
+}
+
+func (labels *SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels) GetEntityData() *types.CommonEntityData {
+    labels.EntityData.YFilter = labels.YFilter
+    labels.EntityData.YangName = "labels"
+    labels.EntityData.BundleName = "cisco_ios_xr"
+    labels.EntityData.ParentYangName = "subdb-assoc"
+    labels.EntityData.SegmentPath = "labels"
+    labels.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/subdb-assoc/" + labels.EntityData.SegmentPath
+    labels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labels.EntityData.Children = types.NewOrderedMap()
+    labels.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range labels.Label {
+        labels.EntityData.Children.Append(types.GetSegmentPath(labels.Label[i]), types.YChild{"Label", labels.Label[i]})
+    }
+    labels.EntityData.Leafs = types.NewOrderedMap()
+
+    labels.EntityData.YListKeys = []string {}
+
+    return &(labels.EntityData)
+}
+
+// SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label
+// Association for a given subscriber label
+type SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Subscriber label. The type is interface{} with
+    // range: 0..4294967295.
+    SubscriberLabel interface{}
+
+    // Session ID. The type is interface{} with range: 0..4294967295.
+    SessionId interface{}
+
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    InterfaceName interface{}
+
+    // Association count which reflects number of entries in AssociatedTemplates.
+    // The type is interface{} with range: 0..4294967295.
+    Associations interface{}
+
+    // Varlist Id. The type is interface{} with range: 0..4294967295.
+    VarlistId interface{}
+
+    // Subdb template.
+    Template SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template
+}
+
+func (label *SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "labels"
+    label.EntityData.SegmentPath = "label" + types.AddKeyToken(label.SubscriberLabel, "subscriber-label")
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/subdb-assoc/labels/" + label.EntityData.SegmentPath
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Children.Append("template", types.YChild{"Template", &label.Template})
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("subscriber-label", types.YLeaf{"SubscriberLabel", label.SubscriberLabel})
+    label.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", label.SessionId})
+    label.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", label.InterfaceName})
+    label.EntityData.Leafs.Append("associations", types.YLeaf{"Associations", label.Associations})
+    label.EntityData.Leafs.Append("varlist-id", types.YLeaf{"VarlistId", label.VarlistId})
+
+    label.EntityData.YListKeys = []string {"SubscriberLabel"}
+
+    return &(label.EntityData)
+}
+
+// SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template
+// Subdb template
+type SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Associated templates. The type is slice of
+    // SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template_AssociatedTemplate.
+    AssociatedTemplate []*SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template_AssociatedTemplate
+}
+
+func (template *SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template) GetEntityData() *types.CommonEntityData {
+    template.EntityData.YFilter = template.YFilter
+    template.EntityData.YangName = "template"
+    template.EntityData.BundleName = "cisco_ios_xr"
+    template.EntityData.ParentYangName = "label"
+    template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/subdb-assoc/labels/label/" + template.EntityData.SegmentPath
+    template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    template.EntityData.Children = types.NewOrderedMap()
+    template.EntityData.Children.Append("associated-template", types.YChild{"AssociatedTemplate", nil})
+    for i := range template.AssociatedTemplate {
+        types.SetYListKey(template.AssociatedTemplate[i], i)
+        template.EntityData.Children.Append(types.GetSegmentPath(template.AssociatedTemplate[i]), types.YChild{"AssociatedTemplate", template.AssociatedTemplate[i]})
+    }
+    template.EntityData.Leafs = types.NewOrderedMap()
+
+    template.EntityData.YListKeys = []string {}
+
+    return &(template.EntityData)
+}
+
+// SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template_AssociatedTemplate
+// Associated templates
+type SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template_AssociatedTemplate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Template type. The type is SubdbObjectTypeData.
+    TemplateType interface{}
+
+    // Template name. The type is string with length: 0..65.
+    TemplateName interface{}
+
+    // Varlist. The type is string with length: 0..1000.
+    Varlist interface{}
+}
+
+func (associatedTemplate *SubscriberDatabase_Nodes_Node_SubdbAssoc_Labels_Label_Template_AssociatedTemplate) GetEntityData() *types.CommonEntityData {
+    associatedTemplate.EntityData.YFilter = associatedTemplate.YFilter
+    associatedTemplate.EntityData.YangName = "associated-template"
+    associatedTemplate.EntityData.BundleName = "cisco_ios_xr"
+    associatedTemplate.EntityData.ParentYangName = "template"
+    associatedTemplate.EntityData.SegmentPath = "associated-template" + types.AddNoKeyToken(associatedTemplate)
+    associatedTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/subdb-assoc/labels/label/template/" + associatedTemplate.EntityData.SegmentPath
+    associatedTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    associatedTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    associatedTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    associatedTemplate.EntityData.Children = types.NewOrderedMap()
+    associatedTemplate.EntityData.Leafs = types.NewOrderedMap()
+    associatedTemplate.EntityData.Leafs.Append("template-type", types.YLeaf{"TemplateType", associatedTemplate.TemplateType})
+    associatedTemplate.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", associatedTemplate.TemplateName})
+    associatedTemplate.EntityData.Leafs.Append("varlist", types.YLeaf{"Varlist", associatedTemplate.Varlist})
+
+    associatedTemplate.EntityData.YListKeys = []string {}
+
+    return &(associatedTemplate.EntityData)
 }
 
 // SubscriberDatabase_Nodes_Node_Association
@@ -260,10 +455,13 @@ type SubscriberDatabase_Nodes_Node_Association_Labels_Label struct {
     YListKey string
 
     // This attribute is a key. Subscriber label. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     SubscriberLabel interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Session ID. The type is interface{} with range: 0..4294967295.
+    SessionId interface{}
+
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Association count which reflects number of entries in AssociatedTemplates.
@@ -292,6 +490,7 @@ func (label *SubscriberDatabase_Nodes_Node_Association_Labels_Label) GetEntityDa
     label.EntityData.Children.Append("template", types.YChild{"Template", &label.Template})
     label.EntityData.Leafs = types.NewOrderedMap()
     label.EntityData.Leafs.Append("subscriber-label", types.YLeaf{"SubscriberLabel", label.SubscriberLabel})
+    label.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", label.SessionId})
     label.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", label.InterfaceName})
     label.EntityData.Leafs.Append("associations", types.YLeaf{"Associations", label.Associations})
     label.EntityData.Leafs.Append("varlist-id", types.YLeaf{"VarlistId", label.VarlistId})
@@ -529,7 +728,7 @@ type SubscriberDatabase_Nodes_Node_Session_Labels_Label struct {
     YListKey string
 
     // This attribute is a key. Subscriber label. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     SubscriberLabel interface{}
 
     // Subscriber session state. The type is SessionState.
@@ -598,7 +797,7 @@ type SubscriberDatabase_Nodes_Node_Session_Labels_Label struct {
     EventQueueSize interface{}
 
     // Restart vector to keep track of the restart state. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Restarts interface{}
 
     // Template Interface Identifier. The type is interface{} with range:

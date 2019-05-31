@@ -311,7 +311,7 @@ type CISCOCABLESPECTRUMMIB_CcsFlapTable_CcsFlapEntry struct {
 
     // This attribute is a key. MAC address of the Cable Modem's Cable interface
     // which identifies a flap-list entry for a flapping  Cable Modem. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     CcsFlapMacAddr interface{}
 
     // The ifIndex of the Cable upstream interface whose ifType is
@@ -658,7 +658,7 @@ type CISCOCABLESPECTRUMMIB_CcsCmFlapTable_CcsCmFlapEntry struct {
 
     // This attribute is a key. MAC address of the Cable Modem's Cable interface
     // which identifies a flapping Cable Modem. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     CcsCmFlapMacAddr interface{}
 
     // The flap time is set whenever the Cable Modem triggers a flap detector. The
@@ -899,7 +899,7 @@ type CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable_CcsSpectrumRequestEntry struc
     // upstream.  In this case, ccsSpectrumRequestIfIndex must be specified. 
     // Other values indicate that the receiving power test is requested for the
     // ccsSpectrumRequestMacAddr with CM signals. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     CcsSpectrumRequestMacAddr interface{}
 
     // Start of frequency range.  The ccsSpectrumRequestLowFreq is adjusted
@@ -1124,7 +1124,7 @@ type CISCOCABLESPECTRUMMIB_CcsSNRRequestTable_CcsSNRRequestEntry struct {
 
     // A MAC address that identifies the remote online CM that the CNR measurement
     // operation is being performed on. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     CcsSNRRequestMacAddr interface{}
 
     // A snap shot of the CNR value that is measured over the in-use band
@@ -1432,7 +1432,7 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     // ccsUpSpecMgmtSnrThres1, it switches to profile 2. Therefore,
     // ccsUpSpecMgmtSnrThres1 should be larger than ccsUpSpecMgmtSnrThres2.  A
     // value 0 indicates to bypass the threshold check. The type is interface{}
-    // with range: 0..None | 5..35. Units are dB.
+    // with range: 0..0 | 5..35. Units are dB.
     CcsUpSpecMgmtSnrThres1 interface{}
 
     // The Signal to Noise (SNR) threshold.  This object is applicable for
@@ -1441,7 +1441,7 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     // channel width.  A value 0 indicates to bypass the threshold check.  Note:
     // The SNMP SET is rejected if both  ccsUpSpecMgmtSnrThres1,
     // ccsUpSpecMgmtSnrThres2 are non-zero and ccsUpSpecMgmtSnrThres2 is higher
-    // than ccsUpSpecMgmtSnrThres1. The type is interface{} with range: 0..None |
+    // than ccsUpSpecMgmtSnrThres1. The type is interface{} with range: 0..0 |
     // 5..35. Units are dB.
     CcsUpSpecMgmtSnrThres2 interface{}
 
@@ -1481,7 +1481,7 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     // Transform (FFT) measurement over the in-use band when there is no CM
     // signals. When the CMTS detects that SNR doesn't meet ccsUpSpecMgmtSnrThres1
     // or ccsUpSpecMgmtSnrThres2, a possible hopping occurs, depending on the type
-    // of ccsUpSpecMgmtHopPriority. The type is interface{} with range: 0..None |
+    // of ccsUpSpecMgmtHopPriority. The type is interface{} with range: 0..0 |
     // 500..25000. Units are msec.
     CcsUpSpecMgmtSnrPollPeriod interface{}
 
@@ -1493,22 +1493,21 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
 
     // Center frequency before hopping occurs.  A value 0 indicates that the
     // interface has no frequency assigned. The type is interface{} with range:
-    // 0..None | 5000..65000. Units are KHz.
+    // 0..0 | 5000..65000. Units are KHz.
     CcsUpSpecMgmtFromCenterFreq interface{}
 
     // Current center frequency.  A value 0 indicates that the interface has no
-    // frequency assigned. The type is interface{} with range: 0..None |
-    // 5000..65000. Units are KHz.
+    // frequency assigned. The type is interface{} with range: 0..0 | 5000..65000.
+    // Units are KHz.
     CcsUpSpecMgmtToCenterFreq interface{}
 
     // Bandwidth before hopping occurs. The type is interface{} with range:
-    // 200..None | 400..None | 800..None | 1600..None | 3200..None | 6400..None.
+    // 200..200 | 400..400 | 800..800 | 1600..1600 | 3200..3200 | 6400..6400.
     // Units are KHz.
     CcsUpSpecMgmtFromBandWidth interface{}
 
-    // Current bandwidth. The type is interface{} with range: 200..None |
-    // 400..None | 800..None | 1600..None | 3200..None | 6400..None. Units are
-    // KHz.
+    // Current bandwidth. The type is interface{} with range: 200..200 | 400..400
+    // | 800..800 | 1600..1600 | 3200..3200 | 6400..6400. Units are KHz.
     CcsUpSpecMgmtToBandWidth interface{}
 
     // Modulation profile index before hopping occurs. It is the index identical
@@ -1537,7 +1536,7 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     // ccsUpSpecMgmtCnrThres1, it switches to profile 2. Therefore,
     // ccsUpSpecMgmtCnrThres1 should be larger  than ccsUpSpecMgmtCnrThres2.  A
     // value 0 indicates to bypass the threshold check. The type is interface{}
-    // with range: 0..None | 5..35. Units are dB.
+    // with range: 0..0 | 5..35. Units are dB.
     CcsUpSpecMgmtCnrThres1 interface{}
 
     // The Carrier to Noise (CNR) threshold.  This object is applicable for
@@ -1546,7 +1545,7 @@ type CISCOCABLESPECTRUMMIB_CcsUpSpecMgmtTable_CcsUpSpecMgmtEntry struct {
     // channel width.  A value 0 indicates to bypass the threshold check.  Note:
     // The SNMP SET is rejected if both  ccsUpSpecMgmtCnrThres1,
     // ccsUpSpecMgmtCnrThres2 are non-zero and ccsUpSpecMgmtCnrThres2 is higher
-    // than ccsUpSpecMgmtCnrThres1. The type is interface{} with range: 0..None |
+    // than ccsUpSpecMgmtCnrThres1. The type is interface{} with range: 0..0 |
     // 5..35. Units are dB.
     CcsUpSpecMgmtCnrThres2 interface{}
 

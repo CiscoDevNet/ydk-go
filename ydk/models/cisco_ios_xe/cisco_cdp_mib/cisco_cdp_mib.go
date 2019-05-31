@@ -516,7 +516,7 @@ type CISCOCDPMIB_CdpCacheTable_CdpCacheEntry struct {
     // Indicates the value of the remote device's sysObjectID MIB object. This
     // object is not instantiated if no sysObjectID field (TLV) was reported in
     // the most recently received CDP message. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     CdpCacheSysObjectID interface{}
 
     // An indication of the type of address contained in the corresponding

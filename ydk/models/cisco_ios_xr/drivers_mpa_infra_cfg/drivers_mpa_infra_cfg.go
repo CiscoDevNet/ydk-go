@@ -104,7 +104,7 @@ type HardwareModule_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. A SPA node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Shutdown a subslot h/w module. The type is HwModuleShutdownPowerMode.

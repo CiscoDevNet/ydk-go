@@ -385,7 +385,7 @@ type DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry struct {
     // wildcarded objects operate as if there were a separate table entry for each
     // instance that fills the wildcard without having to actually predict all
     // possible instances ahead of time. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MteTriggerValueID interface{}
 
     // Control for whether mteTriggerValueID is to be treated as fully-specified
@@ -572,7 +572,7 @@ type DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry struct {
     // will fail or get the wrong object.  If the value syntax of those objects is
     // not usable, that results in an error that terminates the sample with a
     // 'badType' error code. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MteTriggerDeltaDiscontinuityID interface{}
 
     // Control for whether mteTriggerDeltaDiscontinuityID is to be treated as
@@ -1185,7 +1185,7 @@ type DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry struct {
     // table entry for each instance that fills the wildcard without having to
     // actually predict all possible instances ahead of time. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MteObjectsID interface{}
 
     // Control for whether mteObjectsID is to be treated as fully-specified or
@@ -1372,7 +1372,8 @@ type DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry struct {
 
     // The object identifier from the NOTIFICATION-TYPE for the notification to
     // use if metEventActions has 'notification' set. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MteEventNotification interface{}
 
     // To go with mteEventNotificationObjects, the mteOwner of a group of objects
@@ -1479,7 +1480,7 @@ type DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry struct {
     // operation.  The Set will fail or set the wrong object.  If the value syntax
     // of the destination object is not correct, the Set fails with the normal
     // SNMP error code. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MteEventSetObject interface{}
 
     // Control over whether mteEventSetObject is to be treated as fully-specified

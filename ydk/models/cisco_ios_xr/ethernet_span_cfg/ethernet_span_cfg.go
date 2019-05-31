@@ -159,9 +159,17 @@ type SpanMonitorSession_Sessions_Session struct {
     // be created. The type is SpanSessionClass. The default value is ethernet.
     Class interface{}
 
+    // Specify the discard class value to be set on all traffic mirrored to the
+    // destination. The type is interface{} with range: 0..7.
+    DiscardClass interface{}
+
     // Specify the inject interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InjectInterface interface{}
+
+    // Specify the traffic class value to be set on all traffic mirrored to the
+    // destination. The type is interface{} with range: 0..7.
+    TrafficClass interface{}
 
     // Specify a destination.
     Destination SpanMonitorSession_Sessions_Session_Destination
@@ -183,7 +191,9 @@ func (session *SpanMonitorSession_Sessions_Session) GetEntityData() *types.Commo
     session.EntityData.Leafs = types.NewOrderedMap()
     session.EntityData.Leafs.Append("session", types.YLeaf{"Session", session.Session})
     session.EntityData.Leafs.Append("class", types.YLeaf{"Class", session.Class})
+    session.EntityData.Leafs.Append("discard-class", types.YLeaf{"DiscardClass", session.DiscardClass})
     session.EntityData.Leafs.Append("inject-interface", types.YLeaf{"InjectInterface", session.InjectInterface})
+    session.EntityData.Leafs.Append("traffic-class", types.YLeaf{"TrafficClass", session.TrafficClass})
 
     session.EntityData.YListKeys = []string {"Session"}
 
@@ -200,17 +210,17 @@ type SpanMonitorSession_Sessions_Session_Destination struct {
     DestinationType interface{}
 
     // Specify the destination interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     DestinationInterfaceName interface{}
 
     // Specify the destination next-hop IPv4 address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv4Address interface{}
 
     // Specify the destination next-hop IPv6 address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv6Address interface{}
 }
 

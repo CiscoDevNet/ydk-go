@@ -13,6 +13,414 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ios_common_oper"))
 }
 
+// IosSnpaType represents SNPA Type
+type IosSnpaType string
+
+const (
+    // illegal address
+    IosSnpaType_ios_snpa_type_illegal IosSnpaType = "ios-snpa-type-illegal"
+
+    // 48bit IEEE 802.X address
+    IosSnpaType_ios_snpa_type_ieee48 IosSnpaType = "ios-snpa-type-ieee48"
+
+    // 16bit IEEE 802.X address
+    IosSnpaType_ios_snpa_type_ieee16 IosSnpaType = "ios-snpa-type-ieee16"
+
+    // Xerox 3MB experimental ether
+    IosSnpaType_ios_snpa_type_xerox IosSnpaType = "ios-snpa-type-xerox"
+
+    // CCITT X.121 address
+    IosSnpaType_ios_snpa_type_x121 IosSnpaType = "ios-snpa-type-x121"
+
+    // cisco HDLC framing
+    IosSnpaType_ios_snpa_type_cisco_hdlc IosSnpaType = "ios-snpa-type-cisco-hdlc"
+
+    // cisco multi-LAPB framing
+    IosSnpaType_ios_snpa_type_cisco_mlapb IosSnpaType = "ios-snpa-type-cisco-mlapb"
+
+    // ISO/CCITT LAPB framing
+    IosSnpaType_ios_snpa_type_lapb IosSnpaType = "ios-snpa-type-lapb"
+
+    // SMDS w/ 48 bit addresses
+    IosSnpaType_ios_snpa_type_smds48 IosSnpaType = "ios-snpa-type-smds48"
+
+    // cisco multi-SDLC framing
+    IosSnpaType_ios_snpa_type_cisco_msdlc IosSnpaType = "ios-snpa-type-cisco-msdlc"
+
+    // Frame Relay with 10-bit DLCI
+    IosSnpaType_ios_snpa_type_fr10 IosSnpaType = "ios-snpa-type-fr10"
+
+    // CCCI defined Ultranet
+    IosSnpaType_ios_snpa_type_ultra IosSnpaType = "ios-snpa-type-ultra"
+
+    // cisco tunnel and EON encoding
+    IosSnpaType_ios_snpa_type_cisco_tunnel IosSnpaType = "ios-snpa-type-cisco-tunnel"
+
+    // CLNP tunnel
+    IosSnpaType_ios_snpa_type_cisco_ctunnel IosSnpaType = "ios-snpa-type-cisco-ctunnel"
+
+    // rrr tunnel
+    IosSnpaType_ios_snpa_type_rrr_tunnel IosSnpaType = "ios-snpa-type-rrr-tunnel"
+
+    // PPP framing
+    IosSnpaType_ios_snpa_type_ppp IosSnpaType = "ios-snpa-type-ppp"
+
+    // SMDS 64-bit addressing
+    IosSnpaType_ios_snpa_type_smds64 IosSnpaType = "ios-snpa-type-smds64"
+
+    // AIP VC no.
+    IosSnpaType_ios_snpa_type_atmvc IosSnpaType = "ios-snpa-type-atmvc"
+
+    // ATM PVC bundle
+    IosSnpaType_ios_snpa_type_atm_bundle IosSnpaType = "ios-snpa-type-atm-bundle"
+
+    // ATM SVC bundle
+    IosSnpaType_ios_snpa_type_atm_svc_bundle IosSnpaType = "ios-snpa-type-atm-svc-bundle"
+
+    // ATM NSAP address
+    IosSnpaType_ios_snpa_type_atmnsap IosSnpaType = "ios-snpa-type-atmnsap"
+
+    // ATM E164 address
+    IosSnpaType_ios_snpa_type_atm_e164 IosSnpaType = "ios-snpa-type-atm-e164"
+
+    // ATM User Specified address
+    IosSnpaType_ios_snpa_type_atm_userspecified IosSnpaType = "ios-snpa-type-atm-userspecified"
+
+    // SDLC address
+    IosSnpaType_ios_snpa_type_sdlc IosSnpaType = "ios-snpa-type-sdlc"
+
+    // X.25 Lci fpr PVC's
+    IosSnpaType_ios_snpa_type_x25pvc IosSnpaType = "ios-snpa-type-x25pvc"
+
+    // LAPD framing
+    IosSnpaType_ios_snpa_type_lapd IosSnpaType = "ios-snpa-type-lapd"
+
+    // masked ATM NSAP address
+    IosSnpaType_ios_snpa_type_masked_atmnsap IosSnpaType = "ios-snpa-type-masked-atmnsap"
+
+    // ATM ESI address
+    IosSnpaType_ios_snpa_type_atmesi IosSnpaType = "ios-snpa-type-atmesi"
+
+    // SLIP Framing
+    IosSnpaType_ios_snpa_type_slip IosSnpaType = "ios-snpa-type-slip"
+
+    // route descriptor for TR LANE
+    IosSnpaType_ios_snpa_type_routedesc IosSnpaType = "ios-snpa-type-routedesc"
+
+    // 48bit SRP address on outer ring
+    IosSnpaType_ios_snpa_type_srp_outer IosSnpaType = "ios-snpa-type-srp-outer"
+
+    // 48bit SRP address on inner ring
+    IosSnpaType_ios_snpa_type_srp_inner IosSnpaType = "ios-snpa-type-srp-inner"
+)
+
+// IosEncapsType represents Encaps Type
+type IosEncapsType string
+
+const (
+    // undefined -- error
+    IosEncapsType_ios_encaps_type_null IosEncapsType = "ios-encaps-type-null"
+
+    // Ethernet - DDN style
+    IosEncapsType_ios_encaps_type_arpa IosEncapsType = "ios-encaps-type-arpa"
+
+    // Ethernet
+    IosEncapsType_ios_encaps_type_sap IosEncapsType = "ios-encaps-type-sap"
+
+    // 802.2 SNAP types
+    IosEncapsType_ios_encaps_type_snap IosEncapsType = "ios-encaps-type-snap"
+
+    // DDN - 1822 (obsolete)
+    IosEncapsType_ios_encaps_type_1822 IosEncapsType = "ios-encaps-type-1822"
+
+    // Serial - raw HDLC
+    IosEncapsType_ios_encaps_type_hdlc IosEncapsType = "ios-encaps-type-hdlc"
+
+    // Unused Placeholder (3MB)
+    IosEncapsType_ios_encaps_type_unused2 IosEncapsType = "ios-encaps-type-unused2"
+
+    // Unused Placeholder (HDH)
+    IosEncapsType_ios_encaps_type_unused1 IosEncapsType = "ios-encaps-type-unused1"
+
+    // Serial - LAPB
+    IosEncapsType_ios_encaps_type_lapb IosEncapsType = "ios-encaps-type-lapb"
+
+    // Serial - X.25
+    IosEncapsType_ios_encaps_type_x25 IosEncapsType = "ios-encaps-type-x25"
+
+    // HUB fiber optic
+    IosEncapsType_ios_encaps_type_hub IosEncapsType = "ios-encaps-type-hub"
+
+    // Novell style XNS on Ethernet
+    IosEncapsType_ios_encaps_type_novell_ether IosEncapsType = "ios-encaps-type-novell-ether"
+
+    // Unsupported protocols
+    IosEncapsType_ios_encaps_type_unsupported IosEncapsType = "ios-encaps-type-unsupported"
+
+    // 3Com XNS over TR 802.2 0x80
+    IosEncapsType_ios_encaps_type_3com_tr IosEncapsType = "ios-encaps-type-3com-tr"
+
+    // Ungermann-Bass XNS over TR SNAP
+    IosEncapsType_ios_encaps_type_ub_tr IosEncapsType = "ios-encaps-type-ub-tr"
+
+    // Apollo domain packets
+    IosEncapsType_ios_encaps_type_apollo IosEncapsType = "ios-encaps-type-apollo"
+
+    // Serial PPP
+    IosEncapsType_ios_encaps_type_ppp IosEncapsType = "ios-encaps-type-ppp"
+
+    // Unused Placeholder (ISO3)
+    IosEncapsType_ios_encaps_type_unused4 IosEncapsType = "ios-encaps-type-unused4"
+
+    // ISO1 with Vines demux byte
+    IosEncapsType_ios_encaps_type_vines_tr IosEncapsType = "ios-encaps-type-vines-tr"
+
+    // AppleTalk phase 1 on ethernet
+    IosEncapsType_ios_encaps_type_ethertalk IosEncapsType = "ios-encaps-type-ethertalk"
+
+    // Frame Relay
+    IosEncapsType_ios_encaps_type_frame_relay IosEncapsType = "ios-encaps-type-frame-relay"
+
+    // Switched Multimegabit Data Service (SMDS)
+    IosEncapsType_ios_encaps_type_smds IosEncapsType = "ios-encaps-type-smds"
+
+    // MAC level packets
+    IosEncapsType_ios_encaps_type_mac IosEncapsType = "ios-encaps-type-mac"
+
+    // Ultranet
+    IosEncapsType_ios_encaps_type_ultra_iso2 IosEncapsType = "ios-encaps-type-ultra-iso2"
+
+    // Ultranet-Hello
+    IosEncapsType_ios_encaps_type_ultra_iso1 IosEncapsType = "ios-encaps-type-ultra-iso1"
+
+    // Serial - serial tunnelling
+    IosEncapsType_ios_encaps_type_stun IosEncapsType = "ios-encaps-type-stun"
+
+    // Packet in bridge encapsulation
+    IosEncapsType_ios_encaps_type_bridge IosEncapsType = "ios-encaps-type-bridge"
+
+    // LLC 2
+    IosEncapsType_ios_encaps_type_llc2 IosEncapsType = "ios-encaps-type-llc2"
+
+    // Serial - SDLC (primary)
+    IosEncapsType_ios_encaps_type_sdlcp IosEncapsType = "ios-encaps-type-sdlcp"
+
+    // Serial - SDLC (secondary)
+    IosEncapsType_ios_encaps_type_sdlcs IosEncapsType = "ios-encaps-type-sdlcs"
+
+    // Async SLIP encapsulation
+    IosEncapsType_ios_encaps_type_slip IosEncapsType = "ios-encaps-type-slip"
+
+    // Standard Tunnel Interface
+    IosEncapsType_ios_encaps_type_tunnel IosEncapsType = "ios-encaps-type-tunnel"
+
+    // Bridge encap on local gen packs
+    IosEncapsType_ios_encaps_type_bridge_encaps IosEncapsType = "ios-encaps-type-bridge-encaps"
+
+    // ATM interface encaps
+    IosEncapsType_ios_encaps_type_atm IosEncapsType = "ios-encaps-type-atm"
+
+    // ATM DXI implementation
+    IosEncapsType_ios_encaps_type_atm_dxi IosEncapsType = "ios-encaps-type-atm-dxi"
+
+    // Frame Relay with IETF encaps
+    IosEncapsType_ios_encaps_type_fr_ietf IosEncapsType = "ios-encaps-type-fr-ietf"
+
+    // SMDS DXI implementation
+    IosEncapsType_ios_encaps_type_smds_dxi IosEncapsType = "ios-encaps-type-smds-dxi"
+
+    // atm-dxi with IETF encaps
+    IosEncapsType_ios_encaps_type_atm_dxi_ietf IosEncapsType = "ios-encaps-type-atm-dxi-ietf"
+
+    // IBM Channel
+    IosEncapsType_ios_encaps_type_channel IosEncapsType = "ios-encaps-type-channel"
+
+    // CLSI compliant SDLC
+    IosEncapsType_ios_encaps_type_sdlc IosEncapsType = "ios-encaps-type-sdlc"
+
+    // 802.10 Secure Data Exchange
+    IosEncapsType_ios_encaps_type_sde IosEncapsType = "ios-encaps-type-sde"
+
+    // block serial tunnel
+    IosEncapsType_ios_encaps_type_bstun IosEncapsType = "ios-encaps-type-bstun"
+
+    // Dialer encapsulation
+    IosEncapsType_ios_encaps_type_dialer IosEncapsType = "ios-encaps-type-dialer"
+
+    // Novell style XNS on FDDI
+    IosEncapsType_ios_encaps_type_novell_fddi IosEncapsType = "ios-encaps-type-novell-fddi"
+
+    // V120 ISDN->ASYNC encaps
+    IosEncapsType_ios_encaps_type_v120 IosEncapsType = "ios-encaps-type-v120"
+
+    // Inter Switch Link - vLANs on FEIP
+    IosEncapsType_ios_encaps_type_isl IosEncapsType = "ios-encaps-type-isl"
+
+    // loopback interface
+    IosEncapsType_ios_encaps_type_loop IosEncapsType = "ios-encaps-type-loop"
+
+    // IBM Channel internal LAN
+    IosEncapsType_ios_encaps_type_channel_ilan IosEncapsType = "ios-encaps-type-channel-ilan"
+
+    // Autodetected for Serials
+    IosEncapsType_ios_encaps_type_serial_autodetect IosEncapsType = "ios-encaps-type-serial-autodetect"
+
+    // Combinet proprietary protocol
+    IosEncapsType_ios_encaps_type_cpp IosEncapsType = "ios-encaps-type-cpp"
+
+    // NCIA DLC
+    IosEncapsType_ios_encaps_type_ndlc IosEncapsType = "ios-encaps-type-ndlc"
+
+    // ISDN Q.921
+    IosEncapsType_ios_encaps_type_lapd IosEncapsType = "ios-encaps-type-lapd"
+
+    // StrataCom IPX/Fastpad protocol
+    IosEncapsType_ios_encaps_type_ftc_trunk IosEncapsType = "ios-encaps-type-ftc-trunk"
+
+    // ATM T1 Circuit Emulation.
+    IosEncapsType_ios_encaps_type_atmces_t1 IosEncapsType = "ios-encaps-type-atmces-t1"
+
+    // ATM E1 Circuit Emulation.
+    IosEncapsType_ios_encaps_type_atmces_e1 IosEncapsType = "ios-encaps-type-atmces-e1"
+
+    // Packetized Voice
+    IosEncapsType_ios_encaps_type_voice IosEncapsType = "ios-encaps-type-voice"
+
+    // ALC (P1024B) sync protocol
+    IosEncapsType_ios_encaps_type_alc IosEncapsType = "ios-encaps-type-alc"
+
+    // UTS (P1024C) sync protocol
+    IosEncapsType_ios_encaps_type_uts IosEncapsType = "ios-encaps-type-uts"
+
+    // Token Ring Inter-Switch Link (TRISL)
+    IosEncapsType_ios_encaps_type_trisl IosEncapsType = "ios-encaps-type-trisl"
+
+    // Cable - MCNS
+    IosEncapsType_ios_encaps_type_mcns IosEncapsType = "ios-encaps-type-mcns"
+
+    // ATM circuit emulation service
+    IosEncapsType_ios_encaps_type_atmces IosEncapsType = "ios-encaps-type-atmces"
+
+    // for transparent mode
+    IosEncapsType_ios_encaps_type_trans IosEncapsType = "ios-encaps-type-trans"
+
+    // TDM clear channel
+    IosEncapsType_ios_encaps_type_clear_channel IosEncapsType = "ios-encaps-type-clear-channel"
+
+    // Tag Controlled ATM interface
+    IosEncapsType_ios_encaps_type_tc_atm IosEncapsType = "ios-encaps-type-tc-atm"
+
+    // PPP over Frame Relay
+    IosEncapsType_ios_encaps_type_fr_ppp IosEncapsType = "ios-encaps-type-fr-ppp"
+
+    // IEEE 802.1Q
+    IosEncapsType_ios_encaps_type_dot1q IosEncapsType = "ios-encaps-type-dot1q"
+
+    // Frame based user network interface
+    IosEncapsType_ios_encaps_type_funi IosEncapsType = "ios-encaps-type-funi"
+
+    // LAPB terminal adapter
+    IosEncapsType_ios_encaps_type_lapbta IosEncapsType = "ios-encaps-type-lapbta"
+
+    // Cable Modem
+    IosEncapsType_ios_encaps_type_docsis IosEncapsType = "ios-encaps-type-docsis"
+
+    // NextPort DSP modem in-band message
+    IosEncapsType_ios_encaps_type_np_inband IosEncapsType = "ios-encaps-type-np-inband"
+
+    // SS7 MTP-2 over serial/TDM interface
+    IosEncapsType_ios_encaps_type_ss7_mtp2 IosEncapsType = "ios-encaps-type-ss7-mtp2"
+
+    // General Packet Radio Service (GPRS)
+    IosEncapsType_ios_encaps_type_gtp IosEncapsType = "ios-encaps-type-gtp"
+
+    // ISL SW encap pkt sent on swch prt
+    IosEncapsType_ios_encaps_type_isl_switchport IosEncapsType = "ios-encaps-type-isl-switchport"
+
+    // Spatial Reuse Protocol
+    IosEncapsType_ios_encaps_type_srp IosEncapsType = "ios-encaps-type-srp"
+
+    // PPP hdr w/Ethertype protocol type
+    IosEncapsType_ios_encaps_type_ppp_etype IosEncapsType = "ios-encaps-type-ppp-etype"
+
+    // PPP over ATM
+    IosEncapsType_ios_encaps_type_atm_ppp IosEncapsType = "ios-encaps-type-atm-ppp"
+
+    // Multilink Frame Relay
+    IosEncapsType_ios_encaps_type_mfr IosEncapsType = "ios-encaps-type-mfr"
+
+    // SRP version 2
+    IosEncapsType_ios_encaps_type_srp2 IosEncapsType = "ios-encaps-type-srp2"
+
+    // Frame Relay extended addressing
+    IosEncapsType_ios_encaps_type_fr_extended IosEncapsType = "ios-encaps-type-fr-extended"
+
+    // PPP Over Ethernet
+    IosEncapsType_ios_encaps_type_pppoe IosEncapsType = "ios-encaps-type-pppoe"
+
+    // OIF UNI SDCC per OIF2000.125
+    IosEncapsType_ios_encaps_type_ouni_sdcc IosEncapsType = "ios-encaps-type-ouni-sdcc"
+
+    // encap type for multiservice i/f
+    IosEncapsType_ios_encaps_type_multiservice IosEncapsType = "ios-encaps-type-multiservice"
+
+    // Container
+    IosEncapsType_ios_encaps_type_container IosEncapsType = "ios-encaps-type-container"
+
+    // Dot1ad ether type
+    IosEncapsType_ios_encaps_type_dot1ad IosEncapsType = "ios-encaps-type-dot1ad"
+
+    // Circuit Emulation Type
+    IosEncapsType_ios_encaps_type_cem IosEncapsType = "ios-encaps-type-cem"
+
+    // IEEE 802.1ah Ether type
+    IosEncapsType_ios_encaps_type_dot1ah IosEncapsType = "ios-encaps-type-dot1ah"
+
+    // PTP type
+    IosEncapsType_ios_encaps_type_ptp IosEncapsType = "ios-encaps-type-ptp"
+
+    // For SSLVPN
+    IosEncapsType_ios_encaps_type_ssl IosEncapsType = "ios-encaps-type-ssl"
+
+    // Locator/ID Separation Protocol (LISP)
+    IosEncapsType_ios_encaps_type_lisp IosEncapsType = "ios-encaps-type-lisp"
+
+    // DSP-based SPA
+    IosEncapsType_ios_encaps_type_dsp_spa IosEncapsType = "ios-encaps-type-dsp-spa"
+
+    // IEC-60870-5-101 for Async Serial interface
+    IosEncapsType_ios_encaps_type_t101 IosEncapsType = "ios-encaps-type-t101"
+
+    // Crypto
+    IosEncapsType_ios_encaps_type_crypto IosEncapsType = "ios-encaps-type-crypto"
+
+    // Raw socket TCP for Async line interface
+    IosEncapsType_ios_encaps_type_rawtcp IosEncapsType = "ios-encaps-type-rawtcp"
+
+    // Async line raw data
+    IosEncapsType_ios_encaps_type_async IosEncapsType = "ios-encaps-type-async"
+
+    // Cisco Meta Data (CMD) EtherType=0x8909 encap
+    IosEncapsType_ios_encaps_type_cmd IosEncapsType = "ios-encaps-type-cmd"
+
+    // SCADA for Async Serial Interface
+    IosEncapsType_ios_encaps_type_scada IosEncapsType = "ios-encaps-type-scada"
+
+    // Raw socket UDP for Async line interface
+    IosEncapsType_ios_encaps_type_rawudp IosEncapsType = "ios-encaps-type-rawudp"
+
+    // Line relay for Async line interface
+    IosEncapsType_ios_encaps_type_relay_line IosEncapsType = "ios-encaps-type-relay-line"
+
+    // Raw socket over MPLS for Async line interface
+    // Market want to call it trans. It's a little conflict
+    // TRANSPARENT
+    IosEncapsType_ios_encaps_type_rawmpls IosEncapsType = "ios-encaps-type-rawmpls"
+
+    // if NID added after ARPA we add a new type
+    IosEncapsType_ios_encaps_type_arpa_nid IosEncapsType = "ios-encaps-type-arpa-nid"
+)
+
 // IosLinktype represents Link Type
 type IosLinktype string
 
@@ -629,413 +1037,5 @@ const (
 
     // Online Diags
     IosLinktype_ios_linktype_macsec_sectag IosLinktype = "ios-linktype-macsec-sectag"
-)
-
-// IosSnpaType represents SNPA Type
-type IosSnpaType string
-
-const (
-    // illegal address
-    IosSnpaType_ios_snpa_type_illegal IosSnpaType = "ios-snpa-type-illegal"
-
-    // 48bit IEEE 802.X address
-    IosSnpaType_ios_snpa_type_ieee48 IosSnpaType = "ios-snpa-type-ieee48"
-
-    // 16bit IEEE 802.X address
-    IosSnpaType_ios_snpa_type_ieee16 IosSnpaType = "ios-snpa-type-ieee16"
-
-    // Xerox 3MB experimental ether
-    IosSnpaType_ios_snpa_type_xerox IosSnpaType = "ios-snpa-type-xerox"
-
-    // CCITT X.121 address
-    IosSnpaType_ios_snpa_type_x121 IosSnpaType = "ios-snpa-type-x121"
-
-    // cisco HDLC framing
-    IosSnpaType_ios_snpa_type_cisco_hdlc IosSnpaType = "ios-snpa-type-cisco-hdlc"
-
-    // cisco multi-LAPB framing
-    IosSnpaType_ios_snpa_type_cisco_mlapb IosSnpaType = "ios-snpa-type-cisco-mlapb"
-
-    // ISO/CCITT LAPB framing
-    IosSnpaType_ios_snpa_type_lapb IosSnpaType = "ios-snpa-type-lapb"
-
-    // SMDS w/ 48 bit addresses
-    IosSnpaType_ios_snpa_type_smds48 IosSnpaType = "ios-snpa-type-smds48"
-
-    // cisco multi-SDLC framing
-    IosSnpaType_ios_snpa_type_cisco_msdlc IosSnpaType = "ios-snpa-type-cisco-msdlc"
-
-    // Frame Relay with 10-bit DLCI
-    IosSnpaType_ios_snpa_type_fr10 IosSnpaType = "ios-snpa-type-fr10"
-
-    // CCCI defined Ultranet
-    IosSnpaType_ios_snpa_type_ultra IosSnpaType = "ios-snpa-type-ultra"
-
-    // cisco tunnel and EON encoding
-    IosSnpaType_ios_snpa_type_cisco_tunnel IosSnpaType = "ios-snpa-type-cisco-tunnel"
-
-    // CLNP tunnel
-    IosSnpaType_ios_snpa_type_cisco_ctunnel IosSnpaType = "ios-snpa-type-cisco-ctunnel"
-
-    // rrr tunnel
-    IosSnpaType_ios_snpa_type_rrr_tunnel IosSnpaType = "ios-snpa-type-rrr-tunnel"
-
-    // PPP framing
-    IosSnpaType_ios_snpa_type_ppp IosSnpaType = "ios-snpa-type-ppp"
-
-    // SMDS 64-bit addressing
-    IosSnpaType_ios_snpa_type_smds64 IosSnpaType = "ios-snpa-type-smds64"
-
-    // AIP VC no.
-    IosSnpaType_ios_snpa_type_atmvc IosSnpaType = "ios-snpa-type-atmvc"
-
-    // ATM PVC bundle
-    IosSnpaType_ios_snpa_type_atm_bundle IosSnpaType = "ios-snpa-type-atm-bundle"
-
-    // ATM SVC bundle
-    IosSnpaType_ios_snpa_type_atm_svc_bundle IosSnpaType = "ios-snpa-type-atm-svc-bundle"
-
-    // ATM NSAP address
-    IosSnpaType_ios_snpa_type_atmnsap IosSnpaType = "ios-snpa-type-atmnsap"
-
-    // ATM E164 address
-    IosSnpaType_ios_snpa_type_atm_e164 IosSnpaType = "ios-snpa-type-atm-e164"
-
-    // ATM User Specified address
-    IosSnpaType_ios_snpa_type_atm_userspecified IosSnpaType = "ios-snpa-type-atm-userspecified"
-
-    // SDLC address
-    IosSnpaType_ios_snpa_type_sdlc IosSnpaType = "ios-snpa-type-sdlc"
-
-    // X.25 Lci fpr PVC's
-    IosSnpaType_ios_snpa_type_x25pvc IosSnpaType = "ios-snpa-type-x25pvc"
-
-    // LAPD framing
-    IosSnpaType_ios_snpa_type_lapd IosSnpaType = "ios-snpa-type-lapd"
-
-    // masked ATM NSAP address
-    IosSnpaType_ios_snpa_type_masked_atmnsap IosSnpaType = "ios-snpa-type-masked-atmnsap"
-
-    // ATM ESI address
-    IosSnpaType_ios_snpa_type_atmesi IosSnpaType = "ios-snpa-type-atmesi"
-
-    // SLIP Framing
-    IosSnpaType_ios_snpa_type_slip IosSnpaType = "ios-snpa-type-slip"
-
-    // route descriptor for TR LANE
-    IosSnpaType_ios_snpa_type_routedesc IosSnpaType = "ios-snpa-type-routedesc"
-
-    // 48bit SRP address on outer ring
-    IosSnpaType_ios_snpa_type_srp_outer IosSnpaType = "ios-snpa-type-srp-outer"
-
-    // 48bit SRP address on inner ring
-    IosSnpaType_ios_snpa_type_srp_inner IosSnpaType = "ios-snpa-type-srp-inner"
-)
-
-// IosEncapsType represents Encaps Type
-type IosEncapsType string
-
-const (
-    // undefined -- error
-    IosEncapsType_ios_encaps_type_null IosEncapsType = "ios-encaps-type-null"
-
-    // Ethernet - DDN style
-    IosEncapsType_ios_encaps_type_arpa IosEncapsType = "ios-encaps-type-arpa"
-
-    // Ethernet
-    IosEncapsType_ios_encaps_type_sap IosEncapsType = "ios-encaps-type-sap"
-
-    // 802.2 SNAP types
-    IosEncapsType_ios_encaps_type_snap IosEncapsType = "ios-encaps-type-snap"
-
-    // DDN - 1822 (obsolete)
-    IosEncapsType_ios_encaps_type_1822 IosEncapsType = "ios-encaps-type-1822"
-
-    // Serial - raw HDLC
-    IosEncapsType_ios_encaps_type_hdlc IosEncapsType = "ios-encaps-type-hdlc"
-
-    // Unused Placeholder (3MB)
-    IosEncapsType_ios_encaps_type_unused2 IosEncapsType = "ios-encaps-type-unused2"
-
-    // Unused Placeholder (HDH)
-    IosEncapsType_ios_encaps_type_unused1 IosEncapsType = "ios-encaps-type-unused1"
-
-    // Serial - LAPB
-    IosEncapsType_ios_encaps_type_lapb IosEncapsType = "ios-encaps-type-lapb"
-
-    // Serial - X.25
-    IosEncapsType_ios_encaps_type_x25 IosEncapsType = "ios-encaps-type-x25"
-
-    // HUB fiber optic
-    IosEncapsType_ios_encaps_type_hub IosEncapsType = "ios-encaps-type-hub"
-
-    // Novell style XNS on Ethernet
-    IosEncapsType_ios_encaps_type_novell_ether IosEncapsType = "ios-encaps-type-novell-ether"
-
-    // Unsupported protocols
-    IosEncapsType_ios_encaps_type_unsupported IosEncapsType = "ios-encaps-type-unsupported"
-
-    // 3Com XNS over TR 802.2 0x80
-    IosEncapsType_ios_encaps_type_3com_tr IosEncapsType = "ios-encaps-type-3com-tr"
-
-    // Ungermann-Bass XNS over TR SNAP
-    IosEncapsType_ios_encaps_type_ub_tr IosEncapsType = "ios-encaps-type-ub-tr"
-
-    // Apollo domain packets
-    IosEncapsType_ios_encaps_type_apollo IosEncapsType = "ios-encaps-type-apollo"
-
-    // Serial PPP
-    IosEncapsType_ios_encaps_type_ppp IosEncapsType = "ios-encaps-type-ppp"
-
-    // Unused Placeholder (ISO3)
-    IosEncapsType_ios_encaps_type_unused4 IosEncapsType = "ios-encaps-type-unused4"
-
-    // ISO1 with Vines demux byte
-    IosEncapsType_ios_encaps_type_vines_tr IosEncapsType = "ios-encaps-type-vines-tr"
-
-    // AppleTalk phase 1 on ethernet
-    IosEncapsType_ios_encaps_type_ethertalk IosEncapsType = "ios-encaps-type-ethertalk"
-
-    // Frame Relay
-    IosEncapsType_ios_encaps_type_frame_relay IosEncapsType = "ios-encaps-type-frame-relay"
-
-    // Switched Multimegabit Data Service (SMDS)
-    IosEncapsType_ios_encaps_type_smds IosEncapsType = "ios-encaps-type-smds"
-
-    // MAC level packets
-    IosEncapsType_ios_encaps_type_mac IosEncapsType = "ios-encaps-type-mac"
-
-    // Ultranet
-    IosEncapsType_ios_encaps_type_ultra_iso2 IosEncapsType = "ios-encaps-type-ultra-iso2"
-
-    // Ultranet-Hello
-    IosEncapsType_ios_encaps_type_ultra_iso1 IosEncapsType = "ios-encaps-type-ultra-iso1"
-
-    // Serial - serial tunnelling
-    IosEncapsType_ios_encaps_type_stun IosEncapsType = "ios-encaps-type-stun"
-
-    // Packet in bridge encapsulation
-    IosEncapsType_ios_encaps_type_bridge IosEncapsType = "ios-encaps-type-bridge"
-
-    // LLC 2
-    IosEncapsType_ios_encaps_type_llc2 IosEncapsType = "ios-encaps-type-llc2"
-
-    // Serial - SDLC (primary)
-    IosEncapsType_ios_encaps_type_sdlcp IosEncapsType = "ios-encaps-type-sdlcp"
-
-    // Serial - SDLC (secondary)
-    IosEncapsType_ios_encaps_type_sdlcs IosEncapsType = "ios-encaps-type-sdlcs"
-
-    // Async SLIP encapsulation
-    IosEncapsType_ios_encaps_type_slip IosEncapsType = "ios-encaps-type-slip"
-
-    // Standard Tunnel Interface
-    IosEncapsType_ios_encaps_type_tunnel IosEncapsType = "ios-encaps-type-tunnel"
-
-    // Bridge encap on local gen packs
-    IosEncapsType_ios_encaps_type_bridge_encaps IosEncapsType = "ios-encaps-type-bridge-encaps"
-
-    // ATM interface encaps
-    IosEncapsType_ios_encaps_type_atm IosEncapsType = "ios-encaps-type-atm"
-
-    // ATM DXI implementation
-    IosEncapsType_ios_encaps_type_atm_dxi IosEncapsType = "ios-encaps-type-atm-dxi"
-
-    // Frame Relay with IETF encaps
-    IosEncapsType_ios_encaps_type_fr_ietf IosEncapsType = "ios-encaps-type-fr-ietf"
-
-    // SMDS DXI implementation
-    IosEncapsType_ios_encaps_type_smds_dxi IosEncapsType = "ios-encaps-type-smds-dxi"
-
-    // atm-dxi with IETF encaps
-    IosEncapsType_ios_encaps_type_atm_dxi_ietf IosEncapsType = "ios-encaps-type-atm-dxi-ietf"
-
-    // IBM Channel
-    IosEncapsType_ios_encaps_type_channel IosEncapsType = "ios-encaps-type-channel"
-
-    // CLSI compliant SDLC
-    IosEncapsType_ios_encaps_type_sdlc IosEncapsType = "ios-encaps-type-sdlc"
-
-    // 802.10 Secure Data Exchange
-    IosEncapsType_ios_encaps_type_sde IosEncapsType = "ios-encaps-type-sde"
-
-    // block serial tunnel
-    IosEncapsType_ios_encaps_type_bstun IosEncapsType = "ios-encaps-type-bstun"
-
-    // Dialer encapsulation
-    IosEncapsType_ios_encaps_type_dialer IosEncapsType = "ios-encaps-type-dialer"
-
-    // Novell style XNS on FDDI
-    IosEncapsType_ios_encaps_type_novell_fddi IosEncapsType = "ios-encaps-type-novell-fddi"
-
-    // V120 ISDN->ASYNC encaps
-    IosEncapsType_ios_encaps_type_v120 IosEncapsType = "ios-encaps-type-v120"
-
-    // Inter Switch Link - vLANs on FEIP
-    IosEncapsType_ios_encaps_type_isl IosEncapsType = "ios-encaps-type-isl"
-
-    // loopback interface
-    IosEncapsType_ios_encaps_type_loop IosEncapsType = "ios-encaps-type-loop"
-
-    // IBM Channel internal LAN
-    IosEncapsType_ios_encaps_type_channel_ilan IosEncapsType = "ios-encaps-type-channel-ilan"
-
-    // Autodetected for Serials
-    IosEncapsType_ios_encaps_type_serial_autodetect IosEncapsType = "ios-encaps-type-serial-autodetect"
-
-    // Combinet proprietary protocol
-    IosEncapsType_ios_encaps_type_cpp IosEncapsType = "ios-encaps-type-cpp"
-
-    // NCIA DLC
-    IosEncapsType_ios_encaps_type_ndlc IosEncapsType = "ios-encaps-type-ndlc"
-
-    // ISDN Q.921
-    IosEncapsType_ios_encaps_type_lapd IosEncapsType = "ios-encaps-type-lapd"
-
-    // StrataCom IPX/Fastpad protocol
-    IosEncapsType_ios_encaps_type_ftc_trunk IosEncapsType = "ios-encaps-type-ftc-trunk"
-
-    // ATM T1 Circuit Emulation.
-    IosEncapsType_ios_encaps_type_atmces_t1 IosEncapsType = "ios-encaps-type-atmces-t1"
-
-    // ATM E1 Circuit Emulation.
-    IosEncapsType_ios_encaps_type_atmces_e1 IosEncapsType = "ios-encaps-type-atmces-e1"
-
-    // Packetized Voice
-    IosEncapsType_ios_encaps_type_voice IosEncapsType = "ios-encaps-type-voice"
-
-    // ALC (P1024B) sync protocol
-    IosEncapsType_ios_encaps_type_alc IosEncapsType = "ios-encaps-type-alc"
-
-    // UTS (P1024C) sync protocol
-    IosEncapsType_ios_encaps_type_uts IosEncapsType = "ios-encaps-type-uts"
-
-    // Token Ring Inter-Switch Link (TRISL)
-    IosEncapsType_ios_encaps_type_trisl IosEncapsType = "ios-encaps-type-trisl"
-
-    // Cable - MCNS
-    IosEncapsType_ios_encaps_type_mcns IosEncapsType = "ios-encaps-type-mcns"
-
-    // ATM circuit emulation service
-    IosEncapsType_ios_encaps_type_atmces IosEncapsType = "ios-encaps-type-atmces"
-
-    // for transparent mode
-    IosEncapsType_ios_encaps_type_trans IosEncapsType = "ios-encaps-type-trans"
-
-    // TDM clear channel
-    IosEncapsType_ios_encaps_type_clear_channel IosEncapsType = "ios-encaps-type-clear-channel"
-
-    // Tag Controlled ATM interface
-    IosEncapsType_ios_encaps_type_tc_atm IosEncapsType = "ios-encaps-type-tc-atm"
-
-    // PPP over Frame Relay
-    IosEncapsType_ios_encaps_type_fr_ppp IosEncapsType = "ios-encaps-type-fr-ppp"
-
-    // IEEE 802.1Q
-    IosEncapsType_ios_encaps_type_dot1q IosEncapsType = "ios-encaps-type-dot1q"
-
-    // Frame based user network interface
-    IosEncapsType_ios_encaps_type_funi IosEncapsType = "ios-encaps-type-funi"
-
-    // LAPB terminal adapter
-    IosEncapsType_ios_encaps_type_lapbta IosEncapsType = "ios-encaps-type-lapbta"
-
-    // Cable Modem
-    IosEncapsType_ios_encaps_type_docsis IosEncapsType = "ios-encaps-type-docsis"
-
-    // NextPort DSP modem in-band message
-    IosEncapsType_ios_encaps_type_np_inband IosEncapsType = "ios-encaps-type-np-inband"
-
-    // SS7 MTP-2 over serial/TDM interface
-    IosEncapsType_ios_encaps_type_ss7_mtp2 IosEncapsType = "ios-encaps-type-ss7-mtp2"
-
-    // General Packet Radio Service (GPRS)
-    IosEncapsType_ios_encaps_type_gtp IosEncapsType = "ios-encaps-type-gtp"
-
-    // ISL SW encap pkt sent on swch prt
-    IosEncapsType_ios_encaps_type_isl_switchport IosEncapsType = "ios-encaps-type-isl-switchport"
-
-    // Spatial Reuse Protocol
-    IosEncapsType_ios_encaps_type_srp IosEncapsType = "ios-encaps-type-srp"
-
-    // PPP hdr w/Ethertype protocol type
-    IosEncapsType_ios_encaps_type_ppp_etype IosEncapsType = "ios-encaps-type-ppp-etype"
-
-    // PPP over ATM
-    IosEncapsType_ios_encaps_type_atm_ppp IosEncapsType = "ios-encaps-type-atm-ppp"
-
-    // Multilink Frame Relay
-    IosEncapsType_ios_encaps_type_mfr IosEncapsType = "ios-encaps-type-mfr"
-
-    // SRP version 2
-    IosEncapsType_ios_encaps_type_srp2 IosEncapsType = "ios-encaps-type-srp2"
-
-    // Frame Relay extended addressing
-    IosEncapsType_ios_encaps_type_fr_extended IosEncapsType = "ios-encaps-type-fr-extended"
-
-    // PPP Over Ethernet
-    IosEncapsType_ios_encaps_type_pppoe IosEncapsType = "ios-encaps-type-pppoe"
-
-    // OIF UNI SDCC per OIF2000.125
-    IosEncapsType_ios_encaps_type_ouni_sdcc IosEncapsType = "ios-encaps-type-ouni-sdcc"
-
-    // encap type for multiservice i/f
-    IosEncapsType_ios_encaps_type_multiservice IosEncapsType = "ios-encaps-type-multiservice"
-
-    // Container
-    IosEncapsType_ios_encaps_type_container IosEncapsType = "ios-encaps-type-container"
-
-    // Dot1ad ether type
-    IosEncapsType_ios_encaps_type_dot1ad IosEncapsType = "ios-encaps-type-dot1ad"
-
-    // Circuit Emulation Type
-    IosEncapsType_ios_encaps_type_cem IosEncapsType = "ios-encaps-type-cem"
-
-    // IEEE 802.1ah Ether type
-    IosEncapsType_ios_encaps_type_dot1ah IosEncapsType = "ios-encaps-type-dot1ah"
-
-    // PTP type
-    IosEncapsType_ios_encaps_type_ptp IosEncapsType = "ios-encaps-type-ptp"
-
-    // For SSLVPN
-    IosEncapsType_ios_encaps_type_ssl IosEncapsType = "ios-encaps-type-ssl"
-
-    // Locator/ID Separation Protocol (LISP)
-    IosEncapsType_ios_encaps_type_lisp IosEncapsType = "ios-encaps-type-lisp"
-
-    // DSP-based SPA
-    IosEncapsType_ios_encaps_type_dsp_spa IosEncapsType = "ios-encaps-type-dsp-spa"
-
-    // IEC-60870-5-101 for Async Serial interface
-    IosEncapsType_ios_encaps_type_t101 IosEncapsType = "ios-encaps-type-t101"
-
-    // Crypto
-    IosEncapsType_ios_encaps_type_crypto IosEncapsType = "ios-encaps-type-crypto"
-
-    // Raw socket TCP for Async line interface
-    IosEncapsType_ios_encaps_type_rawtcp IosEncapsType = "ios-encaps-type-rawtcp"
-
-    // Async line raw data
-    IosEncapsType_ios_encaps_type_async IosEncapsType = "ios-encaps-type-async"
-
-    // Cisco Meta Data (CMD) EtherType=0x8909 encap
-    IosEncapsType_ios_encaps_type_cmd IosEncapsType = "ios-encaps-type-cmd"
-
-    // SCADA for Async Serial Interface
-    IosEncapsType_ios_encaps_type_scada IosEncapsType = "ios-encaps-type-scada"
-
-    // Raw socket UDP for Async line interface
-    IosEncapsType_ios_encaps_type_rawudp IosEncapsType = "ios-encaps-type-rawudp"
-
-    // Line relay for Async line interface
-    IosEncapsType_ios_encaps_type_relay_line IosEncapsType = "ios-encaps-type-relay-line"
-
-    // Raw socket over MPLS for Async line interface
-    // Market want to call it trans. It's a little conflict
-    // TRANSPARENT
-    IosEncapsType_ios_encaps_type_rawmpls IosEncapsType = "ios-encaps-type-rawmpls"
-
-    // if NID added after ARPA we add a new type
-    IosEncapsType_ios_encaps_type_arpa_nid IosEncapsType = "ios-encaps-type-arpa-nid"
 )
 

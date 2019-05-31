@@ -11,27 +11,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_tc"))
 }
 
-// CiscoPortListRange represents syntax.
-type CiscoPortListRange string
-
-const (
-    CiscoPortListRange_oneto2k CiscoPortListRange = "oneto2k"
-
-    CiscoPortListRange_twoKto4K CiscoPortListRange = "twoKto4K"
-
-    CiscoPortListRange_fourKto6K CiscoPortListRange = "fourKto6K"
-
-    CiscoPortListRange_sixKto8K CiscoPortListRange = "sixKto8K"
-
-    CiscoPortListRange_eightKto10K CiscoPortListRange = "eightKto10K"
-
-    CiscoPortListRange_tenKto12K CiscoPortListRange = "tenKto12K"
-
-    CiscoPortListRange_twelveKto14K CiscoPortListRange = "twelveKto14K"
-
-    CiscoPortListRange_fourteenKto16K CiscoPortListRange = "fourteenKto16K"
-)
-
 // CiscoNetworkProtocol represents Represents the different types of network layer protocols.
 type CiscoNetworkProtocol string
 
@@ -121,6 +100,46 @@ const (
     CiscoLocationClass_channel CiscoLocationClass = "channel"
 
     CiscoLocationClass_subChannel CiscoLocationClass = "subChannel"
+)
+
+// CiscoAlarmSeverity represents         informational events.
+type CiscoAlarmSeverity string
+
+const (
+    CiscoAlarmSeverity_cleared CiscoAlarmSeverity = "cleared"
+
+    CiscoAlarmSeverity_indeterminate CiscoAlarmSeverity = "indeterminate"
+
+    CiscoAlarmSeverity_critical CiscoAlarmSeverity = "critical"
+
+    CiscoAlarmSeverity_major CiscoAlarmSeverity = "major"
+
+    CiscoAlarmSeverity_minor CiscoAlarmSeverity = "minor"
+
+    CiscoAlarmSeverity_warning CiscoAlarmSeverity = "warning"
+
+    CiscoAlarmSeverity_info CiscoAlarmSeverity = "info"
+)
+
+// CiscoPortListRange represents syntax.
+type CiscoPortListRange string
+
+const (
+    CiscoPortListRange_oneto2k CiscoPortListRange = "oneto2k"
+
+    CiscoPortListRange_twoKto4K CiscoPortListRange = "twoKto4K"
+
+    CiscoPortListRange_fourKto6K CiscoPortListRange = "fourKto6K"
+
+    CiscoPortListRange_sixKto8K CiscoPortListRange = "sixKto8K"
+
+    CiscoPortListRange_eightKto10K CiscoPortListRange = "eightKto10K"
+
+    CiscoPortListRange_tenKto12K CiscoPortListRange = "tenKto12K"
+
+    CiscoPortListRange_twelveKto14K CiscoPortListRange = "twelveKto14K"
+
+    CiscoPortListRange_fourteenKto16K CiscoPortListRange = "fourteenKto16K"
 )
 
 // IfOperStatusReason represents      'fabricNameInvalid (268)' - Fabric Name Invalid.
@@ -662,24 +681,5 @@ const (
     IfOperStatusReason_domainIdsInvalid IfOperStatusReason = "domainIdsInvalid"
 
     IfOperStatusReason_fabricNameInvalid IfOperStatusReason = "fabricNameInvalid"
-)
-
-// CiscoAlarmSeverity represents         informational events.
-type CiscoAlarmSeverity string
-
-const (
-    CiscoAlarmSeverity_cleared CiscoAlarmSeverity = "cleared"
-
-    CiscoAlarmSeverity_indeterminate CiscoAlarmSeverity = "indeterminate"
-
-    CiscoAlarmSeverity_critical CiscoAlarmSeverity = "critical"
-
-    CiscoAlarmSeverity_major CiscoAlarmSeverity = "major"
-
-    CiscoAlarmSeverity_minor CiscoAlarmSeverity = "minor"
-
-    CiscoAlarmSeverity_warning CiscoAlarmSeverity = "warning"
-
-    CiscoAlarmSeverity_info CiscoAlarmSeverity = "info"
 )
 

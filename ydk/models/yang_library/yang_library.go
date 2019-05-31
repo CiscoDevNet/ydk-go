@@ -84,7 +84,7 @@ type ModulesState_Module struct {
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0..0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or
@@ -177,7 +177,7 @@ type ModulesState_Module_Deviation struct {
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0..0.
     Revision interface{}
 }
 
@@ -217,7 +217,7 @@ type ModulesState_Module_Submodule struct {
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: b'\\d{4}-\\d{2}-\\d{2}', or string with length: 0..0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or

@@ -130,7 +130,7 @@ type MediaSvr_LocationDescriptions_LocationDescription struct {
     YListKey string
 
     // This attribute is a key. Node location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // string output. The type is string.

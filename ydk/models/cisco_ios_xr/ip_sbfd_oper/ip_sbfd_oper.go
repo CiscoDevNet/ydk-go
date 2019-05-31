@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-sbfd-oper:sbfd", reflect.TypeOf(Sbfd{}))
 }
 
-// SbfdAddressFamily represents Sbfd address family
-type SbfdAddressFamily string
-
-const (
-    // ipv4
-    SbfdAddressFamily_ipv4 SbfdAddressFamily = "ipv4"
-
-    // ipv6
-    SbfdAddressFamily_ipv6 SbfdAddressFamily = "ipv6"
-)
-
 // BfdAfId represents Bfd af id
 type BfdAfId string
 
@@ -47,6 +36,17 @@ const (
 
     // IPv6 AFI
     BfdAfId_bfd_af_id_ipv6 BfdAfId = "bfd-af-id-ipv6"
+)
+
+// SbfdAddressFamily represents Sbfd address family
+type SbfdAddressFamily string
+
+const (
+    // ipv4
+    SbfdAddressFamily_ipv4 SbfdAddressFamily = "ipv4"
+
+    // ipv6
+    SbfdAddressFamily_ipv6 SbfdAddressFamily = "ipv6"
 )
 
 // Sbfd
@@ -155,7 +155,7 @@ type Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // SBFD remote discriminator . The type is slice of
@@ -195,16 +195,16 @@ type Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf_RemoteDiscriminator struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // VRF Name . The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // VRF Name . The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Remote Discriminator. The type is interface{} with range: 0..4294967295.
     RemoteDiscriminator interface{}
 
     // Address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Target identifier for sbfd. The type is SbfdAddressFamily.
@@ -267,11 +267,11 @@ type Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf_RemoteDiscriminator_IpAddress st
     Dummy interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -340,7 +340,7 @@ type Sbfd_TargetIdentifier_LocalVrfs_LocalVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // SBFD local discriminator . The type is slice of
@@ -383,7 +383,7 @@ type Sbfd_TargetIdentifier_LocalVrfs_LocalVrf_LocalDiscriminator struct {
     // Local discriminator. The type is interface{} with range: 0..4294967295.
     LocalDiscriminator interface{}
 
-    // VRF Name . The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // VRF Name . The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Local discriminator. The type is interface{} with range: 0..4294967295.

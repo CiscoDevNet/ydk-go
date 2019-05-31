@@ -271,7 +271,7 @@ type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
     // of this object may be obtained in different ways, e.g., by manual
     // configuration, or through ILMI interaction with the neighbor system. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     AtmInterfaceMyNeighborIpAddress interface{}
 
     // The textual name of the interface on the neighbor system on the far end of
@@ -308,22 +308,6 @@ type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
     // address, or for other interfaces this is an octet string of zero length.
     // The type is string.
     AtmInterfaceSubscrAddress interface{}
-
-    // The current number PVCLs on this interface which  changed state to 'up'
-    // since the last  atmIntPvcUpTrap was sent. The type is interface{} with
-    // range: 0..4294967295.
-    AtmIntfCurrentlyDownToUpPVcls interface{}
-
-    // The total number of PVCLs in this interface which  are currently in the oam
-    // loopback failed condition but  the status of each PVCL remain in the 'up'
-    // state. The type is interface{} with range: 0..4294967295.
-    AtmIntfOAMFailedPVcls interface{}
-
-    // The current number of PVCLs on this interface for which the oam loop back
-    // has failed but the status of each PVCL remain  in the 'up' state in the
-    // last notification interval. The type is interface{} with range:
-    // 0..4294967295.
-    AtmIntfCurrentlyOAMFailingPVcls interface{}
 
     // The number of times the operational status of a PVCL on this interface has
     // gone down. The type is interface{} with range: 0..4294967295.
@@ -463,6 +447,22 @@ type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
 
     // Type of OAM Recovered. The type is CatmOAMRecoveryType.
     CatmIntfTypeOfOAMRecover interface{}
+
+    // The current number PVCLs on this interface which  changed state to 'up'
+    // since the last  atmIntPvcUpTrap was sent. The type is interface{} with
+    // range: 0..4294967295.
+    AtmIntfCurrentlyDownToUpPVcls interface{}
+
+    // The total number of PVCLs in this interface which  are currently in the oam
+    // loopback failed condition but  the status of each PVCL remain in the 'up'
+    // state. The type is interface{} with range: 0..4294967295.
+    AtmIntfOAMFailedPVcls interface{}
+
+    // The current number of PVCLs on this interface for which the oam loop back
+    // has failed but the status of each PVCL remain  in the 'up' state in the
+    // last notification interval. The type is interface{} with range:
+    // 0..4294967295.
+    AtmIntfCurrentlyOAMFailingPVcls interface{}
 }
 
 func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry) GetEntityData() *types.CommonEntityData {
@@ -494,9 +494,6 @@ func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry)
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVpiBits", types.YLeaf{"AtmInterfaceCurrentMaxVpiBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVpiBits})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVciBits", types.YLeaf{"AtmInterfaceCurrentMaxVciBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVciBits})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceSubscrAddress", types.YLeaf{"AtmInterfaceSubscrAddress", atmInterfaceConfEntry.AtmInterfaceSubscrAddress})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyDownToUpPVcls", types.YLeaf{"AtmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyDownToUpPVcls})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfOAMFailedPVcls", types.YLeaf{"AtmIntfOAMFailedPVcls", atmInterfaceConfEntry.AtmIntfOAMFailedPVcls})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyOAMFailingPVcls", types.YLeaf{"AtmIntfCurrentlyOAMFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyOAMFailingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailures", types.YLeaf{"AtmIntfPvcFailures", atmInterfaceConfEntry.AtmIntfPvcFailures})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyFailingPVcls", types.YLeaf{"AtmIntfCurrentlyFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyFailingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailuresTrapEnable", types.YLeaf{"AtmIntfPvcFailuresTrapEnable", atmInterfaceConfEntry.AtmIntfPvcFailuresTrapEnable})
@@ -525,6 +522,9 @@ func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry)
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAnyOAMRcovedPVcls", types.YLeaf{"CatmIntfAnyOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfAnyOAMRcovedPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAnyOAMRcovingPVcls", types.YLeaf{"CatmIntfCurAnyOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurAnyOAMRcovingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfTypeOfOAMRecover", types.YLeaf{"CatmIntfTypeOfOAMRecover", atmInterfaceConfEntry.CatmIntfTypeOfOAMRecover})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyDownToUpPVcls", types.YLeaf{"AtmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyDownToUpPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfOAMFailedPVcls", types.YLeaf{"AtmIntfOAMFailedPVcls", atmInterfaceConfEntry.AtmIntfOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyOAMFailingPVcls", types.YLeaf{"AtmIntfCurrentlyOAMFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyOAMFailingPVcls})
 
     atmInterfaceConfEntry.EntityData.YListKeys = []string {"IfIndex"}
 
@@ -799,7 +799,7 @@ type ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry struct {
     // the corresponding instances of the objects:     atmTrafficDescrParam1    
     // atmTrafficDescrParam2     atmTrafficDescrParam3     atmTrafficDescrParam4  
     // atmTrafficDescrParam5. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     AtmTrafficDescrType interface{}
 
     // The first parameter of the ATM traffic descriptor used according to the

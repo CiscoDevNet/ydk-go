@@ -14,6 +14,25 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_cbp_target_tc_mib"))
 }
 
+// CcbptTargetType represents               CcbptTargetIdAaaSession Textual Convention.
+type CcbptTargetType string
+
+const (
+    CcbptTargetType_genIf CcbptTargetType = "genIf"
+
+    CcbptTargetType_atmPvc CcbptTargetType = "atmPvc"
+
+    CcbptTargetType_frDlci CcbptTargetType = "frDlci"
+
+    CcbptTargetType_entity CcbptTargetType = "entity"
+
+    CcbptTargetType_fwZone CcbptTargetType = "fwZone"
+
+    CcbptTargetType_fwZonePair CcbptTargetType = "fwZonePair"
+
+    CcbptTargetType_aaaSession CcbptTargetType = "aaaSession"
+)
+
 // CcbptTargetDirection represents             relative to the target.
 type CcbptTargetDirection string
 
@@ -34,24 +53,5 @@ const (
     CcbptPolicySourceType_ciscoCbQos CcbptPolicySourceType = "ciscoCbQos"
 
     CcbptPolicySourceType_ciscoCbpBase CcbptPolicySourceType = "ciscoCbpBase"
-)
-
-// CcbptTargetType represents               CcbptTargetIdAaaSession Textual Convention.
-type CcbptTargetType string
-
-const (
-    CcbptTargetType_genIf CcbptTargetType = "genIf"
-
-    CcbptTargetType_atmPvc CcbptTargetType = "atmPvc"
-
-    CcbptTargetType_frDlci CcbptTargetType = "frDlci"
-
-    CcbptTargetType_entity CcbptTargetType = "entity"
-
-    CcbptTargetType_fwZone CcbptTargetType = "fwZone"
-
-    CcbptTargetType_fwZonePair CcbptTargetType = "fwZonePair"
-
-    CcbptTargetType_aaaSession CcbptTargetType = "aaaSession"
 )
 

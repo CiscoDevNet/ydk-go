@@ -19,24 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-cdp-oper:cdp-neighbor-details", reflect.TypeOf(CdpNeighborDetails{}))
 }
 
-// CdpEnableDisable represents CDP type enable or disable
-type CdpEnableDisable string
-
-const (
-    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
-
-    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
-)
-
-// CdpYesNo represents CDP type yes or no
-type CdpYesNo string
-
-const (
-    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
-
-    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
-)
-
 // CdpDuplex represents CDP duplex modes
 type CdpDuplex string
 
@@ -52,6 +34,17 @@ const (
     CdpDuplex_cdp_full_duplex_mismatch CdpDuplex = "cdp-full-duplex-mismatch"
 )
 
+// CdpAdvVersion represents CDP advertized version information
+type CdpAdvVersion string
+
+const (
+    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
+
+    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
+
+    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
+)
+
 // CdpUnidirectionalMode represents CDP unidirectional modes
 type CdpUnidirectionalMode string
 
@@ -65,15 +58,22 @@ const (
     CdpUnidirectionalMode_cdp_uni_mode_unknown CdpUnidirectionalMode = "cdp-uni-mode-unknown"
 )
 
-// CdpAdvVersion represents CDP advertized version information
-type CdpAdvVersion string
+// CdpYesNo represents CDP type yes or no
+type CdpYesNo string
 
 const (
-    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
+    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
 
-    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
+    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
+)
 
-    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
+// CdpEnableDisable represents CDP type enable or disable
+type CdpEnableDisable string
+
+const (
+    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
+
+    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
 )
 
 // CdpNeighborDetails
@@ -192,23 +192,23 @@ type CdpNeighborDetails_CdpNeighborDetail struct {
 
     // Device's management addresses. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MgmtAddress interface{}
 
     // IPv4 address of the device. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // IPv6 address of the device. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // CLNS address of the device. The type is string.

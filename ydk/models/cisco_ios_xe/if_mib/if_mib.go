@@ -244,7 +244,7 @@ type IFMIB_IfTable_IfEntry struct {
     // the format of the value of this object.  For interfaces which do not have
     // such an address (e.g., a serial line), this object should contain an octet
     // string of zero length. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IfPhysAddress interface{}
 
     // The desired state of the interface.  The testing(3) state indicates that no
@@ -387,7 +387,7 @@ type IFMIB_IfTable_IfEntry struct {
     // no MIB definitions specific to the particular media are available, the
     // value should be set to the OBJECT IDENTIFIER { 0 0 }. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IfSpecific interface{}
 
     // The textual name of the interface.  The value of this object should be the
@@ -595,7 +595,7 @@ type IFMIB_IfTable_IfEntry struct {
     // set to.  If it has not been set since the last initialization of the
     // network management subsystem on the agent, a value of noTest is returned.
     // The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IfTestType interface{}
 
     // This object contains the result of the most recently requested test, or the
@@ -612,7 +612,8 @@ type IFMIB_IfTable_IfEntry struct {
     // or InstancePointer textual conventions as defined in RFC 2579.  The
     // identifier:      testCodeUnknown  OBJECT IDENTIFIER ::= { 0 0 }  is defined
     // for use if no additional result code is available. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IfTestCode interface{}
 
     // The entity which currently has the 'ownership' required to invoke a test on
@@ -933,7 +934,7 @@ type IFMIB_IfRcvAddressTable_IfRcvAddressEntry struct {
 
     // This attribute is a key. An address for which the system will accept
     // packets/frames on this entry's interface. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IfRcvAddressAddress interface{}
 
     // This object is used to create and delete rows in the ifRcvAddressTable. The

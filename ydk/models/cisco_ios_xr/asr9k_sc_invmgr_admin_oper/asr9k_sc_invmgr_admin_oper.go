@@ -51,20 +51,6 @@ const (
     InvResetReason_module_reset_reason_user_unpower InvResetReason = "module-reset-reason-user-unpower"
 )
 
-// InvAdminState represents Inv admin state
-type InvAdminState string
-
-const (
-    // admin state invalid
-    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
-
-    // admin up
-    InvAdminState_admin_up InvAdminState = "admin-up"
-
-    // admin down
-    InvAdminState_admin_down InvAdminState = "admin-down"
-)
-
 // InvMonitorState represents Inv monitor state
 type InvMonitorState string
 
@@ -74,20 +60,6 @@ const (
 
     // monitored
     InvMonitorState_monitored InvMonitorState = "monitored"
-)
-
-// InvPowerAdminState represents Inv power admin state
-type InvPowerAdminState string
-
-const (
-    // admin power invalid
-    InvPowerAdminState_admin_power_invalid InvPowerAdminState = "admin-power-invalid"
-
-    // admin on
-    InvPowerAdminState_admin_on InvPowerAdminState = "admin-on"
-
-    // admin off
-    InvPowerAdminState_admin_off InvPowerAdminState = "admin-off"
 )
 
 // InvCardState represents Inv card state
@@ -210,6 +182,34 @@ const (
 
     // inv card num states
     InvCardState_inv_card_num_states InvCardState = "inv-card-num-states"
+)
+
+// InvPowerAdminState represents Inv power admin state
+type InvPowerAdminState string
+
+const (
+    // admin power invalid
+    InvPowerAdminState_admin_power_invalid InvPowerAdminState = "admin-power-invalid"
+
+    // admin on
+    InvPowerAdminState_admin_on InvPowerAdminState = "admin-on"
+
+    // admin off
+    InvPowerAdminState_admin_off InvPowerAdminState = "admin-off"
+)
+
+// InvAdminState represents Inv admin state
+type InvAdminState string
+
+const (
+    // admin state invalid
+    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
+
+    // admin up
+    InvAdminState_admin_up InvAdminState = "admin-up"
+
+    // admin down
+    InvAdminState_admin_down InvAdminState = "admin-down"
 )
 
 // Inventory
@@ -508,8 +508,8 @@ type Inventory_Racks_Rack_PowerSupplyShelfs_PowerSupplyShelf_BasicAttributes_Bas
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -521,6 +521,10 @@ type Inventory_Racks_Rack_PowerSupplyShelfs_PowerSupplyShelf_BasicAttributes_Bas
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_PowerSupplyShelfs_PowerSupplyShelf_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -562,6 +566,7 @@ func (basicInfo *Inventory_Racks_Rack_PowerSupplyShelfs_PowerSupplyShelf_BasicAt
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -1187,8 +1192,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -1200,6 +1205,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -1241,6 +1250,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Mod
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -1489,8 +1499,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -1502,6 +1512,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -1543,6 +1557,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Mod
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -1862,8 +1877,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -1875,6 +1890,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -1916,6 +1935,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Mod
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -2164,8 +2184,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -2177,6 +2197,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -2218,6 +2242,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Mod
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -2466,8 +2491,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -2479,6 +2504,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -2520,6 +2549,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Bas
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -2914,8 +2944,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -2927,6 +2957,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -2968,6 +3002,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwCompo
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -3216,8 +3251,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3229,6 +3264,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -3270,6 +3309,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwCompo
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -3623,8 +3663,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3636,6 +3676,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -3677,6 +3721,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_P
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -3925,8 +3970,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3938,6 +3983,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -3979,6 +4028,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_B
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -4298,8 +4348,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_B
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4311,6 +4361,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_B
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -4352,6 +4406,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_Basic
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -4600,8 +4655,8 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo struct
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4613,6 +4668,10 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo struct
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -4654,6 +4713,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_Basi
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -4902,8 +4962,8 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4915,6 +4975,10 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -4956,6 +5020,7 @@ func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetE
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -5143,8 +5208,8 @@ type Inventory_Racks_Rack_FanTrays_FanTray_BasicAttributes_BasicInfo struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -5156,6 +5221,10 @@ type Inventory_Racks_Rack_FanTrays_FanTray_BasicAttributes_BasicInfo struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_FanTrays_FanTray_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -5197,6 +5266,7 @@ func (basicInfo *Inventory_Racks_Rack_FanTrays_FanTray_BasicAttributes_BasicInfo
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 
@@ -5458,8 +5528,8 @@ type Inventory_Racks_Rack_BasicAttributes_BasicInfo struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if applicable to this entity. The type
-    // is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if     applicable to this entity. The
+    // type is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -5471,6 +5541,10 @@ type Inventory_Racks_Rack_BasicAttributes_BasicInfo struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
+
+    // Allocated power for an entity. The type is interface{} with range:
+    // -2147483648..2147483647.
+    AllocatedPower interface{}
 }
 
 func (basicInfo *Inventory_Racks_Rack_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
@@ -5512,6 +5586,7 @@ func (basicInfo *Inventory_Racks_Rack_BasicAttributes_BasicInfo) GetEntityData()
     basicInfo.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", basicInfo.Ceport})
     basicInfo.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", basicInfo.XrScoped})
     basicInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", basicInfo.UniqueId})
+    basicInfo.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", basicInfo.AllocatedPower})
 
     basicInfo.EntityData.YListKeys = []string {}
 

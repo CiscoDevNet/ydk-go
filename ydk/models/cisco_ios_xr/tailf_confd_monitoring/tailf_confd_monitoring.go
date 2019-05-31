@@ -46,6 +46,9 @@ type ConfdState struct {
     Ha ConfdState_Ha
 
     
+    LoadedDataModels ConfdState_LoadedDataModels
+
+    
     Netconf ConfdState_Netconf
 
     
@@ -53,6 +56,9 @@ type ConfdState struct {
 
     
     Webui ConfdState_Webui
+
+    
+    Rest ConfdState_Rest
 
     
     Snmp ConfdState_Snmp
@@ -75,9 +81,11 @@ func (confdState *ConfdState) GetEntityData() *types.CommonEntityData {
     confdState.EntityData.Children = types.NewOrderedMap()
     confdState.EntityData.Children.Append("smp", types.YChild{"Smp", &confdState.Smp})
     confdState.EntityData.Children.Append("ha", types.YChild{"Ha", &confdState.Ha})
+    confdState.EntityData.Children.Append("loaded-data-models", types.YChild{"LoadedDataModels", &confdState.LoadedDataModels})
     confdState.EntityData.Children.Append("netconf", types.YChild{"Netconf", &confdState.Netconf})
     confdState.EntityData.Children.Append("cli", types.YChild{"Cli", &confdState.Cli})
     confdState.EntityData.Children.Append("webui", types.YChild{"Webui", &confdState.Webui})
+    confdState.EntityData.Children.Append("rest", types.YChild{"Rest", &confdState.Rest})
     confdState.EntityData.Children.Append("snmp", types.YChild{"Snmp", &confdState.Snmp})
     confdState.EntityData.Children.Append("internal", types.YChild{"Internal", &confdState.Internal})
     confdState.EntityData.Leafs = types.NewOrderedMap()
@@ -137,15 +145,16 @@ type ConfdState_Ha struct {
     // The node identifier of this node in the HA cluster. The type is string.
     NodeId interface{}
 
-    // The node identifier of the HA cluster's master node. The type is string.
+    // The node identifier of this node's parent node. This is the HA cluster's
+    // master node unless relay slaves are used. The type is string.
     MasterNodeId interface{}
 
     // The node identifiers of the currently connected slaves. The type is slice
     // of string.
     ConnectedSlave []interface{}
 
-    // The node identifiers of slaves not yet connected. The type is slice of
-    // string.
+    // The node identifiers of slaves with pending acknowledgement of synchronous
+    // replication. The type is slice of string.
     PendingSlave []interface{}
 }
 
@@ -182,6 +191,118 @@ const (
     ConfdState_Ha_Mode_slave ConfdState_Ha_Mode = "slave"
 
     ConfdState_Ha_Mode_master ConfdState_Ha_Mode = "master"
+
+    ConfdState_Ha_Mode_relay_slave ConfdState_Ha_Mode = "relay-slave"
+)
+
+// ConfdState_LoadedDataModels
+type ConfdState_LoadedDataModels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This list contains all loaded YANG data modules.  This list is a superset
+    // of the 'schema' list defined in ietf-netconf-monitoring, which only lists
+    // modules exported through NETCONF. The type is slice of
+    // ConfdState_LoadedDataModels_DataModel.
+    DataModel []*ConfdState_LoadedDataModels_DataModel
+}
+
+func (loadedDataModels *ConfdState_LoadedDataModels) GetEntityData() *types.CommonEntityData {
+    loadedDataModels.EntityData.YFilter = loadedDataModels.YFilter
+    loadedDataModels.EntityData.YangName = "loaded-data-models"
+    loadedDataModels.EntityData.BundleName = "cisco_ios_xr"
+    loadedDataModels.EntityData.ParentYangName = "confd-state"
+    loadedDataModels.EntityData.SegmentPath = "loaded-data-models"
+    loadedDataModels.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + loadedDataModels.EntityData.SegmentPath
+    loadedDataModels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loadedDataModels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loadedDataModels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loadedDataModels.EntityData.Children = types.NewOrderedMap()
+    loadedDataModels.EntityData.Children.Append("data-model", types.YChild{"DataModel", nil})
+    for i := range loadedDataModels.DataModel {
+        loadedDataModels.EntityData.Children.Append(types.GetSegmentPath(loadedDataModels.DataModel[i]), types.YChild{"DataModel", loadedDataModels.DataModel[i]})
+    }
+    loadedDataModels.EntityData.Leafs = types.NewOrderedMap()
+
+    loadedDataModels.EntityData.YListKeys = []string {}
+
+    return &(loadedDataModels.EntityData)
+}
+
+// ConfdState_LoadedDataModels_DataModel
+// This list contains all loaded YANG data modules.
+// 
+// This list is a superset of the 'schema' list defined in
+// ietf-netconf-monitoring, which only lists modules exported
+// through NETCONF.
+type ConfdState_LoadedDataModels_DataModel struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The YANG module name. The type is string.
+    Name interface{}
+
+    // The YANG module revision. The type is string.
+    Revision interface{}
+
+    // The YANG module namespace. The type is string.
+    Namespace interface{}
+
+    // The prefix defined in the YANG module. The type is string.
+    Prefix interface{}
+
+    // This leaf is present if the module is exported to all northbound
+    // interfaces. The type is interface{}.
+    ExportedToAll interface{}
+
+    // A list of the contexts (northbound interfaces) this module is exported to.
+    // The type is one of the following types: slice of  
+    // :go:struct:`ConfdState_LoadedDataModels_DataModel_ExportedTo
+    // <ydk/models/cisco_ios_xr/tailf_confd_monitoring/ConfdState_LoadedDataModels_DataModel_ExportedTo>`,
+    // or slice of string.
+    ExportedTo []interface{}
+}
+
+func (dataModel *ConfdState_LoadedDataModels_DataModel) GetEntityData() *types.CommonEntityData {
+    dataModel.EntityData.YFilter = dataModel.YFilter
+    dataModel.EntityData.YangName = "data-model"
+    dataModel.EntityData.BundleName = "cisco_ios_xr"
+    dataModel.EntityData.ParentYangName = "loaded-data-models"
+    dataModel.EntityData.SegmentPath = "data-model" + types.AddKeyToken(dataModel.Name, "name")
+    dataModel.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/loaded-data-models/" + dataModel.EntityData.SegmentPath
+    dataModel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataModel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataModel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dataModel.EntityData.Children = types.NewOrderedMap()
+    dataModel.EntityData.Leafs = types.NewOrderedMap()
+    dataModel.EntityData.Leafs.Append("name", types.YLeaf{"Name", dataModel.Name})
+    dataModel.EntityData.Leafs.Append("revision", types.YLeaf{"Revision", dataModel.Revision})
+    dataModel.EntityData.Leafs.Append("namespace", types.YLeaf{"Namespace", dataModel.Namespace})
+    dataModel.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", dataModel.Prefix})
+    dataModel.EntityData.Leafs.Append("exported-to-all", types.YLeaf{"ExportedToAll", dataModel.ExportedToAll})
+    dataModel.EntityData.Leafs.Append("exported-to", types.YLeaf{"ExportedTo", dataModel.ExportedTo})
+
+    dataModel.EntityData.YListKeys = []string {"Name"}
+
+    return &(dataModel.EntityData)
+}
+
+// ConfdState_LoadedDataModels_DataModel_ExportedTo represents is exported to.
+type ConfdState_LoadedDataModels_DataModel_ExportedTo string
+
+const (
+    ConfdState_LoadedDataModels_DataModel_ExportedTo_netconf ConfdState_LoadedDataModels_DataModel_ExportedTo = "netconf"
+
+    ConfdState_LoadedDataModels_DataModel_ExportedTo_cli ConfdState_LoadedDataModels_DataModel_ExportedTo = "cli"
+
+    ConfdState_LoadedDataModels_DataModel_ExportedTo_webui ConfdState_LoadedDataModels_DataModel_ExportedTo = "webui"
+
+    ConfdState_LoadedDataModels_DataModel_ExportedTo_rest ConfdState_LoadedDataModels_DataModel_ExportedTo = "rest"
+
+    ConfdState_LoadedDataModels_DataModel_ExportedTo_snmp ConfdState_LoadedDataModels_DataModel_ExportedTo = "snmp"
 )
 
 // ConfdState_Netconf
@@ -271,9 +392,9 @@ type ConfdState_Netconf_Listen_Tcp struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -308,9 +429,9 @@ type ConfdState_Netconf_Listen_Ssh struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -421,9 +542,9 @@ type ConfdState_Cli_Listen_Ssh struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -531,9 +652,9 @@ type ConfdState_Webui_Listen_Tcp struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -568,9 +689,9 @@ type ConfdState_Webui_Listen_Ssl struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.
@@ -598,6 +719,153 @@ func (ssl *ConfdState_Webui_Listen_Ssl) GetEntityData() *types.CommonEntityData 
     return &(ssl.EntityData)
 }
 
+// ConfdState_Rest
+// This type is a presence type.
+type ConfdState_Rest struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // The transport addresses the REST server is listening on.
+    Listen ConfdState_Rest_Listen
+}
+
+func (rest *ConfdState_Rest) GetEntityData() *types.CommonEntityData {
+    rest.EntityData.YFilter = rest.YFilter
+    rest.EntityData.YangName = "rest"
+    rest.EntityData.BundleName = "cisco_ios_xr"
+    rest.EntityData.ParentYangName = "confd-state"
+    rest.EntityData.SegmentPath = "rest"
+    rest.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + rest.EntityData.SegmentPath
+    rest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rest.EntityData.Children = types.NewOrderedMap()
+    rest.EntityData.Children.Append("listen", types.YChild{"Listen", &rest.Listen})
+    rest.EntityData.Leafs = types.NewOrderedMap()
+
+    rest.EntityData.YListKeys = []string {}
+
+    return &(rest.EntityData)
+}
+
+// ConfdState_Rest_Listen
+// The transport addresses the REST server is listening on.
+type ConfdState_Rest_Listen struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of ConfdState_Rest_Listen_Tcp.
+    Tcp []*ConfdState_Rest_Listen_Tcp
+
+    // The type is slice of ConfdState_Rest_Listen_Ssl.
+    Ssl []*ConfdState_Rest_Listen_Ssl
+}
+
+func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
+    listen.EntityData.YFilter = listen.YFilter
+    listen.EntityData.YangName = "listen"
+    listen.EntityData.BundleName = "cisco_ios_xr"
+    listen.EntityData.ParentYangName = "rest"
+    listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/" + listen.EntityData.SegmentPath
+    listen.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    listen.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    listen.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    listen.EntityData.Children = types.NewOrderedMap()
+    listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
+    for i := range listen.Tcp {
+        types.SetYListKey(listen.Tcp[i], i)
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
+    }
+    listen.EntityData.Children.Append("ssl", types.YChild{"Ssl", nil})
+    for i := range listen.Ssl {
+        types.SetYListKey(listen.Ssl[i], i)
+        listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssl[i]), types.YChild{"Ssl", listen.Ssl[i]})
+    }
+    listen.EntityData.Leafs = types.NewOrderedMap()
+
+    listen.EntityData.YListKeys = []string {}
+
+    return &(listen.EntityData)
+}
+
+// ConfdState_Rest_Listen_Tcp
+type ConfdState_Rest_Listen_Tcp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // The type is one of the following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The type is interface{} with range: 0..65535.
+    Port interface{}
+}
+
+func (tcp *ConfdState_Rest_Listen_Tcp) GetEntityData() *types.CommonEntityData {
+    tcp.EntityData.YFilter = tcp.YFilter
+    tcp.EntityData.YangName = "tcp"
+    tcp.EntityData.BundleName = "cisco_ios_xr"
+    tcp.EntityData.ParentYangName = "listen"
+    tcp.EntityData.SegmentPath = "tcp" + types.AddNoKeyToken(tcp)
+    tcp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/listen/" + tcp.EntityData.SegmentPath
+    tcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tcp.EntityData.Children = types.NewOrderedMap()
+    tcp.EntityData.Leafs = types.NewOrderedMap()
+    tcp.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", tcp.Ip})
+    tcp.EntityData.Leafs.Append("port", types.YLeaf{"Port", tcp.Port})
+
+    tcp.EntityData.YListKeys = []string {}
+
+    return &(tcp.EntityData)
+}
+
+// ConfdState_Rest_Listen_Ssl
+type ConfdState_Rest_Listen_Ssl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // The type is one of the following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The type is interface{} with range: 0..65535.
+    Port interface{}
+}
+
+func (ssl *ConfdState_Rest_Listen_Ssl) GetEntityData() *types.CommonEntityData {
+    ssl.EntityData.YFilter = ssl.YFilter
+    ssl.EntityData.YangName = "ssl"
+    ssl.EntityData.BundleName = "cisco_ios_xr"
+    ssl.EntityData.ParentYangName = "listen"
+    ssl.EntityData.SegmentPath = "ssl" + types.AddNoKeyToken(ssl)
+    ssl.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/listen/" + ssl.EntityData.SegmentPath
+    ssl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ssl.EntityData.Children = types.NewOrderedMap()
+    ssl.EntityData.Leafs = types.NewOrderedMap()
+    ssl.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", ssl.Ip})
+    ssl.EntityData.Leafs.Append("port", types.YLeaf{"Port", ssl.Port})
+
+    ssl.EntityData.YListKeys = []string {}
+
+    return &(ssl.EntityData)
+}
+
 // ConfdState_Snmp
 // This type is a presence type.
 type ConfdState_Snmp struct {
@@ -610,7 +878,7 @@ type ConfdState_Snmp struct {
 
     // The local Engine ID specified as a list of colon-specified hexadecimal
     // octets e.g. '4F:4C:41:71'. The type is string with pattern:
-    // ([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}.
+    // b'([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}'.
     EngineId interface{}
 
     // The transport addresses the SNMP agent is listening on.
@@ -684,9 +952,9 @@ type ConfdState_Snmp_Listen_Udp struct {
     YListKey string
 
     // The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.

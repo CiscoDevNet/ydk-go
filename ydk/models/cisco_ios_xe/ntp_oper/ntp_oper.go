@@ -19,6 +19,68 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-ntp-oper:ntp-oper-data", reflect.TypeOf(NtpOperData{}))
 }
 
+// RefClockSourceType represents Clock source type for NTP
+type RefClockSourceType string
+
+const (
+    // Geosynchronous Orbit Environment Satellite
+    RefClockSourceType_ntp_ref_goes RefClockSourceType = "ntp-ref-goes"
+
+    // Global Position System
+    RefClockSourceType_ntp_ref_gps RefClockSourceType = "ntp-ref-gps"
+
+    // Galileo Positioning System
+    RefClockSourceType_ntp_ref_gal RefClockSourceType = "ntp-ref-gal"
+
+    // Generic pulse-per-second
+    RefClockSourceType_ntp_ref_pps RefClockSourceType = "ntp-ref-pps"
+
+    // Inter-Range Instrumentation Group
+    RefClockSourceType_ntp_ref_irig RefClockSourceType = "ntp-ref-irig"
+
+    // LF Radio WWVB Ft. Collins
+    RefClockSourceType_ntp_ref_wwvb RefClockSourceType = "ntp-ref-wwvb"
+
+    // LF Radio DCF77 Mainflingen
+    RefClockSourceType_ntp_ref_dcf RefClockSourceType = "ntp-ref-dcf"
+
+    // LF Radio HBG Prangins
+    RefClockSourceType_ntp_ref_hbg RefClockSourceType = "ntp-ref-hbg"
+
+    // LF Radio MSF Anthorn
+    RefClockSourceType_ntp_ref_msf RefClockSourceType = "ntp-ref-msf"
+
+    // LF Radio JJY Fukushima
+    RefClockSourceType_ntp_ref_jjy RefClockSourceType = "ntp-ref-jjy"
+
+    // MF Radio LORAN C station
+    RefClockSourceType_ntp_ref_lorc RefClockSourceType = "ntp-ref-lorc"
+
+    // MF Radio Allouis
+    RefClockSourceType_ntp_ref_tdf RefClockSourceType = "ntp-ref-tdf"
+
+    // HF Radio CHU Ottawa
+    RefClockSourceType_ntp_ref_chu RefClockSourceType = "ntp-ref-chu"
+
+    // HF Radio WWV Ft. Collins
+    RefClockSourceType_ntp_ref_wwv RefClockSourceType = "ntp-ref-wwv"
+
+    // HF Radio WWVH Kauai
+    RefClockSourceType_ntp_ref_wwvh RefClockSourceType = "ntp-ref-wwvh"
+
+    // NIST telephone modem
+    RefClockSourceType_ntp_ref_nist RefClockSourceType = "ntp-ref-nist"
+
+    // NIST telephone modem
+    RefClockSourceType_ntp_ref_acts RefClockSourceType = "ntp-ref-acts"
+
+    // USNO telephone modem
+    RefClockSourceType_ntp_ref_usno RefClockSourceType = "ntp-ref-usno"
+
+    // European telephone modem
+    RefClockSourceType_ntp_ref_ptb RefClockSourceType = "ntp-ref-ptb"
+)
+
 // KissCodeType represents Kiss code is used for debug or maintenance purposes in devices in stratum 0 or 16
 type KissCodeType string
 
@@ -65,6 +127,117 @@ const (
 
     // STEP means the offset is less than the panic threshold but greater than the step threshold of 125 ms
     KissCodeType_ntp_ref_step KissCodeType = "ntp-ref-step"
+)
+
+// RefidPktTypeInfo represents The type of information stored in the refid
+type RefidPktTypeInfo string
+
+const (
+    // Kiss of Death code or KOD contains debug or maintenance code. Refid is set to these codes in stratums 0 and 16 (unspec,invalid, unsync)
+    RefidPktTypeInfo_ntp_ref_state_kod RefidPktTypeInfo = "ntp-ref-state-kod"
+
+    // CLK Source type occurs for all primary time servers in stratum 1
+    RefidPktTypeInfo_ntp_ref_state_resolved_with_clk_source RefidPktTypeInfo = "ntp-ref-state-resolved-with-clk-source"
+
+    // IP address occurs for clients in stratums >= 2 and  <=15 
+    RefidPktTypeInfo_ntp_ref_state_resolved_with_ip_addr RefidPktTypeInfo = "ntp-ref-state-resolved-with-ip-addr"
+
+    // Bad state which serves as a default criterion for  a complete mismatch with all cases
+    RefidPktTypeInfo_ntp_ref_state_bad_state RefidPktTypeInfo = "ntp-ref-state-bad-state"
+)
+
+// PeerSelectStatus represents Selection status of peer
+type PeerSelectStatus string
+
+const (
+    // The peer is a survivor but not among the first 
+    // six peers
+    PeerSelectStatus_ntp_peer_as_backup PeerSelectStatus = "ntp-peer-as-backup"
+
+    // The peer was rejected due to a loop or due
+    // to becoming unreachable or due to bad synchronization distance
+    PeerSelectStatus_ntp_peer_rejected PeerSelectStatus = "ntp-peer-rejected"
+
+    // The peer or server is discarded due to false tick
+    // or clock errors
+    PeerSelectStatus_ntp_peer_false_ticker PeerSelectStatus = "ntp-peer-false-ticker"
+
+    // The peer is discarded as it is not among the 
+    // first ten peers sorted by synchronization distance
+    PeerSelectStatus_ntp_peer_excess PeerSelectStatus = "ntp-peer-excess"
+
+    // NTP server or peer rejected as outlier
+    PeerSelectStatus_ntp_peer_outlier PeerSelectStatus = "ntp-peer-outlier"
+
+    // Possible candidate for selection as time server
+    PeerSelectStatus_ntp_peer_candidate PeerSelectStatus = "ntp-peer-candidate"
+
+    // Peer or server selected as time server
+    PeerSelectStatus_ntp_peer_sys_peer PeerSelectStatus = "ntp-peer-sys-peer"
+
+    // Peer or server selected as time server. In this 
+    // case the Pulse Per Second signal is used to synchronize the client and
+    // server or peer
+    PeerSelectStatus_ntp_peer_pps_peer PeerSelectStatus = "ntp-peer-pps-peer"
+)
+
+// PeerAuthStatus represents Status of authenticating switch with peer or server
+type PeerAuthStatus string
+
+const (
+    // The NTP client or server packet has MAC  
+    // field and authentication succeded
+    PeerAuthStatus_ntp_auth_ok PeerAuthStatus = "ntp-auth-ok"
+
+    // The NTP client or server packet has MAC  
+    // and decryption failed with AUTH_ERROR 
+    PeerAuthStatus_ntp_auth_bad_auth PeerAuthStatus = "ntp-auth-bad-auth"
+
+    // The NTP client or server is not configured with authenication
+    // with server or client
+    PeerAuthStatus_ntp_auth_auth_not_configured PeerAuthStatus = "ntp-auth-auth-not-configured"
+
+    // The NTP client or server authentication stautus is not available
+    //  as now
+    PeerAuthStatus_ntp_auth_status_not_available PeerAuthStatus = "ntp-auth-status-not-available"
+
+    // The NTP client or server packet has no MAC  
+    // with server or peer
+    PeerAuthStatus_ntp_auth_none PeerAuthStatus = "ntp-auth-none"
+
+    // crypto-NAK. The MAC has four octets only and could not  
+    // determine authentication status with peer
+    PeerAuthStatus_ntp_auth_crypto PeerAuthStatus = "ntp-auth-crypto"
+)
+
+// PeerStatusWord represents Peer status word or crypto of ntp server or ntp peer
+type PeerStatusWord string
+
+const (
+    // In autokey[public key ntp authentication protocol ], this flag is 
+    // set when host certificate is signed by server.This is not implemented/supported as of now 
+    PeerStatusWord_crypto_flag_sig PeerStatusWord = "crypto-flag-sig"
+
+    // In autokey, this flag is set when leap second values
+    // are received and validated
+    PeerStatusWord_crypto_flag_leap PeerStatusWord = "crypto-flag-leap"
+
+    // In autokey,this flag is set when the trusted host identity
+    // credentials are  confirmed 
+    PeerStatusWord_crypto_flag_vrfy PeerStatusWord = "crypto-flag-vrfy"
+
+    // In autokey, this flag is set when the cookie is received  and validated
+    // when set, keylists with  nonzero cookies are generated, 
+    // when reset cookie is zero
+    PeerStatusWord_crypto_flag_cook PeerStatusWord = "crypto-flag-cook"
+
+    // In autokey, this flag is set when autokey values are received and validated,
+    // when set client can validate packets without extension field 
+    // according to the autokey sequence
+    PeerStatusWord_crypto_flag_auto PeerStatusWord = "crypto-flag-auto"
+
+    // In autokey, this flag is set when trusted host certificate and public key are verified
+    PeerStatusWord_crypto_flag_cert PeerStatusWord = "crypto-flag-cert"
 )
 
 // PeerEvent represents Event received by switch or router and sent by peer
@@ -153,179 +326,6 @@ const (
     ServerType_ntp_unknown_type ServerType = "ntp-unknown-type"
 )
 
-// RefidPktTypeInfo represents The type of information stored in the refid
-type RefidPktTypeInfo string
-
-const (
-    // Kiss of Death code or KOD contains debug or maintenance code. Refid is set to these codes in stratums 0 and 16 (unspec,invalid, unsync)
-    RefidPktTypeInfo_ntp_ref_state_kod RefidPktTypeInfo = "ntp-ref-state-kod"
-
-    // CLK Source type occurs for all primary time servers in stratum 1
-    RefidPktTypeInfo_ntp_ref_state_resolved_with_clk_source RefidPktTypeInfo = "ntp-ref-state-resolved-with-clk-source"
-
-    // IP address occurs for clients in stratums >= 2 and  <=15 
-    RefidPktTypeInfo_ntp_ref_state_resolved_with_ip_addr RefidPktTypeInfo = "ntp-ref-state-resolved-with-ip-addr"
-
-    // Bad state which serves as a default criterion for  a complete mismatch with all cases
-    RefidPktTypeInfo_ntp_ref_state_bad_state RefidPktTypeInfo = "ntp-ref-state-bad-state"
-)
-
-// PeerStatusWord represents Peer status word or crypto of ntp server or ntp peer
-type PeerStatusWord string
-
-const (
-    // In autokey[public key ntp authentication protocol ], this flag is 
-    // set when host certificate is signed by server.This is not implemented/supported as of now 
-    PeerStatusWord_crypto_flag_sig PeerStatusWord = "crypto-flag-sig"
-
-    // In autokey, this flag is set when leap second values
-    // are received and validated
-    PeerStatusWord_crypto_flag_leap PeerStatusWord = "crypto-flag-leap"
-
-    // In autokey,this flag is set when the trusted host identity
-    // credentials are  confirmed 
-    PeerStatusWord_crypto_flag_vrfy PeerStatusWord = "crypto-flag-vrfy"
-
-    // In autokey, this flag is set when the cookie is received  and validated
-    // when set, keylists with  nonzero cookies are generated, 
-    // when reset cookie is zero
-    PeerStatusWord_crypto_flag_cook PeerStatusWord = "crypto-flag-cook"
-
-    // In autokey, this flag is set when autokey values are received and validated,
-    // when set client can validate packets without extension field 
-    // according to the autokey sequence
-    PeerStatusWord_crypto_flag_auto PeerStatusWord = "crypto-flag-auto"
-
-    // In autokey, this flag is set when trusted host certificate and public key are verified
-    PeerStatusWord_crypto_flag_cert PeerStatusWord = "crypto-flag-cert"
-)
-
-// PeerSelectStatus represents Selection status of peer
-type PeerSelectStatus string
-
-const (
-    // The peer is a survivor but not among the first 
-    // six peers
-    PeerSelectStatus_ntp_peer_as_backup PeerSelectStatus = "ntp-peer-as-backup"
-
-    // The peer was rejected due to a loop or due
-    // to becoming unreachable or due to bad synchronization distance
-    PeerSelectStatus_ntp_peer_rejected PeerSelectStatus = "ntp-peer-rejected"
-
-    // The peer or server is discarded due to false tick
-    // or clock errors
-    PeerSelectStatus_ntp_peer_false_ticker PeerSelectStatus = "ntp-peer-false-ticker"
-
-    // The peer is discarded as it is not among the 
-    // first ten peers sorted by synchronization distance
-    PeerSelectStatus_ntp_peer_excess PeerSelectStatus = "ntp-peer-excess"
-
-    // NTP server or peer rejected as outlier
-    PeerSelectStatus_ntp_peer_outlier PeerSelectStatus = "ntp-peer-outlier"
-
-    // Possible candidate for selection as time server
-    PeerSelectStatus_ntp_peer_candidate PeerSelectStatus = "ntp-peer-candidate"
-
-    // Peer or server selected as time server
-    PeerSelectStatus_ntp_peer_sys_peer PeerSelectStatus = "ntp-peer-sys-peer"
-
-    // Peer or server selected as time server. In this 
-    // case the Pulse Per Second signal is used to synchronize the client and
-    // server or peer
-    PeerSelectStatus_ntp_peer_pps_peer PeerSelectStatus = "ntp-peer-pps-peer"
-)
-
-// RefClockSourceType represents Clock source type for NTP
-type RefClockSourceType string
-
-const (
-    // Geosynchronous Orbit Environment Satellite
-    RefClockSourceType_ntp_ref_goes RefClockSourceType = "ntp-ref-goes"
-
-    // Global Position System
-    RefClockSourceType_ntp_ref_gps RefClockSourceType = "ntp-ref-gps"
-
-    // Galileo Positioning System
-    RefClockSourceType_ntp_ref_gal RefClockSourceType = "ntp-ref-gal"
-
-    // Generic pulse-per-second
-    RefClockSourceType_ntp_ref_pps RefClockSourceType = "ntp-ref-pps"
-
-    // Inter-Range Instrumentation Group
-    RefClockSourceType_ntp_ref_irig RefClockSourceType = "ntp-ref-irig"
-
-    // LF Radio WWVB Ft. Collins
-    RefClockSourceType_ntp_ref_wwvb RefClockSourceType = "ntp-ref-wwvb"
-
-    // LF Radio DCF77 Mainflingen
-    RefClockSourceType_ntp_ref_dcf RefClockSourceType = "ntp-ref-dcf"
-
-    // LF Radio HBG Prangins
-    RefClockSourceType_ntp_ref_hbg RefClockSourceType = "ntp-ref-hbg"
-
-    // LF Radio MSF Anthorn
-    RefClockSourceType_ntp_ref_msf RefClockSourceType = "ntp-ref-msf"
-
-    // LF Radio JJY Fukushima
-    RefClockSourceType_ntp_ref_jjy RefClockSourceType = "ntp-ref-jjy"
-
-    // MF Radio LORAN C station
-    RefClockSourceType_ntp_ref_lorc RefClockSourceType = "ntp-ref-lorc"
-
-    // MF Radio Allouis
-    RefClockSourceType_ntp_ref_tdf RefClockSourceType = "ntp-ref-tdf"
-
-    // HF Radio CHU Ottawa
-    RefClockSourceType_ntp_ref_chu RefClockSourceType = "ntp-ref-chu"
-
-    // HF Radio WWV Ft. Collins
-    RefClockSourceType_ntp_ref_wwv RefClockSourceType = "ntp-ref-wwv"
-
-    // HF Radio WWVH Kauai
-    RefClockSourceType_ntp_ref_wwvh RefClockSourceType = "ntp-ref-wwvh"
-
-    // NIST telephone modem
-    RefClockSourceType_ntp_ref_nist RefClockSourceType = "ntp-ref-nist"
-
-    // NIST telephone modem
-    RefClockSourceType_ntp_ref_acts RefClockSourceType = "ntp-ref-acts"
-
-    // USNO telephone modem
-    RefClockSourceType_ntp_ref_usno RefClockSourceType = "ntp-ref-usno"
-
-    // European telephone modem
-    RefClockSourceType_ntp_ref_ptb RefClockSourceType = "ntp-ref-ptb"
-)
-
-// PeerAuthStatus represents Status of authenticating switch with peer or server
-type PeerAuthStatus string
-
-const (
-    // The NTP client or server packet has MAC  
-    // field and authentication succeded
-    PeerAuthStatus_ntp_auth_ok PeerAuthStatus = "ntp-auth-ok"
-
-    // The NTP client or server packet has MAC  
-    // and decryption failed with AUTH_ERROR 
-    PeerAuthStatus_ntp_auth_bad_auth PeerAuthStatus = "ntp-auth-bad-auth"
-
-    // The NTP client or server is not configured with authenication
-    // with server or client
-    PeerAuthStatus_ntp_auth_auth_not_configured PeerAuthStatus = "ntp-auth-auth-not-configured"
-
-    // The NTP client or server authentication stautus is not available
-    //  as now
-    PeerAuthStatus_ntp_auth_status_not_available PeerAuthStatus = "ntp-auth-status-not-available"
-
-    // The NTP client or server packet has no MAC  
-    // with server or peer
-    PeerAuthStatus_ntp_auth_none PeerAuthStatus = "ntp-auth-none"
-
-    // crypto-NAK. The MAC has four octets only and could not  
-    // determine authentication status with peer
-    PeerAuthStatus_ntp_auth_crypto PeerAuthStatus = "ntp-auth-crypto"
-)
-
 // NtpOperData
 // NTP operational data
 type NtpOperData struct {
@@ -368,7 +368,7 @@ type NtpOperData_NtpStatusInfo struct {
     YPresence bool
 
     // Unix calendar time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Reftime interface{}
 
     // Frequency or periodicity of NTP polling in seconds expressed as a power of
@@ -445,9 +445,9 @@ type NtpOperData_NtpStatusInfo_Refid struct {
 
     // IPV4 or IPV6 ip address. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddr interface{}
 
     // Bad stat or exception code in case the 3 criteria of ip, clock and kod
@@ -570,7 +570,7 @@ type NtpOperData_NtpStatusInfo_NtpAssociations struct {
     PeerStratum interface{}
 
     // Reference UNIX calendar time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Reftime interface{}
 
     // The time of  the last NTP poll or update that happened in seconds. How many
@@ -669,9 +669,9 @@ type NtpOperData_NtpStatusInfo_NtpAssociations_Refid struct {
 
     // IPV4 or IPV6 ip address. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddr interface{}
 
     // Bad stat or exception code in case the 3 criteria of ip, clock and kod
@@ -779,9 +779,9 @@ type NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress struct {
 
     // IP address is the IP address of  the NTP server or peer. The type is one of
     // the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddr interface{}
 
     // VRF name is the virtual routing instance through which we can find the ntp

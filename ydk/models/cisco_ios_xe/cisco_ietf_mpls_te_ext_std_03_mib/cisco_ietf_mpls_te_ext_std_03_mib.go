@@ -177,7 +177,7 @@ type CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeConfigTable_CmplsNodeConfigEntry struct
 
     // This object indicates the Global Operator Identifier. This object value
     // should be zero when mplsNodeConfigIccId is configured with non-null value.
-    // The type is string with length: 4.
+    // The type is string with length: 4..4.
     CmplsNodeConfigGlobalId interface{}
 
     // This object indicates the Node_ID within the operator. This object value
@@ -291,7 +291,7 @@ type CISCOIETFMPLSTEEXTSTD03MIB_CmplsNodeIpMapTable_CmplsNodeIpMapEntry struct {
     YListKey string
 
     // This attribute is a key. This object indicates the Global_ID. The type is
-    // string with length: 4.
+    // string with length: 4..4.
     CmplsNodeIpMapGlobalId interface{}
 
     // This attribute is a key. This object indicates the Node_ID within the
@@ -511,7 +511,7 @@ type CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable_CmplsTunnelExtEntry struct {
     // tunnel is setup by configuring two tunnel entries in mplsTunnelTable.  The
     // value of zeroDotZero indicates single tunnel entry is used for
     // bidirectional tunnel setup. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     CmplsTunnelOppositeDirPtr interface{}
 
     // Denotes whether or not this tunnel uses mplsTunnelOppositeDirPtr for

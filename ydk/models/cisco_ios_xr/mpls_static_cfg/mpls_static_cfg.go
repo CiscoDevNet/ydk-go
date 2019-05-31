@@ -24,29 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-mpls-static-cfg:mpls-static", reflect.TypeOf(MplsStatic{}))
 }
 
-// MplsStaticNhMode represents Mpls static nh mode
-type MplsStaticNhMode string
-
-const (
-    // Explicitly configured next hop path
-    MplsStaticNhMode_configured MplsStaticNhMode = "configured"
-
-    // Resolvable next hop which will result in a path
-    // set
-    MplsStaticNhMode_resolve MplsStaticNhMode = "resolve"
-)
-
-// MplsStaticNhAddressFamily represents Mpls static nh address family
-type MplsStaticNhAddressFamily string
-
-const (
-    // IPv4 Next Hop
-    MplsStaticNhAddressFamily_ipv4 MplsStaticNhAddressFamily = "ipv4"
-
-    // IPv6 Next Hop
-    MplsStaticNhAddressFamily_ipv6 MplsStaticNhAddressFamily = "ipv6"
-)
-
 // MplsStaticPath represents Mpls static path
 type MplsStaticPath string
 
@@ -64,26 +41,6 @@ type MplsStaticAddressFamily string
 const (
     // IPv4 Unicast
     MplsStaticAddressFamily_ipv4_unicast MplsStaticAddressFamily = "ipv4-unicast"
-)
-
-// MplsStaticOutLabelTypes represents Mpls static out label types
-type MplsStaticOutLabelTypes string
-
-const (
-    // None
-    MplsStaticOutLabelTypes_none MplsStaticOutLabelTypes = "none"
-
-    // OutLabel
-    MplsStaticOutLabelTypes_out_label MplsStaticOutLabelTypes = "out-label"
-
-    // Pop
-    MplsStaticOutLabelTypes_pop MplsStaticOutLabelTypes = "pop"
-
-    // IPv4 explicit-null
-    MplsStaticOutLabelTypes_exp_null MplsStaticOutLabelTypes = "exp-null"
-
-    // IPv6 explicit-null
-    MplsStaticOutLabelTypes_ipv6_explicit_null MplsStaticOutLabelTypes = "ipv6-explicit-null"
 )
 
 // MplsStaticLabelMode represents Mpls static label mode
@@ -114,14 +71,56 @@ const (
     MplsStaticPathRole_primary_backup MplsStaticPathRole = "primary-backup"
 )
 
+// MplsStaticNhAddressFamily represents Mpls static nh address family
+type MplsStaticNhAddressFamily string
+
+const (
+    // IPv4 Next Hop
+    MplsStaticNhAddressFamily_ipv4 MplsStaticNhAddressFamily = "ipv4"
+
+    // IPv6 Next Hop
+    MplsStaticNhAddressFamily_ipv6 MplsStaticNhAddressFamily = "ipv6"
+)
+
+// MplsStaticNhMode represents Mpls static nh mode
+type MplsStaticNhMode string
+
+const (
+    // Explicitly configured next hop path
+    MplsStaticNhMode_configured MplsStaticNhMode = "configured"
+
+    // Resolvable next hop which will result in a path
+    // set
+    MplsStaticNhMode_resolve MplsStaticNhMode = "resolve"
+)
+
+// MplsStaticOutLabelTypes represents Mpls static out label types
+type MplsStaticOutLabelTypes string
+
+const (
+    // None
+    MplsStaticOutLabelTypes_none MplsStaticOutLabelTypes = "none"
+
+    // OutLabel
+    MplsStaticOutLabelTypes_out_label MplsStaticOutLabelTypes = "out-label"
+
+    // Pop
+    MplsStaticOutLabelTypes_pop MplsStaticOutLabelTypes = "pop"
+
+    // IPv4 explicit-null
+    MplsStaticOutLabelTypes_exp_null MplsStaticOutLabelTypes = "exp-null"
+
+    // IPv6 explicit-null
+    MplsStaticOutLabelTypes_ipv6_explicit_null MplsStaticOutLabelTypes = "ipv6-explicit-null"
+)
+
 // MplsStatic
 // MPLS Static Configuration Data
+// This type is a presence type.
 type MplsStatic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
+    YPresence bool
 
     // VRF table.
     Vrfs MplsStatic_Vrfs
@@ -149,7 +148,6 @@ func (mplsStatic *MplsStatic) GetEntityData() *types.CommonEntityData {
     mplsStatic.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mplsStatic.Interfaces})
     mplsStatic.EntityData.Children.Append("default-vrf", types.YChild{"DefaultVrf", &mplsStatic.DefaultVrf})
     mplsStatic.EntityData.Leafs = types.NewOrderedMap()
-    mplsStatic.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mplsStatic.Enable})
 
     mplsStatic.EntityData.YListKeys = []string {}
 
@@ -197,11 +195,8 @@ type MplsStatic_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
-
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
 
     // Table of the Label Switched Paths.
     LabelSwitchedPaths MplsStatic_Vrfs_Vrf_LabelSwitchedPaths
@@ -226,7 +221,6 @@ func (vrf *MplsStatic_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.Children.Append("afs", types.YChild{"Afs", &vrf.Afs})
     vrf.EntityData.Leafs = types.NewOrderedMap()
     vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
-    vrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrf.Enable})
 
     vrf.EntityData.YListKeys = []string {"VrfName"}
 
@@ -275,11 +269,8 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath struct {
     YListKey string
 
     // This attribute is a key. LSP Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     LspName interface{}
-
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
 
     // Backup Path Parameters.
     BackupPaths MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths
@@ -308,7 +299,6 @@ func (labelSwitchedPath *MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPat
     labelSwitchedPath.EntityData.Children.Append("paths", types.YChild{"Paths", &labelSwitchedPath.Paths})
     labelSwitchedPath.EntityData.Leafs = types.NewOrderedMap()
     labelSwitchedPath.EntityData.Leafs.Append("lsp-name", types.YLeaf{"LspName", labelSwitchedPath.LspName})
-    labelSwitchedPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", labelSwitchedPath.Enable})
 
     labelSwitchedPath.EntityData.YListKeys = []string {"LspName"}
 
@@ -374,13 +364,13 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths_Path s
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -447,9 +437,9 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_InLabel struct {
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -542,13 +532,13 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_Paths_Path struct 
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -645,9 +635,6 @@ type MplsStatic_Vrfs_Vrf_Afs_Af struct {
     // MplsStaticAddressFamily.
     Afi interface{}
 
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
-
     // Top Label Hash.
     TopLabelHash MplsStatic_Vrfs_Vrf_Afs_Af_TopLabelHash
 
@@ -671,7 +658,6 @@ func (af *MplsStatic_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.Children.Append("local-labels", types.YChild{"LocalLabels", &af.LocalLabels})
     af.EntityData.Leafs = types.NewOrderedMap()
     af.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", af.Afi})
-    af.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", af.Enable})
 
     af.EntityData.YListKeys = []string {"Afi"}
 
@@ -793,9 +779,9 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_LabelType st
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -883,13 +869,13 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_Paths_Path s
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1027,9 +1013,9 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_LocalLabels_LocalLabel_LabelType struct {
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1117,13 +1103,13 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_LocalLabels_LocalLabel_Paths_Path struct {
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1218,7 +1204,7 @@ type MplsStatic_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of Interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 }
 
@@ -1248,9 +1234,6 @@ type MplsStatic_DefaultVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
-
     // Table of the Label Switched Paths.
     LabelSwitchedPaths MplsStatic_DefaultVrf_LabelSwitchedPaths
 
@@ -1273,7 +1256,6 @@ func (defaultVrf *MplsStatic_DefaultVrf) GetEntityData() *types.CommonEntityData
     defaultVrf.EntityData.Children.Append("label-switched-paths", types.YChild{"LabelSwitchedPaths", &defaultVrf.LabelSwitchedPaths})
     defaultVrf.EntityData.Children.Append("afs", types.YChild{"Afs", &defaultVrf.Afs})
     defaultVrf.EntityData.Leafs = types.NewOrderedMap()
-    defaultVrf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", defaultVrf.Enable})
 
     defaultVrf.EntityData.YListKeys = []string {}
 
@@ -1322,11 +1304,8 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath struct {
     YListKey string
 
     // This attribute is a key. LSP Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     LspName interface{}
-
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
 
     // Backup Path Parameters.
     BackupPaths MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths
@@ -1355,7 +1334,6 @@ func (labelSwitchedPath *MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedP
     labelSwitchedPath.EntityData.Children.Append("paths", types.YChild{"Paths", &labelSwitchedPath.Paths})
     labelSwitchedPath.EntityData.Leafs = types.NewOrderedMap()
     labelSwitchedPath.EntityData.Leafs.Append("lsp-name", types.YLeaf{"LspName", labelSwitchedPath.LspName})
-    labelSwitchedPath.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", labelSwitchedPath.Enable})
 
     labelSwitchedPath.EntityData.YListKeys = []string {"LspName"}
 
@@ -1421,13 +1399,13 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths_Path
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1494,9 +1472,9 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_InLabel struct {
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1589,13 +1567,13 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_Paths_Path struc
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1692,9 +1670,6 @@ type MplsStatic_DefaultVrf_Afs_Af struct {
     // MplsStaticAddressFamily.
     Afi interface{}
 
-    // MPLS Static Apply Enable. The type is interface{}.
-    Enable interface{}
-
     // Top Label Hash.
     TopLabelHash MplsStatic_DefaultVrf_Afs_Af_TopLabelHash
 
@@ -1718,7 +1693,6 @@ func (af *MplsStatic_DefaultVrf_Afs_Af) GetEntityData() *types.CommonEntityData 
     af.EntityData.Children.Append("local-labels", types.YChild{"LocalLabels", &af.LocalLabels})
     af.EntityData.Leafs = types.NewOrderedMap()
     af.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", af.Afi})
-    af.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", af.Enable})
 
     af.EntityData.YListKeys = []string {"Afi"}
 
@@ -1840,9 +1814,9 @@ type MplsStatic_DefaultVrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_LabelType 
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1930,13 +1904,13 @@ type MplsStatic_DefaultVrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_Paths_Path
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -2074,9 +2048,9 @@ type MplsStatic_DefaultVrf_Afs_Af_LocalLabels_LocalLabel_LabelType struct {
 
     // Address (IPv4/6 depending on AFI). The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -2164,13 +2138,13 @@ type MplsStatic_DefaultVrf_Afs_Af_LocalLabels_LocalLabel_Paths_Path struct {
 
     // Next Hop IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default

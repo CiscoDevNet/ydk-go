@@ -32,11 +32,11 @@ func init() {
     ydk.RegisterEntity("ietf-netconf-monitoring:netconf-state", reflect.TypeOf(NetconfState{}))
 }
 
-type NetconfBeep struct {
+type Transport struct {
 }
 
-func (id NetconfBeep) String() string {
-	return "ietf-netconf-monitoring:netconf-beep"
+func (id Transport) String() string {
+	return "ietf-netconf-monitoring:transport"
 }
 
 type NetconfSsh struct {
@@ -46,11 +46,53 @@ func (id NetconfSsh) String() string {
 	return "ietf-netconf-monitoring:netconf-ssh"
 }
 
-type Rnc struct {
+type NetconfSoapOverBeep struct {
 }
 
-func (id Rnc) String() string {
-	return "ietf-netconf-monitoring:rnc"
+func (id NetconfSoapOverBeep) String() string {
+	return "ietf-netconf-monitoring:netconf-soap-over-beep"
+}
+
+type NetconfSoapOverHttps struct {
+}
+
+func (id NetconfSoapOverHttps) String() string {
+	return "ietf-netconf-monitoring:netconf-soap-over-https"
+}
+
+type NetconfBeep struct {
+}
+
+func (id NetconfBeep) String() string {
+	return "ietf-netconf-monitoring:netconf-beep"
+}
+
+type NetconfTls struct {
+}
+
+func (id NetconfTls) String() string {
+	return "ietf-netconf-monitoring:netconf-tls"
+}
+
+type SchemaFormat struct {
+}
+
+func (id SchemaFormat) String() string {
+	return "ietf-netconf-monitoring:schema-format"
+}
+
+type Xsd struct {
+}
+
+func (id Xsd) String() string {
+	return "ietf-netconf-monitoring:xsd"
+}
+
+type Yang struct {
+}
+
+func (id Yang) String() string {
+	return "ietf-netconf-monitoring:yang"
 }
 
 type Yin struct {
@@ -67,53 +109,11 @@ func (id Rng) String() string {
 	return "ietf-netconf-monitoring:rng"
 }
 
-type Xsd struct {
+type Rnc struct {
 }
 
-func (id Xsd) String() string {
-	return "ietf-netconf-monitoring:xsd"
-}
-
-type NetconfSoapOverBeep struct {
-}
-
-func (id NetconfSoapOverBeep) String() string {
-	return "ietf-netconf-monitoring:netconf-soap-over-beep"
-}
-
-type NetconfTls struct {
-}
-
-func (id NetconfTls) String() string {
-	return "ietf-netconf-monitoring:netconf-tls"
-}
-
-type Yang struct {
-}
-
-func (id Yang) String() string {
-	return "ietf-netconf-monitoring:yang"
-}
-
-type SchemaFormat struct {
-}
-
-func (id SchemaFormat) String() string {
-	return "ietf-netconf-monitoring:schema-format"
-}
-
-type NetconfSoapOverHttps struct {
-}
-
-func (id NetconfSoapOverHttps) String() string {
-	return "ietf-netconf-monitoring:netconf-soap-over-https"
-}
-
-type Transport struct {
-}
-
-func (id Transport) String() string {
-	return "ietf-netconf-monitoring:transport"
+func (id Rnc) String() string {
+	return "ietf-netconf-monitoring:rnc"
 }
 
 // NetconfDatastoreType represents Enumeration of possible NETCONF datastore types.
@@ -191,7 +191,7 @@ type GetSchema_Input struct {
     // The data modeling language of the schema.  If this parameter is not
     // present, and more than one formats of the schema exists on the server, a
     // 'data-not-unique' error is returned, as described above. The type is one of
-    // the following: RncYinRngXsdYang.
+    // the following: XsdYangYinRngRnc.
     Format interface{}
 }
 
@@ -469,7 +469,8 @@ type NetconfState_Datastores_Datastore_Locks_GlobalLock struct {
     LockedBySession interface{}
 
     // The date and time of when the resource was locked. The type is string with
-    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     // This attribute is mandatory.
     LockedTime interface{}
 }
@@ -514,7 +515,8 @@ type NetconfState_Datastores_Datastore_Locks_PartialLock struct {
     LockedBySession interface{}
 
     // The date and time of when the resource was locked. The type is string with
-    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     // This attribute is mandatory.
     LockedTime interface{}
 
@@ -616,7 +618,7 @@ type NetconfState_Schemas_Schema struct {
     // This attribute is a key. The data modeling language the schema is written
     // in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang'
     // format MUST be supported and 'yin' format MAY also be provided. The type is
-    // one of the following: RncYinRngXsdYang.
+    // one of the following: XsdYangYinRngRnc.
     Format interface{}
 
     // The XML namespace defined by the data model.  For YANG data models, this is
@@ -719,7 +721,7 @@ type NetconfState_Sessions_Session struct {
 
     // Identifies the transport for each session, e.g., 'netconf-ssh',
     // 'netconf-soap', etc. The type is one of the following:
-    // NetconfBeepNetconfSshNetconfSoapOverBeepNetconfTlsNetconfSoapOverHttps.
+    // NetconfSshNetconfSoapOverBeepNetconfSoapOverHttpsNetconfBeepNetconfTls.
     // This attribute is mandatory.
     Transport interface{}
 
@@ -733,16 +735,16 @@ type NetconfState_Sessions_Session struct {
     // Host identifier of the NETCONF client.  The value returned is
     // implementation specific (e.g., hostname, IPv4 address, IPv6 address). The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
     // or string with length: 1..253.
     SourceHost interface{}
 
     // Time at the server at which the session was established. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
-    // attribute is mandatory.
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // This attribute is mandatory.
     LoginTime interface{}
 
     // Number of correct <rpc> messages received. The type is interface{} with
@@ -799,7 +801,7 @@ type NetconfState_Statistics struct {
 
     // Date and time at which the management subsystem was started. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     NetconfStartTime interface{}
 
     // Number of sessions silently dropped because an invalid <hello> message was

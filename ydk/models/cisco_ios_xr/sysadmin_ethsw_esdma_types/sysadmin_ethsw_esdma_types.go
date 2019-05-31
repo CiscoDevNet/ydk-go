@@ -21,28 +21,68 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package sysadmin_ethsw_esdma_types"))
 }
 
-// MlapProtocolEnum represents The types of MLAP protocol
-type MlapProtocolEnum string
+// EsdmaRackTypeEnum represents The valid chassis types supported supported in Sysadmin.
+type EsdmaRackTypeEnum string
 
 const (
-    MlapProtocolEnum_Internal MlapProtocolEnum = "Internal"
+    EsdmaRackTypeEnum_Unknown EsdmaRackTypeEnum = "Unknown"
 
-    MlapProtocolEnum_External MlapProtocolEnum = "External"
+    EsdmaRackTypeEnum_FCC EsdmaRackTypeEnum = "FCC"
+
+    EsdmaRackTypeEnum_LCC EsdmaRackTypeEnum = "LCC"
+
+    EsdmaRackTypeEnum_BSC EsdmaRackTypeEnum = "BSC"
+
+    EsdmaRackTypeEnum_COMPUTE EsdmaRackTypeEnum = "COMPUTE"
 )
 
-// EsdmaQsfpTransceiverEnum
-type EsdmaQsfpTransceiverEnum string
+// EsdmaRackNumEnum represents The valid rack numbers supported in Sysadmin.
+type EsdmaRackNumEnum string
 
 const (
-    EsdmaQsfpTransceiverEnum_QSFP_40G_LR4 EsdmaQsfpTransceiverEnum = "QSFP-40G-LR4"
+    EsdmaRackNumEnum_Y_0 EsdmaRackNumEnum = "0"
 
-    EsdmaQsfpTransceiverEnum_QSFP_40G_SR4 EsdmaQsfpTransceiverEnum = "QSFP-40G-SR4"
+    EsdmaRackNumEnum_Y_1 EsdmaRackNumEnum = "1"
 
-    EsdmaQsfpTransceiverEnum_QSFP_40G_CR4_Active EsdmaQsfpTransceiverEnum = "QSFP-40G-CR4-Active"
+    EsdmaRackNumEnum_Y_2 EsdmaRackNumEnum = "2"
 
-    EsdmaQsfpTransceiverEnum_QSFP_40G_CR4_Passive EsdmaQsfpTransceiverEnum = "QSFP-40G-CR4-Passive"
+    EsdmaRackNumEnum_Y_3 EsdmaRackNumEnum = "3"
 
-    EsdmaQsfpTransceiverEnum_Unknown EsdmaQsfpTransceiverEnum = "Unknown"
+    EsdmaRackNumEnum_Y_4 EsdmaRackNumEnum = "4"
+
+    EsdmaRackNumEnum_Y_5 EsdmaRackNumEnum = "5"
+
+    EsdmaRackNumEnum_Y_6 EsdmaRackNumEnum = "6"
+
+    EsdmaRackNumEnum_Y_7 EsdmaRackNumEnum = "7"
+
+    EsdmaRackNumEnum_Y_8 EsdmaRackNumEnum = "8"
+
+    EsdmaRackNumEnum_Y_9 EsdmaRackNumEnum = "9"
+
+    EsdmaRackNumEnum_Y_10 EsdmaRackNumEnum = "10"
+
+    EsdmaRackNumEnum_Y_11 EsdmaRackNumEnum = "11"
+
+    EsdmaRackNumEnum_Y_12 EsdmaRackNumEnum = "12"
+
+    EsdmaRackNumEnum_Y_13 EsdmaRackNumEnum = "13"
+
+    EsdmaRackNumEnum_Y_14 EsdmaRackNumEnum = "14"
+
+    EsdmaRackNumEnum_Y_15 EsdmaRackNumEnum = "15"
+
+    EsdmaRackNumEnum_F0 EsdmaRackNumEnum = "F0"
+
+    EsdmaRackNumEnum_F1 EsdmaRackNumEnum = "F1"
+
+    EsdmaRackNumEnum_F2 EsdmaRackNumEnum = "F2"
+
+    EsdmaRackNumEnum_F3 EsdmaRackNumEnum = "F3"
+
+    EsdmaRackNumEnum_B0 EsdmaRackNumEnum = "B0"
+
+    EsdmaRackNumEnum_B1 EsdmaRackNumEnum = "B1"
 )
 
 // EsdmaCpu represents The set of CPU enumerations that have control plane Ethernet switches or run the MLAP protocol.
@@ -114,26 +154,6 @@ const (
     EsdmaCpu_CB0 EsdmaCpu = "CB0"
 )
 
-// EsdmaSwitchYesNoEnum
-type EsdmaSwitchYesNoEnum string
-
-const (
-    EsdmaSwitchYesNoEnum_Yes EsdmaSwitchYesNoEnum = "Yes"
-
-    EsdmaSwitchYesNoEnum_No EsdmaSwitchYesNoEnum = "No"
-)
-
-// EsdmaSwitchSfpControllerEnum
-type EsdmaSwitchSfpControllerEnum string
-
-const (
-    EsdmaSwitchSfpControllerEnum_Unknown EsdmaSwitchSfpControllerEnum = "Unknown"
-
-    EsdmaSwitchSfpControllerEnum_Switch EsdmaSwitchSfpControllerEnum = "Switch"
-
-    EsdmaSwitchSfpControllerEnum_PHY EsdmaSwitchSfpControllerEnum = "PHY"
-)
-
 // EsdmaSwitchTypeEnum represents The list of Ethernet switch types
 type EsdmaSwitchTypeEnum string
 
@@ -161,6 +181,39 @@ const (
     EsdmaSwitchTypeEnum_RP_SW1 EsdmaSwitchTypeEnum = "RP-SW1"
 )
 
+// EsdmaSwitchYesNoEnum
+type EsdmaSwitchYesNoEnum string
+
+const (
+    EsdmaSwitchYesNoEnum_Yes EsdmaSwitchYesNoEnum = "Yes"
+
+    EsdmaSwitchYesNoEnum_No EsdmaSwitchYesNoEnum = "No"
+)
+
+// EsdmaSwitchSfpInsertedEnum
+type EsdmaSwitchSfpInsertedEnum string
+
+const (
+    EsdmaSwitchSfpInsertedEnum_Unknown EsdmaSwitchSfpInsertedEnum = "Unknown"
+
+    EsdmaSwitchSfpInsertedEnum_Yes EsdmaSwitchSfpInsertedEnum = "Yes"
+
+    EsdmaSwitchSfpInsertedEnum_No EsdmaSwitchSfpInsertedEnum = "No"
+
+    EsdmaSwitchSfpInsertedEnum_Failed EsdmaSwitchSfpInsertedEnum = "Failed"
+)
+
+// EsdmaSwitchSfpControllerEnum
+type EsdmaSwitchSfpControllerEnum string
+
+const (
+    EsdmaSwitchSfpControllerEnum_Unknown EsdmaSwitchSfpControllerEnum = "Unknown"
+
+    EsdmaSwitchSfpControllerEnum_Switch EsdmaSwitchSfpControllerEnum = "Switch"
+
+    EsdmaSwitchSfpControllerEnum_PHY EsdmaSwitchSfpControllerEnum = "PHY"
+)
+
 // EsdmaSwitchSfpTranceiverTypeEnum
 type EsdmaSwitchSfpTranceiverTypeEnum string
 
@@ -174,36 +227,95 @@ const (
     EsdmaSwitchSfpTranceiverTypeEnum_Unknown EsdmaSwitchSfpTranceiverTypeEnum = "Unknown"
 )
 
-// MlapTraceVerbosity
-type MlapTraceVerbosity string
+// EsdmaSfpEncodingEnum
+type EsdmaSfpEncodingEnum string
 
 const (
-    MlapTraceVerbosity_Off MlapTraceVerbosity = "Off"
+    EsdmaSfpEncodingEnum_Unspecified EsdmaSfpEncodingEnum = "Unspecified"
 
-    MlapTraceVerbosity_Low MlapTraceVerbosity = "Low"
+    EsdmaSfpEncodingEnum_Y_8B__FWD_SLASH__10B EsdmaSfpEncodingEnum = "8B/10B"
 
-    MlapTraceVerbosity_Medium MlapTraceVerbosity = "Medium"
+    EsdmaSfpEncodingEnum_Y_4B__FWD_SLASH__5B EsdmaSfpEncodingEnum = "4B/5B"
 
-    MlapTraceVerbosity_High MlapTraceVerbosity = "High"
+    EsdmaSfpEncodingEnum_NRZ EsdmaSfpEncodingEnum = "NRZ"
+
+    EsdmaSfpEncodingEnum_Manchester EsdmaSfpEncodingEnum = "Manchester"
+
+    EsdmaSfpEncodingEnum_SONET_Scrambled EsdmaSfpEncodingEnum = "SONET Scrambled"
+
+    EsdmaSfpEncodingEnum_Y_64B__FWD_SLASH__66B EsdmaSfpEncodingEnum = "64B/66B"
+
+    EsdmaSfpEncodingEnum_Unknown EsdmaSfpEncodingEnum = "Unknown"
 )
 
-// SwitchActionTypeEnum
-type SwitchActionTypeEnum string
+// EsdmaQsfpTransceiverEnum
+type EsdmaQsfpTransceiverEnum string
 
 const (
-    SwitchActionTypeEnum_Y_ SwitchActionTypeEnum = "-"
+    EsdmaQsfpTransceiverEnum_QSFP_40G_LR4 EsdmaQsfpTransceiverEnum = "QSFP-40G-LR4"
 
-    SwitchActionTypeEnum_Translate SwitchActionTypeEnum = "Translate"
+    EsdmaQsfpTransceiverEnum_QSFP_40G_SR4 EsdmaQsfpTransceiverEnum = "QSFP-40G-SR4"
 
-    SwitchActionTypeEnum_Remove_Outer SwitchActionTypeEnum = "Remove Outer"
+    EsdmaQsfpTransceiverEnum_QSFP_40G_CR4_Active EsdmaQsfpTransceiverEnum = "QSFP-40G-CR4-Active"
 
-    SwitchActionTypeEnum_Add_Outer SwitchActionTypeEnum = "Add Outer"
+    EsdmaQsfpTransceiverEnum_QSFP_40G_CR4_Passive EsdmaQsfpTransceiverEnum = "QSFP-40G-CR4-Passive"
 
-    SwitchActionTypeEnum_Drop SwitchActionTypeEnum = "Drop"
+    EsdmaQsfpTransceiverEnum_Unknown EsdmaQsfpTransceiverEnum = "Unknown"
+)
 
-    SwitchActionTypeEnum_Forward SwitchActionTypeEnum = "Forward"
+// EsdmaSwitchSfpTypeEnum
+type EsdmaSwitchSfpTypeEnum string
 
-    SwitchActionTypeEnum_Unknown SwitchActionTypeEnum = "Unknown"
+const (
+    EsdmaSwitchSfpTypeEnum_None EsdmaSwitchSfpTypeEnum = "None"
+
+    EsdmaSwitchSfpTypeEnum_SFP_10G_SR EsdmaSwitchSfpTypeEnum = "SFP-10G-SR"
+
+    EsdmaSwitchSfpTypeEnum_SFP_10G_LR EsdmaSwitchSfpTypeEnum = "SFP-10G-LR"
+
+    EsdmaSwitchSfpTypeEnum_SFP_10G_LRM EsdmaSwitchSfpTypeEnum = "SFP-10G-LRM"
+
+    EsdmaSwitchSfpTypeEnum_SFP_1G_SX EsdmaSwitchSfpTypeEnum = "SFP-1G-SX"
+
+    EsdmaSwitchSfpTypeEnum_SFP_1G_LX EsdmaSwitchSfpTypeEnum = "SFP-1G-LX"
+
+    EsdmaSwitchSfpTypeEnum_SFP_1000Base_T EsdmaSwitchSfpTypeEnum = "SFP-1000Base-T"
+
+    EsdmaSwitchSfpTypeEnum_SFP_40G_SR4 EsdmaSwitchSfpTypeEnum = "SFP-40G-SR4"
+
+    EsdmaSwitchSfpTypeEnum_SFP_40G_LR4 EsdmaSwitchSfpTypeEnum = "SFP-40G-LR4"
+
+    EsdmaSwitchSfpTypeEnum_Unsupported EsdmaSwitchSfpTypeEnum = "Unsupported"
+)
+
+// EsdmaSwitchPortState represents The switch port up and down states
+type EsdmaSwitchPortState string
+
+const (
+    EsdmaSwitchPortState_Unknown EsdmaSwitchPortState = "Unknown"
+
+    EsdmaSwitchPortState_Test EsdmaSwitchPortState = "Test"
+
+    EsdmaSwitchPortState_Down EsdmaSwitchPortState = "Down"
+
+    EsdmaSwitchPortState_Up EsdmaSwitchPortState = "Up"
+)
+
+// SwitchForwardingState represents The set of switch port forwarding states
+type SwitchForwardingState string
+
+const (
+    SwitchForwardingState_Unknown SwitchForwardingState = "Unknown"
+
+    SwitchForwardingState_Y_ SwitchForwardingState = "-"
+
+    SwitchForwardingState_Disabled SwitchForwardingState = "Disabled"
+
+    SwitchForwardingState_Blocking SwitchForwardingState = "Blocking"
+
+    SwitchForwardingState_Learning SwitchForwardingState = "Learning"
+
+    SwitchForwardingState_Forwarding SwitchForwardingState = "Forwarding"
 )
 
 // EsdCirEirType
@@ -234,181 +346,49 @@ const (
     MlapEpType_CB MlapEpType = "CB"
 )
 
-// EsdmaSwitchSfpInsertedEnum
-type EsdmaSwitchSfpInsertedEnum string
+// MlapStateEnum represents The set of enumerated values that MLAP uses to manage a port's protocol state
+type MlapStateEnum string
 
 const (
-    EsdmaSwitchSfpInsertedEnum_Unknown EsdmaSwitchSfpInsertedEnum = "Unknown"
+    MlapStateEnum_Y_ MlapStateEnum = "-"
 
-    EsdmaSwitchSfpInsertedEnum_Yes EsdmaSwitchSfpInsertedEnum = "Yes"
+    MlapStateEnum_Down MlapStateEnum = "Down"
 
-    EsdmaSwitchSfpInsertedEnum_No EsdmaSwitchSfpInsertedEnum = "No"
+    MlapStateEnum_Up MlapStateEnum = "Up"
 
-    EsdmaSwitchSfpInsertedEnum_Failed EsdmaSwitchSfpInsertedEnum = "Failed"
+    MlapStateEnum_Admin_Down MlapStateEnum = "Admin Down"
+
+    MlapStateEnum_Do_Not_Use MlapStateEnum = "Do Not Use"
+
+    MlapStateEnum_Invalid MlapStateEnum = "Invalid"
+
+    MlapStateEnum_Active MlapStateEnum = "Active"
+
+    MlapStateEnum_Standby MlapStateEnum = "Standby"
+
+    MlapStateEnum_Rem_Managed MlapStateEnum = "Rem Managed"
 )
 
-// EsdmaRackNumEnum represents The valid rack numbers supported in Sysadmin.
-type EsdmaRackNumEnum string
+// MlapProtocolEnum represents The types of MLAP protocol
+type MlapProtocolEnum string
 
 const (
-    EsdmaRackNumEnum_Y_0 EsdmaRackNumEnum = "0"
+    MlapProtocolEnum_Internal MlapProtocolEnum = "Internal"
 
-    EsdmaRackNumEnum_Y_1 EsdmaRackNumEnum = "1"
-
-    EsdmaRackNumEnum_Y_2 EsdmaRackNumEnum = "2"
-
-    EsdmaRackNumEnum_Y_3 EsdmaRackNumEnum = "3"
-
-    EsdmaRackNumEnum_Y_4 EsdmaRackNumEnum = "4"
-
-    EsdmaRackNumEnum_Y_5 EsdmaRackNumEnum = "5"
-
-    EsdmaRackNumEnum_Y_6 EsdmaRackNumEnum = "6"
-
-    EsdmaRackNumEnum_Y_7 EsdmaRackNumEnum = "7"
-
-    EsdmaRackNumEnum_Y_8 EsdmaRackNumEnum = "8"
-
-    EsdmaRackNumEnum_Y_9 EsdmaRackNumEnum = "9"
-
-    EsdmaRackNumEnum_Y_10 EsdmaRackNumEnum = "10"
-
-    EsdmaRackNumEnum_Y_11 EsdmaRackNumEnum = "11"
-
-    EsdmaRackNumEnum_Y_12 EsdmaRackNumEnum = "12"
-
-    EsdmaRackNumEnum_Y_13 EsdmaRackNumEnum = "13"
-
-    EsdmaRackNumEnum_Y_14 EsdmaRackNumEnum = "14"
-
-    EsdmaRackNumEnum_Y_15 EsdmaRackNumEnum = "15"
-
-    EsdmaRackNumEnum_F0 EsdmaRackNumEnum = "F0"
-
-    EsdmaRackNumEnum_F1 EsdmaRackNumEnum = "F1"
-
-    EsdmaRackNumEnum_F2 EsdmaRackNumEnum = "F2"
-
-    EsdmaRackNumEnum_F3 EsdmaRackNumEnum = "F3"
-
-    EsdmaRackNumEnum_B0 EsdmaRackNumEnum = "B0"
-
-    EsdmaRackNumEnum_B1 EsdmaRackNumEnum = "B1"
+    MlapProtocolEnum_External MlapProtocolEnum = "External"
 )
 
-// EsdmaRackTypeEnum represents The valid chassis types supported supported in Sysadmin.
-type EsdmaRackTypeEnum string
+// MlapTraceVerbosity
+type MlapTraceVerbosity string
 
 const (
-    EsdmaRackTypeEnum_Unknown EsdmaRackTypeEnum = "Unknown"
+    MlapTraceVerbosity_Off MlapTraceVerbosity = "Off"
 
-    EsdmaRackTypeEnum_FCC EsdmaRackTypeEnum = "FCC"
+    MlapTraceVerbosity_Low MlapTraceVerbosity = "Low"
 
-    EsdmaRackTypeEnum_LCC EsdmaRackTypeEnum = "LCC"
+    MlapTraceVerbosity_Medium MlapTraceVerbosity = "Medium"
 
-    EsdmaRackTypeEnum_BSC EsdmaRackTypeEnum = "BSC"
-
-    EsdmaRackTypeEnum_COMPUTE EsdmaRackTypeEnum = "COMPUTE"
-)
-
-// EsdmaTrunkMemberStatus
-type EsdmaTrunkMemberStatus string
-
-const (
-    EsdmaTrunkMemberStatus_Disabled EsdmaTrunkMemberStatus = "Disabled"
-
-    EsdmaTrunkMemberStatus_Enabled EsdmaTrunkMemberStatus = "Enabled"
-
-    EsdmaTrunkMemberStatus_Y_ EsdmaTrunkMemberStatus = "-"
-)
-
-// SwitchMatchTypeEnum
-type SwitchMatchTypeEnum string
-
-const (
-    SwitchMatchTypeEnum_Y_ SwitchMatchTypeEnum = "-"
-
-    SwitchMatchTypeEnum_Any SwitchMatchTypeEnum = "Any"
-
-    SwitchMatchTypeEnum_Tagged SwitchMatchTypeEnum = "Tagged"
-
-    SwitchMatchTypeEnum_Untagged SwitchMatchTypeEnum = "Untagged"
-
-    SwitchMatchTypeEnum_Unknown SwitchMatchTypeEnum = "Unknown"
-)
-
-// EsdmaSwitchPortState represents The switch port up and down states
-type EsdmaSwitchPortState string
-
-const (
-    EsdmaSwitchPortState_Unknown EsdmaSwitchPortState = "Unknown"
-
-    EsdmaSwitchPortState_Test EsdmaSwitchPortState = "Test"
-
-    EsdmaSwitchPortState_Down EsdmaSwitchPortState = "Down"
-
-    EsdmaSwitchPortState_Up EsdmaSwitchPortState = "Up"
-)
-
-// EsdmaSwitchSfpTypeEnum
-type EsdmaSwitchSfpTypeEnum string
-
-const (
-    EsdmaSwitchSfpTypeEnum_None EsdmaSwitchSfpTypeEnum = "None"
-
-    EsdmaSwitchSfpTypeEnum_SFP_10G_SR EsdmaSwitchSfpTypeEnum = "SFP-10G-SR"
-
-    EsdmaSwitchSfpTypeEnum_SFP_10G_LR EsdmaSwitchSfpTypeEnum = "SFP-10G-LR"
-
-    EsdmaSwitchSfpTypeEnum_SFP_10G_LRM EsdmaSwitchSfpTypeEnum = "SFP-10G-LRM"
-
-    EsdmaSwitchSfpTypeEnum_SFP_1G_SX EsdmaSwitchSfpTypeEnum = "SFP-1G-SX"
-
-    EsdmaSwitchSfpTypeEnum_SFP_1G_LX EsdmaSwitchSfpTypeEnum = "SFP-1G-LX"
-
-    EsdmaSwitchSfpTypeEnum_SFP_1000Base_T EsdmaSwitchSfpTypeEnum = "SFP-1000Base-T"
-
-    EsdmaSwitchSfpTypeEnum_SFP_40G_SR4 EsdmaSwitchSfpTypeEnum = "SFP-40G-SR4"
-
-    EsdmaSwitchSfpTypeEnum_SFP_40G_LR4 EsdmaSwitchSfpTypeEnum = "SFP-40G-LR4"
-
-    EsdmaSwitchSfpTypeEnum_Unsupported EsdmaSwitchSfpTypeEnum = "Unsupported"
-)
-
-// EsdmaSfpEncodingEnum
-type EsdmaSfpEncodingEnum string
-
-const (
-    EsdmaSfpEncodingEnum_Unspecified EsdmaSfpEncodingEnum = "Unspecified"
-
-    EsdmaSfpEncodingEnum_Y_8B__FWD_SLASH__10B EsdmaSfpEncodingEnum = "8B/10B"
-
-    EsdmaSfpEncodingEnum_Y_4B__FWD_SLASH__5B EsdmaSfpEncodingEnum = "4B/5B"
-
-    EsdmaSfpEncodingEnum_NRZ EsdmaSfpEncodingEnum = "NRZ"
-
-    EsdmaSfpEncodingEnum_Manchester EsdmaSfpEncodingEnum = "Manchester"
-
-    EsdmaSfpEncodingEnum_SONET_Scrambled EsdmaSfpEncodingEnum = "SONET Scrambled"
-
-    EsdmaSfpEncodingEnum_Y_64B__FWD_SLASH__66B EsdmaSfpEncodingEnum = "64B/66B"
-
-    EsdmaSfpEncodingEnum_Unknown EsdmaSfpEncodingEnum = "Unknown"
-)
-
-// EsdmaSdrTrafficType
-type EsdmaSdrTrafficType string
-
-const (
-    EsdmaSdrTrafficType_Unknown EsdmaSdrTrafficType = "Unknown"
-
-    EsdmaSdrTrafficType_IPC EsdmaSdrTrafficType = "IPC"
-
-    EsdmaSdrTrafficType_MgmtEth EsdmaSdrTrafficType = "MgmtEth"
-
-    EsdmaSdrTrafficType_All EsdmaSdrTrafficType = "All"
-
-    EsdmaSdrTrafficType_Invalid EsdmaSdrTrafficType = "Invalid"
+    MlapTraceVerbosity_High MlapTraceVerbosity = "High"
 )
 
 // SwitchDataDirectionEnum represents Switch data direction
@@ -443,43 +423,63 @@ const (
     SwitchTableTypeEnum_Unknown SwitchTableTypeEnum = "Unknown"
 )
 
-// MlapStateEnum represents The set of enumerated values that MLAP uses to manage a port's protocol state
-type MlapStateEnum string
+// SwitchMatchTypeEnum
+type SwitchMatchTypeEnum string
 
 const (
-    MlapStateEnum_Y_ MlapStateEnum = "-"
+    SwitchMatchTypeEnum_Y_ SwitchMatchTypeEnum = "-"
 
-    MlapStateEnum_Down MlapStateEnum = "Down"
+    SwitchMatchTypeEnum_Any SwitchMatchTypeEnum = "Any"
 
-    MlapStateEnum_Up MlapStateEnum = "Up"
+    SwitchMatchTypeEnum_Tagged SwitchMatchTypeEnum = "Tagged"
 
-    MlapStateEnum_Admin_Down MlapStateEnum = "Admin Down"
+    SwitchMatchTypeEnum_Untagged SwitchMatchTypeEnum = "Untagged"
 
-    MlapStateEnum_Do_Not_Use MlapStateEnum = "Do Not Use"
-
-    MlapStateEnum_Invalid MlapStateEnum = "Invalid"
-
-    MlapStateEnum_Active MlapStateEnum = "Active"
-
-    MlapStateEnum_Standby MlapStateEnum = "Standby"
-
-    MlapStateEnum_Rem_Managed MlapStateEnum = "Rem Managed"
+    SwitchMatchTypeEnum_Unknown SwitchMatchTypeEnum = "Unknown"
 )
 
-// SwitchForwardingState represents The set of switch port forwarding states
-type SwitchForwardingState string
+// SwitchActionTypeEnum
+type SwitchActionTypeEnum string
 
 const (
-    SwitchForwardingState_Unknown SwitchForwardingState = "Unknown"
+    SwitchActionTypeEnum_Y_ SwitchActionTypeEnum = "-"
 
-    SwitchForwardingState_Y_ SwitchForwardingState = "-"
+    SwitchActionTypeEnum_Translate SwitchActionTypeEnum = "Translate"
 
-    SwitchForwardingState_Disabled SwitchForwardingState = "Disabled"
+    SwitchActionTypeEnum_Remove_Outer SwitchActionTypeEnum = "Remove Outer"
 
-    SwitchForwardingState_Blocking SwitchForwardingState = "Blocking"
+    SwitchActionTypeEnum_Add_Outer SwitchActionTypeEnum = "Add Outer"
 
-    SwitchForwardingState_Learning SwitchForwardingState = "Learning"
+    SwitchActionTypeEnum_Drop SwitchActionTypeEnum = "Drop"
 
-    SwitchForwardingState_Forwarding SwitchForwardingState = "Forwarding"
+    SwitchActionTypeEnum_Forward SwitchActionTypeEnum = "Forward"
+
+    SwitchActionTypeEnum_Unknown SwitchActionTypeEnum = "Unknown"
+)
+
+// EsdmaSdrTrafficType
+type EsdmaSdrTrafficType string
+
+const (
+    EsdmaSdrTrafficType_Unknown EsdmaSdrTrafficType = "Unknown"
+
+    EsdmaSdrTrafficType_IPC EsdmaSdrTrafficType = "IPC"
+
+    EsdmaSdrTrafficType_MgmtEth EsdmaSdrTrafficType = "MgmtEth"
+
+    EsdmaSdrTrafficType_All EsdmaSdrTrafficType = "All"
+
+    EsdmaSdrTrafficType_Invalid EsdmaSdrTrafficType = "Invalid"
+)
+
+// EsdmaTrunkMemberStatus
+type EsdmaTrunkMemberStatus string
+
+const (
+    EsdmaTrunkMemberStatus_Disabled EsdmaTrunkMemberStatus = "Disabled"
+
+    EsdmaTrunkMemberStatus_Enabled EsdmaTrunkMemberStatus = "Enabled"
+
+    EsdmaTrunkMemberStatus_Y_ EsdmaTrunkMemberStatus = "-"
 )
 

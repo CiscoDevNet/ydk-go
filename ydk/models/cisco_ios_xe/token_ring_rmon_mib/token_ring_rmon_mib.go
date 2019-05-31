@@ -160,7 +160,7 @@ type TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingMLStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     TokenRingMLStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -403,7 +403,7 @@ type TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingPStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     TokenRingPStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -1052,17 +1052,17 @@ type TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry struct {
 
     // The address of the sender of the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
-    // equal to six octets of zero. The type is string with length: 6.
+    // equal to six octets of zero. The type is string with length: 6..6.
     RingStationControlBeaconSender interface{}
 
     // The address of the NAUN in the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
-    // equal to six octets of zero. The type is string with length: 6.
+    // equal to six octets of zero. The type is string with length: 6..6.
     RingStationControlBeaconNAUN interface{}
 
     // The address of the Active Monitor on this segment.  If this address is
     // unknown, this object shall be equal to six octets of zero. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationControlActiveMonitor interface{}
 
     // The number of add and delete events in the ringStationOrderTable optionally
@@ -1207,11 +1207,11 @@ type TOKENRINGRMONMIB_RingStationTable_RingStationEntry struct {
     RingStationIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationMacAddress interface{}
 
     // The physical address of last known NAUN of this station. The type is string
-    // with length: 6.
+    // with length: 6..6.
     RingStationLastNAUN interface{}
 
     // The status of this station on the ring. The type is
@@ -1426,7 +1426,7 @@ type TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry struct {
     // range: -2147483648..2147483647.
     RingStationOrderOrderIndex interface{}
 
-    // The physical address of this station. The type is string with length: 6.
+    // The physical address of this station. The type is string with length: 6..6.
     RingStationOrderMacAddress interface{}
 }
 
@@ -1507,7 +1507,7 @@ type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntr
     RingStationConfigControlIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationConfigControlMacAddress interface{}
 
     // Setting this object to `removing(2)' causes a Remove Station MAC frame to
@@ -1617,7 +1617,7 @@ type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     RingStationConfigIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationConfigMacAddress interface{}
 
     // The value of sysUpTime at the time this configuration information was last
@@ -1625,18 +1625,19 @@ type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     RingStationConfigUpdateTime interface{}
 
     // The assigned physical location of this station. The type is string with
-    // length: 4.
+    // length: 4..4.
     RingStationConfigLocation interface{}
 
-    // The microcode EC level of this station. The type is string with length: 10.
+    // The microcode EC level of this station. The type is string with length:
+    // 10..10.
     RingStationConfigMicrocode interface{}
 
     // The low-order 4 octets of the group address recognized by this station. The
-    // type is string with length: 4.
+    // type is string with length: 4..4.
     RingStationConfigGroupAddress interface{}
 
     // the functional addresses recognized by this station. The type is string
-    // with length: 4.
+    // with length: 4..4.
     RingStationConfigFunctionalAddress interface{}
 }
 

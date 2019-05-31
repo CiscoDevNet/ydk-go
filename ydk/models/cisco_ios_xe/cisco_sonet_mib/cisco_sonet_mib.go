@@ -18,6 +18,19 @@ func init() {
     ydk.RegisterEntity("CISCO-SONET-MIB:CISCO-SONET-MIB", reflect.TypeOf(CISCOSONETMIB{}))
 }
 
+// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
+type CsApsLineFailureCode string
+
+const (
+    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
+
+    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
+
+    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
+
+    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
+)
+
 // CsApsLineSwitchReason represents   csApsNoSwitch : This is a state when no switch happens.
 type CsApsLineSwitchReason string
 
@@ -41,19 +54,6 @@ const (
     CsApsLineSwitchReason_csApsLockOut CsApsLineSwitchReason = "csApsLockOut"
 
     CsApsLineSwitchReason_csApsNoSwitch CsApsLineSwitchReason = "csApsNoSwitch"
-)
-
-// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
-type CsApsLineFailureCode string
-
-const (
-    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
-
-    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
-
-    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
-
-    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
 )
 
 // CISCOSONETMIB
@@ -1007,13 +1007,14 @@ type CISCOSONETMIB_CssTraceTable_CssTraceEntry struct {
     // transmited so that a trace receiving terminal can  verify its continued
     // connection to the intended  transmitter. The default value is a zero-length
     // string. Unless this object is set to a non-zero length string,  tracing
-    // will not be performed. The type is string with length: 0 | 16 | 64.
+    // will not be performed. The type is string with length: 0..0 | 16..16 |
+    // 64..64.
     CssTraceToTransmit interface{}
 
     // Sonet Section Trace To Expect. The receiving terminal  verifies if the
     // incoming string matches this string.  The value of 'cssTraceFailure'
     // indicates whether a  trace mismatch occurred. The default value is a 
-    // zero-length string. The type is string with length: 0 | 16 | 64.
+    // zero-length string. The type is string with length: 0..0 | 16..16 | 64..64.
     CssTraceToExpect interface{}
 
     // The value of this object is set to 'true' when Sonet  Section received
@@ -1021,7 +1022,8 @@ type CISCOSONETMIB_CssTraceTable_CssTraceEntry struct {
     CssTraceFailure interface{}
 
     // This object is used to view the Sonet Section Trace that  is received by
-    // the receiving terminal. The type is string with length: 0 | 16 | 64.
+    // the receiving terminal. The type is string with length: 0..0 | 16..16 |
+    // 64..64.
     CssTraceReceived interface{}
 }
 
@@ -1494,13 +1496,13 @@ type CISCOSONETMIB_CspTraceTable_CspTraceEntry struct {
     // terminal can verify its  continued connection to the intended transmitter.
     // The  default value is a zero-length string. Unless this object  is set to a
     // non-zero length string, tracing will not be  performed. The type is string
-    // with length: 0 | 16 | 64.
+    // with length: 0..0 | 16..16 | 64..64.
     CspTraceToTransmit interface{}
 
     // Sonet Path Trace To Expect.  The receiving terminal verifies if the
     // incoming string matches this string. The value of  'cspTraceFailure'
     // indicates whether a trace mismatch  occured. The default value is a
-    // zero-length string. The type is string with length: 0 | 16 | 64.
+    // zero-length string. The type is string with length: 0..0 | 16..16 | 64..64.
     CspTraceToExpect interface{}
 
     // The value of this object is set to 'true' when Sonet Path  received trace
@@ -1508,7 +1510,7 @@ type CISCOSONETMIB_CspTraceTable_CspTraceEntry struct {
     CspTraceFailure interface{}
 
     // This object is used to view the Sonet Path Trace that is received by the
-    // receiving terminal. The type is string with length: 0 | 16 | 64.
+    // receiving terminal. The type is string with length: 0..0 | 16..16 | 64..64.
     CspTraceReceived interface{}
 }
 

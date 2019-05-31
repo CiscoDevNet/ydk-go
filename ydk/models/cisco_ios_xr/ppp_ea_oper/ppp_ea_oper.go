@@ -108,7 +108,7 @@ type Pppea_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Show interface related information from the PPP EA.
@@ -179,10 +179,10 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     YListKey string
 
     // This attribute is a key. Interface running PPPEA. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // TRUE if LCP is running in the dataplane for the interface. The type is
@@ -241,7 +241,7 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     ForwardingEnabled interface{}
 
     // Multilink interface that this interface is a member of, if any. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     MultilinkInterface interface{}
 
     // L2 Tunnel State. The type is bool.
@@ -259,7 +259,8 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     // XConnect ID. The type is interface{} with range: 0..4294967295.
     XconnectId interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Parent Interface Handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceHandle interface{}
 
     // IPCP VRF Table ID. The type is interface{} with range: 0..4294967295.

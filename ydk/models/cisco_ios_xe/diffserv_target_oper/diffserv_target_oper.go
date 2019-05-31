@@ -17,18 +17,18 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state", reflect.TypeOf(DiffservInterfacesState{}))
 }
 
-type Inbound struct {
-}
-
-func (id Inbound) String() string {
-	return "Cisco-IOS-XE-diffserv-target-oper:inbound"
-}
-
 type Direction struct {
 }
 
 func (id Direction) String() string {
 	return "Cisco-IOS-XE-diffserv-target-oper:direction"
+}
+
+type Inbound struct {
+}
+
+func (id Inbound) String() string {
+	return "Cisco-IOS-XE-diffserv-target-oper:inbound"
 }
 
 type Outbound struct {

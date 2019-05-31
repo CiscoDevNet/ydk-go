@@ -142,7 +142,7 @@ type Interfaces_Interface struct {
     // of the interface, the server MUST reject the request. A NETCONF server MUST
     // reply with an rpc-error with the error-tag 'invalid-value' in this case.
     // The type is one of the following:
-    // IanaInterfaceTypeVoiceFXOAtmVciEndPtPropBWAp2MpPropDocsWirelessDownstreamV11SoftwareLoopbackHdlcVoiceFGDOSFastEtherFXDvbTdmNfasIfPwTypeL2vlanAdsl2plusIeee802154VoiceFXSDvbRcsMacLayerIdslInfinibandDdnX25WwanPP2DocsCableUpstreamEthernet3MbitDigitalPowerlineH323ProxyGtpIpOverAtmAluEponImtIpSwitchMsdslDvbRccMacLayerSmdsDxiVoiceOverAtmArapFastEtherMpcLinegroupHippiRprDs1FDLSonetVTVoiceEncapSs7SigLinkArcnetActelisMetaLOOPQllcRfc877x25MpegTransportX25mlpVirtualTgHostPadStarLanIso88025DtrIbm370parChanAdsl2OtnOtuPropWirelessP2PInterleaveIsupRegular1822Gr303RDTPropDocsWirelessMaclayerAsyncRadioMACOpticalChannelGroupSixToFourPropDocsWirelessUpstreamQ2931FddiPropCnlsAal2DvbAsiOutAluELPCiscoISLvlanDocsCableUpstreamRfPortAal5FrDlciEndPtHippiInterfaceL3ipvlanMiox25HssiAtmVirtualAluGponOnuRfc1483CnrSipSigMyrinetDlswGigabitEthernetX25pleLmpOpticalTransportSdlcVoiceEMX86LapsG9982Iso88022llcDvbAsiInBgppolicyaccountingAluEponOnuMfSigLinkDcnAtmDxiVoiceOverFrameRelayGfpSonetOverheadChannelVmwareVirtualNicFcipLinkIpOverClawCoffeeRadslVdsl2Rs232E1ReachDSLVoiceOverCableTr008VoiceOverIpAtmDs3Ds0Ds1SrpDocsCableDownstreamDvbRcsTdmaG9983PlcFrameRelayMPIMvlPropMultiplexorVoiceDIDCompositeLinkProteon10MbitAtmbondFrf16MfrBundleCctEmulMplsTunnelGponVdslPosIeee8023adLagDocsCableMaclayerDocsCableMCmtsDownstreamPppFrameRelayEplrsVmwareNicTeamCableDownstreamRfPortMacSecUncontrolledIFIso88023CsmacdUsbAtmFuniTeLinkPon622EconetTdlcDs0BundleFastIeee1394CblVectaStarRsrbFrameRelayInterconnectIsdnsPppMultilinkBundleAflane8025LapbAflane8023LapdIsdnuLapfCapwapWtpVirtualRadioIfVfiTypeX25huntGroupParaMacSecControlledIFIso88024TokenBusLocalTalkHyperchannelMediaMailOverIpIfGsnCapwapDot11ProfileL3ipxvlanAtmSubInterfacePrimaryISDNProteon80MbitIso88026ManDigitalWrapperOverheadChannelDocsCableUpstreamChannelOpticalChannelEthernetCsmacdBitsTunnelHdsl2FrameRelayServiceMplsIeee80211Ieee80212MocaVersion1SonetEsconAluEponLogicalLinkG703at2mbUltraDvbRccDownstreamSipTgSmdsIcipBridgeAtmLogicalPropPointToPointSerialV35V36V37IpGr303IDTBasicISDNG703at64kArcnetPlusPipDtmSlipHiperlan2AdslIeee80216WMANAtmImaIsdnCapwapDot11BssSipPdnEtherLoop2VoiceEBSIpForwardIso88025CRFPIntPropVirtualWwanPPOtherPon155QamOtnOduIso88025FiberChannelVoiceEMFGDAluGponPhysicalUniA12MppSwitchIlanPdnEtherLoop1X213SonetPathVoiceFGDEANAIso88025TokenRingPropAtmAluEponPhysicalUniStackToStackFrForwardHomepnaSdslVirtualIpAddressBscAtmRadioAviciOpticalEtherG9981FibreChannelShdslEonH323GatekeeperHdh1822DvbRccUpstreamNsipTranspHdlcTermPadIpOverCdlcCesModem.
+    // IanaInterfaceTypeOtherRegular1822Hdh1822DdnX25Rfc877x25EthernetCsmacdIso88023CsmacdIso88024TokenBusIso88025TokenRingIso88026ManStarLanProteon10MbitProteon80MbitHyperchannelFddiLapbSdlcDs1E1BasicISDNPrimaryISDNPropPointToPointSerialPppSoftwareLoopbackEonEthernet3MbitNsipSlipUltraDs3SipFrameRelayRs232ParaArcnetArcnetPlusAtmMiox25SonetX25pleIso88022llcLocalTalkSmdsDxiFrameRelayServiceV35HssiHippiModemAal5SonetPathSonetVTSmdsIcipPropVirtualPropMultiplexorIeee80212FibreChannelHippiInterfaceFrameRelayInterconnectAflane8023Aflane8025CctEmulFastEtherIsdnV11V36G703at64kG703at2mbQllcFastEtherFXChannelIeee80211Ibm370parChanEsconDlswIsdnsIsdnuLapdIpSwitchRsrbAtmLogicalDs0Ds0BundleBscAsyncCnrIso88025DtrEplrsArapPropCnlsHostPadTermPadFrameRelayMPIX213AdslRadslSdslVdslIso88025CRFPIntMyrinetVoiceEMVoiceFXOVoiceFXSVoiceEncapVoiceOverIpAtmDxiAtmFuniAtmImaPppMultilinkBundleIpOverCdlcIpOverClawStackToStackVirtualIpAddressMpcIpOverAtmIso88025FiberTdlcGigabitEthernetHdlcLapfV37X25mlpX25huntGroupTranspHdlcInterleaveFastIpDocsCableMaclayerDocsCableDownstreamDocsCableUpstreamA12MppSwitchTunnelCoffeeCesAtmSubInterfaceL2vlanL3ipvlanL3ipxvlanDigitalPowerlineMediaMailOverIpDtmDcnIpForwardMsdslIeee1394IfGsnDvbRccMacLayerDvbRccDownstreamDvbRccUpstreamAtmVirtualMplsTunnelSrpVoiceOverAtmVoiceOverFrameRelayIdslCompositeLinkSs7SigLinkPropWirelessP2PFrForwardRfc1483UsbIeee8023adLagBgppolicyaccountingFrf16MfrBundleH323GatekeeperH323ProxyMplsMfSigLinkHdsl2ShdslDs1FDLPosDvbAsiInDvbAsiOutPlcNfasTr008Gr303RDTGr303IDTIsupPropDocsWirelessMaclayerPropDocsWirelessDownstreamPropDocsWirelessUpstreamHiperlan2PropBWAp2MpSonetOverheadChannelDigitalWrapperOverheadChannelAal2RadioMACAtmRadioImtMvlReachDSLFrDlciEndPtAtmVciEndPtOpticalChannelOpticalTransportPropAtmVoiceOverCableInfinibandTeLinkQ2931VirtualTgSipTgSipSigDocsCableUpstreamChannelEconetPon155Pon622BridgeLinegroupVoiceEMFGDVoiceFGDEANAVoiceDIDMpegTransportSixToFourGtpPdnEtherLoop1PdnEtherLoop2OpticalChannelGroupHomepnaGfpCiscoISLvlanActelisMetaLOOPFcipLinkRprQamLmpCblVectaStarDocsCableMCmtsDownstreamAdsl2MacSecControlledIFMacSecUncontrolledIFAviciOpticalEtherAtmbondVoiceFGDOSMocaVersion1Ieee80216WMANAdsl2plusDvbRcsMacLayerDvbTdmDvbRcsTdmaX86LapsWwanPPWwanPP2VoiceEBSIfPwTypeIlanPipAluELPGponVdsl2CapwapDot11ProfileCapwapDot11BssCapwapWtpVirtualRadioBitsDocsCableUpstreamRfPortCableDownstreamRfPortVmwareVirtualNicIeee802154OtnOduOtnOtuIfVfiTypeG9981G9982G9983AluEponAluEponOnuAluEponPhysicalUniAluEponLogicalLinkAluGponOnuAluGponPhysicalUniVmwareNicTeam.
     // This attribute is mandatory.
     Type interface{}
 
@@ -162,15 +162,15 @@ type Interfaces_Interface struct {
     // 'disabled' otherwise. The type is LinkUpDownTrapEnable.
     LinkUpDownTrapEnable interface{}
 
+    // policy target for inbound or outbound direction. The type is slice of
+    // Interfaces_Interface_DiffservTargetEntry.
+    DiffservTargetEntry []*Interfaces_Interface_DiffservTargetEntry
+
     // Parameters for the IPv4 address family.
     Ipv4 Interfaces_Interface_Ipv4
 
     // Parameters for the IPv6 address family.
     Ipv6 Interfaces_Interface_Ipv6
-
-    // policy target for inbound or outbound direction. The type is slice of
-    // Interfaces_Interface_DiffservTargetEntry.
-    DiffservTargetEntry []*Interfaces_Interface_DiffservTargetEntry
 }
 
 func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -185,12 +185,12 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
     self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
-    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
     self.EntityData.Children.Append("ietf-diffserv-target:diffserv-target-entry", types.YChild{"DiffservTargetEntry", nil})
     for i := range self.DiffservTargetEntry {
         self.EntityData.Children.Append(types.GetSegmentPath(self.DiffservTargetEntry[i]), types.YChild{"DiffservTargetEntry", self.DiffservTargetEntry[i]})
     }
+    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
+    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
     self.EntityData.Leafs = types.NewOrderedMap()
     self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
     self.EntityData.Leafs.Append("description", types.YLeaf{"Description", self.Description})
@@ -201,6 +201,42 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YListKeys = []string {"Name"}
 
     return &(self.EntityData)
+}
+
+// Interfaces_Interface_DiffservTargetEntry
+// policy target for inbound or outbound direction
+type Interfaces_Interface_DiffservTargetEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Direction fo the traffic flow either inbound or
+    // outbound. The type is one of the following: InboundOutbound.
+    Direction interface{}
+
+    // This attribute is a key. Policy entry name. The type is string.
+    PolicyName interface{}
+}
+
+func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
+    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
+    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
+    diffservTargetEntry.EntityData.BundleName = "ietf"
+    diffservTargetEntry.EntityData.ParentYangName = "interface"
+    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/" + diffservTargetEntry.EntityData.SegmentPath
+    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
+    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    diffservTargetEntry.EntityData.Children = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Leafs = types.NewOrderedMap()
+    diffservTargetEntry.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", diffservTargetEntry.Direction})
+    diffservTargetEntry.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName})
+
+    diffservTargetEntry.EntityData.YListKeys = []string {"Direction", "PolicyName"}
+
+    return &(diffservTargetEntry.EntityData)
 }
 
 // Interfaces_Interface_Ipv4
@@ -279,14 +315,14 @@ type Interfaces_Interface_Ipv4_Address struct {
 
     // This attribute is a key. The IPv4 address on the interface. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // The subnet specified as a netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
     Netmask interface{}
 }
 
@@ -324,11 +360,12 @@ type Interfaces_Interface_Ipv4_Neighbor struct {
 
     // This attribute is a key. The IPv4 address of the neighbor node. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
+    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
+    // mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -447,7 +484,7 @@ type Interfaces_Interface_Ipv6_Address struct {
 
     // This attribute is a key. The IPv6 address on the interface. The type is
     // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The length of the subnet prefix. The type is interface{} with range:
@@ -488,11 +525,12 @@ type Interfaces_Interface_Ipv6_Neighbor struct {
 
     // This attribute is a key. The IPv6 address of the neighbor node. The type is
     // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
     // The link-layer address of the neighbor node. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?. This attribute is mandatory.
+    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'. This attribute is
+    // mandatory.
     LinkLayerAddress interface{}
 }
 
@@ -724,7 +762,7 @@ type Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix struct
 
     // This attribute is a key. IPv6 address prefix. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     PrefixSpec interface{}
 
     // The prefix will not be advertised.  This can be used for removing the
@@ -776,42 +814,6 @@ func (prefix *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Pref
     prefix.EntityData.YListKeys = []string {"PrefixSpec"}
 
     return &(prefix.EntityData)
-}
-
-// Interfaces_Interface_DiffservTargetEntry
-// policy target for inbound or outbound direction
-type Interfaces_Interface_DiffservTargetEntry struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Direction fo the traffic flow either inbound or
-    // outbound. The type is one of the following: InboundOutbound.
-    Direction interface{}
-
-    // This attribute is a key. Policy entry name. The type is string.
-    PolicyName interface{}
-}
-
-func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
-    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
-    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
-    diffservTargetEntry.EntityData.BundleName = "ietf"
-    diffservTargetEntry.EntityData.ParentYangName = "interface"
-    diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
-    diffservTargetEntry.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/" + diffservTargetEntry.EntityData.SegmentPath
-    diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
-    diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    diffservTargetEntry.EntityData.Children = types.NewOrderedMap()
-    diffservTargetEntry.EntityData.Leafs = types.NewOrderedMap()
-    diffservTargetEntry.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", diffservTargetEntry.Direction})
-    diffservTargetEntry.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName})
-
-    diffservTargetEntry.EntityData.YListKeys = []string {"Direction", "PolicyName"}
-
-    return &(diffservTargetEntry.EntityData)
 }
 
 // Interfaces_Interface_LinkUpDownTrapEnable represents no 'lower-layer-if' entries), and 'disabled' otherwise.
@@ -878,7 +880,7 @@ type InterfacesState_Interface struct {
     Name interface{}
 
     // The type of the interface. The type is one of the following:
-    // IanaInterfaceTypeVoiceFXOAtmVciEndPtPropBWAp2MpPropDocsWirelessDownstreamV11SoftwareLoopbackHdlcVoiceFGDOSFastEtherFXDvbTdmNfasIfPwTypeL2vlanAdsl2plusIeee802154VoiceFXSDvbRcsMacLayerIdslInfinibandDdnX25WwanPP2DocsCableUpstreamEthernet3MbitDigitalPowerlineH323ProxyGtpIpOverAtmAluEponImtIpSwitchMsdslDvbRccMacLayerSmdsDxiVoiceOverAtmArapFastEtherMpcLinegroupHippiRprDs1FDLSonetVTVoiceEncapSs7SigLinkArcnetActelisMetaLOOPQllcRfc877x25MpegTransportX25mlpVirtualTgHostPadStarLanIso88025DtrIbm370parChanAdsl2OtnOtuPropWirelessP2PInterleaveIsupRegular1822Gr303RDTPropDocsWirelessMaclayerAsyncRadioMACOpticalChannelGroupSixToFourPropDocsWirelessUpstreamQ2931FddiPropCnlsAal2DvbAsiOutAluELPCiscoISLvlanDocsCableUpstreamRfPortAal5FrDlciEndPtHippiInterfaceL3ipvlanMiox25HssiAtmVirtualAluGponOnuRfc1483CnrSipSigMyrinetDlswGigabitEthernetX25pleLmpOpticalTransportSdlcVoiceEMX86LapsG9982Iso88022llcDvbAsiInBgppolicyaccountingAluEponOnuMfSigLinkDcnAtmDxiVoiceOverFrameRelayGfpSonetOverheadChannelVmwareVirtualNicFcipLinkIpOverClawCoffeeRadslVdsl2Rs232E1ReachDSLVoiceOverCableTr008VoiceOverIpAtmDs3Ds0Ds1SrpDocsCableDownstreamDvbRcsTdmaG9983PlcFrameRelayMPIMvlPropMultiplexorVoiceDIDCompositeLinkProteon10MbitAtmbondFrf16MfrBundleCctEmulMplsTunnelGponVdslPosIeee8023adLagDocsCableMaclayerDocsCableMCmtsDownstreamPppFrameRelayEplrsVmwareNicTeamCableDownstreamRfPortMacSecUncontrolledIFIso88023CsmacdUsbAtmFuniTeLinkPon622EconetTdlcDs0BundleFastIeee1394CblVectaStarRsrbFrameRelayInterconnectIsdnsPppMultilinkBundleAflane8025LapbAflane8023LapdIsdnuLapfCapwapWtpVirtualRadioIfVfiTypeX25huntGroupParaMacSecControlledIFIso88024TokenBusLocalTalkHyperchannelMediaMailOverIpIfGsnCapwapDot11ProfileL3ipxvlanAtmSubInterfacePrimaryISDNProteon80MbitIso88026ManDigitalWrapperOverheadChannelDocsCableUpstreamChannelOpticalChannelEthernetCsmacdBitsTunnelHdsl2FrameRelayServiceMplsIeee80211Ieee80212MocaVersion1SonetEsconAluEponLogicalLinkG703at2mbUltraDvbRccDownstreamSipTgSmdsIcipBridgeAtmLogicalPropPointToPointSerialV35V36V37IpGr303IDTBasicISDNG703at64kArcnetPlusPipDtmSlipHiperlan2AdslIeee80216WMANAtmImaIsdnCapwapDot11BssSipPdnEtherLoop2VoiceEBSIpForwardIso88025CRFPIntPropVirtualWwanPPOtherPon155QamOtnOduIso88025FiberChannelVoiceEMFGDAluGponPhysicalUniA12MppSwitchIlanPdnEtherLoop1X213SonetPathVoiceFGDEANAIso88025TokenRingPropAtmAluEponPhysicalUniStackToStackFrForwardHomepnaSdslVirtualIpAddressBscAtmRadioAviciOpticalEtherG9981FibreChannelShdslEonH323GatekeeperHdh1822DvbRccUpstreamNsipTranspHdlcTermPadIpOverCdlcCesModem.
+    // IanaInterfaceTypeOtherRegular1822Hdh1822DdnX25Rfc877x25EthernetCsmacdIso88023CsmacdIso88024TokenBusIso88025TokenRingIso88026ManStarLanProteon10MbitProteon80MbitHyperchannelFddiLapbSdlcDs1E1BasicISDNPrimaryISDNPropPointToPointSerialPppSoftwareLoopbackEonEthernet3MbitNsipSlipUltraDs3SipFrameRelayRs232ParaArcnetArcnetPlusAtmMiox25SonetX25pleIso88022llcLocalTalkSmdsDxiFrameRelayServiceV35HssiHippiModemAal5SonetPathSonetVTSmdsIcipPropVirtualPropMultiplexorIeee80212FibreChannelHippiInterfaceFrameRelayInterconnectAflane8023Aflane8025CctEmulFastEtherIsdnV11V36G703at64kG703at2mbQllcFastEtherFXChannelIeee80211Ibm370parChanEsconDlswIsdnsIsdnuLapdIpSwitchRsrbAtmLogicalDs0Ds0BundleBscAsyncCnrIso88025DtrEplrsArapPropCnlsHostPadTermPadFrameRelayMPIX213AdslRadslSdslVdslIso88025CRFPIntMyrinetVoiceEMVoiceFXOVoiceFXSVoiceEncapVoiceOverIpAtmDxiAtmFuniAtmImaPppMultilinkBundleIpOverCdlcIpOverClawStackToStackVirtualIpAddressMpcIpOverAtmIso88025FiberTdlcGigabitEthernetHdlcLapfV37X25mlpX25huntGroupTranspHdlcInterleaveFastIpDocsCableMaclayerDocsCableDownstreamDocsCableUpstreamA12MppSwitchTunnelCoffeeCesAtmSubInterfaceL2vlanL3ipvlanL3ipxvlanDigitalPowerlineMediaMailOverIpDtmDcnIpForwardMsdslIeee1394IfGsnDvbRccMacLayerDvbRccDownstreamDvbRccUpstreamAtmVirtualMplsTunnelSrpVoiceOverAtmVoiceOverFrameRelayIdslCompositeLinkSs7SigLinkPropWirelessP2PFrForwardRfc1483UsbIeee8023adLagBgppolicyaccountingFrf16MfrBundleH323GatekeeperH323ProxyMplsMfSigLinkHdsl2ShdslDs1FDLPosDvbAsiInDvbAsiOutPlcNfasTr008Gr303RDTGr303IDTIsupPropDocsWirelessMaclayerPropDocsWirelessDownstreamPropDocsWirelessUpstreamHiperlan2PropBWAp2MpSonetOverheadChannelDigitalWrapperOverheadChannelAal2RadioMACAtmRadioImtMvlReachDSLFrDlciEndPtAtmVciEndPtOpticalChannelOpticalTransportPropAtmVoiceOverCableInfinibandTeLinkQ2931VirtualTgSipTgSipSigDocsCableUpstreamChannelEconetPon155Pon622BridgeLinegroupVoiceEMFGDVoiceFGDEANAVoiceDIDMpegTransportSixToFourGtpPdnEtherLoop1PdnEtherLoop2OpticalChannelGroupHomepnaGfpCiscoISLvlanActelisMetaLOOPFcipLinkRprQamLmpCblVectaStarDocsCableMCmtsDownstreamAdsl2MacSecControlledIFMacSecUncontrolledIFAviciOpticalEtherAtmbondVoiceFGDOSMocaVersion1Ieee80216WMANAdsl2plusDvbRcsMacLayerDvbTdmDvbRcsTdmaX86LapsWwanPPWwanPP2VoiceEBSIfPwTypeIlanPipAluELPGponVdsl2CapwapDot11ProfileCapwapDot11BssCapwapWtpVirtualRadioBitsDocsCableUpstreamRfPortCableDownstreamRfPortVmwareVirtualNicIeee802154OtnOduOtnOtuIfVfiTypeG9981G9982G9983AluEponAluEponOnuAluEponPhysicalUniAluEponLogicalLinkAluGponOnuAluGponPhysicalUniVmwareNicTeam.
     // This attribute is mandatory.
     Type interface{}
 
@@ -895,7 +897,7 @@ type InterfacesState_Interface struct {
     // current state was entered prior to the last re-initialization of the local
     // network management subsystem, then this node is not present. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastChange interface{}
 
     // The ifIndex value for the ifEntry represented by this interface. The type
@@ -908,7 +910,7 @@ type InterfacesState_Interface struct {
     // byte ordering and the format of the value of this object.  For interfaces
     // that do not have such an address (e.g., a serial line), this node is not
     // present. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     PhysAddress interface{}
 
     // A list of references to interfaces layered on top of this interface. The
@@ -936,15 +938,15 @@ type InterfacesState_Interface struct {
     // A collection of interface-related statistics objects.
     Statistics InterfacesState_Interface_Statistics
 
+    // policy target for inbound or outbound direction. The type is slice of
+    // InterfacesState_Interface_DiffservTargetEntry.
+    DiffservTargetEntry []*InterfacesState_Interface_DiffservTargetEntry
+
     // Interface-specific parameters for the IPv4 address family.
     Ipv4 InterfacesState_Interface_Ipv4
 
     // Parameters for the IPv6 address family.
     Ipv6 InterfacesState_Interface_Ipv6
-
-    // policy target for inbound or outbound direction. The type is slice of
-    // InterfacesState_Interface_DiffservTargetEntry.
-    DiffservTargetEntry []*InterfacesState_Interface_DiffservTargetEntry
 }
 
 func (self *InterfacesState_Interface) GetEntityData() *types.CommonEntityData {
@@ -960,12 +962,12 @@ func (self *InterfacesState_Interface) GetEntityData() *types.CommonEntityData {
 
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("statistics", types.YChild{"Statistics", &self.Statistics})
-    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
-    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
     self.EntityData.Children.Append("ietf-diffserv-target:diffserv-target-entry", types.YChild{"DiffservTargetEntry", nil})
     for i := range self.DiffservTargetEntry {
         self.EntityData.Children.Append(types.GetSegmentPath(self.DiffservTargetEntry[i]), types.YChild{"DiffservTargetEntry", self.DiffservTargetEntry[i]})
     }
+    self.EntityData.Children.Append("ietf-ip:ipv4", types.YChild{"Ipv4", &self.Ipv4})
+    self.EntityData.Children.Append("ietf-ip:ipv6", types.YChild{"Ipv6", &self.Ipv6})
     self.EntityData.Leafs = types.NewOrderedMap()
     self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
     self.EntityData.Leafs.Append("type", types.YLeaf{"Type", self.Type})
@@ -995,8 +997,8 @@ type InterfacesState_Interface_Statistics struct {
     // have occurred since the last re-initialization of the local management
     // subsystem, then this node contains the time the local management subsystem
     // re-initialized itself. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
-    // attribute is mandatory.
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // This attribute is mandatory.
     DiscontinuityTime interface{}
 
     // The total number of octets received on the interface, including framing
@@ -1158,382 +1160,6 @@ func (statistics *InterfacesState_Interface_Statistics) GetEntityData() *types.C
 
     return &(statistics.EntityData)
 }
-
-// InterfacesState_Interface_Ipv4
-// Interface-specific parameters for the IPv4 address family.
-// This type is a presence type.
-type InterfacesState_Interface_Ipv4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Indicates whether IPv4 packet forwarding is enabled or disabled on this
-    // interface. The type is bool.
-    Forwarding interface{}
-
-    // The size, in octets, of the largest IPv4 packet that the interface will
-    // send and receive. The type is interface{} with range: 68..65535. Units are
-    // octets.
-    Mtu interface{}
-
-    // The list of IPv4 addresses on the interface. The type is slice of
-    // InterfacesState_Interface_Ipv4_Address.
-    Address []*InterfacesState_Interface_Ipv4_Address
-
-    // A list of mappings from IPv4 addresses to link-layer addresses. This list
-    // represents the ARP Cache. The type is slice of
-    // InterfacesState_Interface_Ipv4_Neighbor.
-    Neighbor []*InterfacesState_Interface_Ipv4_Neighbor
-}
-
-func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
-    ipv4.EntityData.YFilter = ipv4.YFilter
-    ipv4.EntityData.YangName = "ipv4"
-    ipv4.EntityData.BundleName = "ietf"
-    ipv4.EntityData.ParentYangName = "interface"
-    ipv4.EntityData.SegmentPath = "ietf-ip:ipv4"
-    ipv4.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv4.EntityData.SegmentPath
-    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
-    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    ipv4.EntityData.Children = types.NewOrderedMap()
-    ipv4.EntityData.Children.Append("address", types.YChild{"Address", nil})
-    for i := range ipv4.Address {
-        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Address[i]), types.YChild{"Address", ipv4.Address[i]})
-    }
-    ipv4.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
-    for i := range ipv4.Neighbor {
-        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Neighbor[i]), types.YChild{"Neighbor", ipv4.Neighbor[i]})
-    }
-    ipv4.EntityData.Leafs = types.NewOrderedMap()
-    ipv4.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv4.Forwarding})
-    ipv4.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4.Mtu})
-
-    ipv4.EntityData.YListKeys = []string {}
-
-    return &(ipv4.EntityData)
-}
-
-// InterfacesState_Interface_Ipv4_Address
-// The list of IPv4 addresses on the interface.
-type InterfacesState_Interface_Ipv4_Address struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The IPv4 address on the interface. The type is
-    // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Ip interface{}
-
-    // The length of the subnet prefix. The type is interface{} with range: 0..32.
-    PrefixLength interface{}
-
-    // The subnet specified as a netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
-    Netmask interface{}
-
-    // The origin of this address. The type is IpAddressOrigin.
-    Origin interface{}
-}
-
-func (address *InterfacesState_Interface_Ipv4_Address) GetEntityData() *types.CommonEntityData {
-    address.EntityData.YFilter = address.YFilter
-    address.EntityData.YangName = "address"
-    address.EntityData.BundleName = "ietf"
-    address.EntityData.ParentYangName = "ipv4"
-    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
-    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + address.EntityData.SegmentPath
-    address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    address.EntityData.NamespaceTable = ietf.GetNamespaces()
-    address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    address.EntityData.Children = types.NewOrderedMap()
-    address.EntityData.Leafs = types.NewOrderedMap()
-    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
-    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
-    address.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", address.Netmask})
-    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
-
-    address.EntityData.YListKeys = []string {"Ip"}
-
-    return &(address.EntityData)
-}
-
-// InterfacesState_Interface_Ipv4_Neighbor
-// A list of mappings from IPv4 addresses to
-// link-layer addresses.
-// This list represents the ARP Cache.
-type InterfacesState_Interface_Ipv4_Neighbor struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The IPv4 address of the neighbor node. The type is
-    // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Ip interface{}
-
-    // The link-layer address of the neighbor node. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
-    LinkLayerAddress interface{}
-
-    // The origin of this neighbor entry. The type is NeighborOrigin.
-    Origin interface{}
-}
-
-func (neighbor *InterfacesState_Interface_Ipv4_Neighbor) GetEntityData() *types.CommonEntityData {
-    neighbor.EntityData.YFilter = neighbor.YFilter
-    neighbor.EntityData.YangName = "neighbor"
-    neighbor.EntityData.BundleName = "ietf"
-    neighbor.EntityData.ParentYangName = "ipv4"
-    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
-    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + neighbor.EntityData.SegmentPath
-    neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
-    neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    neighbor.EntityData.Children = types.NewOrderedMap()
-    neighbor.EntityData.Leafs = types.NewOrderedMap()
-    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
-    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
-    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
-
-    neighbor.EntityData.YListKeys = []string {"Ip"}
-
-    return &(neighbor.EntityData)
-}
-
-// InterfacesState_Interface_Ipv6
-// Parameters for the IPv6 address family.
-// This type is a presence type.
-type InterfacesState_Interface_Ipv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Indicates whether IPv6 packet forwarding is enabled or disabled on this
-    // interface. The type is bool. The default value is false.
-    Forwarding interface{}
-
-    // The size, in octets, of the largest IPv6 packet that the interface will
-    // send and receive. The type is interface{} with range: 1280..4294967295.
-    // Units are octets.
-    Mtu interface{}
-
-    // The list of IPv6 addresses on the interface. The type is slice of
-    // InterfacesState_Interface_Ipv6_Address.
-    Address []*InterfacesState_Interface_Ipv6_Address
-
-    // A list of mappings from IPv6 addresses to link-layer addresses. This list
-    // represents the Neighbor Cache. The type is slice of
-    // InterfacesState_Interface_Ipv6_Neighbor.
-    Neighbor []*InterfacesState_Interface_Ipv6_Neighbor
-}
-
-func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
-    ipv6.EntityData.YFilter = ipv6.YFilter
-    ipv6.EntityData.YangName = "ipv6"
-    ipv6.EntityData.BundleName = "ietf"
-    ipv6.EntityData.ParentYangName = "interface"
-    ipv6.EntityData.SegmentPath = "ietf-ip:ipv6"
-    ipv6.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv6.EntityData.SegmentPath
-    ipv6.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
-    ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    ipv6.EntityData.Children = types.NewOrderedMap()
-    ipv6.EntityData.Children.Append("address", types.YChild{"Address", nil})
-    for i := range ipv6.Address {
-        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Address[i]), types.YChild{"Address", ipv6.Address[i]})
-    }
-    ipv6.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
-    for i := range ipv6.Neighbor {
-        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Neighbor[i]), types.YChild{"Neighbor", ipv6.Neighbor[i]})
-    }
-    ipv6.EntityData.Leafs = types.NewOrderedMap()
-    ipv6.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv6.Forwarding})
-    ipv6.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6.Mtu})
-
-    ipv6.EntityData.YListKeys = []string {}
-
-    return &(ipv6.EntityData)
-}
-
-// InterfacesState_Interface_Ipv6_Address
-// The list of IPv6 addresses on the interface.
-type InterfacesState_Interface_Ipv6_Address struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The IPv6 address on the interface. The type is
-    // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Ip interface{}
-
-    // The length of the subnet prefix. The type is interface{} with range:
-    // 0..128. This attribute is mandatory.
-    PrefixLength interface{}
-
-    // The origin of this address. The type is IpAddressOrigin.
-    Origin interface{}
-
-    // The status of an address.  Most of the states correspond to states from the
-    // IPv6 Stateless Address Autoconfiguration protocol. The type is Status.
-    Status interface{}
-}
-
-func (address *InterfacesState_Interface_Ipv6_Address) GetEntityData() *types.CommonEntityData {
-    address.EntityData.YFilter = address.YFilter
-    address.EntityData.YangName = "address"
-    address.EntityData.BundleName = "ietf"
-    address.EntityData.ParentYangName = "ipv6"
-    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
-    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + address.EntityData.SegmentPath
-    address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    address.EntityData.NamespaceTable = ietf.GetNamespaces()
-    address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    address.EntityData.Children = types.NewOrderedMap()
-    address.EntityData.Leafs = types.NewOrderedMap()
-    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
-    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
-    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
-    address.EntityData.Leafs.Append("status", types.YLeaf{"Status", address.Status})
-
-    address.EntityData.YListKeys = []string {"Ip"}
-
-    return &(address.EntityData)
-}
-
-// InterfacesState_Interface_Ipv6_Address_Status represents Autoconfiguration protocol.
-type InterfacesState_Interface_Ipv6_Address_Status string
-
-const (
-    // This is a valid address that can appear as the
-    // destination or source address of a packet.
-    InterfacesState_Interface_Ipv6_Address_Status_preferred InterfacesState_Interface_Ipv6_Address_Status = "preferred"
-
-    // This is a valid but deprecated address that should
-    // no longer be used as a source address in new
-    // communications, but packets addressed to such an
-    // address are processed as expected.
-    InterfacesState_Interface_Ipv6_Address_Status_deprecated InterfacesState_Interface_Ipv6_Address_Status = "deprecated"
-
-    // This isn't a valid address, and it shouldn't appear
-    // as the destination or source address of a packet.
-    InterfacesState_Interface_Ipv6_Address_Status_invalid InterfacesState_Interface_Ipv6_Address_Status = "invalid"
-
-    // The address is not accessible because the interface
-    // to which this address is assigned is not
-    // operational.
-    InterfacesState_Interface_Ipv6_Address_Status_inaccessible InterfacesState_Interface_Ipv6_Address_Status = "inaccessible"
-
-    // The status cannot be determined for some reason.
-    InterfacesState_Interface_Ipv6_Address_Status_unknown InterfacesState_Interface_Ipv6_Address_Status = "unknown"
-
-    // The uniqueness of the address on the link is being
-    // verified.  Addresses in this state should not be
-    // used for general communication and should only be
-    // used to determine the uniqueness of the address.
-    InterfacesState_Interface_Ipv6_Address_Status_tentative InterfacesState_Interface_Ipv6_Address_Status = "tentative"
-
-    // The address has been determined to be non-unique on
-    // the link and so must not be used.
-    InterfacesState_Interface_Ipv6_Address_Status_duplicate InterfacesState_Interface_Ipv6_Address_Status = "duplicate"
-
-    // The address is available for use, subject to
-    // restrictions, while its uniqueness on a link is
-    // being verified.
-    InterfacesState_Interface_Ipv6_Address_Status_optimistic InterfacesState_Interface_Ipv6_Address_Status = "optimistic"
-)
-
-// InterfacesState_Interface_Ipv6_Neighbor
-// A list of mappings from IPv6 addresses to
-// link-layer addresses.
-// This list represents the Neighbor Cache.
-type InterfacesState_Interface_Ipv6_Neighbor struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The IPv6 address of the neighbor node. The type is
-    // string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Ip interface{}
-
-    // The link-layer address of the neighbor node. The type is string with
-    // pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
-    LinkLayerAddress interface{}
-
-    // The origin of this neighbor entry. The type is NeighborOrigin.
-    Origin interface{}
-
-    // Indicates that the neighbor node acts as a router. The type is interface{}.
-    IsRouter interface{}
-
-    // The Neighbor Unreachability Detection state of this entry. The type is
-    // State.
-    State interface{}
-}
-
-func (neighbor *InterfacesState_Interface_Ipv6_Neighbor) GetEntityData() *types.CommonEntityData {
-    neighbor.EntityData.YFilter = neighbor.YFilter
-    neighbor.EntityData.YangName = "neighbor"
-    neighbor.EntityData.BundleName = "ietf"
-    neighbor.EntityData.ParentYangName = "ipv6"
-    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
-    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + neighbor.EntityData.SegmentPath
-    neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
-    neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    neighbor.EntityData.Children = types.NewOrderedMap()
-    neighbor.EntityData.Leafs = types.NewOrderedMap()
-    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
-    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
-    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
-    neighbor.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", neighbor.IsRouter})
-    neighbor.EntityData.Leafs.Append("state", types.YLeaf{"State", neighbor.State})
-
-    neighbor.EntityData.YListKeys = []string {"Ip"}
-
-    return &(neighbor.EntityData)
-}
-
-// InterfacesState_Interface_Ipv6_Neighbor_State represents entry.
-type InterfacesState_Interface_Ipv6_Neighbor_State string
-
-const (
-    // Address resolution is in progress, and the link-layer
-    // address of the neighbor has not yet been
-    // determined.
-    InterfacesState_Interface_Ipv6_Neighbor_State_incomplete InterfacesState_Interface_Ipv6_Neighbor_State = "incomplete"
-
-    // Roughly speaking, the neighbor is known to have been
-    // reachable recently (within tens of seconds ago).
-    InterfacesState_Interface_Ipv6_Neighbor_State_reachable InterfacesState_Interface_Ipv6_Neighbor_State = "reachable"
-
-    // The neighbor is no longer known to be reachable, but
-    // until traffic is sent to the neighbor no attempt
-    // should be made to verify its reachability.
-    InterfacesState_Interface_Ipv6_Neighbor_State_stale InterfacesState_Interface_Ipv6_Neighbor_State = "stale"
-
-    // The neighbor is no longer known to be reachable, and
-    // traffic has recently been sent to the neighbor.
-    // Rather than probe the neighbor immediately, however,
-    // delay sending probes for a short while in order to
-    // give upper-layer protocols a chance to provide
-    // reachability confirmation.
-    InterfacesState_Interface_Ipv6_Neighbor_State_delay InterfacesState_Interface_Ipv6_Neighbor_State = "delay"
-
-    // The neighbor is no longer known to be reachable, and
-    // unicast Neighbor Solicitation probes are being sent
-    // to verify reachability.
-    InterfacesState_Interface_Ipv6_Neighbor_State_probe InterfacesState_Interface_Ipv6_Neighbor_State = "probe"
-)
 
 // InterfacesState_Interface_DiffservTargetEntry
 // policy target for inbound or outbound direction
@@ -1824,6 +1450,382 @@ func (wredStats *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetCla
 
     return &(wredStats.EntityData)
 }
+
+// InterfacesState_Interface_Ipv4
+// Interface-specific parameters for the IPv4 address family.
+// This type is a presence type.
+type InterfacesState_Interface_Ipv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Indicates whether IPv4 packet forwarding is enabled or disabled on this
+    // interface. The type is bool.
+    Forwarding interface{}
+
+    // The size, in octets, of the largest IPv4 packet that the interface will
+    // send and receive. The type is interface{} with range: 68..65535. Units are
+    // octets.
+    Mtu interface{}
+
+    // The list of IPv4 addresses on the interface. The type is slice of
+    // InterfacesState_Interface_Ipv4_Address.
+    Address []*InterfacesState_Interface_Ipv4_Address
+
+    // A list of mappings from IPv4 addresses to link-layer addresses. This list
+    // represents the ARP Cache. The type is slice of
+    // InterfacesState_Interface_Ipv4_Neighbor.
+    Neighbor []*InterfacesState_Interface_Ipv4_Neighbor
+}
+
+func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "ietf"
+    ipv4.EntityData.ParentYangName = "interface"
+    ipv4.EntityData.SegmentPath = "ietf-ip:ipv4"
+    ipv4.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv4.EntityData.SegmentPath
+    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("address", types.YChild{"Address", nil})
+    for i := range ipv4.Address {
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Address[i]), types.YChild{"Address", ipv4.Address[i]})
+    }
+    ipv4.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
+    for i := range ipv4.Neighbor {
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Neighbor[i]), types.YChild{"Neighbor", ipv4.Neighbor[i]})
+    }
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+    ipv4.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv4.Forwarding})
+    ipv4.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv4.Mtu})
+
+    ipv4.EntityData.YListKeys = []string {}
+
+    return &(ipv4.EntityData)
+}
+
+// InterfacesState_Interface_Ipv4_Address
+// The list of IPv4 addresses on the interface.
+type InterfacesState_Interface_Ipv4_Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The IPv4 address on the interface. The type is
+    // string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The length of the subnet prefix. The type is interface{} with range: 0..32.
+    PrefixLength interface{}
+
+    // The subnet specified as a netmask. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    Netmask interface{}
+
+    // The origin of this address. The type is IpAddressOrigin.
+    Origin interface{}
+}
+
+func (address *InterfacesState_Interface_Ipv4_Address) GetEntityData() *types.CommonEntityData {
+    address.EntityData.YFilter = address.YFilter
+    address.EntityData.YangName = "address"
+    address.EntityData.BundleName = "ietf"
+    address.EntityData.ParentYangName = "ipv4"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + address.EntityData.SegmentPath
+    address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    address.EntityData.NamespaceTable = ietf.GetNamespaces()
+    address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+    address.EntityData.Leafs.Append("netmask", types.YLeaf{"Netmask", address.Netmask})
+    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
+    return &(address.EntityData)
+}
+
+// InterfacesState_Interface_Ipv4_Neighbor
+// A list of mappings from IPv4 addresses to
+// link-layer addresses.
+// This list represents the ARP Cache.
+type InterfacesState_Interface_Ipv4_Neighbor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The IPv4 address of the neighbor node. The type is
+    // string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The link-layer address of the neighbor node. The type is string with
+    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    LinkLayerAddress interface{}
+
+    // The origin of this neighbor entry. The type is NeighborOrigin.
+    Origin interface{}
+}
+
+func (neighbor *InterfacesState_Interface_Ipv4_Neighbor) GetEntityData() *types.CommonEntityData {
+    neighbor.EntityData.YFilter = neighbor.YFilter
+    neighbor.EntityData.YangName = "neighbor"
+    neighbor.EntityData.BundleName = "ietf"
+    neighbor.EntityData.ParentYangName = "ipv4"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + neighbor.EntityData.SegmentPath
+    neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
+    neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
+    return &(neighbor.EntityData)
+}
+
+// InterfacesState_Interface_Ipv6
+// Parameters for the IPv6 address family.
+// This type is a presence type.
+type InterfacesState_Interface_Ipv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Indicates whether IPv6 packet forwarding is enabled or disabled on this
+    // interface. The type is bool. The default value is false.
+    Forwarding interface{}
+
+    // The size, in octets, of the largest IPv6 packet that the interface will
+    // send and receive. The type is interface{} with range: 1280..4294967295.
+    // Units are octets.
+    Mtu interface{}
+
+    // The list of IPv6 addresses on the interface. The type is slice of
+    // InterfacesState_Interface_Ipv6_Address.
+    Address []*InterfacesState_Interface_Ipv6_Address
+
+    // A list of mappings from IPv6 addresses to link-layer addresses. This list
+    // represents the Neighbor Cache. The type is slice of
+    // InterfacesState_Interface_Ipv6_Neighbor.
+    Neighbor []*InterfacesState_Interface_Ipv6_Neighbor
+}
+
+func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "ietf"
+    ipv6.EntityData.ParentYangName = "interface"
+    ipv6.EntityData.SegmentPath = "ietf-ip:ipv6"
+    ipv6.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv6.EntityData.SegmentPath
+    ipv6.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    ipv6.EntityData.Children = types.NewOrderedMap()
+    ipv6.EntityData.Children.Append("address", types.YChild{"Address", nil})
+    for i := range ipv6.Address {
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Address[i]), types.YChild{"Address", ipv6.Address[i]})
+    }
+    ipv6.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
+    for i := range ipv6.Neighbor {
+        ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.Neighbor[i]), types.YChild{"Neighbor", ipv6.Neighbor[i]})
+    }
+    ipv6.EntityData.Leafs = types.NewOrderedMap()
+    ipv6.EntityData.Leafs.Append("forwarding", types.YLeaf{"Forwarding", ipv6.Forwarding})
+    ipv6.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", ipv6.Mtu})
+
+    ipv6.EntityData.YListKeys = []string {}
+
+    return &(ipv6.EntityData)
+}
+
+// InterfacesState_Interface_Ipv6_Address
+// The list of IPv6 addresses on the interface.
+type InterfacesState_Interface_Ipv6_Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The IPv6 address on the interface. The type is
+    // string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The length of the subnet prefix. The type is interface{} with range:
+    // 0..128. This attribute is mandatory.
+    PrefixLength interface{}
+
+    // The origin of this address. The type is IpAddressOrigin.
+    Origin interface{}
+
+    // The status of an address.  Most of the states correspond to states from the
+    // IPv6 Stateless Address Autoconfiguration protocol. The type is Status.
+    Status interface{}
+}
+
+func (address *InterfacesState_Interface_Ipv6_Address) GetEntityData() *types.CommonEntityData {
+    address.EntityData.YFilter = address.YFilter
+    address.EntityData.YangName = "address"
+    address.EntityData.BundleName = "ietf"
+    address.EntityData.ParentYangName = "ipv6"
+    address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + address.EntityData.SegmentPath
+    address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    address.EntityData.NamespaceTable = ietf.GetNamespaces()
+    address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Leafs = types.NewOrderedMap()
+    address.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", address.Ip})
+    address.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", address.PrefixLength})
+    address.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", address.Origin})
+    address.EntityData.Leafs.Append("status", types.YLeaf{"Status", address.Status})
+
+    address.EntityData.YListKeys = []string {"Ip"}
+
+    return &(address.EntityData)
+}
+
+// InterfacesState_Interface_Ipv6_Address_Status represents Autoconfiguration protocol.
+type InterfacesState_Interface_Ipv6_Address_Status string
+
+const (
+    // This is a valid address that can appear as the
+    // destination or source address of a packet.
+    InterfacesState_Interface_Ipv6_Address_Status_preferred InterfacesState_Interface_Ipv6_Address_Status = "preferred"
+
+    // This is a valid but deprecated address that should
+    // no longer be used as a source address in new
+    // communications, but packets addressed to such an
+    // address are processed as expected.
+    InterfacesState_Interface_Ipv6_Address_Status_deprecated InterfacesState_Interface_Ipv6_Address_Status = "deprecated"
+
+    // This isn't a valid address, and it shouldn't appear
+    // as the destination or source address of a packet.
+    InterfacesState_Interface_Ipv6_Address_Status_invalid InterfacesState_Interface_Ipv6_Address_Status = "invalid"
+
+    // The address is not accessible because the interface
+    // to which this address is assigned is not
+    // operational.
+    InterfacesState_Interface_Ipv6_Address_Status_inaccessible InterfacesState_Interface_Ipv6_Address_Status = "inaccessible"
+
+    // The status cannot be determined for some reason.
+    InterfacesState_Interface_Ipv6_Address_Status_unknown InterfacesState_Interface_Ipv6_Address_Status = "unknown"
+
+    // The uniqueness of the address on the link is being
+    // verified.  Addresses in this state should not be
+    // used for general communication and should only be
+    // used to determine the uniqueness of the address.
+    InterfacesState_Interface_Ipv6_Address_Status_tentative InterfacesState_Interface_Ipv6_Address_Status = "tentative"
+
+    // The address has been determined to be non-unique on
+    // the link and so must not be used.
+    InterfacesState_Interface_Ipv6_Address_Status_duplicate InterfacesState_Interface_Ipv6_Address_Status = "duplicate"
+
+    // The address is available for use, subject to
+    // restrictions, while its uniqueness on a link is
+    // being verified.
+    InterfacesState_Interface_Ipv6_Address_Status_optimistic InterfacesState_Interface_Ipv6_Address_Status = "optimistic"
+)
+
+// InterfacesState_Interface_Ipv6_Neighbor
+// A list of mappings from IPv6 addresses to
+// link-layer addresses.
+// This list represents the Neighbor Cache.
+type InterfacesState_Interface_Ipv6_Neighbor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The IPv6 address of the neighbor node. The type is
+    // string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ip interface{}
+
+    // The link-layer address of the neighbor node. The type is string with
+    // pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    LinkLayerAddress interface{}
+
+    // The origin of this neighbor entry. The type is NeighborOrigin.
+    Origin interface{}
+
+    // Indicates that the neighbor node acts as a router. The type is interface{}.
+    IsRouter interface{}
+
+    // The Neighbor Unreachability Detection state of this entry. The type is
+    // State.
+    State interface{}
+}
+
+func (neighbor *InterfacesState_Interface_Ipv6_Neighbor) GetEntityData() *types.CommonEntityData {
+    neighbor.EntityData.YFilter = neighbor.YFilter
+    neighbor.EntityData.YangName = "neighbor"
+    neighbor.EntityData.BundleName = "ietf"
+    neighbor.EntityData.ParentYangName = "ipv6"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + neighbor.EntityData.SegmentPath
+    neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
+    neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Leafs = types.NewOrderedMap()
+    neighbor.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", neighbor.Ip})
+    neighbor.EntityData.Leafs.Append("link-layer-address", types.YLeaf{"LinkLayerAddress", neighbor.LinkLayerAddress})
+    neighbor.EntityData.Leafs.Append("origin", types.YLeaf{"Origin", neighbor.Origin})
+    neighbor.EntityData.Leafs.Append("is-router", types.YLeaf{"IsRouter", neighbor.IsRouter})
+    neighbor.EntityData.Leafs.Append("state", types.YLeaf{"State", neighbor.State})
+
+    neighbor.EntityData.YListKeys = []string {"Ip"}
+
+    return &(neighbor.EntityData)
+}
+
+// InterfacesState_Interface_Ipv6_Neighbor_State represents entry.
+type InterfacesState_Interface_Ipv6_Neighbor_State string
+
+const (
+    // Address resolution is in progress, and the link-layer
+    // address of the neighbor has not yet been
+    // determined.
+    InterfacesState_Interface_Ipv6_Neighbor_State_incomplete InterfacesState_Interface_Ipv6_Neighbor_State = "incomplete"
+
+    // Roughly speaking, the neighbor is known to have been
+    // reachable recently (within tens of seconds ago).
+    InterfacesState_Interface_Ipv6_Neighbor_State_reachable InterfacesState_Interface_Ipv6_Neighbor_State = "reachable"
+
+    // The neighbor is no longer known to be reachable, but
+    // until traffic is sent to the neighbor no attempt
+    // should be made to verify its reachability.
+    InterfacesState_Interface_Ipv6_Neighbor_State_stale InterfacesState_Interface_Ipv6_Neighbor_State = "stale"
+
+    // The neighbor is no longer known to be reachable, and
+    // traffic has recently been sent to the neighbor.
+    // Rather than probe the neighbor immediately, however,
+    // delay sending probes for a short while in order to
+    // give upper-layer protocols a chance to provide
+    // reachability confirmation.
+    InterfacesState_Interface_Ipv6_Neighbor_State_delay InterfacesState_Interface_Ipv6_Neighbor_State = "delay"
+
+    // The neighbor is no longer known to be reachable, and
+    // unicast Neighbor Solicitation probes are being sent
+    // to verify reachability.
+    InterfacesState_Interface_Ipv6_Neighbor_State_probe InterfacesState_Interface_Ipv6_Neighbor_State = "probe"
+)
 
 // InterfacesState_Interface_AdminStatus represents This leaf has the same read semantics as ifAdminStatus.
 type InterfacesState_Interface_AdminStatus string

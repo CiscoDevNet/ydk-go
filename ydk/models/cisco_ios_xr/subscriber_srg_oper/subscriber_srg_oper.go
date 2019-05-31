@@ -28,34 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent", reflect.TypeOf(SubscriberRedundancyAgent{}))
 }
 
-// SrgShowImRole represents SRG Interface Management Role
-type SrgShowImRole string
-
-const (
-    // Not Determined
-    SrgShowImRole_none SrgShowImRole = "none"
-
-    // Master Role
-    SrgShowImRole_master SrgShowImRole = "master"
-
-    // Slave Role
-    SrgShowImRole_slave SrgShowImRole = "slave"
-)
-
-// SrgShowSessionError represents SRG Session Error Operation
-type SrgShowSessionError string
-
-const (
-    // Invalid Error
-    SrgShowSessionError_none SrgShowSessionError = "none"
-
-    // Hard Error
-    SrgShowSessionError_hard SrgShowSessionError = "hard"
-
-    // Soft Error
-    SrgShowSessionError_soft SrgShowSessionError = "soft"
-)
-
 // SrgShowSoReason represents Subscriber Redundancy Switchover Reason
 type SrgShowSoReason string
 
@@ -77,23 +49,6 @@ const (
 
     // Unknown Switchover Reason
     SrgShowSoReason_srg_show_so_reason_max SrgShowSoReason = "srg-show-so-reason-max"
-)
-
-// SrgShowSessionOperation represents SRG Session Operation
-type SrgShowSessionOperation string
-
-const (
-    // No Operation
-    SrgShowSessionOperation_none SrgShowSessionOperation = "none"
-
-    // SRG Session Update Operation
-    SrgShowSessionOperation_update SrgShowSessionOperation = "update"
-
-    // SRG Session Delete Operation
-    SrgShowSessionOperation_delete_ SrgShowSessionOperation = "delete"
-
-    // SRG Session In Sync
-    SrgShowSessionOperation_in_sync SrgShowSessionOperation = "in-sync"
 )
 
 // SrgPeerStatus represents SRG Peer Status
@@ -128,32 +83,35 @@ const (
     SrgPeerStatus_established SrgPeerStatus = "established"
 )
 
-// SrgShowRole represents SRG Role
-type SrgShowRole string
+// SrgShowSessionError represents SRG Session Error Operation
+type SrgShowSessionError string
 
 const (
-    // Not Configured
-    SrgShowRole_none SrgShowRole = "none"
+    // Invalid Error
+    SrgShowSessionError_none SrgShowSessionError = "none"
 
-    // Master Role
-    SrgShowRole_master SrgShowRole = "master"
+    // Hard Error
+    SrgShowSessionError_hard SrgShowSessionError = "hard"
 
-    // Slave Role
-    SrgShowRole_slave SrgShowRole = "slave"
+    // Soft Error
+    SrgShowSessionError_soft SrgShowSessionError = "soft"
 )
 
-// SrgShowSlaveMode represents SRG Slave Mode
-type SrgShowSlaveMode string
+// SrgShowSessionOperation represents SRG Session Operation
+type SrgShowSessionOperation string
 
 const (
-    // Not Configured
-    SrgShowSlaveMode_none SrgShowSlaveMode = "none"
+    // No Operation
+    SrgShowSessionOperation_none SrgShowSessionOperation = "none"
 
-    // Warm Modem
-    SrgShowSlaveMode_warm SrgShowSlaveMode = "warm"
+    // SRG Session Update Operation
+    SrgShowSessionOperation_update SrgShowSessionOperation = "update"
 
-    // Hot Mode
-    SrgShowSlaveMode_hot SrgShowSlaveMode = "hot"
+    // SRG Session Delete Operation
+    SrgShowSessionOperation_delete_ SrgShowSessionOperation = "delete"
+
+    // SRG Session In Sync
+    SrgShowSessionOperation_in_sync SrgShowSessionOperation = "in-sync"
 )
 
 // SrgShowComp represents SRG Components
@@ -180,6 +138,48 @@ const (
 
     // iEdge
     SrgShowComp_iedge SrgShowComp = "iedge"
+)
+
+// SrgShowSlaveMode represents SRG Slave Mode
+type SrgShowSlaveMode string
+
+const (
+    // Not Configured
+    SrgShowSlaveMode_none SrgShowSlaveMode = "none"
+
+    // Warm Modem
+    SrgShowSlaveMode_warm SrgShowSlaveMode = "warm"
+
+    // Hot Mode
+    SrgShowSlaveMode_hot SrgShowSlaveMode = "hot"
+)
+
+// SrgShowRole represents SRG Role
+type SrgShowRole string
+
+const (
+    // Not Configured
+    SrgShowRole_none SrgShowRole = "none"
+
+    // Master Role
+    SrgShowRole_master SrgShowRole = "master"
+
+    // Slave Role
+    SrgShowRole_slave SrgShowRole = "slave"
+)
+
+// SrgShowImRole represents SRG Interface Management Role
+type SrgShowImRole string
+
+const (
+    // Not Determined
+    SrgShowImRole_none SrgShowImRole = "none"
+
+    // Master Role
+    SrgShowImRole_master SrgShowImRole = "master"
+
+    // Slave Role
+    SrgShowImRole_slave SrgShowImRole = "slave"
 )
 
 // SubscriberRedundancyManager
@@ -262,7 +262,7 @@ type SubscriberRedundancyManager_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Group interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -278,11 +278,11 @@ type SubscriberRedundancyManager_Groups_Group struct {
     Role interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Interface Count. The type is interface{} with range: 0..4294967295.
@@ -371,11 +371,11 @@ type SubscriberRedundancyManager_Summary struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv6Address interface{}
 
     // No. of Configured Groups. The type is interface{} with range:
@@ -483,7 +483,7 @@ type SubscriberRedundancyManager_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -600,7 +600,7 @@ type SubscriberRedundancyAgent_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Data for particular subscriber group session.
@@ -682,7 +682,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -893,7 +893,7 @@ type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -1172,7 +1172,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1185,11 +1185,11 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     Disabled interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SrgPeerStatus.
@@ -1289,7 +1289,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     YListKey string
 
     // This attribute is a key. Group Id. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1323,7 +1323,7 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     VirtualMacAddressDisable interface{}
 
     // L2TP Souce IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     L2tpSourceIp interface{}
 
     // Core Object Tracking Name. The type is string.
@@ -1342,11 +1342,11 @@ type SubscriberRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     ObjectTrackingStatus interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SrgPeerStatus.

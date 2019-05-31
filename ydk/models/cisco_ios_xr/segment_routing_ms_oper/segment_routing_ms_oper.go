@@ -3,7 +3,9 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   srms: Segment Routing Mapping Server operational data
+//   standby-srms: Standby Segment Routing Mapping Server
+//     operational data
+//   srms: srms
 //   srlb: srlb
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
@@ -21,24 +23,23 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package segment_routing_ms_oper"))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-segment-routing-ms-oper standby-srms}", reflect.TypeOf(StandbySrms{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-segment-routing-ms-oper:standby-srms", reflect.TypeOf(StandbySrms{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-segment-routing-ms-oper srms}", reflect.TypeOf(Srms{}))
     ydk.RegisterEntity("Cisco-IOS-XR-segment-routing-ms-oper:srms", reflect.TypeOf(Srms{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-segment-routing-ms-oper srlb}", reflect.TypeOf(Srlb{}))
     ydk.RegisterEntity("Cisco-IOS-XR-segment-routing-ms-oper:srlb", reflect.TypeOf(Srlb{}))
 }
 
-// SrmsAf represents Srms af
-type SrmsAf string
+// SidTypeEnum represents Sid type enum
+type SidTypeEnum string
 
 const (
-    // None
-    SrmsAf_none SrmsAf = "none"
+    // Absolute SID
+    SidTypeEnum_absolute SidTypeEnum = "absolute"
 
-    // IPv4
-    SrmsAf_ipv4 SrmsAf = "ipv4"
-
-    // IPv6
-    SrmsAf_ipv6 SrmsAf = "ipv6"
+    // Index SID
+    SidTypeEnum_index SidTypeEnum = "index"
 )
 
 // SrmsMiFlagEB represents Srms mi flag e b
@@ -80,75 +81,75 @@ const (
     SrmsMiSrcEB_remote SrmsMiSrcEB = "remote"
 )
 
-// SidTypeEnum represents Sid type enum
-type SidTypeEnum string
+// SrmsAf represents Srms af
+type SrmsAf string
 
 const (
-    // Absolute SID
-    SidTypeEnum_absolute SidTypeEnum = "absolute"
+    // None
+    SrmsAf_none SrmsAf = "none"
 
-    // Index SID
-    SidTypeEnum_index SidTypeEnum = "index"
+    // IPv4
+    SrmsAf_ipv4 SrmsAf = "ipv4"
+
+    // IPv6
+    SrmsAf_ipv6 SrmsAf = "ipv6"
 )
 
-// Srms
-// Segment Routing Mapping Server operational data
-type Srms struct {
+// StandbySrms
+// Standby Segment Routing Mapping Server
+// operational data
+type StandbySrms struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP prefix to SID mappings.
-    Mapping Srms_Mapping
-
-    // Adjacency SID.
-    AdjacencySid Srms_AdjacencySid
+    Mapping StandbySrms_Mapping
 
     // Policy operational data.
-    Policy Srms_Policy
+    Policy StandbySrms_Policy
 }
 
-func (srms *Srms) GetEntityData() *types.CommonEntityData {
-    srms.EntityData.YFilter = srms.YFilter
-    srms.EntityData.YangName = "srms"
-    srms.EntityData.BundleName = "cisco_ios_xr"
-    srms.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-oper"
-    srms.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-oper:srms"
-    srms.EntityData.AbsolutePath = srms.EntityData.SegmentPath
-    srms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (standbySrms *StandbySrms) GetEntityData() *types.CommonEntityData {
+    standbySrms.EntityData.YFilter = standbySrms.YFilter
+    standbySrms.EntityData.YangName = "standby-srms"
+    standbySrms.EntityData.BundleName = "cisco_ios_xr"
+    standbySrms.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-oper"
+    standbySrms.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms"
+    standbySrms.EntityData.AbsolutePath = standbySrms.EntityData.SegmentPath
+    standbySrms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    standbySrms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    standbySrms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    srms.EntityData.Children = types.NewOrderedMap()
-    srms.EntityData.Children.Append("mapping", types.YChild{"Mapping", &srms.Mapping})
-    srms.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", &srms.AdjacencySid})
-    srms.EntityData.Children.Append("policy", types.YChild{"Policy", &srms.Policy})
-    srms.EntityData.Leafs = types.NewOrderedMap()
+    standbySrms.EntityData.Children = types.NewOrderedMap()
+    standbySrms.EntityData.Children.Append("mapping", types.YChild{"Mapping", &standbySrms.Mapping})
+    standbySrms.EntityData.Children.Append("policy", types.YChild{"Policy", &standbySrms.Policy})
+    standbySrms.EntityData.Leafs = types.NewOrderedMap()
 
-    srms.EntityData.YListKeys = []string {}
+    standbySrms.EntityData.YListKeys = []string {}
 
-    return &(srms.EntityData)
+    return &(standbySrms.EntityData)
 }
 
-// Srms_Mapping
+// StandbySrms_Mapping
 // IP prefix to SID mappings
-type Srms_Mapping struct {
+type StandbySrms_Mapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 prefix to SID mappings.
-    MappingIpv4 Srms_Mapping_MappingIpv4
+    MappingIpv4 StandbySrms_Mapping_MappingIpv4
 
     // IPv6 prefix to SID mappings.
-    MappingIpv6 Srms_Mapping_MappingIpv6
+    MappingIpv6 StandbySrms_Mapping_MappingIpv6
 }
 
-func (mapping *Srms_Mapping) GetEntityData() *types.CommonEntityData {
+func (mapping *StandbySrms_Mapping) GetEntityData() *types.CommonEntityData {
     mapping.EntityData.YFilter = mapping.YFilter
     mapping.EntityData.YangName = "mapping"
     mapping.EntityData.BundleName = "cisco_ios_xr"
-    mapping.EntityData.ParentYangName = "srms"
+    mapping.EntityData.ParentYangName = "standby-srms"
     mapping.EntityData.SegmentPath = "mapping"
-    mapping.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/" + mapping.EntityData.SegmentPath
+    mapping.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/" + mapping.EntityData.SegmentPath
     mapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -163,26 +164,27 @@ func (mapping *Srms_Mapping) GetEntityData() *types.CommonEntityData {
     return &(mapping.EntityData)
 }
 
-// Srms_Mapping_MappingIpv4
+// StandbySrms_Mapping_MappingIpv4
 // IPv4 prefix to SID mappings
-type Srms_Mapping_MappingIpv4 struct {
+type StandbySrms_Mapping_MappingIpv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP prefix to SID mapping item. It's not possible to list all of the IP
     // prefix to SID mappings, as the set of valid prefixes could be very large.
     // Instead, SID map information must be retrieved individually for each prefix
-    // of interest. The type is slice of Srms_Mapping_MappingIpv4_MappingMi.
-    MappingMi []*Srms_Mapping_MappingIpv4_MappingMi
+    // of interest. The type is slice of
+    // StandbySrms_Mapping_MappingIpv4_MappingMi.
+    MappingMi []*StandbySrms_Mapping_MappingIpv4_MappingMi
 }
 
-func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntityData {
+func (mappingIpv4 *StandbySrms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntityData {
     mappingIpv4.EntityData.YFilter = mappingIpv4.YFilter
     mappingIpv4.EntityData.YangName = "mapping-ipv4"
     mappingIpv4.EntityData.BundleName = "cisco_ios_xr"
     mappingIpv4.EntityData.ParentYangName = "mapping"
     mappingIpv4.EntityData.SegmentPath = "mapping-ipv4"
-    mappingIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv4.EntityData.SegmentPath
+    mappingIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/" + mappingIpv4.EntityData.SegmentPath
     mappingIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,18 +202,18 @@ func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntity
     return &(mappingIpv4.EntityData)
 }
 
-// Srms_Mapping_MappingIpv4_MappingMi
+// StandbySrms_Mapping_MappingIpv4_MappingMi
 // IP prefix to SID mapping item. It's not possible
 // to list all of the IP prefix to SID mappings, as
 // the set of valid prefixes could be very large.
 // Instead, SID map information must be retrieved
 // individually for each prefix of interest.
-type Srms_Mapping_MappingIpv4_MappingMi struct {
+type StandbySrms_Mapping_MappingIpv4_MappingMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ip interface{}
 
     // Prefix. The type is interface{} with range: 0..4294967295.
@@ -245,16 +247,16 @@ type Srms_Mapping_MappingIpv4_MappingMi struct {
     FlagAttached interface{}
 
     // addr.
-    Addr Srms_Mapping_MappingIpv4_MappingMi_Addr
+    Addr StandbySrms_Mapping_MappingIpv4_MappingMi_Addr
 }
 
-func (mappingMi *Srms_Mapping_MappingIpv4_MappingMi) GetEntityData() *types.CommonEntityData {
+func (mappingMi *StandbySrms_Mapping_MappingIpv4_MappingMi) GetEntityData() *types.CommonEntityData {
     mappingMi.EntityData.YFilter = mappingMi.YFilter
     mappingMi.EntityData.YangName = "mapping-mi"
     mappingMi.EntityData.BundleName = "cisco_ios_xr"
     mappingMi.EntityData.ParentYangName = "mapping-ipv4"
     mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
-    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/" + mappingMi.EntityData.SegmentPath
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/mapping-ipv4/" + mappingMi.EntityData.SegmentPath
     mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,9 +281,9 @@ func (mappingMi *Srms_Mapping_MappingIpv4_MappingMi) GetEntityData() *types.Comm
     return &(mappingMi.EntityData)
 }
 
-// Srms_Mapping_MappingIpv4_MappingMi_Addr
+// StandbySrms_Mapping_MappingIpv4_MappingMi_Addr
 // addr
-type Srms_Mapping_MappingIpv4_MappingMi_Addr struct {
+type StandbySrms_Mapping_MappingIpv4_MappingMi_Addr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -289,21 +291,21 @@ type Srms_Mapping_MappingIpv4_MappingMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
-func (addr *Srms_Mapping_MappingIpv4_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
+func (addr *StandbySrms_Mapping_MappingIpv4_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
     addr.EntityData.YFilter = addr.YFilter
     addr.EntityData.YangName = "addr"
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "mapping-mi"
     addr.EntityData.SegmentPath = "addr"
-    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/mapping-ipv4/mapping-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -319,26 +321,27 @@ func (addr *Srms_Mapping_MappingIpv4_MappingMi_Addr) GetEntityData() *types.Comm
     return &(addr.EntityData)
 }
 
-// Srms_Mapping_MappingIpv6
+// StandbySrms_Mapping_MappingIpv6
 // IPv6 prefix to SID mappings
-type Srms_Mapping_MappingIpv6 struct {
+type StandbySrms_Mapping_MappingIpv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP prefix to SID mapping item. It's not possible to list all of the IP
     // prefix to SID mappings, as the set of valid prefixes could be very large.
     // Instead, SID map information must be retrieved individually for each prefix
-    // of interest. The type is slice of Srms_Mapping_MappingIpv6_MappingMi.
-    MappingMi []*Srms_Mapping_MappingIpv6_MappingMi
+    // of interest. The type is slice of
+    // StandbySrms_Mapping_MappingIpv6_MappingMi.
+    MappingMi []*StandbySrms_Mapping_MappingIpv6_MappingMi
 }
 
-func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntityData {
+func (mappingIpv6 *StandbySrms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntityData {
     mappingIpv6.EntityData.YFilter = mappingIpv6.YFilter
     mappingIpv6.EntityData.YangName = "mapping-ipv6"
     mappingIpv6.EntityData.BundleName = "cisco_ios_xr"
     mappingIpv6.EntityData.ParentYangName = "mapping"
     mappingIpv6.EntityData.SegmentPath = "mapping-ipv6"
-    mappingIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv6.EntityData.SegmentPath
+    mappingIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/" + mappingIpv6.EntityData.SegmentPath
     mappingIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -356,18 +359,18 @@ func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntity
     return &(mappingIpv6.EntityData)
 }
 
-// Srms_Mapping_MappingIpv6_MappingMi
+// StandbySrms_Mapping_MappingIpv6_MappingMi
 // IP prefix to SID mapping item. It's not possible
 // to list all of the IP prefix to SID mappings, as
 // the set of valid prefixes could be very large.
 // Instead, SID map information must be retrieved
 // individually for each prefix of interest.
-type Srms_Mapping_MappingIpv6_MappingMi struct {
+type StandbySrms_Mapping_MappingIpv6_MappingMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // IP. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ip interface{}
 
     // Prefix. The type is interface{} with range: 0..4294967295.
@@ -401,16 +404,16 @@ type Srms_Mapping_MappingIpv6_MappingMi struct {
     FlagAttached interface{}
 
     // addr.
-    Addr Srms_Mapping_MappingIpv6_MappingMi_Addr
+    Addr StandbySrms_Mapping_MappingIpv6_MappingMi_Addr
 }
 
-func (mappingMi *Srms_Mapping_MappingIpv6_MappingMi) GetEntityData() *types.CommonEntityData {
+func (mappingMi *StandbySrms_Mapping_MappingIpv6_MappingMi) GetEntityData() *types.CommonEntityData {
     mappingMi.EntityData.YFilter = mappingMi.YFilter
     mappingMi.EntityData.YangName = "mapping-mi"
     mappingMi.EntityData.BundleName = "cisco_ios_xr"
     mappingMi.EntityData.ParentYangName = "mapping-ipv6"
     mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
-    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/" + mappingMi.EntityData.SegmentPath
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/mapping-ipv6/" + mappingMi.EntityData.SegmentPath
     mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,9 +438,9 @@ func (mappingMi *Srms_Mapping_MappingIpv6_MappingMi) GetEntityData() *types.Comm
     return &(mappingMi.EntityData)
 }
 
-// Srms_Mapping_MappingIpv6_MappingMi_Addr
+// StandbySrms_Mapping_MappingIpv6_MappingMi_Addr
 // addr
-type Srms_Mapping_MappingIpv6_MappingMi_Addr struct {
+type StandbySrms_Mapping_MappingIpv6_MappingMi_Addr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -445,21 +448,21 @@ type Srms_Mapping_MappingIpv6_MappingMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
-func (addr *Srms_Mapping_MappingIpv6_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
+func (addr *StandbySrms_Mapping_MappingIpv6_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
     addr.EntityData.YFilter = addr.YFilter
     addr.EntityData.YangName = "addr"
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "mapping-mi"
     addr.EntityData.SegmentPath = "addr"
-    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/mapping/mapping-ipv6/mapping-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +476,730 @@ func (addr *Srms_Mapping_MappingIpv6_MappingMi_Addr) GetEntityData() *types.Comm
     addr.EntityData.YListKeys = []string {}
 
     return &(addr.EntityData)
+}
+
+// StandbySrms_Policy
+// Policy operational data
+type StandbySrms_Policy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 policy operational data.
+    PolicyIpv4 StandbySrms_Policy_PolicyIpv4
+
+    // IPv6 policy operational data.
+    PolicyIpv6 StandbySrms_Policy_PolicyIpv6
+}
+
+func (policy *StandbySrms_Policy) GetEntityData() *types.CommonEntityData {
+    policy.EntityData.YFilter = policy.YFilter
+    policy.EntityData.YangName = "policy"
+    policy.EntityData.BundleName = "cisco_ios_xr"
+    policy.EntityData.ParentYangName = "standby-srms"
+    policy.EntityData.SegmentPath = "policy"
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/" + policy.EntityData.SegmentPath
+    policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("policy-ipv4", types.YChild{"PolicyIpv4", &policy.PolicyIpv4})
+    policy.EntityData.Children.Append("policy-ipv6", types.YChild{"PolicyIpv6", &policy.PolicyIpv6})
+    policy.EntityData.Leafs = types.NewOrderedMap()
+
+    policy.EntityData.YListKeys = []string {}
+
+    return &(policy.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4
+// IPv4 policy operational data
+type StandbySrms_Policy_PolicyIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 backup policy operational data.
+    PolicyIpv4Backup StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup
+
+    // IPv4 active policy operational data.
+    PolicyIpv4Active StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active
+}
+
+func (policyIpv4 *StandbySrms_Policy_PolicyIpv4) GetEntityData() *types.CommonEntityData {
+    policyIpv4.EntityData.YFilter = policyIpv4.YFilter
+    policyIpv4.EntityData.YangName = "policy-ipv4"
+    policyIpv4.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv4.EntityData.ParentYangName = "policy"
+    policyIpv4.EntityData.SegmentPath = "policy-ipv4"
+    policyIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/" + policyIpv4.EntityData.SegmentPath
+    policyIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv4.EntityData.Children = types.NewOrderedMap()
+    policyIpv4.EntityData.Children.Append("policy-ipv4-backup", types.YChild{"PolicyIpv4Backup", &policyIpv4.PolicyIpv4Backup})
+    policyIpv4.EntityData.Children.Append("policy-ipv4-active", types.YChild{"PolicyIpv4Active", &policyIpv4.PolicyIpv4Active})
+    policyIpv4.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv4.EntityData.YListKeys = []string {}
+
+    return &(policyIpv4.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup
+// IPv4 backup policy operational data
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping Item. The type is slice of
+    // StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi.
+    PolicyMi []*StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi
+}
+
+func (policyIpv4Backup *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup) GetEntityData() *types.CommonEntityData {
+    policyIpv4Backup.EntityData.YFilter = policyIpv4Backup.YFilter
+    policyIpv4Backup.EntityData.YangName = "policy-ipv4-backup"
+    policyIpv4Backup.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv4Backup.EntityData.ParentYangName = "policy-ipv4"
+    policyIpv4Backup.EntityData.SegmentPath = "policy-ipv4-backup"
+    policyIpv4Backup.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/" + policyIpv4Backup.EntityData.SegmentPath
+    policyIpv4Backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv4Backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv4Backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv4Backup.EntityData.Children = types.NewOrderedMap()
+    policyIpv4Backup.EntityData.Children.Append("policy-mi", types.YChild{"PolicyMi", nil})
+    for i := range policyIpv4Backup.PolicyMi {
+        policyIpv4Backup.EntityData.Children.Append(types.GetSegmentPath(policyIpv4Backup.PolicyMi[i]), types.YChild{"PolicyMi", policyIpv4Backup.PolicyMi[i]})
+    }
+    policyIpv4Backup.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv4Backup.EntityData.YListKeys = []string {}
+
+    return &(policyIpv4Backup.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi
+// Mapping Item
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    MiId interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr
+}
+
+func (policyMi *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi) GetEntityData() *types.CommonEntityData {
+    policyMi.EntityData.YFilter = policyMi.YFilter
+    policyMi.EntityData.YangName = "policy-mi"
+    policyMi.EntityData.BundleName = "cisco_ios_xr"
+    policyMi.EntityData.ParentYangName = "policy-ipv4-backup"
+    policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/policy-ipv4-backup/" + policyMi.EntityData.SegmentPath
+    policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyMi.EntityData.Children = types.NewOrderedMap()
+    policyMi.EntityData.Children.Append("addr", types.YChild{"Addr", &policyMi.Addr})
+    policyMi.EntityData.Leafs = types.NewOrderedMap()
+    policyMi.EntityData.Leafs.Append("mi-id", types.YLeaf{"MiId", policyMi.MiId})
+    policyMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", policyMi.Src})
+    policyMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", policyMi.Router})
+    policyMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", policyMi.Area})
+    policyMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", policyMi.PrefixXr})
+    policyMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", policyMi.SidStart})
+    policyMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", policyMi.SidCount})
+    policyMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", policyMi.LastPrefix})
+    policyMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", policyMi.LastSidIndex})
+    policyMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", policyMi.FlagAttached})
+
+    policyMi.EntityData.YListKeys = []string {"MiId"}
+
+    return &(policyMi.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr
+// addr
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "policy-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/policy-ipv4-backup/policy-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active
+// IPv4 active policy operational data
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping Item. The type is slice of
+    // StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi.
+    PolicyMi []*StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi
+}
+
+func (policyIpv4Active *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active) GetEntityData() *types.CommonEntityData {
+    policyIpv4Active.EntityData.YFilter = policyIpv4Active.YFilter
+    policyIpv4Active.EntityData.YangName = "policy-ipv4-active"
+    policyIpv4Active.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv4Active.EntityData.ParentYangName = "policy-ipv4"
+    policyIpv4Active.EntityData.SegmentPath = "policy-ipv4-active"
+    policyIpv4Active.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/" + policyIpv4Active.EntityData.SegmentPath
+    policyIpv4Active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv4Active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv4Active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv4Active.EntityData.Children = types.NewOrderedMap()
+    policyIpv4Active.EntityData.Children.Append("policy-mi", types.YChild{"PolicyMi", nil})
+    for i := range policyIpv4Active.PolicyMi {
+        policyIpv4Active.EntityData.Children.Append(types.GetSegmentPath(policyIpv4Active.PolicyMi[i]), types.YChild{"PolicyMi", policyIpv4Active.PolicyMi[i]})
+    }
+    policyIpv4Active.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv4Active.EntityData.YListKeys = []string {}
+
+    return &(policyIpv4Active.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi
+// Mapping Item
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    MiId interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr
+}
+
+func (policyMi *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi) GetEntityData() *types.CommonEntityData {
+    policyMi.EntityData.YFilter = policyMi.YFilter
+    policyMi.EntityData.YangName = "policy-mi"
+    policyMi.EntityData.BundleName = "cisco_ios_xr"
+    policyMi.EntityData.ParentYangName = "policy-ipv4-active"
+    policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/policy-ipv4-active/" + policyMi.EntityData.SegmentPath
+    policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyMi.EntityData.Children = types.NewOrderedMap()
+    policyMi.EntityData.Children.Append("addr", types.YChild{"Addr", &policyMi.Addr})
+    policyMi.EntityData.Leafs = types.NewOrderedMap()
+    policyMi.EntityData.Leafs.Append("mi-id", types.YLeaf{"MiId", policyMi.MiId})
+    policyMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", policyMi.Src})
+    policyMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", policyMi.Router})
+    policyMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", policyMi.Area})
+    policyMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", policyMi.PrefixXr})
+    policyMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", policyMi.SidStart})
+    policyMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", policyMi.SidCount})
+    policyMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", policyMi.LastPrefix})
+    policyMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", policyMi.LastSidIndex})
+    policyMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", policyMi.FlagAttached})
+
+    policyMi.EntityData.YListKeys = []string {"MiId"}
+
+    return &(policyMi.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr
+// addr
+type StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *StandbySrms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "policy-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv4/policy-ipv4-active/policy-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6
+// IPv6 policy operational data
+type StandbySrms_Policy_PolicyIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 backup policy operational data.
+    PolicyIpv6Backup StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup
+
+    // IPv6 active policy operational data.
+    PolicyIpv6Active StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active
+}
+
+func (policyIpv6 *StandbySrms_Policy_PolicyIpv6) GetEntityData() *types.CommonEntityData {
+    policyIpv6.EntityData.YFilter = policyIpv6.YFilter
+    policyIpv6.EntityData.YangName = "policy-ipv6"
+    policyIpv6.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv6.EntityData.ParentYangName = "policy"
+    policyIpv6.EntityData.SegmentPath = "policy-ipv6"
+    policyIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/" + policyIpv6.EntityData.SegmentPath
+    policyIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv6.EntityData.Children = types.NewOrderedMap()
+    policyIpv6.EntityData.Children.Append("policy-ipv6-backup", types.YChild{"PolicyIpv6Backup", &policyIpv6.PolicyIpv6Backup})
+    policyIpv6.EntityData.Children.Append("policy-ipv6-active", types.YChild{"PolicyIpv6Active", &policyIpv6.PolicyIpv6Active})
+    policyIpv6.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv6.EntityData.YListKeys = []string {}
+
+    return &(policyIpv6.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup
+// IPv6 backup policy operational data
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping Item. The type is slice of
+    // StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi.
+    PolicyMi []*StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi
+}
+
+func (policyIpv6Backup *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup) GetEntityData() *types.CommonEntityData {
+    policyIpv6Backup.EntityData.YFilter = policyIpv6Backup.YFilter
+    policyIpv6Backup.EntityData.YangName = "policy-ipv6-backup"
+    policyIpv6Backup.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv6Backup.EntityData.ParentYangName = "policy-ipv6"
+    policyIpv6Backup.EntityData.SegmentPath = "policy-ipv6-backup"
+    policyIpv6Backup.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/" + policyIpv6Backup.EntityData.SegmentPath
+    policyIpv6Backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv6Backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv6Backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv6Backup.EntityData.Children = types.NewOrderedMap()
+    policyIpv6Backup.EntityData.Children.Append("policy-mi", types.YChild{"PolicyMi", nil})
+    for i := range policyIpv6Backup.PolicyMi {
+        policyIpv6Backup.EntityData.Children.Append(types.GetSegmentPath(policyIpv6Backup.PolicyMi[i]), types.YChild{"PolicyMi", policyIpv6Backup.PolicyMi[i]})
+    }
+    policyIpv6Backup.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv6Backup.EntityData.YListKeys = []string {}
+
+    return &(policyIpv6Backup.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi
+// Mapping Item
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    MiId interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr
+}
+
+func (policyMi *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi) GetEntityData() *types.CommonEntityData {
+    policyMi.EntityData.YFilter = policyMi.YFilter
+    policyMi.EntityData.YangName = "policy-mi"
+    policyMi.EntityData.BundleName = "cisco_ios_xr"
+    policyMi.EntityData.ParentYangName = "policy-ipv6-backup"
+    policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/policy-ipv6-backup/" + policyMi.EntityData.SegmentPath
+    policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyMi.EntityData.Children = types.NewOrderedMap()
+    policyMi.EntityData.Children.Append("addr", types.YChild{"Addr", &policyMi.Addr})
+    policyMi.EntityData.Leafs = types.NewOrderedMap()
+    policyMi.EntityData.Leafs.Append("mi-id", types.YLeaf{"MiId", policyMi.MiId})
+    policyMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", policyMi.Src})
+    policyMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", policyMi.Router})
+    policyMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", policyMi.Area})
+    policyMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", policyMi.PrefixXr})
+    policyMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", policyMi.SidStart})
+    policyMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", policyMi.SidCount})
+    policyMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", policyMi.LastPrefix})
+    policyMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", policyMi.LastSidIndex})
+    policyMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", policyMi.FlagAttached})
+
+    policyMi.EntityData.YListKeys = []string {"MiId"}
+
+    return &(policyMi.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr
+// addr
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "policy-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/policy-ipv6-backup/policy-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active
+// IPv6 active policy operational data
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping Item. The type is slice of
+    // StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi.
+    PolicyMi []*StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi
+}
+
+func (policyIpv6Active *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active) GetEntityData() *types.CommonEntityData {
+    policyIpv6Active.EntityData.YFilter = policyIpv6Active.YFilter
+    policyIpv6Active.EntityData.YangName = "policy-ipv6-active"
+    policyIpv6Active.EntityData.BundleName = "cisco_ios_xr"
+    policyIpv6Active.EntityData.ParentYangName = "policy-ipv6"
+    policyIpv6Active.EntityData.SegmentPath = "policy-ipv6-active"
+    policyIpv6Active.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/" + policyIpv6Active.EntityData.SegmentPath
+    policyIpv6Active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyIpv6Active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyIpv6Active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyIpv6Active.EntityData.Children = types.NewOrderedMap()
+    policyIpv6Active.EntityData.Children.Append("policy-mi", types.YChild{"PolicyMi", nil})
+    for i := range policyIpv6Active.PolicyMi {
+        policyIpv6Active.EntityData.Children.Append(types.GetSegmentPath(policyIpv6Active.PolicyMi[i]), types.YChild{"PolicyMi", policyIpv6Active.PolicyMi[i]})
+    }
+    policyIpv6Active.EntityData.Leafs = types.NewOrderedMap()
+
+    policyIpv6Active.EntityData.YListKeys = []string {}
+
+    return &(policyIpv6Active.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi
+// Mapping Item
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    MiId interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr
+}
+
+func (policyMi *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi) GetEntityData() *types.CommonEntityData {
+    policyMi.EntityData.YFilter = policyMi.YFilter
+    policyMi.EntityData.YangName = "policy-mi"
+    policyMi.EntityData.BundleName = "cisco_ios_xr"
+    policyMi.EntityData.ParentYangName = "policy-ipv6-active"
+    policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/policy-ipv6-active/" + policyMi.EntityData.SegmentPath
+    policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyMi.EntityData.Children = types.NewOrderedMap()
+    policyMi.EntityData.Children.Append("addr", types.YChild{"Addr", &policyMi.Addr})
+    policyMi.EntityData.Leafs = types.NewOrderedMap()
+    policyMi.EntityData.Leafs.Append("mi-id", types.YLeaf{"MiId", policyMi.MiId})
+    policyMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", policyMi.Src})
+    policyMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", policyMi.Router})
+    policyMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", policyMi.Area})
+    policyMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", policyMi.PrefixXr})
+    policyMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", policyMi.SidStart})
+    policyMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", policyMi.SidCount})
+    policyMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", policyMi.LastPrefix})
+    policyMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", policyMi.LastSidIndex})
+    policyMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", policyMi.FlagAttached})
+
+    policyMi.EntityData.YListKeys = []string {"MiId"}
+
+    return &(policyMi.EntityData)
+}
+
+// StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr
+// addr
+type StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *StandbySrms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "policy-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:standby-srms/policy/policy-ipv6/policy-ipv6-active/policy-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
+}
+
+// Srms
+// srms
+type Srms struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Adjacency SID.
+    AdjacencySid Srms_AdjacencySid
+
+    // IP prefix to SID mappings.
+    Mapping Srms_Mapping
+
+    // Policy operational data.
+    Policy Srms_Policy
+}
+
+func (srms *Srms) GetEntityData() *types.CommonEntityData {
+    srms.EntityData.YFilter = srms.YFilter
+    srms.EntityData.YangName = "srms"
+    srms.EntityData.BundleName = "cisco_ios_xr"
+    srms.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-oper"
+    srms.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-oper:srms"
+    srms.EntityData.AbsolutePath = srms.EntityData.SegmentPath
+    srms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srms.EntityData.Children = types.NewOrderedMap()
+    srms.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", &srms.AdjacencySid})
+    srms.EntityData.Children.Append("mapping", types.YChild{"Mapping", &srms.Mapping})
+    srms.EntityData.Children.Append("policy", types.YChild{"Policy", &srms.Policy})
+    srms.EntityData.Leafs = types.NewOrderedMap()
+
+    srms.EntityData.YListKeys = []string {}
+
+    return &(srms.EntityData)
 }
 
 // Srms_AdjacencySid
@@ -577,7 +1304,7 @@ type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // address family container.
@@ -754,11 +1481,11 @@ type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv4_SidRe
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -899,11 +1626,11 @@ type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv6_SidRe
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -927,6 +1654,352 @@ func (nexthopAddress *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_Address
     nexthopAddress.EntityData.YListKeys = []string {}
 
     return &(nexthopAddress.EntityData)
+}
+
+// Srms_Mapping
+// IP prefix to SID mappings
+type Srms_Mapping struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 prefix to SID mappings.
+    MappingIpv4 Srms_Mapping_MappingIpv4
+
+    // IPv6 prefix to SID mappings.
+    MappingIpv6 Srms_Mapping_MappingIpv6
+}
+
+func (mapping *Srms_Mapping) GetEntityData() *types.CommonEntityData {
+    mapping.EntityData.YFilter = mapping.YFilter
+    mapping.EntityData.YangName = "mapping"
+    mapping.EntityData.BundleName = "cisco_ios_xr"
+    mapping.EntityData.ParentYangName = "srms"
+    mapping.EntityData.SegmentPath = "mapping"
+    mapping.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/" + mapping.EntityData.SegmentPath
+    mapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mapping.EntityData.Children = types.NewOrderedMap()
+    mapping.EntityData.Children.Append("mapping-ipv4", types.YChild{"MappingIpv4", &mapping.MappingIpv4})
+    mapping.EntityData.Children.Append("mapping-ipv6", types.YChild{"MappingIpv6", &mapping.MappingIpv6})
+    mapping.EntityData.Leafs = types.NewOrderedMap()
+
+    mapping.EntityData.YListKeys = []string {}
+
+    return &(mapping.EntityData)
+}
+
+// Srms_Mapping_MappingIpv4
+// IPv4 prefix to SID mappings
+type Srms_Mapping_MappingIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP prefix to SID mapping item. It's not possible to list all of the IP
+    // prefix to SID mappings, as the set of valid prefixes could be very large.
+    // Instead, SID map information must be retrieved individually for each prefix
+    // of interest. The type is slice of Srms_Mapping_MappingIpv4_MappingMi.
+    MappingMi []*Srms_Mapping_MappingIpv4_MappingMi
+}
+
+func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntityData {
+    mappingIpv4.EntityData.YFilter = mappingIpv4.YFilter
+    mappingIpv4.EntityData.YangName = "mapping-ipv4"
+    mappingIpv4.EntityData.BundleName = "cisco_ios_xr"
+    mappingIpv4.EntityData.ParentYangName = "mapping"
+    mappingIpv4.EntityData.SegmentPath = "mapping-ipv4"
+    mappingIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv4.EntityData.SegmentPath
+    mappingIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mappingIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mappingIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mappingIpv4.EntityData.Children = types.NewOrderedMap()
+    mappingIpv4.EntityData.Children.Append("mapping-mi", types.YChild{"MappingMi", nil})
+    for i := range mappingIpv4.MappingMi {
+        types.SetYListKey(mappingIpv4.MappingMi[i], i)
+        mappingIpv4.EntityData.Children.Append(types.GetSegmentPath(mappingIpv4.MappingMi[i]), types.YChild{"MappingMi", mappingIpv4.MappingMi[i]})
+    }
+    mappingIpv4.EntityData.Leafs = types.NewOrderedMap()
+
+    mappingIpv4.EntityData.YListKeys = []string {}
+
+    return &(mappingIpv4.EntityData)
+}
+
+// Srms_Mapping_MappingIpv4_MappingMi
+// IP prefix to SID mapping item. It's not possible
+// to list all of the IP prefix to SID mappings, as
+// the set of valid prefixes could be very large.
+// Instead, SID map information must be retrieved
+// individually for each prefix of interest.
+type Srms_Mapping_MappingIpv4_MappingMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // IP. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Ip interface{}
+
+    // Prefix. The type is interface{} with range: 0..4294967295.
+    Prefix interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr Srms_Mapping_MappingIpv4_MappingMi_Addr
+}
+
+func (mappingMi *Srms_Mapping_MappingIpv4_MappingMi) GetEntityData() *types.CommonEntityData {
+    mappingMi.EntityData.YFilter = mappingMi.YFilter
+    mappingMi.EntityData.YangName = "mapping-mi"
+    mappingMi.EntityData.BundleName = "cisco_ios_xr"
+    mappingMi.EntityData.ParentYangName = "mapping-ipv4"
+    mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/" + mappingMi.EntityData.SegmentPath
+    mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mappingMi.EntityData.Children = types.NewOrderedMap()
+    mappingMi.EntityData.Children.Append("addr", types.YChild{"Addr", &mappingMi.Addr})
+    mappingMi.EntityData.Leafs = types.NewOrderedMap()
+    mappingMi.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", mappingMi.Ip})
+    mappingMi.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", mappingMi.Prefix})
+    mappingMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", mappingMi.Src})
+    mappingMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", mappingMi.Router})
+    mappingMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", mappingMi.Area})
+    mappingMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", mappingMi.PrefixXr})
+    mappingMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", mappingMi.SidStart})
+    mappingMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", mappingMi.SidCount})
+    mappingMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", mappingMi.LastPrefix})
+    mappingMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", mappingMi.LastSidIndex})
+    mappingMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", mappingMi.FlagAttached})
+
+    mappingMi.EntityData.YListKeys = []string {}
+
+    return &(mappingMi.EntityData)
+}
+
+// Srms_Mapping_MappingIpv4_MappingMi_Addr
+// addr
+type Srms_Mapping_MappingIpv4_MappingMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *Srms_Mapping_MappingIpv4_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "mapping-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
+}
+
+// Srms_Mapping_MappingIpv6
+// IPv6 prefix to SID mappings
+type Srms_Mapping_MappingIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP prefix to SID mapping item. It's not possible to list all of the IP
+    // prefix to SID mappings, as the set of valid prefixes could be very large.
+    // Instead, SID map information must be retrieved individually for each prefix
+    // of interest. The type is slice of Srms_Mapping_MappingIpv6_MappingMi.
+    MappingMi []*Srms_Mapping_MappingIpv6_MappingMi
+}
+
+func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntityData {
+    mappingIpv6.EntityData.YFilter = mappingIpv6.YFilter
+    mappingIpv6.EntityData.YangName = "mapping-ipv6"
+    mappingIpv6.EntityData.BundleName = "cisco_ios_xr"
+    mappingIpv6.EntityData.ParentYangName = "mapping"
+    mappingIpv6.EntityData.SegmentPath = "mapping-ipv6"
+    mappingIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv6.EntityData.SegmentPath
+    mappingIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mappingIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mappingIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mappingIpv6.EntityData.Children = types.NewOrderedMap()
+    mappingIpv6.EntityData.Children.Append("mapping-mi", types.YChild{"MappingMi", nil})
+    for i := range mappingIpv6.MappingMi {
+        types.SetYListKey(mappingIpv6.MappingMi[i], i)
+        mappingIpv6.EntityData.Children.Append(types.GetSegmentPath(mappingIpv6.MappingMi[i]), types.YChild{"MappingMi", mappingIpv6.MappingMi[i]})
+    }
+    mappingIpv6.EntityData.Leafs = types.NewOrderedMap()
+
+    mappingIpv6.EntityData.YListKeys = []string {}
+
+    return &(mappingIpv6.EntityData)
+}
+
+// Srms_Mapping_MappingIpv6_MappingMi
+// IP prefix to SID mapping item. It's not possible
+// to list all of the IP prefix to SID mappings, as
+// the set of valid prefixes could be very large.
+// Instead, SID map information must be retrieved
+// individually for each prefix of interest.
+type Srms_Mapping_MappingIpv6_MappingMi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // IP. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Ip interface{}
+
+    // Prefix. The type is interface{} with range: 0..4294967295.
+    Prefix interface{}
+
+    // src. The type is SrmsMiSrcEB.
+    Src interface{}
+
+    // Router ID. The type is string with length: 0..30.
+    Router interface{}
+
+    // Area (OSPF) or Level (ISIS). The type is string with length: 0..30.
+    Area interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixXr interface{}
+
+    // Starting SID. The type is interface{} with range: 0..4294967295.
+    SidStart interface{}
+
+    // SID range. The type is interface{} with range: 0..4294967295.
+    SidCount interface{}
+
+    // Last IP Prefix. The type is string with length: 0..50.
+    LastPrefix interface{}
+
+    // Last SID Index. The type is interface{} with range: 0..4294967295.
+    LastSidIndex interface{}
+
+    // Attached flag. The type is SrmsMiFlagEB.
+    FlagAttached interface{}
+
+    // addr.
+    Addr Srms_Mapping_MappingIpv6_MappingMi_Addr
+}
+
+func (mappingMi *Srms_Mapping_MappingIpv6_MappingMi) GetEntityData() *types.CommonEntityData {
+    mappingMi.EntityData.YFilter = mappingMi.YFilter
+    mappingMi.EntityData.YangName = "mapping-mi"
+    mappingMi.EntityData.BundleName = "cisco_ios_xr"
+    mappingMi.EntityData.ParentYangName = "mapping-ipv6"
+    mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/" + mappingMi.EntityData.SegmentPath
+    mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mappingMi.EntityData.Children = types.NewOrderedMap()
+    mappingMi.EntityData.Children.Append("addr", types.YChild{"Addr", &mappingMi.Addr})
+    mappingMi.EntityData.Leafs = types.NewOrderedMap()
+    mappingMi.EntityData.Leafs.Append("ip", types.YLeaf{"Ip", mappingMi.Ip})
+    mappingMi.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", mappingMi.Prefix})
+    mappingMi.EntityData.Leafs.Append("src", types.YLeaf{"Src", mappingMi.Src})
+    mappingMi.EntityData.Leafs.Append("router", types.YLeaf{"Router", mappingMi.Router})
+    mappingMi.EntityData.Leafs.Append("area", types.YLeaf{"Area", mappingMi.Area})
+    mappingMi.EntityData.Leafs.Append("prefix-xr", types.YLeaf{"PrefixXr", mappingMi.PrefixXr})
+    mappingMi.EntityData.Leafs.Append("sid-start", types.YLeaf{"SidStart", mappingMi.SidStart})
+    mappingMi.EntityData.Leafs.Append("sid-count", types.YLeaf{"SidCount", mappingMi.SidCount})
+    mappingMi.EntityData.Leafs.Append("last-prefix", types.YLeaf{"LastPrefix", mappingMi.LastPrefix})
+    mappingMi.EntityData.Leafs.Append("last-sid-index", types.YLeaf{"LastSidIndex", mappingMi.LastSidIndex})
+    mappingMi.EntityData.Leafs.Append("flag-attached", types.YLeaf{"FlagAttached", mappingMi.FlagAttached})
+
+    mappingMi.EntityData.YListKeys = []string {}
+
+    return &(mappingMi.EntityData)
+}
+
+// Srms_Mapping_MappingIpv6_MappingMi_Addr
+// addr
+type Srms_Mapping_MappingIpv6_MappingMi_Addr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AF. The type is SrmsMiAfEB.
+    Af interface{}
+
+    // IPv4. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Ipv4 interface{}
+
+    // IPv6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Ipv6 interface{}
+}
+
+func (addr *Srms_Mapping_MappingIpv6_MappingMi_Addr) GetEntityData() *types.CommonEntityData {
+    addr.EntityData.YFilter = addr.YFilter
+    addr.EntityData.YangName = "addr"
+    addr.EntityData.BundleName = "cisco_ios_xr"
+    addr.EntityData.ParentYangName = "mapping-mi"
+    addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/" + addr.EntityData.SegmentPath
+    addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addr.EntityData.Children = types.NewOrderedMap()
+    addr.EntityData.Leafs = types.NewOrderedMap()
+    addr.EntityData.Leafs.Append("af", types.YLeaf{"Af", addr.Af})
+    addr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", addr.Ipv4})
+    addr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", addr.Ipv6})
+
+    addr.EntityData.YListKeys = []string {}
+
+    return &(addr.EntityData)
 }
 
 // Srms_Policy
@@ -1039,7 +2112,7 @@ type Srms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi struct {
     YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MiId interface{}
 
     // src. The type is SrmsMiSrcEB.
@@ -1113,11 +2186,11 @@ type Srms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -1185,7 +2258,7 @@ type Srms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi struct {
     YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MiId interface{}
 
     // src. The type is SrmsMiSrcEB.
@@ -1259,11 +2332,11 @@ type Srms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -1365,7 +2438,7 @@ type Srms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi struct {
     YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MiId interface{}
 
     // src. The type is SrmsMiSrcEB.
@@ -1439,11 +2512,11 @@ type Srms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 
@@ -1511,7 +2584,7 @@ type Srms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi struct {
     YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MiId interface{}
 
     // src. The type is SrmsMiSrcEB.
@@ -1585,11 +2658,11 @@ type Srms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr struct {
     Af interface{}
 
     // IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 }
 

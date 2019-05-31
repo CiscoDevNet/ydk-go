@@ -22,6 +22,34 @@ func init() {
     ydk.RegisterEntity("CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB", reflect.TypeOf(CISCOCONFIGCOPYMIB{}))
 }
 
+// ConfigCopyProtocol represents sftp:   Secure File Transfer Protocol
+type ConfigCopyProtocol string
+
+const (
+    ConfigCopyProtocol_tftp ConfigCopyProtocol = "tftp"
+
+    ConfigCopyProtocol_ftp ConfigCopyProtocol = "ftp"
+
+    ConfigCopyProtocol_rcp ConfigCopyProtocol = "rcp"
+
+    ConfigCopyProtocol_scp ConfigCopyProtocol = "scp"
+
+    ConfigCopyProtocol_sftp ConfigCopyProtocol = "sftp"
+)
+
+// ConfigCopyState represents              unsuccessful.
+type ConfigCopyState string
+
+const (
+    ConfigCopyState_waiting ConfigCopyState = "waiting"
+
+    ConfigCopyState_running ConfigCopyState = "running"
+
+    ConfigCopyState_successful ConfigCopyState = "successful"
+
+    ConfigCopyState_failed ConfigCopyState = "failed"
+)
+
 // ConfigCopyFailCause represents requestAborted: config copy operation aborted.
 type ConfigCopyFailCause string
 
@@ -45,19 +73,6 @@ const (
     ConfigCopyFailCause_requestAborted ConfigCopyFailCause = "requestAborted"
 )
 
-// ConfigCopyState represents              unsuccessful.
-type ConfigCopyState string
-
-const (
-    ConfigCopyState_waiting ConfigCopyState = "waiting"
-
-    ConfigCopyState_running ConfigCopyState = "running"
-
-    ConfigCopyState_successful ConfigCopyState = "successful"
-
-    ConfigCopyState_failed ConfigCopyState = "failed"
-)
-
 // ConfigFileType represents                        or even a MAC-based fabric.
 type ConfigFileType string
 
@@ -73,21 +88,6 @@ const (
     ConfigFileType_terminal ConfigFileType = "terminal"
 
     ConfigFileType_fabricStartupConfig ConfigFileType = "fabricStartupConfig"
-)
-
-// ConfigCopyProtocol represents sftp:   Secure File Transfer Protocol
-type ConfigCopyProtocol string
-
-const (
-    ConfigCopyProtocol_tftp ConfigCopyProtocol = "tftp"
-
-    ConfigCopyProtocol_ftp ConfigCopyProtocol = "ftp"
-
-    ConfigCopyProtocol_rcp ConfigCopyProtocol = "rcp"
-
-    ConfigCopyProtocol_scp ConfigCopyProtocol = "scp"
-
-    ConfigCopyProtocol_sftp ConfigCopyProtocol = "sftp"
 )
 
 // CISCOCONFIGCOPYMIB
@@ -310,7 +310,7 @@ type CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry struct {
     // Values of 0.0.0.0 or FF.FF.FF.FF for ccCopyServerAddress are not allowed. 
     // Since this object can just hold only IPv4 Transport type, it is deprecated
     // and replaced by  ccCopyServerAddressRev1. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CcCopyServerAddress interface{}
 
     // The file name (including the path, if applicable) of the file. This object
@@ -523,8 +523,8 @@ type CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry struct {
     // The World Wide Name (WWN) of this destination device on which config copy
     // operation is performed. The value of this object is zero-length string if 
     // WWN is unassigned or unknown. For example, devices  which do not support
-    // fibre channel would not have WWN. The type is string with length: 0 | 8 |
-    // 16.
+    // fibre channel would not have WWN. The type is string with length: 0..0 |
+    // 8..8 | 16..16.
     CcCopyErrorDeviceWWN interface{}
 
     // The error description for the error happened for this destination of this

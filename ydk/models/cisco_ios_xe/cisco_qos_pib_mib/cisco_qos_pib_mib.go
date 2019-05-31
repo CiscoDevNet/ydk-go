@@ -37,6 +37,21 @@ const (
     QueueRange_sixtyFourQ QueueRange = "sixtyFourQ"
 )
 
+// ThresholdSetRange represents parameters packets are randomly dropped.
+type ThresholdSetRange string
+
+const (
+    ThresholdSetRange_zeroT ThresholdSetRange = "zeroT"
+
+    ThresholdSetRange_oneT ThresholdSetRange = "oneT"
+
+    ThresholdSetRange_twoT ThresholdSetRange = "twoT"
+
+    ThresholdSetRange_fourT ThresholdSetRange = "fourT"
+
+    ThresholdSetRange_eightT ThresholdSetRange = "eightT"
+)
+
 // QosInterfaceQueueType represents number of DSCPs.
 type QosInterfaceQueueType string
 
@@ -130,21 +145,6 @@ const (
     QosInterfaceQueueType_oneP3Q4t QosInterfaceQueueType = "oneP3Q4t"
 
     QosInterfaceQueueType_oneP7Q2t QosInterfaceQueueType = "oneP7Q2t"
-)
-
-// ThresholdSetRange represents parameters packets are randomly dropped.
-type ThresholdSetRange string
-
-const (
-    ThresholdSetRange_zeroT ThresholdSetRange = "zeroT"
-
-    ThresholdSetRange_oneT ThresholdSetRange = "oneT"
-
-    ThresholdSetRange_twoT ThresholdSetRange = "twoT"
-
-    ThresholdSetRange_fourT ThresholdSetRange = "fourT"
-
-    ThresholdSetRange_eightT ThresholdSetRange = "eightT"
 )
 
 // CISCOQOSPIBMIB
@@ -348,7 +348,7 @@ type CISCOQOSPIBMIB_QosDevicePibIncarnationTable_QosDevicePibIncarnationEntry st
 
     // An octet string to identify the current incarnation.  It has meaning to the
     // PDP that installed the PIB and perhaps its standby PDPs. By default the
-    // empty string. The type is string with length: 128.
+    // empty string. The type is string with length: 128..128.
     QosDevicePibIncarnation interface{}
 
     // The number of seconds after a client close or TCP timeout for which the PEP
@@ -441,13 +441,13 @@ type CISCOQOSPIBMIB_QosDeviceAttributeTable_QosDeviceAttributeEntry struct {
 
     // The address of the PDP configured to be the primary PDP for the device. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosDevicePrimaryPdp interface{}
 
     // The address of the PDP configured to be the secondary PDP for the device. 
     // An address of zero indicates no secondary is configured. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosDeviceSecondaryPdp interface{}
 
     // The maximum size message that this PEP is capable of receiving in bytes.  A
@@ -1084,7 +1084,7 @@ type CISCOQOSPIBMIB_QosMacClassificationTable_QosMacClassificationEntry struct {
     QosDstMacVlan interface{}
 
     // The destination MAC address of the L2 frame. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     QosDstMacAddress interface{}
 
     // The CoS to assign the packet with the associated MAC/VLAN tuple.  Note that
@@ -1163,22 +1163,22 @@ type CISCOQOSPIBMIB_QosIpAceTable_QosIpAceEntry struct {
 
     // The IP address to match against the packet's destination IP address. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosIpAceDstAddr interface{}
 
     // A mask for the matching of the destination IP address. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosIpAceDstAddrMask interface{}
 
     // The IP address to match against the packet's source IP address. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosIpAceSrcAddr interface{}
 
     // A mask for the matching of the source IP address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     QosIpAceSrcAddrMask interface{}
 
     // The minimum value that the DSCP in the packet can have and match this ACE.

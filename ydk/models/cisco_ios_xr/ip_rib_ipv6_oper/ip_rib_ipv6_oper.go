@@ -116,7 +116,7 @@ type Ipv6Rib_RibTableIds_RibTableId struct {
     YListKey string
 
     // This attribute is a key. Table ID. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Tableid interface{}
 
     // Table related Information.
@@ -1279,11 +1279,11 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute st
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -1388,6 +1388,12 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute st
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath
 }
@@ -1439,6 +1445,8 @@ func (itfRoute *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_
     itfRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", itfRoute.Version})
     itfRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", itfRoute.TblVersion})
     itfRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", itfRoute.RouteModifyTime})
+    itfRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", itfRoute.HasSrv6Function})
+    itfRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", itfRoute.Srv6Function})
 
     itfRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -1451,7 +1459,7 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -1481,29 +1489,29 @@ func (routePath *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl
 }
 
 // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -1630,14 +1638,14 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -1646,6 +1654,16 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -1658,6 +1676,10 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -1686,6 +1708,11 @@ func (ipv6RibEdmPath *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableIt
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -1735,6 +1762,9 @@ func (ipv6RibEdmPath *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableIt
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -1748,8 +1778,8 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -1780,7 +1810,8 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -1818,7 +1849,7 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -1846,6 +1877,38 @@ func (nextNextHop *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHn
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs
@@ -1889,7 +1952,7 @@ type Ipv6Rib_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Address Family (AF) table.
@@ -1958,7 +2021,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af struct {
     YListKey string
 
     // This attribute is a key. Name of the AF - 'IPv6'. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AfName interface{}
 
     // Subsequent Address Family (SAF) table.
@@ -2028,7 +2091,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf struct {
     YListKey string
 
     // This attribute is a key. Name of the SAF. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SafName interface{}
 
     // Global container of routes.
@@ -2098,7 +2161,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName s
     YListKey string
 
     // This attribute is a key. Name of the route table . The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RouteTableName interface{}
 
     // Destination KW.
@@ -2235,7 +2298,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -2243,7 +2306,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -2347,6 +2410,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath
@@ -2400,6 +2469,8 @@ func (destQRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     destQRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destQRoute.Version})
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
+    destQRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destQRoute.HasSrv6Function})
+    destQRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destQRoute.Srv6Function})
 
     destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -2412,7 +2483,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -2442,29 +2513,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -2591,14 +2662,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -2607,6 +2678,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -2619,6 +2700,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -2647,6 +2732,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -2696,6 +2786,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -2709,8 +2802,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -2741,7 +2834,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -2779,7 +2873,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -2807,6 +2901,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes
@@ -2852,7 +2978,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -2860,7 +2986,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -2964,6 +3090,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath
@@ -3017,6 +3149,8 @@ func (destBackupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destBackupRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destBackupRoute.Version})
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
+    destBackupRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destBackupRoute.HasSrv6Function})
+    destBackupRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destBackupRoute.Srv6Function})
 
     destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -3029,7 +3163,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -3059,29 +3193,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -3208,14 +3342,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -3224,6 +3358,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -3236,6 +3380,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -3264,6 +3412,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -3313,6 +3466,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -3326,8 +3482,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -3358,7 +3514,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -3396,7 +3553,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -3424,6 +3581,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes
@@ -3469,11 +3658,11 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -3577,6 +3766,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath
@@ -3629,6 +3824,8 @@ func (destBestRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     destBestRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destBestRoute.Version})
     destBestRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBestRoute.TblVersion})
     destBestRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBestRoute.RouteModifyTime})
+    destBestRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destBestRoute.HasSrv6Function})
+    destBestRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destBestRoute.Srv6Function})
 
     destBestRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -3641,7 +3838,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -3671,29 +3868,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -3820,14 +4017,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -3836,6 +4033,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -3848,6 +4055,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -3876,6 +4087,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -3925,6 +4141,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -3938,8 +4157,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -3970,7 +4189,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -4008,7 +4228,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -4036,6 +4256,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes
@@ -4081,11 +4333,11 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -4190,6 +4442,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath
 }
@@ -4241,6 +4499,8 @@ func (destNextHopRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     destNextHopRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destNextHopRoute.Version})
     destNextHopRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destNextHopRoute.TblVersion})
     destNextHopRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destNextHopRoute.RouteModifyTime})
+    destNextHopRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destNextHopRoute.HasSrv6Function})
+    destNextHopRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destNextHopRoute.Srv6Function})
 
     destNextHopRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -4253,7 +4513,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -4283,29 +4543,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -4432,14 +4692,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -4448,6 +4708,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -4460,6 +4730,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -4488,6 +4762,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -4537,6 +4816,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -4550,8 +4832,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -4582,7 +4864,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -4620,7 +4903,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -4648,6 +4931,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts
@@ -4693,14 +5008,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_A
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
     // range: 0..128.
     PrefixLength interface{}
 
-    // ipv6 rib edm advert. The type is slice of
+    // Next advertising proto. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert.
     Ipv6RibEdmAdvert []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert
 }
@@ -4732,7 +5047,7 @@ func (advert *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert
-// ipv6 rib edm advert
+// Next advertising proto
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -4751,7 +5066,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_A
     NumberOfExtendedCommunities interface{}
 
     // Extended communities. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ExtendedCommunities interface{}
 
     // OSPF area-id flags. The type is interface{} with range: 0..255.
@@ -4837,7 +5152,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -4845,7 +5160,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -4950,6 +5265,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath
 }
@@ -5002,6 +5323,8 @@ func (deletedRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     deletedRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", deletedRoute.Version})
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
+    deletedRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", deletedRoute.HasSrv6Function})
+    deletedRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", deletedRoute.Srv6Function})
 
     deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -5014,7 +5337,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -5044,29 +5367,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -5193,14 +5516,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -5209,6 +5532,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -5221,6 +5554,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -5249,6 +5586,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -5298,6 +5640,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -5311,8 +5656,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -5343,7 +5688,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -5381,7 +5727,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -5409,6 +5755,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol
@@ -5670,7 +6048,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -5678,7 +6056,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -5783,6 +6161,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -5835,6 +6219,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -5847,7 +6233,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -5877,29 +6263,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -6026,14 +6412,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -6042,6 +6428,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -6054,6 +6450,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -6082,6 +6482,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -6131,6 +6536,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -6144,8 +6552,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -6176,7 +6584,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -6214,7 +6623,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -6242,6 +6651,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs
@@ -6397,7 +6838,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -6405,7 +6846,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -6510,6 +6951,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -6562,6 +7009,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -6574,7 +7023,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -6604,29 +7053,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -6753,14 +7202,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -6769,6 +7218,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -6781,6 +7240,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -6809,6 +7272,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -6858,6 +7326,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -6871,8 +7342,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -6903,7 +7374,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -6941,7 +7413,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -6969,6 +7441,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp
@@ -7013,7 +7517,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -7164,7 +7668,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -7172,7 +7676,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -7277,6 +7781,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -7329,6 +7839,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -7341,7 +7853,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -7371,29 +7883,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -7520,14 +8032,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -7536,6 +8048,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -7548,6 +8070,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -7576,6 +8102,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -7625,6 +8156,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -7638,8 +8172,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -7670,7 +8204,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -7708,7 +8243,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -7736,6 +8271,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile
@@ -7921,7 +8488,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -7929,7 +8496,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -8034,6 +8601,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -8086,6 +8659,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -8098,7 +8673,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -8128,29 +8703,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -8277,14 +8852,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -8293,6 +8868,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -8305,6 +8890,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -8333,6 +8922,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -8382,6 +8976,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -8395,8 +8992,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -8427,7 +9024,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -8465,7 +9063,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -8493,6 +9091,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp
@@ -8537,7 +9167,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -8688,7 +9318,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -8696,7 +9326,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -8801,6 +9431,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -8853,6 +9489,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -8865,7 +9503,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -8895,29 +9533,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -9044,14 +9682,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -9060,6 +9698,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -9072,6 +9720,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -9100,6 +9752,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -9149,6 +9806,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -9162,8 +9822,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -9194,7 +9854,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -9232,7 +9893,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -9260,6 +9921,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl
@@ -9304,7 +9997,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -9455,7 +10148,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -9463,7 +10156,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -9568,6 +10261,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -9620,6 +10319,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -9632,7 +10333,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -9662,29 +10363,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -9811,14 +10512,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -9827,6 +10528,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -9839,6 +10550,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -9867,6 +10582,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -9916,6 +10636,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -9929,8 +10652,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -9961,7 +10684,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -9999,7 +10723,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -10027,6 +10751,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static
@@ -10212,7 +10968,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -10220,7 +10976,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -10325,6 +11081,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -10377,6 +11139,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -10389,7 +11153,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -10419,29 +11183,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -10568,14 +11332,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -10584,6 +11348,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -10596,6 +11370,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -10624,6 +11402,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -10673,6 +11456,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -10686,8 +11472,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -10718,7 +11504,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -10756,7 +11543,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -10784,6 +11571,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient
@@ -10969,7 +11788,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -10977,7 +11796,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -11082,6 +11901,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -11134,6 +11959,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -11146,7 +11973,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -11176,29 +12003,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -11325,14 +12152,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -11341,6 +12168,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -11353,6 +12190,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -11381,6 +12222,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -11430,6 +12276,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -11443,8 +12292,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -11475,7 +12324,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -11513,7 +12363,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -11541,6 +12391,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber
@@ -11726,7 +12608,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -11734,7 +12616,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -11839,6 +12721,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -11891,6 +12779,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -11903,7 +12793,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -11933,29 +12823,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -12082,14 +12972,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -12098,6 +12988,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -12110,6 +13010,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -12138,6 +13042,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -12187,6 +13096,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -12200,8 +13112,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -12232,7 +13144,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -12270,7 +13183,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -12298,6 +13211,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf
@@ -12342,7 +13287,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -12493,7 +13438,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -12501,7 +13446,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -12606,6 +13551,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -12658,6 +13609,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -12670,7 +13623,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -12700,29 +13653,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -12849,14 +13802,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -12865,6 +13818,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -12877,6 +13840,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -12905,6 +13872,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -12954,6 +13926,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -12967,8 +13942,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -12999,7 +13974,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -13037,7 +14013,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -13065,6 +14041,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected
@@ -13254,7 +14262,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -13262,7 +14270,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -13367,6 +14375,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -13419,6 +14433,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -13431,7 +14447,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -13461,29 +14477,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -13610,14 +14626,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -13626,6 +14642,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -13638,6 +14664,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -13666,6 +14696,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -13715,6 +14750,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -13728,8 +14766,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -13760,7 +14798,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -13798,7 +14837,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -13826,6 +14865,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/l2vpn/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs
@@ -13981,7 +15052,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -13989,7 +15060,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -14094,6 +15165,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -14146,6 +15223,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -14158,7 +15237,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -14188,29 +15267,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -14337,14 +15416,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -14353,6 +15432,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -14365,6 +15454,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -14393,6 +15486,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -14442,6 +15540,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -14455,8 +15556,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -14487,7 +15588,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -14525,7 +15627,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -14553,6 +15655,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis
@@ -14597,7 +15731,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -14748,7 +15882,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -14756,7 +15890,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -14860,6 +15994,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath
@@ -14913,6 +16053,8 @@ func (protocolRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -14925,7 +16067,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -14955,29 +16097,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -15104,14 +16246,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -15120,6 +16262,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -15132,6 +16284,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -15160,6 +16316,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -15209,6 +16370,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -15222,8 +16386,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -15254,7 +16418,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -15292,7 +16457,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -15320,6 +16485,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes
@@ -15365,7 +16562,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -15373,7 +16570,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -15477,6 +16674,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath
@@ -15530,6 +16733,8 @@ func (route *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     route.EntityData.Leafs.Append("version", types.YLeaf{"Version", route.Version})
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
+    route.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", route.HasSrv6Function})
+    route.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", route.Srv6Function})
 
     route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -15542,7 +16747,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath
 }
@@ -15572,29 +16777,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -15721,14 +16926,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -15737,6 +16942,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -15749,6 +16964,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -15777,6 +16996,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -15826,6 +17050,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -15839,8 +17066,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -15871,7 +17098,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -15909,7 +17137,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -15937,6 +17165,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes
@@ -15982,7 +17242,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -15990,7 +17250,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -16094,6 +17354,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath
@@ -16147,6 +17413,8 @@ func (qRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     qRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", qRoute.Version})
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
+    qRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", qRoute.HasSrv6Function})
+    qRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", qRoute.Srv6Function})
 
     qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -16159,7 +17427,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -16189,29 +17457,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -16338,14 +17606,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -16354,6 +17622,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -16366,6 +17644,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -16394,6 +17676,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -16443,6 +17730,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -16456,8 +17746,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -16488,7 +17778,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -16526,7 +17817,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -16554,6 +17845,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes
@@ -16600,7 +17923,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -16612,7 +17935,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -16716,6 +18039,12 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath
@@ -16770,6 +18099,8 @@ func (backupRoute *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     backupRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", backupRoute.Version})
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
+    backupRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", backupRoute.HasSrv6Function})
+    backupRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", backupRoute.Srv6Function})
 
     backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
@@ -16782,7 +18113,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -16812,29 +18143,29 @@ func (routePath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 }
 
 // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -16961,14 +18292,14 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -16977,6 +18308,16 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -16989,6 +18330,10 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     // List of Next Next Hops. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -17017,6 +18362,11 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -17066,6 +18416,9 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -17079,8 +18432,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -17111,7 +18464,8 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -17149,7 +18503,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -17177,6 +18531,38 @@ func (nextNextHop *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby
@@ -17254,7 +18640,7 @@ type Ipv6RibStdby_RibTableIds_RibTableId struct {
     YListKey string
 
     // This attribute is a key. Table ID. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Tableid interface{}
 
     // Table related Information.
@@ -18417,11 +19803,11 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -18526,6 +19912,12 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath
 }
@@ -18577,6 +19969,8 @@ func (itfRoute *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItf
     itfRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", itfRoute.Version})
     itfRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", itfRoute.TblVersion})
     itfRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", itfRoute.RouteModifyTime})
+    itfRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", itfRoute.HasSrv6Function})
+    itfRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", itfRoute.Srv6Function})
 
     itfRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -18589,7 +19983,7 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -18619,29 +20013,29 @@ func (routePath *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableIt
 }
 
 // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -18768,14 +20162,14 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -18784,6 +20178,16 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -18796,6 +20200,10 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -18824,6 +20232,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTa
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -18873,6 +20286,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTa
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -18886,8 +20302,8 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -18918,7 +20334,8 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -18956,7 +20373,7 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -18984,6 +20401,38 @@ func (nextNextHop *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTable
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs
@@ -19027,7 +20476,7 @@ type Ipv6RibStdby_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Address Family (AF) table.
@@ -19096,7 +20545,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af struct {
     YListKey string
 
     // This attribute is a key. Name of the AF - 'IPv6'. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AfName interface{}
 
     // Subsequent Address Family (SAF) table.
@@ -19166,7 +20615,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf struct {
     YListKey string
 
     // This attribute is a key. Name of the SAF. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SafName interface{}
 
     // Global container of routes.
@@ -19236,7 +20685,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Name of the route table . The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RouteTableName interface{}
 
     // Destination KW.
@@ -19373,7 +20822,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -19381,7 +20830,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -19485,6 +20934,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath
@@ -19538,6 +20993,8 @@ func (destQRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destQRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destQRoute.Version})
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
+    destQRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destQRoute.HasSrv6Function})
+    destQRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destQRoute.Srv6Function})
 
     destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -19550,7 +21007,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -19580,29 +21037,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -19729,14 +21186,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -19745,6 +21202,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -19757,6 +21224,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -19785,6 +21256,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -19834,6 +21310,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -19847,8 +21326,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -19879,7 +21358,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -19917,7 +21397,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -19945,6 +21425,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes
@@ -19990,7 +21502,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -19998,7 +21510,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -20102,6 +21614,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath
@@ -20155,6 +21673,8 @@ func (destBackupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableName
     destBackupRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destBackupRoute.Version})
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
+    destBackupRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destBackupRoute.HasSrv6Function})
+    destBackupRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destBackupRoute.Srv6Function})
 
     destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -20167,7 +21687,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -20197,29 +21717,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -20346,14 +21866,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -20362,6 +21882,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -20374,6 +21904,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -20402,6 +21936,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -20451,6 +21990,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -20464,8 +22006,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -20496,7 +22038,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -20534,7 +22077,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -20562,6 +22105,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes
@@ -20607,11 +22182,11 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -20715,6 +22290,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath
@@ -20767,6 +22348,8 @@ func (destBestRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     destBestRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destBestRoute.Version})
     destBestRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBestRoute.TblVersion})
     destBestRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBestRoute.RouteModifyTime})
+    destBestRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destBestRoute.HasSrv6Function})
+    destBestRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destBestRoute.Srv6Function})
 
     destBestRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -20779,7 +22362,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -20809,29 +22392,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -20958,14 +22541,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -20974,6 +22557,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -20986,6 +22579,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -21014,6 +22611,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -21063,6 +22665,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -21076,8 +22681,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -21108,7 +22713,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -21146,7 +22752,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -21174,6 +22780,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes
@@ -21219,11 +22857,11 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -21328,6 +22966,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath
 }
@@ -21379,6 +23023,8 @@ func (destNextHopRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNam
     destNextHopRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", destNextHopRoute.Version})
     destNextHopRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destNextHopRoute.TblVersion})
     destNextHopRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destNextHopRoute.RouteModifyTime})
+    destNextHopRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", destNextHopRoute.HasSrv6Function})
+    destNextHopRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", destNextHopRoute.Srv6Function})
 
     destNextHopRoute.EntityData.YListKeys = []string {"Address"}
 
@@ -21391,7 +23037,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -21421,29 +23067,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -21570,14 +23216,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -21586,6 +23232,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -21598,6 +23254,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -21626,6 +23286,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -21675,6 +23340,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -21688,8 +23356,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -21720,7 +23388,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -21758,7 +23427,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -21786,6 +23455,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts
@@ -21831,14 +23532,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
     // range: 0..128.
     PrefixLength interface{}
 
-    // ipv6 rib edm advert. The type is slice of
+    // Next advertising proto. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert.
     Ipv6RibEdmAdvert []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert
 }
@@ -21870,7 +23571,7 @@ func (advert *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert
-// ipv6 rib edm advert
+// Next advertising proto
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv6RibEdmAdvert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -21889,7 +23590,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     NumberOfExtendedCommunities interface{}
 
     // Extended communities. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     ExtendedCommunities interface{}
 
     // OSPF area-id flags. The type is interface{} with range: 0..255.
@@ -21975,7 +23676,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -21983,7 +23684,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -22088,6 +23789,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath
 }
@@ -22140,6 +23847,8 @@ func (deletedRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     deletedRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", deletedRoute.Version})
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
+    deletedRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", deletedRoute.HasSrv6Function})
+    deletedRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", deletedRoute.Srv6Function})
 
     deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -22152,7 +23861,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -22182,29 +23891,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -22331,14 +24040,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -22347,6 +24056,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -22359,6 +24078,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -22387,6 +24110,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -22436,6 +24164,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -22449,8 +24180,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -22481,7 +24212,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -22519,7 +24251,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -22547,6 +24279,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol
@@ -22808,7 +24572,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -22816,7 +24580,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -22921,6 +24685,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -22973,6 +24743,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -22985,7 +24757,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -23015,29 +24787,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -23164,14 +24936,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -23180,6 +24952,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -23192,6 +24974,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -23220,6 +25006,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -23269,6 +25060,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -23282,8 +25076,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -23314,7 +25108,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -23352,7 +25147,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -23380,6 +25175,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs
@@ -23535,7 +25362,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -23543,7 +25370,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -23648,6 +25475,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -23700,6 +25533,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -23712,7 +25547,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -23742,29 +25577,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -23891,14 +25726,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -23907,6 +25742,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -23919,6 +25764,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -23947,6 +25796,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -23996,6 +25850,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -24009,8 +25866,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -24041,7 +25898,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -24079,7 +25937,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -24107,6 +25965,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp
@@ -24151,7 +26041,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -24302,7 +26192,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -24310,7 +26200,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -24415,6 +26305,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -24467,6 +26363,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -24479,7 +26377,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -24509,29 +26407,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -24658,14 +26556,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -24674,6 +26572,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -24686,6 +26594,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -24714,6 +26626,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -24763,6 +26680,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -24776,8 +26696,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -24808,7 +26728,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -24846,7 +26767,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -24874,6 +26795,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile
@@ -25059,7 +27012,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -25067,7 +27020,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -25172,6 +27125,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -25224,6 +27183,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -25236,7 +27197,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -25266,29 +27227,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -25415,14 +27376,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -25431,6 +27392,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -25443,6 +27414,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -25471,6 +27446,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -25520,6 +27500,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -25533,8 +27516,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -25565,7 +27548,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -25603,7 +27587,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -25631,6 +27615,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp
@@ -25675,7 +27691,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -25826,7 +27842,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -25834,7 +27850,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -25939,6 +27955,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -25991,6 +28013,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -26003,7 +28027,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -26033,29 +28057,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -26182,14 +28206,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -26198,6 +28222,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -26210,6 +28244,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -26238,6 +28276,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -26287,6 +28330,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -26300,8 +28346,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -26332,7 +28378,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -26370,7 +28417,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -26398,6 +28445,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl
@@ -26442,7 +28521,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -26593,7 +28672,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -26601,7 +28680,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -26706,6 +28785,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -26758,6 +28843,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -26770,7 +28857,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -26800,29 +28887,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -26949,14 +29036,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -26965,6 +29052,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -26977,6 +29074,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -27005,6 +29106,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -27054,6 +29160,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -27067,8 +29176,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -27099,7 +29208,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -27137,7 +29247,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -27165,6 +29275,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static
@@ -27350,7 +29492,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -27358,7 +29500,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -27463,6 +29605,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -27515,6 +29663,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -27527,7 +29677,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -27557,29 +29707,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -27706,14 +29856,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -27722,6 +29872,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -27734,6 +29894,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -27762,6 +29926,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -27811,6 +29980,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -27824,8 +29996,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -27856,7 +30028,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -27894,7 +30067,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -27922,6 +30095,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient
@@ -28107,7 +30312,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -28115,7 +30320,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -28220,6 +30425,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -28272,6 +30483,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -28284,7 +30497,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -28314,29 +30527,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -28463,14 +30676,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -28479,6 +30692,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -28491,6 +30714,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -28519,6 +30746,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -28568,6 +30800,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -28581,8 +30816,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -28613,7 +30848,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -28651,7 +30887,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -28679,6 +30915,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber
@@ -28864,7 +31132,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -28872,7 +31140,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -28977,6 +31245,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -29029,6 +31303,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -29041,7 +31317,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -29071,29 +31347,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -29220,14 +31496,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -29236,6 +31512,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -29248,6 +31534,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -29276,6 +31566,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -29325,6 +31620,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -29338,8 +31636,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -29370,7 +31668,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -29408,7 +31707,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -29436,6 +31735,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf
@@ -29480,7 +31811,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -29631,7 +31962,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -29639,7 +31970,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -29744,6 +32075,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -29796,6 +32133,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -29808,7 +32147,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -29838,29 +32177,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -29987,14 +32326,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -30003,6 +32342,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -30015,6 +32364,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -30043,6 +32396,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -30092,6 +32450,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -30105,8 +32466,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -30137,7 +32498,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -30175,7 +32537,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -30203,6 +32565,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected
@@ -30392,7 +32786,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -30400,7 +32794,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -30505,6 +32899,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -30557,6 +32957,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -30569,7 +32971,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -30599,29 +33001,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -30748,14 +33150,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -30764,6 +33166,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -30776,6 +33188,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -30804,6 +33220,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -30853,6 +33274,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -30866,8 +33290,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -30898,7 +33322,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -30936,7 +33361,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -30964,6 +33389,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/l2vpn/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs
@@ -31119,7 +33576,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -31127,7 +33584,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -31232,6 +33689,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
 
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
+
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath
 }
@@ -31284,6 +33747,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -31296,7 +33761,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -31326,29 +33791,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -31475,14 +33940,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -31491,6 +33956,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -31503,6 +33978,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -31531,6 +34010,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -31580,6 +34064,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -31593,8 +34080,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -31625,7 +34112,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -31663,7 +34151,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -31691,6 +34179,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis
@@ -31735,7 +34255,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     As interface{}
 
     // Protocol related Information.
@@ -31886,7 +34406,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -31894,7 +34414,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -31998,6 +34518,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath
@@ -32051,6 +34577,8 @@ func (protocolRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     protocolRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", protocolRoute.Version})
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
+    protocolRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", protocolRoute.HasSrv6Function})
+    protocolRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", protocolRoute.Srv6Function})
 
     protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -32063,7 +34591,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -32093,29 +34621,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -32242,14 +34770,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -32258,6 +34786,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -32270,6 +34808,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -32298,6 +34840,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -32347,6 +34894,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -32360,8 +34910,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -32392,7 +34942,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -32430,7 +34981,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -32458,6 +35009,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes
@@ -32503,7 +35086,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -32511,7 +35094,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -32615,6 +35198,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath
@@ -32668,6 +35257,8 @@ func (route *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     route.EntityData.Leafs.Append("version", types.YLeaf{"Version", route.Version})
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
+    route.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", route.HasSrv6Function})
+    route.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", route.Srv6Function})
 
     route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -32680,7 +35271,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath
 }
@@ -32710,29 +35301,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -32859,14 +35450,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -32875,6 +35466,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -32887,6 +35488,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -32915,6 +35520,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -32964,6 +35574,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -32977,8 +35590,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -33009,7 +35622,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -33047,7 +35661,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -33075,6 +35689,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes
@@ -33120,7 +35766,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -33128,7 +35774,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -33232,6 +35878,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath
@@ -33285,6 +35937,8 @@ func (qRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     qRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", qRoute.Version})
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
+    qRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", qRoute.HasSrv6Function})
+    qRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", qRoute.Srv6Function})
 
     qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
@@ -33297,7 +35951,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -33327,29 +35981,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -33476,14 +36130,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -33492,6 +36146,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -33504,6 +36168,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -33532,6 +36200,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -33581,6 +36254,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -33594,8 +36270,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -33626,7 +36302,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -33664,7 +36341,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -33692,6 +36369,38 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes
@@ -33738,7 +36447,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YListKey string
 
     // This attribute is a key. Network Address . The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Prefix Length . The type is interface{} with
@@ -33750,7 +36459,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Length of prefix. The type is interface{} with range: 0..255.
@@ -33854,6 +36563,12 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Route modification time(nanoseconds). The type is interface{} with range:
     // 0..18446744073709551615. Units are nanosecond.
     RouteModifyTime interface{}
+
+    // Route has some SRv6 function associated. The type is bool.
+    HasSrv6Function interface{}
+
+    // String representation of SRv6 function. The type is string.
+    Srv6Function interface{}
 
     // Path(s) of the route.
     RoutePath Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath
@@ -33908,6 +36623,8 @@ func (backupRoute *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     backupRoute.EntityData.Leafs.Append("version", types.YLeaf{"Version", backupRoute.Version})
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
+    backupRoute.EntityData.Leafs.Append("has-srv6-function", types.YLeaf{"HasSrv6Function", backupRoute.HasSrv6Function})
+    backupRoute.EntityData.Leafs.Append("srv6-function", types.YLeaf{"Srv6Function", backupRoute.Srv6Function})
 
     backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
@@ -33920,7 +36637,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ipv6 rib edm path. The type is slice of
+    // Next path. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath.
     Ipv6RibEdmPath []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath
 }
@@ -33950,29 +36667,29 @@ func (routePath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 }
 
 // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath
-// ipv6 rib edm path
+// Next path
 type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InformationSource interface{}
 
     // V6 nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6Nexthop interface{}
 
     // V6 Infosource. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -34099,14 +36816,14 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberParentInterface interface{}
 
     // Interface Index present. The type is bool.
@@ -34115,6 +36832,16 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // Interface Index attribute. The type is interface{} with range:
     // 0..4294967295.
     InterfaceIndexAttribute interface{}
+
+    // Number of SRv6 Segment Identifiers. The type is interface{} with range:
+    // 0..65535.
+    NumberOfSrv6Sids interface{}
+
+    // Path has some SRv6 transit function associated. The type is bool.
+    HasSrv6TransitFunction interface{}
+
+    // String representation of SRv6 transit function. The type is string.
+    Srv6TransitFunction interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -34127,6 +36854,10 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // List of Next Next Hops. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop.
     NextNextHop []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_NextNextHop
+
+    // List of SRv6 Segment Identifiers. The type is slice of
+    // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid.
+    Srv6Sid []*Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
 }
 
 func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath) GetEntityData() *types.CommonEntityData {
@@ -34155,6 +36886,11 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     for i := range ipv6RibEdmPath.NextNextHop {
         types.SetYListKey(ipv6RibEdmPath.NextNextHop[i], i)
         ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv6RibEdmPath.NextNextHop[i]})
+    }
+    ipv6RibEdmPath.EntityData.Children.Append("srv6-sid", types.YChild{"Srv6Sid", nil})
+    for i := range ipv6RibEdmPath.Srv6Sid {
+        types.SetYListKey(ipv6RibEdmPath.Srv6Sid[i], i)
+        ipv6RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv6RibEdmPath.Srv6Sid[i]), types.YChild{"Srv6Sid", ipv6RibEdmPath.Srv6Sid[i]})
     }
     ipv6RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
     ipv6RibEdmPath.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv6RibEdmPath.Address})
@@ -34204,6 +36940,9 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
     ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
+    ipv6RibEdmPath.EntityData.Leafs.Append("number-of-srv6-sids", types.YLeaf{"NumberOfSrv6Sids", ipv6RibEdmPath.NumberOfSrv6Sids})
+    ipv6RibEdmPath.EntityData.Leafs.Append("has-srv6-transit-function", types.YLeaf{"HasSrv6TransitFunction", ipv6RibEdmPath.HasSrv6TransitFunction})
+    ipv6RibEdmPath.EntityData.Leafs.Append("srv6-transit-function", types.YLeaf{"Srv6TransitFunction", ipv6RibEdmPath.Srv6TransitFunction})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -34217,8 +36956,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Remote backup node address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -34249,7 +36988,8 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is interface{} with range: 0..4294967295.
+    // Outgoing label stack for this path. The type is interface{} with range:
+    // 0..4294967295.
     Entry interface{}
 }
 
@@ -34287,7 +37027,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     Unknownval interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -34315,5 +37055,37 @@ func (nextNextHop *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     nextNextHop.EntityData.YListKeys = []string {}
 
     return &(nextNextHop.EntityData)
+}
+
+// Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid
+// List of SRv6 Segment Identifiers
+type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Segment Identifier Attribute. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    Sid interface{}
+}
+
+func (srv6Sid *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_Srv6Sid) GetEntityData() *types.CommonEntityData {
+    srv6Sid.EntityData.YFilter = srv6Sid.YFilter
+    srv6Sid.EntityData.YangName = "srv6-sid"
+    srv6Sid.EntityData.BundleName = "cisco_ios_xr"
+    srv6Sid.EntityData.ParentYangName = "ipv6-rib-edm-path"
+    srv6Sid.EntityData.SegmentPath = "srv6-sid" + types.AddNoKeyToken(srv6Sid)
+    srv6Sid.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv6-rib-edm-path/" + srv6Sid.EntityData.SegmentPath
+    srv6Sid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6Sid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6Sid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6Sid.EntityData.Children = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs = types.NewOrderedMap()
+    srv6Sid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", srv6Sid.Sid})
+
+    srv6Sid.EntityData.YListKeys = []string {}
+
+    return &(srv6Sid.EntityData)
 }
 

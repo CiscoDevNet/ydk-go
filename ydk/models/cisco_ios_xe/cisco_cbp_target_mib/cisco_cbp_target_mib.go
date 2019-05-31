@@ -230,7 +230,7 @@ type CISCOCBPTARGETMIB_CcbptTargetTable_CcbptTargetEntry struct {
     // intent of this mapping is to allow for different implementations to  refer
     // to their supported class-based policy definition table without requiring
     // support of a specific MIB module. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     CcbptPolicyMap interface{}
 
     // Refers to the first accessible object in the policy  instance table used to
@@ -239,7 +239,7 @@ type CISCOCBPTARGETMIB_CcbptTargetTable_CcbptTargetEntry struct {
     // intent of this mapping is to allow for different implementations to  refer
     // to their supported class-based policy definition table without requiring
     // support of a specific MIB module. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     CcbptPolicyInstance interface{}
 
     // The value of sysUpTime for the last time that the corresponding

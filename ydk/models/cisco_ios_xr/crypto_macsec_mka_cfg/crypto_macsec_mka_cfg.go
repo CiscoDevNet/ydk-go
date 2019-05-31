@@ -24,20 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec", reflect.TypeOf(Macsec{}))
 }
 
-// MacsecMkaConfOffset represents Macsec mka conf offset
-type MacsecMkaConfOffset string
-
-const (
-    // CONF OFFSET 0
-    MacsecMkaConfOffset_conf_off_set_0 MacsecMkaConfOffset = "conf-off-set-0"
-
-    // CONF OFFSET 30
-    MacsecMkaConfOffset_conf_off_set_30 MacsecMkaConfOffset = "conf-off-set-30"
-
-    // CONF OFFSET 50
-    MacsecMkaConfOffset_conf_off_set_50 MacsecMkaConfOffset = "conf-off-set-50"
-)
-
 // MacsecMkaSecurityPolicy represents Macsec mka security policy
 type MacsecMkaSecurityPolicy string
 
@@ -72,6 +58,20 @@ const (
 
     // GCM AES XPN 256
     MacsecMkaCipherSuite_gcm_aes_xpn_256 MacsecMkaCipherSuite = "gcm-aes-xpn-256"
+)
+
+// MacsecMkaConfOffset represents Macsec mka conf offset
+type MacsecMkaConfOffset string
+
+const (
+    // CONF OFFSET 0
+    MacsecMkaConfOffset_conf_off_set_0 MacsecMkaConfOffset = "conf-off-set-0"
+
+    // CONF OFFSET 30
+    MacsecMkaConfOffset_conf_off_set_30 MacsecMkaConfOffset = "conf-off-set-30"
+
+    // CONF OFFSET 50
+    MacsecMkaConfOffset_conf_off_set_50 MacsecMkaConfOffset = "conf-off-set-50"
 )
 
 // Macsec

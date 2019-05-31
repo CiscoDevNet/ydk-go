@@ -41,29 +41,6 @@ const (
     HsrpVmacState_reserving HsrpVmacState = "reserving"
 )
 
-// StandbyGrpState represents Standby grp state
-type StandbyGrpState string
-
-const (
-    // Initial
-    StandbyGrpState_state_initial StandbyGrpState = "state-initial"
-
-    // Learn
-    StandbyGrpState_state_learn StandbyGrpState = "state-learn"
-
-    // Listen
-    StandbyGrpState_state_listen StandbyGrpState = "state-listen"
-
-    // Speak
-    StandbyGrpState_state_speak StandbyGrpState = "state-speak"
-
-    // Standby
-    StandbyGrpState_state_standby StandbyGrpState = "state-standby"
-
-    // Active
-    StandbyGrpState_state_active StandbyGrpState = "state-active"
-)
-
 // HsrpStateChangeReason represents Hsrp state change reason
 type HsrpStateChangeReason string
 
@@ -150,20 +127,6 @@ const (
     HsrpStateChangeReason_state_change_max HsrpStateChangeReason = "state-change-max"
 )
 
-// HsrpBAf represents Hsrp b af
-type HsrpBAf string
-
-const (
-    // IPv4 Address Family
-    HsrpBAf_ipv4 HsrpBAf = "ipv4"
-
-    // IPv6 Address Family
-    HsrpBAf_ipv6 HsrpBAf = "ipv6"
-
-    // The number of supported address families
-    HsrpBAf_count HsrpBAf = "count"
-)
-
 // HsrpBfdSessionState represents Hsrp bfd session state
 type HsrpBfdSessionState string
 
@@ -179,6 +142,43 @@ const (
 
     // Down
     HsrpBfdSessionState_bfd_state_down HsrpBfdSessionState = "bfd-state-down"
+)
+
+// StandbyGrpState represents Standby grp state
+type StandbyGrpState string
+
+const (
+    // Initial
+    StandbyGrpState_state_initial StandbyGrpState = "state-initial"
+
+    // Learn
+    StandbyGrpState_state_learn StandbyGrpState = "state-learn"
+
+    // Listen
+    StandbyGrpState_state_listen StandbyGrpState = "state-listen"
+
+    // Speak
+    StandbyGrpState_state_speak StandbyGrpState = "state-speak"
+
+    // Standby
+    StandbyGrpState_state_standby StandbyGrpState = "state-standby"
+
+    // Active
+    StandbyGrpState_state_active StandbyGrpState = "state-active"
+)
+
+// HsrpBAf represents Hsrp b af
+type HsrpBAf string
+
+const (
+    // IPv4 Address Family
+    HsrpBAf_ipv4 HsrpBAf = "ipv4"
+
+    // IPv6 Address Family
+    HsrpBAf_ipv6 HsrpBAf = "ipv6"
+
+    // The number of supported address families
+    HsrpBAf_count HsrpBAf = "count"
 )
 
 // Hsrp
@@ -306,7 +306,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -317,7 +317,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     AuthenticationString interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -378,35 +378,35 @@ type Hsrp_Ipv4_Groups_Group struct {
     ReloadDelayTime interface{}
 
     // Configured Virtual IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualIpAddress interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // Active router's IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ActiveIpAddress interface{}
 
     // Active router's IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ActiveIpv6Address interface{}
 
     // Active router's interface MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     ActiveMacAddress interface{}
 
     // Standby router's IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StandbyIpAddress interface{}
 
     // Standby router's IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StandbyIpv6Address interface{}
 
     // Standby router's interface MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     StandbyMacAddress interface{}
 
     // HSRP router state. The type is StandbyGrpState.
@@ -415,7 +415,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     // Interface Name. The type is string with length: 0..64.
     InterfaceNameXr interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Priority of the router. The type is interface{} with range: 0..255.
@@ -507,15 +507,15 @@ type Hsrp_Ipv4_Groups_Group struct {
     // HSRP BFD fast failover. The type is bool.
     BfdEnabled interface{}
 
-    // BFD Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // BFD Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BfdInterface interface{}
 
     // BFD Peer IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdPeerIpAddress interface{}
 
     // BFD Peer IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdPeerIpv6Address interface{}
 
     // BFD session state. The type is HsrpBfdSessionState.
@@ -532,7 +532,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     VirtualMacAddressState interface{}
 
     // Secondary virtual IP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SecondaryAddress []interface{}
 
     // Time last resign was sent.
@@ -911,7 +911,7 @@ type Hsrp_Ipv4_Groups_Group_GlobalAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1056,7 +1056,7 @@ type Hsrp_Ipv4_TrackedInterfaces_TrackedInterface struct {
     YListKey string
 
     // This attribute is a key. The interface name of the interface. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1064,10 +1064,10 @@ type Hsrp_Ipv4_TrackedInterfaces_TrackedInterface struct {
     GroupNumber interface{}
 
     // This attribute is a key. The interface name of the interface being tracked.
-    // The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -1156,10 +1156,10 @@ type Hsrp_Ipv4_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Use burnt in mac address flag. The type is bool.
@@ -1304,14 +1304,14 @@ type Hsrp_MgoSessions_MgoSession struct {
     YListKey string
 
     // This attribute is a key. HSRP MGO session name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SessionName interface{}
 
     // Session Name. The type is string with length: 0..16.
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is HsrpBAf.
@@ -1475,7 +1475,7 @@ type Hsrp_Ipv6_TrackedInterfaces_TrackedInterface struct {
     YListKey string
 
     // This attribute is a key. The interface name of the interface. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1483,10 +1483,10 @@ type Hsrp_Ipv6_TrackedInterfaces_TrackedInterface struct {
     GroupNumber interface{}
 
     // This attribute is a key. The interface name of the interface being tracked.
-    // The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -1574,7 +1574,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1585,7 +1585,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     AuthenticationString interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -1646,35 +1646,35 @@ type Hsrp_Ipv6_Groups_Group struct {
     ReloadDelayTime interface{}
 
     // Configured Virtual IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     VirtualIpAddress interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // Active router's IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ActiveIpAddress interface{}
 
     // Active router's IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ActiveIpv6Address interface{}
 
     // Active router's interface MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     ActiveMacAddress interface{}
 
     // Standby router's IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StandbyIpAddress interface{}
 
     // Standby router's IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StandbyIpv6Address interface{}
 
     // Standby router's interface MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     StandbyMacAddress interface{}
 
     // HSRP router state. The type is StandbyGrpState.
@@ -1683,7 +1683,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     // Interface Name. The type is string with length: 0..64.
     InterfaceNameXr interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Priority of the router. The type is interface{} with range: 0..255.
@@ -1775,15 +1775,15 @@ type Hsrp_Ipv6_Groups_Group struct {
     // HSRP BFD fast failover. The type is bool.
     BfdEnabled interface{}
 
-    // BFD Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // BFD Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     BfdInterface interface{}
 
     // BFD Peer IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdPeerIpAddress interface{}
 
     // BFD Peer IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdPeerIpv6Address interface{}
 
     // BFD session state. The type is HsrpBfdSessionState.
@@ -1800,7 +1800,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     VirtualMacAddressState interface{}
 
     // Secondary virtual IP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SecondaryAddress []interface{}
 
     // Time last resign was sent.
@@ -2179,7 +2179,7 @@ type Hsrp_Ipv6_Groups_Group_GlobalAddress struct {
     YListKey string
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2324,10 +2324,10 @@ type Hsrp_Ipv6_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Use burnt in mac address flag. The type is bool.
@@ -2472,14 +2472,14 @@ type Hsrp_BfdSessions_BfdSession struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. Destination IP Address of BFD Session. The type is
     // one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // BFD Interface Name. The type is string with length: 0..64.
@@ -2489,11 +2489,11 @@ type Hsrp_BfdSessions_BfdSession struct {
     SessionAddressFamily interface{}
 
     // BFD destination address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // BFD IPv6 destination address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv6Address interface{}
 
     // BFD session state. The type is HsrpBfdSessionState.

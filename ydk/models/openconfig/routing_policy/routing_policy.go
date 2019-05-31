@@ -342,13 +342,13 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix struct {
 
     // This attribute is a key. Reference to the ip-prefix list key. The type is
     // one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     IpPrefix interface{}
 
     // This attribute is a key. Reference to the masklength-range list key. The
-    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$. Refers to
+    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'. Refers to
     // routing_policy.RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config_MasklengthRange
     MasklengthRange interface{}
 
@@ -393,9 +393,9 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config struc
     // the same address family.  Mixing address types in the same prefix set is
     // likely to cause an error. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'
     // This attribute is mandatory..
     IpPrefix interface{}
 
@@ -403,7 +403,7 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Config struc
     // length.  Example: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as
     // prefix: 10.3.192.0/21, masklength-range: 21..24.  Example: 10.3.192.0/21
     // would be expressed as prefix: 10.3.192.0/21, masklength-range: exact. The
-    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$.
+    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'.
     MasklengthRange interface{}
 }
 
@@ -439,9 +439,9 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_State struct
     // the same address family.  Mixing address types in the same prefix set is
     // likely to cause an error. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'
     // This attribute is mandatory..
     IpPrefix interface{}
 
@@ -449,7 +449,7 @@ type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_State struct
     // length.  Example: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as
     // prefix: 10.3.192.0/21, masklength-range: 21..24.  Example: 10.3.192.0/21
     // would be expressed as prefix: 10.3.192.0/21, masklength-range: exact. The
-    // type is string with pattern: ^([0-9]+\.\.[0-9]+)|exact$.
+    // type is string with pattern: b'^([0-9]+\\.\\.[0-9]+)|exact$'.
     MasklengthRange interface{}
 }
 
@@ -562,9 +562,9 @@ type RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_Config struct {
 
     // List of IP addresses in the neighbor set. The type is one of the following
     // types: slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address []interface{}
 }
 
@@ -601,9 +601,9 @@ type RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_State struct {
 
     // List of IP addresses in the neighbor set. The type is one of the following
     // types: slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address []interface{}
 }
 
@@ -715,7 +715,7 @@ type RoutingPolicy_DefinedSets_TagSets_TagSet_Config struct {
 
     // Value of the tag set member. The type is one of the following types: slice
     // of int with range: 0..4294967295, or slice of string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TagValue []interface{}
 }
 
@@ -752,7 +752,7 @@ type RoutingPolicy_DefinedSets_TagSets_TagSet_State struct {
 
     // Value of the tag set member. The type is one of the following types: slice
     // of int with range: 0..4294967295, or slice of string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TagValue []interface{}
 }
 
@@ -902,7 +902,7 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet_Config 
 
     // members of the community set. The type is one of the following types: slice
     // of int with range: 65536..4294901759, or slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of string, or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     CommunityMember []interface{}
@@ -941,7 +941,7 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet_State s
 
     // members of the community set. The type is one of the following types: slice
     // of int with range: 65536..4294901759, or slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of string, or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     CommunityMember []interface{}
@@ -1056,23 +1056,23 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet_C
 
     // members of the extended community set. The type is one of the following
     // types: slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^route\\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of string.
     ExtCommunityMember []interface{}
 }
@@ -1110,23 +1110,23 @@ type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet_S
 
     // members of the extended community set. The type is one of the following
     // types: slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^route\\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of string.
     ExtCommunityMember []interface{}
 }
@@ -1622,11 +1622,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Policy conditions for IGP attributes.
     IgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IgpConditions
 
-    // Match conditions relating to the IS-IS protocol.
-    IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-
     // Top-level container .
     BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
+
+    // Match conditions relating to the IS-IS protocol.
+    IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
 }
 
 func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions) GetEntityData() *types.CommonEntityData {
@@ -1648,8 +1648,8 @@ func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     conditions.EntityData.Children.Append("match-neighbor-set", types.YChild{"MatchNeighborSet", &conditions.MatchNeighborSet})
     conditions.EntityData.Children.Append("match-tag-set", types.YChild{"MatchTagSet", &conditions.MatchTagSet})
     conditions.EntityData.Children.Append("igp-conditions", types.YChild{"IgpConditions", &conditions.IgpConditions})
-    conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
     conditions.EntityData.Children.Append("openconfig-bgp-policy:bgp-conditions", types.YChild{"BgpConditions", &conditions.BgpConditions})
+    conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
     conditions.EntityData.Leafs = types.NewOrderedMap()
 
     conditions.EntityData.YListKeys = []string {}
@@ -1676,7 +1676,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // Condition to check the protocol / method used to install the route into the
     // local routing table. The type is one of the following:
-    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
+    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
     InstallProtocolEq interface{}
 }
 
@@ -1720,7 +1720,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // Condition to check the protocol / method used to install the route into the
     // local routing table. The type is one of the following:
-    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
+    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
     InstallProtocolEq interface{}
 }
 
@@ -2218,108 +2218,6 @@ func (igpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     return &(igpConditions.EntityData)
 }
 
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-// Match conditions relating to the IS-IS protocol
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS match conditions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-
-    // Operational state parameters relating to IS-IS match conditions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-}
-
-func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
-    isisConditions.EntityData.YFilter = isisConditions.YFilter
-    isisConditions.EntityData.YangName = "isis-conditions"
-    isisConditions.EntityData.BundleName = "openconfig"
-    isisConditions.EntityData.ParentYangName = "conditions"
-    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
-    isisConditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + isisConditions.EntityData.SegmentPath
-    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisConditions.EntityData.Children = types.NewOrderedMap()
-    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
-    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
-    isisConditions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisConditions.EntityData.YListKeys = []string {}
-
-    return &(isisConditions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-// Configuration parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-conditions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + config.EntityData.SegmentPath
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-// Operational state parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-conditions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + state.EntityData.SegmentPath
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
 // Top-level container 
 type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions struct {
@@ -2395,15 +2293,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // List of next hop addresses to check for in the route update. The type is
     // one of the following types: slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
     // or slice of string with pattern:
-    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
     NextHopIn []interface{}
 
     // List of address families which the NLRI may be within. The type is slice of
-    // [u'L2VPNEVPN', u'L2VPNVPLS', u'IPV4UNICAST', u'L3VPNIPV6MULTICAST',
-    // u'L3VPNIPV6UNICAST', u'L3VPNIPV4UNICAST', u'L3VPNIPV4MULTICAST',
-    // u'IPV4LABELEDUNICAST', u'IPV6UNICAST', u'IPV6LABELEDUNICAST'].
+    // ['IPV4UNICAST', 'IPV6UNICAST', 'IPV4LABELEDUNICAST', 'IPV6LABELEDUNICAST',
+    // 'L3VPNIPV4UNICAST', 'L3VPNIPV6UNICAST', 'L3VPNIPV4MULTICAST',
+    // 'L3VPNIPV6MULTICAST', 'L2VPNVPLS', 'L2VPNEVPN'].
     AfiSafiIn []interface{}
 
     // Condition to check if the local pref attribute is equal to the specified
@@ -2468,15 +2366,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
 
     // List of next hop addresses to check for in the route update. The type is
     // one of the following types: slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
     // or slice of string with pattern:
-    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
+    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
     NextHopIn []interface{}
 
     // List of address families which the NLRI may be within. The type is slice of
-    // [u'L2VPNEVPN', u'L2VPNVPLS', u'IPV4UNICAST', u'L3VPNIPV6MULTICAST',
-    // u'L3VPNIPV6UNICAST', u'L3VPNIPV4UNICAST', u'L3VPNIPV4MULTICAST',
-    // u'IPV4LABELEDUNICAST', u'IPV6UNICAST', u'IPV6LABELEDUNICAST'].
+    // ['IPV4UNICAST', 'IPV6UNICAST', 'IPV4LABELEDUNICAST', 'IPV6LABELEDUNICAST',
+    // 'L3VPNIPV4UNICAST', 'L3VPNIPV6UNICAST', 'L3VPNIPV4MULTICAST',
+    // 'L3VPNIPV6MULTICAST', 'L2VPNVPLS', 'L2VPNEVPN'].
     AfiSafiIn []interface{}
 
     // Condition to check if the local pref attribute is equal to the specified
@@ -2566,7 +2464,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
+    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2602,7 +2500,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
+    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2673,7 +2571,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
+    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -2709,7 +2607,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     YFilter yfilter.YFilter
 
     // type of comparison to be performed. The type is one of the following:
-    // ATTRIBUTEGEATTRIBUTEEQATTRIBUTELE.
+    // ATTRIBUTEEQATTRIBUTEGEATTRIBUTELE.
     Operator interface{}
 
     // value to compare with the community count. The type is interface{} with
@@ -3063,6 +2961,108 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     return &(state.EntityData)
 }
 
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+// Match conditions relating to the IS-IS protocol
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS match conditions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+
+    // Operational state parameters relating to IS-IS match conditions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+}
+
+func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
+    isisConditions.EntityData.YFilter = isisConditions.YFilter
+    isisConditions.EntityData.YangName = "isis-conditions"
+    isisConditions.EntityData.BundleName = "openconfig"
+    isisConditions.EntityData.ParentYangName = "conditions"
+    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
+    isisConditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + isisConditions.EntityData.SegmentPath
+    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisConditions.EntityData.Children = types.NewOrderedMap()
+    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
+    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
+    isisConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisConditions.EntityData.YListKeys = []string {}
+
+    return &(isisConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+// Configuration parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-conditions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + config.EntityData.SegmentPath
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+// Operational state parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-conditions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions
 // Top-level container for policy action statements
 type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions struct {
@@ -3078,11 +3078,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Actions to set IGP route attributes; these actions apply to multiple IGPs.
     IgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IgpActions
 
-    // Actions that can be performed by IS-IS within a policy.
-    IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-
     // Top-level container for BGP-specific actions.
     BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
+
+    // Actions that can be performed by IS-IS within a policy.
+    IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
 }
 
 func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions) GetEntityData() *types.CommonEntityData {
@@ -3100,8 +3100,8 @@ func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_State
     actions.EntityData.Children.Append("config", types.YChild{"Config", &actions.Config})
     actions.EntityData.Children.Append("state", types.YChild{"State", &actions.State})
     actions.EntityData.Children.Append("igp-actions", types.YChild{"IgpActions", &actions.IgpActions})
-    actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
     actions.EntityData.Children.Append("openconfig-bgp-policy:bgp-actions", types.YChild{"BgpActions", &actions.BgpActions})
+    actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
     actions.EntityData.Leafs = types.NewOrderedMap()
 
     actions.EntityData.YListKeys = []string {}
@@ -3220,7 +3220,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the tag value for OSPF or IS-IS routes. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SetTag interface{}
 }
 
@@ -3252,7 +3252,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the tag value for OSPF or IS-IS routes. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SetTag interface{}
 }
 
@@ -3270,122 +3270,6 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-// Actions that can be performed by IS-IS within a policy
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS actions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-
-    // Operational state associated with IS-IS actions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-}
-
-func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
-    isisActions.EntityData.YFilter = isisActions.YFilter
-    isisActions.EntityData.YangName = "isis-actions"
-    isisActions.EntityData.BundleName = "openconfig"
-    isisActions.EntityData.ParentYangName = "actions"
-    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
-    isisActions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + isisActions.EntityData.SegmentPath
-    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisActions.EntityData.Children = types.NewOrderedMap()
-    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
-    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
-    isisActions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisActions.EntityData.YListKeys = []string {}
-
-    return &(isisActions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-// Configuration parameters relating to IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-actions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + config.EntityData.SegmentPath
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
-    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
-    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-// Operational state associated with IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-actions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + state.EntityData.SegmentPath
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
-    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
-    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 
@@ -3460,15 +3344,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // set the next-hop attribute in the route update. The type is one of the
     // following types: string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
     // or string with pattern:
-    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
+    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
     // or enumeration BgpNextHopType.
     SetNextHop interface{}
 
     // set the med metric attribute in the route update. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // ^[+-][0-9]+, or enumeration BgpSetMedType.
+    // b'^[+-][0-9]+', or enumeration BgpSetMedType.
     SetMed interface{}
 }
 
@@ -3511,15 +3395,15 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // set the next-hop attribute in the route update. The type is one of the
     // following types: string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
     // or string with pattern:
-    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
+    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
     // or enumeration BgpNextHopType.
     SetNextHop interface{}
 
     // set the med metric attribute in the route update. The type is one of the
     // following types: int with range: 0..4294967295, or string with pattern:
-    // ^[+-][0-9]+, or enumeration BgpSetMedType.
+    // b'^[+-][0-9]+', or enumeration BgpSetMedType.
     SetMed interface{}
 }
 
@@ -3836,7 +3720,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Set the community values for the update inline with a list. The type is one
     // of the following types: slice of int with range: 65536..4294901759, or
     // slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -3872,7 +3756,7 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Set the community values for the update inline with a list. The type is one
     // of the following types: slice of int with range: 65536..4294901759, or
     // slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -4190,23 +4074,23 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the extended community values for the update inline with a list. The
     // type is one of the following types: slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^route\\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -4241,23 +4125,23 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
 
     // Set the extended community values for the update inline with a list. The
     // type is one of the following types: slice of string with pattern:
-    // ^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$,
+    // b'^route\\-origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$,
+    // b'^route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$',
     // or slice of string with pattern:
-    // ^route\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$.,
+    // b'^route\\-origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|4[0-1][0-9]{7}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$'.,
     // or slice of   :go:struct:`BGPWELLKNOWNSTDCOMMUNITY
     // <ydk/models/bgp_types/BGPWELLKNOWNSTDCOMMUNITY>`.
     Communities []interface{}
@@ -4380,6 +4264,122 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("ext-community-set-ref", types.YLeaf{"ExtCommunitySetRef", state.ExtCommunitySetRef})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+// Actions that can be performed by IS-IS within a policy
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS actions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+
+    // Operational state associated with IS-IS actions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+}
+
+func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
+    isisActions.EntityData.YFilter = isisActions.YFilter
+    isisActions.EntityData.YangName = "isis-actions"
+    isisActions.EntityData.BundleName = "openconfig"
+    isisActions.EntityData.ParentYangName = "actions"
+    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
+    isisActions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + isisActions.EntityData.SegmentPath
+    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisActions.EntityData.Children = types.NewOrderedMap()
+    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
+    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
+    isisActions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisActions.EntityData.YListKeys = []string {}
+
+    return &(isisActions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+// Configuration parameters relating to IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-actions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + config.EntityData.SegmentPath
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
+    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
+    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+// Operational state associated with IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-actions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
+    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
+    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 

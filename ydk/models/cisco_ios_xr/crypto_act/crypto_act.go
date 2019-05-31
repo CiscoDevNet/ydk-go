@@ -283,7 +283,7 @@ type KeyGenerateDsa_Input struct {
     YFilter yfilter.YFilter
 
     // Key modulus size can be 512, 768 or 1024 bits. The type is interface{} with
-    // range: 512..None | 768..None | 1024..None. This attribute is mandatory.
+    // range: 512..512 | 768..768 | 1024..1024. This attribute is mandatory.
     KeyModulus interface{}
 }
 

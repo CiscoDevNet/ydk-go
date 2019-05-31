@@ -24,66 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ptp-oper:ptp", reflect.TypeOf(Ptp{}))
 }
 
-// PtpBagRestrictPortState represents Restrict Port State
-type PtpBagRestrictPortState string
-
-const (
-    // Any
-    PtpBagRestrictPortState_any PtpBagRestrictPortState = "any"
-
-    // Slave only
-    PtpBagRestrictPortState_slave_only PtpBagRestrictPortState = "slave-only"
-
-    // Master only
-    PtpBagRestrictPortState_master_only PtpBagRestrictPortState = "master-only"
-)
-
-// PtpBagPortState represents Port State
-type PtpBagPortState string
-
-const (
-    // Initializing state
-    PtpBagPortState_initializing PtpBagPortState = "initializing"
-
-    // Listen state
-    PtpBagPortState_listen PtpBagPortState = "listen"
-
-    // Passive state
-    PtpBagPortState_passive PtpBagPortState = "passive"
-
-    // Pre-Master state
-    PtpBagPortState_pre_master PtpBagPortState = "pre-master"
-
-    // Master state
-    PtpBagPortState_master PtpBagPortState = "master"
-
-    // Uncalibrated state
-    PtpBagPortState_uncalibrated PtpBagPortState = "uncalibrated"
-
-    // Slave state
-    PtpBagPortState_slave PtpBagPortState = "slave"
-
-    // Faulty state
-    PtpBagPortState_faulty PtpBagPortState = "faulty"
-)
-
-// PtpBagEncap represents Encapsulation
-type PtpBagEncap string
-
-const (
-    // Unknown encapsulation
-    PtpBagEncap_unknown PtpBagEncap = "unknown"
-
-    // Ethernet encapsulation
-    PtpBagEncap_ethernet PtpBagEncap = "ethernet"
-
-    // IPv4 encapsulation
-    PtpBagEncap_ipv4 PtpBagEncap = "ipv4"
-
-    // IPv6 encapsulation
-    PtpBagEncap_ipv6 PtpBagEncap = "ipv6"
-)
-
 // PtpBagDelayMechanism represents Delay Mechanism
 type PtpBagDelayMechanism string
 
@@ -107,6 +47,37 @@ const (
 
     // Slave
     PtpBagTelecomClock_slave PtpBagTelecomClock = "slave"
+)
+
+// PtpBagProfile represents Profile
+type PtpBagProfile string
+
+const (
+    // 1588v2 profile (default)
+    PtpBagProfile_default_ PtpBagProfile = "default"
+
+    // G.8265.1 profile
+    PtpBagProfile_g82651 PtpBagProfile = "g82651"
+
+    // G.8275.1 profile
+    PtpBagProfile_g82751 PtpBagProfile = "g82751"
+
+    // G.8275.2 profile
+    PtpBagProfile_g82752 PtpBagProfile = "g82752"
+)
+
+// PtpBagRestrictPortState represents Restrict Port State
+type PtpBagRestrictPortState string
+
+const (
+    // Any
+    PtpBagRestrictPortState_any PtpBagRestrictPortState = "any"
+
+    // Slave only
+    PtpBagRestrictPortState_slave_only PtpBagRestrictPortState = "slave-only"
+
+    // Master only
+    PtpBagRestrictPortState_master_only PtpBagRestrictPortState = "master-only"
 )
 
 // ImStateEnum represents Im state enum
@@ -171,6 +142,52 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
+// PtpBagPortState represents Port State
+type PtpBagPortState string
+
+const (
+    // Initializing state
+    PtpBagPortState_initializing PtpBagPortState = "initializing"
+
+    // Listen state
+    PtpBagPortState_listen PtpBagPortState = "listen"
+
+    // Passive state
+    PtpBagPortState_passive PtpBagPortState = "passive"
+
+    // Pre-Master state
+    PtpBagPortState_pre_master PtpBagPortState = "pre-master"
+
+    // Master state
+    PtpBagPortState_master PtpBagPortState = "master"
+
+    // Uncalibrated state
+    PtpBagPortState_uncalibrated PtpBagPortState = "uncalibrated"
+
+    // Slave state
+    PtpBagPortState_slave PtpBagPortState = "slave"
+
+    // Faulty state
+    PtpBagPortState_faulty PtpBagPortState = "faulty"
+)
+
+// PtpBagEncap represents Encapsulation
+type PtpBagEncap string
+
+const (
+    // Unknown encapsulation
+    PtpBagEncap_unknown PtpBagEncap = "unknown"
+
+    // Ethernet encapsulation
+    PtpBagEncap_ethernet PtpBagEncap = "ethernet"
+
+    // IPv4 encapsulation
+    PtpBagEncap_ipv4 PtpBagEncap = "ipv4"
+
+    // IPv6 encapsulation
+    PtpBagEncap_ipv6 PtpBagEncap = "ipv6"
+)
+
 // PtpBagCommunicationModel represents Communication Model
 type PtpBagCommunicationModel string
 
@@ -183,6 +200,31 @@ const (
 
     // Multicast communication
     PtpBagCommunicationModel_multicast PtpBagCommunicationModel = "multicast"
+)
+
+// PtpBagClockLeapSeconds represents Leap Seconds
+type PtpBagClockLeapSeconds string
+
+const (
+    // No leap second
+    PtpBagClockLeapSeconds_none PtpBagClockLeapSeconds = "none"
+
+    // The last minute of the day has 59 seconds
+    PtpBagClockLeapSeconds_leap59 PtpBagClockLeapSeconds = "leap59"
+
+    // The last minute of the day has 61 seconds
+    PtpBagClockLeapSeconds_leap61 PtpBagClockLeapSeconds = "leap61"
+)
+
+// PtpBagClockTimescale represents Timescale
+type PtpBagClockTimescale string
+
+const (
+    // PTP timescale
+    PtpBagClockTimescale_ptp PtpBagClockTimescale = "ptp"
+
+    // ARB timescale
+    PtpBagClockTimescale_arb PtpBagClockTimescale = "arb"
 )
 
 // PtpBagClockTimeSource represents Time source
@@ -215,48 +257,6 @@ const (
 
     // Internal Oscillator
     PtpBagClockTimeSource_internal_oscillator PtpBagClockTimeSource = "internal-oscillator"
-)
-
-// PtpBagClockLeapSeconds represents Leap Seconds
-type PtpBagClockLeapSeconds string
-
-const (
-    // No leap second
-    PtpBagClockLeapSeconds_none PtpBagClockLeapSeconds = "none"
-
-    // The last minute of the day has 59 seconds
-    PtpBagClockLeapSeconds_leap59 PtpBagClockLeapSeconds = "leap59"
-
-    // The last minute of the day has 61 seconds
-    PtpBagClockLeapSeconds_leap61 PtpBagClockLeapSeconds = "leap61"
-)
-
-// PtpBagProfile represents Profile
-type PtpBagProfile string
-
-const (
-    // 1588v2 profile (default)
-    PtpBagProfile_default_ PtpBagProfile = "default"
-
-    // G.8265.1 profile
-    PtpBagProfile_g82651 PtpBagProfile = "g82651"
-
-    // G.8275.1 profile
-    PtpBagProfile_g82751 PtpBagProfile = "g82751"
-
-    // G.8275.2 profile
-    PtpBagProfile_g82752 PtpBagProfile = "g82752"
-)
-
-// PtpBagClockTimescale represents Timescale
-type PtpBagClockTimescale string
-
-const (
-    // PTP timescale
-    PtpBagClockTimescale_ptp PtpBagClockTimescale = "ptp"
-
-    // ARB timescale
-    PtpBagClockTimescale_arb PtpBagClockTimescale = "arb"
 )
 
 // Ptp
@@ -306,9 +306,6 @@ type Ptp struct {
 
     // UTC offset information.
     UtcOffsetInfo Ptp_UtcOffsetInfo
-
-    // PTP platform specific data.
-    Platform Ptp_Platform
 }
 
 func (ptp *Ptp) GetEntityData() *types.CommonEntityData {
@@ -337,7 +334,6 @@ func (ptp *Ptp) GetEntityData() *types.CommonEntityData {
     ptp.EntityData.Children.Append("grandmaster", types.YChild{"Grandmaster", &ptp.Grandmaster})
     ptp.EntityData.Children.Append("interface-unicast-peers", types.YChild{"InterfaceUnicastPeers", &ptp.InterfaceUnicastPeers})
     ptp.EntityData.Children.Append("utc-offset-info", types.YChild{"UtcOffsetInfo", &ptp.UtcOffsetInfo})
-    ptp.EntityData.Children.Append("Cisco-IOS-XR-ptp-pd-oper:platform", types.YChild{"Platform", &ptp.Platform})
     ptp.EntityData.Leafs = types.NewOrderedMap()
 
     ptp.EntityData.YListKeys = []string {}
@@ -387,7 +383,7 @@ type Ptp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Table for node foreign master clock operational data.
@@ -475,7 +471,7 @@ type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster struc
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Port number. The type is interface{} with range: 0..65535.
@@ -559,6 +555,9 @@ type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_Forei
     // Sync messages are not being received from the master. The type is bool.
     PtsfLossSync interface{}
 
+    // The clock has clock class corresponding to QL-DNU. The type is bool.
+    IsDnu interface{}
+
     // Foreign clock information.
     ForeignClock Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_ForeignClock_ForeignClock
 
@@ -604,6 +603,7 @@ func (foreignClock *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceFore
     foreignClock.EntityData.Leafs.Append("delay-asymmetry", types.YLeaf{"DelayAsymmetry", foreignClock.DelayAsymmetry})
     foreignClock.EntityData.Leafs.Append("ptsf-loss-announce", types.YLeaf{"PtsfLossAnnounce", foreignClock.PtsfLossAnnounce})
     foreignClock.EntityData.Leafs.Append("ptsf-loss-sync", types.YLeaf{"PtsfLossSync", foreignClock.PtsfLossSync})
+    foreignClock.EntityData.Leafs.Append("is-dnu", types.YLeaf{"IsDnu", foreignClock.IsDnu})
 
     foreignClock.EntityData.YListKeys = []string {}
 
@@ -823,7 +823,7 @@ type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_Forei
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -864,7 +864,7 @@ type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_Forei
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -895,7 +895,7 @@ type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_Forei
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1143,7 +1143,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Port state. The type is PtpBagPortState.
@@ -1160,12 +1160,12 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface struct {
 
     // Ipv6 address, if IPv6 encapsulation is being used. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // IPv4 address, if IPv4 encapsulation is being used. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Two step delay-request mechanism is being used. The type is bool.
@@ -1360,7 +1360,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_Ipv6AddressArray struct {
     YFilter yfilter.YFilter
 
     // List of IPv6 addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Addr []interface{}
 }
 
@@ -1394,7 +1394,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_Ipv4AddressArray struct {
     YFilter yfilter.YFilter
 
     // List of IPv4 addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Addr []interface{}
 }
 
@@ -1426,7 +1426,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MacAddress struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -1711,7 +1711,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Address struct {
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -1752,7 +1752,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Address_MacAddress 
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -1783,7 +1783,7 @@ type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Address_Ipv6Address
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1849,7 +1849,7 @@ type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -1946,7 +1946,7 @@ type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_Peers_Add
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -1987,7 +1987,7 @@ type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_Peers_Add
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -2018,7 +2018,7 @@ type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_Peers_Add
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -2480,11 +2480,11 @@ type Ptp_Nodes_Node_PacketCounters_DropReasons struct {
     // with range: 0..4294967295.
     BadClockClass interface{}
 
-    // Steps removed too high. The type is interface{} with range: 0..4294967295.
-    StepsRemoved interface{}
-
     // Reserved Clock ID. The type is interface{} with range: 0..4294967295.
     ReservedClockId interface{}
+
+    // Steps removed too high. The type is interface{} with range: 0..4294967295.
+    StepsRemoved interface{}
 
     // Packet not compatible with G.8265.1 profile. The type is interface{} with
     // range: 0..4294967295.
@@ -2539,8 +2539,8 @@ func (dropReasons *Ptp_Nodes_Node_PacketCounters_DropReasons) GetEntityData() *t
     dropReasons.EntityData.Leafs.Append("not-supported", types.YLeaf{"NotSupported", dropReasons.NotSupported})
     dropReasons.EntityData.Leafs.Append("min-clock-class", types.YLeaf{"MinClockClass", dropReasons.MinClockClass})
     dropReasons.EntityData.Leafs.Append("bad-clock-class", types.YLeaf{"BadClockClass", dropReasons.BadClockClass})
-    dropReasons.EntityData.Leafs.Append("steps-removed", types.YLeaf{"StepsRemoved", dropReasons.StepsRemoved})
     dropReasons.EntityData.Leafs.Append("reserved-clock-id", types.YLeaf{"ReservedClockId", dropReasons.ReservedClockId})
+    dropReasons.EntityData.Leafs.Append("steps-removed", types.YLeaf{"StepsRemoved", dropReasons.StepsRemoved})
     dropReasons.EntityData.Leafs.Append("g8265-1-incompatible", types.YLeaf{"G82651Incompatible", dropReasons.G82651Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-1-incompatible", types.YLeaf{"G82751Incompatible", dropReasons.G82751Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-2-incompatible", types.YLeaf{"G82752Incompatible", dropReasons.G82752Incompatible})
@@ -2670,7 +2670,7 @@ type Ptp_InterfaceConfigurationErrors_InterfaceConfigurationError struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Configuration profile name, if a profile is selected. The type is string.
@@ -2992,7 +2992,7 @@ type Ptp_InterfaceForeignMasters_InterfaceForeignMaster struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Port number. The type is interface{} with range: 0..65535.
@@ -3076,6 +3076,9 @@ type Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock struct {
     // Sync messages are not being received from the master. The type is bool.
     PtsfLossSync interface{}
 
+    // The clock has clock class corresponding to QL-DNU. The type is bool.
+    IsDnu interface{}
+
     // Foreign clock information.
     ForeignClock Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_ForeignClock
 
@@ -3121,6 +3124,7 @@ func (foreignClock *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignCl
     foreignClock.EntityData.Leafs.Append("delay-asymmetry", types.YLeaf{"DelayAsymmetry", foreignClock.DelayAsymmetry})
     foreignClock.EntityData.Leafs.Append("ptsf-loss-announce", types.YLeaf{"PtsfLossAnnounce", foreignClock.PtsfLossAnnounce})
     foreignClock.EntityData.Leafs.Append("ptsf-loss-sync", types.YLeaf{"PtsfLossSync", foreignClock.PtsfLossSync})
+    foreignClock.EntityData.Leafs.Append("is-dnu", types.YLeaf{"IsDnu", foreignClock.IsDnu})
 
     foreignClock.EntityData.YListKeys = []string {}
 
@@ -3340,7 +3344,7 @@ type Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_Address str
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -3381,7 +3385,7 @@ type Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_Address_Mac
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -3412,7 +3416,7 @@ type Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_Address_Ipv
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -3584,7 +3588,7 @@ type Ptp_InterfaceInterops_InterfaceInterop struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // The PTP domain configured for this interface. The type is interface{} with
@@ -3754,7 +3758,7 @@ type Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address struct {
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -3795,7 +3799,7 @@ type Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address_MacAddress st
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -3826,7 +3830,7 @@ type Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address_Ipv6Address s
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -3926,12 +3930,8 @@ type Ptp_LocalClock struct {
     // 0..255.
     Domain interface{}
 
-    // Is the local clock in holdover?. The type is bool.
-    Holdover interface{}
-
-    // The holdover clock class (if it is valid). The type is interface{} with
-    // range: 0..255.
-    HoldoverClockClass interface{}
+    // Whether the local clock is the grandmaster. The type is bool.
+    Grandmaster interface{}
 
     // Local clock.
     ClockProperties Ptp_LocalClock_ClockProperties
@@ -3956,8 +3956,7 @@ func (localClock *Ptp_LocalClock) GetEntityData() *types.CommonEntityData {
     localClock.EntityData.Children.Append("virtual-port", types.YChild{"VirtualPort", &localClock.VirtualPort})
     localClock.EntityData.Leafs = types.NewOrderedMap()
     localClock.EntityData.Leafs.Append("domain", types.YLeaf{"Domain", localClock.Domain})
-    localClock.EntityData.Leafs.Append("holdover", types.YLeaf{"Holdover", localClock.Holdover})
-    localClock.EntityData.Leafs.Append("holdover-clock-class", types.YLeaf{"HoldoverClockClass", localClock.HoldoverClockClass})
+    localClock.EntityData.Leafs.Append("grandmaster", types.YLeaf{"Grandmaster", localClock.Grandmaster})
 
     localClock.EntityData.YListKeys = []string {}
 
@@ -4265,7 +4264,7 @@ type Ptp_InterfacePacketCounters_InterfacePacketCounter struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Packet counters.
@@ -4556,7 +4555,7 @@ type Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_Address stru
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -4597,7 +4596,7 @@ type Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_Address_MacA
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -4628,7 +4627,7 @@ type Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_Address_Ipv6
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -5152,7 +5151,7 @@ type Ptp_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Port state. The type is PtpBagPortState.
@@ -5169,12 +5168,12 @@ type Ptp_Interfaces_Interface struct {
 
     // Ipv6 address, if IPv6 encapsulation is being used. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // IPv4 address, if IPv4 encapsulation is being used. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Two step delay-request mechanism is being used. The type is bool.
@@ -5369,7 +5368,7 @@ type Ptp_Interfaces_Interface_Ipv6AddressArray struct {
     YFilter yfilter.YFilter
 
     // List of IPv6 addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Addr []interface{}
 }
 
@@ -5403,7 +5402,7 @@ type Ptp_Interfaces_Interface_Ipv4AddressArray struct {
     YFilter yfilter.YFilter
 
     // List of IPv4 addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Addr []interface{}
 }
 
@@ -5435,7 +5434,7 @@ type Ptp_Interfaces_Interface_MacAddress struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -5720,7 +5719,7 @@ type Ptp_Interfaces_Interface_MasterTable_Address struct {
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -5761,7 +5760,7 @@ type Ptp_Interfaces_Interface_MasterTable_Address_MacAddress struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -5792,7 +5791,7 @@ type Ptp_Interfaces_Interface_MasterTable_Address_Ipv6Address struct {
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -6106,7 +6105,7 @@ type Ptp_Dataset_PortDses_PortDs struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // The ID of the local-clock. The type is interface{} with range:
@@ -6677,7 +6676,7 @@ type Ptp_Grandmaster_Address struct {
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -6718,7 +6717,7 @@ type Ptp_Grandmaster_Address_MacAddress struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -6749,7 +6748,7 @@ type Ptp_Grandmaster_Address_Ipv6Address struct {
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -6816,7 +6815,7 @@ type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -6913,7 +6912,7 @@ type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address struct {
     AddressUnknown interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Ethernet MAC address.
@@ -6954,7 +6953,7 @@ type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address_MacAddress str
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Macaddr interface{}
 }
 
@@ -6985,7 +6984,7 @@ type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address_Ipv6Address st
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -7487,492 +7486,5 @@ func (configuredLeapSecond *Ptp_UtcOffsetInfo_ConfiguredLeapSecond) GetEntityDat
     configuredLeapSecond.EntityData.YListKeys = []string {}
 
     return &(configuredLeapSecond.EntityData)
-}
-
-// Ptp_Platform
-// PTP platform specific data
-type Ptp_Platform struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // PTP servo related parameters.
-    Servo Ptp_Platform_Servo
-}
-
-func (platform *Ptp_Platform) GetEntityData() *types.CommonEntityData {
-    platform.EntityData.YFilter = platform.YFilter
-    platform.EntityData.YangName = "platform"
-    platform.EntityData.BundleName = "cisco_ios_xr"
-    platform.EntityData.ParentYangName = "ptp"
-    platform.EntityData.SegmentPath = "Cisco-IOS-XR-ptp-pd-oper:platform"
-    platform.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + platform.EntityData.SegmentPath
-    platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    platform.EntityData.Children = types.NewOrderedMap()
-    platform.EntityData.Children.Append("servo", types.YChild{"Servo", &platform.Servo})
-    platform.EntityData.Leafs = types.NewOrderedMap()
-
-    platform.EntityData.YListKeys = []string {}
-
-    return &(platform.EntityData)
-}
-
-// Ptp_Platform_Servo
-// PTP servo related parameters
-type Ptp_Platform_Servo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // lock status of device. The type is interface{} with range: 0..65535.
-    LockStatus interface{}
-
-    // running status of apr. The type is bool.
-    Running interface{}
-
-    // status of device. The type is string with length: 0..50.
-    DeviceStatus interface{}
-
-    // log level of apr. The type is interface{} with range: 0..65535.
-    LogLevel interface{}
-
-    // last phase alignment accuracy. The type is interface{} with range:
-    // -9223372036854775808..9223372036854775807.
-    PhaseAccuracyLast interface{}
-
-    // number of sync timestamp received. The type is interface{} with range:
-    // 0..4294967295.
-    NumSyncTimestamp interface{}
-
-    // number of delay timestamp received. The type is interface{} with range:
-    // 0..4294967295.
-    NumDelayTimestamp interface{}
-
-    // number of setTime() been called. The type is interface{} with range:
-    // 0..4294967295.
-    NumSetTime interface{}
-
-    // number of stepTime() been called. The type is interface{} with range:
-    // 0..4294967295.
-    NumStepTime interface{}
-
-    // number of adjustFreq() been called. The type is interface{} with range:
-    // 0..4294967295.
-    NumAdjustFreq interface{}
-
-    // number of adjustFreqTime() been called. The type is interface{} with range:
-    // 0..4294967295.
-    NumAdjustFreqTime interface{}
-
-    // last input of adjustFreq. The type is interface{} with range:
-    // -2147483648..2147483647.
-    LastAdjustFreq interface{}
-
-    // last input of stepTime. The type is interface{} with range:
-    // -2147483648..2147483647.
-    LastStepTime interface{}
-
-    // number of sync timestamp discarded. The type is interface{} with range:
-    // 0..4294967295.
-    NumDiscardSyncTimestamp interface{}
-
-    // number of delay timestamp discarded. The type is interface{} with range:
-    // 0..4294967295.
-    NumDiscardDelayTimestamp interface{}
-
-    // last input flag of setTime. The type is bool.
-    FlagofLastSetTime interface{}
-
-    // Time Offset From Master. The type is interface{} with range:
-    // -9223372036854775808..9223372036854775807.
-    OffsetFromMaster interface{}
-
-    // Mean Path Delay. The type is interface{} with range:
-    // -9223372036854775808..9223372036854775807.
-    MeanPathDelay interface{}
-
-    // Servo Mode. The type is interface{} with range: -2147483648..2147483647.
-    ServoMode interface{}
-
-    // last input of setTime.
-    LastSetTime Ptp_Platform_Servo_LastSetTime
-
-    // last T1 timestamp received.
-    LastReceivedT1 Ptp_Platform_Servo_LastReceivedT1
-
-    // last T2 timestamp received.
-    LastReceivedT2 Ptp_Platform_Servo_LastReceivedT2
-
-    // last T3 timestamp received.
-    LastReceivedT3 Ptp_Platform_Servo_LastReceivedT3
-
-    // last T4 timestamp received.
-    LastReceivedT4 Ptp_Platform_Servo_LastReceivedT4
-
-    // pre T1 timestamp received.
-    PreReceivedT1 Ptp_Platform_Servo_PreReceivedT1
-
-    // pre T2 timestamp received.
-    PreReceivedT2 Ptp_Platform_Servo_PreReceivedT2
-
-    // pre T3 timestamp received.
-    PreReceivedT3 Ptp_Platform_Servo_PreReceivedT3
-
-    // pre T4 timestamp received.
-    PreReceivedT4 Ptp_Platform_Servo_PreReceivedT4
-}
-
-func (servo *Ptp_Platform_Servo) GetEntityData() *types.CommonEntityData {
-    servo.EntityData.YFilter = servo.YFilter
-    servo.EntityData.YangName = "servo"
-    servo.EntityData.BundleName = "cisco_ios_xr"
-    servo.EntityData.ParentYangName = "platform"
-    servo.EntityData.SegmentPath = "servo"
-    servo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/" + servo.EntityData.SegmentPath
-    servo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servo.EntityData.Children = types.NewOrderedMap()
-    servo.EntityData.Children.Append("last-set-time", types.YChild{"LastSetTime", &servo.LastSetTime})
-    servo.EntityData.Children.Append("last-received-t1", types.YChild{"LastReceivedT1", &servo.LastReceivedT1})
-    servo.EntityData.Children.Append("last-received-t2", types.YChild{"LastReceivedT2", &servo.LastReceivedT2})
-    servo.EntityData.Children.Append("last-received-t3", types.YChild{"LastReceivedT3", &servo.LastReceivedT3})
-    servo.EntityData.Children.Append("last-received-t4", types.YChild{"LastReceivedT4", &servo.LastReceivedT4})
-    servo.EntityData.Children.Append("pre-received-t1", types.YChild{"PreReceivedT1", &servo.PreReceivedT1})
-    servo.EntityData.Children.Append("pre-received-t2", types.YChild{"PreReceivedT2", &servo.PreReceivedT2})
-    servo.EntityData.Children.Append("pre-received-t3", types.YChild{"PreReceivedT3", &servo.PreReceivedT3})
-    servo.EntityData.Children.Append("pre-received-t4", types.YChild{"PreReceivedT4", &servo.PreReceivedT4})
-    servo.EntityData.Leafs = types.NewOrderedMap()
-    servo.EntityData.Leafs.Append("lock-status", types.YLeaf{"LockStatus", servo.LockStatus})
-    servo.EntityData.Leafs.Append("running", types.YLeaf{"Running", servo.Running})
-    servo.EntityData.Leafs.Append("device-status", types.YLeaf{"DeviceStatus", servo.DeviceStatus})
-    servo.EntityData.Leafs.Append("log-level", types.YLeaf{"LogLevel", servo.LogLevel})
-    servo.EntityData.Leafs.Append("phase-accuracy-last", types.YLeaf{"PhaseAccuracyLast", servo.PhaseAccuracyLast})
-    servo.EntityData.Leafs.Append("num-sync-timestamp", types.YLeaf{"NumSyncTimestamp", servo.NumSyncTimestamp})
-    servo.EntityData.Leafs.Append("num-delay-timestamp", types.YLeaf{"NumDelayTimestamp", servo.NumDelayTimestamp})
-    servo.EntityData.Leafs.Append("num-set-time", types.YLeaf{"NumSetTime", servo.NumSetTime})
-    servo.EntityData.Leafs.Append("num-step-time", types.YLeaf{"NumStepTime", servo.NumStepTime})
-    servo.EntityData.Leafs.Append("num-adjust-freq", types.YLeaf{"NumAdjustFreq", servo.NumAdjustFreq})
-    servo.EntityData.Leafs.Append("num-adjust-freq-time", types.YLeaf{"NumAdjustFreqTime", servo.NumAdjustFreqTime})
-    servo.EntityData.Leafs.Append("last-adjust-freq", types.YLeaf{"LastAdjustFreq", servo.LastAdjustFreq})
-    servo.EntityData.Leafs.Append("last-step-time", types.YLeaf{"LastStepTime", servo.LastStepTime})
-    servo.EntityData.Leafs.Append("num-discard-sync-timestamp", types.YLeaf{"NumDiscardSyncTimestamp", servo.NumDiscardSyncTimestamp})
-    servo.EntityData.Leafs.Append("num-discard-delay-timestamp", types.YLeaf{"NumDiscardDelayTimestamp", servo.NumDiscardDelayTimestamp})
-    servo.EntityData.Leafs.Append("flagof-last-set-time", types.YLeaf{"FlagofLastSetTime", servo.FlagofLastSetTime})
-    servo.EntityData.Leafs.Append("offset-from-master", types.YLeaf{"OffsetFromMaster", servo.OffsetFromMaster})
-    servo.EntityData.Leafs.Append("mean-path-delay", types.YLeaf{"MeanPathDelay", servo.MeanPathDelay})
-    servo.EntityData.Leafs.Append("servo-mode", types.YLeaf{"ServoMode", servo.ServoMode})
-
-    servo.EntityData.YListKeys = []string {}
-
-    return &(servo.EntityData)
-}
-
-// Ptp_Platform_Servo_LastSetTime
-// last input of setTime
-type Ptp_Platform_Servo_LastSetTime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (lastSetTime *Ptp_Platform_Servo_LastSetTime) GetEntityData() *types.CommonEntityData {
-    lastSetTime.EntityData.YFilter = lastSetTime.YFilter
-    lastSetTime.EntityData.YangName = "last-set-time"
-    lastSetTime.EntityData.BundleName = "cisco_ios_xr"
-    lastSetTime.EntityData.ParentYangName = "servo"
-    lastSetTime.EntityData.SegmentPath = "last-set-time"
-    lastSetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastSetTime.EntityData.SegmentPath
-    lastSetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastSetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastSetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastSetTime.EntityData.Children = types.NewOrderedMap()
-    lastSetTime.EntityData.Leafs = types.NewOrderedMap()
-    lastSetTime.EntityData.Leafs.Append("second", types.YLeaf{"Second", lastSetTime.Second})
-    lastSetTime.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", lastSetTime.NanoSecond})
-
-    lastSetTime.EntityData.YListKeys = []string {}
-
-    return &(lastSetTime.EntityData)
-}
-
-// Ptp_Platform_Servo_LastReceivedT1
-// last T1 timestamp received
-type Ptp_Platform_Servo_LastReceivedT1 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (lastReceivedT1 *Ptp_Platform_Servo_LastReceivedT1) GetEntityData() *types.CommonEntityData {
-    lastReceivedT1.EntityData.YFilter = lastReceivedT1.YFilter
-    lastReceivedT1.EntityData.YangName = "last-received-t1"
-    lastReceivedT1.EntityData.BundleName = "cisco_ios_xr"
-    lastReceivedT1.EntityData.ParentYangName = "servo"
-    lastReceivedT1.EntityData.SegmentPath = "last-received-t1"
-    lastReceivedT1.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT1.EntityData.SegmentPath
-    lastReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastReceivedT1.EntityData.Children = types.NewOrderedMap()
-    lastReceivedT1.EntityData.Leafs = types.NewOrderedMap()
-    lastReceivedT1.EntityData.Leafs.Append("second", types.YLeaf{"Second", lastReceivedT1.Second})
-    lastReceivedT1.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", lastReceivedT1.NanoSecond})
-
-    lastReceivedT1.EntityData.YListKeys = []string {}
-
-    return &(lastReceivedT1.EntityData)
-}
-
-// Ptp_Platform_Servo_LastReceivedT2
-// last T2 timestamp received
-type Ptp_Platform_Servo_LastReceivedT2 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (lastReceivedT2 *Ptp_Platform_Servo_LastReceivedT2) GetEntityData() *types.CommonEntityData {
-    lastReceivedT2.EntityData.YFilter = lastReceivedT2.YFilter
-    lastReceivedT2.EntityData.YangName = "last-received-t2"
-    lastReceivedT2.EntityData.BundleName = "cisco_ios_xr"
-    lastReceivedT2.EntityData.ParentYangName = "servo"
-    lastReceivedT2.EntityData.SegmentPath = "last-received-t2"
-    lastReceivedT2.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT2.EntityData.SegmentPath
-    lastReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastReceivedT2.EntityData.Children = types.NewOrderedMap()
-    lastReceivedT2.EntityData.Leafs = types.NewOrderedMap()
-    lastReceivedT2.EntityData.Leafs.Append("second", types.YLeaf{"Second", lastReceivedT2.Second})
-    lastReceivedT2.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", lastReceivedT2.NanoSecond})
-
-    lastReceivedT2.EntityData.YListKeys = []string {}
-
-    return &(lastReceivedT2.EntityData)
-}
-
-// Ptp_Platform_Servo_LastReceivedT3
-// last T3 timestamp received
-type Ptp_Platform_Servo_LastReceivedT3 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (lastReceivedT3 *Ptp_Platform_Servo_LastReceivedT3) GetEntityData() *types.CommonEntityData {
-    lastReceivedT3.EntityData.YFilter = lastReceivedT3.YFilter
-    lastReceivedT3.EntityData.YangName = "last-received-t3"
-    lastReceivedT3.EntityData.BundleName = "cisco_ios_xr"
-    lastReceivedT3.EntityData.ParentYangName = "servo"
-    lastReceivedT3.EntityData.SegmentPath = "last-received-t3"
-    lastReceivedT3.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT3.EntityData.SegmentPath
-    lastReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastReceivedT3.EntityData.Children = types.NewOrderedMap()
-    lastReceivedT3.EntityData.Leafs = types.NewOrderedMap()
-    lastReceivedT3.EntityData.Leafs.Append("second", types.YLeaf{"Second", lastReceivedT3.Second})
-    lastReceivedT3.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", lastReceivedT3.NanoSecond})
-
-    lastReceivedT3.EntityData.YListKeys = []string {}
-
-    return &(lastReceivedT3.EntityData)
-}
-
-// Ptp_Platform_Servo_LastReceivedT4
-// last T4 timestamp received
-type Ptp_Platform_Servo_LastReceivedT4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (lastReceivedT4 *Ptp_Platform_Servo_LastReceivedT4) GetEntityData() *types.CommonEntityData {
-    lastReceivedT4.EntityData.YFilter = lastReceivedT4.YFilter
-    lastReceivedT4.EntityData.YangName = "last-received-t4"
-    lastReceivedT4.EntityData.BundleName = "cisco_ios_xr"
-    lastReceivedT4.EntityData.ParentYangName = "servo"
-    lastReceivedT4.EntityData.SegmentPath = "last-received-t4"
-    lastReceivedT4.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT4.EntityData.SegmentPath
-    lastReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastReceivedT4.EntityData.Children = types.NewOrderedMap()
-    lastReceivedT4.EntityData.Leafs = types.NewOrderedMap()
-    lastReceivedT4.EntityData.Leafs.Append("second", types.YLeaf{"Second", lastReceivedT4.Second})
-    lastReceivedT4.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", lastReceivedT4.NanoSecond})
-
-    lastReceivedT4.EntityData.YListKeys = []string {}
-
-    return &(lastReceivedT4.EntityData)
-}
-
-// Ptp_Platform_Servo_PreReceivedT1
-// pre T1 timestamp received
-type Ptp_Platform_Servo_PreReceivedT1 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (preReceivedT1 *Ptp_Platform_Servo_PreReceivedT1) GetEntityData() *types.CommonEntityData {
-    preReceivedT1.EntityData.YFilter = preReceivedT1.YFilter
-    preReceivedT1.EntityData.YangName = "pre-received-t1"
-    preReceivedT1.EntityData.BundleName = "cisco_ios_xr"
-    preReceivedT1.EntityData.ParentYangName = "servo"
-    preReceivedT1.EntityData.SegmentPath = "pre-received-t1"
-    preReceivedT1.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT1.EntityData.SegmentPath
-    preReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    preReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    preReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    preReceivedT1.EntityData.Children = types.NewOrderedMap()
-    preReceivedT1.EntityData.Leafs = types.NewOrderedMap()
-    preReceivedT1.EntityData.Leafs.Append("second", types.YLeaf{"Second", preReceivedT1.Second})
-    preReceivedT1.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", preReceivedT1.NanoSecond})
-
-    preReceivedT1.EntityData.YListKeys = []string {}
-
-    return &(preReceivedT1.EntityData)
-}
-
-// Ptp_Platform_Servo_PreReceivedT2
-// pre T2 timestamp received
-type Ptp_Platform_Servo_PreReceivedT2 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (preReceivedT2 *Ptp_Platform_Servo_PreReceivedT2) GetEntityData() *types.CommonEntityData {
-    preReceivedT2.EntityData.YFilter = preReceivedT2.YFilter
-    preReceivedT2.EntityData.YangName = "pre-received-t2"
-    preReceivedT2.EntityData.BundleName = "cisco_ios_xr"
-    preReceivedT2.EntityData.ParentYangName = "servo"
-    preReceivedT2.EntityData.SegmentPath = "pre-received-t2"
-    preReceivedT2.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT2.EntityData.SegmentPath
-    preReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    preReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    preReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    preReceivedT2.EntityData.Children = types.NewOrderedMap()
-    preReceivedT2.EntityData.Leafs = types.NewOrderedMap()
-    preReceivedT2.EntityData.Leafs.Append("second", types.YLeaf{"Second", preReceivedT2.Second})
-    preReceivedT2.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", preReceivedT2.NanoSecond})
-
-    preReceivedT2.EntityData.YListKeys = []string {}
-
-    return &(preReceivedT2.EntityData)
-}
-
-// Ptp_Platform_Servo_PreReceivedT3
-// pre T3 timestamp received
-type Ptp_Platform_Servo_PreReceivedT3 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (preReceivedT3 *Ptp_Platform_Servo_PreReceivedT3) GetEntityData() *types.CommonEntityData {
-    preReceivedT3.EntityData.YFilter = preReceivedT3.YFilter
-    preReceivedT3.EntityData.YangName = "pre-received-t3"
-    preReceivedT3.EntityData.BundleName = "cisco_ios_xr"
-    preReceivedT3.EntityData.ParentYangName = "servo"
-    preReceivedT3.EntityData.SegmentPath = "pre-received-t3"
-    preReceivedT3.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT3.EntityData.SegmentPath
-    preReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    preReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    preReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    preReceivedT3.EntityData.Children = types.NewOrderedMap()
-    preReceivedT3.EntityData.Leafs = types.NewOrderedMap()
-    preReceivedT3.EntityData.Leafs.Append("second", types.YLeaf{"Second", preReceivedT3.Second})
-    preReceivedT3.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", preReceivedT3.NanoSecond})
-
-    preReceivedT3.EntityData.YListKeys = []string {}
-
-    return &(preReceivedT3.EntityData)
-}
-
-// Ptp_Platform_Servo_PreReceivedT4
-// pre T4 timestamp received
-type Ptp_Platform_Servo_PreReceivedT4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // value of second. The type is interface{} with range: 0..4294967295.
-    Second interface{}
-
-    // value of nano second. The type is interface{} with range: 0..4294967295.
-    NanoSecond interface{}
-}
-
-func (preReceivedT4 *Ptp_Platform_Servo_PreReceivedT4) GetEntityData() *types.CommonEntityData {
-    preReceivedT4.EntityData.YFilter = preReceivedT4.YFilter
-    preReceivedT4.EntityData.YangName = "pre-received-t4"
-    preReceivedT4.EntityData.BundleName = "cisco_ios_xr"
-    preReceivedT4.EntityData.ParentYangName = "servo"
-    preReceivedT4.EntityData.SegmentPath = "pre-received-t4"
-    preReceivedT4.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT4.EntityData.SegmentPath
-    preReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    preReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    preReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    preReceivedT4.EntityData.Children = types.NewOrderedMap()
-    preReceivedT4.EntityData.Leafs = types.NewOrderedMap()
-    preReceivedT4.EntityData.Leafs.Append("second", types.YLeaf{"Second", preReceivedT4.Second})
-    preReceivedT4.EntityData.Leafs.Append("nano-second", types.YLeaf{"NanoSecond", preReceivedT4.NanoSecond})
-
-    preReceivedT4.EntityData.YListKeys = []string {}
-
-    return &(preReceivedT4.EntityData)
 }
 

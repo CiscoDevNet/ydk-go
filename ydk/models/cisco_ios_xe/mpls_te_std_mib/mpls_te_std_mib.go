@@ -439,7 +439,7 @@ type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     // segments that compose this tunnel, their characteristics, and relationships
     // to each other. A value of zeroDotZero indicates that no LSP has been
     // associated with this tunnel yet. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MplsTunnelXCPointer interface{}
 
     // The signalling protocol, if any, used to setup this tunnel. The type is
@@ -484,7 +484,7 @@ type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     // zeroDotZero indicates best-effort treatment.  By having the same value of
     // this object, two or more LSPs can indicate resource sharing. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MplsTunnelResourcePointer interface{}
 
     // Specifies the instance index of the primary instance of this tunnel. More
@@ -839,7 +839,7 @@ type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     // If mplsTunnelHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero- length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelHopAsNumber interface{}
 
     // If mplsTunnelHopAddrType is set to unnum(4), then this value will contain
@@ -847,14 +847,14 @@ type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     // object should be used in conjunction with mplsTunnelHopIpAddress which
     // would contain the LSR Router ID in this case. Otherwise the agent should
     // set this object to zero-length string and the manager should ignore this.
-    // The type is string with length: 4.
+    // The type is string with length: 4..4.
     MplsTunnelHopAddrUnnum interface{}
 
     // If mplsTunnelHopAddrType is set to lspid(5), then this value will contain
     // the LSPID of a tunnel of this hop. The present tunnel being configured is
     // tunneled through this hop (using label stacking). This object is otherwise
     // insignificant and should contain a value of 0 to indicate this fact. The
-    // type is string with length: 2 | 6.
+    // type is string with length: 2..2 | 6..6.
     MplsTunnelHopLspId interface{}
 
     // Denotes whether this tunnel hop is routed in a strict or loose fashion. The
@@ -1207,13 +1207,13 @@ type MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry struct {
     // object should be used in conjunction with mplsTunnelARHopIpAddr which would
     // contain the LSR Router ID in this case. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelARHopAddrUnnum interface{}
 
     // If mplsTunnelARHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
-    // 2 | 6.
+    // 2..2 | 6..6.
     MplsTunnelARHopLspId interface{}
 }
 
@@ -1345,7 +1345,7 @@ type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     // If mplsTunnelCHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelCHopAsNumber interface{}
 
     // If mplsTunnelCHopAddrType is set to unnum(4), then this value will contain
@@ -1353,13 +1353,13 @@ type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     // in conjunction with mplsTunnelCHopIpAddr which would contain the LSR Router
     // ID in this case. Otherwise the agent should set this object to zero- length
     // string and the manager should ignore this. The type is string with length:
-    // 4.
+    // 4..4.
     MplsTunnelCHopAddrUnnum interface{}
 
     // If mplsTunnelCHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
-    // 2 | 6.
+    // 2..2 | 6..6.
     MplsTunnelCHopLspId interface{}
 
     // Denotes whether this is tunnel hop is routed in a strict or loose fashion.

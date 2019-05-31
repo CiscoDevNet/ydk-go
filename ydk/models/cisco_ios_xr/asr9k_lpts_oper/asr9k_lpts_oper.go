@@ -4,7 +4,7 @@
 // This module contains definitions
 // for the following management objects:
 //   platform-lptsp-ifib-static: ASR9K platform ifib operational
-//     data
+//     data 
 //   platform-lptsp-ifib: platform lptsp ifib
 //   platform-lptsp-ifib-np-stats: platform lptsp ifib np stats
 // 
@@ -104,7 +104,7 @@ type PlatformLptspIfibStatic_NodeStatics_NodeStatic struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // pl_pifib police data.
@@ -349,7 +349,7 @@ type PlatformLptspIfib_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // pl_pifib police data.
@@ -611,7 +611,7 @@ type PlatformLptspIfibNpStats_NodeNpStats_NodeNpStat struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // List of all NP.
@@ -681,7 +681,7 @@ type PlatformLptspIfibNpStats_NodeNpStats_NodeNpStat_Nps_Np struct {
     YListKey string
 
     // This attribute is a key. NP name. The type is string with pattern:
-    // (np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7).
+    // b'(np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7)'.
     NpName interface{}
 
     // pl_pifib police data.

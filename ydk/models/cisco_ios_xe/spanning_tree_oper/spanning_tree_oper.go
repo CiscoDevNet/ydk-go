@@ -19,54 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-spanning-tree-oper:stp-details", reflect.TypeOf(StpDetails{}))
 }
 
-// StpPortBpduguard represents Accept BPDUs on this interface
-type StpPortBpduguard string
-
-const (
-    StpPortBpduguard_stp_port_bpduguard_disable StpPortBpduguard = "stp-port-bpduguard-disable"
-
-    StpPortBpduguard_stp_port_bpduguard_enable StpPortBpduguard = "stp-port-bpduguard-enable"
-
-    StpPortBpduguard_stp_port_bpduguard_default StpPortBpduguard = "stp-port-bpduguard-default"
-)
-
-// StpLinkRole represents Type definition for the different link types
-type StpLinkRole string
-
-const (
-    StpLinkRole_stp_auto StpLinkRole = "stp-auto"
-
-    StpLinkRole_stp_point_to_point StpLinkRole = "stp-point-to-point"
-
-    StpLinkRole_stp_shared StpLinkRole = "stp-shared"
-)
-
-// StpMode represents Spanning tree operating mode
-type StpMode string
-
-const (
-    StpMode_stp_mode_pvst StpMode = "stp-mode-pvst"
-
-    StpMode_stp_mode_rapid_pvst StpMode = "stp-mode-rapid-pvst"
-
-    StpMode_stp_mode_mst StpMode = "stp-mode-mst"
-)
-
-// StpPortRole represents Spanning Tree Protocol port roles
-type StpPortRole string
-
-const (
-    StpPortRole_stp_master StpPortRole = "stp-master"
-
-    StpPortRole_stp_alternate StpPortRole = "stp-alternate"
-
-    StpPortRole_stp_root StpPortRole = "stp-root"
-
-    StpPortRole_stp_designated StpPortRole = "stp-designated"
-
-    StpPortRole_stp_backup StpPortRole = "stp-backup"
-)
-
 // StpPortState represents Spanning Tree Protocol port states
 type StpPortState string
 
@@ -86,15 +38,30 @@ const (
     StpPortState_stp_invalid StpPortState = "stp-invalid"
 )
 
-// StpPortBpdufilter represents Send or receive BPDUs on this interface
-type StpPortBpdufilter string
+// StpPortRole represents Spanning Tree Protocol port roles
+type StpPortRole string
 
 const (
-    StpPortBpdufilter_stp_port_bpdufilter_disable StpPortBpdufilter = "stp-port-bpdufilter-disable"
+    StpPortRole_stp_master StpPortRole = "stp-master"
 
-    StpPortBpdufilter_stp_port_bpdufilter_enable StpPortBpdufilter = "stp-port-bpdufilter-enable"
+    StpPortRole_stp_alternate StpPortRole = "stp-alternate"
 
-    StpPortBpdufilter_stp_port_bpdufilter_default StpPortBpdufilter = "stp-port-bpdufilter-default"
+    StpPortRole_stp_root StpPortRole = "stp-root"
+
+    StpPortRole_stp_designated StpPortRole = "stp-designated"
+
+    StpPortRole_stp_backup StpPortRole = "stp-backup"
+)
+
+// StpLinkRole represents Type definition for the different link types
+type StpLinkRole string
+
+const (
+    StpLinkRole_stp_auto StpLinkRole = "stp-auto"
+
+    StpLinkRole_stp_point_to_point StpLinkRole = "stp-point-to-point"
+
+    StpLinkRole_stp_shared StpLinkRole = "stp-shared"
 )
 
 // StpPortGuard represents Interface's spanning tree guard mode
@@ -108,6 +75,39 @@ const (
     StpPortGuard_stp_port_guard_loop StpPortGuard = "stp-port-guard-loop"
 
     StpPortGuard_stp_port_guard_none StpPortGuard = "stp-port-guard-none"
+)
+
+// StpPortBpduguard represents Accept BPDUs on this interface
+type StpPortBpduguard string
+
+const (
+    StpPortBpduguard_stp_port_bpduguard_disable StpPortBpduguard = "stp-port-bpduguard-disable"
+
+    StpPortBpduguard_stp_port_bpduguard_enable StpPortBpduguard = "stp-port-bpduguard-enable"
+
+    StpPortBpduguard_stp_port_bpduguard_default StpPortBpduguard = "stp-port-bpduguard-default"
+)
+
+// StpPortBpdufilter represents Send or receive BPDUs on this interface
+type StpPortBpdufilter string
+
+const (
+    StpPortBpdufilter_stp_port_bpdufilter_disable StpPortBpdufilter = "stp-port-bpdufilter-disable"
+
+    StpPortBpdufilter_stp_port_bpdufilter_enable StpPortBpdufilter = "stp-port-bpdufilter-enable"
+
+    StpPortBpdufilter_stp_port_bpdufilter_default StpPortBpdufilter = "stp-port-bpdufilter-default"
+)
+
+// StpMode represents Spanning tree operating mode
+type StpMode string
+
+const (
+    StpMode_stp_mode_pvst StpMode = "stp-mode-pvst"
+
+    StpMode_stp_mode_rapid_pvst StpMode = "stp-mode-rapid-pvst"
+
+    StpMode_stp_mode_mst StpMode = "stp-mode-mst"
 )
 
 // StpDetails
@@ -182,7 +182,7 @@ type StpDetails_StpDetail struct {
 
     // A unique 48-bit Universally Administered MAC Address assigned to the
     // bridge. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     BridgeAddress interface{}
 
     // The bridge priority of the root of the spanning tree, as determined by the
@@ -192,7 +192,7 @@ type StpDetails_StpDetail struct {
 
     // The bridge address of the root of the spanning tree, as determined by the
     // Spanning Tree Protocol, as executed by this node. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DesignatedRootAddress interface{}
 
     // The port number of the port which offers the lowest cost path from this
@@ -215,7 +215,7 @@ type StpDetails_StpDetail struct {
 
     // The time of the last topology change that was detected by the bridge
     // entity.The time is POSIX time UTC. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     TimeOfLastTopologyChange interface{}
 
     // List of interfaces on which STP is enable.
@@ -328,7 +328,7 @@ type StpDetails_StpDetail_Interfaces_Interface struct {
     // The bridge address of the bridge recorded as the root in the configuration
     // BPDUs transmitted by the designated bridge for the segment to which the
     // port is attached. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DesignatedRootAddress interface{}
 
     // The path cost of the Designated Port of the segment connected to this port.
@@ -342,7 +342,7 @@ type StpDetails_StpDetail_Interfaces_Interface struct {
 
     // The bridge address of the bridge that this port considers to be the
     // designated bridge for this port's segment. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DesignatedBridgeAddress interface{}
 
     // The Port priority of the port on the Designated Bridge for this port's

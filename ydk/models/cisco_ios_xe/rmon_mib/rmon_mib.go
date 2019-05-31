@@ -202,7 +202,7 @@ type RMONMIB_EtherStatsTable_EtherStatsEntry struct {
     // recommended that it invalidate this entry.  This object may not be modified
     // if the associated etherStatsStatus object is equal to valid(1). The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     EtherStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -472,7 +472,8 @@ type RMONMIB_HistoryControlTable_HistoryControlEntry struct {
     // such knowledge of the change, it is recommended that it invalidate this
     // entry.  This object may not be modified if the associated
     // historyControlStatus object is equal to valid(1). The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     HistoryControlDataSource interface{}
 
     // The requested number of discrete time intervals over which data is to be
@@ -851,7 +852,7 @@ type RMONMIB_AlarmTable_AlarmEntry struct {
     // MIB view, the probe must change the status of this alarmEntry to
     // invalid(4).  This object may not be modified if the associated alarmStatus
     // object is equal to valid(1). The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     AlarmVariable interface{}
 
     // The method of sampling the selected variable and calculating the value to
@@ -1061,7 +1062,7 @@ type RMONMIB_HostControlTable_HostControlEntry struct {
     // knowledge of the change, it is recommended that it invalidate this entry. 
     // This object may not be modified if the associated hostControlStatus object
     // is equal to valid(1). The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     HostControlDataSource interface{}
 
     // The number of hostEntries in the hostTable and the hostTimeTable associated
@@ -1750,7 +1751,8 @@ type RMONMIB_MatrixControlTable_MatrixControlEntry struct {
     // such knowledge of the change, it is recommended that it invalidate this
     // entry.  This object may not be modified if the associated
     // matrixControlStatus object is equal to valid(1). The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MatrixControlDataSource interface{}
 
     // The number of matrixSDEntries in the matrixSDTable for this interface. 

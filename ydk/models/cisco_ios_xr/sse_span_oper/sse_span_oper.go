@@ -96,7 +96,7 @@ type Ssespan_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // SPAN SFT entry.
@@ -174,14 +174,14 @@ type Ssespan_Nodes_Node_SpanMirrInfos_SpanMirrInfo struct {
     YListKey string
 
     // This attribute is a key. interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     IntfName interface{}
 
     // source IFH. The type is interface{} with range: 0..4294967295.
     SrcIfh interface{}
 
     // interface name. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     IntfNameXr interface{}
 
     // ipv4 acl flag. The type is interface{} with range: 0..4294967295.

@@ -80,7 +80,7 @@ type BGP4MIB_Bgp struct {
     BgpLocalAs interface{}
 
     // The BGP Identifier of local system. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpIdentifier interface{}
 }
 
@@ -152,12 +152,12 @@ type BGP4MIB_BgpPeerTable_BgpPeerEntry struct {
 
     // This attribute is a key. The remote IP address of this entry's BGP peer.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPeerRemoteAddr interface{}
 
     // The BGP Identifier of this entry's BGP peer. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPeerIdentifier interface{}
 
     // The BGP peer connection state. The type is BgpPeerState.
@@ -177,7 +177,7 @@ type BGP4MIB_BgpPeerTable_BgpPeerEntry struct {
 
     // The local IP address of this entry's BGP connection. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPeerLocalAddr interface{}
 
     // The local port for the TCP connection between the BGP peers. The type is
@@ -217,7 +217,7 @@ type BGP4MIB_BgpPeerTable_BgpPeerEntry struct {
     // The last error code and subcode seen by this peer on this connection.  If
     // no error has occurred, this field is zero.  Otherwise, the first byte of
     // this two byte OCTET STRING contains the error code, and the second byte
-    // contains the subcode. The type is string with length: 2.
+    // contains the subcode. The type is string with length: 2..2.
     BgpPeerLastError interface{}
 
     // The total number of times the BGP FSM transitioned into the established
@@ -241,7 +241,7 @@ type BGP4MIB_BgpPeerTable_BgpPeerEntry struct {
     // OPEN message. This value must be at lease three seconds if it is not zero
     // (0) in which case the Hold Timer has not been established with the peer,
     // or, the value of bgpPeerHoldTimeConfigured is zero (0). The type is
-    // interface{} with range: 0..None | 3..65535.
+    // interface{} with range: 0..0 | 3..65535.
     BgpPeerHoldTime interface{}
 
     // Time interval in seconds for the KeepAlive timer established with the peer.
@@ -261,7 +261,7 @@ type BGP4MIB_BgpPeerTable_BgpPeerEntry struct {
     // (bgpPeerHoldTime) with the peer. This value must not be less than three
     // seconds if it is not zero (0) in which case the Hold Time is NOT to be
     // established with the peer.  The suggested value for this timer is 90
-    // seconds. The type is interface{} with range: 0..None | 3..65535.
+    // seconds. The type is interface{} with range: 0..0 | 3..65535.
     BgpPeerHoldTimeConfigured interface{}
 
     // Time interval in seconds for the KeepAlive timer configured for this BGP
@@ -476,12 +476,12 @@ type BGP4MIB_BgpRcvdPathAttrTable_BgpPathAttrEntry struct {
 
     // This attribute is a key. The address of the destination network. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPathAttrDestNetwork interface{}
 
     // This attribute is a key. The IP address of the peer where the path
     // information was learned. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPathAttrPeer interface{}
 
     // The ultimate origin of the path information. The type is BgpPathAttrOrigin.
@@ -497,7 +497,7 @@ type BGP4MIB_BgpRcvdPathAttrTable_BgpPathAttrEntry struct {
 
     // The address of the border router that should be used for the destination
     // network. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BgpPathAttrNextHop interface{}
 
     // The optional inter-AS metric.  If this attribute has not been provided for
@@ -591,7 +591,7 @@ type BGP4MIB_Bgp4PathAttrTable_Bgp4PathAttrEntry struct {
     // the prefix with length specified by bgp4PathAttrIpAddrPrefixLen. Any bits
     // beyond the length specified by bgp4PathAttrIpAddrPrefixLen are zeroed. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Bgp4PathAttrIpAddrPrefix interface{}
 
     // This attribute is a key. Length in bits of the IP address prefix in the
@@ -601,7 +601,7 @@ type BGP4MIB_Bgp4PathAttrTable_Bgp4PathAttrEntry struct {
 
     // This attribute is a key. The IP address of the peer where the path
     // information was learned. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Bgp4PathAttrPeer interface{}
 
     // The ultimate origin of the path information. The type is
@@ -623,7 +623,7 @@ type BGP4MIB_Bgp4PathAttrTable_Bgp4PathAttrEntry struct {
 
     // The address of the border router that should be used for the destination
     // network. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Bgp4PathAttrNextHop interface{}
 
     // This metric is used to discriminate between multiple exit points to an
@@ -648,7 +648,7 @@ type BGP4MIB_Bgp4PathAttrTable_Bgp4PathAttrEntry struct {
     // The IP address of the last BGP4 speaker that performed route aggregation. 
     // A value of 0.0.0.0 indicates the absence of this attribute. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Bgp4PathAttrAggregatorAddr interface{}
 
     // The degree of preference calculated by the receiving BGP4 speaker for an

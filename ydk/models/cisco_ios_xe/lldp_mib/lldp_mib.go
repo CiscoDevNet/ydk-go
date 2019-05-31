@@ -22,25 +22,6 @@ func init() {
     ydk.RegisterEntity("LLDP-MIB:LLDP-MIB", reflect.TypeOf(LLDPMIB{}))
 }
 
-// LldpPortIdSubtype represents based on a value locally assigned.
-type LldpPortIdSubtype string
-
-const (
-    LldpPortIdSubtype_interfaceAlias LldpPortIdSubtype = "interfaceAlias"
-
-    LldpPortIdSubtype_portComponent LldpPortIdSubtype = "portComponent"
-
-    LldpPortIdSubtype_macAddress LldpPortIdSubtype = "macAddress"
-
-    LldpPortIdSubtype_networkAddress LldpPortIdSubtype = "networkAddress"
-
-    LldpPortIdSubtype_interfaceName LldpPortIdSubtype = "interfaceName"
-
-    LldpPortIdSubtype_agentCircuitId LldpPortIdSubtype = "agentCircuitId"
-
-    LldpPortIdSubtype_local LldpPortIdSubtype = "local"
-)
-
 // LldpChassisIdSubtype represents based on a locally defined value.
 type LldpChassisIdSubtype string
 
@@ -58,6 +39,25 @@ const (
     LldpChassisIdSubtype_interfaceName LldpChassisIdSubtype = "interfaceName"
 
     LldpChassisIdSubtype_local LldpChassisIdSubtype = "local"
+)
+
+// LldpPortIdSubtype represents based on a value locally assigned.
+type LldpPortIdSubtype string
+
+const (
+    LldpPortIdSubtype_interfaceAlias LldpPortIdSubtype = "interfaceAlias"
+
+    LldpPortIdSubtype_portComponent LldpPortIdSubtype = "portComponent"
+
+    LldpPortIdSubtype_macAddress LldpPortIdSubtype = "macAddress"
+
+    LldpPortIdSubtype_networkAddress LldpPortIdSubtype = "networkAddress"
+
+    LldpPortIdSubtype_interfaceName LldpPortIdSubtype = "interfaceName"
+
+    LldpPortIdSubtype_agentCircuitId LldpPortIdSubtype = "agentCircuitId"
+
+    LldpPortIdSubtype_local LldpPortIdSubtype = "local"
 )
 
 // LldpManAddrIfSubtype represents identifier based on the system port numbering convention.
@@ -969,7 +969,7 @@ type LLDPMIB_LldpLocManAddrTable_LldpLocManAddrEntry struct {
     // The OID value used to identify the type of hardware component or protocol
     // entity associated with the management address advertised by the local
     // system agent. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     LldpLocManAddrOID interface{}
 
     // A set of ports that are identified by a PortList, in which each port is
@@ -1287,7 +1287,7 @@ type LLDPMIB_LldpRemManAddrTable_LldpRemManAddrEntry struct {
     // The OID value used to identify the type of hardware component or protocol
     // entity associated with the management address advertised by the remote
     // system agent. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     LldpRemManAddrOID interface{}
 }
 
@@ -1512,7 +1512,7 @@ type LLDPMIB_LldpRemOrgDefInfoTable_LldpRemOrgDefInfoEntry struct {
     // This attribute is a key. The Organizationally Unique Identifier (OUI), as
     // defined in IEEE std 802-2001, is a 24 bit (three octets) globally unique
     // assigned number referenced by various standards, of the information
-    // received from the remote system. The type is string with length: 3.
+    // received from the remote system. The type is string with length: 3..3.
     LldpRemOrgDefInfoOUI interface{}
 
     // This attribute is a key. The integer value used to identify the subtype of

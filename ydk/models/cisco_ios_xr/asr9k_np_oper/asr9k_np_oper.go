@@ -95,7 +95,7 @@ type HardwareModuleNp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. node number. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // List of all NP.
@@ -164,8 +164,11 @@ type HardwareModuleNp_Nodes_Node_Nps_Np struct {
     YListKey string
 
     // This attribute is a key. NP name. The type is string with pattern:
-    // (np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7).
+    // b'(np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7)'.
     NpName interface{}
+
+    // Hardware np uidb.
+    NpUidb HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb
 
     // prm channel load info.
     ChnLoad HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad
@@ -175,6 +178,12 @@ type HardwareModuleNp_Nodes_Node_Nps_Np struct {
 
     // prm tcam summary info.
     TcamSummary HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary
+
+    // L2rm Hardware Resources.
+    L2rmHwResource HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource
+
+    // Hardware Profile.
+    Profile HardwareModuleNp_Nodes_Node_Nps_Np_Profile
 
     // prm counters info.
     Counters HardwareModuleNp_Nodes_Node_Nps_Np_Counters
@@ -198,9 +207,12 @@ func (np *HardwareModuleNp_Nodes_Node_Nps_Np) GetEntityData() *types.CommonEntit
     np.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     np.EntityData.Children = types.NewOrderedMap()
+    np.EntityData.Children.Append("np-uidb", types.YChild{"NpUidb", &np.NpUidb})
     np.EntityData.Children.Append("chn-load", types.YChild{"ChnLoad", &np.ChnLoad})
     np.EntityData.Children.Append("load-utilization", types.YChild{"LoadUtilization", &np.LoadUtilization})
     np.EntityData.Children.Append("tcam-summary", types.YChild{"TcamSummary", &np.TcamSummary})
+    np.EntityData.Children.Append("l2rm-hw-resource", types.YChild{"L2rmHwResource", &np.L2rmHwResource})
+    np.EntityData.Children.Append("profile", types.YChild{"Profile", &np.Profile})
     np.EntityData.Children.Append("counters", types.YChild{"Counters", &np.Counters})
     np.EntityData.Children.Append("fast-drop", types.YChild{"FastDrop", &np.FastDrop})
     np.EntityData.Children.Append("efd", types.YChild{"Efd", &np.Efd})
@@ -210,6 +222,84 @@ func (np *HardwareModuleNp_Nodes_Node_Nps_Np) GetEntityData() *types.CommonEntit
     np.EntityData.YListKeys = []string {"NpName"}
 
     return &(np.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb
+// Hardware np uidb
+type HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Array of NP UIDB Index. The type is slice of
+    // HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb_UidbIndex.
+    UidbIndex []*HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb_UidbIndex
+}
+
+func (npUidb *HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb) GetEntityData() *types.CommonEntityData {
+    npUidb.EntityData.YFilter = npUidb.YFilter
+    npUidb.EntityData.YangName = "np-uidb"
+    npUidb.EntityData.BundleName = "cisco_ios_xr"
+    npUidb.EntityData.ParentYangName = "np"
+    npUidb.EntityData.SegmentPath = "np-uidb"
+    npUidb.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/" + npUidb.EntityData.SegmentPath
+    npUidb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    npUidb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    npUidb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    npUidb.EntityData.Children = types.NewOrderedMap()
+    npUidb.EntityData.Children.Append("uidb-index", types.YChild{"UidbIndex", nil})
+    for i := range npUidb.UidbIndex {
+        types.SetYListKey(npUidb.UidbIndex[i], i)
+        npUidb.EntityData.Children.Append(types.GetSegmentPath(npUidb.UidbIndex[i]), types.YChild{"UidbIndex", npUidb.UidbIndex[i]})
+    }
+    npUidb.EntityData.Leafs = types.NewOrderedMap()
+
+    npUidb.EntityData.YListKeys = []string {}
+
+    return &(npUidb.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb_UidbIndex
+// Array of NP UIDB Index
+type HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb_UidbIndex struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Interface name. The type is string.
+    InterfaceName interface{}
+
+    // Interface handle. The type is interface{} with range: 0..4294967295.
+    InterfaceHandle interface{}
+
+    // UIDB Index. The type is interface{} with range: 0..65535.
+    Index interface{}
+
+    // Interface type. The type is string.
+    InterfaceType interface{}
+}
+
+func (uidbIndex *HardwareModuleNp_Nodes_Node_Nps_Np_NpUidb_UidbIndex) GetEntityData() *types.CommonEntityData {
+    uidbIndex.EntityData.YFilter = uidbIndex.YFilter
+    uidbIndex.EntityData.YangName = "uidb-index"
+    uidbIndex.EntityData.BundleName = "cisco_ios_xr"
+    uidbIndex.EntityData.ParentYangName = "np-uidb"
+    uidbIndex.EntityData.SegmentPath = "uidb-index" + types.AddNoKeyToken(uidbIndex)
+    uidbIndex.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/np-uidb/" + uidbIndex.EntityData.SegmentPath
+    uidbIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    uidbIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    uidbIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    uidbIndex.EntityData.Children = types.NewOrderedMap()
+    uidbIndex.EntityData.Leafs = types.NewOrderedMap()
+    uidbIndex.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", uidbIndex.InterfaceName})
+    uidbIndex.EntityData.Leafs.Append("interface-handle", types.YLeaf{"InterfaceHandle", uidbIndex.InterfaceHandle})
+    uidbIndex.EntityData.Leafs.Append("index", types.YLeaf{"Index", uidbIndex.Index})
+    uidbIndex.EntityData.Leafs.Append("interface-type", types.YLeaf{"InterfaceType", uidbIndex.InterfaceType})
+
+    uidbIndex.EntityData.YListKeys = []string {}
+
+    return &(uidbIndex.EntityData)
 }
 
 // HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad
@@ -263,11 +353,11 @@ type HardwareModuleNp_Nodes_Node_Nps_Np_ChnLoad_NpChnLoad struct {
     // Peak RFD Usage. The type is interface{} with range: 0..4294967295.
     PeakRfdUsage interface{}
 
-    // Average of garanteed RFD usage. The type is interface{} with range:
+    // Average of guaranteed RFD usage. The type is interface{} with range:
     // 0..4294967295.
     AvgGuarRfdUsage interface{}
 
-    // Peak of garanteed RFD usage. The type is interface{} with range:
+    // Peak of guaranteed RFD usage. The type is interface{} with range:
     // 0..4294967295.
     PeakGuarRfdUsage interface{}
 
@@ -1988,6 +2078,200 @@ func (tcamLtL2 *HardwareModuleNp_Nodes_Node_Nps_Np_TcamSummary_TcamInfo_TcamLtL2
     tcamLtL2.EntityData.YListKeys = []string {}
 
     return &(tcamLtL2.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource
+// L2rm Hardware Resources
+type HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ppt allocated. The type is interface{} with range: 0..18446744073709551615.
+    PptAlloc interface{}
+
+    // ppt write. The type is interface{} with range: 0..18446744073709551615.
+    PptWrite interface{}
+
+    // ppt free. The type is interface{} with range: 0..18446744073709551615.
+    PptFree interface{}
+
+    // resources per hw blk.
+    HwResource HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource
+}
+
+func (l2rmHwResource *HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource) GetEntityData() *types.CommonEntityData {
+    l2rmHwResource.EntityData.YFilter = l2rmHwResource.YFilter
+    l2rmHwResource.EntityData.YangName = "l2rm-hw-resource"
+    l2rmHwResource.EntityData.BundleName = "cisco_ios_xr"
+    l2rmHwResource.EntityData.ParentYangName = "np"
+    l2rmHwResource.EntityData.SegmentPath = "l2rm-hw-resource"
+    l2rmHwResource.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/" + l2rmHwResource.EntityData.SegmentPath
+    l2rmHwResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2rmHwResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2rmHwResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    l2rmHwResource.EntityData.Children = types.NewOrderedMap()
+    l2rmHwResource.EntityData.Children.Append("hw-resource", types.YChild{"HwResource", &l2rmHwResource.HwResource})
+    l2rmHwResource.EntityData.Leafs = types.NewOrderedMap()
+    l2rmHwResource.EntityData.Leafs.Append("ppt-alloc", types.YLeaf{"PptAlloc", l2rmHwResource.PptAlloc})
+    l2rmHwResource.EntityData.Leafs.Append("ppt-write", types.YLeaf{"PptWrite", l2rmHwResource.PptWrite})
+    l2rmHwResource.EntityData.Leafs.Append("ppt-free", types.YLeaf{"PptFree", l2rmHwResource.PptFree})
+
+    l2rmHwResource.EntityData.YListKeys = []string {}
+
+    return &(l2rmHwResource.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource
+// resources per hw blk
+type HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Hash Block hw blk. The type is slice of
+    // HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_HashBlock.
+    HashBlock []*HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_HashBlock
+
+    // TCAM partition per hw blk. The type is slice of
+    // HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_TcamPartition.
+    TcamPartition []*HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_TcamPartition
+}
+
+func (hwResource *HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource) GetEntityData() *types.CommonEntityData {
+    hwResource.EntityData.YFilter = hwResource.YFilter
+    hwResource.EntityData.YangName = "hw-resource"
+    hwResource.EntityData.BundleName = "cisco_ios_xr"
+    hwResource.EntityData.ParentYangName = "l2rm-hw-resource"
+    hwResource.EntityData.SegmentPath = "hw-resource"
+    hwResource.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/l2rm-hw-resource/" + hwResource.EntityData.SegmentPath
+    hwResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hwResource.EntityData.Children = types.NewOrderedMap()
+    hwResource.EntityData.Children.Append("hash-block", types.YChild{"HashBlock", nil})
+    for i := range hwResource.HashBlock {
+        types.SetYListKey(hwResource.HashBlock[i], i)
+        hwResource.EntityData.Children.Append(types.GetSegmentPath(hwResource.HashBlock[i]), types.YChild{"HashBlock", hwResource.HashBlock[i]})
+    }
+    hwResource.EntityData.Children.Append("tcam-partition", types.YChild{"TcamPartition", nil})
+    for i := range hwResource.TcamPartition {
+        types.SetYListKey(hwResource.TcamPartition[i], i)
+        hwResource.EntityData.Children.Append(types.GetSegmentPath(hwResource.TcamPartition[i]), types.YChild{"TcamPartition", hwResource.TcamPartition[i]})
+    }
+    hwResource.EntityData.Leafs = types.NewOrderedMap()
+
+    hwResource.EntityData.YListKeys = []string {}
+
+    return &(hwResource.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_HashBlock
+// Hash Block hw blk
+type HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_HashBlock struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // hash block. The type is interface{} with range: 0..4294967295.
+    HashBlk interface{}
+
+    // total. The type is interface{} with range: 0..4294967295.
+    Total interface{}
+
+    // free. The type is interface{} with range: 0..4294967295.
+    Free interface{}
+}
+
+func (hashBlock *HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_HashBlock) GetEntityData() *types.CommonEntityData {
+    hashBlock.EntityData.YFilter = hashBlock.YFilter
+    hashBlock.EntityData.YangName = "hash-block"
+    hashBlock.EntityData.BundleName = "cisco_ios_xr"
+    hashBlock.EntityData.ParentYangName = "hw-resource"
+    hashBlock.EntityData.SegmentPath = "hash-block" + types.AddNoKeyToken(hashBlock)
+    hashBlock.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/l2rm-hw-resource/hw-resource/" + hashBlock.EntityData.SegmentPath
+    hashBlock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hashBlock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hashBlock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hashBlock.EntityData.Children = types.NewOrderedMap()
+    hashBlock.EntityData.Leafs = types.NewOrderedMap()
+    hashBlock.EntityData.Leafs.Append("hash-blk", types.YLeaf{"HashBlk", hashBlock.HashBlk})
+    hashBlock.EntityData.Leafs.Append("total", types.YLeaf{"Total", hashBlock.Total})
+    hashBlock.EntityData.Leafs.Append("free", types.YLeaf{"Free", hashBlock.Free})
+
+    hashBlock.EntityData.YListKeys = []string {}
+
+    return &(hashBlock.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_TcamPartition
+// TCAM partition per hw blk
+type HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_TcamPartition struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // tcam par. The type is interface{} with range: 0..4294967295.
+    TcamPar interface{}
+
+    // total. The type is interface{} with range: 0..4294967295.
+    Total interface{}
+
+    // free. The type is interface{} with range: 0..4294967295.
+    Free interface{}
+}
+
+func (tcamPartition *HardwareModuleNp_Nodes_Node_Nps_Np_L2rmHwResource_HwResource_TcamPartition) GetEntityData() *types.CommonEntityData {
+    tcamPartition.EntityData.YFilter = tcamPartition.YFilter
+    tcamPartition.EntityData.YangName = "tcam-partition"
+    tcamPartition.EntityData.BundleName = "cisco_ios_xr"
+    tcamPartition.EntityData.ParentYangName = "hw-resource"
+    tcamPartition.EntityData.SegmentPath = "tcam-partition" + types.AddNoKeyToken(tcamPartition)
+    tcamPartition.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/l2rm-hw-resource/hw-resource/" + tcamPartition.EntityData.SegmentPath
+    tcamPartition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tcamPartition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tcamPartition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tcamPartition.EntityData.Children = types.NewOrderedMap()
+    tcamPartition.EntityData.Leafs = types.NewOrderedMap()
+    tcamPartition.EntityData.Leafs.Append("tcam-par", types.YLeaf{"TcamPar", tcamPartition.TcamPar})
+    tcamPartition.EntityData.Leafs.Append("total", types.YLeaf{"Total", tcamPartition.Total})
+    tcamPartition.EntityData.Leafs.Append("free", types.YLeaf{"Free", tcamPartition.Free})
+
+    tcamPartition.EntityData.YListKeys = []string {}
+
+    return &(tcamPartition.EntityData)
+}
+
+// HardwareModuleNp_Nodes_Node_Nps_Np_Profile
+// Hardware Profile
+type HardwareModuleNp_Nodes_Node_Nps_Np_Profile struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Scale. The type is string.
+    Scale interface{}
+}
+
+func (profile *HardwareModuleNp_Nodes_Node_Nps_Np_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "np"
+    profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/node/nps/np/" + profile.EntityData.SegmentPath
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    profile.EntityData.Children = types.NewOrderedMap()
+    profile.EntityData.Leafs = types.NewOrderedMap()
+    profile.EntityData.Leafs.Append("scale", types.YLeaf{"Scale", profile.Scale})
+
+    profile.EntityData.YListKeys = []string {}
+
+    return &(profile.EntityData)
 }
 
 // HardwareModuleNp_Nodes_Node_Nps_Np_Counters

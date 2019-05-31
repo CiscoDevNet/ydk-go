@@ -2050,7 +2050,7 @@ type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
-    // type is interface{} with range: 0..63 | 255..None.
+    // type is interface{} with range: 0..63 | 255..255.
     RttMonEchoAdminLSPReplyDscp interface{}
 
     // This object specifies if the explicit-null label is to be added to LSP echo
@@ -2158,13 +2158,13 @@ type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     // This object indicates the MAC address of the target device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminTargetMacAddress and
     // rttMonEchoAdminTargetMPID may not be used in conjunction. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RttMonEchoAdminTargetMacAddress interface{}
 
     // This object indicates the MAC address of the source device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminSourceMacAddress and
     // rttMonEchoAdminSourceMPID may not be used in conjunction. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     RttMonEchoAdminSourceMacAddress interface{}
 
     // This object indicates the source maintenance point ID.  It is only
@@ -3294,7 +3294,7 @@ type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry struct {
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
-    // type is interface{} with range: 0..63 | 255..None.
+    // type is interface{} with range: 0..63 | 255..255.
     RttMplsVpnMonTypeLSPReplyDscp interface{}
 
     // This object represents the number of concurrent path discovery requests
@@ -5087,14 +5087,14 @@ type CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry struct {
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
-    // interface{} with range: 0..None | 100..500.
+    // interface{} with range: 0..0 | 100..500.
     RttMonJitterStatsMinOfMOS interface{}
 
     // The maximum of all MOS values for the jitter operations in hunderds.  This
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
-    // interface{} with range: 0..None | 100..500.
+    // interface{} with range: 0..0 | 100..500.
     RttMonJitterStatsMaxOfMOS interface{}
 
     // The minimum of all ICPIF values for the jitter operations.  This value will
@@ -6060,7 +6060,7 @@ type CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry stru
     // be 0 if   - rttMonEchoAdminCodecType of the operation is notApplicable   -
     // the operation is not started   - the operation is started but failed This
     // value will be 1 for packet loss of 10% or more. The type is interface{}
-    // with range: 0..None | 100..500.
+    // with range: 0..0 | 100..500.
     RttMonLatestJitterOperMOS interface{}
 
     // Represents ICPIF value for the latest jitter operation.  This value will be

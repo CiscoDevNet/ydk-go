@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   platform-qos: QoS ASR9K platform operational data
+//   platform-qos: QoS ASR9K platform operational data 
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
@@ -23,6 +23,46 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-qos-oper platform-qos}", reflect.TypeOf(PlatformQos{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-qos-oper:platform-qos", reflect.TypeOf(PlatformQos{}))
 }
+
+// ShapeProfiletypeV2 represents SHAPE profile type
+type ShapeProfiletypeV2 string
+
+const (
+    // Shape Profile Type Invalid
+    ShapeProfiletypeV2_invalid ShapeProfiletypeV2 = "invalid"
+
+    // Shape Profile Type Always
+    ShapeProfiletypeV2_always ShapeProfiletypeV2 = "always"
+
+    // Shape Profile Type Never
+    ShapeProfiletypeV2_never ShapeProfiletypeV2 = "never"
+
+    // Shape Profile Type Explicit
+    ShapeProfiletypeV2_explicit ShapeProfiletypeV2 = "explicit"
+
+    // Shape Profile Type Scale
+    ShapeProfiletypeV2_scale ShapeProfiletypeV2 = "scale"
+
+    // Shape Profile Type Grid
+    ShapeProfiletypeV2_grid ShapeProfiletypeV2 = "grid"
+)
+
+// Action represents Action type
+type Action string
+
+const (
+    // Police action transmit
+    Action_police_transmit Action = "police-transmit"
+
+    // Police action set transmit
+    Action_police_set_transmit Action = "police-set-transmit"
+
+    // Police action drop
+    Action_police_drop Action = "police-drop"
+
+    // Police action unknown
+    Action_police_unknown Action = "police-unknown"
+)
 
 // ActionOpcode represents Action opcode
 type ActionOpcode string
@@ -128,106 +168,6 @@ const (
     // Internal dummy token bucket for coupled-policer
     // child
     TbAlgorithm_dummy TbAlgorithm = "dummy"
-)
-
-// PolicyParamUnit represents Policy param unit
-type PolicyParamUnit string
-
-const (
-    // policy param unit invalid
-    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
-
-    // policy param unit bytes
-    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
-
-    // policy param unit kbytes
-    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
-
-    // policy param unit mbytes
-    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
-
-    // policy param unit gbytes
-    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
-
-    // policy param unit bitsps
-    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
-
-    // policy param unit kbitsps
-    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
-
-    // policy param unit mbitsps
-    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
-
-    // policy param unit gbitsps
-    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
-
-    // policy param unit cells ps
-    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
-
-    // policy param unit packets ps
-    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
-
-    // policy param unit us
-    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
-
-    // policy param unit ms
-    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
-
-    // policy param unit seconds
-    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
-
-    // policy param unit packets
-    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
-
-    // policy param unit cells
-    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
-
-    // policy param unit percent
-    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
-
-    // policy param unit per thousand
-    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
-
-    // policy param unit per million
-    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
-
-    // policy param unit hz
-    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
-
-    // policy param unit khz
-    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
-
-    // policy param unit mhz
-    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
-
-    // policy param unit ratio
-    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
-
-    // policy param unit max
-    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
-)
-
-// ShapeProfiletypeV2 represents SHAPE profile type
-type ShapeProfiletypeV2 string
-
-const (
-    // Shape Profile Type Invalid
-    ShapeProfiletypeV2_invalid ShapeProfiletypeV2 = "invalid"
-
-    // Shape Profile Type Always
-    ShapeProfiletypeV2_always ShapeProfiletypeV2 = "always"
-
-    // Shape Profile Type Never
-    ShapeProfiletypeV2_never ShapeProfiletypeV2 = "never"
-
-    // Shape Profile Type Explicit
-    ShapeProfiletypeV2_explicit ShapeProfiletypeV2 = "explicit"
-
-    // Shape Profile Type Scale
-    ShapeProfiletypeV2_scale ShapeProfiletypeV2 = "scale"
-
-    // Shape Profile Type Grid
-    ShapeProfiletypeV2_grid ShapeProfiletypeV2 = "grid"
 )
 
 // Queue represents Queue type
@@ -350,58 +290,6 @@ const (
     Queue_unknown_priority Queue = "unknown-priority"
 )
 
-// Wred1 represents Wred1
-type Wred1 string
-
-const (
-    // wred cos cmd
-    Wred1_wred_cos_cmd Wred1 = "wred-cos-cmd"
-
-    // wred dscp cmd
-    Wred1_wred_dscp_cmd Wred1 = "wred-dscp-cmd"
-
-    // wred precedence cmd
-    Wred1_wred_precedence_cmd Wred1 = "wred-precedence-cmd"
-
-    // wred discard class cmd
-    Wred1_wred_discard_class_cmd Wred1 = "wred-discard-class-cmd"
-
-    // wred mpls exp cmd
-    Wred1_wred_mpls_exp_cmd Wred1 = "wred-mpls-exp-cmd"
-
-    // red with user min max
-    Wred1_red_with_user_min_max Wred1 = "red-with-user-min-max"
-
-    // red with default min max
-    Wred1_red_with_default_min_max Wred1 = "red-with-default-min-max"
-
-    // wred dei cmd
-    Wred1_wred_dei_cmd Wred1 = "wred-dei-cmd"
-
-    // wred ecn cmd
-    Wred1_wred_ecn_cmd Wred1 = "wred-ecn-cmd"
-
-    // wred invalid cmd
-    Wred1_wred_invalid_cmd Wred1 = "wred-invalid-cmd"
-)
-
-// Action represents Action type
-type Action string
-
-const (
-    // Police action transmit
-    Action_police_transmit Action = "police-transmit"
-
-    // Police action set transmit
-    Action_police_set_transmit Action = "police-set-transmit"
-
-    // Police action drop
-    Action_police_drop Action = "police-drop"
-
-    // Police action unknown
-    Action_police_unknown Action = "police-unknown"
-)
-
 // QosUnit represents QoS parameter unit
 type QosUnit string
 
@@ -456,6 +344,118 @@ const (
 
     // Ratio
     QosUnit_ratio QosUnit = "ratio"
+)
+
+// Wred1 represents Wred1
+type Wred1 string
+
+const (
+    // wred cos cmd
+    Wred1_wred_cos_cmd Wred1 = "wred-cos-cmd"
+
+    // wred dscp cmd
+    Wred1_wred_dscp_cmd Wred1 = "wred-dscp-cmd"
+
+    // wred precedence cmd
+    Wred1_wred_precedence_cmd Wred1 = "wred-precedence-cmd"
+
+    // wred discard class cmd
+    Wred1_wred_discard_class_cmd Wred1 = "wred-discard-class-cmd"
+
+    // wred mpls exp cmd
+    Wred1_wred_mpls_exp_cmd Wred1 = "wred-mpls-exp-cmd"
+
+    // red with user min max
+    Wred1_red_with_user_min_max Wred1 = "red-with-user-min-max"
+
+    // red with default min max
+    Wred1_red_with_default_min_max Wred1 = "red-with-default-min-max"
+
+    // wred dei cmd
+    Wred1_wred_dei_cmd Wred1 = "wred-dei-cmd"
+
+    // wred ecn cmd
+    Wred1_wred_ecn_cmd Wred1 = "wred-ecn-cmd"
+
+    // wred invalid cmd
+    Wred1_wred_invalid_cmd Wred1 = "wred-invalid-cmd"
+)
+
+// PolicyParamUnit represents Policy param unit
+type PolicyParamUnit string
+
+const (
+    // policy param unit invalid
+    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
+
+    // policy param unit bytes
+    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
+
+    // policy param unit kbytes
+    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
+
+    // policy param unit mbytes
+    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
+
+    // policy param unit gbytes
+    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
+
+    // policy param unit bitsps
+    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
+
+    // policy param unit kbitsps
+    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
+
+    // policy param unit mbitsps
+    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
+
+    // policy param unit gbitsps
+    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
+
+    // policy param unit cells ps
+    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
+
+    // policy param unit packets ps
+    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
+
+    // policy param unit us
+    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
+
+    // policy param unit ms
+    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
+
+    // policy param unit seconds
+    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
+
+    // policy param unit packets
+    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
+
+    // policy param unit cells
+    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
+
+    // policy param unit percent
+    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
+
+    // policy param unit per thousand
+    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
+
+    // policy param unit per million
+    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
+
+    // policy param unit hz
+    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
+
+    // policy param unit khz
+    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
+
+    // policy param unit mhz
+    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
+
+    // policy param unit ratio
+    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
+
+    // policy param unit max
+    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
 )
 
 // CacState represents CAC/UBRL class states
@@ -559,7 +559,7 @@ type PlatformQos_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // QoS system capability.
@@ -722,7 +722,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction ingress.
@@ -9202,7 +9202,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction output.
@@ -9306,7 +9306,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleOutput_Member
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -13579,7 +13579,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_BundleInput_MemberI
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // QoS policy direction egress.

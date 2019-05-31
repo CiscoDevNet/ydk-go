@@ -24,137 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-alarmgr-server-oper:alarms", reflect.TypeOf(Alarms{}))
 }
 
-// TimingBucket represents Timing bucket
-type TimingBucket string
-
-const (
-    // Bucket Type not applicable
-    TimingBucket_not_specified TimingBucket = "not-specified"
-
-    // Fifteen minute time bucket
-    TimingBucket_fifteen_min TimingBucket = "fifteen-min"
-
-    // One day time bucket
-    TimingBucket_one_day TimingBucket = "one-day"
-)
-
-// AlarmSeverity represents Alarm severity
-type AlarmSeverity string
-
-const (
-    // Unknown severity level
-    AlarmSeverity_unknown AlarmSeverity = "unknown"
-
-    // Severity level not reported will not raise an
-    // alarm
-    AlarmSeverity_not_reported AlarmSeverity = "not-reported"
-
-    // Severity level of info to cater to events such
-    // as Performance TCAS
-    AlarmSeverity_not_alarmed AlarmSeverity = "not-alarmed"
-
-    // Severity level of minor fault not traffic
-    // affecting
-    AlarmSeverity_minor AlarmSeverity = "minor"
-
-    // Severity level of major fault leading to
-    // service disruption
-    AlarmSeverity_major AlarmSeverity = "major"
-
-    // Severity level of critical leading to drops
-    // ,route loss, loss of service etc.
-    AlarmSeverity_critical AlarmSeverity = "critical"
-
-    // Last severity level
-    AlarmSeverity_severity_last AlarmSeverity = "severity-last"
-)
-
-// AlarmDirection represents Alarm direction
-type AlarmDirection string
-
-const (
-    // Direction Not Specified
-    AlarmDirection_not_specified AlarmDirection = "not-specified"
-
-    // Direction Send
-    AlarmDirection_send AlarmDirection = "send"
-
-    // Direction Receive
-    AlarmDirection_receive AlarmDirection = "receive"
-
-    // Direction Send and Receive
-    AlarmDirection_send_receive AlarmDirection = "send-receive"
-)
-
-// AlarmStatus represents Alarm status
-type AlarmStatus string
-
-const (
-    // Unknown alarm status level
-    AlarmStatus_unknown AlarmStatus = "unknown"
-
-    // Status of active alarm that is SET by the
-    // controller
-    AlarmStatus_set AlarmStatus = "set"
-
-    // Status of cleared alarm that is done by the
-    // controller
-    AlarmStatus_clear AlarmStatus = "clear"
-
-    // Status of suppressed alarm that is done by the
-    // controller
-    AlarmStatus_suppress AlarmStatus = "suppress"
-
-    // Last status level
-    AlarmStatus_last AlarmStatus = "last"
-)
-
-// AlarmServiceAffecting represents Alarm service affecting
-type AlarmServiceAffecting string
-
-const (
-    // Unknown whether alarm severity is service
-    // affecting
-    AlarmServiceAffecting_unknown AlarmServiceAffecting = "unknown"
-
-    // Alarm severity is not service affecting
-    AlarmServiceAffecting_not_service_affecting AlarmServiceAffecting = "not-service-affecting"
-
-    // Alarm severity is service affecting
-    AlarmServiceAffecting_service_affecting AlarmServiceAffecting = "service-affecting"
-)
-
-// AlarmNotificationSrc represents Alarm notification src
-type AlarmNotificationSrc string
-
-const (
-    // Notification src not specified
-    AlarmNotificationSrc_not_specified AlarmNotificationSrc = "not-specified"
-
-    // Notification src near end
-    AlarmNotificationSrc_near_end AlarmNotificationSrc = "near-end"
-
-    // Notification src far end
-    AlarmNotificationSrc_far_end AlarmNotificationSrc = "far-end"
-)
-
-// AlarmEvent represents Alarm event
-type AlarmEvent string
-
-const (
-    // Default Alarm Event Type
-    AlarmEvent_default_ AlarmEvent = "default"
-
-    // Alarm Notifcation Event Type
-    AlarmEvent_notification AlarmEvent = "notification"
-
-    // Alarm Type Condition
-    AlarmEvent_condition AlarmEvent = "condition"
-
-    // Last Event Type
-    AlarmEvent_last AlarmEvent = "last"
-)
-
 // AlarmClient represents Alarm client
 type AlarmClient string
 
@@ -199,6 +68,83 @@ const (
 
     // The client is ready
     AlarmClientState_ready AlarmClientState = "ready"
+)
+
+// AlarmEvent represents Alarm event
+type AlarmEvent string
+
+const (
+    // Default Alarm Event Type
+    AlarmEvent_default_ AlarmEvent = "default"
+
+    // Alarm Notifcation Event Type
+    AlarmEvent_notification AlarmEvent = "notification"
+
+    // Alarm Type Condition
+    AlarmEvent_condition AlarmEvent = "condition"
+
+    // Last Event Type
+    AlarmEvent_last AlarmEvent = "last"
+)
+
+// TimingBucket represents Timing bucket
+type TimingBucket string
+
+const (
+    // Bucket Type not applicable
+    TimingBucket_not_specified TimingBucket = "not-specified"
+
+    // Fifteen minute time bucket
+    TimingBucket_fifteen_min TimingBucket = "fifteen-min"
+
+    // One day time bucket
+    TimingBucket_one_day TimingBucket = "one-day"
+)
+
+// AlarmNotificationSrc represents Alarm notification src
+type AlarmNotificationSrc string
+
+const (
+    // Notification src not specified
+    AlarmNotificationSrc_not_specified AlarmNotificationSrc = "not-specified"
+
+    // Notification src near end
+    AlarmNotificationSrc_near_end AlarmNotificationSrc = "near-end"
+
+    // Notification src far end
+    AlarmNotificationSrc_far_end AlarmNotificationSrc = "far-end"
+)
+
+// AlarmDirection represents Alarm direction
+type AlarmDirection string
+
+const (
+    // Direction Not Specified
+    AlarmDirection_not_specified AlarmDirection = "not-specified"
+
+    // Direction Send
+    AlarmDirection_send AlarmDirection = "send"
+
+    // Direction Receive
+    AlarmDirection_receive AlarmDirection = "receive"
+
+    // Direction Send and Receive
+    AlarmDirection_send_receive AlarmDirection = "send-receive"
+)
+
+// AlarmServiceAffecting represents Alarm service affecting
+type AlarmServiceAffecting string
+
+const (
+    // Unknown whether alarm severity is service
+    // affecting
+    AlarmServiceAffecting_unknown AlarmServiceAffecting = "unknown"
+
+    // Alarm severity is not service affecting
+    AlarmServiceAffecting_not_service_affecting AlarmServiceAffecting = "not-service-affecting"
+
+    // Alarm severity is service affecting
+    AlarmServiceAffecting_service_affecting AlarmServiceAffecting = "service-affecting"
 )
 
 // AlarmGroups represents Alarm groups
@@ -261,6 +207,60 @@ const (
 
     // Last unused group
     AlarmGroups_last AlarmGroups = "last"
+)
+
+// AlarmStatus represents Alarm status
+type AlarmStatus string
+
+const (
+    // Unknown alarm status level
+    AlarmStatus_unknown AlarmStatus = "unknown"
+
+    // Status of active alarm that is SET by the
+    // controller
+    AlarmStatus_set AlarmStatus = "set"
+
+    // Status of cleared alarm that is done by the
+    // controller
+    AlarmStatus_clear AlarmStatus = "clear"
+
+    // Status of suppressed alarm that is done by the
+    // controller
+    AlarmStatus_suppress AlarmStatus = "suppress"
+
+    // Last status level
+    AlarmStatus_last AlarmStatus = "last"
+)
+
+// AlarmSeverity represents Alarm severity
+type AlarmSeverity string
+
+const (
+    // Unknown severity level
+    AlarmSeverity_unknown AlarmSeverity = "unknown"
+
+    // Severity level not reported will not raise an
+    // alarm
+    AlarmSeverity_not_reported AlarmSeverity = "not-reported"
+
+    // Severity level of info to cater to events such
+    // as Performance TCAS
+    AlarmSeverity_not_alarmed AlarmSeverity = "not-alarmed"
+
+    // Severity level of minor fault not traffic
+    // affecting
+    AlarmSeverity_minor AlarmSeverity = "minor"
+
+    // Severity level of major fault leading to
+    // service disruption
+    AlarmSeverity_major AlarmSeverity = "major"
+
+    // Severity level of critical leading to drops
+    // ,route loss, loss of service etc.
+    AlarmSeverity_critical AlarmSeverity = "critical"
+
+    // Last severity level
+    AlarmSeverity_severity_last AlarmSeverity = "severity-last"
 )
 
 // Alarms
@@ -1522,7 +1522,7 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation struct {
     YListKey string
 
     // This attribute is a key. NodeID of the Location. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Show the conditions present at this scope.
@@ -2651,9 +2651,6 @@ type Alarms_Brief struct {
 
     // Show brief system scope alarm related data.
     BriefSystem Alarms_Brief_BriefSystem
-
-    // Show brief system scope alarm related data.
-    AlarmId Alarms_Brief_AlarmId
 }
 
 func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
@@ -2670,7 +2667,6 @@ func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.Children = types.NewOrderedMap()
     brief.EntityData.Children.Append("brief-card", types.YChild{"BriefCard", &brief.BriefCard})
     brief.EntityData.Children.Append("brief-system", types.YChild{"BriefSystem", &brief.BriefSystem})
-    brief.EntityData.Children.Append("alarm-id", types.YChild{"AlarmId", &brief.AlarmId})
     brief.EntityData.Leafs = types.NewOrderedMap()
 
     brief.EntityData.YListKeys = []string {}
@@ -2750,7 +2746,7 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation struct {
     YListKey string
 
     // This attribute is a key. NodeID of the Location. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Show the conditions present at this scope.
@@ -3597,164 +3593,5 @@ func (suppressedInfo *Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo) GetEnt
     suppressedInfo.EntityData.YListKeys = []string {}
 
     return &(suppressedInfo.EntityData)
-}
-
-// Alarms_Brief_AlarmId
-// Show brief system scope alarm related data.
-type Alarms_Brief_AlarmId struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Table of ActiveAlarm.
-    ActiveAlarms Alarms_Brief_AlarmId_ActiveAlarms
-}
-
-func (alarmId *Alarms_Brief_AlarmId) GetEntityData() *types.CommonEntityData {
-    alarmId.EntityData.YFilter = alarmId.YFilter
-    alarmId.EntityData.YangName = "alarm-id"
-    alarmId.EntityData.BundleName = "cisco_ios_xr"
-    alarmId.EntityData.ParentYangName = "brief"
-    alarmId.EntityData.SegmentPath = "alarm-id"
-    alarmId.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/" + alarmId.EntityData.SegmentPath
-    alarmId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    alarmId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    alarmId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    alarmId.EntityData.Children = types.NewOrderedMap()
-    alarmId.EntityData.Children.Append("active-alarms", types.YChild{"ActiveAlarms", &alarmId.ActiveAlarms})
-    alarmId.EntityData.Leafs = types.NewOrderedMap()
-
-    alarmId.EntityData.YListKeys = []string {}
-
-    return &(alarmId.EntityData)
-}
-
-// Alarms_Brief_AlarmId_ActiveAlarms
-// Table of ActiveAlarm
-type Alarms_Brief_AlarmId_ActiveAlarms struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Show the active alarms at this scope. The type is slice of
-    // Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm.
-    ActiveAlarm []*Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm
-}
-
-func (activeAlarms *Alarms_Brief_AlarmId_ActiveAlarms) GetEntityData() *types.CommonEntityData {
-    activeAlarms.EntityData.YFilter = activeAlarms.YFilter
-    activeAlarms.EntityData.YangName = "active-alarms"
-    activeAlarms.EntityData.BundleName = "cisco_ios_xr"
-    activeAlarms.EntityData.ParentYangName = "alarm-id"
-    activeAlarms.EntityData.SegmentPath = "active-alarms"
-    activeAlarms.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/" + activeAlarms.EntityData.SegmentPath
-    activeAlarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    activeAlarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    activeAlarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    activeAlarms.EntityData.Children = types.NewOrderedMap()
-    activeAlarms.EntityData.Children.Append("active-alarm", types.YChild{"ActiveAlarm", nil})
-    for i := range activeAlarms.ActiveAlarm {
-        activeAlarms.EntityData.Children.Append(types.GetSegmentPath(activeAlarms.ActiveAlarm[i]), types.YChild{"ActiveAlarm", activeAlarms.ActiveAlarm[i]})
-    }
-    activeAlarms.EntityData.Leafs = types.NewOrderedMap()
-
-    activeAlarms.EntityData.YListKeys = []string {}
-
-    return &(activeAlarms.EntityData)
-}
-
-// Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm
-// Show the active alarms at this scope.
-type Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Alarm ID. The type is string.
-    Aid interface{}
-
-    // Alarm Brief.
-    Alarm Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm
-}
-
-func (activeAlarm *Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm) GetEntityData() *types.CommonEntityData {
-    activeAlarm.EntityData.YFilter = activeAlarm.YFilter
-    activeAlarm.EntityData.YangName = "active-alarm"
-    activeAlarm.EntityData.BundleName = "cisco_ios_xr"
-    activeAlarm.EntityData.ParentYangName = "active-alarms"
-    activeAlarm.EntityData.SegmentPath = "active-alarm" + types.AddKeyToken(activeAlarm.Aid, "aid")
-    activeAlarm.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/active-alarms/" + activeAlarm.EntityData.SegmentPath
-    activeAlarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    activeAlarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    activeAlarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    activeAlarm.EntityData.Children = types.NewOrderedMap()
-    activeAlarm.EntityData.Children.Append("alarm", types.YChild{"Alarm", &activeAlarm.Alarm})
-    activeAlarm.EntityData.Leafs = types.NewOrderedMap()
-    activeAlarm.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", activeAlarm.Aid})
-
-    activeAlarm.EntityData.YListKeys = []string {"Aid"}
-
-    return &(activeAlarm.EntityData)
-}
-
-// Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm
-// Alarm Brief
-type Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Alarm location. The type is string with length: 0..128.
-    Location interface{}
-
-    // Alarm severity. The type is AlarmSeverity.
-    Severity interface{}
-
-    // Alarm group. The type is AlarmGroups.
-    Group interface{}
-
-    // Alarm set time. The type is string with length: 0..64.
-    SetTime interface{}
-
-    // Alarm set time(timestamp format). The type is interface{} with range:
-    // 0..18446744073709551615.
-    SetTimestamp interface{}
-
-    // Alarm clear time. The type is string with length: 0..64.
-    ClearTime interface{}
-
-    // Alarm clear time(timestamp format). The type is interface{} with range:
-    // 0..18446744073709551615.
-    ClearTimestamp interface{}
-
-    // Alarm description. The type is string with length: 0..256.
-    Description interface{}
-}
-
-func (alarm *Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm) GetEntityData() *types.CommonEntityData {
-    alarm.EntityData.YFilter = alarm.YFilter
-    alarm.EntityData.YangName = "alarm"
-    alarm.EntityData.BundleName = "cisco_ios_xr"
-    alarm.EntityData.ParentYangName = "active-alarm"
-    alarm.EntityData.SegmentPath = "alarm"
-    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/active-alarms/active-alarm/" + alarm.EntityData.SegmentPath
-    alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    alarm.EntityData.Children = types.NewOrderedMap()
-    alarm.EntityData.Leafs = types.NewOrderedMap()
-    alarm.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarm.Location})
-    alarm.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarm.Severity})
-    alarm.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarm.Group})
-    alarm.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarm.SetTime})
-    alarm.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarm.SetTimestamp})
-    alarm.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarm.ClearTime})
-    alarm.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarm.ClearTimestamp})
-    alarm.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarm.Description})
-
-    alarm.EntityData.YListKeys = []string {}
-
-    return &(alarm.EntityData)
 }
 

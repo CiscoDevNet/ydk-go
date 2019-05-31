@@ -282,8 +282,8 @@ type ChannelMonitors_ChannelMonitor_Channels_Channel_State struct {
     // units allow the value to often be greater than 1.0.  It also avoids dealing
     // with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm
     // power would be:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz =
-    // 10^6nW/40,000MHz = 1000/40 = 25. The type is string with length: 32. Units
-    // are nW/MHz.
+    // 10^6nW/40,000MHz = 1000/40 = 25. The type is string with length: 32..32.
+    // Units are nW/MHz.
     Psd interface{}
 }
 
