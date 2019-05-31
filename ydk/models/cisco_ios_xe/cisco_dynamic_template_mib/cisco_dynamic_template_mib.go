@@ -928,7 +928,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTemplateEntry struct {
     // instance of this object. However, it serves as a convenient value when the
     // column is not valid.  This column is valid only if the 'mtu' bit of the
     // corresponding instance of cdtIfValid is '1'. The type is interface{} with
-    // range: 0..None | 64..65535. Units are octets.
+    // range: 0..0 | 64..65535. Units are octets.
     CdtIfMtu interface{}
 
     // This object specifies whether the target interface participates in the
@@ -962,7 +962,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTemplateEntry struct {
     // instance of this object. However, it serves as a convenient value when the
     // column is not valid.  This column is valid only if the 'ipv4Mtu' bit of the
     // corresponding instance of cdtIfValid is '1'. The type is interface{} with
-    // range: 0..None | 128..65535. Units are octets.
+    // range: 0..0 | 128..65535. Units are octets.
     CdtIfIpv4Mtu interface{}
 
     // This object specifies the adjustment to the Maximum Segment Size (MSS) of
@@ -971,7 +971,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTemplateEntry struct {
     // However, it serves as a convenient value when the column is not valid. 
     // This column is valid only if the 'ipv4TcpMssAdjust' bit of the
     // corresponding instance of cdtIfValid is '1'. The type is interface{} with
-    // range: 0..None | 500..1460. Units are octets.
+    // range: 0..0 | 500..1460. Units are octets.
     CdtIfIpv4TcpMssAdjust interface{}
 
     // This object specifies whether the type of unicast RPF the system performs
@@ -1009,7 +1009,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtIfTemplateTable_CdtIfTemplateEntry struct {
     // However, it serves as a convenient value when the column is not valid. 
     // This column is valid only if the 'ipv6TcpMssAdjust' bit of the
     // corresponding instance of cdtIfValid is '1'. The type is interface{} with
-    // range: 0..None | 500..1460. Units are octets.
+    // range: 0..0 | 500..1460. Units are octets.
     CdtIfIpv6TcpMssAdjust interface{}
 
     // This object specifies whether the type of unicast RPF the system performs
@@ -2008,7 +2008,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable_CdtEthernetTemplateEntry s
     CdtEthernetIpv4PointToPoint interface{}
 
     // This object specifies the... The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     CdtEthernetMacAddr interface{}
 }
 

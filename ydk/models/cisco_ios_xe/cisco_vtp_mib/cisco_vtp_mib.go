@@ -473,7 +473,7 @@ type CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry struct {
     // managementDomainVersionInUse is version3(4), this object has the value of
     // 0.0.0.0.  Before an advertisement has been received, this value is 0.0.0.0.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ManagementDomainLastUpdater interface{}
 
     // The time at which the Configuration Revision Number was (last) increased to
@@ -493,7 +493,7 @@ type CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry struct {
     // management domain is to be stored/retrieved.  If the information is being
     // locally stored in NVRAM, this object should take the value 0.0.0.0. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ManagementDomainTftpServer interface{}
 
     // The complete pathname of the file at the TFTP Server identified by the
@@ -893,7 +893,7 @@ type CISCOVTPMIB_VtpVlanTable_VtpVlanEntry struct {
     VtpVlanMtu interface{}
 
     // The value of the 802.10 SAID field for this VLAN. The type is string with
-    // length: 4.
+    // length: 4..4.
     VtpVlanDot10Said interface{}
 
     // The ring number of this VLAN.  This object is only instantiated when the
@@ -1245,7 +1245,7 @@ type CISCOVTPMIB_VtpVlanEditTable_VtpVlanEditEntry struct {
 
     // The value of the 802.10 SAID field which would be used for this VLAN.  An
     // implementation may restrict access to this object. The type is string with
-    // length: 4.
+    // length: 4..4.
     VtpVlanEditDot10Said interface{}
 
     // The ring number which would be used for this VLAN.  This object is only
@@ -1584,7 +1584,7 @@ type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     // portion of an instance of this object (e.g., enable/disable a single VLAN
     // on the trunk port), any SNMP Set operation accessing an instance of this
     // object should also write the value of vlanTrunkPortSetSerialNo. The type is
-    // string with length: 128.
+    // string with length: 128..128.
     VlanTrunkPortVlansEnabled interface{}
 
     // The VlanIndex of the VLAN which is represented by native frames on this
@@ -1625,7 +1625,8 @@ type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     // multiple managers, i.e., updates which modify only a portion of an instance
     // of this object (e.g., enable/disable a single VLAN on the trunk port), any
     // SNMP Set operation accessing an instance of this object should also write
-    // the value of vlanTrunkPortSetSerialNo. The type is string with length: 128.
+    // the value of vlanTrunkPortSetSerialNo. The type is string with length:
+    // 128..128.
     VlanTrunkPortVlansPruningEligible interface{}
 
     // A string of octets containing one bit per VLAN in the management domain on
@@ -1636,7 +1637,7 @@ type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     // then this VLAN is presently being forwarded on this trunk port, i.e., it is
     // not pruned; if the bit is set to '0', then this VLAN is presently not being
     // forwarded on this trunk port, either because it is pruned or for some other
-    // reason. The type is string with length: 128.
+    // reason. The type is string with length: 128..128.
     VlanTrunkPortVlansXmitJoined interface{}
 
     // A string of octets containing one bit per VLAN in the management domain on
@@ -1647,7 +1648,7 @@ type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     // then the local switch is currently sending joins for this VLAN on this
     // trunk port, i.e., it is asking to receive frames for this VLAN; if the bit
     // is set to '0', then the local switch is not currently sending joins for
-    // this VLAN on this trunk port. The type is string with length: 128.
+    // this VLAN on this trunk port. The type is string with length: 128..128.
     VlanTrunkPortVlansRcvJoined interface{}
 
     // For devices that allows dynamic determination of whether a link between two
@@ -1907,7 +1908,7 @@ type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     // portion of an instance of this object (e.g., enable/disable a single VLAN
     // on the trunk port), any SNMP Set operation accessing an instance of this
     // object should also write the value of vlanTrunkPortSetSerialNo. The type is
-    // string with length: 128.
+    // string with length: 128..128.
     StpxPreferredVlansMap interface{}
 
     // A string of octets containing one bit per VLAN for VLANS  with VlanIndex
@@ -2635,7 +2636,7 @@ type CISCOVTPMIB_VtpAuthenticationTable_VtpAuthEntry struct {
     // automatically.  This object is not allowed to be set at the same time when
     // vtpAuthPassword is set.  The secret key is overwritten by a newly generated
     // secret key when the password is re-configured. The type is string with
-    // length: 0 | 16.
+    // length: 0..0 | 16..16.
     VtpAuthSecretKey interface{}
 }
 

@@ -410,19 +410,19 @@ type EsAcl_Active_List_Acls_Acl_AclSequenceNumbers_AclSequenceNumber struct {
     Grant interface{}
 
     // Source MAC address. The type is string with pattern:
-    // [a-fA-F0-9]{4}(\.[a-fA-F0-9]{4}){2}.
+    // b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'.
     SourceAddress interface{}
 
     // Source wild card bits. The type is string with pattern:
-    // [a-fA-F0-9]{4}(\.[a-fA-F0-9]{4}){2}.
+    // b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'.
     SourceWildCardBits interface{}
 
     // Destination MAC address. The type is string with pattern:
-    // [a-fA-F0-9]{4}(\.[a-fA-F0-9]{4}){2}.
+    // b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'.
     DestinationAddress interface{}
 
     // Destination wild card bits. The type is string with pattern:
-    // [a-fA-F0-9]{4}(\.[a-fA-F0-9]{4}){2}.
+    // b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'.
     DestinationWildCardBits interface{}
 
     // Ethernet type Number. The type is interface{} with range: 0..65535.
@@ -639,7 +639,7 @@ type EsAcl_Active_Usages_Usage struct {
     YListKey string
 
     // Node where ACL is applied. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Location interface{}
 
     // Application ID. The type is AclUsageAppIdEnum.

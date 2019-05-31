@@ -96,7 +96,7 @@ type FabricStats_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Table of stats information.
@@ -166,7 +166,7 @@ type FabricStats_Nodes_Node_Statses_Stats struct {
     YListKey string
 
     // This attribute is a key. Fabric asic type. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Type interface{}
 
     // Last Clear Time. The type is interface{} with range:

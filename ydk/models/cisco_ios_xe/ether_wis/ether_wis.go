@@ -275,11 +275,12 @@ type ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry struct {
     // byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or
     // some cyclic shift thereof) when the section trace function is not used, and
     // the implementation SHOULD use that value (or a cyclic shift thereof) as a
-    // default if no other value has been set. The type is string with length: 16.
+    // default if no other value has been set. The type is string with length:
+    // 16..16.
     EtherWisSectionCurrentJ0Transmitted interface{}
 
     // This is the 16-octet section trace message that was most recently received
-    // in the J0 byte. The type is string with length: 16.
+    // in the J0 byte. The type is string with length: 16..16.
     EtherWisSectionCurrentJ0Received interface{}
 }
 
@@ -377,11 +378,12 @@ type ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry struct {
     // The value SHOULD be '89'h followed by fifteen octets of '00'h (or some
     // cyclic shift thereof) when the path trace function is not used, and the
     // implementation SHOULD use that value (or a cyclic shift thereof) as a
-    // default if no other value has been set. The type is string with length: 16.
+    // default if no other value has been set. The type is string with length:
+    // 16..16.
     EtherWisPathCurrentJ1Transmitted interface{}
 
     // This is the 16-octet path trace message that was most recently received in
-    // the J1 byte. The type is string with length: 16.
+    // the J1 byte. The type is string with length: 16..16.
     EtherWisPathCurrentJ1Received interface{}
 }
 

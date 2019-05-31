@@ -74,13 +74,22 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB", reflect.TypeOf(CISCOIPSECFLOWMONITORMIB{}))
 }
 
-// TunnelStatus represents type cannot be used to create a Tunnel.
-type TunnelStatus string
+// IkePeerType represents  2. a host name.
+type IkePeerType string
 
 const (
-    TunnelStatus_active TunnelStatus = "active"
+    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
 
-    TunnelStatus_destroy TunnelStatus = "destroy"
+    IkePeerType_namePeer IkePeerType = "namePeer"
+)
+
+// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
+type IkeNegoMode string
+
+const (
+    IkeNegoMode_main IkeNegoMode = "main"
+
+    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
 )
 
 // IkeHashAlgo represents IKE negotiations.
@@ -109,6 +118,17 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
+// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
+type DiffHellmanGrp string
+
+const (
+    DiffHellmanGrp_none DiffHellmanGrp = "none"
+
+    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
+
+    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
+)
+
 // KeyType represents The type of key used by an IPsec Phase-2 Tunnel.
 type KeyType string
 
@@ -118,22 +138,13 @@ const (
     KeyType_manual KeyType = "manual"
 )
 
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
+// EncapMode represents Tunnel.
+type EncapMode string
 
 const (
-    TrapStatus_enabled TrapStatus = "enabled"
+    EncapMode_tunnel EncapMode = "tunnel"
 
-    TrapStatus_disabled TrapStatus = "disabled"
-)
-
-// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
-type CompAlgo string
-
-const (
-    CompAlgo_none CompAlgo = "none"
-
-    CompAlgo_ldf CompAlgo = "ldf"
+    EncapMode_transport EncapMode = "transport"
 )
 
 // EncryptAlgo represents The encryption algorithm used in negotiations.
@@ -147,33 +158,6 @@ const (
     EncryptAlgo_des3 EncryptAlgo = "des3"
 )
 
-// IkePeerType represents  2. a host name.
-type IkePeerType string
-
-const (
-    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
-
-    IkePeerType_namePeer IkePeerType = "namePeer"
-)
-
-// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
-type IkeNegoMode string
-
-const (
-    IkeNegoMode_main IkeNegoMode = "main"
-
-    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
-)
-
-// EncapMode represents Tunnel.
-type EncapMode string
-
-const (
-    EncapMode_tunnel EncapMode = "tunnel"
-
-    EncapMode_transport EncapMode = "transport"
-)
-
 // AuthAlgo represents security association of an IPsec Phase-2 Tunnel.
 type AuthAlgo string
 
@@ -183,6 +167,15 @@ const (
     AuthAlgo_hmacMd5 AuthAlgo = "hmacMd5"
 
     AuthAlgo_hmacSha AuthAlgo = "hmacSha"
+)
+
+// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
+type CompAlgo string
+
+const (
+    CompAlgo_none CompAlgo = "none"
+
+    CompAlgo_ldf CompAlgo = "ldf"
 )
 
 // EndPtType represents The type of identity use to specify an IPsec End Point.
@@ -196,15 +189,22 @@ const (
     EndPtType_ipSubnet EndPtType = "ipSubnet"
 )
 
-// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
-type DiffHellmanGrp string
+// TunnelStatus represents type cannot be used to create a Tunnel.
+type TunnelStatus string
 
 const (
-    DiffHellmanGrp_none DiffHellmanGrp = "none"
+    TunnelStatus_active TunnelStatus = "active"
 
-    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
+    TunnelStatus_destroy TunnelStatus = "destroy"
+)
 
-    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
+
+const (
+    TrapStatus_enabled TrapStatus = "enabled"
+
+    TrapStatus_disabled TrapStatus = "disabled"
 )
 
 // CISCOIPSECFLOWMONITORMIB
@@ -1026,10 +1026,12 @@ type CISCOIPSECFLOWMONITORMIB_CikePeerTable_CikePeerEntry struct {
     // with range: 1..2147483647.
     CikePeerIntIndex interface{}
 
-    // The IP address of the local peer. The type is string with length: 4 | 16.
+    // The IP address of the local peer. The type is string with length: 4..4 |
+    // 16..16.
     CikePeerLocalAddr interface{}
 
-    // The IP address of the remote peer. The type is string with length: 4 | 16.
+    // The IP address of the remote peer. The type is string with length: 4..4 |
+    // 16..16.
     CikePeerRemoteAddr interface{}
 
     // The length of time that the peer association has existed in hundredths of a
@@ -1133,7 +1135,7 @@ type CISCOIPSECFLOWMONITORMIB_CikeTunnelTable_CikeTunnelEntry struct {
     CikeTunLocalValue interface{}
 
     // The IP address of the local endpoint for the IPsec Phase-1 IKE Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CikeTunLocalAddr interface{}
 
     // The DNS name of the local IP address for the IPsec Phase-1 IKE Tunnel. If
@@ -1152,7 +1154,7 @@ type CISCOIPSECFLOWMONITORMIB_CikeTunnelTable_CikeTunnelEntry struct {
     CikeTunRemoteValue interface{}
 
     // The IP address of the remote endpoint for the IPsec Phase-1 IKE Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CikeTunRemoteAddr interface{}
 
     // The DNS name of the remote IP address of IPsec Phase-1 IKE Tunnel. If the
@@ -1736,11 +1738,11 @@ type CISCOIPSECFLOWMONITORMIB_CipSecTunnelTable_CipSecTunnelEntry struct {
     CipSecTunIkeTunnelAlive interface{}
 
     // The IP address of the local endpoint for the IPsec Phase-2 Tunnel. The type
-    // is string with length: 4 | 16.
+    // is string with length: 4..4 | 16..16.
     CipSecTunLocalAddr interface{}
 
     // The IP address of the remote endpoint for the IPsec Phase-2 Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CipSecTunRemoteAddr interface{}
 
     // The type of key used by the IPsec Phase-2 Tunnel. The type is KeyType.
@@ -2112,7 +2114,8 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEntry struct {
     // type is single IP address,  then this is the value of the IP address.  If
     // the local Endpoint type is IP subnet, then this is the value of the subnet.
     // If the local Endpoint type is IP address range,  then this is the value of
-    // beginning IP address  of the range. The type is string with length: 4 | 16.
+    // beginning IP address  of the range. The type is string with length: 4..4 |
+    // 16..16.
     CipSecEndPtLocalAddr1 interface{}
 
     // The local Endpoint's second IP address specification.  If the local
@@ -2120,7 +2123,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEntry struct {
     // address.  If the local Endpoint type is IP subnet, then this is the value
     // of the subnet mask.  If the local Endpoint type is IP address range,  then
     // this is the value of ending IP address  of the range. The type is string
-    // with length: 4 | 16.
+    // with length: 4..4 | 16..16.
     CipSecEndPtLocalAddr2 interface{}
 
     // The protocol number of the local Endpoint's traffic. The type is
@@ -2144,7 +2147,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEntry struct {
     // address.  If the remote Endpoint type is IP subnet, then this is the value
     // of the subnet.  If the remote Endpoint type is IP address range,  then this
     // is the value of beginning IP address  of the range. The type is string with
-    // length: 4 | 16.
+    // length: 4..4 | 16..16.
     CipSecEndPtRemoteAddr1 interface{}
 
     // The remote Endpoint's second IP address specification.  If the remote
@@ -2152,7 +2155,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEntry struct {
     // address.  If the remote Endpoint type is IP subnet, then this is the value
     // of the subnet mask.  If the remote Endpoint type is IP address range,  then
     // this is the value of ending IP address of  the range. The type is string
-    // with length: 4 | 16.
+    // with length: 4..4 | 16..16.
     CipSecEndPtRemoteAddr2 interface{}
 
     // The protocol number of the remote Endpoint's traffic. The type is
@@ -2657,7 +2660,7 @@ type CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable_CikeTunnelHistEntry struct {
     CikeTunHistPeerRemoteValue interface{}
 
     // The IP address of the local endpoint for the IPsec Phase-1 IKE Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CikeTunHistLocalAddr interface{}
 
     // The DNS name of the local IP address for the IPsec Phase-1 IKE Tunnel. If
@@ -2666,7 +2669,7 @@ type CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable_CikeTunnelHistEntry struct {
     CikeTunHistLocalName interface{}
 
     // The IP address of the remote endpoint for the IPsec Phase-1 IKE Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CikeTunHistRemoteAddr interface{}
 
     // The DNS name of the remote IP address of IPsec Phase-1 IKE Tunnel. If the
@@ -2937,11 +2940,11 @@ type CISCOIPSECFLOWMONITORMIB_CipSecTunnelHistTable_CipSecTunnelHistEntry struct
     CipSecTunHistIkeTunnelIndex interface{}
 
     // The IP address of the local endpoint for the IPsec Phase-2 Tunnel. The type
-    // is string with length: 4 | 16.
+    // is string with length: 4..4 | 16..16.
     CipSecTunHistLocalAddr interface{}
 
     // The IP address of the remote endpoint for the IPsec Phase-2 Tunnel. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CipSecTunHistRemoteAddr interface{}
 
     // The type of key used by the IPsec Phase-2 Tunnel. The type is KeyType.
@@ -3322,7 +3325,8 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSecEndPtHistEntry struct {
     // type is single IP address,  then this is the value of the IP address.  If
     // the local Endpoint type is IP subnet, then this is the value of the subnet.
     // If the local Endpoint type is IP address range,  then this is the value of
-    // beginning IP address of  the range. The type is string with length: 4 | 16.
+    // beginning IP address of  the range. The type is string with length: 4..4 |
+    // 16..16.
     CipSecEndPtHistLocalAddr1 interface{}
 
     // The local Endpoint's second IP address specification.  If the local
@@ -3330,7 +3334,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSecEndPtHistEntry struct {
     // address.  If the local Endpoint type is IP subnet, then this is the value
     // of the subnet mask.  If the local Endpoint type is IP address range,  then
     // this is the value of ending IP address of the range. The type is string
-    // with length: 4 | 16.
+    // with length: 4..4 | 16..16.
     CipSecEndPtHistLocalAddr2 interface{}
 
     // The protocol number of the local Endpoint's traffic. The type is
@@ -3354,7 +3358,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSecEndPtHistEntry struct {
     // address.  If the remote Endpoint type is IP subnet, then this is the value
     // of the subnet.  If the remote Endpoint type is IP address range,  then this
     // is the value of beginning IP address of the range. The type is string with
-    // length: 4 | 16.
+    // length: 4..4 | 16..16.
     CipSecEndPtHistRemoteAddr1 interface{}
 
     // The remote Endpoint's second IP address specification.  If the remote
@@ -3362,7 +3366,7 @@ type CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSecEndPtHistEntry struct {
     // address.  If the remote Endpoint type is IP subnet, then this is the value
     // of the subnet mask.  If the remote Endpoint type is IP address range,  then
     // this is the value of ending IP address of the range. The type is string
-    // with length: 4 | 16.
+    // with length: 4..4 | 16..16.
     CipSecEndPtHistRemoteAddr2 interface{}
 
     // The protocol number of the remote Endpoint's traffic. The type is
@@ -3497,10 +3501,12 @@ type CISCOIPSECFLOWMONITORMIB_CikeFailTable_CikeFailEntry struct {
     // identify the remote peer. The type is string.
     CikeFailRemoteValue interface{}
 
-    // The IP address of the local peer. The type is string with length: 4 | 16.
+    // The IP address of the local peer. The type is string with length: 4..4 |
+    // 16..16.
     CikeFailLocalAddr interface{}
 
-    // The IP address of the remote peer. The type is string with length: 4 | 16.
+    // The IP address of the remote peer. The type is string with length: 4..4 |
+    // 16..16.
     CikeFailRemoteAddr interface{}
 }
 
@@ -3646,11 +3652,12 @@ type CISCOIPSECFLOWMONITORMIB_CipSecFailTable_CipSecFailEntry struct {
     // 0..2147483647.
     CipSecFailSaSpi interface{}
 
-    // The packet's source IP address. The type is string with length: 4 | 16.
+    // The packet's source IP address. The type is string with length: 4..4 |
+    // 16..16.
     CipSecFailPktSrcAddr interface{}
 
-    // The packet's destination IP address. The type is string with length: 4 |
-    // 16.
+    // The packet's destination IP address. The type is string with length: 4..4 |
+    // 16..16.
     CipSecFailPktDstAddr interface{}
 }
 

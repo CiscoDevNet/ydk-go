@@ -194,7 +194,7 @@ type Lldp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // The LLDP neighbor tables on this node.
@@ -315,10 +315,10 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device struct {
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // lldp neighbor. The type is slice of
+    // Next neighbor in the list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor.
     LldpNeighbor []*Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor
 }
@@ -350,18 +350,18 @@ func (device *Lldp_Nodes_Node_Neighbors_Devices_Device) GetEntityData() *types.C
 }
 
 // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor
-// lldp neighbor
+// Next neighbor in the list
 type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -429,7 +429,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail struct {
     YFilter yfilter.YFilter
 
     // Peer Mac Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // Port Description. The type is string.
@@ -504,7 +504,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddress
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp addr entry. The type is slice of
+    // Next address entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry.
     LldpAddrEntry []*Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
 }
@@ -534,7 +534,7 @@ func (networkAddresses *Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_De
 }
 
 // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
-// lldp addr entry
+// Next address entry in list
 type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -582,11 +582,11 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Detail_NetworkAddress
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -685,7 +685,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp unknown tlv entry. The type is slice of
+    // Next unknown TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry.
     LldpUnknownTlvEntry []*Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
 }
@@ -715,7 +715,7 @@ func (unknownTlvList *Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_
 }
 
 // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
-// lldp unknown tlv entry
+// Next unknown TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -725,7 +725,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_UnknownTlvList_Ll
     TlvType interface{}
 
     // Unknown TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -756,7 +756,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp org def tlv entry. The type is slice of
+    // Next Org Def TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry.
     LldpOrgDefTlvEntry []*Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
 }
@@ -786,7 +786,7 @@ func (orgDefTlvList *Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_O
 }
 
 // Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
-// lldp org def tlv entry
+// Next Org Def TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -803,7 +803,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor_Mib_OrgDefTlvList_Lld
     TlvInfoIndes interface{}
 
     // Org Def TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -873,13 +873,13 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // lldp neighbor. The type is slice of
+    // Next neighbor in the list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor.
     LldpNeighbor []*Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor
 }
@@ -911,18 +911,18 @@ func (detail *Lldp_Nodes_Node_Neighbors_Details_Detail) GetEntityData() *types.C
 }
 
 // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor
-// lldp neighbor
+// Next neighbor in the list
 type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -990,7 +990,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail struct {
     YFilter yfilter.YFilter
 
     // Peer Mac Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // Port Description. The type is string.
@@ -1065,7 +1065,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddress
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp addr entry. The type is slice of
+    // Next address entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry.
     LldpAddrEntry []*Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
 }
@@ -1095,7 +1095,7 @@ func (networkAddresses *Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_De
 }
 
 // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
-// lldp addr entry
+// Next address entry in list
 type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1143,11 +1143,11 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Detail_NetworkAddress
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1246,7 +1246,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp unknown tlv entry. The type is slice of
+    // Next unknown TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry.
     LldpUnknownTlvEntry []*Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
 }
@@ -1276,7 +1276,7 @@ func (unknownTlvList *Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_
 }
 
 // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
-// lldp unknown tlv entry
+// Next unknown TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1286,7 +1286,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_UnknownTlvList_Ll
     TlvType interface{}
 
     // Unknown TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -1317,7 +1317,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp org def tlv entry. The type is slice of
+    // Next Org Def TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry.
     LldpOrgDefTlvEntry []*Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
 }
@@ -1347,7 +1347,7 @@ func (orgDefTlvList *Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_O
 }
 
 // Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
-// lldp org def tlv entry
+// Next Org Def TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1364,7 +1364,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor_Mib_OrgDefTlvList_Lld
     TlvInfoIndes interface{}
 
     // Org Def TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -1434,13 +1434,13 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // lldp neighbor. The type is slice of
+    // Next neighbor in the list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor.
     LldpNeighbor []*Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor
 }
@@ -1472,18 +1472,18 @@ func (summary *Lldp_Nodes_Node_Neighbors_Summaries_Summary) GetEntityData() *typ
 }
 
 // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor
-// lldp neighbor
+// Next neighbor in the list
 type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -1551,7 +1551,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail struct {
     YFilter yfilter.YFilter
 
     // Peer Mac Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // Port Description. The type is string.
@@ -1626,7 +1626,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddr
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp addr entry. The type is slice of
+    // Next address entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry.
     LldpAddrEntry []*Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
 }
@@ -1656,7 +1656,7 @@ func (networkAddresses *Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor
 }
 
 // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry
-// lldp addr entry
+// Next address entry in list
 type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddresses_LldpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1704,11 +1704,11 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Detail_NetworkAddr
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1807,7 +1807,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp unknown tlv entry. The type is slice of
+    // Next unknown TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry.
     LldpUnknownTlvEntry []*Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
 }
@@ -1837,7 +1837,7 @@ func (unknownTlvList *Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_M
 }
 
 // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry
-// lldp unknown tlv entry
+// Next unknown TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList_LldpUnknownTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1847,7 +1847,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_UnknownTlvList
     TlvType interface{}
 
     // Unknown TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -1878,7 +1878,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp org def tlv entry. The type is slice of
+    // Next Org Def TLV entry in list. The type is slice of
     // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry.
     LldpOrgDefTlvEntry []*Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
 }
@@ -1908,7 +1908,7 @@ func (orgDefTlvList *Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mi
 }
 
 // Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry
-// lldp org def tlv entry
+// Next Org Def TLV entry in list
 type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList_LldpOrgDefTlvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1925,7 +1925,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor_Mib_OrgDefTlvList_
     TlvInfoIndes interface{}
 
     // Org Def TLV payload. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TlvValue interface{}
 }
 
@@ -1996,10 +1996,10 @@ type Lldp_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceNameXr interface{}
 
     // TX Enabled. The type is interface{} with range: 0..255.
@@ -2066,7 +2066,7 @@ type Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // lldp addr entry. The type is slice of
+    // Next address entry in list. The type is slice of
     // Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses_LldpAddrEntry.
     LldpAddrEntry []*Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses_LldpAddrEntry
 }
@@ -2096,7 +2096,7 @@ func (localNetworkAddresses *Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAd
 }
 
 // Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses_LldpAddrEntry
-// lldp addr entry
+// Next address entry in list
 type Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses_LldpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2144,11 +2144,11 @@ type Lldp_Nodes_Node_Interfaces_Interface_LocalNetworkAddresses_LldpAddrEntry_Ad
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 

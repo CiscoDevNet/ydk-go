@@ -495,7 +495,7 @@ type CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -617,7 +617,7 @@ type CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -711,7 +711,7 @@ type CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry st
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -880,7 +880,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
 
     // The BGP Identifier of this entry's BGP peer. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CbgpPeer2LocalIdentifier interface{}
 
     // The remote port for the TCP connection between the BGP peers.  Note that
@@ -896,7 +896,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     // The BGP Identifier of this entry's BGP peer. This entry MUST be 0.0.0.0
     // unless the cbgpPeer2State is in the openconfirm or the established state.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CbgpPeer2RemoteIdentifier interface{}
 
     // The number of BGP UPDATE messages received on this connection. The type is
@@ -918,7 +918,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     // The last error code and subcode seen by this peer on this connection.  If
     // no error has occurred, this field is zero.  Otherwise, the first byte of
     // this two byte OCTET STRING contains the error code, and the second byte
-    // contains the subcode. The type is string with length: 2.
+    // contains the subcode. The type is string with length: 2..2.
     CbgpPeer2LastError interface{}
 
     // The total number of times the BGP FSM transitioned into the established
@@ -944,7 +944,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     // it is not zero (0).  If the Hold Timer has not been established with the
     // peer this object MUST have a value of zero (0).  If the
     // cbgpPeer2HoldTimeConfigured object has a value of (0), then this object
-    // MUST have a value of (0). The type is interface{} with range: 0..None |
+    // MUST have a value of (0). The type is interface{} with range: 0..0 |
     // 3..65535. Units are seconds.
     CbgpPeer2HoldTime interface{}
 
@@ -966,7 +966,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     // (cbgpPeer2HoldTime) with the peer. This value must not be less than three
     // seconds if it is not zero (0).  If it is zero (0), the Hold Time is NOT to
     // be established with the peer.  The suggested value for this timer is 90
-    // seconds. The type is interface{} with range: 0..None | 3..65535. Units are
+    // seconds. The type is interface{} with range: 0..0 | 3..65535. Units are
     // seconds.
     CbgpPeer2HoldTimeConfigured interface{}
 

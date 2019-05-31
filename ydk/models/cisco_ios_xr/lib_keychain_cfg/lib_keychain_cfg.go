@@ -64,6 +64,17 @@ const (
     CryptoAlg_alg_hmac_sha_256 CryptoAlg = "alg-hmac-sha-256"
 )
 
+// MacsecCryptoAlg represents Macsec crypto alg
+type MacsecCryptoAlg string
+
+const (
+    // aes 128 cmac
+    MacsecCryptoAlg_aes_128_cmac MacsecCryptoAlg = "aes-128-cmac"
+
+    // aes 256 cmac
+    MacsecCryptoAlg_aes_256_cmac MacsecCryptoAlg = "aes-256-cmac"
+)
+
 // KeyChainMonth represents Key chain month
 type KeyChainMonth string
 
@@ -103,17 +114,6 @@ const (
 
     // December
     KeyChainMonth_dec KeyChainMonth = "dec"
-)
-
-// MacsecCryptoAlg represents Macsec crypto alg
-type MacsecCryptoAlg string
-
-const (
-    // aes 128 cmac
-    MacsecCryptoAlg_aes_128_cmac MacsecCryptoAlg = "aes-128-cmac"
-
-    // aes 256 cmac
-    MacsecCryptoAlg_aes_256_cmac MacsecCryptoAlg = "aes-256-cmac"
 )
 
 // Keychains
@@ -300,8 +300,8 @@ type Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey struct {
     YListKey string
 
     // This attribute is a key. Enter CKN as non-zero hex string of even length,
-    // length range: <02-64>, i.e 1-32 bytes of MACsec CKN. The type is string
-    // with length: 2..64.
+    // length range: <02-64>, i.e 32 bytes of MACsec CKN. The type is string with
+    // length: 2..64.
     KeyId interface{}
 
     // Configure a key Lifetime.
@@ -433,8 +433,8 @@ type Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecKeyString stru
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Key String. The type is string with pattern: (!.+)|([^!].+). This attribute
-    // is mandatory.
+    // Key String. The type is string with pattern: b'(!.+)|([^!].+)'. This
+    // attribute is mandatory.
     String interface{}
 
     // Cryptographic Algorithm. The type is MacsecCryptoAlg. This attribute is
@@ -509,11 +509,11 @@ type Keychains_Keychain_Keys_Key struct {
     YListKey string
 
     // This attribute is a key. 48-bit Key identifier. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     KeyId interface{}
 
     // Configure a clear text/encrypted Key string . The type is string with
-    // pattern: (!.+)|([^!].+).
+    // pattern: b'(!.+)|([^!].+)'.
     KeyString interface{}
 
     // Configure the cryptographic algorithm. The type is CryptoAlg.

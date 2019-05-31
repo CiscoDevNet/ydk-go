@@ -28,32 +28,27 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent", reflect.TypeOf(SessionRedundancyAgent{}))
 }
 
-// SergShowSessionError represents SERG Session Error Operation
-type SergShowSessionError string
+// SergShowMem represents SERG Memory Manager type
+type SergShowMem string
 
 const (
-    // Invalid Error
-    SergShowSessionError_none SergShowSessionError = "none"
+    // Standard type
+    SergShowMem_standard SergShowMem = "standard"
 
-    // Hard Error
-    SergShowSessionError_hard SergShowSessionError = "hard"
+    // Chunk type
+    SergShowMem_chunk SergShowMem = "chunk"
 
-    // Soft Error
-    SergShowSessionError_soft SergShowSessionError = "soft"
-)
+    // EDM type
+    SergShowMem_edm SergShowMem = "edm"
 
-// SergShowSlaveMode represents SERG Slave Mode
-type SergShowSlaveMode string
+    // String type
+    SergShowMem_string_ SergShowMem = "string"
 
-const (
-    // Not Configured
-    SergShowSlaveMode_none SergShowSlaveMode = "none"
+    // Static type
+    SergShowMem_static SergShowMem = "static"
 
-    // Warm Modem
-    SergShowSlaveMode_warm SergShowSlaveMode = "warm"
-
-    // Hot Mode
-    SergShowSlaveMode_hot SergShowSlaveMode = "hot"
+    // Unknown type
+    SergShowMem_unknown SergShowMem = "unknown"
 )
 
 // SergShowSoReason represents Session Redundancy Switchover Reason
@@ -77,29 +72,6 @@ const (
 
     // Unknown Switchover Reason
     SergShowSoReason_serg_show_so_reason_max SergShowSoReason = "serg-show-so-reason-max"
-)
-
-// SergShowMem represents SERG Memory Manager type
-type SergShowMem string
-
-const (
-    // Standard type
-    SergShowMem_standard SergShowMem = "standard"
-
-    // Chunk type
-    SergShowMem_chunk SergShowMem = "chunk"
-
-    // EDM type
-    SergShowMem_edm SergShowMem = "edm"
-
-    // String type
-    SergShowMem_string_ SergShowMem = "string"
-
-    // Static type
-    SergShowMem_static SergShowMem = "static"
-
-    // Unknown type
-    SergShowMem_unknown SergShowMem = "unknown"
 )
 
 // SergPeerStatus represents SERG Peer Status
@@ -134,35 +106,18 @@ const (
     SergPeerStatus_established SergPeerStatus = "established"
 )
 
-// SergShowImRole represents SERG Interface Management Role
-type SergShowImRole string
+// SergShowSessionError represents SERG Session Error Operation
+type SergShowSessionError string
 
 const (
-    // Not Determined
-    SergShowImRole_none SergShowImRole = "none"
+    // Invalid Error
+    SergShowSessionError_none SergShowSessionError = "none"
 
-    // Master Role
-    SergShowImRole_master SergShowImRole = "master"
+    // Hard Error
+    SergShowSessionError_hard SergShowSessionError = "hard"
 
-    // Slave Role
-    SergShowImRole_slave SergShowImRole = "slave"
-)
-
-// SergShowComp represents SERG Components
-type SergShowComp string
-
-const (
-    // SERG Agent
-    SergShowComp_serga SergShowComp = "serga"
-
-    // IPv6ND
-    SergShowComp_ipv6nd SergShowComp = "ipv6nd"
-
-    // DHCPv6
-    SergShowComp_dhcpv6 SergShowComp = "dhcpv6"
-
-    // DAPS
-    SergShowComp_daps SergShowComp = "daps"
+    // Soft Error
+    SergShowSessionError_soft SergShowSessionError = "soft"
 )
 
 // SergShowSessionOperation represents SERG Session Operation
@@ -182,6 +137,37 @@ const (
     SergShowSessionOperation_in_sync SergShowSessionOperation = "in-sync"
 )
 
+// SergShowComp represents SERG Components
+type SergShowComp string
+
+const (
+    // SERG Agent
+    SergShowComp_serga SergShowComp = "serga"
+
+    // IPv6ND
+    SergShowComp_ipv6nd SergShowComp = "ipv6nd"
+
+    // DHCPv6
+    SergShowComp_dhcpv6 SergShowComp = "dhcpv6"
+
+    // DAPS
+    SergShowComp_daps SergShowComp = "daps"
+)
+
+// SergShowSlaveMode represents SERG Slave Mode
+type SergShowSlaveMode string
+
+const (
+    // Not Configured
+    SergShowSlaveMode_none SergShowSlaveMode = "none"
+
+    // Warm Modem
+    SergShowSlaveMode_warm SergShowSlaveMode = "warm"
+
+    // Hot Mode
+    SergShowSlaveMode_hot SergShowSlaveMode = "hot"
+)
+
 // SergShowRole represents SERG Role
 type SergShowRole string
 
@@ -194,6 +180,26 @@ const (
 
     // Slave Role
     SergShowRole_slave SergShowRole = "slave"
+
+    // Active Role
+    SergShowRole_active SergShowRole = "active"
+)
+
+// SergShowImRole represents SERG Interface Management Role
+type SergShowImRole string
+
+const (
+    // Not Determined
+    SergShowImRole_none SergShowImRole = "none"
+
+    // Master Role
+    SergShowImRole_master SergShowImRole = "master"
+
+    // Slave Role
+    SergShowImRole_slave SergShowImRole = "slave"
+
+    // Active Role
+    SergShowImRole_active SergShowImRole = "active"
 )
 
 // SessionRedundancyManager
@@ -276,7 +282,7 @@ type SessionRedundancyManager_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -362,7 +368,7 @@ type SessionRedundancyManager_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Group interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -378,11 +384,11 @@ type SessionRedundancyManager_Groups_Group struct {
     Role interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Interface Count. The type is interface{} with range: 0..4294967295.
@@ -460,11 +466,11 @@ type SessionRedundancyManager_Summary struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv6Address interface{}
 
     // No. of Configured Groups. The type is interface{} with range:
@@ -482,6 +488,9 @@ type SessionRedundancyManager_Summary struct {
     // No. of Slave Groups. The type is interface{} with range: 0..4294967295.
     SlaveGroupCount interface{}
 
+    // No. of Active Groups. The type is interface{} with range: 0..4294967295.
+    ActiveGroupCount interface{}
+
     // No. of Configured Interfaces. The type is interface{} with range:
     // 0..4294967295.
     InterfaceCount interface{}
@@ -492,6 +501,10 @@ type SessionRedundancyManager_Summary struct {
 
     // No. of Slave Interfaces. The type is interface{} with range: 0..4294967295.
     SlaveInterfaceCount interface{}
+
+    // No. of Active Interfaces. The type is interface{} with range:
+    // 0..4294967295.
+    ActiveInterfaceCount interface{}
 
     // No. of Configured Pools. The type is interface{} with range: 0..4294967295.
     PoolCount interface{}
@@ -523,9 +536,11 @@ func (summary *SessionRedundancyManager_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.Leafs.Append("disabled-group-count", types.YLeaf{"DisabledGroupCount", summary.DisabledGroupCount})
     summary.EntityData.Leafs.Append("master-group-count", types.YLeaf{"MasterGroupCount", summary.MasterGroupCount})
     summary.EntityData.Leafs.Append("slave-group-count", types.YLeaf{"SlaveGroupCount", summary.SlaveGroupCount})
+    summary.EntityData.Leafs.Append("active-group-count", types.YLeaf{"ActiveGroupCount", summary.ActiveGroupCount})
     summary.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", summary.InterfaceCount})
     summary.EntityData.Leafs.Append("master-interface-count", types.YLeaf{"MasterInterfaceCount", summary.MasterInterfaceCount})
     summary.EntityData.Leafs.Append("slave-interface-count", types.YLeaf{"SlaveInterfaceCount", summary.SlaveInterfaceCount})
+    summary.EntityData.Leafs.Append("active-interface-count", types.YLeaf{"ActiveInterfaceCount", summary.ActiveInterfaceCount})
     summary.EntityData.Leafs.Append("pool-count", types.YLeaf{"PoolCount", summary.PoolCount})
 
     summary.EntityData.YListKeys = []string {}
@@ -606,7 +621,7 @@ type SessionRedundancyAgent_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Data for particular subscriber group session.
@@ -700,7 +715,7 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -715,8 +730,14 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     // Master Role is Set. The type is bool.
     RoleMaster interface{}
 
+    // Active Role is Set. The type is bool.
+    RoleActive interface{}
+
     // Negative Acknowledgement Update Flag is Set. The type is bool.
     NegativeAcknowledgementUpdateAll interface{}
+
+    // Local or Sync Entry. The type is bool.
+    EntryType interface{}
 
     // More Session Information. The type is slice of
     // SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation.
@@ -755,7 +776,9 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityDat
     groupId.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", groupId.InterfaceName})
     groupId.EntityData.Leafs.Append("key-index", types.YLeaf{"KeyIndex", groupId.KeyIndex})
     groupId.EntityData.Leafs.Append("role-master", types.YLeaf{"RoleMaster", groupId.RoleMaster})
+    groupId.EntityData.Leafs.Append("role-active", types.YLeaf{"RoleActive", groupId.RoleActive})
     groupId.EntityData.Leafs.Append("negative-acknowledgement-update-all", types.YLeaf{"NegativeAcknowledgementUpdateAll", groupId.NegativeAcknowledgementUpdateAll})
+    groupId.EntityData.Leafs.Append("entry-type", types.YLeaf{"EntryType", groupId.EntryType})
 
     groupId.EntityData.YListKeys = []string {"GroupId"}
 
@@ -1019,6 +1042,14 @@ type SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId struct {
     // 0..4294967295.
     TxListReceiveSessionSessionEodSelected interface{}
 
+    // TxListRxTCPRestartStartOfDownload. The type is interface{} with range:
+    // 0..4294967295.
+    TxListRxTcpRestartStartOfDownload interface{}
+
+    // TxListRxTCPRestartEndOfDownload. The type is interface{} with range:
+    // 0..4294967295.
+    TxListRxTcpRestartEndOfDownload interface{}
+
     // TxListReceiveSessionSessionEOMS. The type is interface{} with range:
     // 0..4294967295.
     TxListReceiveSessionSessionEoms interface{}
@@ -1134,6 +1165,8 @@ func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetEntityD
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-sod-selected", types.YLeaf{"TxListReceiveSessionSessionSodSelected", clientId.TxListReceiveSessionSessionSodSelected})
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-eod-all", types.YLeaf{"TxListReceiveSessionSessionEodAll", clientId.TxListReceiveSessionSessionEodAll})
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-eod-selected", types.YLeaf{"TxListReceiveSessionSessionEodSelected", clientId.TxListReceiveSessionSessionEodSelected})
+    clientId.EntityData.Leafs.Append("tx-list-rx-tcp-restart-start-of-download", types.YLeaf{"TxListRxTcpRestartStartOfDownload", clientId.TxListRxTcpRestartStartOfDownload})
+    clientId.EntityData.Leafs.Append("tx-list-rx-tcp-restart-end-of-download", types.YLeaf{"TxListRxTcpRestartEndOfDownload", clientId.TxListRxTcpRestartEndOfDownload})
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-eoms", types.YLeaf{"TxListReceiveSessionSessionEoms", clientId.TxListReceiveSessionSessionEoms})
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-clear-all", types.YLeaf{"TxListReceiveSessionSessionClearAll", clientId.TxListReceiveSessionSessionClearAll})
     clientId.EntityData.Leafs.Append("tx-list-receive-session-session-clear-selected", types.YLeaf{"TxListReceiveSessionSessionClearSelected", clientId.TxListReceiveSessionSessionClearSelected})
@@ -1396,7 +1429,7 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     YListKey string
 
     // This attribute is a key. Group Id. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1439,11 +1472,11 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     ObjectTrackingStatus interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SergPeerStatus.
@@ -1748,7 +1781,7 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -1998,11 +2031,11 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv6Address interface{}
 
     // Redundancy Role. The type is string.
@@ -2602,7 +2635,7 @@ type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -2615,11 +2648,11 @@ type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     Disabled interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SergPeerStatus.

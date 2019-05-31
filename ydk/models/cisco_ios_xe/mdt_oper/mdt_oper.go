@@ -19,45 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mdt-oper:mdt-oper-data", reflect.TypeOf(MdtOperData{}))
 }
 
-// MdtSubState represents Subscription states
-type MdtSubState string
-
-const (
-    // The subscription is valid and may be sending updates.
-    MdtSubState_sub_state_valid MdtSubState = "sub-state-valid"
-
-    // The subscription has been suspended and is not
-    // sending notifications even if there are updates.
-    MdtSubState_sub_state_suspended MdtSubState = "sub-state-suspended"
-
-    // The subscription is terminated. This state is valid
-    // only for static subscriptions.
-    MdtSubState_sub_state_terminated MdtSubState = "sub-state-terminated"
-
-    // The subscription is invalid. This state is valid
-    // only for static subscriptions.
-    MdtSubState_sub_state_invalid MdtSubState = "sub-state-invalid"
-)
-
-// MdtConState represents Connection states.
-type MdtConState string
-
-const (
-    // The connection is active and usable.
-    MdtConState_con_state_active MdtConState = "con-state-active"
-
-    // An attempt is being made to set the connection up.
-    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
-
-    // The connection is down, but between connection
-    // attempts. It is in this state, for example, during
-    // the idle time between retries.
-    MdtConState_con_state_pending MdtConState = "con-state-pending"
-
-    // The connection is the process of being disconnected.
-    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
-)
-
 // MdtSubType represents Subscription types
 type MdtSubType string
 
@@ -79,6 +40,26 @@ const (
     MdtSubType_sub_type_permanent MdtSubType = "sub-type-permanent"
 )
 
+// MdtSubState represents Subscription states
+type MdtSubState string
+
+const (
+    // The subscription is valid and may be sending updates.
+    MdtSubState_sub_state_valid MdtSubState = "sub-state-valid"
+
+    // The subscription has been suspended and is not
+    // sending notifications even if there are updates.
+    MdtSubState_sub_state_suspended MdtSubState = "sub-state-suspended"
+
+    // The subscription is terminated. This state is valid
+    // only for static subscriptions.
+    MdtSubState_sub_state_terminated MdtSubState = "sub-state-terminated"
+
+    // The subscription is invalid. This state is valid
+    // only for static subscriptions.
+    MdtSubState_sub_state_invalid MdtSubState = "sub-state-invalid"
+)
+
 // MdtReceiverState represents Receiver states.
 type MdtReceiverState string
 
@@ -97,6 +78,25 @@ const (
     // The receiver is connected, and update notifications
     // are being sent to the receiver when they occur
     MdtReceiverState_rcvr_state_connected MdtReceiverState = "rcvr-state-connected"
+)
+
+// MdtConState represents Connection states.
+type MdtConState string
+
+const (
+    // The connection is active and usable.
+    MdtConState_con_state_active MdtConState = "con-state-active"
+
+    // An attempt is being made to set the connection up.
+    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
+
+    // The connection is down, but between connection
+    // attempts. It is in this state, for example, during
+    // the idle time between retries.
+    MdtConState_con_state_pending MdtConState = "con-state-pending"
+
+    // The connection is the process of being disconnected.
+    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
 )
 
 // MdtOperData
@@ -265,9 +265,9 @@ type MdtOperData_MdtSubscriptions_Base struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Placeholder for unset value. The type is interface{} with range:
@@ -340,9 +340,9 @@ type MdtOperData_MdtSubscriptions_MdtReceivers struct {
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory..
     Address interface{}
 
@@ -397,9 +397,9 @@ type MdtOperData_MdtConnections struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Network port. The type is interface{} with range:
@@ -412,9 +412,9 @@ type MdtOperData_MdtConnections struct {
 
     // This attribute is a key. The source address used for the connection. The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Transport protocol on this connection See transport-protocol from

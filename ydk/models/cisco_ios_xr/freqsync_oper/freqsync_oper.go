@@ -25,21 +25,45 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-freqsync-oper:frequency-synchronization", reflect.TypeOf(FrequencySynchronization{}))
 }
 
-// FsyncBagDampingState represents Damping state
-type FsyncBagDampingState string
+// FsyncStream represents Fsync stream
+type FsyncStream string
 
 const (
-    // Down
-    FsyncBagDampingState_damping_state_down FsyncBagDampingState = "damping-state-down"
+    // Stream input from a local source
+    FsyncStream_local FsyncStream = "local"
 
-    // Coming up
-    FsyncBagDampingState_damping_state_coming_up FsyncBagDampingState = "damping-state-coming-up"
+    // Stream input from a selection point on a remote
+    // node
+    FsyncStream_selection_point FsyncStream = "selection-point"
+)
 
-    // Up
-    FsyncBagDampingState_damping_state_up FsyncBagDampingState = "damping-state-up"
+// FsyncSource represents Fsync source
+type FsyncSource string
 
-    // Going down
-    FsyncBagDampingState_damping_state_going_down FsyncBagDampingState = "damping-state-going-down"
+const (
+    // An ethernet interface
+    FsyncSource_ethernet FsyncSource = "ethernet"
+
+    // A SONET interface
+    FsyncSource_sonet FsyncSource = "sonet"
+
+    // A clock interface
+    FsyncSource_clock FsyncSource = "clock"
+
+    // An internal clock
+    FsyncSource_internal FsyncSource = "internal"
+
+    // A PTP clock
+    FsyncSource_ptp FsyncSource = "ptp"
+
+    // A satellite access interface clock
+    FsyncSource_satellite_access FsyncSource = "satellite-access"
+
+    // An NTP clock
+    FsyncSource_ntp FsyncSource = "ntp"
+
+    // A GNSS receiver
+    FsyncSource_gnss FsyncSource = "gnss"
 )
 
 // FsyncBagStreamState represents Platform stream status
@@ -77,6 +101,72 @@ const (
     FsyncBagStreamState_stream_error FsyncBagStreamState = "stream-error"
 )
 
+// FsyncBagStreamInput represents Stream input type
+type FsyncBagStreamInput string
+
+const (
+    // Invalid stream input
+    FsyncBagStreamInput_invalid_input FsyncBagStreamInput = "invalid-input"
+
+    // Source stream input
+    FsyncBagStreamInput_source_input FsyncBagStreamInput = "source-input"
+
+    // Selection point stream input
+    FsyncBagStreamInput_selection_point_input FsyncBagStreamInput = "selection-point-input"
+)
+
+// FsyncBagClockIntfClass represents Clock-interface class
+type FsyncBagClockIntfClass string
+
+const (
+    // BITS T1
+    FsyncBagClockIntfClass_clock_class_bitst1 FsyncBagClockIntfClass = "clock-class-bitst1"
+
+    // BITS E1
+    FsyncBagClockIntfClass_clock_class_bitse1 FsyncBagClockIntfClass = "clock-class-bitse1"
+
+    // BITS 2M
+    FsyncBagClockIntfClass_clock_class_bits2m FsyncBagClockIntfClass = "clock-class-bits2m"
+
+    // BITS 6M
+    FsyncBagClockIntfClass_clock_class_bits6m FsyncBagClockIntfClass = "clock-class-bits6m"
+
+    // BITS 64K
+    FsyncBagClockIntfClass_clock_class_bits64k FsyncBagClockIntfClass = "clock-class-bits64k"
+
+    // DTI
+    FsyncBagClockIntfClass_clock_class_dti FsyncBagClockIntfClass = "clock-class-dti"
+
+    // GPS
+    FsyncBagClockIntfClass_clock_class_gps FsyncBagClockIntfClass = "clock-class-gps"
+
+    // Inter-Chassis Sync
+    FsyncBagClockIntfClass_clock_class_chassis_sync FsyncBagClockIntfClass = "clock-class-chassis-sync"
+
+    // Bits J1
+    FsyncBagClockIntfClass_clock_class_bitsj1 FsyncBagClockIntfClass = "clock-class-bitsj1"
+
+    // Unknown
+    FsyncBagClockIntfClass_clock_class_unknown FsyncBagClockIntfClass = "clock-class-unknown"
+)
+
+// FsyncBagSourceState represents Source state
+type FsyncBagSourceState string
+
+const (
+    // Unknown
+    FsyncBagSourceState_source_state_unknown FsyncBagSourceState = "source-state-unknown"
+
+    // Up
+    FsyncBagSourceState_source_state_up FsyncBagSourceState = "source-state-up"
+
+    // Down
+    FsyncBagSourceState_source_state_down FsyncBagSourceState = "source-state-down"
+
+    // Unvailable
+    FsyncBagSourceState_source_state_unavailable FsyncBagSourceState = "source-state-unavailable"
+)
+
 // FsyncBagEsmcPeerState represents ESMC peer state
 type FsyncBagEsmcPeerState string
 
@@ -92,6 +182,152 @@ const (
 
     // Peer state unknown
     FsyncBagEsmcPeerState_peer_unknown FsyncBagEsmcPeerState = "peer-unknown"
+)
+
+// FsyncBagQlO2G2Value represents Quality level option 2, generation 2 values
+type FsyncBagQlO2G2Value string
+
+const (
+    // Invalid
+    FsyncBagQlO2G2Value_option2_generation2_invalid FsyncBagQlO2G2Value = "option2-generation2-invalid"
+
+    // Do not use
+    FsyncBagQlO2G2Value_option2_generation2_do_not_use FsyncBagQlO2G2Value = "option2-generation2-do-not-use"
+
+    // Failed
+    FsyncBagQlO2G2Value_option2_generation2_failed FsyncBagQlO2G2Value = "option2-generation2-failed"
+
+    // Interface does not support SSMs or no QL has
+    // been received
+    FsyncBagQlO2G2Value_option2_generation2_none FsyncBagQlO2G2Value = "option2-generation2-none"
+
+    // Primary reference source
+    FsyncBagQlO2G2Value_option2_generation2prs FsyncBagQlO2G2Value = "option2-generation2prs"
+
+    // Synchronized - traceability unknown
+    FsyncBagQlO2G2Value_option2_generation2stu FsyncBagQlO2G2Value = "option2-generation2stu"
+
+    // Stratum 2
+    FsyncBagQlO2G2Value_option2_generation2_stratum2 FsyncBagQlO2G2Value = "option2-generation2-stratum2"
+
+    // Stratum 3
+    FsyncBagQlO2G2Value_option2_generation2_stratum3 FsyncBagQlO2G2Value = "option2-generation2-stratum3"
+
+    // Transit node clock
+    FsyncBagQlO2G2Value_option2_generation2tnc FsyncBagQlO2G2Value = "option2-generation2tnc"
+
+    // Stratum 3E
+    FsyncBagQlO2G2Value_option2_generation2_stratum3e FsyncBagQlO2G2Value = "option2-generation2-stratum3e"
+
+    // SONET clock self timed
+    FsyncBagQlO2G2Value_option2_generation2smc FsyncBagQlO2G2Value = "option2-generation2smc"
+
+    // Stratum 4 freerun
+    FsyncBagQlO2G2Value_option2_generation2_stratum4 FsyncBagQlO2G2Value = "option2-generation2-stratum4"
+)
+
+// FsyncBagQlO2G1Value represents Quality level option 2, generation 1 values
+type FsyncBagQlO2G1Value string
+
+const (
+    // Invalid
+    FsyncBagQlO2G1Value_option2_generation1_invalid FsyncBagQlO2G1Value = "option2-generation1-invalid"
+
+    // Do not use
+    FsyncBagQlO2G1Value_option2_generation1_do_not_use FsyncBagQlO2G1Value = "option2-generation1-do-not-use"
+
+    // Failed
+    FsyncBagQlO2G1Value_option2_generation1_failed FsyncBagQlO2G1Value = "option2-generation1-failed"
+
+    // Interface does not support SSMs or no QL has
+    // been received
+    FsyncBagQlO2G1Value_option2_generation1_none FsyncBagQlO2G1Value = "option2-generation1-none"
+
+    // Primary reference source
+    FsyncBagQlO2G1Value_option2_generation1prs FsyncBagQlO2G1Value = "option2-generation1prs"
+
+    // Synchronized - traceability unknown
+    FsyncBagQlO2G1Value_option2_generation1stu FsyncBagQlO2G1Value = "option2-generation1stu"
+
+    // Stratum 2
+    FsyncBagQlO2G1Value_option2_generation1_stratum2 FsyncBagQlO2G1Value = "option2-generation1-stratum2"
+
+    // Stratum 3
+    FsyncBagQlO2G1Value_option2_generation1_stratum3 FsyncBagQlO2G1Value = "option2-generation1-stratum3"
+
+    // SONET clock self timed
+    FsyncBagQlO2G1Value_option2_generation1smc FsyncBagQlO2G1Value = "option2-generation1smc"
+
+    // Stratum 4 freerun
+    FsyncBagQlO2G1Value_option2_generation1_stratum4 FsyncBagQlO2G1Value = "option2-generation1-stratum4"
+)
+
+// FsyncBagQlO1Value represents Quality level option 1 values
+type FsyncBagQlO1Value string
+
+const (
+    // Invalid
+    FsyncBagQlO1Value_option1_invalid FsyncBagQlO1Value = "option1-invalid"
+
+    // Do not use
+    FsyncBagQlO1Value_option1_do_not_use FsyncBagQlO1Value = "option1-do-not-use"
+
+    // Failed
+    FsyncBagQlO1Value_option1_failed FsyncBagQlO1Value = "option1-failed"
+
+    // Interface does not support SSMs or no QL has
+    // been received
+    FsyncBagQlO1Value_option1_none FsyncBagQlO1Value = "option1-none"
+
+    // Primary reference clock
+    FsyncBagQlO1Value_option1prc FsyncBagQlO1Value = "option1prc"
+
+    // Type I or V slave clock
+    FsyncBagQlO1Value_option1ssu_a FsyncBagQlO1Value = "option1ssu-a"
+
+    // Type VI slave clock
+    FsyncBagQlO1Value_option1ssu_b FsyncBagQlO1Value = "option1ssu-b"
+
+    // SONET equipment clock
+    FsyncBagQlO1Value_option1sec FsyncBagQlO1Value = "option1sec"
+)
+
+// FsyncBagQlOption represents Quality level option
+type FsyncBagQlOption string
+
+const (
+    // Interface does not support SSMs or no QL has
+    // been received
+    FsyncBagQlOption_no_quality_level_option FsyncBagQlOption = "no-quality-level-option"
+
+    // ITU-T Quality level option 1
+    FsyncBagQlOption_option1 FsyncBagQlOption = "option1"
+
+    // ITU-T Quality level option 2, generation 1
+    FsyncBagQlOption_option2_generation1 FsyncBagQlOption = "option2-generation1"
+
+    // ITU-T Quality level option 2, generation 2
+    FsyncBagQlOption_option2_generation2 FsyncBagQlOption = "option2-generation2"
+
+    // Invalid quality level option
+    FsyncBagQlOption_invalid_quality_level_option FsyncBagQlOption = "invalid-quality-level-option"
+)
+
+// FsyncBagDampingState represents Damping state
+type FsyncBagDampingState string
+
+const (
+    // Down
+    FsyncBagDampingState_damping_state_down FsyncBagDampingState = "damping-state-down"
+
+    // Coming up
+    FsyncBagDampingState_damping_state_coming_up FsyncBagDampingState = "damping-state-coming-up"
+
+    // Up
+    FsyncBagDampingState_damping_state_up FsyncBagDampingState = "damping-state-up"
+
+    // Going down
+    FsyncBagDampingState_damping_state_going_down FsyncBagDampingState = "damping-state-going-down"
 )
 
 // ImStateEnum represents Im state enum
@@ -156,100 +392,6 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
-// FsyncBagStreamInput represents Stream input type
-type FsyncBagStreamInput string
-
-const (
-    // Invalid stream input
-    FsyncBagStreamInput_invalid_input FsyncBagStreamInput = "invalid-input"
-
-    // Source stream input
-    FsyncBagStreamInput_source_input FsyncBagStreamInput = "source-input"
-
-    // Selection point stream input
-    FsyncBagStreamInput_selection_point_input FsyncBagStreamInput = "selection-point-input"
-)
-
-// FsyncBagQlO2G2Value represents Quality level option 2, generation 2 values
-type FsyncBagQlO2G2Value string
-
-const (
-    // Invalid
-    FsyncBagQlO2G2Value_option2_generation2_invalid FsyncBagQlO2G2Value = "option2-generation2-invalid"
-
-    // Do not use
-    FsyncBagQlO2G2Value_option2_generation2_do_not_use FsyncBagQlO2G2Value = "option2-generation2-do-not-use"
-
-    // Failed
-    FsyncBagQlO2G2Value_option2_generation2_failed FsyncBagQlO2G2Value = "option2-generation2-failed"
-
-    // Interface does not support SSMs or no QL has
-    // been received
-    FsyncBagQlO2G2Value_option2_generation2_none FsyncBagQlO2G2Value = "option2-generation2-none"
-
-    // Primary reference source
-    FsyncBagQlO2G2Value_option2_generation2prs FsyncBagQlO2G2Value = "option2-generation2prs"
-
-    // Synchronized - traceability unknown
-    FsyncBagQlO2G2Value_option2_generation2stu FsyncBagQlO2G2Value = "option2-generation2stu"
-
-    // Stratum 2
-    FsyncBagQlO2G2Value_option2_generation2_stratum2 FsyncBagQlO2G2Value = "option2-generation2-stratum2"
-
-    // Stratum 3
-    FsyncBagQlO2G2Value_option2_generation2_stratum3 FsyncBagQlO2G2Value = "option2-generation2-stratum3"
-
-    // Transit node clock
-    FsyncBagQlO2G2Value_option2_generation2tnc FsyncBagQlO2G2Value = "option2-generation2tnc"
-
-    // Stratum 3E
-    FsyncBagQlO2G2Value_option2_generation2_stratum3e FsyncBagQlO2G2Value = "option2-generation2-stratum3e"
-
-    // SONET clock self timed
-    FsyncBagQlO2G2Value_option2_generation2smc FsyncBagQlO2G2Value = "option2-generation2smc"
-
-    // Stratum 4 freerun
-    FsyncBagQlO2G2Value_option2_generation2_stratum4 FsyncBagQlO2G2Value = "option2-generation2-stratum4"
-)
-
-// FsyncBagQlOption represents Quality level option
-type FsyncBagQlOption string
-
-const (
-    // Interface does not support SSMs or no QL has
-    // been received
-    FsyncBagQlOption_no_quality_level_option FsyncBagQlOption = "no-quality-level-option"
-
-    // ITU-T Quality level option 1
-    FsyncBagQlOption_option1 FsyncBagQlOption = "option1"
-
-    // ITU-T Quality level option 2, generation 1
-    FsyncBagQlOption_option2_generation1 FsyncBagQlOption = "option2-generation1"
-
-    // ITU-T Quality level option 2, generation 2
-    FsyncBagQlOption_option2_generation2 FsyncBagQlOption = "option2-generation2"
-
-    // Invalid quality level option
-    FsyncBagQlOption_invalid_quality_level_option FsyncBagQlOption = "invalid-quality-level-option"
-)
-
-// FsyncBagSourceState represents Source state
-type FsyncBagSourceState string
-
-const (
-    // Unknown
-    FsyncBagSourceState_source_state_unknown FsyncBagSourceState = "source-state-unknown"
-
-    // Up
-    FsyncBagSourceState_source_state_up FsyncBagSourceState = "source-state-up"
-
-    // Down
-    FsyncBagSourceState_source_state_down FsyncBagSourceState = "source-state-down"
-
-    // Unvailable
-    FsyncBagSourceState_source_state_unavailable FsyncBagSourceState = "source-state-unavailable"
-)
-
 // FsyncBagForwardtraceNode represents Selection forwardtrace node information
 type FsyncBagForwardtraceNode string
 
@@ -259,83 +401,6 @@ const (
 
     // A timing source forwardtrace node
     FsyncBagForwardtraceNode_forward_trace_node_source FsyncBagForwardtraceNode = "forward-trace-node-source"
-)
-
-// FsyncStream represents Fsync stream
-type FsyncStream string
-
-const (
-    // Stream input from a local source
-    FsyncStream_local FsyncStream = "local"
-
-    // Stream input from a selection point on a remote
-    // node
-    FsyncStream_selection_point FsyncStream = "selection-point"
-)
-
-// FsyncBagClockIntfClass represents Clock-interface class
-type FsyncBagClockIntfClass string
-
-const (
-    // BITS T1
-    FsyncBagClockIntfClass_clock_class_bitst1 FsyncBagClockIntfClass = "clock-class-bitst1"
-
-    // BITS E1
-    FsyncBagClockIntfClass_clock_class_bitse1 FsyncBagClockIntfClass = "clock-class-bitse1"
-
-    // BITS 2M
-    FsyncBagClockIntfClass_clock_class_bits2m FsyncBagClockIntfClass = "clock-class-bits2m"
-
-    // BITS 6M
-    FsyncBagClockIntfClass_clock_class_bits6m FsyncBagClockIntfClass = "clock-class-bits6m"
-
-    // BITS 64K
-    FsyncBagClockIntfClass_clock_class_bits64k FsyncBagClockIntfClass = "clock-class-bits64k"
-
-    // DTI
-    FsyncBagClockIntfClass_clock_class_dti FsyncBagClockIntfClass = "clock-class-dti"
-
-    // GPS
-    FsyncBagClockIntfClass_clock_class_gps FsyncBagClockIntfClass = "clock-class-gps"
-
-    // Inter-Chassis Sync
-    FsyncBagClockIntfClass_clock_class_chassis_sync FsyncBagClockIntfClass = "clock-class-chassis-sync"
-
-    // Bits J1
-    FsyncBagClockIntfClass_clock_class_bitsj1 FsyncBagClockIntfClass = "clock-class-bitsj1"
-
-    // Unknown
-    FsyncBagClockIntfClass_clock_class_unknown FsyncBagClockIntfClass = "clock-class-unknown"
-)
-
-// FsyncBagQlO1Value represents Quality level option 1 values
-type FsyncBagQlO1Value string
-
-const (
-    // Invalid
-    FsyncBagQlO1Value_option1_invalid FsyncBagQlO1Value = "option1-invalid"
-
-    // Do not use
-    FsyncBagQlO1Value_option1_do_not_use FsyncBagQlO1Value = "option1-do-not-use"
-
-    // Failed
-    FsyncBagQlO1Value_option1_failed FsyncBagQlO1Value = "option1-failed"
-
-    // Interface does not support SSMs or no QL has
-    // been received
-    FsyncBagQlO1Value_option1_none FsyncBagQlO1Value = "option1-none"
-
-    // Primary reference clock
-    FsyncBagQlO1Value_option1prc FsyncBagQlO1Value = "option1prc"
-
-    // Type I or V slave clock
-    FsyncBagQlO1Value_option1ssu_a FsyncBagQlO1Value = "option1ssu-a"
-
-    // Type VI slave clock
-    FsyncBagQlO1Value_option1ssu_b FsyncBagQlO1Value = "option1ssu-b"
-
-    // SONET equipment clock
-    FsyncBagQlO1Value_option1sec FsyncBagQlO1Value = "option1sec"
 )
 
 // FsyncBagSourceClass represents Source class
@@ -368,68 +433,6 @@ const (
 
     // GNSS Receiver
     FsyncBagSourceClass_gnss_receiver FsyncBagSourceClass = "gnss-receiver"
-)
-
-// FsyncBagQlO2G1Value represents Quality level option 2, generation 1 values
-type FsyncBagQlO2G1Value string
-
-const (
-    // Invalid
-    FsyncBagQlO2G1Value_option2_generation1_invalid FsyncBagQlO2G1Value = "option2-generation1-invalid"
-
-    // Do not use
-    FsyncBagQlO2G1Value_option2_generation1_do_not_use FsyncBagQlO2G1Value = "option2-generation1-do-not-use"
-
-    // Failed
-    FsyncBagQlO2G1Value_option2_generation1_failed FsyncBagQlO2G1Value = "option2-generation1-failed"
-
-    // Interface does not support SSMs or no QL has
-    // been received
-    FsyncBagQlO2G1Value_option2_generation1_none FsyncBagQlO2G1Value = "option2-generation1-none"
-
-    // Primary reference source
-    FsyncBagQlO2G1Value_option2_generation1prs FsyncBagQlO2G1Value = "option2-generation1prs"
-
-    // Synchronized - traceability unknown
-    FsyncBagQlO2G1Value_option2_generation1stu FsyncBagQlO2G1Value = "option2-generation1stu"
-
-    // Stratum 2
-    FsyncBagQlO2G1Value_option2_generation1_stratum2 FsyncBagQlO2G1Value = "option2-generation1-stratum2"
-
-    // Stratum 3
-    FsyncBagQlO2G1Value_option2_generation1_stratum3 FsyncBagQlO2G1Value = "option2-generation1-stratum3"
-
-    // SONET clock self timed
-    FsyncBagQlO2G1Value_option2_generation1smc FsyncBagQlO2G1Value = "option2-generation1smc"
-
-    // Stratum 4 freerun
-    FsyncBagQlO2G1Value_option2_generation1_stratum4 FsyncBagQlO2G1Value = "option2-generation1-stratum4"
-)
-
-// FsyncSource represents Fsync source
-type FsyncSource string
-
-const (
-    // An ethernet interface
-    FsyncSource_ethernet FsyncSource = "ethernet"
-
-    // A SONET interface
-    FsyncSource_sonet FsyncSource = "sonet"
-
-    // A clock interface
-    FsyncSource_clock FsyncSource = "clock"
-
-    // An internal clock
-    FsyncSource_internal FsyncSource = "internal"
-
-    // A PTP clock
-    FsyncSource_ptp FsyncSource = "ptp"
-
-    // A satellite access interface clock
-    FsyncSource_satellite_access FsyncSource = "satellite-access"
-
-    // An NTP clock
-    FsyncSource_ntp FsyncSource = "ntp"
 )
 
 // FrequencySynchronization
@@ -520,7 +523,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Selection backtrace operational data for clock-interfaces.
@@ -660,22 +663,22 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -723,7 +726,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -763,7 +766,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -803,7 +806,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -850,7 +853,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -1041,7 +1044,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -1076,22 +1079,22 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -1139,7 +1142,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1179,7 +1182,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1219,7 +1222,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1301,22 +1304,22 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -1364,7 +1367,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1404,7 +1407,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1444,7 +1447,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1491,7 +1494,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selectio
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -1636,7 +1639,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -1671,22 +1674,22 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -1734,7 +1737,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1774,7 +1777,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1814,7 +1817,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -1966,7 +1969,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -2001,22 +2004,22 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -2064,7 +2067,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2104,7 +2107,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2144,7 +2147,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2220,7 +2223,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Selection forwardtrace operational data for a particular interface.
@@ -2371,7 +2374,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -2406,22 +2409,22 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -2469,7 +2472,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2509,7 +2512,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2549,7 +2552,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2631,22 +2634,22 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -2694,7 +2697,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2734,7 +2737,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2774,7 +2777,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -2821,7 +2824,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -2947,22 +2950,22 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -3010,7 +3013,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source_ClockId struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3050,7 +3053,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId st
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3090,7 +3093,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId str
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3169,22 +3172,22 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -3232,7 +3235,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3272,7 +3275,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId st
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3312,7 +3315,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId str
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3387,7 +3390,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -3524,22 +3527,22 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -3587,7 +3590,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_ClockId struct
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3627,7 +3630,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockI
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3667,7 +3670,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3709,22 +3712,22 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -3772,7 +3775,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_ClockI
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3812,7 +3815,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_Intern
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -3852,7 +3855,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssRe
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -4393,7 +4396,7 @@ type FrequencySynchronization_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // NTP operational data.
@@ -5148,22 +5151,22 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -5211,7 +5214,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -5251,7 +5254,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -5291,7 +5294,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6042,22 +6045,22 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -6105,7 +6108,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6145,7 +6148,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6185,7 +6188,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6227,22 +6230,22 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -6290,7 +6293,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6330,7 +6333,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6370,7 +6373,7 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6884,22 +6887,22 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -6947,7 +6950,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_ClockId str
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -6987,7 +6990,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7027,7 +7030,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceive
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7069,22 +7072,22 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -7132,7 +7135,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_Clo
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7172,7 +7175,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_Int
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7212,7 +7215,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_Gns
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7580,14 +7583,14 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // Type of source. The type is FsyncSource.
     SourceType interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
     // Clock port. The type is interface{} with range: 0..4294967295.
     ClockPort interface{}
 
     // Last node for a selection point stream. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     LastNode interface{}
 
     // Last selection point for a selection point stream. The type is interface{}
@@ -7688,7 +7691,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -7761,22 +7764,22 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -7824,7 +7827,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7864,7 +7867,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7904,7 +7907,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -7984,7 +7987,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     SelectionPointDescription interface{}
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 }
 
@@ -8019,22 +8022,22 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Ethernet interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // SONET interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SonetInterface interface{}
 
     // PTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NtpNode interface{}
 
     // Clock ID.
@@ -8082,7 +8085,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -8122,7 +8125,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).
@@ -8162,7 +8165,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // ID (port number for clock interface, receiver number for GNSS receiver).

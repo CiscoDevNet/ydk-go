@@ -156,19 +156,19 @@ type DRAFTMSDPMIB_MsdpRequestsTable_MsdpRequestsEntry struct {
     // This attribute is a key. The group address that, when combined with the
     // mask in this entry, represents the group range for which this peer will
     // service MSDP SA Requests. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpRequestsGroupAddress interface{}
 
     // This attribute is a key. The mask that, when combined with the group
     // address in this entry, represents the group range for which this peer will
     // service MSDP SA Requests. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpRequestsGroupMask interface{}
 
     // The peer to which MSDP SA Requests for groups matching this entry's group
     // range will be sent.  Must match the INDEX of a row in the msdpPeerTable.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpRequestsPeer interface{}
 
     // The status of this row, by which new rows may be added to the table. The
@@ -243,7 +243,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
 
     // This attribute is a key. The address of the remote MSDP peer. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpPeerRemoteAddress interface{}
 
     // The state of the MSDP TCP connection with this peer. The type is
@@ -323,7 +323,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
 
     // The local IP address of this entry's MSDP connection. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpPeerLocalAddress interface{}
 
     // Time interval in seconds for the MinSAAdvertisementInterval MSDP timer. The
@@ -335,7 +335,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
     MsdpPeerConnectRetryInterval interface{}
 
     // Time interval in seconds for the Hold Timer configured for this MSDP
-    // speaker with this peer. The type is interface{} with range: 0..None |
+    // speaker with this peer. The type is interface{} with range: 0..0 |
     // 3..65535. Units are seconds.
     MsdpPeerHoldTimeConfigured interface{}
 
@@ -400,7 +400,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
     // The last error code and subcode seen by this peer on this connection.  If
     // no error has occurred, this field is zero.  Otherwise, the first byte of
     // this two byte OCTET STRING contains the error code, and the second byte
-    // contains the subcode. The type is string with length: 2.
+    // contains the subcode. The type is string with length: 2..2.
     MsdpPeerLastError interface{}
 }
 
@@ -543,23 +543,23 @@ type DRAFTMSDPMIB_MsdpSACacheTable_MsdpSACacheEntry struct {
 
     // This attribute is a key. The group address of the SA Cache entry. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpSACacheGroupAddr interface{}
 
     // This attribute is a key. The source address of the SA Cache entry. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpSACacheSourceAddr interface{}
 
     // This attribute is a key. The address of the RP which originated the last SA
     // message accepted for this entry. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpSACacheOriginRP interface{}
 
     // The peer from which this SA Cache entry was last accepted.  This address
     // must correspond to the msdpPeerRemoteAddress value for a row in the MSDP
     // Peer Table. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpSACachePeerLearnedFrom interface{}
 
     // The peer from which an SA message corresponding to this cache entry would
@@ -568,7 +568,7 @@ type DRAFTMSDPMIB_MsdpSACacheTable_MsdpSACacheEntry struct {
     // MSDP SA-Response.  This address must correspond to the
     // msdpPeerRemoteAddress value for a row in the MSDP Peer Table. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MsdpSACacheRPFPeer interface{}
 
     // The number of MSDP SA messages received relevant to this cache entry.  This

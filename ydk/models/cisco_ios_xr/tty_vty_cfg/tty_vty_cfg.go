@@ -97,7 +97,7 @@ type Vty_VtyPools_VtyPool struct {
     // This attribute is a key. For configuring range for default pool use
     // 'default',For configuring range for fault-manager pool use 'fm',For
     // configuring range for any user defined pool use any other string. The type
-    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PoolName interface{}
 
     // First VTY number,For default VTY use 0,For user-defined use 5,For

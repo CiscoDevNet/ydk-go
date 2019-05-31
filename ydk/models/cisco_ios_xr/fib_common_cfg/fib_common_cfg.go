@@ -24,6 +24,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-fib-common-cfg:fib", reflect.TypeOf(Fib{}))
 }
 
+// FibPbtsForwardClass represents Fib pbts forward class
+type FibPbtsForwardClass string
+
+const (
+    // Any class
+    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
+)
+
 // FibPbtsFallback represents Fib pbts fallback
 type FibPbtsFallback string
 
@@ -36,14 +44,6 @@ const (
 
     // Fallback to drop
     FibPbtsFallback_drop FibPbtsFallback = "drop"
-)
-
-// FibPbtsForwardClass represents Fib pbts forward class
-type FibPbtsForwardClass string
-
-const (
-    // Any class
-    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
 )
 
 // Fib

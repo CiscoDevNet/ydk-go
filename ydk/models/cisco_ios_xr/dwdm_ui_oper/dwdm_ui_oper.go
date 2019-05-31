@@ -27,6 +27,29 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-dwdm-ui-oper:vtxp", reflect.TypeOf(Vtxp{}))
 }
 
+// G709apsByte represents G709aps byte
+type G709apsByte string
+
+const (
+    // No Protection
+    G709apsByte_pp_no_protect G709apsByte = "pp-no-protect"
+
+    // No Request
+    G709apsByte_pp_no_request G709apsByte = "pp-no-request"
+
+    // Regenerator Degrade
+    G709apsByte_pp_regen_degrade G709apsByte = "pp-regen-degrade"
+
+    // Signal Degrade
+    G709apsByte_pp_sig_degrade G709apsByte = "pp-sig-degrade"
+
+    // Maintenance Request
+    G709apsByte_pp_remote_main G709apsByte = "pp-remote-main"
+
+    // Unknown
+    G709apsByte_pp_aps_unknown G709apsByte = "pp-aps-unknown"
+)
+
 // G709ppintfState represents G709ppintf state
 type G709ppintfState string
 
@@ -39,68 +62,6 @@ const (
 
     // Interface Down
     G709ppintfState_pp_intf_down G709ppintfState = "pp-intf-down"
-)
-
-// G709ppfsmMode represents G709ppfsm mode
-type G709ppfsmMode string
-
-const (
-    // OFF
-    G709ppfsmMode_pp_disable G709ppfsmMode = "pp-disable"
-
-    // ON (Default Mode)
-    G709ppfsmMode_pp_default_mode G709ppfsmMode = "pp-default-mode"
-
-    // ON (Graceful Mode)
-    G709ppfsmMode_pp_graceful_mode G709ppfsmMode = "pp-graceful-mode"
-)
-
-// DwdmControllerState represents Dwdm controller state
-type DwdmControllerState string
-
-const (
-    // Up
-    DwdmControllerState_dwdm_ui_state_up DwdmControllerState = "dwdm-ui-state-up"
-
-    // Down
-    DwdmControllerState_dwdm_ui_state_down DwdmControllerState = "dwdm-ui-state-down"
-
-    // Administratively Down
-    DwdmControllerState_dwdm_ui_state_admin_down DwdmControllerState = "dwdm-ui-state-admin-down"
-)
-
-// DwdmtasState represents Dwdmtas state
-type DwdmtasState string
-
-const (
-    // Out of Service
-    DwdmtasState_tas_oos DwdmtasState = "tas-oos"
-
-    // In Service
-    DwdmtasState_tas_is DwdmtasState = "tas-is"
-
-    // Out of Service Maintenance
-    DwdmtasState_tas_oos_mt DwdmtasState = "tas-oos-mt"
-
-    // In Service Config allowed
-    DwdmtasState_tas_is_cfg DwdmtasState = "tas-is-cfg"
-)
-
-// G709prbsMode represents G709prbs mode
-type G709prbsMode string
-
-const (
-    // mode source
-    G709prbsMode_mode_source G709prbsMode = "mode-source"
-
-    // mode sink
-    G709prbsMode_mode_sink G709prbsMode = "mode-sink"
-
-    // mode source sink
-    G709prbsMode_mode_source_sink G709prbsMode = "mode-source-sink"
-
-    // mode invalid
-    G709prbsMode_mode_invalid G709prbsMode = "mode-invalid"
 )
 
 // G709ppfsmState represents G709ppfsm state
@@ -139,6 +100,116 @@ const (
 
     // Regenerator Failed
     G709ppfsmState_regen_failed G709ppfsmState = "regen-failed"
+)
+
+// G709ppfsmMode represents G709ppfsm mode
+type G709ppfsmMode string
+
+const (
+    // OFF
+    G709ppfsmMode_pp_disable G709ppfsmMode = "pp-disable"
+
+    // ON (Default Mode)
+    G709ppfsmMode_pp_default_mode G709ppfsmMode = "pp-default-mode"
+
+    // ON (Graceful Mode)
+    G709ppfsmMode_pp_graceful_mode G709ppfsmMode = "pp-graceful-mode"
+)
+
+// DwdmWaveChannelOwner represents Dwdm wave channel owner
+type DwdmWaveChannelOwner string
+
+const (
+    // Hardware Default
+    DwdmWaveChannelOwner_default_ DwdmWaveChannelOwner = "default"
+
+    // Configuration
+    DwdmWaveChannelOwner_configuration DwdmWaveChannelOwner = "configuration"
+
+    // GMPLS Signaled
+    DwdmWaveChannelOwner_gmpls DwdmWaveChannelOwner = "gmpls"
+)
+
+// G709efecMode represents G709efec mode
+type G709efecMode string
+
+const (
+    // 
+    G709efecMode_g975_none G709efecMode = "g975-none"
+
+    // G975.1 I.4
+    G709efecMode_g975_1_i4 G709efecMode = "g975-1-i4"
+
+    // G975.1 I.7
+    G709efecMode_g975_1_i7 G709efecMode = "g975-1-i7"
+)
+
+// DwdmtasState represents Dwdmtas state
+type DwdmtasState string
+
+const (
+    // Out of Service
+    DwdmtasState_tas_oos DwdmtasState = "tas-oos"
+
+    // In Service
+    DwdmtasState_tas_is DwdmtasState = "tas-is"
+
+    // Out of Service Maintenance
+    DwdmtasState_tas_oos_mt DwdmtasState = "tas-oos-mt"
+
+    // In Service Config allowed
+    DwdmtasState_tas_is_cfg DwdmtasState = "tas-is-cfg"
+)
+
+// DwdmControllerState represents Dwdm controller state
+type DwdmControllerState string
+
+const (
+    // Up
+    DwdmControllerState_dwdm_ui_state_up DwdmControllerState = "dwdm-ui-state-up"
+
+    // Down
+    DwdmControllerState_dwdm_ui_state_down DwdmControllerState = "dwdm-ui-state-down"
+
+    // Administratively Down
+    DwdmControllerState_dwdm_ui_state_admin_down DwdmControllerState = "dwdm-ui-state-admin-down"
+)
+
+// G709prbsMode represents G709prbs mode
+type G709prbsMode string
+
+const (
+    // mode source
+    G709prbsMode_mode_source G709prbsMode = "mode-source"
+
+    // mode sink
+    G709prbsMode_mode_sink G709prbsMode = "mode-sink"
+
+    // mode source sink
+    G709prbsMode_mode_source_sink G709prbsMode = "mode-source-sink"
+
+    // mode invalid
+    G709prbsMode_mode_invalid G709prbsMode = "mode-invalid"
+)
+
+// G709prbsPattern represents G709prbs pattern
+type G709prbsPattern string
+
+const (
+    // pattern none
+    G709prbsPattern_pattern_none G709prbsPattern = "pattern-none"
+
+    // pattern null
+    G709prbsPattern_pattern_null G709prbsPattern = "pattern-null"
+
+    // pattern pn11
+    G709prbsPattern_pattern_pn11 G709prbsPattern = "pattern-pn11"
+
+    // pattern pn23
+    G709prbsPattern_pattern_pn23 G709prbsPattern = "pattern-pn23"
+
+    // pattern pn31
+    G709prbsPattern_pattern_pn31 G709prbsPattern = "pattern-pn31"
 )
 
 // G709prbsInterval represents PRBS test interval information
@@ -245,77 +316,6 @@ const (
     G709prbsInterval_previous_interval32 G709prbsInterval = "previous-interval32"
 )
 
-// DwdmWaveChannelOwner represents Dwdm wave channel owner
-type DwdmWaveChannelOwner string
-
-const (
-    // Hardware Default
-    DwdmWaveChannelOwner_default_ DwdmWaveChannelOwner = "default"
-
-    // Configuration
-    DwdmWaveChannelOwner_configuration DwdmWaveChannelOwner = "configuration"
-
-    // GMPLS Signaled
-    DwdmWaveChannelOwner_gmpls DwdmWaveChannelOwner = "gmpls"
-)
-
-// G709efecMode represents G709efec mode
-type G709efecMode string
-
-const (
-    // 
-    G709efecMode_g975_none G709efecMode = "g975-none"
-
-    // G975.1 I.4
-    G709efecMode_g975_1_i4 G709efecMode = "g975-1-i4"
-
-    // G975.1 I.7
-    G709efecMode_g975_1_i7 G709efecMode = "g975-1-i7"
-)
-
-// G709prbsPattern represents G709prbs pattern
-type G709prbsPattern string
-
-const (
-    // pattern none
-    G709prbsPattern_pattern_none G709prbsPattern = "pattern-none"
-
-    // pattern null
-    G709prbsPattern_pattern_null G709prbsPattern = "pattern-null"
-
-    // pattern pn11
-    G709prbsPattern_pattern_pn11 G709prbsPattern = "pattern-pn11"
-
-    // pattern pn23
-    G709prbsPattern_pattern_pn23 G709prbsPattern = "pattern-pn23"
-
-    // pattern pn31
-    G709prbsPattern_pattern_pn31 G709prbsPattern = "pattern-pn31"
-)
-
-// G709apsByte represents G709aps byte
-type G709apsByte string
-
-const (
-    // No Protection
-    G709apsByte_pp_no_protect G709apsByte = "pp-no-protect"
-
-    // No Request
-    G709apsByte_pp_no_request G709apsByte = "pp-no-request"
-
-    // Regenerator Degrade
-    G709apsByte_pp_regen_degrade G709apsByte = "pp-regen-degrade"
-
-    // Signal Degrade
-    G709apsByte_pp_sig_degrade G709apsByte = "pp-sig-degrade"
-
-    // Maintenance Request
-    G709apsByte_pp_remote_main G709apsByte = "pp-remote-main"
-
-    // Unknown
-    G709apsByte_pp_aps_unknown G709apsByte = "pp-aps-unknown"
-)
-
 // Dwdm
 // DWDM operational data
 type Dwdm struct {
@@ -387,7 +387,7 @@ type Dwdm_Ports_Port struct {
     YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Name interface{}
 
     // DWDM Port PRBS related data.
@@ -3962,7 +3962,7 @@ type Vtxp_DwdmVtxp_PortVtxps_PortVtxp struct {
     YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Name interface{}
 
     // DWDM port operational data.

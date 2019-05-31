@@ -20,73 +20,6 @@ func init() {
     ydk.RegisterEntity("DOCS-IF3-MIB:DOCS-IF3-MIB", reflect.TypeOf(DOCSIF3MIB{}))
 }
 
-// CmtsCmRegState represents  in the CM-CTRL-REQ message from CMTS.
-type CmtsCmRegState string
-
-const (
-    CmtsCmRegState_other CmtsCmRegState = "other"
-
-    CmtsCmRegState_initialRanging CmtsCmRegState = "initialRanging"
-
-    CmtsCmRegState_rangingAutoAdjComplete CmtsCmRegState = "rangingAutoAdjComplete"
-
-    CmtsCmRegState_dhcpv4Complete CmtsCmRegState = "dhcpv4Complete"
-
-    CmtsCmRegState_registrationComplete CmtsCmRegState = "registrationComplete"
-
-    CmtsCmRegState_operational CmtsCmRegState = "operational"
-
-    CmtsCmRegState_bpiInit CmtsCmRegState = "bpiInit"
-
-    CmtsCmRegState_startEae CmtsCmRegState = "startEae"
-
-    CmtsCmRegState_startDhcpv4 CmtsCmRegState = "startDhcpv4"
-
-    CmtsCmRegState_startDhcpv6 CmtsCmRegState = "startDhcpv6"
-
-    CmtsCmRegState_dhcpv6Complete CmtsCmRegState = "dhcpv6Complete"
-
-    CmtsCmRegState_startConfigFileDownload CmtsCmRegState = "startConfigFileDownload"
-
-    CmtsCmRegState_configFileDownloadComplete CmtsCmRegState = "configFileDownloadComplete"
-
-    CmtsCmRegState_startRegistration CmtsCmRegState = "startRegistration"
-
-    CmtsCmRegState_forwardingDisabled CmtsCmRegState = "forwardingDisabled"
-
-    CmtsCmRegState_rfMuteAll CmtsCmRegState = "rfMuteAll"
-)
-
-// IfDirection represents Cable Modem Termination System.
-type IfDirection string
-
-const (
-    IfDirection_downstream IfDirection = "downstream"
-
-    IfDirection_upstream IfDirection = "upstream"
-)
-
-// SpectrumAnalysisWindowFunction represents be returned.
-type SpectrumAnalysisWindowFunction string
-
-const (
-    SpectrumAnalysisWindowFunction_other SpectrumAnalysisWindowFunction = "other"
-
-    SpectrumAnalysisWindowFunction_hann SpectrumAnalysisWindowFunction = "hann"
-
-    SpectrumAnalysisWindowFunction_blackmanHarris SpectrumAnalysisWindowFunction = "blackmanHarris"
-
-    SpectrumAnalysisWindowFunction_rectangular SpectrumAnalysisWindowFunction = "rectangular"
-
-    SpectrumAnalysisWindowFunction_hamming SpectrumAnalysisWindowFunction = "hamming"
-
-    SpectrumAnalysisWindowFunction_flatTop SpectrumAnalysisWindowFunction = "flatTop"
-
-    SpectrumAnalysisWindowFunction_gaussian SpectrumAnalysisWindowFunction = "gaussian"
-
-    SpectrumAnalysisWindowFunction_chebyshev SpectrumAnalysisWindowFunction = "chebyshev"
-)
-
 // CmRegState represents  in the CM-CTRL-REQ message from CMTS.
 type CmRegState string
 
@@ -138,6 +71,64 @@ const (
     CmRegState_rfMuteAll CmRegState = "rfMuteAll"
 )
 
+// CmtsCmRegState represents  in the CM-CTRL-REQ message from CMTS.
+type CmtsCmRegState string
+
+const (
+    CmtsCmRegState_other CmtsCmRegState = "other"
+
+    CmtsCmRegState_initialRanging CmtsCmRegState = "initialRanging"
+
+    CmtsCmRegState_rangingAutoAdjComplete CmtsCmRegState = "rangingAutoAdjComplete"
+
+    CmtsCmRegState_dhcpv4Complete CmtsCmRegState = "dhcpv4Complete"
+
+    CmtsCmRegState_registrationComplete CmtsCmRegState = "registrationComplete"
+
+    CmtsCmRegState_operational CmtsCmRegState = "operational"
+
+    CmtsCmRegState_bpiInit CmtsCmRegState = "bpiInit"
+
+    CmtsCmRegState_startEae CmtsCmRegState = "startEae"
+
+    CmtsCmRegState_startDhcpv4 CmtsCmRegState = "startDhcpv4"
+
+    CmtsCmRegState_startDhcpv6 CmtsCmRegState = "startDhcpv6"
+
+    CmtsCmRegState_dhcpv6Complete CmtsCmRegState = "dhcpv6Complete"
+
+    CmtsCmRegState_startConfigFileDownload CmtsCmRegState = "startConfigFileDownload"
+
+    CmtsCmRegState_configFileDownloadComplete CmtsCmRegState = "configFileDownloadComplete"
+
+    CmtsCmRegState_startRegistration CmtsCmRegState = "startRegistration"
+
+    CmtsCmRegState_forwardingDisabled CmtsCmRegState = "forwardingDisabled"
+
+    CmtsCmRegState_rfMuteAll CmtsCmRegState = "rfMuteAll"
+)
+
+// SpectrumAnalysisWindowFunction represents be returned.
+type SpectrumAnalysisWindowFunction string
+
+const (
+    SpectrumAnalysisWindowFunction_other SpectrumAnalysisWindowFunction = "other"
+
+    SpectrumAnalysisWindowFunction_hann SpectrumAnalysisWindowFunction = "hann"
+
+    SpectrumAnalysisWindowFunction_blackmanHarris SpectrumAnalysisWindowFunction = "blackmanHarris"
+
+    SpectrumAnalysisWindowFunction_rectangular SpectrumAnalysisWindowFunction = "rectangular"
+
+    SpectrumAnalysisWindowFunction_hamming SpectrumAnalysisWindowFunction = "hamming"
+
+    SpectrumAnalysisWindowFunction_flatTop SpectrumAnalysisWindowFunction = "flatTop"
+
+    SpectrumAnalysisWindowFunction_gaussian SpectrumAnalysisWindowFunction = "gaussian"
+
+    SpectrumAnalysisWindowFunction_chebyshev SpectrumAnalysisWindowFunction = "chebyshev"
+)
+
 // RangingState represents  indicates that the T4 timer expired on the CM.
 type RangingState string
 
@@ -153,6 +144,15 @@ const (
     RangingState_continue_ RangingState = "continue"
 
     RangingState_timeoutT4 RangingState = "timeoutT4"
+)
+
+// IfDirection represents Cable Modem Termination System.
+type IfDirection string
+
+const (
+    IfDirection_downstream IfDirection = "downstream"
+
+    IfDirection_upstream IfDirection = "upstream"
 )
 
 // DOCSIF3MIB
@@ -448,12 +448,12 @@ type DOCSIF3MIB_DocsIf3CmCapabilities struct {
 
     // This attribute contains the TLV encoding for TLV-5 sent in a REG-REQ.  The
     // first byte of this encoding is expected to be '05'H. The type is string
-    // with length: 0 | 2..255.
+    // with length: 0..0 | 2..255.
     DocsIf3CmCapabilitiesReq interface{}
 
     // This attribute contains the TLV encoding for TLV-5 received in a REG-RSP.
     // The first byte of this encoding is expected to be '05'H. The type is string
-    // with length: 0 | 2..255.
+    // with length: 0..0 | 2..255.
     DocsIf3CmCapabilitiesRsp interface{}
 }
 
@@ -485,7 +485,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmCtrl struct {
 
     // This attribute represents the MAC Address of the CM which the  CMTS is
     // instructed to send the CM-CTRL-REQ message. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsIf3CmtsCmCtrlCmdMacAddr interface{}
 
     // This attribute represents the Upstream Channel ID (UCID) to  mute or
@@ -812,7 +812,7 @@ type DOCSIF3MIB_DocsIf3CmStatusTable_DocsIf3CmStatusEntry struct {
     // error groups, followed by a two- or three-digit number indicating the
     // status condition, followed by a decimal. An example of a returned value
     // could be 'T101.0'. The zero-length hex string indicates no status code yet
-    // registered. The type is string with length: 0 | 5..7.
+    // registered. The type is string with length: 0..0 | 5..7.
     DocsIf3CmStatusCode interface{}
 
     // This attribute denotes the number of times the CM reset or initialized this
@@ -1023,7 +1023,7 @@ type DOCSIF3MIB_DocsIf3CmStatusUsTable_DocsIf3CmStatusUsEntry struct {
     // This attribute indicates the pre-equalization data for the specified
     // upstream Channel on this CM after convolution with data indicated in the
     // RNG-RSP. This data is valid when docsIfUpChannelPreEqEnable RFC 4546 is set
-    // to true. The type is string with length: 0 | 36..260.
+    // to true. The type is string with length: 0..0 | 36..260.
     DocsIf3CmStatusUsEqData interface{}
 
     // This attribute denotes the number of times for excessive T3 timeouts.
@@ -1125,7 +1125,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf3CmtsCmRegStatusEntry struct {
     // This attribute represents the MAC address of the CM. If the CM has multiple
     // MAC addresses, this is the MAC address associated with the MAC Domain
     // interface. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsIf3CmtsCmRegStatusMacAddr interface{}
 
     // This attribute represents the IPv6 address of the CM. If the CM has no
@@ -1160,7 +1160,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf3CmtsCmRegStatusEntry struct {
     // This attribute represents the RCP-ID associated with the CM if the CM is in
     // DOCSIS 3.0 mode. If the  RCP-ID is unknown or the CM is in DOCSIS 3.1 mode,
     // the CMTS returns a five octet long string of zeros. The type is string with
-    // length: 5.
+    // length: 5..5.
     DocsIf3CmtsCmRegStatusRcpId interface{}
 
     // This attribute represents the RCC Id the CMTS used to configure the CM
@@ -1333,7 +1333,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable_DocsIf3CmtsCmUsStatusEntry struct {
     DocsIf3CmtsCmUsStatusMicroreflections interface{}
 
     // This attribute represents the equalization data for the CM on this upstream
-    // channel. The type is string with length: 0 | 36..260.
+    // channel. The type is string with length: 0..0 | 36..260.
     DocsIf3CmtsCmUsStatusEqData interface{}
 
     // This attribute represents the codewords received without error from the CM
@@ -1587,7 +1587,7 @@ type DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry struct {
 
     // This attribute is a key. This key represents the 'Receive Channel Profile
     // Identifier' (RCP-ID) configured for the MAC Domain indicated by this
-    // instance. The type is string with length: 5.
+    // instance. The type is string with length: 5..5.
     DocsIf3RccCfgRcpId interface{}
 
     // This attribute is a key. This key denotes an RCC combination assignment for
@@ -1686,7 +1686,7 @@ type DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry struct {
     IfIndex interface{}
 
     // This attribute is a key. This key represents the RCP-ID to which this
-    // instance applies. The type is string with length: 5.
+    // instance applies. The type is string with length: 5..5.
     DocsIf3RccStatusRcpId interface{}
 
     // This attribute is a key. This key represents an RCC combination for a
@@ -1835,7 +1835,7 @@ type DOCSIF3MIB_DocsIf3RxChCfgTable_DocsIf3RxChCfgEntry struct {
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry_DocsIf3RccCfgRcpId
     DocsIf3RccCfgRcpId interface{}
 
@@ -1950,7 +1950,7 @@ type DOCSIF3MIB_DocsIf3RxChStatusTable_DocsIf3RxChStatusEntry struct {
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry_DocsIf3RccStatusRcpId
     DocsIf3RccStatusRcpId interface{}
 
@@ -2079,7 +2079,7 @@ type DOCSIF3MIB_DocsIf3RxModuleCfgTable_DocsIf3RxModuleCfgEntry struct {
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry_DocsIf3RccCfgRcpId
     DocsIf3RccCfgRcpId interface{}
 
@@ -2192,7 +2192,7 @@ type DOCSIF3MIB_DocsIf3RxModuleStatusTable_DocsIf3RxModuleStatusEntry struct {
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry_DocsIf3RccStatusRcpId
     DocsIf3RccStatusRcpId interface{}
 
@@ -2946,7 +2946,7 @@ type DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3BondingGrpCfgEntry struct {
     // Resequencing Wait Time is determined by the CMTS. The value zero in not
     // supported for downstream  bonding groups. For an Upstream Bonding Group,
     // this attribute has no meaning and returns the value 0. The type is
-    // interface{} with range: 0..180 | 255..None. Units are hundredMicroseconds.
+    // interface{} with range: 0..180 | 255..255. Units are hundredMicroseconds.
     DocsIf3BondingGrpCfgDsidReseqWaitTime interface{}
 
     // For a Downstream Bonding Group, this attribute provides the DSID
@@ -2956,7 +2956,7 @@ type DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3BondingGrpCfgEntry struct {
     // of 0 indicates that the threshold warnings are disabled.  When  the value
     // of DsidReseqWaitTime is not equal to 0 or 255, the CMTS must ensure that
     // the value of this object is either  255 or less than the value of
-    // DsidReseqWaitTime. The type is interface{} with range: 0..179 | 255..None.
+    // DsidReseqWaitTime. The type is interface{} with range: 0..179 | 255..255.
     // Units are hundredMicroseconds.
     DocsIf3BondingGrpCfgDsidReseqWarnThrshld interface{}
 
@@ -3235,7 +3235,7 @@ type DOCSIF3MIB_DocsIf3UsChExtTable_DocsIf3UsChExtEntry struct {
 
     // This attribute represents the active codes of the upstream channel and it
     // is applicable only when SacCodeHoppingSelectionMode is
-    // 'sac2CodeHoppingMode2. The type is string with length: 0 | 16.
+    // 'sac2CodeHoppingMode2. The type is string with length: 0..0 | 16..16.
     DocsIf3UsChExtScdmaSelectionStringActiveCodes interface{}
 }
 
@@ -3333,7 +3333,7 @@ type DOCSIF3MIB_DocsIf3UsChSetTable_DocsIf3UsChSetEntry struct {
     DocsIf3UsChSetId interface{}
 
     // This attribute defines the ordered list of channels that comprise the
-    // upstream channel set. The type is string with length: 0 | 2..255.
+    // upstream channel set. The type is string with length: 0..0 | 2..255.
     DocsIf3UsChSetChList interface{}
 }
 
@@ -3416,7 +3416,7 @@ type DOCSIF3MIB_DocsIf3DsChSetTable_DocsIf3DsChSetEntry struct {
     DocsIf3DsChSetId interface{}
 
     // This attribute defines the ordered list of channels that comprise the
-    // downstream channel set. The type is string with length: 0 | 2..255.
+    // downstream channel set. The type is string with length: 0..0 | 2..255.
     DocsIf3DsChSetChList interface{}
 }
 
@@ -3703,7 +3703,7 @@ type DOCSIF3MIB_DocsIf3CmtsSpectrumAnalysisMeasTable_DocsIf3CmtsSpectrumAnalysis
     // 6.4 MHz.  The CMTS must not exceed 25 kHz bin spacing for measurement of
     // frequency spans less than or equal to 6.4 MHz.  The bins measurements are
     // updated periodically at time intervals given by the TimeInterval attribute.
-    // The type is string with length: 0 | 2..4116.
+    // The type is string with length: 0..0 | 2..4116.
     DocsIf3CmtsSpectrumAnalysisMeasAmplitudeData interface{}
 
     // TimeInterval is the CMTS estimated average repetition period of
@@ -4308,7 +4308,7 @@ type DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMeasTable_DocsIf3CmSpectrumAnalysisMeas
     // are ordered from lowest to highest  frequencies covering the frequency
     // span. Information about the center frequency, frequency span, number of
     // bins and resolution bandwidth are included to provide context to the
-    // measurement  point. The type is string with length: 0 | 2..4116.
+    // measurement  point. The type is string with length: 0..0 | 2..4116.
     DocsIf3CmSpectrumAnalysisMeasAmplitudeData interface{}
 
     // This attribute provides the total RF power present in the  segment with the

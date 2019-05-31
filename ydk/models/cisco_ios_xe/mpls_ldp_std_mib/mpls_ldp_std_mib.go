@@ -120,7 +120,8 @@ type MPLSLDPSTDMIB_MplsLdpLsrObjects struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The Label Switching Router's Identifier. The type is string with length: 4.
+    // The Label Switching Router's Identifier. The type is string with length:
+    // 4..4.
     MplsLdpLsrId interface{}
 
     // A indication of whether this Label Switching Router supports loop

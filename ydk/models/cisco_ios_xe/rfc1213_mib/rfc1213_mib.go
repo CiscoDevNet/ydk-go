@@ -128,7 +128,7 @@ type RFC1213MIB_System struct {
     // vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.4242, it
     // could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router'. The
     // type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     SysObjectID interface{}
 
     // The time (in hundredths of a second) since the network management portion
@@ -1158,7 +1158,7 @@ type RFC1213MIB_IfTable_IfEntry struct {
     // syntactically valid object identifier, and any conformant implementation of
     // ASN.1 and BER must be able to generate and recognize this value. The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IfSpecific interface{}
 }
 
@@ -1292,7 +1292,7 @@ type RFC1213MIB_AtTable_AtEntry struct {
     // This attribute is a key. The NetworkAddress (e.g., the IP address)
     // corresponding to the media-dependent `physical' address. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     AtNetAddress interface{}
 
     // The media-dependent `physical' address.  Setting this object to a null
@@ -1376,7 +1376,7 @@ type RFC1213MIB_IpAddrTable_IpAddrEntry struct {
 
     // This attribute is a key. The IP address to which this entry's addressing
     // information pertains. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAdEntAddr interface{}
 
     // The index value which uniquely identifies the interface to which this entry
@@ -1388,7 +1388,7 @@ type RFC1213MIB_IpAddrTable_IpAddrEntry struct {
     // The subnet mask associated with the IP address of this entry.  The value of
     // the mask is an IP address with all the network bits set to 1 and all the
     // hosts bits set to 0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAdEntNetMask interface{}
 
     // The value of the least-significant bit in the IP broadcast address used for
@@ -1476,7 +1476,7 @@ type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     // routes to a single destination can appear in the table, but access to such
     // multiple entries is dependent on the table- access mechanisms defined by
     // the network management protocol in use. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpRouteDest interface{}
 
     // The index value which uniquely identifies the local interface through which
@@ -1514,7 +1514,7 @@ type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     // to an interface which is realized via a broadcast media, the value of this
     // field is the agent's IP address on that interface.). The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpRouteNextHop interface{}
 
     // The type of route.  Note that the values direct(3) and indirect(4) refer to
@@ -1551,7 +1551,7 @@ type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     // ipRouteDest is 0.0.0.0 (a default route), then the mask value is also
     // 0.0.0.0.  It should be noted that all IP routing subsystems implicitly use
     // this mechanism. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpRouteMask interface{}
 
     // An alternate routing metric for this route.  The semantics of this metric
@@ -1567,7 +1567,7 @@ type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     // syntactically valid object identifier, and any conformant implementation of
     // ASN.1 and BER must be able to generate and recognize this value. The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IpRouteInfo interface{}
 }
 
@@ -1700,7 +1700,7 @@ type RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry struct {
 
     // This attribute is a key. The IpAddress corresponding to the media-
     // dependent `physical' address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpNetToMediaNetAddress interface{}
 
     // The media-dependent `physical' address. The type is string.
@@ -1807,7 +1807,7 @@ type RFC1213MIB_TcpConnTable_TcpConnEntry struct {
     // the case of a connection in the listen state which is willing to accept
     // connections for any IP interface associated with the node, the value
     // 0.0.0.0 is used. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TcpConnLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
@@ -1816,7 +1816,7 @@ type RFC1213MIB_TcpConnTable_TcpConnEntry struct {
 
     // This attribute is a key. The remote IP address for this TCP connection. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TcpConnRemAddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.
@@ -1935,7 +1935,7 @@ type RFC1213MIB_UdpTable_UdpEntry struct {
     // the case of a UDP listener which is willing to accept datagrams for any IP
     // interface associated with the node, the value 0.0.0.0 is used. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     UdpLocalAddress interface{}
 
     // This attribute is a key. The local port number for this UDP listener. The
@@ -2008,7 +2008,7 @@ type RFC1213MIB_EgpNeighTable_EgpNeighEntry struct {
 
     // This attribute is a key. The IP address of this entry's EGP neighbor. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     EgpNeighAddr interface{}
 
     // The EGP state of the local system with respect to this entry's EGP

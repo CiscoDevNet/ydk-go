@@ -13,17 +13,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package mpls_tc_mib"))
 }
 
-// MplsLdpLabelTypes represents frameRelay(3).
-type MplsLdpLabelTypes string
-
-const (
-    MplsLdpLabelTypes_generic MplsLdpLabelTypes = "generic"
-
-    MplsLdpLabelTypes_atm MplsLdpLabelTypes = "atm"
-
-    MplsLdpLabelTypes_frameRelay MplsLdpLabelTypes = "frameRelay"
-)
-
 // MplsInitialCreationSource represents component created the object.
 type MplsInitialCreationSource string
 
@@ -41,5 +30,16 @@ const (
     MplsInitialCreationSource_policyAgent MplsInitialCreationSource = "policyAgent"
 
     MplsInitialCreationSource_unknown MplsInitialCreationSource = "unknown"
+)
+
+// MplsLdpLabelTypes represents frameRelay(3).
+type MplsLdpLabelTypes string
+
+const (
+    MplsLdpLabelTypes_generic MplsLdpLabelTypes = "generic"
+
+    MplsLdpLabelTypes_atm MplsLdpLabelTypes = "atm"
+
+    MplsLdpLabelTypes_frameRelay MplsLdpLabelTypes = "frameRelay"
 )
 

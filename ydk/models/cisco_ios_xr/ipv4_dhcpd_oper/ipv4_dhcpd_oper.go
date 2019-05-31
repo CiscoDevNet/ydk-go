@@ -27,99 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd", reflect.TypeOf(Ipv4Dhcpd{}))
 }
 
-// DhcpIssuVersion represents Dhcp issu version
-type DhcpIssuVersion string
-
-const (
-    // Version 1
-    DhcpIssuVersion_version1 DhcpIssuVersion = "version1"
-
-    // Version 2
-    DhcpIssuVersion_version2 DhcpIssuVersion = "version2"
-)
-
-// DhcpIssuRole represents Dhcp issu role
-type DhcpIssuRole string
-
-const (
-    // Primary role
-    DhcpIssuRole_role_primary DhcpIssuRole = "role-primary"
-
-    // Secondary role
-    DhcpIssuRole_role_secondary DhcpIssuRole = "role-secondary"
-)
-
-// ProxyLeaseLimit represents Proxy profile lease limit type
-type ProxyLeaseLimit string
-
-const (
-    // Proxy lease limit type none
-    ProxyLeaseLimit_none ProxyLeaseLimit = "none"
-
-    // Proxy lease limit type interface
-    ProxyLeaseLimit_interface_ ProxyLeaseLimit = "interface"
-
-    // Proxy lease limit type circuit ID
-    ProxyLeaseLimit_circuit_id ProxyLeaseLimit = "circuit-id"
-
-    // Proxy lease limit type remote ID
-    ProxyLeaseLimit_remote_id ProxyLeaseLimit = "remote-id"
-
-    // Proxy lease limit type remote ID + circuit ID
-    ProxyLeaseLimit_remote_id_circuit_id ProxyLeaseLimit = "remote-id-circuit-id"
-)
-
-// DhcpIssuPhase represents Dhcp issu phase
-type DhcpIssuPhase string
-
-const (
-    // An ISSU event has not started
-    DhcpIssuPhase_phase_not_started DhcpIssuPhase = "phase-not-started"
-
-    // ISSU Load Phase
-    DhcpIssuPhase_phase_load DhcpIssuPhase = "phase-load"
-
-    // ISSU Run Phase
-    DhcpIssuPhase_phase_run DhcpIssuPhase = "phase-run"
-
-    // An ISSU event has completed successfully
-    DhcpIssuPhase_phase_completed DhcpIssuPhase = "phase-completed"
-
-    // An ISSU event has aborted
-    DhcpIssuPhase_phase_aborted DhcpIssuPhase = "phase-aborted"
-)
-
-// RelayInfoPolicy represents Proxy profile relay policy
-type RelayInfoPolicy string
-
-const (
-    // Relay policy replace
-    RelayInfoPolicy_replace RelayInfoPolicy = "replace"
-
-    // Relay policy keep
-    RelayInfoPolicy_keep RelayInfoPolicy = "keep"
-
-    // Relay policy drop
-    RelayInfoPolicy_drop RelayInfoPolicy = "drop"
-
-    // Relay policy encapsulate
-    RelayInfoPolicy_encapsulate RelayInfoPolicy = "encapsulate"
-)
-
-// BagDhcpdIntfSrgRole represents Bag dhcpd intf srg role
-type BagDhcpdIntfSrgRole string
-
-const (
-    // DHCPv4 Interface SRG role NONE
-    BagDhcpdIntfSrgRole_none BagDhcpdIntfSrgRole = "none"
-
-    // DHCPv4 Interface SRG role Master
-    BagDhcpdIntfSrgRole_master BagDhcpdIntfSrgRole = "master"
-
-    // DHCPv4 Interface SRG role Slave
-    BagDhcpdIntfSrgRole_slave BagDhcpdIntfSrgRole = "slave"
-)
-
 // DhcpcIpv4State represents Dhcp Client IPv4 State
 type DhcpcIpv4State string
 
@@ -150,6 +57,62 @@ const (
 
     // Invalid state
     DhcpcIpv4State_invalid DhcpcIpv4State = "invalid"
+)
+
+// DhcpIssuVersion represents Dhcp issu version
+type DhcpIssuVersion string
+
+const (
+    // Version 1
+    DhcpIssuVersion_version1 DhcpIssuVersion = "version1"
+
+    // Version 2
+    DhcpIssuVersion_version2 DhcpIssuVersion = "version2"
+)
+
+// DhcpIssuPhase represents Dhcp issu phase
+type DhcpIssuPhase string
+
+const (
+    // An ISSU event has not started
+    DhcpIssuPhase_phase_not_started DhcpIssuPhase = "phase-not-started"
+
+    // ISSU Load Phase
+    DhcpIssuPhase_phase_load DhcpIssuPhase = "phase-load"
+
+    // ISSU Run Phase
+    DhcpIssuPhase_phase_run DhcpIssuPhase = "phase-run"
+
+    // An ISSU event has completed successfully
+    DhcpIssuPhase_phase_completed DhcpIssuPhase = "phase-completed"
+
+    // An ISSU event has aborted
+    DhcpIssuPhase_phase_aborted DhcpIssuPhase = "phase-aborted"
+)
+
+// DhcpIssuRole represents Dhcp issu role
+type DhcpIssuRole string
+
+const (
+    // Primary role
+    DhcpIssuRole_role_primary DhcpIssuRole = "role-primary"
+
+    // Secondary role
+    DhcpIssuRole_role_secondary DhcpIssuRole = "role-secondary"
+)
+
+// BagDhcpdIntfSrgRole represents Bag dhcpd intf srg role
+type BagDhcpdIntfSrgRole string
+
+const (
+    // DHCPv4 Interface SRG role NONE
+    BagDhcpdIntfSrgRole_none BagDhcpdIntfSrgRole = "none"
+
+    // DHCPv4 Interface SRG role Master
+    BagDhcpdIntfSrgRole_master BagDhcpdIntfSrgRole = "master"
+
+    // DHCPv4 Interface SRG role Slave
+    BagDhcpdIntfSrgRole_slave BagDhcpdIntfSrgRole = "slave"
 )
 
 // BagDhcpdProxyState represents Bag dhcpd proxy state
@@ -208,6 +171,40 @@ const (
     BagDhcpdProxyState_max BagDhcpdProxyState = "max"
 )
 
+// ProxyLeaseLimit represents Proxy profile lease limit type
+type ProxyLeaseLimit string
+
+const (
+    // Proxy lease limit type none
+    ProxyLeaseLimit_none ProxyLeaseLimit = "none"
+
+    // Proxy lease limit type interface
+    ProxyLeaseLimit_interface_ ProxyLeaseLimit = "interface"
+
+    // Proxy lease limit type circuit ID
+    ProxyLeaseLimit_circuit_id ProxyLeaseLimit = "circuit-id"
+
+    // Proxy lease limit type remote ID
+    ProxyLeaseLimit_remote_id ProxyLeaseLimit = "remote-id"
+
+    // Proxy lease limit type remote ID + circuit ID
+    ProxyLeaseLimit_remote_id_circuit_id ProxyLeaseLimit = "remote-id-circuit-id"
+)
+
+// BroadcastFlag represents Proxy profile broadcast flag
+type BroadcastFlag string
+
+const (
+    // Broadcast policy ignore
+    BroadcastFlag_ignore BroadcastFlag = "ignore"
+
+    // Broadcast policy check
+    BroadcastFlag_check BroadcastFlag = "check"
+
+    // Broadcast policy unicast always
+    BroadcastFlag_unicast_always BroadcastFlag = "unicast-always"
+)
+
 // RelayInfoVpnMode represents Relay Info Vpn Mode
 type RelayInfoVpnMode string
 
@@ -230,18 +227,21 @@ const (
     RelayInfoAuthenticate_inserted RelayInfoAuthenticate = "inserted"
 )
 
-// BroadcastFlag represents Proxy profile broadcast flag
-type BroadcastFlag string
+// RelayInfoPolicy represents Proxy profile relay policy
+type RelayInfoPolicy string
 
 const (
-    // Broadcast policy ignore
-    BroadcastFlag_ignore BroadcastFlag = "ignore"
+    // Relay policy replace
+    RelayInfoPolicy_replace RelayInfoPolicy = "replace"
 
-    // Broadcast policy check
-    BroadcastFlag_check BroadcastFlag = "check"
+    // Relay policy keep
+    RelayInfoPolicy_keep RelayInfoPolicy = "keep"
 
-    // Broadcast policy unicast always
-    BroadcastFlag_unicast_always BroadcastFlag = "unicast-always"
+    // Relay policy drop
+    RelayInfoPolicy_drop RelayInfoPolicy = "drop"
+
+    // Relay policy encapsulate
+    RelayInfoPolicy_encapsulate RelayInfoPolicy = "encapsulate"
 )
 
 // DhcpClient
@@ -316,7 +316,7 @@ type DhcpClient_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv4 DHCP client statistics table.
@@ -390,7 +390,7 @@ type DhcpClient_Nodes_Node_ClientStats_ClientStat struct {
     YListKey string
 
     // This attribute is a key. Client Ifhandle. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientIfhandle interface{}
 
     // Dhcp Client interface name. The type is string with length: 0..65.
@@ -705,7 +705,7 @@ type DhcpClient_Nodes_Node_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client Ifhandle. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientIfhandle interface{}
 
     // Dhcp Client interface name. The type is string with length: 0..65.
@@ -721,19 +721,19 @@ type DhcpClient_Nodes_Node_Clients_Client struct {
     Ipv4ClientState interface{}
 
     // Dhcp Client IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Dhcp Client IP Address mask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4SubnetMask interface{}
 
     // Dhcp Client selected server IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4ServerAddress interface{}
 
     // Dhcp Client next hop IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHopIpv4Address interface{}
 
     // Dhcp Client Lease time. The type is interface{} with range: 0..4294967295.
@@ -902,22 +902,22 @@ type Ipv4Dhcpd_Snoop_Bindings_Binding struct {
     YListKey string
 
     // This attribute is a key. Client opaque handle. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientUid interface{}
 
     // DHCP client MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SnoopBindingChAddr interface{}
 
     // DHCP client MAC address length. The type is interface{} with range: 0..255.
     SnoopBindingChAddrLen interface{}
 
     // DHCP iaddr. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SnoopBindingIAddr interface{}
 
     // DHCP client id. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     SnoopBindingClientId interface{}
 
     // DHCP client id len. The type is interface{} with range: 0..255.
@@ -1079,7 +1079,7 @@ type Ipv4Dhcpd_Snoop_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // Profile Name. The type is string with length: 0..65.
@@ -1169,7 +1169,7 @@ type Ipv4Dhcpd_Snoop_Statistics_Statistic struct {
     YListKey string
 
     // This attribute is a key. Bridge domain name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     BridgeName interface{}
 
     // DHCP L2 bridge name. The type is string with length: 0..74.
@@ -1244,7 +1244,8 @@ type Ipv4Dhcpd_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node id to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // type is string with pattern:
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Nodeid interface{}
 
     // IPv4 DHCP proxy operational data.
@@ -1410,7 +1411,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 DHCP proxy statistics.
@@ -2136,7 +2137,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // Is true if relay option is enabled. The type is bool.
@@ -2177,14 +2178,14 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile struct {
     ProxyLeaseLimitCount interface{}
 
     // Helper addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ProfileHelperAddress []interface{}
 
     // VRF names. The type is slice of string with length: 0..33.
     VrfName []interface{}
 
     // Gateway addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     GiAddr []interface{}
 
     // VRF references.
@@ -2275,6 +2276,9 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrf
 
     // VRF name. The type is string with length: 0..33.
     ProxyReferenceVrfName interface{}
+
+    // next vrf.
+    NextVrf Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrfReference_NextVrf
 }
 
 func (ipv4DhcpdProxyVrfReference *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrfReference) GetEntityData() *types.CommonEntityData {
@@ -2289,12 +2293,39 @@ func (ipv4DhcpdProxyVrfReference *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_Vr
     ipv4DhcpdProxyVrfReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4DhcpdProxyVrfReference.EntityData.Children = types.NewOrderedMap()
+    ipv4DhcpdProxyVrfReference.EntityData.Children.Append("next-vrf", types.YChild{"NextVrf", &ipv4DhcpdProxyVrfReference.NextVrf})
     ipv4DhcpdProxyVrfReference.EntityData.Leafs = types.NewOrderedMap()
     ipv4DhcpdProxyVrfReference.EntityData.Leafs.Append("proxy-reference-vrf-name", types.YLeaf{"ProxyReferenceVrfName", ipv4DhcpdProxyVrfReference.ProxyReferenceVrfName})
 
     ipv4DhcpdProxyVrfReference.EntityData.YListKeys = []string {}
 
     return &(ipv4DhcpdProxyVrfReference.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrfReference_NextVrf
+// next vrf
+type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrfReference_NextVrf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextVrf *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_VrfReferences_Ipv4DhcpdProxyVrfReference_NextVrf) GetEntityData() *types.CommonEntityData {
+    nextVrf.EntityData.YFilter = nextVrf.YFilter
+    nextVrf.EntityData.YangName = "next-vrf"
+    nextVrf.EntityData.BundleName = "cisco_ios_xr"
+    nextVrf.EntityData.ParentYangName = "ipv4-dhcpd-proxy-vrf-reference"
+    nextVrf.EntityData.SegmentPath = "next-vrf"
+    nextVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/proxy/profiles/profile/vrf-references/ipv4-dhcpd-proxy-vrf-reference/" + nextVrf.EntityData.SegmentPath
+    nextVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextVrf.EntityData.Children = types.NewOrderedMap()
+    nextVrf.EntityData.Leafs = types.NewOrderedMap()
+
+    nextVrf.EntityData.YListKeys = []string {}
+
+    return &(nextVrf.EntityData)
 }
 
 // Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences
@@ -2341,6 +2372,9 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdPr
 
     // Interface name. The type is string with length: 0..65.
     ProxyReferenceInterfaceName interface{}
+
+    // next interface.
+    NextInterface Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdProxyInterfaceReference_NextInterface
 }
 
 func (ipv4DhcpdProxyInterfaceReference *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdProxyInterfaceReference) GetEntityData() *types.CommonEntityData {
@@ -2355,12 +2389,39 @@ func (ipv4DhcpdProxyInterfaceReference *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Prof
     ipv4DhcpdProxyInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4DhcpdProxyInterfaceReference.EntityData.Children = types.NewOrderedMap()
+    ipv4DhcpdProxyInterfaceReference.EntityData.Children.Append("next-interface", types.YChild{"NextInterface", &ipv4DhcpdProxyInterfaceReference.NextInterface})
     ipv4DhcpdProxyInterfaceReference.EntityData.Leafs = types.NewOrderedMap()
     ipv4DhcpdProxyInterfaceReference.EntityData.Leafs.Append("proxy-reference-interface-name", types.YLeaf{"ProxyReferenceInterfaceName", ipv4DhcpdProxyInterfaceReference.ProxyReferenceInterfaceName})
 
     ipv4DhcpdProxyInterfaceReference.EntityData.YListKeys = []string {}
 
     return &(ipv4DhcpdProxyInterfaceReference.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdProxyInterfaceReference_NextInterface
+// next interface
+type Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdProxyInterfaceReference_NextInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextInterface *Ipv4Dhcpd_Nodes_Node_Proxy_Profiles_Profile_InterfaceReferences_Ipv4DhcpdProxyInterfaceReference_NextInterface) GetEntityData() *types.CommonEntityData {
+    nextInterface.EntityData.YFilter = nextInterface.YFilter
+    nextInterface.EntityData.YangName = "next-interface"
+    nextInterface.EntityData.BundleName = "cisco_ios_xr"
+    nextInterface.EntityData.ParentYangName = "ipv4-dhcpd-proxy-interface-reference"
+    nextInterface.EntityData.SegmentPath = "next-interface"
+    nextInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/proxy/profiles/profile/interface-references/ipv4-dhcpd-proxy-interface-reference/" + nextInterface.EntityData.SegmentPath
+    nextInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextInterface.EntityData.Children = types.NewOrderedMap()
+    nextInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    nextInterface.EntityData.YListKeys = []string {}
+
+    return &(nextInterface.EntityData)
 }
 
 // Ipv4Dhcpd_Nodes_Node_Proxy_Statistics
@@ -2516,7 +2577,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_DisconnectHistories_DisconnectHistory struct {
     YListKey string
 
     // This attribute is a key. Index. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Index interface{}
 
     // session start time epoch. The type is interface{} with range:
@@ -2638,7 +2699,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // DHCP client identifier. The type is string with length: 0..1275.
@@ -2654,23 +2715,23 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     ServerVrfName interface{}
 
     // DHCP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // DHCP client GIADDR. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ClientGiAddr interface{}
 
     // DHCP to server GIADDR. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ToServerGiAddr interface{}
 
     // DHCP server IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerIpAddress interface{}
 
     // DHCP reply server IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ReplyServerIpAddress interface{}
 
     // Lease time in seconds. The type is interface{} with range: 0..4294967295.
@@ -2685,7 +2746,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     State interface{}
 
     // DHCP access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // DHCP access interface VRF name. The type is string with length: 0..33.
@@ -2700,6 +2761,9 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     // DHCP profile name. The type is string with length: 0..65.
     ProfileName interface{}
 
+    // DHCP Selected profile name. The type is string with length: 0..65.
+    SelectedProfileName interface{}
+
     // Is true if DHCP next renew from client will be NAK'd. The type is bool.
     IsNakNextRenew interface{}
 
@@ -2711,7 +2775,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     OldSubscriberLabel interface{}
 
     // DHCP subscriber interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberInterfaceName interface{}
 
     // DHCP received circuit ID. The type is string with length: 0..768.
@@ -2786,6 +2850,7 @@ func (client *Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client) GetEntityData()
     client.EntityData.Leafs.Append("proxy-binding-outer-tag", types.YLeaf{"ProxyBindingOuterTag", client.ProxyBindingOuterTag})
     client.EntityData.Leafs.Append("proxy-binding-inner-tag", types.YLeaf{"ProxyBindingInnerTag", client.ProxyBindingInnerTag})
     client.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", client.ProfileName})
+    client.EntityData.Leafs.Append("selected-profile-name", types.YLeaf{"SelectedProfileName", client.SelectedProfileName})
     client.EntityData.Leafs.Append("is-nak-next-renew", types.YLeaf{"IsNakNextRenew", client.IsNakNextRenew})
     client.EntityData.Leafs.Append("subscriber-label", types.YLeaf{"SubscriberLabel", client.SubscriberLabel})
     client.EntityData.Leafs.Append("old-subscriber-label", types.YLeaf{"OldSubscriberLabel", client.OldSubscriberLabel})
@@ -2971,7 +3036,7 @@ type Ipv4Dhcpd_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // Ifhandle of the interface. The type is interface{} with range:
@@ -3313,7 +3378,7 @@ type Ipv4Dhcpd_Nodes_Node_Base_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 DHCP base statistics.
@@ -4039,7 +4104,7 @@ type Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // Base Default Profile name. The type is string with length: 0..65.
@@ -4139,6 +4204,9 @@ type Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBas
 
     // Interface name. The type is string with length: 0..65.
     BaseReferenceInterfaceName interface{}
+
+    // next interface.
+    NextInterface Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBaseInterfaceReference_NextInterface
 }
 
 func (ipv4DhcpdBaseInterfaceReference *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBaseInterfaceReference) GetEntityData() *types.CommonEntityData {
@@ -4153,12 +4221,39 @@ func (ipv4DhcpdBaseInterfaceReference *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profil
     ipv4DhcpdBaseInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4DhcpdBaseInterfaceReference.EntityData.Children = types.NewOrderedMap()
+    ipv4DhcpdBaseInterfaceReference.EntityData.Children.Append("next-interface", types.YChild{"NextInterface", &ipv4DhcpdBaseInterfaceReference.NextInterface})
     ipv4DhcpdBaseInterfaceReference.EntityData.Leafs = types.NewOrderedMap()
     ipv4DhcpdBaseInterfaceReference.EntityData.Leafs.Append("base-reference-interface-name", types.YLeaf{"BaseReferenceInterfaceName", ipv4DhcpdBaseInterfaceReference.BaseReferenceInterfaceName})
 
     ipv4DhcpdBaseInterfaceReference.EntityData.YListKeys = []string {}
 
     return &(ipv4DhcpdBaseInterfaceReference.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBaseInterfaceReference_NextInterface
+// next interface
+type Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBaseInterfaceReference_NextInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextInterface *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_InterfaceReferences_Ipv4DhcpdBaseInterfaceReference_NextInterface) GetEntityData() *types.CommonEntityData {
+    nextInterface.EntityData.YFilter = nextInterface.YFilter
+    nextInterface.EntityData.YangName = "next-interface"
+    nextInterface.EntityData.BundleName = "cisco_ios_xr"
+    nextInterface.EntityData.ParentYangName = "ipv4-dhcpd-base-interface-reference"
+    nextInterface.EntityData.SegmentPath = "next-interface"
+    nextInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/base/profiles/profile/interface-references/ipv4-dhcpd-base-interface-reference/" + nextInterface.EntityData.SegmentPath
+    nextInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextInterface.EntityData.Children = types.NewOrderedMap()
+    nextInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    nextInterface.EntityData.YListKeys = []string {}
+
+    return &(nextInterface.EntityData)
 }
 
 // Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo
@@ -4216,8 +4311,11 @@ type Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseCh
     MatchedOptionLen interface{}
 
     // Matched option data. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     OptionData interface{}
+
+    // next child profile info.
+    NextChildProfileInfo Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseChildProfileInfo_NextChildProfileInfo
 }
 
 func (ipv4DhcpdBaseChildProfileInfo *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseChildProfileInfo) GetEntityData() *types.CommonEntityData {
@@ -4232,6 +4330,7 @@ func (ipv4DhcpdBaseChildProfileInfo *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_
     ipv4DhcpdBaseChildProfileInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4DhcpdBaseChildProfileInfo.EntityData.Children = types.NewOrderedMap()
+    ipv4DhcpdBaseChildProfileInfo.EntityData.Children.Append("next-child-profile-info", types.YChild{"NextChildProfileInfo", &ipv4DhcpdBaseChildProfileInfo.NextChildProfileInfo})
     ipv4DhcpdBaseChildProfileInfo.EntityData.Leafs = types.NewOrderedMap()
     ipv4DhcpdBaseChildProfileInfo.EntityData.Leafs.Append("base-child-profile-name", types.YLeaf{"BaseChildProfileName", ipv4DhcpdBaseChildProfileInfo.BaseChildProfileName})
     ipv4DhcpdBaseChildProfileInfo.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", ipv4DhcpdBaseChildProfileInfo.Mode})
@@ -4242,6 +4341,32 @@ func (ipv4DhcpdBaseChildProfileInfo *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_
     ipv4DhcpdBaseChildProfileInfo.EntityData.YListKeys = []string {}
 
     return &(ipv4DhcpdBaseChildProfileInfo.EntityData)
+}
+
+// Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseChildProfileInfo_NextChildProfileInfo
+// next child profile info
+type Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseChildProfileInfo_NextChildProfileInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (nextChildProfileInfo *Ipv4Dhcpd_Nodes_Node_Base_Profiles_Profile_ChildProfileInfo_Ipv4DhcpdBaseChildProfileInfo_NextChildProfileInfo) GetEntityData() *types.CommonEntityData {
+    nextChildProfileInfo.EntityData.YFilter = nextChildProfileInfo.YFilter
+    nextChildProfileInfo.EntityData.YangName = "next-child-profile-info"
+    nextChildProfileInfo.EntityData.BundleName = "cisco_ios_xr"
+    nextChildProfileInfo.EntityData.ParentYangName = "ipv4-dhcpd-base-child-profile-info"
+    nextChildProfileInfo.EntityData.SegmentPath = "next-child-profile-info"
+    nextChildProfileInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/node/base/profiles/profile/child-profile-info/ipv4-dhcpd-base-child-profile-info/" + nextChildProfileInfo.EntityData.SegmentPath
+    nextChildProfileInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextChildProfileInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextChildProfileInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextChildProfileInfo.EntityData.Children = types.NewOrderedMap()
+    nextChildProfileInfo.EntityData.Leafs = types.NewOrderedMap()
+
+    nextChildProfileInfo.EntityData.YListKeys = []string {}
+
+    return &(nextChildProfileInfo.EntityData)
 }
 
 // Ipv4Dhcpd_Nodes_Node_Base_Database
@@ -4436,7 +4561,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ServerProfileName interface{}
 
     // Profile Name. The type is string with length: 0..65.
@@ -4467,7 +4592,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Profiles_Profile struct {
     GiaddrPolicy interface{}
 
     // Subnet Mask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SubnetMask interface{}
 
     // Pool Name. The type is string with length: 0..65.
@@ -4507,19 +4632,19 @@ type Ipv4Dhcpd_Nodes_Node_Server_Profiles_Profile struct {
     LeaseLimitCount interface{}
 
     // Server DNS addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerProfileDns []interface{}
 
     // Server default addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerProfileDefaultRouter []interface{}
 
     // Server netbios addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerProfileNetbiousNameServer []interface{}
 
     // Server Time addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerProfileTimeServer []interface{}
 }
 
@@ -4876,7 +5001,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // DHCP client identifier. The type is string with length: 0..1275.
@@ -4892,23 +5017,23 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     ServerVrfName interface{}
 
     // DHCP IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // DHCP client GIADDR. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ClientGiAddr interface{}
 
     // DHCP to server GIADDR. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ToServerGiAddr interface{}
 
     // DHCP server IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerIpAddress interface{}
 
     // DHCP reply server IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ReplyServerIpAddress interface{}
 
     // Lease time in seconds. The type is interface{} with range: 0..4294967295.
@@ -4923,7 +5048,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     State interface{}
 
     // DHCP access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // DHCP access interface VRF name. The type is string with length: 0..33.
@@ -4938,6 +5063,9 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     // DHCP profile name. The type is string with length: 0..65.
     ProfileName interface{}
 
+    // DHCP Selected profile name. The type is string with length: 0..65.
+    SelectedProfileName interface{}
+
     // Is true if DHCP next renew from client will be NAK'd. The type is bool.
     IsNakNextRenew interface{}
 
@@ -4949,7 +5077,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     OldSubscriberLabel interface{}
 
     // DHCP subscriber interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     SubscriberInterfaceName interface{}
 
     // DHCP received circuit ID. The type is string with length: 0..768.
@@ -5024,6 +5152,7 @@ func (client *Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client) GetEntityData(
     client.EntityData.Leafs.Append("proxy-binding-outer-tag", types.YLeaf{"ProxyBindingOuterTag", client.ProxyBindingOuterTag})
     client.EntityData.Leafs.Append("proxy-binding-inner-tag", types.YLeaf{"ProxyBindingInnerTag", client.ProxyBindingInnerTag})
     client.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", client.ProfileName})
+    client.EntityData.Leafs.Append("selected-profile-name", types.YLeaf{"SelectedProfileName", client.SelectedProfileName})
     client.EntityData.Leafs.Append("is-nak-next-renew", types.YLeaf{"IsNakNextRenew", client.IsNakNextRenew})
     client.EntityData.Leafs.Append("subscriber-label", types.YLeaf{"SubscriberLabel", client.SubscriberLabel})
     client.EntityData.Leafs.Append("old-subscriber-label", types.YLeaf{"OldSubscriberLabel", client.OldSubscriberLabel})
@@ -5089,7 +5218,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_DisconnectHistories_DisconnectHistory struct {
     YListKey string
 
     // This attribute is a key. Index. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Index interface{}
 
     // session start time epoch. The type is interface{} with range:
@@ -5207,7 +5336,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 DHCP server statistics.
@@ -5975,7 +6104,7 @@ type Ipv4Dhcpd_Nodes_Node_Relay_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // Profile Name. The type is string with length: 0..65.
@@ -6015,14 +6144,14 @@ type Ipv4Dhcpd_Nodes_Node_Relay_Profiles_Profile struct {
     RelayProfileMacMismatchAction interface{}
 
     // Helper addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RelayProfileHelperAddress []interface{}
 
     // Helper address vrfs. The type is slice of string with length: 0..33.
     RelayProfileHelperVrf []interface{}
 
     // Gateway addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RelayProfileGiAddr []interface{}
 }
 
@@ -6244,7 +6373,7 @@ type Ipv4Dhcpd_Nodes_Node_Relay_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv4 DHCP relay statistics.

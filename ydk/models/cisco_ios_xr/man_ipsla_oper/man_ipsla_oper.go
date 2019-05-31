@@ -24,53 +24,33 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-man-ipsla-oper:ipsla", reflect.TypeOf(Ipsla{}))
 }
 
-// IpslaTargetTypeEnum represents IPSLA Target Types
-type IpslaTargetTypeEnum string
+// OpTypeEnum represents IPSLA Operation Types
+type OpTypeEnum string
 
 const (
-    // IPv4 address
-    IpslaTargetTypeEnum_ipv4_address_target_type IpslaTargetTypeEnum = "ipv4-address-target-type"
+    // icmp echo
+    OpTypeEnum_icmp_echo OpTypeEnum = "icmp-echo"
 
-    // IPv4 prefix
-    IpslaTargetTypeEnum_ipv4_prefix_target_type IpslaTargetTypeEnum = "ipv4-prefix-target-type"
+    // icmp path jitter
+    OpTypeEnum_icmp_path_jitter OpTypeEnum = "icmp-path-jitter"
 
-    // Tunnel ID
-    IpslaTargetTypeEnum_tunnel_id_target_type IpslaTargetTypeEnum = "tunnel-id-target-type"
+    // icmp path echo
+    OpTypeEnum_icmp_path_echo OpTypeEnum = "icmp-path-echo"
 
-    // IPv4 pseudowire
-    IpslaTargetTypeEnum_ipv4_pseudowire_target_type IpslaTargetTypeEnum = "ipv4-pseudowire-target-type"
+    // udp jitter
+    OpTypeEnum_udp_jitter OpTypeEnum = "udp-jitter"
 
-    // IPv6 address
-    IpslaTargetTypeEnum_ipv6_address_target_type IpslaTargetTypeEnum = "ipv6-address-target-type"
-)
+    // udp echo
+    OpTypeEnum_udp_echo OpTypeEnum = "udp-echo"
 
-// SlaOpTypes represents IPSLA Operation Types
-type SlaOpTypes string
+    // mpls lsp ping
+    OpTypeEnum_mpls_lsp_ping OpTypeEnum = "mpls-lsp-ping"
 
-const (
-    // ICMP Echo
-    SlaOpTypes_oper_icmp_echo SlaOpTypes = "oper-icmp-echo"
+    // mpls lsp trace
+    OpTypeEnum_mpls_lsp_trace OpTypeEnum = "mpls-lsp-trace"
 
-    // ICMP PathJitter
-    SlaOpTypes_oper_icmp_path_jitter SlaOpTypes = "oper-icmp-path-jitter"
-
-    // ICMP Path Echo
-    SlaOpTypes_oper_icmp_path_echo SlaOpTypes = "oper-icmp-path-echo"
-
-    // UDP Jitter
-    SlaOpTypes_oper_udp_jitter SlaOpTypes = "oper-udp-jitter"
-
-    // UDP Echo
-    SlaOpTypes_oper_udp_echo SlaOpTypes = "oper-udp-echo"
-
-    // MPLS LSP Ping
-    SlaOpTypes_oper_mpls_lsp_ping SlaOpTypes = "oper-mpls-lsp-ping"
-
-    // MPLS LSP Trace
-    SlaOpTypes_oper_mpls_lsp_trace SlaOpTypes = "oper-mpls-lsp-trace"
-
-    // MPLS LSP Group
-    SlaOpTypes_oper_mpls_lsp_group SlaOpTypes = "oper-mpls-lsp-group"
+    // mpls lsp group
+    OpTypeEnum_mpls_lsp_group OpTypeEnum = "mpls-lsp-group"
 )
 
 // IpslaRetCode represents Ipsla ret code
@@ -228,69 +208,6 @@ const (
     IpslaRetCode_ipsla_ret_code_max IpslaRetCode = "ipsla-ret-code-max"
 )
 
-// OpTypeEnum represents IPSLA Operation Types
-type OpTypeEnum string
-
-const (
-    // icmp echo
-    OpTypeEnum_icmp_echo OpTypeEnum = "icmp-echo"
-
-    // icmp path jitter
-    OpTypeEnum_icmp_path_jitter OpTypeEnum = "icmp-path-jitter"
-
-    // icmp path echo
-    OpTypeEnum_icmp_path_echo OpTypeEnum = "icmp-path-echo"
-
-    // udp jitter
-    OpTypeEnum_udp_jitter OpTypeEnum = "udp-jitter"
-
-    // udp echo
-    OpTypeEnum_udp_echo OpTypeEnum = "udp-echo"
-
-    // mpls lsp ping
-    OpTypeEnum_mpls_lsp_ping OpTypeEnum = "mpls-lsp-ping"
-
-    // mpls lsp trace
-    OpTypeEnum_mpls_lsp_trace OpTypeEnum = "mpls-lsp-trace"
-
-    // mpls lsp group
-    OpTypeEnum_mpls_lsp_group OpTypeEnum = "mpls-lsp-group"
-)
-
-// IpslaLspGrpPathStatusEnum represents Ipsla lsp grp path status enum
-type IpslaLspGrpPathStatusEnum string
-
-const (
-    // ipsla lsp grp path status unknown
-    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_unknown IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-unknown"
-
-    // ipsla lsp grp path status up
-    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_up IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-up"
-
-    // ipsla lsp grp path status down
-    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_down IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-down"
-
-    // ipsla lsp grp path status retry
-    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_retry IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-retry"
-
-    // ipsla lsp grp path status pending
-    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_pending IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-pending"
-)
-
-// IpslaOperStateEnum represents Ipsla oper state enum
-type IpslaOperStateEnum string
-
-const (
-    // ipsla oper state inactive
-    IpslaOperStateEnum_ipsla_oper_state_inactive IpslaOperStateEnum = "ipsla-oper-state-inactive"
-
-    // ipsla oper state pending
-    IpslaOperStateEnum_ipsla_oper_state_pending IpslaOperStateEnum = "ipsla-oper-state-pending"
-
-    // ipsla oper state active
-    IpslaOperStateEnum_ipsla_oper_state_active IpslaOperStateEnum = "ipsla-oper-state-active"
-)
-
 // IpslaMplsLpdDiscoveryModeEnum represents Ipsla mpls lpd discovery mode enum
 type IpslaMplsLpdDiscoveryModeEnum string
 
@@ -309,6 +226,23 @@ const (
 
     // ipsla mpls lpd rediscovery complete
     IpslaMplsLpdDiscoveryModeEnum_ipsla_mpls_lpd_rediscovery_complete IpslaMplsLpdDiscoveryModeEnum = "ipsla-mpls-lpd-rediscovery-complete"
+)
+
+// IpslaMplsLpdPathDiscoveryStatus represents Ipsla mpls lpd path discovery status
+type IpslaMplsLpdPathDiscoveryStatus string
+
+const (
+    // ipsla mpls lpd path discovery unknown
+    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_unknown IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-unknown"
+
+    // ipsla mpls lpd path discovery ok
+    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_ok IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-ok"
+
+    // ipsla mpls lpd path discovery broken
+    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_broken IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-broken"
+
+    // ipsla mpls lpd path discovery unexplorable
+    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_unexplorable IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-unexplorable"
 )
 
 // IpslaMplsLpdRetCode represents Ipsla mpls lpd ret code
@@ -341,6 +275,71 @@ const (
     IpslaMplsLpdRetCode_ipsla_mpls_lpd_ret_code_ok IpslaMplsLpdRetCode = "ipsla-mpls-lpd-ret-code-ok"
 )
 
+// IpslaTargetTypeEnum represents IPSLA Target Types
+type IpslaTargetTypeEnum string
+
+const (
+    // IPv4 address
+    IpslaTargetTypeEnum_ipv4_address_target_type IpslaTargetTypeEnum = "ipv4-address-target-type"
+
+    // IPv4 prefix
+    IpslaTargetTypeEnum_ipv4_prefix_target_type IpslaTargetTypeEnum = "ipv4-prefix-target-type"
+
+    // Tunnel ID
+    IpslaTargetTypeEnum_tunnel_id_target_type IpslaTargetTypeEnum = "tunnel-id-target-type"
+
+    // IPv4 pseudowire
+    IpslaTargetTypeEnum_ipv4_pseudowire_target_type IpslaTargetTypeEnum = "ipv4-pseudowire-target-type"
+
+    // IPv6 address
+    IpslaTargetTypeEnum_ipv6_address_target_type IpslaTargetTypeEnum = "ipv6-address-target-type"
+)
+
+// IpslaOperStateEnum represents Ipsla oper state enum
+type IpslaOperStateEnum string
+
+const (
+    // ipsla oper state inactive
+    IpslaOperStateEnum_ipsla_oper_state_inactive IpslaOperStateEnum = "ipsla-oper-state-inactive"
+
+    // ipsla oper state pending
+    IpslaOperStateEnum_ipsla_oper_state_pending IpslaOperStateEnum = "ipsla-oper-state-pending"
+
+    // ipsla oper state active
+    IpslaOperStateEnum_ipsla_oper_state_active IpslaOperStateEnum = "ipsla-oper-state-active"
+)
+
+// IpslaMplsAddDeleteEnum represents Ipsla mpls add delete enum
+type IpslaMplsAddDeleteEnum string
+
+const (
+    // ipsla mpls add delete add q
+    IpslaMplsAddDeleteEnum_ipsla_mpls_add_delete_add_q IpslaMplsAddDeleteEnum = "ipsla-mpls-add-delete-add-q"
+
+    // ipsla mpls add delete delete q
+    IpslaMplsAddDeleteEnum_ipsla_mpls_add_delete_delete_q IpslaMplsAddDeleteEnum = "ipsla-mpls-add-delete-delete-q"
+)
+
+// IpslaLspGrpPathStatusEnum represents Ipsla lsp grp path status enum
+type IpslaLspGrpPathStatusEnum string
+
+const (
+    // ipsla lsp grp path status unknown
+    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_unknown IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-unknown"
+
+    // ipsla lsp grp path status up
+    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_up IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-up"
+
+    // ipsla lsp grp path status down
+    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_down IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-down"
+
+    // ipsla lsp grp path status retry
+    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_retry IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-retry"
+
+    // ipsla lsp grp path status pending
+    IpslaLspGrpPathStatusEnum_ipsla_lsp_grp_path_status_pending IpslaLspGrpPathStatusEnum = "ipsla-lsp-grp-path-status-pending"
+)
+
 // IpslaLspGrpStatusEnum represents Ipsla lsp grp status enum
 type IpslaLspGrpStatusEnum string
 
@@ -361,32 +360,33 @@ const (
     IpslaLspGrpStatusEnum_ipsla_lsp_grp_status_pending IpslaLspGrpStatusEnum = "ipsla-lsp-grp-status-pending"
 )
 
-// IpslaMplsAddDeleteEnum represents Ipsla mpls add delete enum
-type IpslaMplsAddDeleteEnum string
+// SlaOpTypes represents IPSLA Operation Types
+type SlaOpTypes string
 
 const (
-    // ipsla mpls add delete add q
-    IpslaMplsAddDeleteEnum_ipsla_mpls_add_delete_add_q IpslaMplsAddDeleteEnum = "ipsla-mpls-add-delete-add-q"
+    // ICMP Echo
+    SlaOpTypes_oper_icmp_echo SlaOpTypes = "oper-icmp-echo"
 
-    // ipsla mpls add delete delete q
-    IpslaMplsAddDeleteEnum_ipsla_mpls_add_delete_delete_q IpslaMplsAddDeleteEnum = "ipsla-mpls-add-delete-delete-q"
-)
+    // ICMP PathJitter
+    SlaOpTypes_oper_icmp_path_jitter SlaOpTypes = "oper-icmp-path-jitter"
 
-// IpslaMplsLpdPathDiscoveryStatus represents Ipsla mpls lpd path discovery status
-type IpslaMplsLpdPathDiscoveryStatus string
+    // ICMP Path Echo
+    SlaOpTypes_oper_icmp_path_echo SlaOpTypes = "oper-icmp-path-echo"
 
-const (
-    // ipsla mpls lpd path discovery unknown
-    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_unknown IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-unknown"
+    // UDP Jitter
+    SlaOpTypes_oper_udp_jitter SlaOpTypes = "oper-udp-jitter"
 
-    // ipsla mpls lpd path discovery ok
-    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_ok IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-ok"
+    // UDP Echo
+    SlaOpTypes_oper_udp_echo SlaOpTypes = "oper-udp-echo"
 
-    // ipsla mpls lpd path discovery broken
-    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_broken IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-broken"
+    // MPLS LSP Ping
+    SlaOpTypes_oper_mpls_lsp_ping SlaOpTypes = "oper-mpls-lsp-ping"
 
-    // ipsla mpls lpd path discovery unexplorable
-    IpslaMplsLpdPathDiscoveryStatus_ipsla_mpls_lpd_path_discovery_unexplorable IpslaMplsLpdPathDiscoveryStatus = "ipsla-mpls-lpd-path-discovery-unexplorable"
+    // MPLS LSP Trace
+    SlaOpTypes_oper_mpls_lsp_trace SlaOpTypes = "oper-mpls-lsp-trace"
+
+    // MPLS LSP Group
+    SlaOpTypes_oper_mpls_lsp_group SlaOpTypes = "oper-mpls-lsp-group"
 )
 
 // Ipsla
@@ -674,7 +674,7 @@ type Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_State struct {
     YFilter yfilter.YFilter
 
     // PE target address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TargetAddress interface{}
 
     // PE target mask length. The type is interface{} with range: 0..4294967295.
@@ -813,14 +813,14 @@ type Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPaths_LpdPath
     YFilter yfilter.YFilter
 
     // LSP selector. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Output interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NexthopAddress interface{}
 
     // Downstream label stacks. The type is slice of interface{} with range:
@@ -895,11 +895,11 @@ type Ipsla_MplsData_LspMonitors_LspMonitor_ScanQueues_ScanQueue struct {
     YListKey string
 
     // This attribute is a key. Nexthop Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // PE target address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TargetAddress interface{}
 
     // PE target mask length. The type is interface{} with range: 0..4294967295.
@@ -1070,7 +1070,7 @@ type Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop struct {
     YListKey string
 
     // This attribute is a key. Nexthop Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // List of VRFs for the nexthop address.
@@ -1179,7 +1179,7 @@ type Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Prefix struct {
     YFilter yfilter.YFilter
 
     // PE target address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     TargetAddress interface{}
 
     // PE target mask length. The type is interface{} with range: 0..4294967295.
@@ -1286,7 +1286,7 @@ type Ipsla_Responder_Ports_Port struct {
     PortXr interface{}
 
     // IP address of Responder. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Number of probes received from remote end. The type is interface{} with
@@ -1317,7 +1317,7 @@ type Ipsla_Responder_Ports_Port struct {
     Socket interface{}
 
     // IPv6 address of Responder. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalIpv6Address interface{}
 
     // Represent if v4 or v6. The type is interface{} with range:
@@ -1373,7 +1373,7 @@ type Ipsla_Responder_Ports_Port_Sender struct {
     YListKey string
 
     // IP address of Sender. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Port on which Sender is sending. The type is interface{} with range:
@@ -1385,7 +1385,7 @@ type Ipsla_Responder_Ports_Port_Sender struct {
     LastRecvTime interface{}
 
     // IPv6 address of Sender. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
@@ -1863,11 +1863,11 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Latest_Target_Targe
     TargetType interface{}
 
     // IPv4 address target. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4AddressTarget interface{}
 
     // IPv6 address target. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6AddressTarget interface{}
 
     // IPv4 prefix target.
@@ -1912,7 +1912,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Latest_Target_Targe
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Mask length. The type is interface{} with range: 0..255.
@@ -1977,7 +1977,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Latest_Target_Targe
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Virtual circuit ID. The type is interface{} with range: 0..4294967295.
@@ -2198,11 +2198,11 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_Hours_Ho
     TargetType interface{}
 
     // IPv4 address target. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4AddressTarget interface{}
 
     // IPv6 address target. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6AddressTarget interface{}
 
     // IPv4 prefix target.
@@ -2247,7 +2247,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_Hours_Ho
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Mask length. The type is interface{} with range: 0..255.
@@ -2312,7 +2312,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_Hours_Ho
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Virtual circuit ID. The type is interface{} with range: 0..4294967295.
@@ -2456,14 +2456,14 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths_LpdPath_PathId
     YFilter yfilter.YFilter
 
     // LSP selector. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Output interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NexthopAddress interface{}
 
     // Downstream label stacks. The type is slice of interface{} with range:
@@ -2560,11 +2560,11 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Status_State_TargetAddress str
     TargetType interface{}
 
     // IPv4 address target. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4AddressTarget interface{}
 
     // IPv6 address target. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6AddressTarget interface{}
 
     // IPv4 prefix target.
@@ -2609,7 +2609,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Status_State_TargetAddress_Ipv
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Mask length. The type is interface{} with range: 0..255.
@@ -2674,7 +2674,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Status_State_TargetAddress_Ipv
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Virtual circuit ID. The type is interface{} with range: 0..4294967295.
@@ -3003,11 +3003,11 @@ type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_Buckets_Bu
     TargetType interface{}
 
     // IPv4 address target. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4AddressTarget interface{}
 
     // IPv6 address target. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6AddressTarget interface{}
 
     // IPv4 prefix target.
@@ -3052,7 +3052,7 @@ type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_Buckets_Bu
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Mask length. The type is interface{} with range: 0..255.
@@ -3117,7 +3117,7 @@ type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_Buckets_Bu
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Virtual circuit ID. The type is interface{} with range: 0..4294967295.
@@ -3341,11 +3341,11 @@ type Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life_Buckets_
     TargetType interface{}
 
     // IPv4 address target. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4AddressTarget interface{}
 
     // IPv6 address target. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6AddressTarget interface{}
 
     // IPv4 prefix target.
@@ -3390,7 +3390,7 @@ type Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life_Buckets_
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Mask length. The type is interface{} with range: 0..255.
@@ -3455,7 +3455,7 @@ type Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life_Buckets_
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Virtual circuit ID. The type is interface{} with range: 0..4294967295.
@@ -3745,15 +3745,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Latest_Target_SpecificS
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -4351,15 +4351,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Latest_Hops_Hop_Specifi
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -4808,14 +4808,14 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPaths_LpdPath
     YFilter yfilter.YFilter
 
     // LSP selector. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Output interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NexthopAddress interface{}
 
     // Downstream label stacks. The type is slice of interface{} with range:
@@ -5001,7 +5001,7 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_EnhancedInte
     YListKey string
 
     // This attribute is a key. Interval Start Time. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     IntervalStartTime interface{}
 
     // Common Stats.
@@ -5188,15 +5188,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_EnhancedInte
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -6050,15 +6050,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_D
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -6688,15 +6688,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_D
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -7292,15 +7292,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_N
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -7969,15 +7969,15 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_N
     YFilter yfilter.YFilter
 
     // IP Address of the source. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // IP Address of the destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestAddress interface{}
 
     // IP address of the hop in the path. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HopAddress interface{}
 
     // Interval between echos in ms. The type is interface{} with range:
@@ -8426,14 +8426,14 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_N
     YFilter yfilter.YFilter
 
     // LSP selector. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Output interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NexthopAddress interface{}
 
     // Downstream label stacks. The type is slice of interface{} with range:

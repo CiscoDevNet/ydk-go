@@ -24,6 +24,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery", reflect.TypeOf(Ipv6NodeDiscovery{}))
 }
 
+// Ipv6NdShVrFlags represents IPv6 ND VR Entry Flags Type 
+type Ipv6NdShVrFlags string
+
+const (
+    // None
+    Ipv6NdShVrFlags_no_flags Ipv6NdShVrFlags = "no-flags"
+
+    // Final RA
+    Ipv6NdShVrFlags_final_ra Ipv6NdShVrFlags = "final-ra"
+)
+
 // Ipv6NdShVrState represents IPv6 ND VR Entry State Type 
 type Ipv6NdShVrState string
 
@@ -50,6 +61,20 @@ const (
 
     // Wait state
     Ipv6NdBndlState_wait Ipv6NdBndlState = "wait"
+)
+
+// Ipv6NdNeighborOrigin represents IPv6 ND Neighbor Origin Type
+type Ipv6NdNeighborOrigin string
+
+const (
+    // Other Address
+    Ipv6NdNeighborOrigin_other Ipv6NdNeighborOrigin = "other"
+
+    // Static Address
+    Ipv6NdNeighborOrigin_static Ipv6NdNeighborOrigin = "static"
+
+    // Dynamic Address
+    Ipv6NdNeighborOrigin_dynamic Ipv6NdNeighborOrigin = "dynamic"
 )
 
 // Ipv6NdMediaEncap represents IPv6 ND Media Encapsulation Type
@@ -96,20 +121,6 @@ const (
     Ipv6NdMediaEncap_gre Ipv6NdMediaEncap = "gre"
 )
 
-// Ipv6NdNeighborOrigin represents IPv6 ND Neighbor Origin Type
-type Ipv6NdNeighborOrigin string
-
-const (
-    // Other Address
-    Ipv6NdNeighborOrigin_other Ipv6NdNeighborOrigin = "other"
-
-    // Static Address
-    Ipv6NdNeighborOrigin_static Ipv6NdNeighborOrigin = "static"
-
-    // Dynamic Address
-    Ipv6NdNeighborOrigin_dynamic Ipv6NdNeighborOrigin = "dynamic"
-)
-
 // Ipv6NdShState represents IPv6 ND Neighbor Reachability State
 type Ipv6NdShState string
 
@@ -134,17 +145,6 @@ const (
 
     // Delete
     Ipv6NdShState_delete_ Ipv6NdShState = "delete"
-)
-
-// Ipv6NdShVrFlags represents IPv6 ND VR Entry Flags Type 
-type Ipv6NdShVrFlags string
-
-const (
-    // None
-    Ipv6NdShVrFlags_no_flags Ipv6NdShVrFlags = "no-flags"
-
-    // Final RA
-    Ipv6NdShVrFlags_final_ra Ipv6NdShVrFlags = "final-ra"
 )
 
 // Ipv6NodeDiscovery
@@ -220,13 +220,13 @@ type Ipv6NodeDiscovery_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv6 node discovery list of neighbor interfaces.
     NeighborInterfaces Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces
 
-    // IPv6 Neighbor summary.
+    // Summary of IPv6 Neighbors.
     NeighborSummary Ipv6NodeDiscovery_Nodes_Node_NeighborSummary
 
     // IPv6 ND list of bundle nodes for a specific node.
@@ -315,7 +315,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // IPv6 node discovery list of neighbor host addresses.
@@ -386,14 +386,14 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddre
     YListKey string
 
     // This attribute is a key. Host Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HostAddress interface{}
 
     // Current state. The type is Ipv6NdShState.
     ReachabilityState interface{}
 
-    // Link-Layer Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // IPV6 Link-Layer Address. The type is string with pattern:
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     LinkLayerAddress interface{}
 
     // Preferred media encap type. The type is Ipv6NdMediaEncap.
@@ -405,11 +405,11 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface_HostAddre
     // Neighbor origin. The type is Ipv6NdNeighborOrigin.
     OriginEncapsulation interface{}
 
-    // Interface name. The type is string.
+    // Name of Interface. The type is string.
     InterfaceName interface{}
 
     // Location where the neighbor entry exists. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Location interface{}
 
     // IsRouter. The type is bool.
@@ -489,7 +489,7 @@ func (lastReachedTime *Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborI
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_NeighborSummary
-// IPv6 Neighbor summary
+// Summary of IPv6 Neighbors
 type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -505,6 +505,15 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary struct {
 
     // Dynamic neighbor summary.
     Dynamic Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Dynamic
+
+    // Sync neighbor summary.
+    Sync Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Sync
+
+    // StaticSync neighbor summary.
+    StaticSync Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_StaticSync
+
+    // DynamicSync neighbor summary.
+    DynamicSync Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_DynamicSync
 }
 
 func (neighborSummary *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary) GetEntityData() *types.CommonEntityData {
@@ -522,6 +531,9 @@ func (neighborSummary *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary) GetEntityDa
     neighborSummary.EntityData.Children.Append("multicast", types.YChild{"Multicast", &neighborSummary.Multicast})
     neighborSummary.EntityData.Children.Append("static", types.YChild{"Static", &neighborSummary.Static})
     neighborSummary.EntityData.Children.Append("dynamic", types.YChild{"Dynamic", &neighborSummary.Dynamic})
+    neighborSummary.EntityData.Children.Append("sync", types.YChild{"Sync", &neighborSummary.Sync})
+    neighborSummary.EntityData.Children.Append("static-sync", types.YChild{"StaticSync", &neighborSummary.StaticSync})
+    neighborSummary.EntityData.Children.Append("dynamic-sync", types.YChild{"DynamicSync", &neighborSummary.DynamicSync})
     neighborSummary.EntityData.Leafs = types.NewOrderedMap()
     neighborSummary.EntityData.Leafs.Append("total-neighbor-entries", types.YLeaf{"TotalNeighborEntries", neighborSummary.TotalNeighborEntries})
 
@@ -536,23 +548,28 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Multicast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Total incomplete entries. The type is interface{} with range:
-    // 0..4294967295.
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
     IncompleteEntries interface{}
 
-    // Total reachable entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
     ReachableEntries interface{}
 
-    // Total stale entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
     StaleEntries interface{}
 
-    // Total delayed entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
     DelayedEntries interface{}
 
-    // Total probe entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
     ProbeEntries interface{}
 
-    // Total deleted entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
     DeletedEntries interface{}
 
     // Total number of entries. The type is interface{} with range: 0..4294967295.
@@ -591,23 +608,28 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Total incomplete entries. The type is interface{} with range:
-    // 0..4294967295.
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
     IncompleteEntries interface{}
 
-    // Total reachable entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
     ReachableEntries interface{}
 
-    // Total stale entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
     StaleEntries interface{}
 
-    // Total delayed entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
     DelayedEntries interface{}
 
-    // Total probe entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
     ProbeEntries interface{}
 
-    // Total deleted entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
     DeletedEntries interface{}
 
     // Total number of entries. The type is interface{} with range: 0..4294967295.
@@ -646,23 +668,28 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Dynamic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Total incomplete entries. The type is interface{} with range:
-    // 0..4294967295.
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
     IncompleteEntries interface{}
 
-    // Total reachable entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
     ReachableEntries interface{}
 
-    // Total stale entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
     StaleEntries interface{}
 
-    // Total delayed entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
     DelayedEntries interface{}
 
-    // Total probe entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
     ProbeEntries interface{}
 
-    // Total deleted entries. The type is interface{} with range: 0..4294967295.
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
     DeletedEntries interface{}
 
     // Total number of entries. The type is interface{} with range: 0..4294967295.
@@ -693,6 +720,186 @@ func (dynamic *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Dynamic) GetEntityDa
     dynamic.EntityData.YListKeys = []string {}
 
     return &(dynamic.EntityData)
+}
+
+// Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Sync
+// Sync neighbor summary
+type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Sync struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
+    IncompleteEntries interface{}
+
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
+    ReachableEntries interface{}
+
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
+    StaleEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
+    DelayedEntries interface{}
+
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
+    ProbeEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
+    DeletedEntries interface{}
+
+    // Total number of entries. The type is interface{} with range: 0..4294967295.
+    SubtotalNeighborEntries interface{}
+}
+
+func (sync *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_Sync) GetEntityData() *types.CommonEntityData {
+    sync.EntityData.YFilter = sync.YFilter
+    sync.EntityData.YangName = "sync"
+    sync.EntityData.BundleName = "cisco_ios_xr"
+    sync.EntityData.ParentYangName = "neighbor-summary"
+    sync.EntityData.SegmentPath = "sync"
+    sync.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + sync.EntityData.SegmentPath
+    sync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sync.EntityData.Children = types.NewOrderedMap()
+    sync.EntityData.Leafs = types.NewOrderedMap()
+    sync.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", sync.IncompleteEntries})
+    sync.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", sync.ReachableEntries})
+    sync.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", sync.StaleEntries})
+    sync.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", sync.DelayedEntries})
+    sync.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", sync.ProbeEntries})
+    sync.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", sync.DeletedEntries})
+    sync.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", sync.SubtotalNeighborEntries})
+
+    sync.EntityData.YListKeys = []string {}
+
+    return &(sync.EntityData)
+}
+
+// Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_StaticSync
+// StaticSync neighbor summary
+type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_StaticSync struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
+    IncompleteEntries interface{}
+
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
+    ReachableEntries interface{}
+
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
+    StaleEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
+    DelayedEntries interface{}
+
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
+    ProbeEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
+    DeletedEntries interface{}
+
+    // Total number of entries. The type is interface{} with range: 0..4294967295.
+    SubtotalNeighborEntries interface{}
+}
+
+func (staticSync *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_StaticSync) GetEntityData() *types.CommonEntityData {
+    staticSync.EntityData.YFilter = staticSync.YFilter
+    staticSync.EntityData.YangName = "static-sync"
+    staticSync.EntityData.BundleName = "cisco_ios_xr"
+    staticSync.EntityData.ParentYangName = "neighbor-summary"
+    staticSync.EntityData.SegmentPath = "static-sync"
+    staticSync.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + staticSync.EntityData.SegmentPath
+    staticSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    staticSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    staticSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    staticSync.EntityData.Children = types.NewOrderedMap()
+    staticSync.EntityData.Leafs = types.NewOrderedMap()
+    staticSync.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", staticSync.IncompleteEntries})
+    staticSync.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", staticSync.ReachableEntries})
+    staticSync.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", staticSync.StaleEntries})
+    staticSync.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", staticSync.DelayedEntries})
+    staticSync.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", staticSync.ProbeEntries})
+    staticSync.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", staticSync.DeletedEntries})
+    staticSync.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", staticSync.SubtotalNeighborEntries})
+
+    staticSync.EntityData.YListKeys = []string {}
+
+    return &(staticSync.EntityData)
+}
+
+// Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_DynamicSync
+// DynamicSync neighbor summary
+type Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_DynamicSync struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Total ipv6 neighbhors count which are in INCMP state. The type is
+    // interface{} with range: 0..4294967295.
+    IncompleteEntries interface{}
+
+    // Total ipv6 neighbhors count which are in REACH state. The type is
+    // interface{} with range: 0..4294967295.
+    ReachableEntries interface{}
+
+    // Total ipv6 neighbhors count which are STALE. The type is interface{} with
+    // range: 0..4294967295.
+    StaleEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELAY state. The type is
+    // interface{} with range: 0..4294967295.
+    DelayedEntries interface{}
+
+    // Total ipv6 neighbhors count which are in PROBE state. The type is
+    // interface{} with range: 0..4294967295.
+    ProbeEntries interface{}
+
+    // Total ipv6 neighbhors count which are in DELETE state. The type is
+    // interface{} with range: 0..4294967295.
+    DeletedEntries interface{}
+
+    // Total number of entries. The type is interface{} with range: 0..4294967295.
+    SubtotalNeighborEntries interface{}
+}
+
+func (dynamicSync *Ipv6NodeDiscovery_Nodes_Node_NeighborSummary_DynamicSync) GetEntityData() *types.CommonEntityData {
+    dynamicSync.EntityData.YFilter = dynamicSync.YFilter
+    dynamicSync.EntityData.YangName = "dynamic-sync"
+    dynamicSync.EntityData.BundleName = "cisco_ios_xr"
+    dynamicSync.EntityData.ParentYangName = "neighbor-summary"
+    dynamicSync.EntityData.SegmentPath = "dynamic-sync"
+    dynamicSync.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/node/neighbor-summary/" + dynamicSync.EntityData.SegmentPath
+    dynamicSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dynamicSync.EntityData.Children = types.NewOrderedMap()
+    dynamicSync.EntityData.Leafs = types.NewOrderedMap()
+    dynamicSync.EntityData.Leafs.Append("incomplete-entries", types.YLeaf{"IncompleteEntries", dynamicSync.IncompleteEntries})
+    dynamicSync.EntityData.Leafs.Append("reachable-entries", types.YLeaf{"ReachableEntries", dynamicSync.ReachableEntries})
+    dynamicSync.EntityData.Leafs.Append("stale-entries", types.YLeaf{"StaleEntries", dynamicSync.StaleEntries})
+    dynamicSync.EntityData.Leafs.Append("delayed-entries", types.YLeaf{"DelayedEntries", dynamicSync.DelayedEntries})
+    dynamicSync.EntityData.Leafs.Append("probe-entries", types.YLeaf{"ProbeEntries", dynamicSync.ProbeEntries})
+    dynamicSync.EntityData.Leafs.Append("deleted-entries", types.YLeaf{"DeletedEntries", dynamicSync.DeletedEntries})
+    dynamicSync.EntityData.Leafs.Append("subtotal-neighbor-entries", types.YLeaf{"SubtotalNeighborEntries", dynamicSync.SubtotalNeighborEntries})
+
+    dynamicSync.EntityData.YListKeys = []string {}
+
+    return &(dynamicSync.EntityData)
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_BundleNodes
@@ -739,25 +946,27 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleNodes_BundleNode struct {
     YListKey string
 
     // This attribute is a key. The bundle node name. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
     GroupId interface{}
 
-    // Process Name. The type is string.
+    // Name of the process. The type is string.
     ProcessName interface{}
 
-    // Sent sequence num. The type is interface{} with range: 0..4294967295.
+    // Sent sequence number for error detection. The type is interface{} with
+    // range: 0..4294967295.
     SentSequenceNumber interface{}
 
-    // Received sequence num. The type is interface{} with range: 0..4294967295.
+    // Received sequence num for error detection. The type is interface{} with
+    // range: 0..4294967295.
     ReceivedSequenceNumber interface{}
 
     // State. The type is Ipv6NdBndlState.
     State interface{}
 
-    // State changes. The type is interface{} with range: 0..4294967295.
+    // change of state. The type is interface{} with range: 0..4294967295.
     StateChanges interface{}
 
     // Total packet sends. The type is interface{} with range: 0..4294967295.
@@ -874,10 +1083,11 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Name of the Parent interface. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     ParentInterfaceName interface{}
 
     // Interface type. The type is interface{} with range: 0..4294967295.
@@ -886,17 +1096,17 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     // MTU. The type is interface{} with range: 0..4294967295.
     Mtu interface{}
 
-    // etype. The type is interface{} with range: 0..4294967295.
+    // etype field. The type is interface{} with range: 0..4294967295.
     Etype interface{}
 
     // vlan tag/id/ucv. The type is interface{} with range: 0..65535.
     VlanTag interface{}
 
-    // mac address size. The type is interface{} with range: 0..4294967295.
+    // size of mac address. The type is interface{} with range: 0..4294967295.
     MacAddrSize interface{}
 
-    // mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // media access control address. The type is string with pattern:
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddr interface{}
 
     // If true, interface is enabled. The type is bool.
@@ -915,7 +1125,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     // ND interface parameters.
     NdParameters Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_NdParameters
 
-    // Link local address.
+    // IPV6 Link local address.
     LocalAddress Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress
 
     // List of ND global addresses. The type is slice of
@@ -1086,13 +1296,13 @@ func (ndParameters *Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterfac
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress
-// Link local address
+// IPV6 Link local address
 type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Address of type IPV6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Valid lifetime of a Prefix. The type is interface{} with range:
@@ -1103,7 +1313,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_LocalAddress 
     // 0..4294967295.
     PrefLifetime interface{}
 
-    // Prefix length. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Address flags. The type is interface{} with range: 0..4294967295.
@@ -1141,8 +1351,8 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
     YFilter yfilter.YFilter
     YListKey string
 
-    // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Address of type IPV6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Valid lifetime of a Prefix. The type is interface{} with range:
@@ -1153,7 +1363,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_GlobalAddress
     // 0..4294967295.
     PrefLifetime interface{}
 
-    // Prefix length. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Address flags. The type is interface{} with range: 0..4294967295.
@@ -1192,7 +1402,7 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface_MemberNode st
     YListKey string
 
     // Node Name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Number of links on the node. The type is interface{} with range:
@@ -1265,7 +1475,7 @@ type Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // If true, DAD (D.. A.. D..) is enabled otherwise it is disabled. The type is
@@ -1422,11 +1632,11 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Link-Layer Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // IPV6 Link-Layer Address. The type is string with pattern:
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     LinkLayerAddress interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1442,7 +1652,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
     // 0..4294967295.
     VrGlAddrCt interface{}
 
-    // Link local address.
+    // IPV6 Link local address.
     LocalAddress Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress
 
     // List of ND global addresses. The type is slice of
@@ -1482,13 +1692,13 @@ func (ndVirtualRouter *Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRo
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress
-// Link local address
+// IPV6 Link local address
 type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Address of type IPV6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Valid lifetime of a Prefix. The type is interface{} with range:
@@ -1499,7 +1709,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_LocalAddress 
     // 0..4294967295.
     PrefLifetime interface{}
 
-    // Prefix length. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Address flags. The type is interface{} with range: 0..4294967295.
@@ -1537,8 +1747,8 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddre
     YFilter yfilter.YFilter
     YListKey string
 
-    // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // Address of type IPV6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Valid lifetime of a Prefix. The type is interface{} with range:
@@ -1549,7 +1759,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter_VrGlobalAddre
     // 0..4294967295.
     PrefLifetime interface{}
 
-    // Prefix length. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Address flags. The type is interface{} with range: 0..4294967295.
@@ -1624,7 +1834,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // IPv6 ND operational data for a specific slaac interface.
@@ -1659,7 +1869,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // idb. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // interface database. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Idb interface{}
 
     // slaac db. The type is slice of
@@ -1699,26 +1909,29 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     YFilter yfilter.YFilter
     YListKey string
 
-    // address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // address of type IPV6. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
-    // hops. The type is interface{} with range: 0..4294967295.
+    // number of intermediate devices between source and destination. The type is
+    // interface{} with range: 0..4294967295.
     Hops interface{}
 
-    // flags. The type is interface{} with range: 0..4294967295.
+    // RA flags. The type is interface{} with range: 0..4294967295.
     Flags interface{}
 
-    // lifetime. The type is interface{} with range: 0..4294967295.
+    // active time. The type is interface{} with range: 0..4294967295.
     LifeTime interface{}
 
-    // mtu. The type is interface{} with range: 0..4294967295.
+    // maximum transmission unit. The type is interface{} with range:
+    // 0..4294967295.
     Mtu interface{}
 
-    // errmsg. The type is bool.
+    // message having the error info. The type is bool.
     ErrMsg interface{}
 
-    // vrf id. The type is interface{} with range: 0..4294967295.
+    // virtual routing and forwarding id. The type is interface{} with range:
+    // 0..4294967295.
     VrfId interface{}
 
     // tbl id. The type is interface{} with range: 0..4294967295.
@@ -1736,10 +1949,10 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     // elapsedRATime.
     ElapsedRaTime Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_ElapsedRaTime
 
-    // reachabletime.
+    // common reachabletime.
     ReachableTime Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_ReachableTime
 
-    // retranstime.
+    // RA retransmit time.
     RetransTime Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_RetransTime
 
     // Prefix Queue. The type is slice of
@@ -1817,7 +2030,7 @@ func (elapsedRaTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_ReachableTime
-// reachabletime
+// common reachabletime
 type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_ReachableTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1848,7 +2061,7 @@ func (reachableTime *Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface
 }
 
 // Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_RetransTime
-// retranstime
+// RA retransmit time
 type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDetail_Ra_RetransTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1885,21 +2098,23 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     YFilter yfilter.YFilter
     YListKey string
 
-    // Prefix address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IPV6 Prefix address. The type is string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixAddress interface{}
 
     // IPv6 Auto generated address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Eui64 interface{}
 
-    // Valid Life Time. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix Valid Life Time. The type is interface{} with range:
+    // 0..4294967295.
     ValidLifeTime interface{}
 
-    // Preferred Life Time. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix Preferred Life Time. The type is interface{} with range:
+    // 0..4294967295.
     PreferredLifeTime interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..4294967295.
+    // IPV6 Prefix Length. The type is interface{} with range: 0..4294967295.
     PrefixLen interface{}
 
     // IPv6 Address Specific Flags. The type is interface{} with range:

@@ -85,7 +85,7 @@ type DISMANEXPRESSIONMIB_ExpResource struct {
     // for this object should be 1, allowing as small as a 1 second interval for
     // ongoing delta sampling.  Changing this value will not invalidate an
     // existing setting of expObjectSampleType. The type is interface{} with
-    // range: -1..None | 1..600. Units are seconds.
+    // range: -1..-1 | 1..600. Units are seconds.
     ExpResourceDeltaMinimum interface{}
 
     // For every instance of a deltaValue object, one dynamic instance entry is
@@ -395,7 +395,8 @@ type DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry struct {
     // objects for the expression. This is sufficient, as the remainder, that is,
     // the instance fragment relevant to instancing the values, must be the same
     // for all wildcarded objects in the expression. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpExpressionPrefix interface{}
 
     // The number of errors encountered while evaluating this expression.  Note
@@ -562,7 +563,7 @@ type DISMANEXPRESSIONMIB_ExpErrorTable_ExpErrorEntry struct {
 
     // The expValueInstance being evaluated when the error occurred.  A
     // zero-length indicates irrelevance. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpErrorInstance interface{}
 }
 
@@ -702,7 +703,7 @@ type DISMANEXPRESSIONMIB_ExpObjectTable_ExpObjectEntry struct {
     // of the object.  An object here may itself be the result of an expression
     // but recursion is not allowed.  NOTE:  The simplest implementations of this
     // MIB may not allow wildcards. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpObjectID interface{}
 
     // A true value indicates the expObjecID of this row is a wildcard object.
@@ -736,7 +737,7 @@ type DISMANEXPRESSIONMIB_ExpObjectTable_ExpObjectEntry struct {
     // to sysUpTime discontinuity checking must still check sysUpTime for an
     // overall discontinuity.  If the object identified is not accessible no
     // discontinuity check will be made. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpObjectDeltaDiscontinuityID interface{}
 
     // A true value indicates the expObjectDeltaDiscontinuityID of this row is a
@@ -769,7 +770,7 @@ type DISMANEXPRESSIONMIB_ExpObjectTable_ExpObjectEntry struct {
     // non-zero (true) value.  Note that expObjectConditional can not trivially
     // use an object of syntax TruthValue, since the underlying value is not 0 or
     // 1. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpObjectConditional interface{}
 
     // A true value indicates the expObjectConditional of this row is a wildcard
@@ -947,7 +948,8 @@ type DISMANEXPRESSIONMIB_ExpValueTable_ExpValueEntry struct {
     // value instance for each real, possible value of the wildcard. So, for
     // example, if the wildcard worked out to be an ifIndex, there is an
     // expValueInstance for each applicable ifIndex. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpValueInstance interface{}
 
     // The value when expExpressionValueType is 'counter32'. The type is
@@ -968,7 +970,7 @@ type DISMANEXPRESSIONMIB_ExpValueTable_ExpValueEntry struct {
 
     // The value when expExpressionValueType is 'ipAddress'. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ExpValueIpAddressVal interface{}
 
     // The value when expExpressionValueType is 'octetString'. The type is string
@@ -977,7 +979,7 @@ type DISMANEXPRESSIONMIB_ExpValueTable_ExpValueEntry struct {
 
     // The value when expExpressionValueType is 'objectId'. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     ExpValueOidVal interface{}
 
     // The value when expExpressionValueType is 'counter64'. The type is

@@ -24,47 +24,32 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe", reflect.TypeOf(Pppoe{}))
 }
 
-// PppoeMaSessionState represents Pppoe ma session state
-type PppoeMaSessionState string
+// PppoeMaThrottleState represents Pppoe ma throttle state
+type PppoeMaThrottleState string
 
 const (
-    // Destroying session
-    PppoeMaSessionState_destroying PppoeMaSessionState = "destroying"
+    // Idle State
+    PppoeMaThrottleState_idle PppoeMaThrottleState = "idle"
 
-    // Deleting interface
-    PppoeMaSessionState_deleting PppoeMaSessionState = "deleting"
+    // Monitor State
+    PppoeMaThrottleState_monitor PppoeMaThrottleState = "monitor"
 
-    // Initializing
-    PppoeMaSessionState_initializing PppoeMaSessionState = "initializing"
-
-    // Interface created
-    PppoeMaSessionState_created PppoeMaSessionState = "created"
-
-    // Stopping AAA session
-    PppoeMaSessionState_stopping PppoeMaSessionState = "stopping"
-
-    // AAA session started
-    PppoeMaSessionState_started PppoeMaSessionState = "started"
-
-    // SubDB Config activated
-    PppoeMaSessionState_activated PppoeMaSessionState = "activated"
-
-    // Complete
-    PppoeMaSessionState_complete PppoeMaSessionState = "complete"
+    // Block State
+    PppoeMaThrottleState_block PppoeMaThrottleState = "block"
 )
 
-// PppoeMaSessionIdbSrgState represents Pppoe ma session idb srg state
-type PppoeMaSessionIdbSrgState string
+// PppoeMaLimitState represents Pppoe ma limit state
+type PppoeMaLimitState string
 
 const (
-    // SRG-None state
-    PppoeMaSessionIdbSrgState_none PppoeMaSessionIdbSrgState = "none"
+    // OK State
+    PppoeMaLimitState_ok PppoeMaLimitState = "ok"
 
-    // SRG-Active state
-    PppoeMaSessionIdbSrgState_active PppoeMaSessionIdbSrgState = "active"
+    // Warn State
+    PppoeMaLimitState_warning PppoeMaLimitState = "warning"
 
-    // SRG-Standby state
-    PppoeMaSessionIdbSrgState_standby PppoeMaSessionIdbSrgState = "standby"
+    // Block State
+    PppoeMaLimitState_block PppoeMaLimitState = "block"
 )
 
 // PppoeMaSessionTrig represents Pppoe ma session trig
@@ -135,32 +120,47 @@ const (
     PppoeMaSessionTrig_pppoe_ma_session_trig_count PppoeMaSessionTrig = "pppoe-ma-session-trig-count"
 )
 
-// PppoeMaLimitState represents Pppoe ma limit state
-type PppoeMaLimitState string
+// PppoeMaSessionIdbSrgState represents Pppoe ma session idb srg state
+type PppoeMaSessionIdbSrgState string
 
 const (
-    // OK State
-    PppoeMaLimitState_ok PppoeMaLimitState = "ok"
+    // SRG-None state
+    PppoeMaSessionIdbSrgState_none PppoeMaSessionIdbSrgState = "none"
 
-    // Warn State
-    PppoeMaLimitState_warning PppoeMaLimitState = "warning"
+    // SRG-Active state
+    PppoeMaSessionIdbSrgState_active PppoeMaSessionIdbSrgState = "active"
 
-    // Block State
-    PppoeMaLimitState_block PppoeMaLimitState = "block"
+    // SRG-Standby state
+    PppoeMaSessionIdbSrgState_standby PppoeMaSessionIdbSrgState = "standby"
 )
 
-// PppoeMaThrottleState represents Pppoe ma throttle state
-type PppoeMaThrottleState string
+// PppoeMaSessionState represents Pppoe ma session state
+type PppoeMaSessionState string
 
 const (
-    // Idle State
-    PppoeMaThrottleState_idle PppoeMaThrottleState = "idle"
+    // Destroying session
+    PppoeMaSessionState_destroying PppoeMaSessionState = "destroying"
 
-    // Monitor State
-    PppoeMaThrottleState_monitor PppoeMaThrottleState = "monitor"
+    // Deleting interface
+    PppoeMaSessionState_deleting PppoeMaSessionState = "deleting"
 
-    // Block State
-    PppoeMaThrottleState_block PppoeMaThrottleState = "block"
+    // Initializing
+    PppoeMaSessionState_initializing PppoeMaSessionState = "initializing"
+
+    // Interface created
+    PppoeMaSessionState_created PppoeMaSessionState = "created"
+
+    // Stopping AAA session
+    PppoeMaSessionState_stopping PppoeMaSessionState = "stopping"
+
+    // AAA session started
+    PppoeMaSessionState_started PppoeMaSessionState = "started"
+
+    // SubDB Config activated
+    PppoeMaSessionState_activated PppoeMaSessionState = "activated"
+
+    // Complete
+    PppoeMaSessionState_complete PppoeMaSessionState = "complete"
 )
 
 // Pppoe
@@ -240,7 +240,7 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic struct {
     YListKey string
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Packet Counts.
@@ -672,7 +672,7 @@ type Pppoe_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // PPPoE disconnect history for a given node.
@@ -814,10 +814,10 @@ type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     AccessInterface interface{}
 
     // Session ID. The type is interface{} with range: 0..65535.
@@ -827,7 +827,7 @@ type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb struct {
     SubLabel interface{}
 
     // Peer Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // State. The type is PppoeMaSessionState.
@@ -1067,11 +1067,11 @@ type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags struct {
     MaxPayload interface{}
 
     // Host Uniq. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HostUniq interface{}
 
     // Relay Session ID. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RelaySessionId interface{}
 
     // Remote ID. The type is string.
@@ -1463,10 +1463,10 @@ type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     AccessInterface interface{}
 
     // Session ID. The type is interface{} with range: 0..65535.
@@ -1476,7 +1476,7 @@ type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb struct {
     SubLabel interface{}
 
     // Peer Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // State. The type is PppoeMaSessionState.
@@ -1716,11 +1716,11 @@ type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags struct {
     MaxPayload interface{}
 
     // Host Uniq. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HostUniq interface{}
 
     // Relay Session ID. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RelaySessionId interface{}
 
     // Remote ID. The type is string.
@@ -2747,17 +2747,17 @@ type Pppoe_Nodes_Node_AccessInterface_Summaries_Summary struct {
     YListKey string
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceNameXr interface{}
 
     // Interface State. The type is interface{} with range: 0..4294967295.
     InterfaceState interface{}
 
     // Mac Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // BBA Group. The type is string.
@@ -2843,13 +2843,13 @@ type Pppoe_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. PPPoE Interface. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceNameXr interface{}
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     AccessInterfaceName interface{}
 
     // BBA Group. The type is string.
@@ -2859,11 +2859,11 @@ type Pppoe_Nodes_Node_Interfaces_Interface struct {
     SessionId interface{}
 
     // Local Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     LocalMacAddress interface{}
 
     // Peer Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // Is Complete. The type is interface{} with range: -2147483648..2147483647.
@@ -2926,11 +2926,11 @@ type Pppoe_Nodes_Node_Interfaces_Interface_Tags struct {
     MaxPayload interface{}
 
     // Host Uniq. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HostUniq interface{}
 
     // Relay Session ID. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RelaySessionId interface{}
 
     // Remote ID. The type is string.
@@ -3109,7 +3109,7 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup struct {
     YListKey string
 
     // This attribute is a key. BBA Group. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     BbaGroupName interface{}
 
     // BBA-Group limit configuration information.
@@ -3733,20 +3733,21 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IWF flag. The type is bool.
     Iwf interface{}
 
-    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Circuit ID. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CircuitId interface{}
 
-    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RemoteId interface{}
 
     // Outer VLAN ID. The type is interface{} with range: 0..4095.
@@ -3841,20 +3842,21 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IWF flag. The type is bool.
     Iwf interface{}
 
-    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Circuit ID. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CircuitId interface{}
 
-    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RemoteId interface{}
 
     // Outer VLAN ID. The type is interface{} with range: 0..4095.

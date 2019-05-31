@@ -350,7 +350,7 @@ type MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry struct {
 
     // The VPN ID as specified in [RFC2685].  If a VPN ID has not been specified
     // for this VRF, then this variable SHOULD be set to a zero-length OCTET
-    // STRING. The type is string with length: 0 | 7.
+    // STRING. The type is string with length: 0..0 | 7..7.
     MplsL3VpnVrfVpnId interface{}
 
     // The human-readable description of this VRF. The type is string.
@@ -739,7 +739,7 @@ type MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable_MplsL3VpnVrfRteEntry struct {
     // delineate between multiple entries to the same destination.  The value { 0
     // 0 } shall be used as the default value for this object. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     MplsL3VpnVrfRteInetCidrPolicy interface{}
 
     // This attribute is a key. The type of the mplsL3VpnVrfRteInetCidrNextHop

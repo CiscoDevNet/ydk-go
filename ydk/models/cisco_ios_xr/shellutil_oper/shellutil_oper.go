@@ -154,8 +154,8 @@ type SystemTime_Uptime struct {
     // Host name. The type is string.
     HostName interface{}
 
-    // Amount of time in seconds since this system was last initialized. The type
-    // is interface{} with range: 0..4294967295. Units are second.
+    // Amount of time in seconds since this system     was last initialized. The
+    // type is interface{} with range: 0..4294967295. Units are second.
     Uptime interface{}
 }
 

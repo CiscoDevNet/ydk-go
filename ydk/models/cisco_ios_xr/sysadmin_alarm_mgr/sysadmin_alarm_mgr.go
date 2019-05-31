@@ -28,6 +28,36 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr", reflect.TypeOf(AlarmMgr{}))
 }
 
+// SeverityTd represents The severity enumeration type of an alarm 
+type SeverityTd string
+
+const (
+    SeverityTd_unknown SeverityTd = "unknown"
+
+    SeverityTd_not_reported SeverityTd = "not_reported"
+
+    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
+
+    SeverityTd_minor SeverityTd = "minor"
+
+    SeverityTd_major SeverityTd = "major"
+
+    SeverityTd_critical SeverityTd = "critical"
+)
+
+// StatusTd represents The status enumeration type of an alarm 
+type StatusTd string
+
+const (
+    StatusTd_unknown StatusTd = "unknown"
+
+    StatusTd_set StatusTd = "set"
+
+    StatusTd_clear StatusTd = "clear"
+
+    StatusTd_suppress StatusTd = "suppress"
+)
+
 // GroupTd represents The group enumeration type of an alarm 
 type GroupTd string
 
@@ -71,19 +101,6 @@ const (
     GroupTd_last GroupTd = "last"
 )
 
-// StatusTd represents The status enumeration type of an alarm 
-type StatusTd string
-
-const (
-    StatusTd_unknown StatusTd = "unknown"
-
-    StatusTd_set StatusTd = "set"
-
-    StatusTd_clear StatusTd = "clear"
-
-    StatusTd_suppress StatusTd = "suppress"
-)
-
 // AgentStateTd
 type AgentStateTd string
 
@@ -112,23 +129,6 @@ const (
     AgentTypeTd_consumer AgentTypeTd = "consumer"
 
     AgentTypeTd_subscriber AgentTypeTd = "subscriber"
-)
-
-// SeverityTd represents The severity enumeration type of an alarm 
-type SeverityTd string
-
-const (
-    SeverityTd_unknown SeverityTd = "unknown"
-
-    SeverityTd_not_reported SeverityTd = "not_reported"
-
-    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
-
-    SeverityTd_minor SeverityTd = "minor"
-
-    SeverityTd_major SeverityTd = "major"
-
-    SeverityTd_critical SeverityTd = "critical"
 )
 
 // AlarmMgr
@@ -394,7 +394,7 @@ type AlarmMgr_Brief_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Brief_Card_Location_Active.
@@ -1241,7 +1241,7 @@ type AlarmMgr_Detail_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Active.

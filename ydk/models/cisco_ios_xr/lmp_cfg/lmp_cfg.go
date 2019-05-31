@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-lmp-cfg:lmp", reflect.TypeOf(Lmp{}))
 }
 
-// OlmSwitchingCap represents Olm switching cap
-type OlmSwitchingCap string
-
-const (
-    // Lambda switch capable
-    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
-
-    // Fiber switch capable
-    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
-)
-
 // OlmAddr represents Olm addr
 type OlmAddr string
 
@@ -50,6 +39,17 @@ const (
 
     // NSAP address
     OlmAddr_nsap OlmAddr = "nsap"
+)
+
+// OlmSwitchingCap represents Olm switching cap
+type OlmSwitchingCap string
+
+const (
+    // Lambda switch capable
+    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
+
+    // Fiber switch capable
+    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
 )
 
 // Lmp
@@ -173,7 +173,7 @@ type Lmp_GmplsUni_Neighbors_Neighbor struct {
     Enable interface{}
 
     // Neighbor router ID (IPv4 Address). The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NeighborRouterId interface{}
 
     // IPCC configuration.
@@ -271,11 +271,11 @@ type Lmp_GmplsUni_RouterId struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Name of interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Name of interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Local router ID (IPv4 Address). The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -342,7 +342,7 @@ type Lmp_GmplsUni_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Enable the OLM/LMP application on this controller. The type is interface{}.
@@ -392,7 +392,7 @@ type Lmp_GmplsUni_Controllers_Controller_LocalLinkId struct {
     Unnumbered interface{}
 
     // Local link ID address IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -511,7 +511,7 @@ type Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_InterfaceId st
     Unnumbered interface{}
 
     // Local link ID address IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
@@ -551,7 +551,7 @@ type Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_LinkId struct 
     Unnumbered interface{}
 
     // Neighbor ID address IPv4. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 

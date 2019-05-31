@@ -42,6 +42,17 @@ const (
     SubSessionType_l2RadiusSubscriber SubSessionType = "l2RadiusSubscriber"
 )
 
+// SubSessionState represents         system has established the subscriber session.
+type SubSessionState string
+
+const (
+    SubSessionState_other SubSessionState = "other"
+
+    SubSessionState_pending SubSessionState = "pending"
+
+    SubSessionState_up SubSessionState = "up"
+)
+
 // SubSessionRedundancyMode represents         a fail-over event (e.g., linecard failure).
 type SubSessionRedundancyMode string
 
@@ -53,16 +64,5 @@ const (
     SubSessionRedundancyMode_active SubSessionRedundancyMode = "active"
 
     SubSessionRedundancyMode_standby SubSessionRedundancyMode = "standby"
-)
-
-// SubSessionState represents         system has established the subscriber session.
-type SubSessionState string
-
-const (
-    SubSessionState_other SubSessionState = "other"
-
-    SubSessionState_pending SubSessionState = "pending"
-
-    SubSessionState_up SubSessionState = "up"
 )
 

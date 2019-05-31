@@ -109,6 +109,15 @@ type Led_Location_LedAttributes struct {
     LedName interface{}
 
     // The type is string.
+    Location interface{}
+
+    // The type is bool. The default value is false.
+    PrintHeader interface{}
+
+    // The type is bool. The default value is false.
+    LocHeader interface{}
+
+    // The type is string.
     LedMode interface{}
 
     // The type is string.
@@ -129,6 +138,9 @@ func (ledAttributes *Led_Location_LedAttributes) GetEntityData() *types.CommonEn
     ledAttributes.EntityData.Children = types.NewOrderedMap()
     ledAttributes.EntityData.Leafs = types.NewOrderedMap()
     ledAttributes.EntityData.Leafs.Append("led_name", types.YLeaf{"LedName", ledAttributes.LedName})
+    ledAttributes.EntityData.Leafs.Append("location", types.YLeaf{"Location", ledAttributes.Location})
+    ledAttributes.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", ledAttributes.PrintHeader})
+    ledAttributes.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", ledAttributes.LocHeader})
     ledAttributes.EntityData.Leafs.Append("led_mode", types.YLeaf{"LedMode", ledAttributes.LedMode})
     ledAttributes.EntityData.Leafs.Append("led_color", types.YLeaf{"LedColor", ledAttributes.LedColor})
 

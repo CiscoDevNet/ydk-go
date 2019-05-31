@@ -95,7 +95,7 @@ type Node_Acts_Act struct {
     YListKey string
 
     // This attribute is a key. NodeName. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NodeName interface{}
 
     // quad configuration.

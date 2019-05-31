@@ -22,6 +22,19 @@ func init() {
     ydk.RegisterEntity("DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB", reflect.TypeOf(DOCSIETFBPI2MIB{}))
 }
 
+// DocsBpkmSAType represents to be determined.
+type DocsBpkmSAType string
+
+const (
+    DocsBpkmSAType_none DocsBpkmSAType = "none"
+
+    DocsBpkmSAType_primary DocsBpkmSAType = "primary"
+
+    DocsBpkmSAType_static DocsBpkmSAType = "static"
+
+    DocsBpkmSAType_dynamic DocsBpkmSAType = "dynamic"
+)
+
 // DocsBpkmDataEncryptAlg represents being referenced has no data encryption.
 type DocsBpkmDataEncryptAlg string
 
@@ -46,19 +59,6 @@ const (
     DocsBpkmDataAuthentAlg_none DocsBpkmDataAuthentAlg = "none"
 
     DocsBpkmDataAuthentAlg_hmacSha196 DocsBpkmDataAuthentAlg = "hmacSha196"
-)
-
-// DocsBpkmSAType represents to be determined.
-type DocsBpkmSAType string
-
-const (
-    DocsBpkmSAType_none DocsBpkmSAType = "none"
-
-    DocsBpkmSAType_primary DocsBpkmSAType = "primary"
-
-    DocsBpkmSAType_static DocsBpkmSAType = "static"
-
-    DocsBpkmSAType_dynamic DocsBpkmSAType = "dynamic"
 )
 
 // DOCSIETFBPI2MIB
@@ -180,13 +180,13 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CodeDownloadControl struct {
     // The value of this object is the device manufacturer's current
     // codeAccessStart value. This value always be referenced to Greenwich Mean
     // Time (GMT) and the value format must contain TimeZone information (fields
-    // 8-10). The type is string with length: 11.
+    // 8-10). The type is string with length: 11..11.
     DocsIetfBpi2CodeMfgCodeAccessStart interface{}
 
     // The value of this object is the device manufacturer's current
     // cvcAccessStart value. This value always be referenced to Greenwich Mean
     // Time (GMT) and the value format must contain TimeZone information (fields
-    // 8-10). The type is string with length: 11.
+    // 8-10). The type is string with length: 11..11.
     DocsIetfBpi2CodeMfgCvcAccessStart interface{}
 
     // The value of this object is the Co-Signer's organizationName.  The value is
@@ -197,14 +197,14 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CodeDownloadControl struct {
     // This value always be referenced to Greenwich Mean Time (GMT) and the value
     // format must contain TimeZone information (fields 8-10). If
     // docsIetfBpi2CodeCoSignerOrgName is a zero length string, the value of this
-    // object is meaningless. The type is string with length: 11.
+    // object is meaningless. The type is string with length: 11..11.
     DocsIetfBpi2CodeCoSignerCodeAccessStart interface{}
 
     // The value of this object is the Co-Signer's current cvcAccessStart value.
     // This value always be referenced to Greenwich Mean Time (GMT) and the value
     // format must contain TimeZone information (fields 8-10). If
     // docsIetfBpi2CodeCoSignerOrgName is a zero length string, the value of this
-    // object is meaningless. The type is string with length: 11.
+    // object is meaningless. The type is string with length: 11..11.
     DocsIetfBpi2CodeCoSignerCvcAccessStart interface{}
 
     // Setting a CVC to this object triggers the device to verify the CVC and
@@ -1355,7 +1355,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable_DocsIetfBpi2CmtsAuthEntry struct 
 
     // This attribute is a key. The value of this object is the physical address
     // of the CM to which the authorization association applies. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsIetfBpi2CmtsAuthCmMacAddress interface{}
 
     // The value of this object is the version of Baseline Privacy for which this
@@ -2097,7 +2097,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMulticastAuthTable_DocsIetfBpi2CmtsMulticas
 
     // This attribute is a key. This object represents the MAC address of the CM
     // to which the multicast SAID authorization applies. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsIetfBpi2CmtsMulticastAuthCmMacAddress interface{}
 
     // The status of this conceptual row for the authorization of  multicast SAIDs
@@ -2177,7 +2177,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsProvisionedCmCertTable_DocsIetfBpi2CmtsProv
     YListKey string
 
     // This attribute is a key. The index of this row. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsIetfBpi2CmtsProvisionedCmCertMacAddress interface{}
 
     // Trust state for the provisioned CM certificate entry. Note: Setting this
@@ -2356,7 +2356,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsCACertTable_DocsIetfBpi2CmtsCACertEntry str
     // this object or docsIetfBpi2CmtsCACert must be returned by a CMTS for
     // self-signed CA certificates.  Note: The zero-length OCTET STRING must be
     // returned, on reads, if the CA certificate thumb print is not retained in
-    // the CMTS. The type is string with length: 20.
+    // the CMTS. The type is string with length: 20..20.
     DocsIetfBpi2CmtsCACertThumbprint interface{}
 }
 

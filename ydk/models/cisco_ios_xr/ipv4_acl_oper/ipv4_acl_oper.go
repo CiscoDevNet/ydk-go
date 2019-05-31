@@ -24,23 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list", reflect.TypeOf(Ipv4AclAndPrefixList{}))
 }
 
-// AclTcpflagsOperator represents Acl tcpflags operator
-type AclTcpflagsOperator string
-
-const (
-    // Match None
-    AclTcpflagsOperator_match_none AclTcpflagsOperator = "match-none"
-
-    // Match All
-    AclTcpflagsOperator_match_all AclTcpflagsOperator = "match-all"
-
-    // Match any old
-    AclTcpflagsOperator_match_any_old AclTcpflagsOperator = "match-any-old"
-
-    // Match any
-    AclTcpflagsOperator_match_any AclTcpflagsOperator = "match-any"
-)
-
 // AclPortOperator represents Acl port operator
 type AclPortOperator string
 
@@ -70,18 +53,58 @@ const (
     AclPortOperator_twobytes AclPortOperator = "twobytes"
 )
 
-// AclAce1 represents ACE Types
-type AclAce1 string
+// BagAclNhAtStatus represents Bag acl nh at status
+type BagAclNhAtStatus string
 
 const (
-    // This is Normal ACE
-    AclAce1_normal AclAce1 = "normal"
+    // AT State Unknown
+    BagAclNhAtStatus_unknown BagAclNhAtStatus = "unknown"
 
-    // This is Remark ACE
-    AclAce1_remark AclAce1 = "remark"
+    // AT State UP
+    BagAclNhAtStatus_up BagAclNhAtStatus = "up"
 
-    // This is ABF ACE
-    AclAce1_abf AclAce1 = "abf"
+    // AT State DOWN
+    BagAclNhAtStatus_down BagAclNhAtStatus = "down"
+
+    // AT State Not Present
+    BagAclNhAtStatus_not_present BagAclNhAtStatus = "not-present"
+
+    // invalid status
+    BagAclNhAtStatus_max BagAclNhAtStatus = "max"
+)
+
+// BagAclNhStatus represents Bag acl nh status
+type BagAclNhStatus string
+
+const (
+    // State Not Present
+    BagAclNhStatus_not_present BagAclNhStatus = "not-present"
+
+    // State Unknown
+    BagAclNhStatus_unknown BagAclNhStatus = "unknown"
+
+    // State DOWN
+    BagAclNhStatus_down BagAclNhStatus = "down"
+
+    // State UP
+    BagAclNhStatus_up BagAclNhStatus = "up"
+
+    // invalid status
+    BagAclNhStatus_max BagAclNhStatus = "max"
+)
+
+// BagAclNh represents Bag acl nh
+type BagAclNh string
+
+const (
+    // Next Hop None
+    BagAclNh_nexthop_none BagAclNh = "nexthop-none"
+
+    // Nexthop Default
+    BagAclNh_nexthop_default BagAclNh = "nexthop-default"
+
+    // Nexthop
+    BagAclNh_nexthop BagAclNh = "nexthop"
 )
 
 // AclPortOperator_ represents Acl port operator
@@ -113,38 +136,64 @@ const (
     AclPortOperator__twobytes AclPortOperator_ = "twobytes"
 )
 
-// BagAclNhAtStatus represents Bag acl nh at status
-type BagAclNhAtStatus string
+// AclPortOperator_ represents Acl port operator
+type AclPortOperator_ string
 
 const (
-    // AT State Unknown
-    BagAclNhAtStatus_unknown BagAclNhAtStatus = "unknown"
+    // None
+    AclPortOperator__none AclPortOperator_ = "none"
 
-    // AT State UP
-    BagAclNhAtStatus_up BagAclNhAtStatus = "up"
+    // Equal
+    AclPortOperator__eq AclPortOperator_ = "eq"
 
-    // AT State DOWN
-    BagAclNhAtStatus_down BagAclNhAtStatus = "down"
+    // Greater than
+    AclPortOperator__gt AclPortOperator_ = "gt"
 
-    // AT State Not Present
-    BagAclNhAtStatus_not_present BagAclNhAtStatus = "not-present"
+    // Less than
+    AclPortOperator__lt AclPortOperator_ = "lt"
 
-    // invalid status
-    BagAclNhAtStatus_max BagAclNhAtStatus = "max"
+    // Not Equal
+    AclPortOperator__neq AclPortOperator_ = "neq"
+
+    // Range
+    AclPortOperator__range_ AclPortOperator_ = "range"
+
+    // One Byte
+    AclPortOperator__onebyte AclPortOperator_ = "onebyte"
+
+    // Two Bytes
+    AclPortOperator__twobytes AclPortOperator_ = "twobytes"
 )
 
-// BagAclNh represents Bag acl nh
-type BagAclNh string
+// AclTcpflagsOperator represents Acl tcpflags operator
+type AclTcpflagsOperator string
 
 const (
-    // Next Hop None
-    BagAclNh_nexthop_none BagAclNh = "nexthop-none"
+    // Match None
+    AclTcpflagsOperator_match_none AclTcpflagsOperator = "match-none"
 
-    // Nexthop Default
-    BagAclNh_nexthop_default BagAclNh = "nexthop-default"
+    // Match All
+    AclTcpflagsOperator_match_all AclTcpflagsOperator = "match-all"
 
-    // Nexthop
-    BagAclNh_nexthop BagAclNh = "nexthop"
+    // Match any old
+    AclTcpflagsOperator_match_any_old AclTcpflagsOperator = "match-any-old"
+
+    // Match any
+    AclTcpflagsOperator_match_any AclTcpflagsOperator = "match-any"
+)
+
+// AclLog represents Acl log
+type AclLog string
+
+const (
+    // Log None
+    AclLog_log_none AclLog = "log-none"
+
+    // Log Regular
+    AclLog_log AclLog = "log"
+
+    // Log Input
+    AclLog_log_input AclLog = "log-input"
 )
 
 // AclPortOperator_ represents Acl port operator
@@ -199,67 +248,18 @@ const (
     AclAction_invalid AclAction = "invalid"
 )
 
-// BagAclNhStatus represents Bag acl nh status
-type BagAclNhStatus string
+// AclAce1 represents ACE Types
+type AclAce1 string
 
 const (
-    // State Not Present
-    BagAclNhStatus_not_present BagAclNhStatus = "not-present"
+    // This is Normal ACE
+    AclAce1_normal AclAce1 = "normal"
 
-    // State Unknown
-    BagAclNhStatus_unknown BagAclNhStatus = "unknown"
+    // This is Remark ACE
+    AclAce1_remark AclAce1 = "remark"
 
-    // State DOWN
-    BagAclNhStatus_down BagAclNhStatus = "down"
-
-    // State UP
-    BagAclNhStatus_up BagAclNhStatus = "up"
-
-    // invalid status
-    BagAclNhStatus_max BagAclNhStatus = "max"
-)
-
-// AclPortOperator_ represents Acl port operator
-type AclPortOperator_ string
-
-const (
-    // None
-    AclPortOperator__none AclPortOperator_ = "none"
-
-    // Equal
-    AclPortOperator__eq AclPortOperator_ = "eq"
-
-    // Greater than
-    AclPortOperator__gt AclPortOperator_ = "gt"
-
-    // Less than
-    AclPortOperator__lt AclPortOperator_ = "lt"
-
-    // Not Equal
-    AclPortOperator__neq AclPortOperator_ = "neq"
-
-    // Range
-    AclPortOperator__range_ AclPortOperator_ = "range"
-
-    // One Byte
-    AclPortOperator__onebyte AclPortOperator_ = "onebyte"
-
-    // Two Bytes
-    AclPortOperator__twobytes AclPortOperator_ = "twobytes"
-)
-
-// AclLog represents Acl log
-type AclLog string
-
-const (
-    // Log None
-    AclLog_log_none AclLog = "log-none"
-
-    // Log Regular
-    AclLog_log AclLog = "log"
-
-    // Log Input
-    AclLog_log_input AclLog = "log-input"
+    // This is ABF ACE
+    AclAce1_abf AclAce1 = "abf"
 )
 
 // AclAce1_ represents ACE Types
@@ -474,7 +474,7 @@ type Ipv4AclAndPrefixList_AccessListManager_Prefixes_Prefix_PrefixListSequences_
     Grant interface{}
 
     // Prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..4294967295.
@@ -668,19 +668,19 @@ type Ipv4AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     Protocol2 interface{}
 
     // Source address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Source mask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddressMask interface{}
 
     // Destination address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Destination mask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddressMask interface{}
 
     // Source operator. The type is AclPortOperator_.
@@ -967,7 +967,7 @@ type Ipv4AclAndPrefixList_AccessListManager_Accesses_Access_AccessListSequences_
     YListKey string
 
     // The next hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // Track name. The type is string.
@@ -1160,7 +1160,7 @@ type Ipv4AclAndPrefixList_AccessListManager_Usages_Usage struct {
     YListKey string
 
     // Node where access list is applied. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Application ID. The type is AclUsageAppIdEnum.

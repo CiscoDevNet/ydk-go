@@ -14,6 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package l2_eth_infra_datatypes"))
 }
 
+// VsMode represents Vs mode
+type VsMode string
+
+const (
+    // VLAN-Switched trunk mode
+    VsMode_trunk VsMode = "trunk"
+
+    // VLAN-Switched access mode
+    VsMode_access VsMode = "access"
+)
+
 // VlanTagOrCvp represents Vlan tag or cvp
 type VlanTagOrCvp string
 
@@ -34,23 +45,16 @@ const (
     Vlan_vlan_type_dot1q Vlan = "vlan-type-dot1q"
 )
 
-// VsMode represents Vs mode
-type VsMode string
+// VlanTagOrNative represents Vlan tag or native
+type VlanTagOrNative string
 
 const (
-    // VLAN-Switched trunk mode
-    VsMode_trunk VsMode = "trunk"
+    // This is the Native VLAN
+    VlanTagOrNative_native VlanTagOrNative = "native"
 
-    // VLAN-Switched access mode
-    VsMode_access VsMode = "access"
-)
-
-// EthertypeMatch represents Ethertype match
-type EthertypeMatch string
-
-const (
-    // PPP over Ethernet
-    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
+    // This is the Native VLAN and C-VLAN
+    // preservation is enabled
+    VlanTagOrNative_native_with_cvlan_preservation VlanTagOrNative = "native-with-cvlan-preservation"
 )
 
 // VlanTagOrNull represents Vlan tag or null
@@ -90,26 +94,6 @@ const (
     Rewrite_translate2to2 Rewrite = "translate2to2"
 )
 
-// VlanTagOrAny represents Vlan tag or any
-type VlanTagOrAny string
-
-const (
-    // Match any VLAN tag value
-    VlanTagOrAny_any VlanTagOrAny = "any"
-)
-
-// VlanTagOrNative represents Vlan tag or native
-type VlanTagOrNative string
-
-const (
-    // This is the Native VLAN
-    VlanTagOrNative_native VlanTagOrNative = "native"
-
-    // This is the Native VLAN and C-VLAN
-    // preservation is enabled
-    VlanTagOrNative_native_with_cvlan_preservation VlanTagOrNative = "native-with-cvlan-preservation"
-)
-
 // Match represents Match
 type Match string
 
@@ -131,5 +115,21 @@ const (
 
     // Match Dot1ad priority-tagged packets
     Match_match_dot1ad_priority Match = "match-dot1ad-priority"
+)
+
+// EthertypeMatch represents Ethertype match
+type EthertypeMatch string
+
+const (
+    // PPP over Ethernet
+    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
+)
+
+// VlanTagOrAny represents Vlan tag or any
+type VlanTagOrAny string
+
+const (
+    // Match any VLAN tag value
+    VlanTagOrAny_any VlanTagOrAny = "any"
 )
 

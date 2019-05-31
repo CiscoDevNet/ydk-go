@@ -41,6 +41,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download", reflect.TypeOf(SelectiveVrfDownload{}))
 }
 
+// VrfSubAddressFamily represents Vrf sub address family
+type VrfSubAddressFamily string
+
+const (
+    // Unicast
+    VrfSubAddressFamily_unicast VrfSubAddressFamily = "unicast"
+
+    // Multicast
+    VrfSubAddressFamily_multicast VrfSubAddressFamily = "multicast"
+
+    // Flow spec
+    VrfSubAddressFamily_flow_spec VrfSubAddressFamily = "flow-spec"
+)
+
 // VrfAddressFamily represents Vrf address family
 type VrfAddressFamily string
 
@@ -70,20 +84,6 @@ const (
 
     // Very low
     SrlgPriority_very_low SrlgPriority = "very-low"
-)
-
-// VrfSubAddressFamily represents Vrf sub address family
-type VrfSubAddressFamily string
-
-const (
-    // Unicast
-    VrfSubAddressFamily_unicast VrfSubAddressFamily = "unicast"
-
-    // Multicast
-    VrfSubAddressFamily_multicast VrfSubAddressFamily = "multicast"
-
-    // Flow spec
-    VrfSubAddressFamily_flow_spec VrfSubAddressFamily = "flow-spec"
 )
 
 // Vrfs
@@ -364,6 +364,10 @@ type Vrfs_Vrf_Afs_Af_Bgp struct {
     // imported paths to PEs. The type is bool.
     ImportVrfOptions interface{}
 
+    // TRUE Enable advertising local EVPN paths to PEs .FALSE Disable advertising
+    // local EVPN paths to PEs. The type is bool.
+    ImportFromBridgeDomain interface{}
+
     // Import Route targets.
     ImportRouteTargets Vrfs_Vrf_Afs_Af_Bgp_ImportRouteTargets
 
@@ -401,6 +405,7 @@ func (bgp *Vrfs_Vrf_Afs_Af_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.Leafs.Append("export-route-policy", types.YLeaf{"ExportRoutePolicy", bgp.ExportRoutePolicy})
     bgp.EntityData.Leafs.Append("import-route-policy", types.YLeaf{"ImportRoutePolicy", bgp.ImportRoutePolicy})
     bgp.EntityData.Leafs.Append("import-vrf-options", types.YLeaf{"ImportVrfOptions", bgp.ImportVrfOptions})
+    bgp.EntityData.Leafs.Append("import-from-bridge-domain", types.YLeaf{"ImportFromBridgeDomain", bgp.ImportFromBridgeDomain})
 
     bgp.EntityData.YListKeys = []string {}
 
@@ -526,7 +531,7 @@ type Vrfs_Vrf_Afs_Af_Bgp_ImportRouteTargets_RouteTargets_RouteTarget_AsOrFourByt
     YListKey string
 
     // This attribute is a key. AS number. The type is interface{} with range:
-    // 0..4294967295.
+    // 0..0.
     AsXx interface{}
 
     // This attribute is a key. AS number. The type is interface{} with range:
@@ -573,7 +578,7 @@ type Vrfs_Vrf_Afs_Af_Bgp_ImportRouteTargets_RouteTargets_RouteTarget_Ipv4Address
     YListKey string
 
     // This attribute is a key. IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IP address Index. The type is interface{} with
@@ -726,7 +731,7 @@ type Vrfs_Vrf_Afs_Af_Bgp_ExportRouteTargets_RouteTargets_RouteTarget_AsOrFourByt
     YListKey string
 
     // This attribute is a key. AS number. The type is interface{} with range:
-    // 0..4294967295.
+    // 0..0.
     AsXx interface{}
 
     // This attribute is a key. AS number. The type is interface{} with range:
@@ -773,7 +778,7 @@ type Vrfs_Vrf_Afs_Af_Bgp_ExportRouteTargets_RouteTargets_RouteTarget_Ipv4Address
     YListKey string
 
     // This attribute is a key. IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IP address Index. The type is interface{} with
@@ -961,7 +966,7 @@ type Vrfs_Vrf_MulticastHost_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 }
 
@@ -992,7 +997,7 @@ type Vrfs_Vrf_MulticastHost_Ipv6 struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Interface interface{}
 }
 
@@ -1065,7 +1070,7 @@ type Vrfs_Vrf_BgpGlobal_RouteDistinguisher struct {
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // IP address index. The type is interface{} with range: 0..65535.
@@ -1266,6 +1271,10 @@ type GlobalAf_Afs_Af_Bgp struct {
     // imported paths to PEs. The type is bool.
     ImportVrfOptions interface{}
 
+    // TRUE Enable advertising local EVPN paths to PEs .FALSE Disable advertising
+    // local EVPN paths to PEs. The type is bool.
+    ImportFromBridgeDomain interface{}
+
     // Import Route targets.
     ImportRouteTargets GlobalAf_Afs_Af_Bgp_ImportRouteTargets
 
@@ -1303,6 +1312,7 @@ func (bgp *GlobalAf_Afs_Af_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.Leafs.Append("export-route-policy", types.YLeaf{"ExportRoutePolicy", bgp.ExportRoutePolicy})
     bgp.EntityData.Leafs.Append("import-route-policy", types.YLeaf{"ImportRoutePolicy", bgp.ImportRoutePolicy})
     bgp.EntityData.Leafs.Append("import-vrf-options", types.YLeaf{"ImportVrfOptions", bgp.ImportVrfOptions})
+    bgp.EntityData.Leafs.Append("import-from-bridge-domain", types.YLeaf{"ImportFromBridgeDomain", bgp.ImportFromBridgeDomain})
 
     bgp.EntityData.YListKeys = []string {}
 
@@ -1428,7 +1438,7 @@ type GlobalAf_Afs_Af_Bgp_ImportRouteTargets_RouteTargets_RouteTarget_AsOrFourByt
     YListKey string
 
     // This attribute is a key. AS number. The type is interface{} with range:
-    // 0..4294967295.
+    // 0..0.
     AsXx interface{}
 
     // This attribute is a key. AS number. The type is interface{} with range:
@@ -1475,7 +1485,7 @@ type GlobalAf_Afs_Af_Bgp_ImportRouteTargets_RouteTargets_RouteTarget_Ipv4Address
     YListKey string
 
     // This attribute is a key. IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IP address Index. The type is interface{} with
@@ -1628,7 +1638,7 @@ type GlobalAf_Afs_Af_Bgp_ExportRouteTargets_RouteTargets_RouteTarget_AsOrFourByt
     YListKey string
 
     // This attribute is a key. AS number. The type is interface{} with range:
-    // 0..4294967295.
+    // 0..0.
     AsXx interface{}
 
     // This attribute is a key. AS number. The type is interface{} with range:
@@ -1675,7 +1685,7 @@ type GlobalAf_Afs_Af_Bgp_ExportRouteTargets_RouteTargets_RouteTarget_Ipv4Address
     YListKey string
 
     // This attribute is a key. IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IP address Index. The type is interface{} with
@@ -1909,7 +1919,7 @@ type Srlg_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable SRLG interface. The type is interface{}.
@@ -2064,7 +2074,7 @@ type Srlg_Interfaces_Interface_InterfaceGroup_GroupNames_GroupName struct {
     YListKey string
 
     // This attribute is a key. Group name index. The type is interface{} with
-    // range: 0..4294967295.
+    // range: 1..1.
     GroupNameIndex interface{}
 
     // Group name. The type is string. This attribute is mandatory.
@@ -2346,7 +2356,7 @@ type Srlg_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupName interface{}
 
     // Enable SRLG group. The type is interface{}.
@@ -2495,7 +2505,7 @@ type Srlg_InheritNodes_InheritNode struct {
     YListKey string
 
     // This attribute is a key. The inherit node name. The type is string with
-    // pattern: ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
+    // pattern: b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
     InheritNodeName interface{}
 
     // Enable SRLG inherit node. The type is interface{}.

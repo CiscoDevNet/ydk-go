@@ -35,17 +35,6 @@ const (
     SubscriberRedundancyGroupSlaveMode_hot SubscriberRedundancyGroupSlaveMode = "hot"
 )
 
-// SrgAddrFamily represents Srg addr family
-type SrgAddrFamily string
-
-const (
-    // IPv4
-    SrgAddrFamily_ipv4 SrgAddrFamily = "ipv4"
-
-    // IPv6
-    SrgAddrFamily_ipv6 SrgAddrFamily = "ipv6"
-)
-
 // SubscriberRedundancyGroupRole represents Subscriber redundancy group role
 type SubscriberRedundancyGroupRole string
 
@@ -55,6 +44,17 @@ const (
 
     // Slave Role
     SubscriberRedundancyGroupRole_slave SubscriberRedundancyGroupRole = "slave"
+)
+
+// SrgAddrFamily represents Srg addr family
+type SrgAddrFamily string
+
+const (
+    // IPv4
+    SrgAddrFamily_ipv4 SrgAddrFamily = "ipv4"
+
+    // IPv6
+    SrgAddrFamily_ipv6 SrgAddrFamily = "ipv6"
 )
 
 // SubscriberRedundancy
@@ -71,14 +71,14 @@ type SubscriberRedundancy struct {
     Enable interface{}
 
     // Virtual MAC Prefix for Subscriber Redundancy. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacPrefix interface{}
 
     // Set preferred role. The type is SubscriberRedundancyGroupRole.
     PreferredRole interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // Set slave. The type is SubscriberRedundancyGroupSlaveMode.
@@ -194,7 +194,7 @@ type SubscriberRedundancy_Groups_Group struct {
     Description interface{}
 
     // Enter an IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     L2tpSourceIpAddress interface{}
 
     // Set Slave Mode. The type is SubscriberRedundancyGroupSlaveMode.
@@ -349,7 +349,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -420,7 +420,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRa
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -507,9 +507,9 @@ type SubscriberRedundancy_Groups_Group_Peer_Ipaddress struct {
 
     // IPv4/IPv6 address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixString interface{}
 }
 
@@ -576,7 +576,7 @@ type SubscriberRedundancy_Groups_Group_VirtualMac struct {
     YFilter yfilter.YFilter
 
     // Virtual MAC Address for this Group. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Address interface{}
 
     // Disable Virtual MAC Address for this Group. The type is interface{}.
@@ -680,7 +680,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Vrfname interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
@@ -689,9 +689,9 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
 
     // This attribute is a key. IPv4 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixString interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This
@@ -798,7 +798,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Vrfname interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
@@ -807,9 +807,9 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_
 
     // This attribute is a key. IPv6 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixString interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This
@@ -882,7 +882,7 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Vrfname interface{}
 
     // This attribute is a key. Prefix of the IP Address. The type is interface{}
@@ -891,9 +891,9 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_
 
     // This attribute is a key. IPv6 address with prefix-length. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixString interface{}
 
     // Tag value. The type is interface{} with range: 1..4294967295. This

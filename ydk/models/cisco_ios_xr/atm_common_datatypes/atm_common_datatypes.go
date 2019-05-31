@@ -48,6 +48,20 @@ const (
     AtmPvcShaping_ubr AtmPvcShaping = "ubr"
 )
 
+// AtmPvcData represents Atm pvc data
+type AtmPvcData string
+
+const (
+    // Data
+    AtmPvcData_data AtmPvcData = "data"
+
+    // ILMI
+    AtmPvcData_ilmi AtmPvcData = "ilmi"
+
+    // Layer2
+    AtmPvcData_layer2 AtmPvcData = "layer2"
+)
+
 // AtmPvcEncapsulation represents Atm pvc encapsulation
 type AtmPvcEncapsulation string
 
@@ -66,19 +80,5 @@ const (
 
     // AAL5
     AtmPvcEncapsulation_aal5 AtmPvcEncapsulation = "aal5"
-)
-
-// AtmPvcData represents Atm pvc data
-type AtmPvcData string
-
-const (
-    // Data
-    AtmPvcData_data AtmPvcData = "data"
-
-    // ILMI
-    AtmPvcData_ilmi AtmPvcData = "ilmi"
-
-    // Layer2
-    AtmPvcData_layer2 AtmPvcData = "layer2"
 )
 

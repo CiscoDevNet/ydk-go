@@ -10,32 +10,18 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package lldp_types"))
 }
 
-type SYSTEMNAME struct {
+type LLDPSYSTEMCAPABILITY struct {
 }
 
-func (id SYSTEMNAME) String() string {
-	return "openconfig-lldp-types:SYSTEM_NAME"
+func (id LLDPSYSTEMCAPABILITY) String() string {
+	return "openconfig-lldp-types:LLDP_SYSTEM_CAPABILITY"
 }
 
-type MACBRIDGE struct {
+type OTHER struct {
 }
 
-func (id MACBRIDGE) String() string {
-	return "openconfig-lldp-types:MAC_BRIDGE"
-}
-
-type PORTDESCRIPTION struct {
-}
-
-func (id PORTDESCRIPTION) String() string {
-	return "openconfig-lldp-types:PORT_DESCRIPTION"
-}
-
-type DOCSISCABLEDEVICE struct {
-}
-
-func (id DOCSISCABLEDEVICE) String() string {
-	return "openconfig-lldp-types:DOCSIS_CABLE_DEVICE"
+func (id OTHER) String() string {
+	return "openconfig-lldp-types:OTHER"
 }
 
 type REPEATER struct {
@@ -45,32 +31,25 @@ func (id REPEATER) String() string {
 	return "openconfig-lldp-types:REPEATER"
 }
 
-type SYSTEMDESCRIPTION struct {
+type MACBRIDGE struct {
 }
 
-func (id SYSTEMDESCRIPTION) String() string {
-	return "openconfig-lldp-types:SYSTEM_DESCRIPTION"
+func (id MACBRIDGE) String() string {
+	return "openconfig-lldp-types:MAC_BRIDGE"
 }
 
-type CVLAN struct {
+type WLANACCESSPOINT struct {
 }
 
-func (id CVLAN) String() string {
-	return "openconfig-lldp-types:C_VLAN"
+func (id WLANACCESSPOINT) String() string {
+	return "openconfig-lldp-types:WLAN_ACCESS_POINT"
 }
 
-type TWOPORTMACRELAY struct {
+type ROUTER struct {
 }
 
-func (id TWOPORTMACRELAY) String() string {
-	return "openconfig-lldp-types:TWO_PORT_MAC_RELAY"
-}
-
-type SVLAN struct {
-}
-
-func (id SVLAN) String() string {
-	return "openconfig-lldp-types:S_VLAN"
+func (id ROUTER) String() string {
+	return "openconfig-lldp-types:ROUTER"
 }
 
 type TELEPHONE struct {
@@ -80,11 +59,39 @@ func (id TELEPHONE) String() string {
 	return "openconfig-lldp-types:TELEPHONE"
 }
 
-type CHASSISID struct {
+type DOCSISCABLEDEVICE struct {
 }
 
-func (id CHASSISID) String() string {
-	return "openconfig-lldp-types:CHASSIS_ID"
+func (id DOCSISCABLEDEVICE) String() string {
+	return "openconfig-lldp-types:DOCSIS_CABLE_DEVICE"
+}
+
+type STATIONONLY struct {
+}
+
+func (id STATIONONLY) String() string {
+	return "openconfig-lldp-types:STATION_ONLY"
+}
+
+type CVLAN struct {
+}
+
+func (id CVLAN) String() string {
+	return "openconfig-lldp-types:C_VLAN"
+}
+
+type SVLAN struct {
+}
+
+func (id SVLAN) String() string {
+	return "openconfig-lldp-types:S_VLAN"
+}
+
+type TWOPORTMACRELAY struct {
+}
+
+func (id TWOPORTMACRELAY) String() string {
+	return "openconfig-lldp-types:TWO_PORT_MAC_RELAY"
 }
 
 type LLDPTLV struct {
@@ -94,11 +101,39 @@ func (id LLDPTLV) String() string {
 	return "openconfig-lldp-types:LLDP_TLV"
 }
 
-type OTHER struct {
+type CHASSISID struct {
 }
 
-func (id OTHER) String() string {
-	return "openconfig-lldp-types:OTHER"
+func (id CHASSISID) String() string {
+	return "openconfig-lldp-types:CHASSIS_ID"
+}
+
+type PORTID struct {
+}
+
+func (id PORTID) String() string {
+	return "openconfig-lldp-types:PORT_ID"
+}
+
+type PORTDESCRIPTION struct {
+}
+
+func (id PORTDESCRIPTION) String() string {
+	return "openconfig-lldp-types:PORT_DESCRIPTION"
+}
+
+type SYSTEMNAME struct {
+}
+
+func (id SYSTEMNAME) String() string {
+	return "openconfig-lldp-types:SYSTEM_NAME"
+}
+
+type SYSTEMDESCRIPTION struct {
+}
+
+func (id SYSTEMDESCRIPTION) String() string {
+	return "openconfig-lldp-types:SYSTEM_DESCRIPTION"
 }
 
 type SYSTEMCAPABILITIES struct {
@@ -113,41 +148,6 @@ type MANAGEMENTADDRESS struct {
 
 func (id MANAGEMENTADDRESS) String() string {
 	return "openconfig-lldp-types:MANAGEMENT_ADDRESS"
-}
-
-type ROUTER struct {
-}
-
-func (id ROUTER) String() string {
-	return "openconfig-lldp-types:ROUTER"
-}
-
-type LLDPSYSTEMCAPABILITY struct {
-}
-
-func (id LLDPSYSTEMCAPABILITY) String() string {
-	return "openconfig-lldp-types:LLDP_SYSTEM_CAPABILITY"
-}
-
-type PORTID struct {
-}
-
-func (id PORTID) String() string {
-	return "openconfig-lldp-types:PORT_ID"
-}
-
-type STATIONONLY struct {
-}
-
-func (id STATIONONLY) String() string {
-	return "openconfig-lldp-types:STATION_ONLY"
-}
-
-type WLANACCESSPOINT struct {
-}
-
-func (id WLANACCESSPOINT) String() string {
-	return "openconfig-lldp-types:WLAN_ACCESS_POINT"
 }
 
 // ChassisIdType represents the chassis identifier

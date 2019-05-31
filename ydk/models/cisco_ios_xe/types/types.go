@@ -12,161 +12,74 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package types"))
 }
 
-// CosValueType
-type CosValueType string
+// AccessListInOutType
+type AccessListInOutType string
 
 const (
-    CosValueType_cos CosValueType = "cos"
+    AccessListInOutType_in AccessListInOutType = "in"
 
-    CosValueType_dscp CosValueType = "dscp"
-
-    CosValueType_exp CosValueType = "exp"
-
-    CosValueType_precedence CosValueType = "precedence"
+    AccessListInOutType_out AccessListInOutType = "out"
 )
 
-// ExpValueType
-type ExpValueType string
+// AclUdpPortType
+type AclUdpPortType string
 
 const (
-    ExpValueType_cos ExpValueType = "cos"
+    AclUdpPortType_biff AclUdpPortType = "biff"
 
-    ExpValueType_dscp ExpValueType = "dscp"
+    AclUdpPortType_bootpc AclUdpPortType = "bootpc"
 
-    ExpValueType_exp ExpValueType = "exp"
+    AclUdpPortType_bootps AclUdpPortType = "bootps"
 
-    ExpValueType_precedence ExpValueType = "precedence"
-)
+    AclUdpPortType_discard AclUdpPortType = "discard"
 
-// InterfaceType
-type InterfaceType string
+    AclUdpPortType_dnsix AclUdpPortType = "dnsix"
 
-const (
-    InterfaceType_BDI InterfaceType = "BDI"
+    AclUdpPortType_domain AclUdpPortType = "domain"
 
-    InterfaceType_FastEthernet InterfaceType = "FastEthernet"
+    AclUdpPortType_echo AclUdpPortType = "echo"
 
-    InterfaceType_GigabitEthernet InterfaceType = "GigabitEthernet"
+    AclUdpPortType_isakmp AclUdpPortType = "isakmp"
 
-    InterfaceType_Loopback InterfaceType = "Loopback"
+    AclUdpPortType_mobile_ip AclUdpPortType = "mobile-ip"
 
-    InterfaceType_Port_channel InterfaceType = "Port-channel"
+    AclUdpPortType_nameserver AclUdpPortType = "nameserver"
 
-    InterfaceType_Serial InterfaceType = "Serial"
+    AclUdpPortType_netbios_dgm AclUdpPortType = "netbios-dgm"
 
-    InterfaceType_TenGigabitEthernet InterfaceType = "TenGigabitEthernet"
+    AclUdpPortType_netbios_ns AclUdpPortType = "netbios-ns"
 
-    InterfaceType_Vlan InterfaceType = "Vlan"
+    AclUdpPortType_netbios_ss AclUdpPortType = "netbios-ss"
 
-    InterfaceType_FiveGigabitEthernet InterfaceType = "FiveGigabitEthernet"
+    AclUdpPortType_non500_isakmp AclUdpPortType = "non500-isakmp"
 
-    InterfaceType_TwentyFiveGigE InterfaceType = "TwentyFiveGigE"
+    AclUdpPortType_ntp AclUdpPortType = "ntp"
 
-    InterfaceType_TwoGigabitEthernet InterfaceType = "TwoGigabitEthernet"
-)
+    AclUdpPortType_pim_auto_rp AclUdpPortType = "pim-auto-rp"
 
-// PrecedenceType
-type PrecedenceType string
+    AclUdpPortType_rip AclUdpPortType = "rip"
 
-const (
-    PrecedenceType_critical PrecedenceType = "critical"
+    AclUdpPortType_ripv6 AclUdpPortType = "ripv6"
 
-    PrecedenceType_flash PrecedenceType = "flash"
+    AclUdpPortType_snmp AclUdpPortType = "snmp"
 
-    PrecedenceType_flash_override PrecedenceType = "flash-override"
+    AclUdpPortType_snmptrap AclUdpPortType = "snmptrap"
 
-    PrecedenceType_immediate PrecedenceType = "immediate"
+    AclUdpPortType_sunrpc AclUdpPortType = "sunrpc"
 
-    PrecedenceType_internet PrecedenceType = "internet"
+    AclUdpPortType_syslog AclUdpPortType = "syslog"
 
-    PrecedenceType_network PrecedenceType = "network"
+    AclUdpPortType_tacacs AclUdpPortType = "tacacs"
 
-    PrecedenceType_priority PrecedenceType = "priority"
+    AclUdpPortType_talk AclUdpPortType = "talk"
 
-    PrecedenceType_routine PrecedenceType = "routine"
-)
+    AclUdpPortType_tftp AclUdpPortType = "tftp"
 
-// QosValueType
-type QosValueType string
+    AclUdpPortType_time AclUdpPortType = "time"
 
-const (
-    QosValueType_cos QosValueType = "cos"
+    AclUdpPortType_who AclUdpPortType = "who"
 
-    QosValueType_dscp QosValueType = "dscp"
-
-    QosValueType_exp QosValueType = "exp"
-
-    QosValueType_precedence QosValueType = "precedence"
-)
-
-// BgpIpv4AfType
-type BgpIpv4AfType string
-
-const (
-    BgpIpv4AfType_unicast BgpIpv4AfType = "unicast"
-
-    BgpIpv4AfType_multicast BgpIpv4AfType = "multicast"
-
-    BgpIpv4AfType_mdt BgpIpv4AfType = "mdt"
-
-    BgpIpv4AfType_tunnel BgpIpv4AfType = "tunnel"
-
-    BgpIpv4AfType_labeled_unicast BgpIpv4AfType = "labeled-unicast"
-
-    BgpIpv4AfType_flowspec BgpIpv4AfType = "flowspec"
-
-    BgpIpv4AfType_mvpn BgpIpv4AfType = "mvpn"
-)
-
-// DscpType
-type DscpType string
-
-const (
-    DscpType_af11 DscpType = "af11"
-
-    DscpType_af12 DscpType = "af12"
-
-    DscpType_af13 DscpType = "af13"
-
-    DscpType_af21 DscpType = "af21"
-
-    DscpType_af22 DscpType = "af22"
-
-    DscpType_af23 DscpType = "af23"
-
-    DscpType_af31 DscpType = "af31"
-
-    DscpType_af32 DscpType = "af32"
-
-    DscpType_af33 DscpType = "af33"
-
-    DscpType_af41 DscpType = "af41"
-
-    DscpType_af42 DscpType = "af42"
-
-    DscpType_af43 DscpType = "af43"
-
-    DscpType_cs1 DscpType = "cs1"
-
-    DscpType_cs2 DscpType = "cs2"
-
-    DscpType_cs3 DscpType = "cs3"
-
-    DscpType_cs4 DscpType = "cs4"
-
-    DscpType_cs5 DscpType = "cs5"
-
-    DscpType_cs6 DscpType = "cs6"
-
-    DscpType_cs7 DscpType = "cs7"
-
-    DscpType_default_ DscpType = "default"
-
-    DscpType_dscp DscpType = "dscp"
-
-    DscpType_ef DscpType = "ef"
-
-    DscpType_precedence DscpType = "precedence"
+    AclUdpPortType_xdmcp AclUdpPortType = "xdmcp"
 )
 
 // AclTcpPortType
@@ -240,6 +153,279 @@ const (
     AclTcpPortType_www AclTcpPortType = "www"
 )
 
+// RedistOspfExternalType
+type RedistOspfExternalType string
+
+const (
+    RedistOspfExternalType_Y_1 RedistOspfExternalType = "1"
+
+    RedistOspfExternalType_Y_2 RedistOspfExternalType = "2"
+)
+
+// CosValueType
+type CosValueType string
+
+const (
+    CosValueType_cos CosValueType = "cos"
+
+    CosValueType_dscp CosValueType = "dscp"
+
+    CosValueType_exp CosValueType = "exp"
+
+    CosValueType_precedence CosValueType = "precedence"
+)
+
+// DscpType
+type DscpType string
+
+const (
+    DscpType_af11 DscpType = "af11"
+
+    DscpType_af12 DscpType = "af12"
+
+    DscpType_af13 DscpType = "af13"
+
+    DscpType_af21 DscpType = "af21"
+
+    DscpType_af22 DscpType = "af22"
+
+    DscpType_af23 DscpType = "af23"
+
+    DscpType_af31 DscpType = "af31"
+
+    DscpType_af32 DscpType = "af32"
+
+    DscpType_af33 DscpType = "af33"
+
+    DscpType_af41 DscpType = "af41"
+
+    DscpType_af42 DscpType = "af42"
+
+    DscpType_af43 DscpType = "af43"
+
+    DscpType_cs1 DscpType = "cs1"
+
+    DscpType_cs2 DscpType = "cs2"
+
+    DscpType_cs3 DscpType = "cs3"
+
+    DscpType_cs4 DscpType = "cs4"
+
+    DscpType_cs5 DscpType = "cs5"
+
+    DscpType_cs6 DscpType = "cs6"
+
+    DscpType_cs7 DscpType = "cs7"
+
+    DscpType_default_ DscpType = "default"
+
+    DscpType_dscp DscpType = "dscp"
+
+    DscpType_ef DscpType = "ef"
+
+    DscpType_precedence DscpType = "precedence"
+)
+
+// ExpValueType
+type ExpValueType string
+
+const (
+    ExpValueType_cos ExpValueType = "cos"
+
+    ExpValueType_dscp ExpValueType = "dscp"
+
+    ExpValueType_exp ExpValueType = "exp"
+
+    ExpValueType_precedence ExpValueType = "precedence"
+)
+
+// InterfaceType
+type InterfaceType string
+
+const (
+    InterfaceType_BDI InterfaceType = "BDI"
+
+    InterfaceType_FastEthernet InterfaceType = "FastEthernet"
+
+    InterfaceType_GigabitEthernet InterfaceType = "GigabitEthernet"
+
+    InterfaceType_Loopback InterfaceType = "Loopback"
+
+    InterfaceType_Port_channel InterfaceType = "Port-channel"
+
+    InterfaceType_Serial InterfaceType = "Serial"
+
+    InterfaceType_TenGigabitEthernet InterfaceType = "TenGigabitEthernet"
+
+    InterfaceType_Vlan InterfaceType = "Vlan"
+
+    InterfaceType_FiveGigabitEthernet InterfaceType = "FiveGigabitEthernet"
+
+    InterfaceType_TwentyFiveGigE InterfaceType = "TwentyFiveGigE"
+
+    InterfaceType_TwoGigabitEthernet InterfaceType = "TwoGigabitEthernet"
+)
+
+// MobilityType
+type MobilityType string
+
+const (
+    MobilityType_bind_acknowledgement MobilityType = "bind-acknowledgement"
+
+    MobilityType_bind_error MobilityType = "bind-error"
+
+    MobilityType_bind_refresh MobilityType = "bind-refresh"
+
+    MobilityType_bind_update MobilityType = "bind-update"
+
+    MobilityType_cot MobilityType = "cot"
+
+    MobilityType_coti MobilityType = "coti"
+
+    MobilityType_hot MobilityType = "hot"
+
+    MobilityType_hoti MobilityType = "hoti"
+)
+
+// PrecValueType
+type PrecValueType string
+
+const (
+    PrecValueType_cos PrecValueType = "cos"
+
+    PrecValueType_dscp PrecValueType = "dscp"
+
+    PrecValueType_exp PrecValueType = "exp"
+
+    PrecValueType_precedence PrecValueType = "precedence"
+)
+
+// PrecedenceType
+type PrecedenceType string
+
+const (
+    PrecedenceType_critical PrecedenceType = "critical"
+
+    PrecedenceType_flash PrecedenceType = "flash"
+
+    PrecedenceType_flash_override PrecedenceType = "flash-override"
+
+    PrecedenceType_immediate PrecedenceType = "immediate"
+
+    PrecedenceType_internet PrecedenceType = "internet"
+
+    PrecedenceType_network PrecedenceType = "network"
+
+    PrecedenceType_priority PrecedenceType = "priority"
+
+    PrecedenceType_routine PrecedenceType = "routine"
+)
+
+// LimitDcNonDcType
+type LimitDcNonDcType string
+
+const (
+    LimitDcNonDcType_disable LimitDcNonDcType = "disable"
+)
+
+// QosValueType
+type QosValueType string
+
+const (
+    QosValueType_cos QosValueType = "cos"
+
+    QosValueType_dscp QosValueType = "dscp"
+
+    QosValueType_exp QosValueType = "exp"
+
+    QosValueType_precedence QosValueType = "precedence"
+)
+
+// WeekdayType
+type WeekdayType string
+
+const (
+    WeekdayType_Mon WeekdayType = "Mon"
+
+    WeekdayType_Tue WeekdayType = "Tue"
+
+    WeekdayType_Wed WeekdayType = "Wed"
+
+    WeekdayType_Thu WeekdayType = "Thu"
+
+    WeekdayType_Fri WeekdayType = "Fri"
+
+    WeekdayType_Sat WeekdayType = "Sat"
+
+    WeekdayType_Sun WeekdayType = "Sun"
+)
+
+// BgpIpv4AfType
+type BgpIpv4AfType string
+
+const (
+    BgpIpv4AfType_unicast BgpIpv4AfType = "unicast"
+
+    BgpIpv4AfType_multicast BgpIpv4AfType = "multicast"
+
+    BgpIpv4AfType_mdt BgpIpv4AfType = "mdt"
+
+    BgpIpv4AfType_tunnel BgpIpv4AfType = "tunnel"
+
+    BgpIpv4AfType_labeled_unicast BgpIpv4AfType = "labeled-unicast"
+
+    BgpIpv4AfType_flowspec BgpIpv4AfType = "flowspec"
+
+    BgpIpv4AfType_mvpn BgpIpv4AfType = "mvpn"
+)
+
+// BgpIpv6AfType
+type BgpIpv6AfType string
+
+const (
+    BgpIpv6AfType_unicast BgpIpv6AfType = "unicast"
+
+    BgpIpv6AfType_multicast BgpIpv6AfType = "multicast"
+
+    BgpIpv6AfType_mdt BgpIpv6AfType = "mdt"
+
+    BgpIpv6AfType_flowspec BgpIpv6AfType = "flowspec"
+
+    BgpIpv6AfType_mvpn BgpIpv6AfType = "mvpn"
+)
+
+// CommunityWellKnownType
+type CommunityWellKnownType string
+
+const (
+    CommunityWellKnownType_gshut CommunityWellKnownType = "gshut"
+
+    CommunityWellKnownType_internet CommunityWellKnownType = "internet"
+
+    CommunityWellKnownType_local_AS CommunityWellKnownType = "local-AS"
+
+    CommunityWellKnownType_no_advertise CommunityWellKnownType = "no-advertise"
+
+    CommunityWellKnownType_no_export CommunityWellKnownType = "no-export"
+)
+
+// CommunityWellKnownAddType
+type CommunityWellKnownAddType string
+
+const (
+    CommunityWellKnownAddType_gshut CommunityWellKnownAddType = "gshut"
+
+    CommunityWellKnownAddType_internet CommunityWellKnownAddType = "internet"
+
+    CommunityWellKnownAddType_local_AS CommunityWellKnownAddType = "local-AS"
+
+    CommunityWellKnownAddType_no_advertise CommunityWellKnownAddType = "no-advertise"
+
+    CommunityWellKnownAddType_no_export CommunityWellKnownAddType = "no-export"
+
+    CommunityWellKnownAddType_additive CommunityWellKnownAddType = "additive"
+)
+
 // MonthType
 type MonthType string
 
@@ -267,191 +453,5 @@ const (
     MonthType_Nov MonthType = "Nov"
 
     MonthType_Dec MonthType = "Dec"
-)
-
-// PrecValueType
-type PrecValueType string
-
-const (
-    PrecValueType_cos PrecValueType = "cos"
-
-    PrecValueType_dscp PrecValueType = "dscp"
-
-    PrecValueType_exp PrecValueType = "exp"
-
-    PrecValueType_precedence PrecValueType = "precedence"
-)
-
-// MobilityType
-type MobilityType string
-
-const (
-    MobilityType_bind_acknowledgement MobilityType = "bind-acknowledgement"
-
-    MobilityType_bind_error MobilityType = "bind-error"
-
-    MobilityType_bind_refresh MobilityType = "bind-refresh"
-
-    MobilityType_bind_update MobilityType = "bind-update"
-
-    MobilityType_cot MobilityType = "cot"
-
-    MobilityType_coti MobilityType = "coti"
-
-    MobilityType_hot MobilityType = "hot"
-
-    MobilityType_hoti MobilityType = "hoti"
-)
-
-// BgpIpv6AfType
-type BgpIpv6AfType string
-
-const (
-    BgpIpv6AfType_unicast BgpIpv6AfType = "unicast"
-
-    BgpIpv6AfType_multicast BgpIpv6AfType = "multicast"
-
-    BgpIpv6AfType_mdt BgpIpv6AfType = "mdt"
-
-    BgpIpv6AfType_flowspec BgpIpv6AfType = "flowspec"
-
-    BgpIpv6AfType_mvpn BgpIpv6AfType = "mvpn"
-)
-
-// RedistOspfExternalType
-type RedistOspfExternalType string
-
-const (
-    RedistOspfExternalType_Y_1 RedistOspfExternalType = "1"
-
-    RedistOspfExternalType_Y_2 RedistOspfExternalType = "2"
-)
-
-// LimitDcNonDcType
-type LimitDcNonDcType string
-
-const (
-    LimitDcNonDcType_disable LimitDcNonDcType = "disable"
-)
-
-// WeekdayType
-type WeekdayType string
-
-const (
-    WeekdayType_Mon WeekdayType = "Mon"
-
-    WeekdayType_Tue WeekdayType = "Tue"
-
-    WeekdayType_Wed WeekdayType = "Wed"
-
-    WeekdayType_Thu WeekdayType = "Thu"
-
-    WeekdayType_Fri WeekdayType = "Fri"
-
-    WeekdayType_Sat WeekdayType = "Sat"
-
-    WeekdayType_Sun WeekdayType = "Sun"
-)
-
-// CommunityWellKnownAddType
-type CommunityWellKnownAddType string
-
-const (
-    CommunityWellKnownAddType_gshut CommunityWellKnownAddType = "gshut"
-
-    CommunityWellKnownAddType_internet CommunityWellKnownAddType = "internet"
-
-    CommunityWellKnownAddType_local_AS CommunityWellKnownAddType = "local-AS"
-
-    CommunityWellKnownAddType_no_advertise CommunityWellKnownAddType = "no-advertise"
-
-    CommunityWellKnownAddType_no_export CommunityWellKnownAddType = "no-export"
-
-    CommunityWellKnownAddType_additive CommunityWellKnownAddType = "additive"
-)
-
-// AccessListInOutType
-type AccessListInOutType string
-
-const (
-    AccessListInOutType_in AccessListInOutType = "in"
-
-    AccessListInOutType_out AccessListInOutType = "out"
-)
-
-// AclUdpPortType
-type AclUdpPortType string
-
-const (
-    AclUdpPortType_biff AclUdpPortType = "biff"
-
-    AclUdpPortType_bootpc AclUdpPortType = "bootpc"
-
-    AclUdpPortType_bootps AclUdpPortType = "bootps"
-
-    AclUdpPortType_discard AclUdpPortType = "discard"
-
-    AclUdpPortType_dnsix AclUdpPortType = "dnsix"
-
-    AclUdpPortType_domain AclUdpPortType = "domain"
-
-    AclUdpPortType_echo AclUdpPortType = "echo"
-
-    AclUdpPortType_isakmp AclUdpPortType = "isakmp"
-
-    AclUdpPortType_mobile_ip AclUdpPortType = "mobile-ip"
-
-    AclUdpPortType_nameserver AclUdpPortType = "nameserver"
-
-    AclUdpPortType_netbios_dgm AclUdpPortType = "netbios-dgm"
-
-    AclUdpPortType_netbios_ns AclUdpPortType = "netbios-ns"
-
-    AclUdpPortType_netbios_ss AclUdpPortType = "netbios-ss"
-
-    AclUdpPortType_non500_isakmp AclUdpPortType = "non500-isakmp"
-
-    AclUdpPortType_ntp AclUdpPortType = "ntp"
-
-    AclUdpPortType_pim_auto_rp AclUdpPortType = "pim-auto-rp"
-
-    AclUdpPortType_rip AclUdpPortType = "rip"
-
-    AclUdpPortType_ripv6 AclUdpPortType = "ripv6"
-
-    AclUdpPortType_snmp AclUdpPortType = "snmp"
-
-    AclUdpPortType_snmptrap AclUdpPortType = "snmptrap"
-
-    AclUdpPortType_sunrpc AclUdpPortType = "sunrpc"
-
-    AclUdpPortType_syslog AclUdpPortType = "syslog"
-
-    AclUdpPortType_tacacs AclUdpPortType = "tacacs"
-
-    AclUdpPortType_talk AclUdpPortType = "talk"
-
-    AclUdpPortType_tftp AclUdpPortType = "tftp"
-
-    AclUdpPortType_time AclUdpPortType = "time"
-
-    AclUdpPortType_who AclUdpPortType = "who"
-
-    AclUdpPortType_xdmcp AclUdpPortType = "xdmcp"
-)
-
-// CommunityWellKnownType
-type CommunityWellKnownType string
-
-const (
-    CommunityWellKnownType_gshut CommunityWellKnownType = "gshut"
-
-    CommunityWellKnownType_internet CommunityWellKnownType = "internet"
-
-    CommunityWellKnownType_local_AS CommunityWellKnownType = "local-AS"
-
-    CommunityWellKnownType_no_advertise CommunityWellKnownType = "no-advertise"
-
-    CommunityWellKnownType_no_export CommunityWellKnownType = "no-export"
 )
 

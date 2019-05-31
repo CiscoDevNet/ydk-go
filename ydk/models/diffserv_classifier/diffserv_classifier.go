@@ -30,6 +30,41 @@ func init() {
     ydk.RegisterEntity("ietf-diffserv-classifier:classifiers", reflect.TypeOf(Classifiers{}))
 }
 
+type FilterType struct {
+}
+
+func (id FilterType) String() string {
+	return "ietf-diffserv-classifier:filter-type"
+}
+
+type Dscp struct {
+}
+
+func (id Dscp) String() string {
+	return "ietf-diffserv-classifier:dscp"
+}
+
+type SourceIpAddress struct {
+}
+
+func (id SourceIpAddress) String() string {
+	return "ietf-diffserv-classifier:source-ip-address"
+}
+
+type DestinationIpAddress struct {
+}
+
+func (id DestinationIpAddress) String() string {
+	return "ietf-diffserv-classifier:destination-ip-address"
+}
+
+type SourcePort struct {
+}
+
+func (id SourcePort) String() string {
+	return "ietf-diffserv-classifier:source-port"
+}
+
 type DestinationPort struct {
 }
 
@@ -44,32 +79,11 @@ func (id Protocol) String() string {
 	return "ietf-diffserv-classifier:protocol"
 }
 
-type DestinationIpAddress struct {
+type ClassifierEntryFilterOperationType struct {
 }
 
-func (id DestinationIpAddress) String() string {
-	return "ietf-diffserv-classifier:destination-ip-address"
-}
-
-type Dscp struct {
-}
-
-func (id Dscp) String() string {
-	return "ietf-diffserv-classifier:dscp"
-}
-
-type MatchAllFilter struct {
-}
-
-func (id MatchAllFilter) String() string {
-	return "ietf-diffserv-classifier:match-all-filter"
-}
-
-type SourceIpAddress struct {
-}
-
-func (id SourceIpAddress) String() string {
-	return "ietf-diffserv-classifier:source-ip-address"
+func (id ClassifierEntryFilterOperationType) String() string {
+	return "ietf-diffserv-classifier:classifier-entry-filter-operation-type"
 }
 
 type MatchAnyFilter struct {
@@ -79,25 +93,11 @@ func (id MatchAnyFilter) String() string {
 	return "ietf-diffserv-classifier:match-any-filter"
 }
 
-type SourcePort struct {
+type MatchAllFilter struct {
 }
 
-func (id SourcePort) String() string {
-	return "ietf-diffserv-classifier:source-port"
-}
-
-type FilterType struct {
-}
-
-func (id FilterType) String() string {
-	return "ietf-diffserv-classifier:filter-type"
-}
-
-type ClassifierEntryFilterOperationType struct {
-}
-
-func (id ClassifierEntryFilterOperationType) String() string {
-	return "ietf-diffserv-classifier:classifier-entry-filter-operation-type"
+func (id MatchAllFilter) String() string {
+	return "ietf-diffserv-classifier:match-all-filter"
 }
 
 // Classifiers
@@ -148,7 +148,7 @@ type Classifiers_ClassifierEntry struct {
     ClassifierEntryDescr interface{}
 
     // Filters are applicable as any or all filters. The type is one of the
-    // following: MatchAllFilterMatchAnyFilter. The default value is
+    // following: MatchAnyFilterMatchAllFilter. The default value is
     // match-any-filter.
     ClassifierEntryFilterOperation interface{}
 
@@ -192,7 +192,7 @@ type Classifiers_ClassifierEntry_FilterEntry struct {
 
     // This attribute is a key. This leaf defines type of the filter. The type is
     // one of the following:
-    // DestinationPortProtocolDestinationIpAddressDscpSourceIpAddressSourcePortInputInterfaceSrcMacApplicationSecurityGroupNameIpv4AclNameFlowDlciDeiPrecPacketLengthIpv4AclFlowDeFlowIpFlowRecordVlanInnerMetadataVlanAtmVciClassMapQosGroupWlanUserPriorityIpRtpIpv6AclAtmClpDstMacCosDeiInnerMplsExpTopCosInnerIpv6AclNameMplsExpImpSecurityGroupTagDiscardClassVpls.
+    // DscpSourceIpAddressDestinationIpAddressSourcePortDestinationPortProtocolCosCosInnerIpv4AclNameIpv6AclNameIpv4AclIpv6AclInputInterfaceSrcMacDstMacMplsExpTopMplsExpImpPacketLengthPrecQosGroupVlanVlanInnerAtmClpAtmVciDeiDeiInnerFlowIpFlowRecordFlowDeFlowDlciWlanUserPriorityDiscardClassClassMapMetadataApplicationSecurityGroupNameSecurityGroupTagIpRtpVpls.
     FilterType interface{}
 
     // This attribute is a key.  This is logical-not operator for a filter. When
@@ -316,9 +316,9 @@ type Classifiers_ClassifierEntry_FilterEntry_SourceIpAddressCfg struct {
 
     // This attribute is a key. source ip prefix. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     SourceIpAddr interface{}
 }
 
@@ -351,9 +351,9 @@ type Classifiers_ClassifierEntry_FilterEntry_DestinationIpAddressCfg struct {
 
     // This attribute is a key. destination ip prefix. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     DestinationIpAddr interface{}
 }
 

@@ -20,15 +20,13 @@ func init() {
     ydk.RegisterEntity("CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB", reflect.TypeOf(CISCOIETFISISMIB{}))
 }
 
-// CiiMetricStyle represents Do we use 1195 style Metrics or wide metrics.
-type CiiMetricStyle string
+// CiiAdminState represents Values match those in RFC 2863.
+type CiiAdminState string
 
 const (
-    CiiMetricStyle_narrow CiiMetricStyle = "narrow"
+    CiiAdminState_on CiiAdminState = "on"
 
-    CiiMetricStyle_wide CiiMetricStyle = "wide"
-
-    CiiMetricStyle_both CiiMetricStyle = "both"
+    CiiAdminState_off CiiAdminState = "off"
 )
 
 // CiiLevelState represents States of the IS-IS protocol.
@@ -55,15 +53,6 @@ const (
     CiiSupportedProtocol_ip CiiSupportedProtocol = "ip"
 )
 
-// CiiAdminState represents Values match those in RFC 2863.
-type CiiAdminState string
-
-const (
-    CiiAdminState_on CiiAdminState = "on"
-
-    CiiAdminState_off CiiAdminState = "off"
-)
-
 // CiiMetricType represents Is this an Internal or External Metric?
 type CiiMetricType string
 
@@ -71,6 +60,17 @@ const (
     CiiMetricType_internal CiiMetricType = "internal"
 
     CiiMetricType_external CiiMetricType = "external"
+)
+
+// CiiMetricStyle represents Do we use 1195 style Metrics or wide metrics.
+type CiiMetricStyle string
+
+const (
+    CiiMetricStyle_narrow CiiMetricStyle = "narrow"
+
+    CiiMetricStyle_wide CiiMetricStyle = "wide"
+
+    CiiMetricStyle_both CiiMetricStyle = "both"
 )
 
 // CiiISLevel represents Identifies a level.
@@ -231,7 +231,7 @@ type CISCOIETFISISMIB_CiiSysObject struct {
     // area addresses to form the Network Entity Titles. The derivation of a value
     // for this object is implementation-specific.  Some implementations may
     // automatically assign values and not permit an SNMP write, while others may
-    // require the value to be set manually. The type is string with length: 6.
+    // require the value to be set manually. The type is string with length: 6..6.
     CiiSysID interface{}
 
     // Maximum number of paths with equal routing metric value which it is
@@ -644,8 +644,8 @@ type CISCOIETFISISMIB_CiiSummAddrTable_CiiSummAddrEntry struct {
     CiiSummAddressType interface{}
 
     // This attribute is a key. The IP Address value for this summary address.
-    // This object follows the index behavior. The type is string with length: 4 |
-    // 16.
+    // This object follows the index behavior. The type is string with length:
+    // 4..4 | 16..16.
     CiiSummAddress interface{}
 
     // This attribute is a key. The Length of the IP NetMask for this summary
@@ -747,8 +747,8 @@ type CISCOIETFISISMIB_CiiRedistributeAddrTable_CiiRedistributeAddrEntry struct {
     CiiRedistributeAddrType interface{}
 
     // This attribute is a key. The IP Address value for this summary address.
-    // This object follows the index behavior. The type is string with length: 4 |
-    // 16.
+    // This object follows the index behavior. The type is string with length:
+    // 4..4 | 16..16.
     CiiRedistributeAddrAddress interface{}
 
     // This attribute is a key. The Length of the IP NetMask for this summary
@@ -826,7 +826,7 @@ type CISCOIETFISISMIB_CiiRouterTable_CiiRouterEntry struct {
     YListKey string
 
     // This attribute is a key. The System ID of the Router Peer. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     CiiRouterSysID interface{}
 
     // This attribute is a key. The level of this Intermediate System. The type is
@@ -1258,13 +1258,13 @@ type CISCOIETFISISMIB_CiiCircLevelTable_CiiCircLevelEntry struct {
     // value is the concatenation of the local system ID and the one byte
     // ciiCircLevelIDOctet for this circuit i.e. the value that would be proposed
     // for the circuit ID.  On other circuit types, the value returned is the zero
-    // length OCTET STRING. The type is string with length: 0 | 7.
+    // length OCTET STRING. The type is string with length: 0..0 | 7..7.
     CiiCircLevelID interface{}
 
     // The ID of the LAN Designated Intermediate System on this circuit at this
     // level. If, for any reason, this system is not partaking in the relevant
     // Designated Intermediate System election process, then the value returned is
-    // the zero length OCTET STRING. The type is string with length: 0 | 7.
+    // the zero length OCTET STRING. The type is string with length: 0..0 | 7..7.
     CiiCircLevelDesIS interface{}
 
     // This value is multiplied by the corresponding HelloTimer and the result in
@@ -1841,7 +1841,7 @@ type CISCOIETFISISMIB_CiiISAdjTable_CiiISAdjEntry struct {
     CiiISAdjNeighSysType interface{}
 
     // The system ID of the neighboring Intermediate System. The type is string
-    // with length: 6.
+    // with length: 6..6.
     CiiISAdjNeighSysID interface{}
 
     // The 4 byte Extended Circuit ID learned from the Neighbor during 3-way
@@ -2104,7 +2104,7 @@ type CISCOIETFISISMIB_CiiISAdjIPAddrTable_CiiISAdjIPAddrEntry struct {
     CiiISAdjIPAddrType interface{}
 
     // One IP Address as reported in IIH PDUs received from the neighbor. The type
-    // is string with length: 4 | 16.
+    // is string with length: 4..4 | 16..16.
     CiiISAdjIPAddrAddress interface{}
 }
 
@@ -2453,7 +2453,7 @@ type CISCOIETFISISMIB_CiiIPRATable_CiiIPRAEntry struct {
     // This attribute is a key. The destination of this IP Reachable Address. This
     // is either a network address, subnetwork address or host address. This
     // object follows the ManualOrAutomatic behavior. The type is string with
-    // length: 4 | 16.
+    // length: 4..4 | 16..16.
     CiiIPRADest interface{}
 
     // This attribute is a key. The length of the IP Netmask for Reachability
@@ -2469,8 +2469,8 @@ type CISCOIETFISISMIB_CiiIPRATable_CiiIPRAEntry struct {
     // The type of the IP next hop address. The type is InetAddressType.
     CiiIPRANextHopType interface{}
 
-    // The IP next hop to this destination. The type is string with length: 4 |
-    // 16.
+    // The IP next hop to this destination. The type is string with length: 4..4 |
+    // 16..16.
     CiiIPRANextHop interface{}
 
     // The type of this IP Reachable Address. Those of type manual are created by
@@ -2626,7 +2626,8 @@ type CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry struct {
     CiiLSPLevel interface{}
 
     // This attribute is a key. The 8 byte LSP ID, consisting of the SystemID,
-    // Circuit ID, and Fragment Number. The type is string with length: 0 | 8.
+    // Circuit ID, and Fragment Number. The type is string with length: 0..0 |
+    // 8..8.
     CiiLSPID interface{}
 
     // The sequence number for this LSP. The type is interface{} with range:
@@ -2723,7 +2724,8 @@ type CISCOIETFISISMIB_CiiLSPTLVTable_CiiLSPTLVEntry struct {
     // cisco_ietf_isis_mib.CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry_CiiLSPLevel
     CiiLSPLevel interface{}
 
-    // This attribute is a key. The type is string with length: 0 | 8. Refers to
+    // This attribute is a key. The type is string with length: 0..0 | 8..8.
+    // Refers to
     // cisco_ietf_isis_mib.CISCOIETFISISMIB_CiiLSPSummaryTable_CiiLSPSummaryEntry_CiiLSPID
     CiiLSPID interface{}
 

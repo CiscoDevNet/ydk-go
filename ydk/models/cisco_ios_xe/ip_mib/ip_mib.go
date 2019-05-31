@@ -21,21 +21,6 @@ func init() {
     ydk.RegisterEntity("IP-MIB:IP-MIB", reflect.TypeOf(IPMIB{}))
 }
 
-// IpAddressPrefixOriginTC represents prefix was found.
-type IpAddressPrefixOriginTC string
-
-const (
-    IpAddressPrefixOriginTC_other IpAddressPrefixOriginTC = "other"
-
-    IpAddressPrefixOriginTC_manual IpAddressPrefixOriginTC = "manual"
-
-    IpAddressPrefixOriginTC_wellknown IpAddressPrefixOriginTC = "wellknown"
-
-    IpAddressPrefixOriginTC_dhcp IpAddressPrefixOriginTC = "dhcp"
-
-    IpAddressPrefixOriginTC_routeradv IpAddressPrefixOriginTC = "routeradv"
-)
-
 // IpAddressOriginTC represents 3041 privacy address.
 type IpAddressOriginTC string
 
@@ -70,6 +55,21 @@ const (
     IpAddressStatusTC_duplicate IpAddressStatusTC = "duplicate"
 
     IpAddressStatusTC_optimistic IpAddressStatusTC = "optimistic"
+)
+
+// IpAddressPrefixOriginTC represents prefix was found.
+type IpAddressPrefixOriginTC string
+
+const (
+    IpAddressPrefixOriginTC_other IpAddressPrefixOriginTC = "other"
+
+    IpAddressPrefixOriginTC_manual IpAddressPrefixOriginTC = "manual"
+
+    IpAddressPrefixOriginTC_wellknown IpAddressPrefixOriginTC = "wellknown"
+
+    IpAddressPrefixOriginTC_dhcp IpAddressPrefixOriginTC = "dhcp"
+
+    IpAddressPrefixOriginTC_routeradv IpAddressPrefixOriginTC = "routeradv"
 )
 
 // IPMIB
@@ -811,7 +811,7 @@ type IPMIB_IpAddrTable_IpAddrEntry struct {
 
     // This attribute is a key. The IPv4 address to which this entry's addressing
     // information pertains. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAdEntAddr interface{}
 
     // The index value which uniquely identifies the interface to which this entry
@@ -823,7 +823,7 @@ type IPMIB_IpAddrTable_IpAddrEntry struct {
     // The subnet mask associated with the IPv4 address of this entry.  The value
     // of the mask is an IPv4 address with all the network bits set to 1 and all
     // the hosts bits set to 0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAdEntNetMask interface{}
 
     // The value of the least-significant bit in the IPv4 broadcast address used
@@ -923,7 +923,7 @@ type IPMIB_IpNetToMediaTable_IpNetToMediaEntry struct {
     // `physical' address.  This object predates the rule limiting index objects
     // to a max access value of 'not-accessible' and so continues to use a value
     // of 'read-create'. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpNetToMediaNetAddress interface{}
 
     // The media-dependent `physical' address.  This object should return 0 when
@@ -2484,7 +2484,7 @@ type IPMIB_IpAddressTable_IpAddressEntry struct {
 
     // A pointer to the row in the prefix table to which this address belongs. 
     // May be { 0 0 } if there is no such row. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     IpAddressPrefix interface{}
 
     // The origin of the address. The type is IpAddressOriginTC.
@@ -3117,7 +3117,7 @@ type IPMIB_Ipv6RouterAdvertTable_Ipv6RouterAdvertEntry struct {
     // between ipv6RouterAdvertMaxInterval and 9000 seconds.  A value of zero
     // indicates that the router is not to be used as a default router.  The
     // default is 3 * ipv6RouterAdvertMaxInterval. The type is interface{} with
-    // range: 0..None | 4..9000. Units are seconds.
+    // range: 0..0 | 4..9000. Units are seconds.
     Ipv6RouterAdvertDefaultLifetime interface{}
 
     // The status of this conceptual row.  As all objects in this conceptual row

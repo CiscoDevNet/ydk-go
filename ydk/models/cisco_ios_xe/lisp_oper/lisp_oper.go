@@ -33,35 +33,6 @@ const (
     LispAddressFamilyType_mac_afi LispAddressFamilyType = "mac-afi"
 )
 
-// LispRlocStateType represents Reachability state of a RLOC
-type LispRlocStateType string
-
-const (
-    // Locator is down or unreachable
-    LispRlocStateType_lisp_rloc_state_down LispRlocStateType = "lisp-rloc-state-down"
-
-    // Locator is up and reachable
-    LispRlocStateType_lisp_rloc_state_up LispRlocStateType = "lisp-rloc-state-up"
-)
-
-// LispMapReplyActionType represents for negative map-cache entries
-type LispMapReplyActionType string
-
-const (
-    // Mapping is kept alive and no encapsulation occurs
-    LispMapReplyActionType_no_action LispMapReplyActionType = "no-action"
-
-    // Matching packets are forwarded without
-    // LISP encapsulation
-    LispMapReplyActionType_natively_forward LispMapReplyActionType = "natively-forward"
-
-    // Matching packets trigger sending Map-Requests
-    LispMapReplyActionType_send_map_request LispMapReplyActionType = "send-map-request"
-
-    // Matching packets are dropped
-    LispMapReplyActionType_drop LispMapReplyActionType = "drop"
-)
-
 // LispIaftypeType represents LISP instance
 type LispIaftypeType string
 
@@ -82,6 +53,35 @@ const (
     // Reverse Address Resolution (MAC-to-L3 address)
     // instance service
     LispIaftypeType_iaf_rar LispIaftypeType = "iaf-rar"
+)
+
+// LispMapReplyActionType represents for negative map-cache entries
+type LispMapReplyActionType string
+
+const (
+    // Mapping is kept alive and no encapsulation occurs
+    LispMapReplyActionType_no_action LispMapReplyActionType = "no-action"
+
+    // Matching packets are forwarded without
+    // LISP encapsulation
+    LispMapReplyActionType_natively_forward LispMapReplyActionType = "natively-forward"
+
+    // Matching packets trigger sending Map-Requests
+    LispMapReplyActionType_send_map_request LispMapReplyActionType = "send-map-request"
+
+    // Matching packets are dropped
+    LispMapReplyActionType_drop LispMapReplyActionType = "drop"
+)
+
+// LispRlocStateType represents Reachability state of a RLOC
+type LispRlocStateType string
+
+const (
+    // Locator is down or unreachable
+    LispRlocStateType_lisp_rloc_state_down LispRlocStateType = "lisp-rloc-state-down"
+
+    // Locator is up and reachable
+    LispRlocStateType_lisp_rloc_state_up LispRlocStateType = "lisp-rloc-state-up"
 )
 
 // LispSessionStateType represents State of a TCP session
@@ -886,17 +886,17 @@ type LispState_LispRouters_Instances_Af_MapCache struct {
     Prefix interface{}
 
     // Time that this entry was created. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     UpTime interface{}
 
     // Last time that the RLOC information or the entry state were modified. The
     // type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastModifiedTime interface{}
 
     // Last time a mapping record for this entry was received, not valid if the
     // entry is static. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastUpdateTime interface{}
 
     // Mapping validity period. The type is interface{} with range: 0..4294967295.
@@ -921,7 +921,7 @@ type LispState_LispRouters_Instances_Af_MapCache struct {
     // Time when this entry will expire if not refreshed; for entries which do not
     // have an expiration time this time will be less than the entry creation
     // time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     ExpiryTime interface{}
 
     // Number of packets of the transit traffic which were encapsulated because
@@ -1000,12 +1000,12 @@ type LispState_LispRouters_Instances_Af_MapCache_MapCacheRloc struct {
     State interface{}
 
     // Time when this RLOC entry was created. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     CreationTime interface{}
 
     // Time when up/down state of the RLOC for this map-cache entry last changed.
     // The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastStateChangeTime interface{}
 
     // Round-trip time of RLOC probe and corresponding reply. The type is
@@ -1256,12 +1256,12 @@ type LispState_LispRouters_Instances_Af_MsRegistrations struct {
 
     // Time when a valid registration was first received for this EID prefix. The
     // type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     CreationTime interface{}
 
     // Time when most recent valid registration was received for this EID prefix.
     // The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastRegistrationTime interface{}
 
     // Name of site matching this registration. The type is string.
@@ -1372,9 +1372,9 @@ type LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistrations struct 
 
     // This attribute is a key. RLOC address of the registration source. The type
     // is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // This attribute is a key. Port of the registration source. The type is
@@ -1383,7 +1383,7 @@ type LispState_LispRouters_Instances_Af_MsRegistrations_EtrRegistrations struct 
 
     // Time when valid registration from the source was last received. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastRegistrationTime interface{}
 
     // Registration validity period. The type is interface{} with range:
@@ -1707,14 +1707,14 @@ type LispState_LispRouters_Instances_MsEidMembership struct {
 
     // This attribute is a key. RLOC which is the allowed member. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Rloc interface{}
 
     // Time when this RLOC was added to the list of allowed locators. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     MemberSince interface{}
 
     // Indicates if MS gleaned this RLOC from received EID prefix registration.
@@ -1759,14 +1759,14 @@ type LispState_LispRouters_Instances_EtrEidMembership struct {
 
     // This attribute is a key. RLOC which is the allowed member. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Rloc interface{}
 
     // Time when this RLOC was added to the list of allowed locators. The type is
     // string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     MemberSince interface{}
 
     // Indicates if ETR learned about this RLOC membership via message received
@@ -1810,16 +1810,16 @@ type LispState_LispRouters_Sessions struct {
 
     // This attribute is a key. Address of the local socket. The type is one of
     // the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // This attribute is a key. Address of the peer. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 
     // This attribute is a key. Port of the local socket. The type is interface{}
@@ -1834,7 +1834,8 @@ type LispState_LispRouters_Sessions struct {
     State interface{}
 
     // Timestamp when the session's state last changed. The type is string with
-    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastStateChangeTime interface{}
 
     // Is session opening role Active or Passive; TRUE means session role is

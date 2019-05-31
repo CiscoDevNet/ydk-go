@@ -38,17 +38,6 @@ const (
     MplsVpnRt_both MplsVpnRt = "both"
 )
 
-// MplsVpnAfi represents Layer 3 VPN Address Family Type
-type MplsVpnAfi string
-
-const (
-    // VRF IPv4 address family
-    MplsVpnAfi_ipv4 MplsVpnAfi = "ipv4"
-
-    // VRF IPv6 address family
-    MplsVpnAfi_ipv6 MplsVpnAfi = "ipv6"
-)
-
 // MplsVpnSafi represents Layer 3 VPN Sub-Address Family Type
 type MplsVpnSafi string
 
@@ -61,6 +50,17 @@ const (
 
     // VRF Flowspec sub-address family
     MplsVpnSafi_flowspec MplsVpnSafi = "flowspec"
+)
+
+// MplsVpnAfi represents Layer 3 VPN Address Family Type
+type MplsVpnAfi string
+
+const (
+    // VRF IPv4 address family
+    MplsVpnAfi_ipv4 MplsVpnAfi = "ipv4"
+
+    // VRF IPv6 address family
+    MplsVpnAfi_ipv6 MplsVpnAfi = "ipv6"
 )
 
 // L3vpn

@@ -97,7 +97,7 @@ type SessionMon_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Nodeid location . The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Session Mon Statistics.
@@ -253,7 +253,7 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // total. The type is interface{} with range: 0..4294967295.

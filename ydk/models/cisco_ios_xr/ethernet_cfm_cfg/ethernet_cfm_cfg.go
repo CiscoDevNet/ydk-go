@@ -21,55 +21,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ethernet_cfm_cfg"))
 }
 
-// CfmLmCountersCfg represents Cfm lm counters cfg
-type CfmLmCountersCfg string
+// CfmMipPolicy represents Cfm mip policy
+type CfmMipPolicy string
 
 const (
-    // Aggregate Counters
-    CfmLmCountersCfg_aggregate CfmLmCountersCfg = "aggregate"
+    // Create MIPs on all ports in the Bridge Domain
+    // or Cross-connect
+    CfmMipPolicy_all CfmMipPolicy = "all"
 
-    // List of per-CoS counters
-    CfmLmCountersCfg_list CfmLmCountersCfg = "list"
-
-    // Range of per-CoS counters
-    CfmLmCountersCfg_range_ CfmLmCountersCfg = "range"
-)
-
-// CfmMdidFormat represents Cfm mdid format
-type CfmMdidFormat string
-
-const (
-    // Null MDID
-    CfmMdidFormat_null CfmMdidFormat = "null"
-
-    // DNS-like MDID
-    CfmMdidFormat_dns_like CfmMdidFormat = "dns-like"
-
-    // MDID Comprising MAC Address and 16-bit integer
-    CfmMdidFormat_mac_address CfmMdidFormat = "mac-address"
-
-    // String MDID
-    CfmMdidFormat_string_ CfmMdidFormat = "string"
-)
-
-// CfmShortMaNameFormat represents Cfm short ma name format
-type CfmShortMaNameFormat string
-
-const (
-    // VLAN ID
-    CfmShortMaNameFormat_vlan_id CfmShortMaNameFormat = "vlan-id"
-
-    // String Short MA Name
-    CfmShortMaNameFormat_string_ CfmShortMaNameFormat = "string"
-
-    // Numeric Short MA Name
-    CfmShortMaNameFormat_number CfmShortMaNameFormat = "number"
-
-    // RFC 2685 VPN ID
-    CfmShortMaNameFormat_vpn_id CfmShortMaNameFormat = "vpn-id"
-
-    // ICC-based format
-    CfmShortMaNameFormat_icc_based CfmShortMaNameFormat = "icc-based"
+    // Create MIPs on ports which have a MEP at a
+    // lower level
+    CfmMipPolicy_lower_mep_only CfmMipPolicy = "lower-mep-only"
 )
 
 // CfmService represents Cfm service
@@ -100,16 +62,54 @@ const (
     CfmService_down_meps CfmService = "down-meps"
 )
 
-// CfmMipPolicy represents Cfm mip policy
-type CfmMipPolicy string
+// CfmShortMaNameFormat represents Cfm short ma name format
+type CfmShortMaNameFormat string
 
 const (
-    // Create MIPs on all ports in the Bridge Domain
-    // or Cross-connect
-    CfmMipPolicy_all CfmMipPolicy = "all"
+    // VLAN ID
+    CfmShortMaNameFormat_vlan_id CfmShortMaNameFormat = "vlan-id"
 
-    // Create MIPs on ports which have a MEP at a
-    // lower level
-    CfmMipPolicy_lower_mep_only CfmMipPolicy = "lower-mep-only"
+    // String Short MA Name
+    CfmShortMaNameFormat_string_ CfmShortMaNameFormat = "string"
+
+    // Numeric Short MA Name
+    CfmShortMaNameFormat_number CfmShortMaNameFormat = "number"
+
+    // RFC 2685 VPN ID
+    CfmShortMaNameFormat_vpn_id CfmShortMaNameFormat = "vpn-id"
+
+    // ICC-based format
+    CfmShortMaNameFormat_icc_based CfmShortMaNameFormat = "icc-based"
+)
+
+// CfmLmCountersCfg represents Cfm lm counters cfg
+type CfmLmCountersCfg string
+
+const (
+    // Aggregate Counters
+    CfmLmCountersCfg_aggregate CfmLmCountersCfg = "aggregate"
+
+    // List of per-CoS counters
+    CfmLmCountersCfg_list CfmLmCountersCfg = "list"
+
+    // Range of per-CoS counters
+    CfmLmCountersCfg_range_ CfmLmCountersCfg = "range"
+)
+
+// CfmMdidFormat represents Cfm mdid format
+type CfmMdidFormat string
+
+const (
+    // Null MDID
+    CfmMdidFormat_null CfmMdidFormat = "null"
+
+    // DNS-like MDID
+    CfmMdidFormat_dns_like CfmMdidFormat = "dns-like"
+
+    // MDID Comprising MAC Address and 16-bit integer
+    CfmMdidFormat_mac_address CfmMdidFormat = "mac-address"
+
+    // String MDID
+    CfmMdidFormat_string_ CfmMdidFormat = "string"
 )
 

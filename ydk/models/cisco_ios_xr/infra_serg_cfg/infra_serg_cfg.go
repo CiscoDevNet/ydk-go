@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-serg-cfg:session-redundancy", reflect.TypeOf(SessionRedundancy{}))
 }
 
-// SergAddrFamily represents Serg addr family
-type SergAddrFamily string
-
-const (
-    // IPv4
-    SergAddrFamily_ipv4 SergAddrFamily = "ipv4"
-
-    // IPv6
-    SergAddrFamily_ipv6 SergAddrFamily = "ipv6"
-)
-
 // SessionRedundancyGroupRole represents Session redundancy group role
 type SessionRedundancyGroupRole string
 
@@ -44,6 +33,17 @@ const (
 
     // Slave Role
     SessionRedundancyGroupRole_slave SessionRedundancyGroupRole = "slave"
+)
+
+// SergAddrFamily represents Serg addr family
+type SergAddrFamily string
+
+const (
+    // IPv4
+    SergAddrFamily_ipv4 SergAddrFamily = "ipv4"
+
+    // IPv6
+    SergAddrFamily_ipv6 SergAddrFamily = "ipv6"
 )
 
 // SessionRedundancy
@@ -61,7 +61,7 @@ type SessionRedundancy struct {
     Enable interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // Set preferred role. The type is SessionRedundancyGroupRole.
@@ -175,6 +175,9 @@ type SessionRedundancy_Groups_Group struct {
     // Units are minute.
     HoldTimer interface{}
 
+    // Set operation mode. The type is interface{}.
+    ModeActive interface{}
+
     // None.
     Peer SessionRedundancy_Groups_Group_Peer
 
@@ -214,6 +217,7 @@ func (group *SessionRedundancy_Groups_Group) GetEntityData() *types.CommonEntity
     group.EntityData.Leafs.Append("access-tracking-object", types.YLeaf{"AccessTrackingObject", group.AccessTrackingObject})
     group.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", group.PreferredRole})
     group.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", group.HoldTimer})
+    group.EntityData.Leafs.Append("mode-active", types.YLeaf{"ModeActive", group.ModeActive})
 
     group.EntityData.YListKeys = []string {"GroupId"}
 
@@ -261,9 +265,9 @@ type SessionRedundancy_Groups_Group_Peer_Ipaddress struct {
 
     // IPv4/IPv6 address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixString interface{}
 }
 
@@ -405,7 +409,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -489,7 +493,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -596,7 +600,7 @@ type SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName struct {
     YListKey string
 
     // This attribute is a key. Pool name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PoolName interface{}
 }
 

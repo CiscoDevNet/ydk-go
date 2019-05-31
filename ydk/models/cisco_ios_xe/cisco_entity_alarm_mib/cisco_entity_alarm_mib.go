@@ -309,7 +309,7 @@ type CISCOENTITYALARMMIB_CeAlarmDescrMapTable_CeAlarmDescrMapEntry struct {
     // enterprise-specific OID) that uniquely identifies the vendor type of those
     // physical entities that this alarm description applies to. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     CeAlarmDescrVendorType interface{}
 }
 

@@ -215,7 +215,7 @@ type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.
@@ -225,7 +225,7 @@ type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     AccessListName interface{}
 
     // Candidate RP IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CandidateRpAddress interface{}
 
     // TTL. The type is interface{} with range: -2147483648..2147483647.
@@ -391,11 +391,11 @@ type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress struct {
     YListKey string
 
     // This attribute is a key. RP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RpAddress interface{}
 
     // Candidate-RP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RpAddressXr interface{}
 
     // Time for expiration in seconds. The type is interface{} with range:
@@ -446,7 +446,7 @@ type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range struct {
     YListKey string
 
     // Prefix of the range. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length of the range. The type is interface{} with range: 0..255.
@@ -681,7 +681,7 @@ type AutoRp_Active_CandidateRp_Rps_Rp struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface Name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.
@@ -691,7 +691,7 @@ type AutoRp_Active_CandidateRp_Rps_Rp struct {
     AccessListName interface{}
 
     // Candidate RP IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CandidateRpAddress interface{}
 
     // TTL. The type is interface{} with range: -2147483648..2147483647.
@@ -857,11 +857,11 @@ type AutoRp_Active_MappingAgent_RpAddresses_RpAddress struct {
     YListKey string
 
     // This attribute is a key. RP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RpAddress interface{}
 
     // Candidate-RP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RpAddressXr interface{}
 
     // Time for expiration in seconds. The type is interface{} with range:
@@ -912,7 +912,7 @@ type AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range struct {
     YListKey string
 
     // Prefix of the range. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length of the range. The type is interface{} with range: 0..255.

@@ -24,24 +24,47 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-lmp-oper:lmp", reflect.TypeOf(Lmp{}))
 }
 
-// OlmCompLinkImState represents The OLM Component link IM state
-type OlmCompLinkImState string
+// OlmipccState represents The OLM IPCC state
+type OlmipccState string
 
 const (
-    // OIR removed
-    OlmCompLinkImState_comp_link_im_state_oir OlmCompLinkImState = "comp-link-im-state-oir"
+    // OIR Removed
+    OlmipccState_ipcc_state_oir_removed OlmipccState = "ipcc-state-oir-removed"
+
+    // OOS
+    OlmipccState_ipcc_state_admin_down OlmipccState = "ipcc-state-admin-down"
 
     // Down
-    OlmCompLinkImState_comp_link_im_state_down OlmCompLinkImState = "comp-link-im-state-down"
+    OlmipccState_ipcc_state_down OlmipccState = "ipcc-state-down"
 
-    // Admin Down
-    OlmCompLinkImState_comp_link_im_state_admin_down OlmCompLinkImState = "comp-link-im-state-admin-down"
+    // ConfigSend
+    OlmipccState_ipcc_state_cfg_send OlmipccState = "ipcc-state-cfg-send"
+
+    // ConfigReceive
+    OlmipccState_ipcc_state_cfg_rcv OlmipccState = "ipcc-state-cfg-rcv"
+
+    // Active
+    OlmipccState_ipcc_state_active OlmipccState = "ipcc-state-active"
 
     // Up
-    OlmCompLinkImState_comp_link_im_state_up OlmCompLinkImState = "comp-link-im-state-up"
+    OlmipccState_ipcc_state_up OlmipccState = "ipcc-state-up"
 
-    // Unknown
-    OlmCompLinkImState_comp_link_im_state_unknown OlmCompLinkImState = "comp-link-im-state-unknown"
+    // Going Down
+    OlmipccState_ipcc_state_going_down OlmipccState = "ipcc-state-going-down"
+
+    // Unknown/Invalid
+    OlmipccState_ipcc_state_unknown OlmipccState = "ipcc-state-unknown"
+)
+
+// OlmCompLinkLmpStatus represents The component link LMP status
+type OlmCompLinkLmpStatus string
+
+const (
+    // Component link IF ID mismatch
+    OlmCompLinkLmpStatus_comp_link_lmp_status_if_id_mismatch OlmCompLinkLmpStatus = "comp-link-lmp-status-if-id-mismatch"
+
+    // Component link switching capability ID mismatch
+    OlmCompLinkLmpStatus_comp_link_lmp_status_switch_cap_mismatch OlmCompLinkLmpStatus = "comp-link-lmp-status-switch-cap-mismatch"
 )
 
 // OlmLinkEncoding represents LMP link encoding type as defined in [RFC3471]
@@ -88,6 +111,69 @@ const (
     OlmLinkEncoding_lencode_unknown OlmLinkEncoding = "lencode-unknown"
 )
 
+// OlmteLinkLmpState represents The OLM TE link LMP state
+type OlmteLinkLmpState string
+
+const (
+    // Down
+    OlmteLinkLmpState_te_link_lmp_state_down OlmteLinkLmpState = "te-link-lmp-state-down"
+
+    // Init
+    OlmteLinkLmpState_te_link_lmp_state_init OlmteLinkLmpState = "te-link-lmp-state-init"
+
+    // Up
+    OlmteLinkLmpState_te_link_lmp_state_up OlmteLinkLmpState = "te-link-lmp-state-up"
+
+    // Degraded
+    OlmteLinkLmpState_te_link_lmp_state_degraded OlmteLinkLmpState = "te-link-lmp-state-degraded"
+
+    // Unknown/Invalid
+    OlmteLinkLmpState_te_link_lmp_state_unknown OlmteLinkLmpState = "te-link-lmp-state-unknown"
+)
+
+// OlmCompLinkLmpState represents The OLM Component link LMP state
+type OlmCompLinkLmpState string
+
+const (
+    // Down
+    OlmCompLinkLmpState_comp_link_lmp_state_down OlmCompLinkLmpState = "comp-link-lmp-state-down"
+
+    // Test
+    OlmCompLinkLmpState_comp_link_lmp_state_test OlmCompLinkLmpState = "comp-link-lmp-state-test"
+
+    // Pasv Test
+    OlmCompLinkLmpState_comp_link_lmp_state_passive_test OlmCompLinkLmpState = "comp-link-lmp-state-passive-test"
+
+    // Up Free
+    OlmCompLinkLmpState_comp_link_lmp_state_up_free OlmCompLinkLmpState = "comp-link-lmp-state-up-free"
+
+    // Up Allocated
+    OlmCompLinkLmpState_comp_link_lmp_state_up_allocated OlmCompLinkLmpState = "comp-link-lmp-state-up-allocated"
+
+    // Unknown/Invalid
+    OlmCompLinkLmpState_comp_link_lmp_state_unknown OlmCompLinkLmpState = "comp-link-lmp-state-unknown"
+)
+
+// OlmCompLinkImState represents The OLM Component link IM state
+type OlmCompLinkImState string
+
+const (
+    // OIR removed
+    OlmCompLinkImState_comp_link_im_state_oir OlmCompLinkImState = "comp-link-im-state-oir"
+
+    // Down
+    OlmCompLinkImState_comp_link_im_state_down OlmCompLinkImState = "comp-link-im-state-down"
+
+    // Admin Down
+    OlmCompLinkImState_comp_link_im_state_admin_down OlmCompLinkImState = "comp-link-im-state-admin-down"
+
+    // Up
+    OlmCompLinkImState_comp_link_im_state_up OlmCompLinkImState = "comp-link-im-state-up"
+
+    // Unknown
+    OlmCompLinkImState_comp_link_im_state_unknown OlmCompLinkImState = "comp-link-im-state-unknown"
+)
+
 // OlmMuxCap represents Multiplexing capability
 type OlmMuxCap string
 
@@ -120,94 +206,6 @@ const (
     OlmMuxCap_unknown_mux_cap OlmMuxCap = "unknown-mux-cap"
 )
 
-// OlmCompLinkLmpStatus represents The component link LMP status
-type OlmCompLinkLmpStatus string
-
-const (
-    // Component link IF ID mismatch
-    OlmCompLinkLmpStatus_comp_link_lmp_status_if_id_mismatch OlmCompLinkLmpStatus = "comp-link-lmp-status-if-id-mismatch"
-
-    // Component link switching capability ID mismatch
-    OlmCompLinkLmpStatus_comp_link_lmp_status_switch_cap_mismatch OlmCompLinkLmpStatus = "comp-link-lmp-status-switch-cap-mismatch"
-)
-
-// OlmAddrTypeId represents OLM Link Address Type
-type OlmAddrTypeId string
-
-const (
-    // Unknown address type
-    OlmAddrTypeId_unknown_address OlmAddrTypeId = "unknown-address"
-
-    // IPv4 address type
-    OlmAddrTypeId_ipv4 OlmAddrTypeId = "ipv4"
-
-    // IPv6 address type
-    OlmAddrTypeId_ipv6 OlmAddrTypeId = "ipv6"
-
-    // Unnumberedaddress type
-    OlmAddrTypeId_unnumbered OlmAddrTypeId = "unnumbered"
-)
-
-// OlmCompLinkLmpState represents The OLM Component link LMP state
-type OlmCompLinkLmpState string
-
-const (
-    // Down
-    OlmCompLinkLmpState_comp_link_lmp_state_down OlmCompLinkLmpState = "comp-link-lmp-state-down"
-
-    // Test
-    OlmCompLinkLmpState_comp_link_lmp_state_test OlmCompLinkLmpState = "comp-link-lmp-state-test"
-
-    // Pasv Test
-    OlmCompLinkLmpState_comp_link_lmp_state_passive_test OlmCompLinkLmpState = "comp-link-lmp-state-passive-test"
-
-    // Up Free
-    OlmCompLinkLmpState_comp_link_lmp_state_up_free OlmCompLinkLmpState = "comp-link-lmp-state-up-free"
-
-    // Up Allocated
-    OlmCompLinkLmpState_comp_link_lmp_state_up_allocated OlmCompLinkLmpState = "comp-link-lmp-state-up-allocated"
-
-    // Unknown/Invalid
-    OlmCompLinkLmpState_comp_link_lmp_state_unknown OlmCompLinkLmpState = "comp-link-lmp-state-unknown"
-)
-
-// OlmObjectOwner represents The OLM object owner
-type OlmObjectOwner string
-
-const (
-    // Unknown owner
-    OlmObjectOwner_unknown OlmObjectOwner = "unknown"
-
-    // OIF OUNI
-    OlmObjectOwner_ouni OlmObjectOwner = "ouni"
-
-    // GMPLS NNI
-    OlmObjectOwner_gmpls_nni OlmObjectOwner = "gmpls-nni"
-
-    // GMPLS UNI
-    OlmObjectOwner_gmpls_uni OlmObjectOwner = "gmpls-uni"
-)
-
-// OlmteLinkLmpState represents The OLM TE link LMP state
-type OlmteLinkLmpState string
-
-const (
-    // Down
-    OlmteLinkLmpState_te_link_lmp_state_down OlmteLinkLmpState = "te-link-lmp-state-down"
-
-    // Init
-    OlmteLinkLmpState_te_link_lmp_state_init OlmteLinkLmpState = "te-link-lmp-state-init"
-
-    // Up
-    OlmteLinkLmpState_te_link_lmp_state_up OlmteLinkLmpState = "te-link-lmp-state-up"
-
-    // Degraded
-    OlmteLinkLmpState_te_link_lmp_state_degraded OlmteLinkLmpState = "te-link-lmp-state-degraded"
-
-    // Unknown/Invalid
-    OlmteLinkLmpState_te_link_lmp_state_unknown OlmteLinkLmpState = "te-link-lmp-state-unknown"
-)
-
 // Olmipcc represents The OLM IPCC type
 type Olmipcc string
 
@@ -225,36 +223,21 @@ const (
     Olmipcc_ipcc_type_unknown Olmipcc = "ipcc-type-unknown"
 )
 
-// OlmipccState represents The OLM IPCC state
-type OlmipccState string
+// OlmObjectOwner represents The OLM object owner
+type OlmObjectOwner string
 
 const (
-    // OIR Removed
-    OlmipccState_ipcc_state_oir_removed OlmipccState = "ipcc-state-oir-removed"
+    // Unknown owner
+    OlmObjectOwner_unknown OlmObjectOwner = "unknown"
 
-    // OOS
-    OlmipccState_ipcc_state_admin_down OlmipccState = "ipcc-state-admin-down"
+    // OIF OUNI
+    OlmObjectOwner_ouni OlmObjectOwner = "ouni"
 
-    // Down
-    OlmipccState_ipcc_state_down OlmipccState = "ipcc-state-down"
+    // GMPLS NNI
+    OlmObjectOwner_gmpls_nni OlmObjectOwner = "gmpls-nni"
 
-    // ConfigSend
-    OlmipccState_ipcc_state_cfg_send OlmipccState = "ipcc-state-cfg-send"
-
-    // ConfigReceive
-    OlmipccState_ipcc_state_cfg_rcv OlmipccState = "ipcc-state-cfg-rcv"
-
-    // Active
-    OlmipccState_ipcc_state_active OlmipccState = "ipcc-state-active"
-
-    // Up
-    OlmipccState_ipcc_state_up OlmipccState = "ipcc-state-up"
-
-    // Going Down
-    OlmipccState_ipcc_state_going_down OlmipccState = "ipcc-state-going-down"
-
-    // Unknown/Invalid
-    OlmipccState_ipcc_state_unknown OlmipccState = "ipcc-state-unknown"
+    // GMPLS UNI
+    OlmObjectOwner_gmpls_uni OlmObjectOwner = "gmpls-uni"
 )
 
 // OlmRouterId represents The OLM router ID type
@@ -279,6 +262,23 @@ const (
 
     // Unknown
     OlmRouterId_unknown_type OlmRouterId = "unknown-type"
+)
+
+// OlmAddrTypeId represents OLM Link Address Type
+type OlmAddrTypeId string
+
+const (
+    // Unknown address type
+    OlmAddrTypeId_unknown_address OlmAddrTypeId = "unknown-address"
+
+    // IPv4 address type
+    OlmAddrTypeId_ipv4 OlmAddrTypeId = "ipv4"
+
+    // IPv6 address type
+    OlmAddrTypeId_ipv6 OlmAddrTypeId = "ipv6"
+
+    // Unnumberedaddress type
+    OlmAddrTypeId_unnumbered OlmAddrTypeId = "unnumbered"
 )
 
 // Lmp
@@ -421,11 +421,11 @@ type Lmp_GlobalStatus_LocalOuniLmpNodeId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -495,11 +495,11 @@ type Lmp_GlobalStatus_LocalMplsTeLmpNodeId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -569,11 +569,11 @@ type Lmp_GlobalStatus_LocalGmplsUniLmpNodeId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -645,7 +645,7 @@ type Lmp_Clients_Client struct {
     YListKey string
 
     // This attribute is a key. Client name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientName interface{}
 
     // The RP name that the clientprocess is running on. The type is string.
@@ -784,7 +784,7 @@ type Lmp_GmplsUni_TeLinks_TeLink struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Interface forOLM info. The type is string.
@@ -961,11 +961,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_LocalLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1035,11 +1035,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_RemoteLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1109,11 +1109,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_LocalTeLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1183,11 +1183,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_RemoteTeLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1257,11 +1257,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_NeighborAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1331,11 +1331,11 @@ type Lmp_GmplsUni_TeLinks_TeLink_RemoteIpccAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1531,11 +1531,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_NeighborAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1745,11 +1745,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_LocalLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1819,11 +1819,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_RemoteLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1893,11 +1893,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_LocalTeLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -1967,11 +1967,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_RemoteTeLinkId_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -2041,11 +2041,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_NeighborAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -2115,11 +2115,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_TeLink_RemoteIpccAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -2315,11 +2315,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_Ipcc_RemoteIpccAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -2389,11 +2389,11 @@ type Lmp_GmplsUni_Neighbors_Neighbor_Ipcc_SourceIpCcAddress_Address struct {
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Unnumberedaddress. The type is interface{} with range: 0..4294967295.
@@ -2466,7 +2466,7 @@ type Lmp_ComponentLinkIds_ComponentLinkId struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // LMP component link ID for an I/F. The type is interface{} with range:

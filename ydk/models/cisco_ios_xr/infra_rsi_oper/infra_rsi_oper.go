@@ -30,29 +30,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download", reflect.TypeOf(SelectiveVrfDownload{}))
 }
 
-// Priority represents Priority
-type Priority string
-
-const (
-    // Critical
-    Priority_critical Priority = "critical"
-
-    // High
-    Priority_high Priority = "high"
-
-    // Medium
-    Priority_medium Priority = "medium"
-
-    // Low
-    Priority_low Priority = "low"
-
-    // Very low
-    Priority_very_low Priority = "very-low"
-
-    // Invalid
-    Priority_invald Priority = "invald"
-)
-
 // Source represents Source
 type Source string
 
@@ -80,6 +57,29 @@ const (
 
     // From optical and notified
     Source_from_optical_and_notified Source = "from-optical-and-notified"
+)
+
+// Priority represents Priority
+type Priority string
+
+const (
+    // Critical
+    Priority_critical Priority = "critical"
+
+    // High
+    Priority_high Priority = "high"
+
+    // Medium
+    Priority_medium Priority = "medium"
+
+    // Low
+    Priority_low Priority = "low"
+
+    // Very low
+    Priority_very_low Priority = "very-low"
+
+    // Invalid
+    Priority_invald Priority = "invald"
 )
 
 // VrfGroup
@@ -153,7 +153,7 @@ type VrfGroup_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Group operational data.
@@ -396,7 +396,7 @@ type Srlg_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupName interface{}
 
     // Group name. The type is string.
@@ -516,7 +516,7 @@ type Srlg_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -597,7 +597,7 @@ type Srlg_Rsips_Rsip struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     RsipName interface{}
 
     // Optical layer interface name. The type is string.
@@ -793,7 +793,7 @@ type Srlg_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Set of SRLG name, value maps configured.
@@ -959,7 +959,7 @@ type Srlg_Nodes_Node_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupName interface{}
 
     // Group name. The type is string.
@@ -1081,7 +1081,7 @@ type Srlg_Nodes_Node_InheritNodes_InheritNode struct {
     YListKey string
 
     // This attribute is a key. Inherit node. The type is string with pattern:
-    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
+    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
     InheritNodeName interface{}
 
     // Inherit node name. The type is string.
@@ -1203,7 +1203,7 @@ type Srlg_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -1285,7 +1285,7 @@ type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Groups. The type is interface{} with range: 0..4294967295.
@@ -1739,7 +1739,7 @@ type Srlg_InheritNodes_InheritNode struct {
     YListKey string
 
     // This attribute is a key. Inherit Locatio. The type is string with pattern:
-    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
+    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
     InheritNodeName interface{}
 
     // Inherit node name. The type is string.
@@ -1931,7 +1931,7 @@ type Srlg_InterfaceDetails_InterfaceDetail struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Groups. The type is interface{} with range: 0..4294967295.

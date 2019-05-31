@@ -29,18 +29,57 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-mpls-te-cfg:mpls-te", reflect.TypeOf(MplsTe{}))
 }
 
-// MplsTeBackupBandwidthClass represents Mpls te backup bandwidth class
-type MplsTeBackupBandwidthClass string
+// MplsTesrlgExclude represents Mpls tesrlg exclude
+type MplsTesrlgExclude string
 
 const (
-    // Class 0
-    MplsTeBackupBandwidthClass_class0 MplsTeBackupBandwidthClass = "class0"
+    // SRLG Mandatory Exclude
+    MplsTesrlgExclude_mandatory MplsTesrlgExclude = "mandatory"
 
-    // Class 1
-    MplsTeBackupBandwidthClass_class1 MplsTeBackupBandwidthClass = "class1"
+    // SRLG Preferred Exclude
+    MplsTesrlgExclude_preferred MplsTesrlgExclude = "preferred"
 
-    // Any Class
-    MplsTeBackupBandwidthClass_any_class MplsTeBackupBandwidthClass = "any-class"
+    // SRLG Weighted Exclude
+    MplsTesrlgExclude_weighted MplsTesrlgExclude = "weighted"
+)
+
+// MplsTeAffinityValue represents Mpls te affinity value
+type MplsTeAffinityValue string
+
+const (
+    // Affinity value in Hex number
+    MplsTeAffinityValue_hex_value MplsTeAffinityValue = "hex-value"
+
+    // Affinity value by Bit-Position
+    MplsTeAffinityValue_bit_position MplsTeAffinityValue = "bit-position"
+)
+
+// RoutePriorityRole represents Route priority role
+type RoutePriorityRole string
+
+const (
+    // TE Route Priority Role Head Backup
+    RoutePriorityRole_route_priority_role_head_back_up RoutePriorityRole = "route-priority-role-head-back-up"
+
+    // TE Route Priority Role Head Primary
+    RoutePriorityRole_route_priority_role_head_primary RoutePriorityRole = "route-priority-role-head-primary"
+
+    // TE Route Priority Role Middle
+    RoutePriorityRole_route_priority_role_middle RoutePriorityRole = "route-priority-role-middle"
+)
+
+// OtnSignaledBandwidthFlexFraming represents Otn signaled bandwidth flex framing
+type OtnSignaledBandwidthFlexFraming string
+
+const (
+    // CBR
+    OtnSignaledBandwidthFlexFraming_cbr OtnSignaledBandwidthFlexFraming = "cbr"
+
+    // GFP fixed framing type
+    OtnSignaledBandwidthFlexFraming_framed_gfp_fixed OtnSignaledBandwidthFlexFraming = "framed-gfp-fixed"
+
+    // GFP resizeable framing type
+    OtnSignaledBandwidthFlexFraming_framed_gfp_resize OtnSignaledBandwidthFlexFraming = "framed-gfp-resize"
 )
 
 // SrPrepend represents Sr prepend
@@ -55,6 +94,69 @@ const (
 
     // BGP NHOP
     SrPrepend_bgp_n_hop SrPrepend = "bgp-n-hop"
+)
+
+// MplsTePathSelectionTiebreaker represents Mpls te path selection tiebreaker
+type MplsTePathSelectionTiebreaker string
+
+const (
+    // Prefer the path with the least-utilized links
+    MplsTePathSelectionTiebreaker_min_fill MplsTePathSelectionTiebreaker = "min-fill"
+
+    // Prefer the path with the most-utilized links
+    MplsTePathSelectionTiebreaker_max_fill MplsTePathSelectionTiebreaker = "max-fill"
+
+    // Prefer a path with links utilized randomly
+    MplsTePathSelectionTiebreaker_random MplsTePathSelectionTiebreaker = "random"
+)
+
+// MplsTeOtnApsProtection represents Mpls te otn aps protection
+type MplsTeOtnApsProtection string
+
+const (
+    // 1PLUS1 UNIDIR NO APS
+    MplsTeOtnApsProtection_Y_1plus1_unidir_no_aps MplsTeOtnApsProtection = "1plus1-unidir-no-aps"
+
+    // 1PLUS1 UNIDIR APS
+    MplsTeOtnApsProtection_Y_1plus1_unidir_aps MplsTeOtnApsProtection = "1plus1-unidir-aps"
+
+    // 1PLUS1 BIDIR APS
+    MplsTeOtnApsProtection_Y_1plus1_bdir_aps MplsTeOtnApsProtection = "1plus1-bdir-aps"
+)
+
+// OspfAreaMode represents Ospf area mode
+type OspfAreaMode string
+
+const (
+    // OSPF area in integer format
+    OspfAreaMode_ospf_int OspfAreaMode = "ospf-int"
+
+    // OSPF area in IP address format
+    OspfAreaMode_ospfip_addr OspfAreaMode = "ospfip-addr"
+)
+
+// MplsTePathOptionProperty represents Mpls te path option property
+type MplsTePathOptionProperty string
+
+const (
+    // No property
+    MplsTePathOptionProperty_none MplsTePathOptionProperty = "none"
+
+    // Path is not a candidate for reoptimization
+    MplsTePathOptionProperty_lockdown MplsTePathOptionProperty = "lockdown"
+
+    // Explicit path does not require topology
+    // database
+    MplsTePathOptionProperty_verbatim MplsTePathOptionProperty = "verbatim"
+
+    // Dynamic path found by PCE server
+    MplsTePathOptionProperty_pce MplsTePathOptionProperty = "pce"
+
+    // Segment Routing path
+    MplsTePathOptionProperty_segment_routing MplsTePathOptionProperty = "segment-routing"
+
+    // Force tunnel to remain on same path
+    MplsTePathOptionProperty_sticky MplsTePathOptionProperty = "sticky"
 )
 
 // MplsTePathComputationMethod represents Mpls te path computation method
@@ -74,6 +176,17 @@ const (
     MplsTePathComputationMethod_explicit MplsTePathComputationMethod = "explicit"
 )
 
+// MplsTeSignaledLabel represents Mpls te signaled label
+type MplsTeSignaledLabel string
+
+const (
+    // Not Set
+    MplsTeSignaledLabel_not_set MplsTeSignaledLabel = "not-set"
+
+    // DWDM Label (RFC 6205), 50GHz channel spacing
+    MplsTeSignaledLabel_dwdm MplsTeSignaledLabel = "dwdm"
+)
+
 // OtnDestination represents Otn destination
 type OtnDestination string
 
@@ -83,76 +196,6 @@ const (
 
     // Destination unnumbered
     OtnDestination_un_number_ed OtnDestination = "un-number-ed"
-)
-
-// MplsTeSwitchingCap represents Mpls te switching cap
-type MplsTeSwitchingCap string
-
-const (
-    // PSC1
-    MplsTeSwitchingCap_psc1 MplsTeSwitchingCap = "psc1"
-
-    // LSC
-    MplsTeSwitchingCap_lsc MplsTeSwitchingCap = "lsc"
-
-    // FSC
-    MplsTeSwitchingCap_fsc MplsTeSwitchingCap = "fsc"
-)
-
-// MplsTeBfdSessionDownAction represents Mpls te bfd session down action
-type MplsTeBfdSessionDownAction string
-
-const (
-    // Tear down and resetup
-    MplsTeBfdSessionDownAction_re_setup MplsTeBfdSessionDownAction = "re-setup"
-)
-
-// RoutePriorityRole represents Route priority role
-type RoutePriorityRole string
-
-const (
-    // TE Route Priority Role Head Backup
-    RoutePriorityRole_route_priority_role_head_back_up RoutePriorityRole = "route-priority-role-head-back-up"
-
-    // TE Route Priority Role Head Primary
-    RoutePriorityRole_route_priority_role_head_primary RoutePriorityRole = "route-priority-role-head-primary"
-
-    // TE Route Priority Role Middle
-    RoutePriorityRole_route_priority_role_middle RoutePriorityRole = "route-priority-role-middle"
-)
-
-// MplsTebfdSession represents Mpls tebfd session
-type MplsTebfdSession string
-
-const (
-    // Regular BFD
-    MplsTebfdSession_regular_bfd MplsTebfdSession = "regular-bfd"
-
-    // Seamless BFD
-    MplsTebfdSession_sbfd MplsTebfdSession = "sbfd"
-
-    // Redundant SBFD
-    MplsTebfdSession_redundant_sbfd MplsTebfdSession = "redundant-sbfd"
-)
-
-// MplsTeLogFrrProtection represents Mpls te log frr protection
-type MplsTeLogFrrProtection string
-
-const (
-    // Track only FRR active on primary LSP
-    MplsTeLogFrrProtection_frr_active_primary MplsTeLogFrrProtection = "frr-active-primary"
-
-    // backup tunnel
-    MplsTeLogFrrProtection_backup MplsTeLogFrrProtection = "backup"
-
-    // Track only FRR ready on primary LSP
-    MplsTeLogFrrProtection_frr_ready_primary MplsTeLogFrrProtection = "frr-ready-primary"
-
-    // primary LSP
-    MplsTeLogFrrProtection_primary MplsTeLogFrrProtection = "primary"
-
-    // all
-    MplsTeLogFrrProtection_all MplsTeLogFrrProtection = "all"
 )
 
 // MplsTeTunnelAffinity represents Mpls te tunnel affinity
@@ -175,135 +218,6 @@ const (
     MplsTeTunnelAffinity_ignore MplsTeTunnelAffinity = "ignore"
 )
 
-// IetfMode represents Ietf mode
-type IetfMode string
-
-const (
-    // IETF Standard
-    IetfMode_standard IetfMode = "standard"
-)
-
-// MplsTePathOptionProperty represents Mpls te path option property
-type MplsTePathOptionProperty string
-
-const (
-    // No property
-    MplsTePathOptionProperty_none MplsTePathOptionProperty = "none"
-
-    // Path is not a canditate forreoptimization
-    MplsTePathOptionProperty_lockdown MplsTePathOptionProperty = "lockdown"
-
-    // Explicit path does not require topology
-    // database
-    MplsTePathOptionProperty_verbatim MplsTePathOptionProperty = "verbatim"
-
-    // Dynamic path found by PCE server
-    MplsTePathOptionProperty_pce MplsTePathOptionProperty = "pce"
-
-    // Segment Routing path
-    MplsTePathOptionProperty_segment_routing MplsTePathOptionProperty = "segment-routing"
-)
-
-// GmplsttiMode represents Gmplstti mode
-type GmplsttiMode string
-
-const (
-    // Section Monitoring
-    GmplsttiMode_sm GmplsttiMode = "sm"
-
-    // Path Monitoring
-    GmplsttiMode_pm GmplsttiMode = "pm"
-
-    // Tandem Connection
-    GmplsttiMode_tcm GmplsttiMode = "tcm"
-)
-
-// MplsTePathSelectionInvalidationTimerExpire represents Mpls te path selection invalidation timer expire
-type MplsTePathSelectionInvalidationTimerExpire string
-
-const (
-    // Tear down tunnel.
-    MplsTePathSelectionInvalidationTimerExpire_tunnel_action_tear MplsTePathSelectionInvalidationTimerExpire = "tunnel-action-tear"
-
-    // Drop tunnel traffic.
-    MplsTePathSelectionInvalidationTimerExpire_tunnel_action_drop MplsTePathSelectionInvalidationTimerExpire = "tunnel-action-drop"
-)
-
-// MplsTeOtnApsProtection represents Mpls te otn aps protection
-type MplsTeOtnApsProtection string
-
-const (
-    // 1PLUS1 UNIDIR NO APS
-    MplsTeOtnApsProtection_Y_1plus1_unidir_no_aps MplsTeOtnApsProtection = "1plus1-unidir-no-aps"
-
-    // 1PLUS1 UNIDIR APS
-    MplsTeOtnApsProtection_Y_1plus1_unidir_aps MplsTeOtnApsProtection = "1plus1-unidir-aps"
-
-    // 1PLUS1 BIDIR APS
-    MplsTeOtnApsProtection_Y_1plus1_bdir_aps MplsTeOtnApsProtection = "1plus1-bdir-aps"
-)
-
-// MplsTeSwitchingEncoding represents Mpls te switching encoding
-type MplsTeSwitchingEncoding string
-
-const (
-    // Packet
-    MplsTeSwitchingEncoding_packet MplsTeSwitchingEncoding = "packet"
-
-    // Ethernet
-    MplsTeSwitchingEncoding_ethernet MplsTeSwitchingEncoding = "ethernet"
-
-    // SONET SDH
-    MplsTeSwitchingEncoding_sondet_sdh MplsTeSwitchingEncoding = "sondet-sdh"
-)
-
-// MplsTeSigNameOption represents Mpls te sig name option
-type MplsTeSigNameOption string
-
-const (
-    // None
-    MplsTeSigNameOption_none MplsTeSigNameOption = "none"
-
-    // Address
-    MplsTeSigNameOption_address MplsTeSigNameOption = "address"
-
-    // Name
-    MplsTeSigNameOption_name MplsTeSigNameOption = "name"
-)
-
-// OtnProtectionSwitchLockout represents Otn protection switch lockout
-type OtnProtectionSwitchLockout string
-
-const (
-    // No Lockout
-    OtnProtectionSwitchLockout_none OtnProtectionSwitchLockout = "none"
-
-    // Lockout Working
-    OtnProtectionSwitchLockout_working OtnProtectionSwitchLockout = "working"
-)
-
-// MplsTeTunnelId represents Mpls te tunnel id
-type MplsTeTunnelId string
-
-const (
-    // Auto
-    MplsTeTunnelId_auto MplsTeTunnelId = "auto"
-
-    // Explicit
-    MplsTeTunnelId_explicit MplsTeTunnelId = "explicit"
-)
-
-// MplsTeAffinityValue represents Mpls te affinity value
-type MplsTeAffinityValue string
-
-const (
-    // Affinity value in Hex number
-    MplsTeAffinityValue_hex_value MplsTeAffinityValue = "hex-value"
-
-    // Affinity value by Bit-Position
-    MplsTeAffinityValue_bit_position MplsTeAffinityValue = "bit-position"
-)
-
 // OtnStaticUni represents Otn static uni
 type OtnStaticUni string
 
@@ -318,18 +232,101 @@ const (
     OtnStaticUni_termination OtnStaticUni = "termination"
 )
 
-// MplsTeOtnSncMode represents Mpls te otn snc mode
-type MplsTeOtnSncMode string
+// MplsTeSwitchingCap represents Mpls te switching cap
+type MplsTeSwitchingCap string
 
 const (
-    // SNC N
-    MplsTeOtnSncMode_snc_n MplsTeOtnSncMode = "snc-n"
+    // PSC1
+    MplsTeSwitchingCap_psc1 MplsTeSwitchingCap = "psc1"
 
-    // SNC I
-    MplsTeOtnSncMode_snc_i MplsTeOtnSncMode = "snc-i"
+    // LSC
+    MplsTeSwitchingCap_lsc MplsTeSwitchingCap = "lsc"
 
-    // SNC S
-    MplsTeOtnSncMode_snc_s MplsTeOtnSncMode = "snc-s"
+    // FSC
+    MplsTeSwitchingCap_fsc MplsTeSwitchingCap = "fsc"
+)
+
+// MplsTeOtnApsProtectionMode represents Mpls te otn aps protection mode
+type MplsTeOtnApsProtectionMode string
+
+const (
+    // Revertive
+    MplsTeOtnApsProtectionMode_revertive MplsTeOtnApsProtectionMode = "revertive"
+
+    // Non Revertive
+    MplsTeOtnApsProtectionMode_non_revertive MplsTeOtnApsProtectionMode = "non-revertive"
+)
+
+// MplsTeConfigTunnel represents Mpls te config tunnel
+type MplsTeConfigTunnel string
+
+const (
+    // P2P
+    MplsTeConfigTunnel_p2p MplsTeConfigTunnel = "p2p"
+
+    // P2MP
+    MplsTeConfigTunnel_p2mp MplsTeConfigTunnel = "p2mp"
+)
+
+// MplsTeBfdSessionDownAction represents Mpls te bfd session down action
+type MplsTeBfdSessionDownAction string
+
+const (
+    // Tear down and resetup
+    MplsTeBfdSessionDownAction_re_setup MplsTeBfdSessionDownAction = "re-setup"
+)
+
+// MplsTeLogFrrProtection represents Mpls te log frr protection
+type MplsTeLogFrrProtection string
+
+const (
+    // Track only FRR active on primary LSP
+    MplsTeLogFrrProtection_frr_active_primary MplsTeLogFrrProtection = "frr-active-primary"
+
+    // backup tunnel
+    MplsTeLogFrrProtection_backup MplsTeLogFrrProtection = "backup"
+
+    // Track only FRR ready on primary LSP
+    MplsTeLogFrrProtection_frr_ready_primary MplsTeLogFrrProtection = "frr-ready-primary"
+
+    // primary LSP
+    MplsTeLogFrrProtection_primary MplsTeLogFrrProtection = "primary"
+
+    // all
+    MplsTeLogFrrProtection_all MplsTeLogFrrProtection = "all"
+)
+
+// LinkNextHop represents Link next hop
+type LinkNextHop string
+
+const (
+    // No next hop
+    LinkNextHop_none LinkNextHop = "none"
+
+    // IPv4 next-hop address
+    LinkNextHop_ipv4_address LinkNextHop = "ipv4-address"
+)
+
+// MplsTeAutorouteMetric represents Mpls te autoroute metric
+type MplsTeAutorouteMetric string
+
+const (
+    // Relative
+    MplsTeAutorouteMetric_relative MplsTeAutorouteMetric = "relative"
+
+    // Absolute
+    MplsTeAutorouteMetric_absolute MplsTeAutorouteMetric = "absolute"
+
+    // Constant
+    MplsTeAutorouteMetric_constant MplsTeAutorouteMetric = "constant"
+)
+
+// BandwidthConstraint represents Bandwidth constraint
+type BandwidthConstraint string
+
+const (
+    // Maximum Allocation Bandwidth Constaints Model
+    BandwidthConstraint_bandwidth_constraint_maximum_allocation_model BandwidthConstraint = "bandwidth-constraint-maximum-allocation-model"
 )
 
 // OtnPayload represents Otn payload
@@ -352,43 +349,40 @@ const (
     OtnPayload_gfp_f_ext OtnPayload = "gfp-f-ext"
 )
 
-// OspfAreaMode represents Ospf area mode
-type OspfAreaMode string
+// MplsTeOtnSncMode represents Mpls te otn snc mode
+type MplsTeOtnSncMode string
 
 const (
-    // OSPF area in integer format
-    OspfAreaMode_ospf_int OspfAreaMode = "ospf-int"
+    // SNC N
+    MplsTeOtnSncMode_snc_n MplsTeOtnSncMode = "snc-n"
 
-    // OSPF area in IP address format
-    OspfAreaMode_ospfip_addr OspfAreaMode = "ospfip-addr"
+    // SNC I
+    MplsTeOtnSncMode_snc_i MplsTeOtnSncMode = "snc-i"
+
+    // SNC S
+    MplsTeOtnSncMode_snc_s MplsTeOtnSncMode = "snc-s"
 )
 
-// MplsTeIgpProtocol represents Mpls te igp protocol
-type MplsTeIgpProtocol string
+// BfdReversePath represents Bfd reverse path
+type BfdReversePath string
 
 const (
-    // Not set
-    MplsTeIgpProtocol_none MplsTeIgpProtocol = "none"
-
-    // IS IS
-    MplsTeIgpProtocol_isis MplsTeIgpProtocol = "isis"
-
-    // OSPF
-    MplsTeIgpProtocol_ospf MplsTeIgpProtocol = "ospf"
+    // BindingLabel
+    BfdReversePath_bfd_reverse_path_binding_label BfdReversePath = "bfd-reverse-path-binding-label"
 )
 
-// MplsTePathSelectionTiebreaker represents Mpls te path selection tiebreaker
-type MplsTePathSelectionTiebreaker string
+// MplsTePathSelectionMetric represents Mpls te path selection metric
+type MplsTePathSelectionMetric string
 
 const (
-    // Prefer the path with the least-utilized links
-    MplsTePathSelectionTiebreaker_min_fill MplsTePathSelectionTiebreaker = "min-fill"
+    // IGP Metric
+    MplsTePathSelectionMetric_igp MplsTePathSelectionMetric = "igp"
 
-    // Prefer the path with the most-utilized links
-    MplsTePathSelectionTiebreaker_max_fill MplsTePathSelectionTiebreaker = "max-fill"
+    // TE Metric
+    MplsTePathSelectionMetric_te MplsTePathSelectionMetric = "te"
 
-    // Prefer a path with links utilized randomly
-    MplsTePathSelectionTiebreaker_random MplsTePathSelectionTiebreaker = "random"
+    // DELAY Metric
+    MplsTePathSelectionMetric_delay MplsTePathSelectionMetric = "delay"
 )
 
 // MplsTePathOption represents Mpls te path option
@@ -414,15 +408,34 @@ const (
     MplsTePathOption_sr MplsTePathOption = "sr"
 )
 
-// PathInvalidationAction represents Path invalidation action
-type PathInvalidationAction string
+// MplsLcacFloodingIgp represents Mpls lcac flooding igp
+type MplsLcacFloodingIgp string
 
 const (
-    // Tear
-    PathInvalidationAction_tear PathInvalidationAction = "tear"
+    // OSPF
+    MplsLcacFloodingIgp_ospf MplsLcacFloodingIgp = "ospf"
+)
 
-    // Drop
-    PathInvalidationAction_drop PathInvalidationAction = "drop"
+// OtnProtectionSwitchLockout represents Otn protection switch lockout
+type OtnProtectionSwitchLockout string
+
+const (
+    // No Lockout
+    OtnProtectionSwitchLockout_none OtnProtectionSwitchLockout = "none"
+
+    // Lockout Working
+    OtnProtectionSwitchLockout_working OtnProtectionSwitchLockout = "working"
+)
+
+// MplsTeTunnelId represents Mpls te tunnel id
+type MplsTeTunnelId string
+
+const (
+    // Auto
+    MplsTeTunnelId_auto MplsTeTunnelId = "auto"
+
+    // Explicit
+    MplsTeTunnelId_explicit MplsTeTunnelId = "explicit"
 )
 
 // OtnSignaledBandwidth represents Otn signaled bandwidth
@@ -472,18 +485,161 @@ const (
     OtnSignaledBandwidth_odu3e2 OtnSignaledBandwidth = "odu3e2"
 )
 
-// MplsTeAutorouteMetric represents Mpls te autoroute metric
-type MplsTeAutorouteMetric string
+// MplsTeBandwidthDste represents Mpls te bandwidth dste
+type MplsTeBandwidthDste string
 
 const (
-    // Relative
-    MplsTeAutorouteMetric_relative MplsTeAutorouteMetric = "relative"
+    // IETF-Standard DSTE
+    MplsTeBandwidthDste_standard_dste MplsTeBandwidthDste = "standard-dste"
 
-    // Absolute
-    MplsTeAutorouteMetric_absolute MplsTeAutorouteMetric = "absolute"
+    // Pre-Standard DSTE
+    MplsTeBandwidthDste_pre_standard_dste MplsTeBandwidthDste = "pre-standard-dste"
+)
 
-    // Constant
-    MplsTeAutorouteMetric_constant MplsTeAutorouteMetric = "constant"
+// MplsTePathSelectionInvalidationTimerExpire represents Mpls te path selection invalidation timer expire
+type MplsTePathSelectionInvalidationTimerExpire string
+
+const (
+    // Tear down tunnel.
+    MplsTePathSelectionInvalidationTimerExpire_tunnel_action_tear MplsTePathSelectionInvalidationTimerExpire = "tunnel-action-tear"
+
+    // Drop tunnel traffic.
+    MplsTePathSelectionInvalidationTimerExpire_tunnel_action_drop MplsTePathSelectionInvalidationTimerExpire = "tunnel-action-drop"
+)
+
+// MplsTePathDiversityConformance represents Mpls te path diversity conformance
+type MplsTePathDiversityConformance string
+
+const (
+    // Strict
+    MplsTePathDiversityConformance_strict MplsTePathDiversityConformance = "strict"
+
+    // Best effort
+    MplsTePathDiversityConformance_best_effort MplsTePathDiversityConformance = "best-effort"
+)
+
+// IetfMode represents Ietf mode
+type IetfMode string
+
+const (
+    // IETF Standard
+    IetfMode_standard IetfMode = "standard"
+)
+
+// MplsTeOtnApsRestorationStyle represents Mpls te otn aps restoration style
+type MplsTeOtnApsRestorationStyle string
+
+const (
+    // Keep Failed Lsp
+    MplsTeOtnApsRestorationStyle_keep_failed_lsp MplsTeOtnApsRestorationStyle = "keep-failed-lsp"
+
+    // Delete Failed Lsp
+    MplsTeOtnApsRestorationStyle_delete_failed_lsp MplsTeOtnApsRestorationStyle = "delete-failed-lsp"
+)
+
+// MplsTePathSelectionSegmentRoutingAdjacencyProtection represents protection
+type MplsTePathSelectionSegmentRoutingAdjacencyProtection string
+
+const (
+    // Any segment can be used in a path.
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection_not_set MplsTePathSelectionSegmentRoutingAdjacencyProtection = "not-set"
+
+    // Only unprotected adjacency segments can be used
+    // in a path.
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection_adj_unprotected MplsTePathSelectionSegmentRoutingAdjacencyProtection = "adj-unprotected"
+
+    // Only protected adjacency segments can be used
+    // in a path.
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection_adj_protected MplsTePathSelectionSegmentRoutingAdjacencyProtection = "adj-protected"
+)
+
+// GmplsttiMode represents Gmplstti mode
+type GmplsttiMode string
+
+const (
+    // Section Monitoring
+    GmplsttiMode_sm GmplsttiMode = "sm"
+
+    // Path Monitoring
+    GmplsttiMode_pm GmplsttiMode = "pm"
+
+    // Tandem Connection
+    GmplsttiMode_tcm GmplsttiMode = "tcm"
+)
+
+// MplsTeSwitchingEncoding represents Mpls te switching encoding
+type MplsTeSwitchingEncoding string
+
+const (
+    // Packet
+    MplsTeSwitchingEncoding_packet MplsTeSwitchingEncoding = "packet"
+
+    // Ethernet
+    MplsTeSwitchingEncoding_ethernet MplsTeSwitchingEncoding = "ethernet"
+
+    // SONET SDH
+    MplsTeSwitchingEncoding_sondet_sdh MplsTeSwitchingEncoding = "sondet-sdh"
+)
+
+// MplsTeSigNameOption represents Mpls te sig name option
+type MplsTeSigNameOption string
+
+const (
+    // None
+    MplsTeSigNameOption_none MplsTeSigNameOption = "none"
+
+    // Address
+    MplsTeSigNameOption_address MplsTeSigNameOption = "address"
+
+    // Name
+    MplsTeSigNameOption_name MplsTeSigNameOption = "name"
+)
+
+// PathInvalidationAction represents Path invalidation action
+type PathInvalidationAction string
+
+const (
+    // Tear
+    PathInvalidationAction_tear PathInvalidationAction = "tear"
+
+    // Drop
+    PathInvalidationAction_drop PathInvalidationAction = "drop"
+)
+
+// MplsTeSwitchingIndex represents Mpls te switching index
+type MplsTeSwitchingIndex string
+
+const (
+    // Link
+    MplsTeSwitchingIndex_link MplsTeSwitchingIndex = "link"
+)
+
+// MplsTeIgpProtocol represents Mpls te igp protocol
+type MplsTeIgpProtocol string
+
+const (
+    // Not set
+    MplsTeIgpProtocol_none MplsTeIgpProtocol = "none"
+
+    // IS IS
+    MplsTeIgpProtocol_isis MplsTeIgpProtocol = "isis"
+
+    // OSPF
+    MplsTeIgpProtocol_ospf MplsTeIgpProtocol = "ospf"
+)
+
+// MplsTebfdSession represents Mpls tebfd session
+type MplsTebfdSession string
+
+const (
+    // Regular BFD
+    MplsTebfdSession_regular_bfd MplsTebfdSession = "regular-bfd"
+
+    // Seamless BFD
+    MplsTebfdSession_sbfd MplsTebfdSession = "sbfd"
+
+    // Redundant SBFD
+    MplsTebfdSession_redundant_sbfd MplsTebfdSession = "redundant-sbfd"
 )
 
 // BindingSegmentId represents Binding segment id
@@ -497,37 +653,18 @@ const (
     BindingSegmentId_specified_label BindingSegmentId = "specified-label"
 )
 
-// MplsTesrlgExclude represents Mpls tesrlg exclude
-type MplsTesrlgExclude string
+// MplsTeBackupBandwidthPool represents Mpls te backup bandwidth pool
+type MplsTeBackupBandwidthPool string
 
 const (
-    // SRLG Mandatory Exclude
-    MplsTesrlgExclude_mandatory MplsTesrlgExclude = "mandatory"
+    // Any Pool
+    MplsTeBackupBandwidthPool_any_pool MplsTeBackupBandwidthPool = "any-pool"
 
-    // SRLG Preferred Exclude
-    MplsTesrlgExclude_preferred MplsTesrlgExclude = "preferred"
+    // Global Pool
+    MplsTeBackupBandwidthPool_global_pool MplsTeBackupBandwidthPool = "global-pool"
 
-    // SRLG Weighted Exclude
-    MplsTesrlgExclude_weighted MplsTesrlgExclude = "weighted"
-)
-
-// MplsTeSignaledLabel represents Mpls te signaled label
-type MplsTeSignaledLabel string
-
-const (
-    // Not Set
-    MplsTeSignaledLabel_not_set MplsTeSignaledLabel = "not-set"
-
-    // DWDM Label (RFC 6205), 50GHz channel spacing
-    MplsTeSignaledLabel_dwdm MplsTeSignaledLabel = "dwdm"
-)
-
-// BandwidthConstraint represents Bandwidth constraint
-type BandwidthConstraint string
-
-const (
-    // Maximum Allocation Bandwidth Constaints Model
-    BandwidthConstraint_bandwidth_constraint_maximum_allocation_model BandwidthConstraint = "bandwidth-constraint-maximum-allocation-model"
+    // Sub Pool
+    MplsTeBackupBandwidthPool_sub_pool MplsTeBackupBandwidthPool = "sub-pool"
 )
 
 // MplsTeSwitchingEncode represents Mpls te switching encode
@@ -547,18 +684,18 @@ const (
     MplsTeSwitchingEncode_sondet_sdh MplsTeSwitchingEncode = "sondet-sdh"
 )
 
-// MplsTePathSelectionMetric represents Mpls te path selection metric
-type MplsTePathSelectionMetric string
+// MplsTeBackupBandwidthClass represents Mpls te backup bandwidth class
+type MplsTeBackupBandwidthClass string
 
 const (
-    // IGP Metric
-    MplsTePathSelectionMetric_igp MplsTePathSelectionMetric = "igp"
+    // Class 0
+    MplsTeBackupBandwidthClass_class0 MplsTeBackupBandwidthClass = "class0"
 
-    // TE Metric
-    MplsTePathSelectionMetric_te MplsTePathSelectionMetric = "te"
+    // Class 1
+    MplsTeBackupBandwidthClass_class1 MplsTeBackupBandwidthClass = "class1"
 
-    // DELAY Metric
-    MplsTePathSelectionMetric_delay MplsTePathSelectionMetric = "delay"
+    // Any Class
+    MplsTeBackupBandwidthClass_any_class MplsTeBackupBandwidthClass = "any-class"
 )
 
 // MplsTePathOptionProtection represents Mpls te path option protection
@@ -572,20 +709,6 @@ const (
     MplsTePathOptionProtection_protecting MplsTePathOptionProtection = "protecting"
 )
 
-// OtnSignaledBandwidthFlexFraming represents Otn signaled bandwidth flex framing
-type OtnSignaledBandwidthFlexFraming string
-
-const (
-    // CBR
-    OtnSignaledBandwidthFlexFraming_cbr OtnSignaledBandwidthFlexFraming = "cbr"
-
-    // GFP fixed framing type
-    OtnSignaledBandwidthFlexFraming_framed_gfp_fixed OtnSignaledBandwidthFlexFraming = "framed-gfp-fixed"
-
-    // GFP resizeable framing type
-    OtnSignaledBandwidthFlexFraming_framed_gfp_resize OtnSignaledBandwidthFlexFraming = "framed-gfp-resize"
-)
-
 // MplsTeBandwidthLimit represents Mpls te bandwidth limit
 type MplsTeBandwidthLimit string
 
@@ -595,126 +718,6 @@ const (
 
     // Limited
     MplsTeBandwidthLimit_limited MplsTeBandwidthLimit = "limited"
-)
-
-// MplsTePathSelectionSegmentRoutingAdjacencyProtection represents protection
-type MplsTePathSelectionSegmentRoutingAdjacencyProtection string
-
-const (
-    // Any segment can be used in a path.
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection_not_set MplsTePathSelectionSegmentRoutingAdjacencyProtection = "not-set"
-
-    // Only unprotected adjacency segments can be used
-    // in a path.
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection_adj_unprotected MplsTePathSelectionSegmentRoutingAdjacencyProtection = "adj-unprotected"
-
-    // Only protected adjacency segments can be used
-    // in a path.
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection_adj_protected MplsTePathSelectionSegmentRoutingAdjacencyProtection = "adj-protected"
-)
-
-// LinkNextHop represents Link next hop
-type LinkNextHop string
-
-const (
-    // No next hop
-    LinkNextHop_none LinkNextHop = "none"
-
-    // IPv4 next-hop address
-    LinkNextHop_ipv4_address LinkNextHop = "ipv4-address"
-)
-
-// MplsLcacFloodingIgp represents Mpls lcac flooding igp
-type MplsLcacFloodingIgp string
-
-const (
-    // OSPF
-    MplsLcacFloodingIgp_ospf MplsLcacFloodingIgp = "ospf"
-)
-
-// BfdReversePath represents Bfd reverse path
-type BfdReversePath string
-
-const (
-    // BindingLabel
-    BfdReversePath_bfd_reverse_path_binding_label BfdReversePath = "bfd-reverse-path-binding-label"
-)
-
-// MplsTeOtnApsRestorationStyle represents Mpls te otn aps restoration style
-type MplsTeOtnApsRestorationStyle string
-
-const (
-    // Keep Failed Lsp
-    MplsTeOtnApsRestorationStyle_keep_failed_lsp MplsTeOtnApsRestorationStyle = "keep-failed-lsp"
-
-    // Delete Failed Lsp
-    MplsTeOtnApsRestorationStyle_delete_failed_lsp MplsTeOtnApsRestorationStyle = "delete-failed-lsp"
-)
-
-// MplsTeBandwidthDste represents Mpls te bandwidth dste
-type MplsTeBandwidthDste string
-
-const (
-    // IETF-Standard DSTE
-    MplsTeBandwidthDste_standard_dste MplsTeBandwidthDste = "standard-dste"
-
-    // Pre-Standard DSTE
-    MplsTeBandwidthDste_pre_standard_dste MplsTeBandwidthDste = "pre-standard-dste"
-)
-
-// MplsTePathDiversityConformance represents Mpls te path diversity conformance
-type MplsTePathDiversityConformance string
-
-const (
-    // Strict
-    MplsTePathDiversityConformance_strict MplsTePathDiversityConformance = "strict"
-
-    // Best effort
-    MplsTePathDiversityConformance_best_effort MplsTePathDiversityConformance = "best-effort"
-)
-
-// MplsTeBackupBandwidthPool represents Mpls te backup bandwidth pool
-type MplsTeBackupBandwidthPool string
-
-const (
-    // Any Pool
-    MplsTeBackupBandwidthPool_any_pool MplsTeBackupBandwidthPool = "any-pool"
-
-    // Global Pool
-    MplsTeBackupBandwidthPool_global_pool MplsTeBackupBandwidthPool = "global-pool"
-
-    // Sub Pool
-    MplsTeBackupBandwidthPool_sub_pool MplsTeBackupBandwidthPool = "sub-pool"
-)
-
-// MplsTeOtnApsProtectionMode represents Mpls te otn aps protection mode
-type MplsTeOtnApsProtectionMode string
-
-const (
-    // Revertive
-    MplsTeOtnApsProtectionMode_revertive MplsTeOtnApsProtectionMode = "revertive"
-
-    // Non Revertive
-    MplsTeOtnApsProtectionMode_non_revertive MplsTeOtnApsProtectionMode = "non-revertive"
-)
-
-// MplsTeSwitchingIndex represents Mpls te switching index
-type MplsTeSwitchingIndex string
-
-const (
-    // Link
-    MplsTeSwitchingIndex_link MplsTeSwitchingIndex = "link"
-)
-
-// MplsTeConfigTunnel represents Mpls te config tunnel
-type MplsTeConfigTunnel string
-
-const (
-    // P2P
-    MplsTeConfigTunnel_p2p MplsTeConfigTunnel = "p2p"
-
-    // P2MP
-    MplsTeConfigTunnel_p2mp MplsTeConfigTunnel = "p2mp"
 )
 
 // MplsTe
@@ -981,9 +984,6 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel struct {
     // This attribute is a key. Tunnel Type. The type is MplsTeConfigTunnel.
     TunnelType interface{}
 
-    // Always set to true. The type is interface{}.
-    Enable interface{}
-
     // MPLS tunnel attributes.
     TunnelAttributes MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes
 
@@ -1008,7 +1008,6 @@ func (tunnel *MplsTe_NamedTunnels_Tunnels_Tunnel) GetEntityData() *types.CommonE
     tunnel.EntityData.Leafs = types.NewOrderedMap()
     tunnel.EntityData.Leafs.Append("tunnel-name", types.YLeaf{"TunnelName", tunnel.TunnelName})
     tunnel.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", tunnel.TunnelType})
-    tunnel.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", tunnel.Enable})
 
     tunnel.EntityData.YListKeys = []string {"TunnelName", "TunnelType"}
 
@@ -1028,7 +1027,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes struct {
     ForwardClass interface{}
 
     // Set the destination of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Destination interface{}
 
     // Record the route used by the tunnel. The type is interface{}.
@@ -1158,14 +1157,11 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_PathSetup st
     YListKey string
 
     // This attribute is a key. Path Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PathSetupName interface{}
 
     // Path preference level. The type is interface{} with range: 0..255.
     Preference interface{}
-
-    // Always set to true. The type is interface{}.
-    Enable interface{}
 
     // Path computation method.
     PathComputation MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_PathSetup_PathComputation
@@ -1187,7 +1183,6 @@ func (pathSetup *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_
     pathSetup.EntityData.Leafs = types.NewOrderedMap()
     pathSetup.EntityData.Leafs.Append("path-setup-name", types.YLeaf{"PathSetupName", pathSetup.PathSetupName})
     pathSetup.EntityData.Leafs.Append("preference", types.YLeaf{"Preference", pathSetup.Preference})
-    pathSetup.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pathSetup.Enable})
 
     pathSetup.EntityData.YListKeys = []string {"PathSetupName"}
 
@@ -1210,7 +1205,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_PathSetup_Pa
     ExplicitPathName interface{}
 
     // Path Computation Server Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // The default value is 0.0.0.0.
     PathComputationServer interface{}
 }
@@ -1672,11 +1667,11 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AffinityMask struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -2050,7 +2045,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoroute_Destinations_
 
     // This attribute is a key. IP address of destination. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 }
 
@@ -2232,7 +2227,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -2269,11 +2264,11 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -2311,15 +2306,15 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -2358,19 +2353,19 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -2410,23 +2405,23 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -2467,27 +2462,27 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -2529,31 +2524,31 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -2596,35 +2591,35 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -2668,39 +2663,39 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -2745,43 +2740,43 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinit
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -3062,7 +3057,7 @@ type MplsTe_GmplsUni_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Enable GMPLS-UNI on the link. The type is interface{}.
@@ -3176,7 +3171,7 @@ type MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead struct {
     Enable interface{}
 
     // Set the destination of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Destination interface{}
 
     // Record the route used by the tunnel. The type is interface{}.
@@ -4060,11 +4055,6 @@ type MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups_MeshGroup struct {
     // is string with length: 1..64.
     AttributeSet interface{}
 
-    // Auto-mesh group enable object that controls whether this group is
-    // configured or not .This object must be set before other configuration
-    // supplied for this group. The type is interface{}.
-    Create interface{}
-
     // Automatically create tunnel to all next-hops. The type is interface{}.
     OneHop interface{}
 }
@@ -4086,7 +4076,6 @@ func (meshGroup *MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups_MeshGroup) G
     meshGroup.EntityData.Leafs.Append("destination-list", types.YLeaf{"DestinationList", meshGroup.DestinationList})
     meshGroup.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", meshGroup.Disable})
     meshGroup.EntityData.Leafs.Append("attribute-set", types.YLeaf{"AttributeSet", meshGroup.AttributeSet})
-    meshGroup.EntityData.Leafs.Append("create", types.YLeaf{"Create", meshGroup.Create})
     meshGroup.EntityData.Leafs.Append("one-hop", types.YLeaf{"OneHop", meshGroup.OneHop})
 
     meshGroup.EntityData.YListKeys = []string {"MeshGroupId"}
@@ -4512,7 +4501,7 @@ type MplsTe_GlobalAttributes_SecondaryRouterIds_SecondaryRouterId struct {
 
     // This attribute is a key. Secondary TE Router ID. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SecondaryRouterIdValue interface{}
 }
 
@@ -4692,11 +4681,11 @@ type MplsTe_GlobalAttributes_Srlg_Names_Name_StaticSrlgMembers_StaticSrlgMember 
     YListKey string
 
     // This attribute is a key. From address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     FromAddress interface{}
 
     // To Addres. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     ToAddress interface{}
 }
@@ -4923,11 +4912,6 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     // length: 1..64.
     AttributeSetName interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Configure BFD reverse path.
     BfdReversePath MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_BfdReversePath
 
@@ -4967,7 +4951,6 @@ func (pathOptionAttribute *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttrib
     pathOptionAttribute.EntityData.Children.Append("new-style-affinity-affinity-types", types.YChild{"NewStyleAffinityAffinityTypes", &pathOptionAttribute.NewStyleAffinityAffinityTypes})
     pathOptionAttribute.EntityData.Leafs = types.NewOrderedMap()
     pathOptionAttribute.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", pathOptionAttribute.AttributeSetName})
-    pathOptionAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pathOptionAttribute.Enable})
 
     pathOptionAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
 
@@ -5143,7 +5126,7 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     YPresence bool
 
     // Bidirectional Source IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     BdSourceAddress interface{}
 
@@ -5182,7 +5165,7 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     YPresence bool
 
     // Disjoint Path Source IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     DpSourceAddress interface{}
 
@@ -5225,11 +5208,11 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -5457,7 +5440,7 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -5494,11 +5477,11 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -5536,15 +5519,15 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -5583,19 +5566,19 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -5635,23 +5618,23 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -5692,27 +5675,27 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -5754,31 +5737,31 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -5821,35 +5804,35 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -5893,39 +5876,39 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -5970,43 +5953,43 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -6089,11 +6072,6 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute struc
     // 0..4294967295. Units are kbit/s.
     InterfaceBandwidth interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Record the route used by the tunnel. The type is interface{}.
     RecordRoute interface{}
 
@@ -6141,7 +6119,6 @@ func (p2mpteAttribute *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2m
     p2mpteAttribute.EntityData.Leafs = types.NewOrderedMap()
     p2mpteAttribute.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", p2mpteAttribute.AttributeSetName})
     p2mpteAttribute.EntityData.Leafs.Append("interface-bandwidth", types.YLeaf{"InterfaceBandwidth", p2mpteAttribute.InterfaceBandwidth})
-    p2mpteAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", p2mpteAttribute.Enable})
     p2mpteAttribute.EntityData.Leafs.Append("record-route", types.YLeaf{"RecordRoute", p2mpteAttribute.RecordRoute})
 
     p2mpteAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
@@ -6195,11 +6172,11 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_Affin
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -6457,7 +6434,7 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -6494,11 +6471,11 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -6536,15 +6513,15 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -6583,19 +6560,19 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -6635,23 +6612,23 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -6692,27 +6669,27 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -6754,31 +6731,31 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -6821,35 +6798,35 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -6893,39 +6870,39 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -6970,43 +6947,43 @@ type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewSt
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -7185,11 +7162,6 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute struct 
     // length: 1..64.
     AttributeSetName interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Configure path selection properties.
     PathSelection MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection
 
@@ -7225,7 +7197,6 @@ func (p2pTeAttribute *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTe
     p2pTeAttribute.EntityData.Children.Append("new-style-affinity-affinity-types", types.YChild{"NewStyleAffinityAffinityTypes", &p2pTeAttribute.NewStyleAffinityAffinityTypes})
     p2pTeAttribute.EntityData.Leafs = types.NewOrderedMap()
     p2pTeAttribute.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", p2pTeAttribute.AttributeSetName})
-    p2pTeAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", p2pTeAttribute.Enable})
 
     p2pTeAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
 
@@ -7474,7 +7445,7 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_Pce_Bid
     YPresence bool
 
     // Bidirectional Source IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     BdSourceAddress interface{}
 
@@ -7513,7 +7484,7 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_Pce_Dis
     YPresence bool
 
     // Disjoint Path Source IP Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     DpSourceAddress interface{}
 
@@ -7556,11 +7527,11 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_Affinit
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -7814,7 +7785,7 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -7851,11 +7822,11 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -7893,15 +7864,15 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -7940,19 +7911,19 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -7992,23 +7963,23 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -8049,27 +8020,27 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -8111,31 +8082,31 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -8178,35 +8149,35 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -8250,39 +8221,39 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -8327,43 +8298,43 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyl
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -8442,11 +8413,6 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     // length: 1..64.
     AttributeSetName interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Record the route used by the tunnel. The type is interface{}.
     RecordRoute interface{}
 
@@ -8493,7 +8459,6 @@ func (autoBackupAttribute *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttrib
     autoBackupAttribute.EntityData.Children.Append("new-style-affinity-affinity-types", types.YChild{"NewStyleAffinityAffinityTypes", &autoBackupAttribute.NewStyleAffinityAffinityTypes})
     autoBackupAttribute.EntityData.Leafs = types.NewOrderedMap()
     autoBackupAttribute.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", autoBackupAttribute.AttributeSetName})
-    autoBackupAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoBackupAttribute.Enable})
     autoBackupAttribute.EntityData.Leafs.Append("record-route", types.YLeaf{"RecordRoute", autoBackupAttribute.RecordRoute})
 
     autoBackupAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
@@ -8631,11 +8596,11 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -8879,7 +8844,7 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -8916,11 +8881,11 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -8958,15 +8923,15 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -9005,19 +8970,19 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -9057,23 +9022,23 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -9114,27 +9079,27 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -9176,31 +9141,31 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -9243,35 +9208,35 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -9315,39 +9280,39 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -9392,43 +9357,43 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribu
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -9516,11 +9481,6 @@ type MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAttribute struct 
     // The APS protecion type. The type is MplsTeOtnApsProtection.
     ApsProtectionType interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Specify APS revert schedule.
     RevertScheduleNames MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAttribute_RevertScheduleNames
 
@@ -9555,7 +9515,6 @@ func (otnPpAttribute *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPp
     otnPpAttribute.EntityData.Leafs.Append("aps-protection-mode", types.YLeaf{"ApsProtectionMode", otnPpAttribute.ApsProtectionMode})
     otnPpAttribute.EntityData.Leafs.Append("aps-restoration-style", types.YLeaf{"ApsRestorationStyle", otnPpAttribute.ApsRestorationStyle})
     otnPpAttribute.EntityData.Leafs.Append("aps-protection-type", types.YLeaf{"ApsProtectionType", otnPpAttribute.ApsProtectionType})
-    otnPpAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", otnPpAttribute.Enable})
 
     otnPpAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
 
@@ -9896,11 +9855,6 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute s
     // Forward class value. The type is interface{} with range: 0..7.
     ForwardClass interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Record the route used by the tunnel. The type is interface{}.
     RecordRoute interface{}
 
@@ -9965,7 +9919,6 @@ func (autoMeshAttribute *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes
     autoMeshAttribute.EntityData.Leafs.Append("autoroute-announce", types.YLeaf{"AutorouteAnnounce", autoMeshAttribute.AutorouteAnnounce})
     autoMeshAttribute.EntityData.Leafs.Append("interface-bandwidth", types.YLeaf{"InterfaceBandwidth", autoMeshAttribute.InterfaceBandwidth})
     autoMeshAttribute.EntityData.Leafs.Append("forward-class", types.YLeaf{"ForwardClass", autoMeshAttribute.ForwardClass})
-    autoMeshAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoMeshAttribute.Enable})
     autoMeshAttribute.EntityData.Leafs.Append("record-route", types.YLeaf{"RecordRoute", autoMeshAttribute.RecordRoute})
     autoMeshAttribute.EntityData.Leafs.Append("collection-only", types.YLeaf{"CollectionOnly", autoMeshAttribute.CollectionOnly})
     autoMeshAttribute.EntityData.Leafs.Append("soft-preemption", types.YLeaf{"SoftPreemption", autoMeshAttribute.SoftPreemption})
@@ -10076,11 +10029,11 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_A
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'. This
     // attribute is mandatory.
     Mask interface{}
 }
@@ -10368,7 +10321,7 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 }
 
@@ -10405,11 +10358,11 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 }
 
@@ -10447,15 +10400,15 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 }
 
@@ -10494,19 +10447,19 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 }
 
@@ -10546,23 +10499,23 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 }
 
@@ -10603,27 +10556,27 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 }
 
@@ -10665,31 +10618,31 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 }
 
@@ -10732,35 +10685,35 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 }
 
@@ -10804,39 +10757,39 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 }
 
@@ -10881,43 +10834,43 @@ type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_N
     AffinityType interface{}
 
     // This attribute is a key. The name of the first affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity1 interface{}
 
     // This attribute is a key. The name of the second affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity2 interface{}
 
     // This attribute is a key. The name of the third affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity3 interface{}
 
     // This attribute is a key. The name of the fourth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity4 interface{}
 
     // This attribute is a key. The name of the fifth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity5 interface{}
 
     // This attribute is a key. The name of the sixth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity6 interface{}
 
     // This attribute is a key. The name of the seventh affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity7 interface{}
 
     // This attribute is a key. The name of the eighth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity8 interface{}
 
     // This attribute is a key. The name of the nineth affinity. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity9 interface{}
 
     // This attribute is a key. The name of the tenth affinity. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Affinity10 interface{}
 }
 
@@ -11034,11 +10987,6 @@ type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute struct {
     // length: 1..64.
     AttributeSetName interface{}
 
-    // Attribute-set enable object that controls whether this attribute-set is
-    // configured or not .This object must be set before other configuration
-    // supplied for this attribute-set. The type is interface{}.
-    Enable interface{}
-
     // Path diversity.
     PathDiversity MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathDiversity
 
@@ -11062,7 +11010,6 @@ func (xroAttribute *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttrib
     xroAttribute.EntityData.Children.Append("path-selection", types.YChild{"PathSelection", &xroAttribute.PathSelection})
     xroAttribute.EntityData.Leafs = types.NewOrderedMap()
     xroAttribute.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", xroAttribute.AttributeSetName})
-    xroAttribute.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", xroAttribute.Enable})
 
     xroAttribute.EntityData.YListKeys = []string {"AttributeSetName"}
 
@@ -11247,12 +11194,12 @@ type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathDiversi
     YListKey string
 
     // This attribute is a key. Source address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Source interface{}
 
     // This attribute is a key. Destination address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Destination interface{}
 
     // This attribute is a key. Tunnel id. The type is interface{} with range:
@@ -11261,7 +11208,7 @@ type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathDiversi
 
     // This attribute is a key. Extended tunnel-id. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ExtendedTunnelId interface{}
 
     // This attribute is a key. LSP id. The type is interface{} with range:
@@ -11584,7 +11531,7 @@ type MplsTe_GlobalAttributes_PceAttributes struct {
     ReoptimizePeriod interface{}
 
     // Address of this PCE. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Deadtimer interval in seconds. The type is interface{} with range: 0..255.
@@ -11600,7 +11547,7 @@ type MplsTe_GlobalAttributes_PceAttributes struct {
     KeepaliveTolerance interface{}
 
     // PCE Peer Source Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerSourceAddr interface{}
 
     // PCE speaker entity identifier. The type is string with length: 1..256.
@@ -11609,7 +11556,7 @@ type MplsTe_GlobalAttributes_PceAttributes struct {
     // Always set to true. The type is interface{}.
     SegmentRouting interface{}
 
-    // MD5 password. The type is string with pattern: (!.+)|([^!].+).
+    // MD5 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Keychain based authentication. The type is string with length: 1..32.
@@ -11834,14 +11781,10 @@ type MplsTe_GlobalAttributes_PceAttributes_Peers_Peer struct {
 
     // This attribute is a key. Address of PCE Peer. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PcePeerAddress interface{}
 
-    // Enabled PCE peer (default source address uses local). The type is
-    // interface{}.
-    Enable interface{}
-
-    // MD5 password. The type is string with pattern: (!.+)|([^!].+).
+    // MD5 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Keychain based authentication. The type is string with length: 1..32.
@@ -11865,7 +11808,6 @@ func (peer *MplsTe_GlobalAttributes_PceAttributes_Peers_Peer) GetEntityData() *t
     peer.EntityData.Children = types.NewOrderedMap()
     peer.EntityData.Leafs = types.NewOrderedMap()
     peer.EntityData.Leafs.Append("pce-peer-address", types.YLeaf{"PcePeerAddress", peer.PcePeerAddress})
-    peer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", peer.Enable})
     peer.EntityData.Leafs.Append("password", types.YLeaf{"Password", peer.Password})
     peer.EntityData.Leafs.Append("keychain", types.YLeaf{"Keychain", peer.Keychain})
     peer.EntityData.Leafs.Append("precedence", types.YLeaf{"Precedence", peer.Precedence})
@@ -12408,10 +12350,10 @@ type MplsTe_GlobalAttributes_PathSelection_LooseAffinities_LooseAffinity struct 
     // with range: 0..7.
     ClassType interface{}
 
-    // Affinity flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Affinity flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Affinity interface{}
 
-    // Affinity mask. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Affinity mask. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Mask interface{}
 }
 
@@ -12486,7 +12428,7 @@ type MplsTe_GlobalAttributes_AffinityMappings_AffinityMapping struct {
     ValueType interface{}
 
     // Affinity Value in Hex number or by Bit position. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     Value interface{}
 }
 
@@ -12523,7 +12465,7 @@ type MplsTe_TransportProfile struct {
     GlobalId interface{}
 
     // Node identifier in IPv4 address format. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NodeId interface{}
 
     // Fault management.
@@ -12997,7 +12939,7 @@ type MplsTe_TransportProfile_Midpoints_Midpoint_Source struct {
     YPresence bool
 
     // Node identifier in IPv4 address format. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NodeId interface{}
 
     // Tunnel identifier in numeric value. The type is interface{} with range:
@@ -13042,7 +12984,7 @@ type MplsTe_TransportProfile_Midpoints_Midpoint_Destination struct {
     YPresence bool
 
     // Node identifier in IPv4 address format. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NodeId interface{}
 
     // Tunnel identifier in numeric value. The type is interface{} with range:
@@ -13274,7 +13216,7 @@ type MplsTe_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // MPLS transport profile capable link.
@@ -13389,7 +13331,7 @@ type MplsTe_Interfaces_Interface_TransportProfileLink_Links_Link struct {
     NextHopType interface{}
 
     // Next-hop address in IPv4 format. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHopAddress interface{}
 }
 
@@ -13428,7 +13370,7 @@ type MplsTe_Interfaces_Interface_Lcac struct {
     FaultOamLockout interface{}
 
     // Set user defined interface attribute flags. The type is string with
-    // pattern: [0-9a-fA-F]{1,8}.
+    // pattern: b'[0-9a-fA-F]{1,8}'.
     AttributeFlags interface{}
 
     // Enable MPLS-TE on the link. The type is interface{}.
@@ -14323,7 +14265,7 @@ type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Controllers_Cont
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Set administrative weight for the interface. The type is interface{} with
@@ -14444,7 +14386,7 @@ type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr struct {
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // GMPLS-NNI controllers.
@@ -14514,7 +14456,7 @@ type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr_Controllers_C
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Set administrative weight for the interface. The type is interface{} with
@@ -14823,7 +14765,7 @@ type MplsTe_GmplsNni_TunnelHeads_TunnelHead_Destination struct {
     YFilter yfilter.YFilter
 
     // IPV4 tunnel destination. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Destination interface{}
 
     // Destination type whether it is unicast or unnumbered. The type is

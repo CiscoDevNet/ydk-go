@@ -28,16 +28,18 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-rsvp-cfg:rsvp", reflect.TypeOf(Rsvp{}))
 }
 
-// RsvpBwCfg represents Rsvp bw cfg
-type RsvpBwCfg string
+// RsvpRdm represents Rsvp rdm
+type RsvpRdm string
 
 const (
-    // Configuration is in absolute bandwidth values
-    RsvpBwCfg_absolute RsvpBwCfg = "absolute"
+    // RDM Keyword Specified
+    RsvpRdm_rdm RsvpRdm = "rdm"
 
-    // Configuration is in percentage of physical
-    // bandwidth values
-    RsvpBwCfg_percentage RsvpBwCfg = "percentage"
+    // RDM Keyword Not Specified
+    RsvpRdm_not_specified RsvpRdm = "not-specified"
+
+    // Use Default Bandwidth - 75% Link Bandwidth
+    RsvpRdm_use_default_bandwidth RsvpRdm = "use-default-bandwidth"
 )
 
 // RsvpBc0 represents Rsvp bc0
@@ -54,6 +56,18 @@ const (
     RsvpBc0_not_specified RsvpBc0 = "not-specified"
 )
 
+// RsvpBwCfg represents Rsvp bw cfg
+type RsvpBwCfg string
+
+const (
+    // Configuration is in absolute bandwidth values
+    RsvpBwCfg_absolute RsvpBwCfg = "absolute"
+
+    // Configuration is in percentage of physical
+    // bandwidth values
+    RsvpBwCfg_percentage RsvpBwCfg = "percentage"
+)
+
 // RsvpBc1 represents Rsvp bc1
 type RsvpBc1 string
 
@@ -63,20 +77,6 @@ const (
 
     // Keyword is sub-pool
     RsvpBc1_sub_pool RsvpBc1 = "sub-pool"
-)
-
-// RsvpRdm represents Rsvp rdm
-type RsvpRdm string
-
-const (
-    // RDM Keyword Specified
-    RsvpRdm_rdm RsvpRdm = "rdm"
-
-    // RDM Keyword Not Specified
-    RsvpRdm_not_specified RsvpRdm = "not-specified"
-
-    // Use Default Bandwidth - 75% Link Bandwidth
-    RsvpRdm_use_default_bandwidth RsvpRdm = "use-default-bandwidth"
 )
 
 // Rsvp
@@ -175,7 +175,7 @@ type Rsvp_Neighbors_Neighbor struct {
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Neighbor interface{}
 
     // Configure RSVP authentication.
@@ -289,7 +289,7 @@ type Rsvp_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Name of controller. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     ControllerName interface{}
 
     // Enable RSVP on an interface. The type is interface{}.
@@ -602,11 +602,8 @@ type Rsvp_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     Name interface{}
-
-    // Enable RSVP on an interface. The type is interface{}.
-    Enable interface{}
 
     // Configure RSVP signalling parameters.
     IfSignalling Rsvp_Interfaces_Interface_IfSignalling
@@ -635,7 +632,6 @@ func (self *Rsvp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.Children.Append("authentication", types.YChild{"Authentication", &self.Authentication})
     self.EntityData.Leafs = types.NewOrderedMap()
     self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
-    self.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", self.Enable})
 
     self.EntityData.YListKeys = []string {"Name"}
 

@@ -24,6 +24,267 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface", reflect.TypeOf(EthernetInterface{}))
 }
 
+// EthernetDevIf represents Ethernet dev if
+type EthernetDevIf string
+
+const (
+    // no interface
+    EthernetDevIf_no_interface EthernetDevIf = "no-interface"
+
+    // xgmii
+    EthernetDevIf_xgmii EthernetDevIf = "xgmii"
+
+    // xaui
+    EthernetDevIf_xaui EthernetDevIf = "xaui"
+
+    // ethernet num dev if
+    EthernetDevIf_ethernet_num_dev_if EthernetDevIf = "ethernet-num-dev-if"
+)
+
+// EthernetDev represents Ethernet dev
+type EthernetDev string
+
+const (
+    // no device
+    EthernetDev_no_device EthernetDev = "no-device"
+
+    // pma pmd
+    EthernetDev_pma_pmd EthernetDev = "pma-pmd"
+
+    // wis
+    EthernetDev_wis EthernetDev = "wis"
+
+    // pcs
+    EthernetDev_pcs EthernetDev = "pcs"
+
+    // phy xs
+    EthernetDev_phy_xs EthernetDev = "phy-xs"
+
+    // dte xs
+    EthernetDev_dte_xs EthernetDev = "dte-xs"
+
+    // ethernet num dev
+    EthernetDev_ethernet_num_dev EthernetDev = "ethernet-num-dev"
+)
+
+// EthernetBertPattern represents Ethernet test patterns (IEEE spec 36A/48A)
+type EthernetBertPattern string
+
+const (
+    // no test pattern
+    EthernetBertPattern_no_test_pattern EthernetBertPattern = "no-test-pattern"
+
+    // high frequency
+    EthernetBertPattern_high_frequency EthernetBertPattern = "high-frequency"
+
+    // low frequency
+    EthernetBertPattern_low_frequency EthernetBertPattern = "low-frequency"
+
+    // mixed frequency
+    EthernetBertPattern_mixed_frequency EthernetBertPattern = "mixed-frequency"
+
+    // continuous random
+    EthernetBertPattern_continuous_random EthernetBertPattern = "continuous-random"
+
+    // continuous jitter
+    EthernetBertPattern_continuous_jitter EthernetBertPattern = "continuous-jitter"
+
+    // long continuous random
+    EthernetBertPattern_long_continuous_random EthernetBertPattern = "long-continuous-random"
+
+    // short continuous random
+    EthernetBertPattern_short_continuous_random EthernetBertPattern = "short-continuous-random"
+
+    // pseudorandom seed a
+    EthernetBertPattern_pseudorandom_seed_a EthernetBertPattern = "pseudorandom-seed-a"
+
+    // pseudorandom seed b
+    EthernetBertPattern_pseudorandom_seed_b EthernetBertPattern = "pseudorandom-seed-b"
+
+    // prbs31
+    EthernetBertPattern_prbs31 EthernetBertPattern = "prbs31"
+
+    // square wave
+    EthernetBertPattern_square_wave EthernetBertPattern = "square-wave"
+
+    // pseudorandom
+    EthernetBertPattern_pseudorandom EthernetBertPattern = "pseudorandom"
+
+    // ethernet bert pattern types
+    EthernetBertPattern_ethernet_bert_pattern_types EthernetBertPattern = "ethernet-bert-pattern-types"
+)
+
+// EthernetBertErrCnt represents Ethernet bert err cnt
+type EthernetBertErrCnt string
+
+const (
+    // no count type
+    EthernetBertErrCnt_no_count_type EthernetBertErrCnt = "no-count-type"
+
+    // bit error count
+    EthernetBertErrCnt_bit_error_count EthernetBertErrCnt = "bit-error-count"
+
+    // frame error count
+    EthernetBertErrCnt_frame_error_count EthernetBertErrCnt = "frame-error-count"
+
+    // block error count
+    EthernetBertErrCnt_block_error_count EthernetBertErrCnt = "block-error-count"
+
+    // ethernet bert err cnt types
+    EthernetBertErrCnt_ethernet_bert_err_cnt_types EthernetBertErrCnt = "ethernet-bert-err-cnt-types"
+)
+
+// EtherAinsStatus represents Ether ains status
+type EtherAinsStatus string
+
+const (
+    // AINS Soak timer not running
+    EtherAinsStatus_ains_soak_status_none EtherAinsStatus = "ains-soak-status-none"
+
+    // AINS Soak timer pending
+    EtherAinsStatus_ains_soak_status_pending EtherAinsStatus = "ains-soak-status-pending"
+
+    // AINS Soak timer running
+    EtherAinsStatus_ains_soak_status_running EtherAinsStatus = "ains-soak-status-running"
+)
+
+// EtherPfc represents Priority flowcontrol type
+type EtherPfc string
+
+const (
+    // No priority flow control (disabled)
+    EtherPfc_no_pfc EtherPfc = "no-pfc"
+
+    // Priority flow control enabled
+    EtherPfc_on EtherPfc = "on"
+)
+
+// EthCtrlrAlarmState represents Ethernet alarm state
+type EthCtrlrAlarmState string
+
+const (
+    // Not supported on this interface
+    EthCtrlrAlarmState_alarm_not_supported EthCtrlrAlarmState = "alarm-not-supported"
+
+    // Alarm set
+    EthCtrlrAlarmState_alarm_set EthCtrlrAlarmState = "alarm-set"
+
+    // Alarm not set
+    EthCtrlrAlarmState_alarm_not_set EthCtrlrAlarmState = "alarm-not-set"
+)
+
+// EthernetIpg represents Inter packet gap
+type EthernetIpg string
+
+const (
+    // IEEE standard value of 12
+    EthernetIpg_standard EthernetIpg = "standard"
+
+    // Non-standard value of 16
+    EthernetIpg_non_standard EthernetIpg = "non-standard"
+)
+
+// EtherFlowcontrol represents Flowcontrol type
+type EtherFlowcontrol string
+
+const (
+    // No flow control (disabled)
+    EtherFlowcontrol_no_flowcontrol EtherFlowcontrol = "no-flowcontrol"
+
+    // Traffic egress (pause frames ingress)
+    EtherFlowcontrol_egress EtherFlowcontrol = "egress"
+
+    // Traffic ingress (pause frames egress)
+    EtherFlowcontrol_ingress EtherFlowcontrol = "ingress"
+
+    // On both ingress and egress
+    EtherFlowcontrol_bidirectional EtherFlowcontrol = "bidirectional"
+)
+
+// EthernetDuplex represents Duplexity
+type EthernetDuplex string
+
+const (
+    // ethernet duplex invalid
+    EthernetDuplex_ethernet_duplex_invalid EthernetDuplex = "ethernet-duplex-invalid"
+
+    // half duplex
+    EthernetDuplex_half_duplex EthernetDuplex = "half-duplex"
+
+    // full duplex
+    EthernetDuplex_full_duplex EthernetDuplex = "full-duplex"
+)
+
+// EthernetSpeed represents Speed
+type EthernetSpeed string
+
+const (
+    // ethernet speed invalid
+    EthernetSpeed_ethernet_speed_invalid EthernetSpeed = "ethernet-speed-invalid"
+
+    // ten mbps
+    EthernetSpeed_ten_mbps EthernetSpeed = "ten-mbps"
+
+    // hundred mbps
+    EthernetSpeed_hundred_mbps EthernetSpeed = "hundred-mbps"
+
+    // one gbps
+    EthernetSpeed_one_gbps EthernetSpeed = "one-gbps"
+
+    // ten gbps
+    EthernetSpeed_ten_gbps EthernetSpeed = "ten-gbps"
+
+    // twenty five gbps
+    EthernetSpeed_twenty_five_gbps EthernetSpeed = "twenty-five-gbps"
+
+    // forty gbps
+    EthernetSpeed_forty_gbps EthernetSpeed = "forty-gbps"
+
+    // fifty gbps
+    EthernetSpeed_fifty_gbps EthernetSpeed = "fifty-gbps"
+
+    // hundred gbps
+    EthernetSpeed_hundred_gbps EthernetSpeed = "hundred-gbps"
+
+    // two hundred gbps
+    EthernetSpeed_two_hundred_gbps EthernetSpeed = "two-hundred-gbps"
+
+    // four hundred gbps
+    EthernetSpeed_four_hundred_gbps EthernetSpeed = "four-hundred-gbps"
+
+    // ethernet speed types count
+    EthernetSpeed_ethernet_speed_types_count EthernetSpeed = "ethernet-speed-types-count"
+)
+
+// EtherLedState represents Ether led state
+type EtherLedState string
+
+const (
+    // LED state is unknown
+    EtherLedState_led_state_unknown EtherLedState = "led-state-unknown"
+
+    // LED is off
+    EtherLedState_led_off EtherLedState = "led-off"
+
+    // LED is green
+    EtherLedState_green_on EtherLedState = "green-on"
+
+    // LED is flashing green
+    EtherLedState_green_flashing EtherLedState = "green-flashing"
+
+    // LED is yellow
+    EtherLedState_yellow_on EtherLedState = "yellow-on"
+
+    // LED is flashing yellow
+    EtherLedState_yellow_flashing EtherLedState = "yellow-flashing"
+
+    // LED is red
+    EtherLedState_red_on EtherLedState = "red-on"
+
+    // LED is flashing red
+    EtherLedState_red_flashing EtherLedState = "red-flashing"
+)
+
 // EtherLinkState represents .5.1.1.4
 type EtherLinkState string
 
@@ -118,156 +379,38 @@ const (
     EtherLinkState_shutdown EtherLinkState = "shutdown"
 )
 
-// EthernetBertPattern represents Ethernet test patterns (IEEE spec 36A/48A)
-type EthernetBertPattern string
+// EthernetFec represents FEC type
+type EthernetFec string
 
 const (
-    // no test pattern
-    EthernetBertPattern_no_test_pattern EthernetBertPattern = "no-test-pattern"
+    // FEC not configured
+    EthernetFec_not_configured EthernetFec = "not-configured"
 
-    // high frequency
-    EthernetBertPattern_high_frequency EthernetBertPattern = "high-frequency"
+    // Reed-Solomon encoding
+    EthernetFec_standard EthernetFec = "standard"
 
-    // low frequency
-    EthernetBertPattern_low_frequency EthernetBertPattern = "low-frequency"
+    // FEC explicitly disabled
+    EthernetFec_disabled EthernetFec = "disabled"
 
-    // mixed frequency
-    EthernetBertPattern_mixed_frequency EthernetBertPattern = "mixed-frequency"
-
-    // continuous random
-    EthernetBertPattern_continuous_random EthernetBertPattern = "continuous-random"
-
-    // continuous jitter
-    EthernetBertPattern_continuous_jitter EthernetBertPattern = "continuous-jitter"
-
-    // long continuous random
-    EthernetBertPattern_long_continuous_random EthernetBertPattern = "long-continuous-random"
-
-    // short continuous random
-    EthernetBertPattern_short_continuous_random EthernetBertPattern = "short-continuous-random"
-
-    // pseudorandom seed a
-    EthernetBertPattern_pseudorandom_seed_a EthernetBertPattern = "pseudorandom-seed-a"
-
-    // pseudorandom seed b
-    EthernetBertPattern_pseudorandom_seed_b EthernetBertPattern = "pseudorandom-seed-b"
-
-    // prbs31
-    EthernetBertPattern_prbs31 EthernetBertPattern = "prbs31"
-
-    // square wave
-    EthernetBertPattern_square_wave EthernetBertPattern = "square-wave"
-
-    // pseudorandom
-    EthernetBertPattern_pseudorandom EthernetBertPattern = "pseudorandom"
-
-    // ethernet bert pattern types
-    EthernetBertPattern_ethernet_bert_pattern_types EthernetBertPattern = "ethernet-bert-pattern-types"
+    // BASE-R encoding
+    EthernetFec_base_r EthernetFec = "base-r"
 )
 
-// EthernetPortEnable represents Port admin state
-type EthernetPortEnable string
+// EthernetLoopback represents Loopback type
+type EthernetLoopback string
 
 const (
-    // Port disabled, both directions
-    EthernetPortEnable_disabled EthernetPortEnable = "disabled"
+    // Disabled
+    EthernetLoopback_no_loopback EthernetLoopback = "no-loopback"
 
-    // Port enabled rx direction only
-    EthernetPortEnable_rx_enabled EthernetPortEnable = "rx-enabled"
+    // Loopback in the framer
+    EthernetLoopback_internal EthernetLoopback = "internal"
 
-    // Port enabled tx direction only
-    EthernetPortEnable_tx_enabled EthernetPortEnable = "tx-enabled"
+    // Loops peer's packets back to them
+    EthernetLoopback_line EthernetLoopback = "line"
 
-    // Port enabled, both directions
-    EthernetPortEnable_enabled EthernetPortEnable = "enabled"
-)
-
-// EthCtrlrAlarmState represents Ethernet alarm state
-type EthCtrlrAlarmState string
-
-const (
-    // Not supported on this interface
-    EthCtrlrAlarmState_alarm_not_supported EthCtrlrAlarmState = "alarm-not-supported"
-
-    // Alarm set
-    EthCtrlrAlarmState_alarm_set EthCtrlrAlarmState = "alarm-set"
-
-    // Alarm not set
-    EthCtrlrAlarmState_alarm_not_set EthCtrlrAlarmState = "alarm-not-set"
-)
-
-// EthernetDev represents Ethernet dev
-type EthernetDev string
-
-const (
-    // no device
-    EthernetDev_no_device EthernetDev = "no-device"
-
-    // pma pmd
-    EthernetDev_pma_pmd EthernetDev = "pma-pmd"
-
-    // wis
-    EthernetDev_wis EthernetDev = "wis"
-
-    // pcs
-    EthernetDev_pcs EthernetDev = "pcs"
-
-    // phy xs
-    EthernetDev_phy_xs EthernetDev = "phy-xs"
-
-    // dte xs
-    EthernetDev_dte_xs EthernetDev = "dte-xs"
-
-    // ethernet num dev
-    EthernetDev_ethernet_num_dev EthernetDev = "ethernet-num-dev"
-)
-
-// EtherPhyPresent represents Ether phy present
-type EtherPhyPresent string
-
-const (
-    // No PHY present
-    EtherPhyPresent_phy_not_present EtherPhyPresent = "phy-not-present"
-
-    // PHY is present
-    EtherPhyPresent_phy_present EtherPhyPresent = "phy-present"
-
-    // State is unknown
-    EtherPhyPresent_no_information EtherPhyPresent = "no-information"
-)
-
-// EthernetDevIf represents Ethernet dev if
-type EthernetDevIf string
-
-const (
-    // no interface
-    EthernetDevIf_no_interface EthernetDevIf = "no-interface"
-
-    // xgmii
-    EthernetDevIf_xgmii EthernetDevIf = "xgmii"
-
-    // xaui
-    EthernetDevIf_xaui EthernetDevIf = "xaui"
-
-    // ethernet num dev if
-    EthernetDevIf_ethernet_num_dev_if EthernetDevIf = "ethernet-num-dev-if"
-)
-
-// EtherFlowcontrol represents Flowcontrol type
-type EtherFlowcontrol string
-
-const (
-    // No flow control (disabled)
-    EtherFlowcontrol_no_flowcontrol EtherFlowcontrol = "no-flowcontrol"
-
-    // Traffic egress (pause frames ingress)
-    EtherFlowcontrol_egress EtherFlowcontrol = "egress"
-
-    // Traffic ingress (pause frames egress)
-    EtherFlowcontrol_ingress EtherFlowcontrol = "ingress"
-
-    // On both ingress and egress
-    EtherFlowcontrol_bidirectional EtherFlowcontrol = "bidirectional"
+    // tx externally connected to rx
+    EthernetLoopback_external EthernetLoopback = "external"
 )
 
 // EtherDomAlarm represents Ether dom alarm
@@ -293,147 +436,18 @@ const (
     EtherDomAlarm_alarm_low EtherDomAlarm = "alarm-low"
 )
 
-// EtherPfc represents Priority flowcontrol type
-type EtherPfc string
+// EtherPhyPresent represents Ether phy present
+type EtherPhyPresent string
 
 const (
-    // No priority flow control (disabled)
-    EtherPfc_no_pfc EtherPfc = "no-pfc"
+    // No PHY present
+    EtherPhyPresent_phy_not_present EtherPhyPresent = "phy-not-present"
 
-    // Priority flow control enabled
-    EtherPfc_on EtherPfc = "on"
-)
+    // PHY is present
+    EtherPhyPresent_phy_present EtherPhyPresent = "phy-present"
 
-// EthernetBertErrCnt represents Ethernet bert err cnt
-type EthernetBertErrCnt string
-
-const (
-    // no count type
-    EthernetBertErrCnt_no_count_type EthernetBertErrCnt = "no-count-type"
-
-    // bit error count
-    EthernetBertErrCnt_bit_error_count EthernetBertErrCnt = "bit-error-count"
-
-    // frame error count
-    EthernetBertErrCnt_frame_error_count EthernetBertErrCnt = "frame-error-count"
-
-    // block error count
-    EthernetBertErrCnt_block_error_count EthernetBertErrCnt = "block-error-count"
-
-    // ethernet bert err cnt types
-    EthernetBertErrCnt_ethernet_bert_err_cnt_types EthernetBertErrCnt = "ethernet-bert-err-cnt-types"
-)
-
-// EthernetDuplex represents Duplexity
-type EthernetDuplex string
-
-const (
-    // ethernet duplex invalid
-    EthernetDuplex_ethernet_duplex_invalid EthernetDuplex = "ethernet-duplex-invalid"
-
-    // half duplex
-    EthernetDuplex_half_duplex EthernetDuplex = "half-duplex"
-
-    // full duplex
-    EthernetDuplex_full_duplex EthernetDuplex = "full-duplex"
-)
-
-// EthernetIpg represents Inter packet gap
-type EthernetIpg string
-
-const (
-    // IEEE standard value of 12
-    EthernetIpg_standard EthernetIpg = "standard"
-
-    // Non-standard value of 16
-    EthernetIpg_non_standard EthernetIpg = "non-standard"
-)
-
-// EthernetSpeed represents Speed
-type EthernetSpeed string
-
-const (
-    // ethernet speed invalid
-    EthernetSpeed_ethernet_speed_invalid EthernetSpeed = "ethernet-speed-invalid"
-
-    // ten mbps
-    EthernetSpeed_ten_mbps EthernetSpeed = "ten-mbps"
-
-    // hundred mbps
-    EthernetSpeed_hundred_mbps EthernetSpeed = "hundred-mbps"
-
-    // one gbps
-    EthernetSpeed_one_gbps EthernetSpeed = "one-gbps"
-
-    // ten gbps
-    EthernetSpeed_ten_gbps EthernetSpeed = "ten-gbps"
-
-    // twenty five gbps
-    EthernetSpeed_twenty_five_gbps EthernetSpeed = "twenty-five-gbps"
-
-    // forty gbps
-    EthernetSpeed_forty_gbps EthernetSpeed = "forty-gbps"
-
-    // fifty gbps
-    EthernetSpeed_fifty_gbps EthernetSpeed = "fifty-gbps"
-
-    // hundred gbps
-    EthernetSpeed_hundred_gbps EthernetSpeed = "hundred-gbps"
-
-    // two hundred gbps
-    EthernetSpeed_two_hundred_gbps EthernetSpeed = "two-hundred-gbps"
-
-    // four hundred gbps
-    EthernetSpeed_four_hundred_gbps EthernetSpeed = "four-hundred-gbps"
-
-    // ethernet speed types count
-    EthernetSpeed_ethernet_speed_types_count EthernetSpeed = "ethernet-speed-types-count"
-)
-
-// EtherLedState represents Ether led state
-type EtherLedState string
-
-const (
-    // LED state is unknown
-    EtherLedState_led_state_unknown EtherLedState = "led-state-unknown"
-
-    // LED is off
-    EtherLedState_led_off EtherLedState = "led-off"
-
-    // LED is green
-    EtherLedState_green_on EtherLedState = "green-on"
-
-    // LED is flashing green
-    EtherLedState_green_flashing EtherLedState = "green-flashing"
-
-    // LED is yellow
-    EtherLedState_yellow_on EtherLedState = "yellow-on"
-
-    // LED is flashing yellow
-    EtherLedState_yellow_flashing EtherLedState = "yellow-flashing"
-
-    // LED is red
-    EtherLedState_red_on EtherLedState = "red-on"
-
-    // LED is flashing red
-    EtherLedState_red_flashing EtherLedState = "red-flashing"
-)
-
-// EthernetFec represents FEC type
-type EthernetFec string
-
-const (
-    // FEC not configured
-    EthernetFec_not_configured EthernetFec = "not-configured"
-
-    // Reed-Solomon encoding
-    EthernetFec_standard EthernetFec = "standard"
-
-    // FEC explicitly disabled
-    EthernetFec_disabled EthernetFec = "disabled"
-
-    // BASE-R encoding
-    EthernetFec_base_r EthernetFec = "base-r"
+    // State is unknown
+    EtherPhyPresent_no_information EtherPhyPresent = "no-information"
 )
 
 // EthernetMedia represents 30.5.1.1.2
@@ -680,10 +694,10 @@ const (
     // X fiber over 1310nm optics
     EthernetMedia_ethernet_1000base_ex EthernetMedia = "ethernet-1000base-ex"
 
-    // X fibre (D, 10km)
+    // X fiber (D, 10km)
     EthernetMedia_ethernet_1000base_bx10_d EthernetMedia = "ethernet-1000base-bx10-d"
 
-    // X fibre (U, 10km)
+    // X fiber (U, 10km)
     EthernetMedia_ethernet_1000base_bx10_u EthernetMedia = "ethernet-1000base-bx10-u"
 
     // DWDM with 1561.42nm optics
@@ -1331,73 +1345,73 @@ const (
     // Single-mode fiber over 1550nm optics (Cisco)
     EthernetMedia_ethernet_100base_zx EthernetMedia = "ethernet-100base-zx"
 
-    // X fibre (D)
+    // X fiber (D)
     EthernetMedia_ethernet_1000base_bx_d EthernetMedia = "ethernet-1000base-bx-d"
 
-    // X fibre (U)
+    // X fiber (U)
     EthernetMedia_ethernet_1000base_bx_u EthernetMedia = "ethernet-1000base-bx-u"
 
-    // X fibre (D, 20km)
+    // X fiber (D, 20km)
     EthernetMedia_ethernet_1000base_bx20_d EthernetMedia = "ethernet-1000base-bx20-d"
 
-    // X fibre (U, 20km)
+    // X fiber (U, 20km)
     EthernetMedia_ethernet_1000base_bx20_u EthernetMedia = "ethernet-1000base-bx20-u"
 
-    // X fibre (D, 40km)
+    // X fiber (D, 40km)
     EthernetMedia_ethernet_1000base_bx40_d EthernetMedia = "ethernet-1000base-bx40-d"
 
-    // X fibre (D, 40km)
+    // X fiber (D, 40km)
     EthernetMedia_ethernet_1000base_bx40_da EthernetMedia = "ethernet-1000base-bx40-da"
 
-    // X fibre (U, 40km)
+    // X fiber (U, 40km)
     EthernetMedia_ethernet_1000base_bx40_u EthernetMedia = "ethernet-1000base-bx40-u"
 
-    // X fibre (D, 80km)
+    // X fiber (D, 80km)
     EthernetMedia_ethernet_1000base_bx80_d EthernetMedia = "ethernet-1000base-bx80-d"
 
-    // X fibre (U, 80km)
+    // X fiber (U, 80km)
     EthernetMedia_ethernet_1000base_bx80_u EthernetMedia = "ethernet-1000base-bx80-u"
 
-    // X fibre (D, 120km)
+    // X fiber (D, 120km)
     EthernetMedia_ethernet_1000base_bx120_d EthernetMedia = "ethernet-1000base-bx120-d"
 
-    // X fibre (U, 120km)
+    // X fiber (U, 120km)
     EthernetMedia_ethernet_1000base_bx120_u EthernetMedia = "ethernet-1000base-bx120-u"
 
-    // X fibre (D)
+    // X fiber (D)
     EthernetMedia_ethernet_10gbase_bx_d EthernetMedia = "ethernet-10gbase-bx-d"
 
-    // X fibre (U)
+    // X fiber (U)
     EthernetMedia_ethernet_10gbase_bx_u EthernetMedia = "ethernet-10gbase-bx-u"
 
-    // X fibre (D, 10km)
+    // X fiber (D, 10km)
     EthernetMedia_ethernet_10gbase_bx10_d EthernetMedia = "ethernet-10gbase-bx10-d"
 
-    // X fibre (U, 10km)
+    // X fiber (U, 10km)
     EthernetMedia_ethernet_10gbase_bx10_u EthernetMedia = "ethernet-10gbase-bx10-u"
 
-    // X fibre (D, 20km)
+    // X fiber (D, 20km)
     EthernetMedia_ethernet_10gbase_bx20_d EthernetMedia = "ethernet-10gbase-bx20-d"
 
-    // X fibre (U, 20km)
+    // X fiber (U, 20km)
     EthernetMedia_ethernet_10gbase_bx20_u EthernetMedia = "ethernet-10gbase-bx20-u"
 
-    // X fibre (D, 40km)
+    // X fiber (D, 40km)
     EthernetMedia_ethernet_10gbase_bx40_d EthernetMedia = "ethernet-10gbase-bx40-d"
 
-    // X fibre (U, 40km)
+    // X fiber (U, 40km)
     EthernetMedia_ethernet_10gbase_bx40_u EthernetMedia = "ethernet-10gbase-bx40-u"
 
-    // X fibre (D, 80km)
+    // X fiber (D, 80km)
     EthernetMedia_ethernet_10gbase_bx80_d EthernetMedia = "ethernet-10gbase-bx80-d"
 
-    // X fibre (U, 80km)
+    // X fiber (U, 80km)
     EthernetMedia_ethernet_10gbase_bx80_u EthernetMedia = "ethernet-10gbase-bx80-u"
 
-    // X fibre (D, 120km)
+    // X fiber (D, 120km)
     EthernetMedia_ethernet_10gbase_bx120_d EthernetMedia = "ethernet-10gbase-bx120-d"
 
-    // X fibre (U, 120km)
+    // X fiber (U, 120km)
     EthernetMedia_ethernet_10gbase_bx120_u EthernetMedia = "ethernet-10gbase-bx120-u"
 
     // X fiber over long-wl laser PMD, duplexity
@@ -1578,39 +1592,37 @@ const (
     // reach)
     EthernetMedia_ethernet_100gbase_sr_bd EthernetMedia = "ethernet-100gbase-sr-bd"
 
+    // 2 channel X fibre (D)
+    EthernetMedia_ethernet_1000base_2bx_d EthernetMedia = "ethernet-1000base-2bx-d"
+
+    // 2 channel X fibre (D/I)
+    EthernetMedia_ethernet_1000base_2bx_d_i EthernetMedia = "ethernet-1000base-2bx-d-i"
+
+    // 2 channel X fibre (U)
+    EthernetMedia_ethernet_1000base_2bx_u EthernetMedia = "ethernet-1000base-2bx-u"
+
+    // 2 channel X fibre (U/I)
+    EthernetMedia_ethernet_1000base_2bx_u_i EthernetMedia = "ethernet-1000base-2bx-u-i"
+
     // ethernet base max
     EthernetMedia_ethernet_base_max EthernetMedia = "ethernet-base-max"
 )
 
-// EtherAinsStatus represents Ether ains status
-type EtherAinsStatus string
+// EthernetPortEnable represents Port admin state
+type EthernetPortEnable string
 
 const (
-    // AINS Soak timer not running
-    EtherAinsStatus_ains_soak_status_none EtherAinsStatus = "ains-soak-status-none"
+    // Port disabled, both directions
+    EthernetPortEnable_disabled EthernetPortEnable = "disabled"
 
-    // AINS Soak timer pending
-    EtherAinsStatus_ains_soak_status_pending EtherAinsStatus = "ains-soak-status-pending"
+    // Port enabled rx direction only
+    EthernetPortEnable_rx_enabled EthernetPortEnable = "rx-enabled"
 
-    // AINS Soak timer running
-    EtherAinsStatus_ains_soak_status_running EtherAinsStatus = "ains-soak-status-running"
-)
+    // Port enabled tx direction only
+    EthernetPortEnable_tx_enabled EthernetPortEnable = "tx-enabled"
 
-// EthernetLoopback represents Loopback type
-type EthernetLoopback string
-
-const (
-    // Disabled
-    EthernetLoopback_no_loopback EthernetLoopback = "no-loopback"
-
-    // Loopback in the framer
-    EthernetLoopback_internal EthernetLoopback = "internal"
-
-    // Loops peer's packets back to them
-    EthernetLoopback_line EthernetLoopback = "line"
-
-    // tx externally connected to rx
-    EthernetLoopback_external EthernetLoopback = "external"
+    // Port enabled, both directions
+    EthernetPortEnable_enabled EthernetPortEnable = "enabled"
 )
 
 // EthernetInterface
@@ -1693,7 +1705,7 @@ type EthernetInterface_Statistics_Statistic struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Total octets of all frames. The type is interface{} with range:
@@ -2033,7 +2045,7 @@ type EthernetInterface_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Port Administrative State. The type is EthernetPortEnable.
@@ -3254,11 +3266,11 @@ type EthernetInterface_Interfaces_Interface_MacInfo struct {
     Mru interface{}
 
     // Port Burned-In MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     BurnedInMacAddress interface{}
 
     // Port operational MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     OperationalMacAddress interface{}
 
     // Port unicast MAC filter information.
@@ -3300,7 +3312,7 @@ type EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters struct {
     YFilter yfilter.YFilter
 
     // MAC addresses in the unicast ingress destination MAC filter. The type is
-    // slice of string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // slice of string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     UnicastMacAddress []interface{}
 }
 
@@ -3373,11 +3385,11 @@ type EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_Multicas
     YListKey string
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Mask for this MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Mask interface{}
 }
 
@@ -3488,7 +3500,7 @@ type EthernetInterface_Berts_Bert struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Remaining time for this test in seconds. The type is interface{} with

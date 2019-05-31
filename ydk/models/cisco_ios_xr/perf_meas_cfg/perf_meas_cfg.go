@@ -227,7 +227,8 @@ type PerformanceMeasurement_DelayProfileInterface_Probe struct {
     OneWayMeasurement interface{}
 
     // The value for delay profile probe interval in seconds. The type is
-    // interface{} with range: 1..3600. Units are second. The default value is 30.
+    // interface{} with range: 30..3600. Units are second. The default value is
+    // 30.
     Interval interface{}
 
     // PM Delay Profile Probe Burst.
@@ -334,7 +335,7 @@ type PerformanceMeasurement_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Enable interface submode. The type is interface{}.

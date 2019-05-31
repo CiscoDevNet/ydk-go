@@ -14,16 +14,91 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ipv6_acl_datatypes"))
 }
 
-// Ipv6AclTcpMatchOperatorEnum represents Ipv6 acl tcp match operator enum
-type Ipv6AclTcpMatchOperatorEnum string
+// Ipv6PrefixMatchExactLength represents Ipv6 prefix match exact length
+type Ipv6PrefixMatchExactLength string
 
 const (
-    // Match only packet with all the given TCP bits
-    Ipv6AclTcpMatchOperatorEnum_match_all Ipv6AclTcpMatchOperatorEnum = "match-all"
+    // Prefix Length Exact match
+    Ipv6PrefixMatchExactLength_match_exact_length Ipv6PrefixMatchExactLength = "match-exact-length"
+)
 
-    // Match only packet with any of the given TCP
-    // bits
-    Ipv6AclTcpMatchOperatorEnum_match_any Ipv6AclTcpMatchOperatorEnum = "match-any"
+// Ipv6AclGrantEnum represents Ipv6 acl grant enum
+type Ipv6AclGrantEnum string
+
+const (
+    // Deny
+    Ipv6AclGrantEnum_deny Ipv6AclGrantEnum = "deny"
+
+    // Permit
+    Ipv6AclGrantEnum_permit Ipv6AclGrantEnum = "permit"
+)
+
+// Ipv6AclLoggingEnum represents Ipv6 acl logging enum
+type Ipv6AclLoggingEnum string
+
+const (
+    // Log matches against this entry
+    Ipv6AclLoggingEnum_log Ipv6AclLoggingEnum = "log"
+
+    // Log matches against this entry, including input
+    // interface
+    Ipv6AclLoggingEnum_log_input Ipv6AclLoggingEnum = "log-input"
+)
+
+// Ipv6AclProtocolNumber represents Ipv6 acl protocol number
+type Ipv6AclProtocolNumber string
+
+const (
+    // Any IP protocol
+    Ipv6AclProtocolNumber_ip Ipv6AclProtocolNumber = "ip"
+
+    // Internet Control Message Protocol
+    Ipv6AclProtocolNumber_icmp Ipv6AclProtocolNumber = "icmp"
+
+    // Internet Gateway Message Protocol
+    Ipv6AclProtocolNumber_igmp Ipv6AclProtocolNumber = "igmp"
+
+    // IP in IP tunneling
+    Ipv6AclProtocolNumber_ip_in_ip Ipv6AclProtocolNumber = "ip-in-ip"
+
+    // Transport Control Protocol
+    Ipv6AclProtocolNumber_tcp Ipv6AclProtocolNumber = "tcp"
+
+    // Cisco's IGRP Routing Protocol
+    Ipv6AclProtocolNumber_igrp Ipv6AclProtocolNumber = "igrp"
+
+    // User Datagram Protocol
+    Ipv6AclProtocolNumber_udp Ipv6AclProtocolNumber = "udp"
+
+    // Cisco's GRE tunneling
+    Ipv6AclProtocolNumber_gre Ipv6AclProtocolNumber = "gre"
+
+    // Encapsulation Security Protocol
+    Ipv6AclProtocolNumber_esp Ipv6AclProtocolNumber = "esp"
+
+    // Authentication Header Protocol
+    Ipv6AclProtocolNumber_ahp Ipv6AclProtocolNumber = "ahp"
+
+    // Internet Control Message Protocol
+    Ipv6AclProtocolNumber_icmpv6 Ipv6AclProtocolNumber = "icmpv6"
+
+    // Cisco's EIGRP Routing Protocol
+    Ipv6AclProtocolNumber_eigrp Ipv6AclProtocolNumber = "eigrp"
+
+    // OSPF Routing Protocol
+    Ipv6AclProtocolNumber_ospf Ipv6AclProtocolNumber = "ospf"
+
+    // KA9Q NOS Compatible IP over IP tunneling
+    Ipv6AclProtocolNumber_nos Ipv6AclProtocolNumber = "nos"
+
+    // Protocol Independent Multicast
+    Ipv6AclProtocolNumber_pim Ipv6AclProtocolNumber = "pim"
+
+    // Payload Compression Protocol
+    Ipv6AclProtocolNumber_pcp Ipv6AclProtocolNumber = "pcp"
+
+    // Stream Control Transmission Protocol
+    Ipv6AclProtocolNumber_sctp Ipv6AclProtocolNumber = "sctp"
 )
 
 // Ipv6AclIcmpTypeCodeEnum represents Ipv6 acl icmp type code enum
@@ -139,91 +214,6 @@ const (
     Ipv6AclIcmpTypeCodeEnum_who_are_you_reply Ipv6AclIcmpTypeCodeEnum = "who-are-you-reply"
 )
 
-// Ipv6AclProtocolNumber represents Ipv6 acl protocol number
-type Ipv6AclProtocolNumber string
-
-const (
-    // Any IP protocol
-    Ipv6AclProtocolNumber_ip Ipv6AclProtocolNumber = "ip"
-
-    // Internet Control Message Protocol
-    Ipv6AclProtocolNumber_icmp Ipv6AclProtocolNumber = "icmp"
-
-    // Internet Gateway Message Protocol
-    Ipv6AclProtocolNumber_igmp Ipv6AclProtocolNumber = "igmp"
-
-    // IP in IP tunneling
-    Ipv6AclProtocolNumber_ip_in_ip Ipv6AclProtocolNumber = "ip-in-ip"
-
-    // Transport Control Protocol
-    Ipv6AclProtocolNumber_tcp Ipv6AclProtocolNumber = "tcp"
-
-    // Cisco's IGRP Routing Protocol
-    Ipv6AclProtocolNumber_igrp Ipv6AclProtocolNumber = "igrp"
-
-    // User Datagram Protocol
-    Ipv6AclProtocolNumber_udp Ipv6AclProtocolNumber = "udp"
-
-    // Cisco's GRE tunneling
-    Ipv6AclProtocolNumber_gre Ipv6AclProtocolNumber = "gre"
-
-    // Encapsulation Security Protocol
-    Ipv6AclProtocolNumber_esp Ipv6AclProtocolNumber = "esp"
-
-    // Authentication Header Protocol
-    Ipv6AclProtocolNumber_ahp Ipv6AclProtocolNumber = "ahp"
-
-    // Internet Control Message Protocol
-    Ipv6AclProtocolNumber_icmpv6 Ipv6AclProtocolNumber = "icmpv6"
-
-    // Cisco's EIGRP Routing Protocol
-    Ipv6AclProtocolNumber_eigrp Ipv6AclProtocolNumber = "eigrp"
-
-    // OSPF Routing Protocol
-    Ipv6AclProtocolNumber_ospf Ipv6AclProtocolNumber = "ospf"
-
-    // KA9Q NOS Compatible IP over IP tunneling
-    Ipv6AclProtocolNumber_nos Ipv6AclProtocolNumber = "nos"
-
-    // Protocol Independent Multicast
-    Ipv6AclProtocolNumber_pim Ipv6AclProtocolNumber = "pim"
-
-    // Payload Compression Protocol
-    Ipv6AclProtocolNumber_pcp Ipv6AclProtocolNumber = "pcp"
-
-    // Stream Control Transmission Protocol
-    Ipv6AclProtocolNumber_sctp Ipv6AclProtocolNumber = "sctp"
-)
-
-// Ipv6PrefixMatchMinLength represents Ipv6 prefix match min length
-type Ipv6PrefixMatchMinLength string
-
-const (
-    // Enable matching of Prefix Lengths greater than
-    // MinPrefixLength
-    Ipv6PrefixMatchMinLength_match_min_length Ipv6PrefixMatchMinLength = "match-min-length"
-)
-
-// Ipv6AclGrantEnum represents Ipv6 acl grant enum
-type Ipv6AclGrantEnum string
-
-const (
-    // Deny
-    Ipv6AclGrantEnum_deny Ipv6AclGrantEnum = "deny"
-
-    // Permit
-    Ipv6AclGrantEnum_permit Ipv6AclGrantEnum = "permit"
-)
-
-// Ipv6PrefixMatchMaxLength represents Ipv6 prefix match max length
-type Ipv6PrefixMatchMaxLength string
-
-const (
-    // Enable matching of Prefix Lengths lesser than
-    // MaxPrefixLength
-    Ipv6PrefixMatchMaxLength_match_max_length Ipv6PrefixMatchMaxLength = "match-max-length"
-)
-
 // Ipv6AclPrecedenceNumber represents Ipv6 acl precedence number
 type Ipv6AclPrecedenceNumber string
 
@@ -254,24 +244,24 @@ const (
     Ipv6AclPrecedenceNumber_routine Ipv6AclPrecedenceNumber = "routine"
 )
 
-// Ipv6AclOperatorEnum represents Ipv6 acl operator enum
-type Ipv6AclOperatorEnum string
+// Ipv6AclTypeEnum represents Ipv6 acl type enum
+type Ipv6AclTypeEnum string
 
 const (
-    // Match only packets on a given port number
-    Ipv6AclOperatorEnum_equal Ipv6AclOperatorEnum = "equal"
+    // ACL
+    Ipv6AclTypeEnum_acl Ipv6AclTypeEnum = "acl"
 
-    // Match only packet with a greater port number
-    Ipv6AclOperatorEnum_greater_than Ipv6AclOperatorEnum = "greater-than"
+    // Prefix List
+    Ipv6AclTypeEnum_prefix_list Ipv6AclTypeEnum = "prefix-list"
+)
 
-    // Match only packet with a lower port number
-    Ipv6AclOperatorEnum_less_than Ipv6AclOperatorEnum = "less-than"
+// Ipv6PrefixMatchMinLength represents Ipv6 prefix match min length
+type Ipv6PrefixMatchMinLength string
 
-    // Match only packets not on a given port number
-    Ipv6AclOperatorEnum_not_equal Ipv6AclOperatorEnum = "not-equal"
-
-    // Match only packets in the range of port numbers
-    Ipv6AclOperatorEnum_range_ Ipv6AclOperatorEnum = "range"
+const (
+    // Enable matching of Prefix Lengths greater than
+    // MinPrefixLength
+    Ipv6PrefixMatchMinLength_match_min_length Ipv6PrefixMatchMinLength = "match-min-length"
 )
 
 // Ipv6AclDscpNumber represents Ipv6 acl dscp number
@@ -342,12 +332,13 @@ const (
     Ipv6AclDscpNumber_ef Ipv6AclDscpNumber = "ef"
 )
 
-// Ipv6PrefixMatchExactLength represents Ipv6 prefix match exact length
-type Ipv6PrefixMatchExactLength string
+// Ipv6PrefixMatchMaxLength represents Ipv6 prefix match max length
+type Ipv6PrefixMatchMaxLength string
 
 const (
-    // Prefix Length Exact match
-    Ipv6PrefixMatchExactLength_match_exact_length Ipv6PrefixMatchExactLength = "match-exact-length"
+    // Enable matching of Prefix Lengths lesser than
+    // MaxPrefixLength
+    Ipv6PrefixMatchMaxLength_match_max_length Ipv6PrefixMatchMaxLength = "match-max-length"
 )
 
 // Ipv6AclPortNumber represents Ipv6 acl port number
@@ -527,29 +518,6 @@ const (
     Ipv6AclPortNumber_ldp Ipv6AclPortNumber = "ldp"
 )
 
-// Ipv6AclLoggingEnum represents Ipv6 acl logging enum
-type Ipv6AclLoggingEnum string
-
-const (
-    // Log matches against this entry
-    Ipv6AclLoggingEnum_log Ipv6AclLoggingEnum = "log"
-
-    // Log matches against this entry, including input
-    // interface
-    Ipv6AclLoggingEnum_log_input Ipv6AclLoggingEnum = "log-input"
-)
-
-// Ipv6AclTypeEnum represents Ipv6 acl type enum
-type Ipv6AclTypeEnum string
-
-const (
-    // ACL
-    Ipv6AclTypeEnum_acl Ipv6AclTypeEnum = "acl"
-
-    // Prefix List
-    Ipv6AclTypeEnum_prefix_list Ipv6AclTypeEnum = "prefix-list"
-)
-
 // Ipv6AclStatusEnum represents Ipv6 acl status enum
 type Ipv6AclStatusEnum string
 
@@ -559,5 +527,37 @@ const (
 
     // Enabled
     Ipv6AclStatusEnum_enabled Ipv6AclStatusEnum = "enabled"
+)
+
+// Ipv6AclOperatorEnum represents Ipv6 acl operator enum
+type Ipv6AclOperatorEnum string
+
+const (
+    // Match only packets on a given port number
+    Ipv6AclOperatorEnum_equal Ipv6AclOperatorEnum = "equal"
+
+    // Match only packet with a greater port number
+    Ipv6AclOperatorEnum_greater_than Ipv6AclOperatorEnum = "greater-than"
+
+    // Match only packet with a lower port number
+    Ipv6AclOperatorEnum_less_than Ipv6AclOperatorEnum = "less-than"
+
+    // Match only packets not on a given port number
+    Ipv6AclOperatorEnum_not_equal Ipv6AclOperatorEnum = "not-equal"
+
+    // Match only packets in the range of port numbers
+    Ipv6AclOperatorEnum_range_ Ipv6AclOperatorEnum = "range"
+)
+
+// Ipv6AclTcpMatchOperatorEnum represents Ipv6 acl tcp match operator enum
+type Ipv6AclTcpMatchOperatorEnum string
+
+const (
+    // Match only packet with all the given TCP bits
+    Ipv6AclTcpMatchOperatorEnum_match_all Ipv6AclTcpMatchOperatorEnum = "match-all"
+
+    // Match only packet with any of the given TCP
+    // bits
+    Ipv6AclTcpMatchOperatorEnum_match_any Ipv6AclTcpMatchOperatorEnum = "match-any"
 )
 

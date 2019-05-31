@@ -14,6 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package clns_isis_datatypes"))
 }
 
+// IsisAddressFamily represents Isis address family
+type IsisAddressFamily string
+
+const (
+    // IPv4
+    IsisAddressFamily_ipv4 IsisAddressFamily = "ipv4"
+
+    // IPv6
+    IsisAddressFamily_ipv6 IsisAddressFamily = "ipv6"
+)
+
 // IsisInternalLevel represents Isis internal level
 type IsisInternalLevel string
 
@@ -26,17 +37,6 @@ const (
 
     // Level2
     IsisInternalLevel_level2 IsisInternalLevel = "level2"
-)
-
-// IsisAddressFamily represents Isis address family
-type IsisAddressFamily string
-
-const (
-    // IPv4
-    IsisAddressFamily_ipv4 IsisAddressFamily = "ipv4"
-
-    // IPv6
-    IsisAddressFamily_ipv6 IsisAddressFamily = "ipv6"
 )
 
 // IsisSubAddressFamily represents Isis sub address family

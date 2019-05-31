@@ -205,7 +205,7 @@ type Ipv4Network_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv4 network operational interface data.
@@ -314,7 +314,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Brief interface IPv4 network operational data for a node.
@@ -390,11 +390,11 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -475,11 +475,11 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -520,8 +520,8 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     // Name of referenced interface (valid if unnumbered). The type is string.
     UnnumberedInterfaceName interface{}
 
-    // Name of interface which is also unnum to same interface where this intf is
-    // unnumbered. The type is string.
+    // Name of interface which is also unnum to         same interface where this
+    // intf is unnumbered. The type is string.
     NextUnnumberedInterfaceName interface{}
 
     // Is Proxy ARP disabled on the interface?. The type is bool.
@@ -543,11 +543,12 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     // IP ARM operation flags. The type is interface{} with range: 0..65535.
     ArmFlags interface{}
 
-    // state as recieved from IM. The type is Ipv4MaOperLineState.
+    // state as recieved                                from IM. The type is
+    // Ipv4MaOperLineState.
     StateRecvdFrmIm interface{}
 
     // Conflicated ipv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CflctAddress interface{}
 
     // Client type for IDB. The type is Ipv4MaOperConfig.
@@ -578,21 +579,6 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     // BGP PA config on the interface.
     BgpPa Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
 
-    // Address Publish Time.
-    PubUtime Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime
-
-    // IDB Create Time.
-    IdbUtime Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime
-
-    // CAPS Add Time.
-    CapsUtime Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime
-
-    // FWD ENABLE Time.
-    FwdEnUtime Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime
-
-    // FWD DISABLE Time.
-    FwdDisUtime Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime
-
     // Multicast groups joined on the interface. The type is slice of
     // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup.
     MulticastGroup []*Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
@@ -619,11 +605,6 @@ func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Children.Append("helper-address", types.YChild{"HelperAddress", &detail.HelperAddress})
     detail.EntityData.Children.Append("rpf", types.YChild{"Rpf", &detail.Rpf})
     detail.EntityData.Children.Append("bgp-pa", types.YChild{"BgpPa", &detail.BgpPa})
-    detail.EntityData.Children.Append("pub-utime", types.YChild{"PubUtime", &detail.PubUtime})
-    detail.EntityData.Children.Append("idb-utime", types.YChild{"IdbUtime", &detail.IdbUtime})
-    detail.EntityData.Children.Append("caps-utime", types.YChild{"CapsUtime", &detail.CapsUtime})
-    detail.EntityData.Children.Append("fwd-en-utime", types.YChild{"FwdEnUtime", &detail.FwdEnUtime})
-    detail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &detail.FwdDisUtime})
     detail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range detail.MulticastGroup {
         types.SetYListKey(detail.MulticastGroup[i], i)
@@ -770,7 +751,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbou
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Inbound ACLs. The type is string.
     Entry interface{}
 }
 
@@ -801,7 +782,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbo
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Outbound ACLs. The type is string.
     Entry interface{}
 }
 
@@ -832,7 +813,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Commo
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Common ACLs. The type is string.
     Entry interface{}
 }
 
@@ -898,8 +879,8 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Helper address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -1075,136 +1056,6 @@ func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
     return &(output.EntityData)
 }
 
-// Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime
-// Address Publish Time
-type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetEntityData() *types.CommonEntityData {
-    pubUtime.EntityData.YFilter = pubUtime.YFilter
-    pubUtime.EntityData.YangName = "pub-utime"
-    pubUtime.EntityData.BundleName = "cisco_ios_xr"
-    pubUtime.EntityData.ParentYangName = "detail"
-    pubUtime.EntityData.SegmentPath = "pub-utime"
-    pubUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + pubUtime.EntityData.SegmentPath
-    pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pubUtime.EntityData.Children = types.NewOrderedMap()
-    pubUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    pubUtime.EntityData.YListKeys = []string {}
-
-    return &(pubUtime.EntityData)
-}
-
-// Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime
-// IDB Create Time
-type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetEntityData() *types.CommonEntityData {
-    idbUtime.EntityData.YFilter = idbUtime.YFilter
-    idbUtime.EntityData.YangName = "idb-utime"
-    idbUtime.EntityData.BundleName = "cisco_ios_xr"
-    idbUtime.EntityData.ParentYangName = "detail"
-    idbUtime.EntityData.SegmentPath = "idb-utime"
-    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + idbUtime.EntityData.SegmentPath
-    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    idbUtime.EntityData.Children = types.NewOrderedMap()
-    idbUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    idbUtime.EntityData.YListKeys = []string {}
-
-    return &(idbUtime.EntityData)
-}
-
-// Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime
-// CAPS Add Time
-type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetEntityData() *types.CommonEntityData {
-    capsUtime.EntityData.YFilter = capsUtime.YFilter
-    capsUtime.EntityData.YangName = "caps-utime"
-    capsUtime.EntityData.BundleName = "cisco_ios_xr"
-    capsUtime.EntityData.ParentYangName = "detail"
-    capsUtime.EntityData.SegmentPath = "caps-utime"
-    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + capsUtime.EntityData.SegmentPath
-    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    capsUtime.EntityData.Children = types.NewOrderedMap()
-    capsUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    capsUtime.EntityData.YListKeys = []string {}
-
-    return &(capsUtime.EntityData)
-}
-
-// Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime
-// FWD ENABLE Time
-type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
-    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
-    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
-    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
-    fwdEnUtime.EntityData.ParentYangName = "detail"
-    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
-    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdEnUtime.EntityData.SegmentPath
-    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fwdEnUtime.EntityData.Children = types.NewOrderedMap()
-    fwdEnUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    fwdEnUtime.EntityData.YListKeys = []string {}
-
-    return &(fwdEnUtime.EntityData)
-}
-
-// Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime
-// FWD DISABLE Time
-type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
-    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
-    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
-    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
-    fwdDisUtime.EntityData.ParentYangName = "detail"
-    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
-    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdDisUtime.EntityData.SegmentPath
-    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fwdDisUtime.EntityData.Children = types.NewOrderedMap()
-    fwdDisUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    fwdDisUtime.EntityData.YListKeys = []string {}
-
-    return &(fwdDisUtime.EntityData)
-}
-
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
 // Multicast groups joined on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup struct {
@@ -1213,7 +1064,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
     YListKey string
 
     // Address of multicast group. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     GroupAddress interface{}
 }
 
@@ -1245,7 +1096,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddre
     YListKey string
 
     // Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Prefix length of address. The type is interface{} with range:
@@ -2004,7 +1855,7 @@ type Ipv4Network_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
+    // pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // List of VRF on the interface.
@@ -2074,7 +1925,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Detail IPv4 network operational data for an interface.
@@ -2114,7 +1965,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     YFilter yfilter.YFilter
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -2155,8 +2006,8 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     // Name of referenced interface (valid if unnumbered). The type is string.
     UnnumberedInterfaceName interface{}
 
-    // Name of interface which is also unnum to same interface where this intf is
-    // unnumbered. The type is string.
+    // Name of interface which is also unnum to         same interface where this
+    // intf is unnumbered. The type is string.
     NextUnnumberedInterfaceName interface{}
 
     // Is Proxy ARP disabled on the interface?. The type is bool.
@@ -2178,11 +2029,12 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     // IP ARM operation flags. The type is interface{} with range: 0..65535.
     ArmFlags interface{}
 
-    // state as recieved from IM. The type is Ipv4MaOperLineState.
+    // state as recieved                                from IM. The type is
+    // Ipv4MaOperLineState.
     StateRecvdFrmIm interface{}
 
     // Conflicated ipv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CflctAddress interface{}
 
     // Client type for IDB. The type is Ipv4MaOperConfig.
@@ -2213,21 +2065,6 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     // BGP PA config on the interface.
     BgpPa Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa
 
-    // Address Publish Time.
-    PubUtime Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime
-
-    // IDB Create Time.
-    IdbUtime Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime
-
-    // CAPS Add Time.
-    CapsUtime Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime
-
-    // FWD ENABLE Time.
-    FwdEnUtime Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime
-
-    // FWD DISABLE Time.
-    FwdDisUtime Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime
-
     // Multicast groups joined on the interface. The type is slice of
     // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup.
     MulticastGroup []*Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup
@@ -2254,11 +2091,6 @@ func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetEntityData() 
     detail.EntityData.Children.Append("helper-address", types.YChild{"HelperAddress", &detail.HelperAddress})
     detail.EntityData.Children.Append("rpf", types.YChild{"Rpf", &detail.Rpf})
     detail.EntityData.Children.Append("bgp-pa", types.YChild{"BgpPa", &detail.BgpPa})
-    detail.EntityData.Children.Append("pub-utime", types.YChild{"PubUtime", &detail.PubUtime})
-    detail.EntityData.Children.Append("idb-utime", types.YChild{"IdbUtime", &detail.IdbUtime})
-    detail.EntityData.Children.Append("caps-utime", types.YChild{"CapsUtime", &detail.CapsUtime})
-    detail.EntityData.Children.Append("fwd-en-utime", types.YChild{"FwdEnUtime", &detail.FwdEnUtime})
-    detail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &detail.FwdDisUtime})
     detail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range detail.MulticastGroup {
         types.SetYListKey(detail.MulticastGroup[i], i)
@@ -2404,7 +2236,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Inbound ACLs. The type is string.
     Entry interface{}
 }
 
@@ -2435,7 +2267,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Outbound ACLs. The type is string.
     Entry interface{}
 }
 
@@ -2466,7 +2298,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string.
+    // Common ACLs. The type is string.
     Entry interface{}
 }
 
@@ -2532,8 +2364,8 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray
     YFilter yfilter.YFilter
     YListKey string
 
-    // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // Helper address. The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
@@ -2709,136 +2541,6 @@ func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) Get
     return &(output.EntityData)
 }
 
-// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime
-// Address Publish Time
-type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetEntityData() *types.CommonEntityData {
-    pubUtime.EntityData.YFilter = pubUtime.YFilter
-    pubUtime.EntityData.YangName = "pub-utime"
-    pubUtime.EntityData.BundleName = "cisco_ios_xr"
-    pubUtime.EntityData.ParentYangName = "detail"
-    pubUtime.EntityData.SegmentPath = "pub-utime"
-    pubUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + pubUtime.EntityData.SegmentPath
-    pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pubUtime.EntityData.Children = types.NewOrderedMap()
-    pubUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    pubUtime.EntityData.YListKeys = []string {}
-
-    return &(pubUtime.EntityData)
-}
-
-// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime
-// IDB Create Time
-type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetEntityData() *types.CommonEntityData {
-    idbUtime.EntityData.YFilter = idbUtime.YFilter
-    idbUtime.EntityData.YangName = "idb-utime"
-    idbUtime.EntityData.BundleName = "cisco_ios_xr"
-    idbUtime.EntityData.ParentYangName = "detail"
-    idbUtime.EntityData.SegmentPath = "idb-utime"
-    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + idbUtime.EntityData.SegmentPath
-    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    idbUtime.EntityData.Children = types.NewOrderedMap()
-    idbUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    idbUtime.EntityData.YListKeys = []string {}
-
-    return &(idbUtime.EntityData)
-}
-
-// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime
-// CAPS Add Time
-type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetEntityData() *types.CommonEntityData {
-    capsUtime.EntityData.YFilter = capsUtime.YFilter
-    capsUtime.EntityData.YangName = "caps-utime"
-    capsUtime.EntityData.BundleName = "cisco_ios_xr"
-    capsUtime.EntityData.ParentYangName = "detail"
-    capsUtime.EntityData.SegmentPath = "caps-utime"
-    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + capsUtime.EntityData.SegmentPath
-    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    capsUtime.EntityData.Children = types.NewOrderedMap()
-    capsUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    capsUtime.EntityData.YListKeys = []string {}
-
-    return &(capsUtime.EntityData)
-}
-
-// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime
-// FWD ENABLE Time
-type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
-    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
-    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
-    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
-    fwdEnUtime.EntityData.ParentYangName = "detail"
-    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
-    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + fwdEnUtime.EntityData.SegmentPath
-    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fwdEnUtime.EntityData.Children = types.NewOrderedMap()
-    fwdEnUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    fwdEnUtime.EntityData.YListKeys = []string {}
-
-    return &(fwdEnUtime.EntityData)
-}
-
-// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime
-// FWD DISABLE Time
-type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
-    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
-    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
-    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
-    fwdDisUtime.EntityData.ParentYangName = "detail"
-    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
-    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/interface/vrfs/vrf/detail/" + fwdDisUtime.EntityData.SegmentPath
-    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fwdDisUtime.EntityData.Children = types.NewOrderedMap()
-    fwdDisUtime.EntityData.Leafs = types.NewOrderedMap()
-
-    fwdDisUtime.EntityData.YListKeys = []string {}
-
-    return &(fwdDisUtime.EntityData)
-}
-
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup
 // Multicast groups joined on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup struct {
@@ -2847,7 +2549,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup struct {
     YListKey string
 
     // Address of multicast group. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     GroupAddress interface{}
 }
 
@@ -2879,7 +2581,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress struct {
     YListKey string
 
     // Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Prefix length of address. The type is interface{} with range:
@@ -2921,7 +2623,7 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief struct {
     YFilter yfilter.YFilter
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.

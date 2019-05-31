@@ -159,12 +159,6 @@ type Environment_Oper_Temperatures_Location struct {
     // This attribute is a key. The type is string.
     Location interface{}
 
-    // The type is interface{} with range: 0..4294967295.
-    LocHeader interface{}
-
-    // The type is bool. The default value is false.
-    PrintHeader interface{}
-
     // The type is slice of
     // Environment_Oper_Temperatures_Location_SensorAttributes.
     SensorAttributes []*Environment_Oper_Temperatures_Location_SensorAttributes
@@ -188,8 +182,6 @@ func (location *Environment_Oper_Temperatures_Location) GetEntityData() *types.C
     }
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("location", types.YLeaf{"Location", location.Location})
-    location.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", location.LocHeader})
-    location.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", location.PrintHeader})
 
     location.EntityData.YListKeys = []string {"Location"}
 
@@ -204,6 +196,15 @@ type Environment_Oper_Temperatures_Location_SensorAttributes struct {
 
     // This attribute is a key. The type is string.
     Sensor interface{}
+
+    // The type is bool. The default value is false.
+    LocHeader interface{}
+
+    // The type is bool. The default value is false.
+    PrintHeader interface{}
+
+    // The type is string.
+    Location interface{}
 
     // The type is string.
     SensorId interface{}
@@ -250,6 +251,9 @@ func (sensorAttributes *Environment_Oper_Temperatures_Location_SensorAttributes)
     sensorAttributes.EntityData.Children = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs.Append("sensor", types.YLeaf{"Sensor", sensorAttributes.Sensor})
+    sensorAttributes.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", sensorAttributes.LocHeader})
+    sensorAttributes.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", sensorAttributes.PrintHeader})
+    sensorAttributes.EntityData.Leafs.Append("location", types.YLeaf{"Location", sensorAttributes.Location})
     sensorAttributes.EntityData.Leafs.Append("sensor_id", types.YLeaf{"SensorId", sensorAttributes.SensorId})
     sensorAttributes.EntityData.Leafs.Append("alarm", types.YLeaf{"Alarm", sensorAttributes.Alarm})
     sensorAttributes.EntityData.Leafs.Append("temperature_value", types.YLeaf{"TemperatureValue", sensorAttributes.TemperatureValue})
@@ -307,12 +311,6 @@ type Environment_Oper_Voltages_Location struct {
     // This attribute is a key. The type is string.
     Location interface{}
 
-    // The type is bool. The default value is false.
-    PrintHeader interface{}
-
-    // The type is interface{} with range: 0..4294967295.
-    LocHeader interface{}
-
     // The type is slice of Environment_Oper_Voltages_Location_SensorAttributes.
     SensorAttributes []*Environment_Oper_Voltages_Location_SensorAttributes
 }
@@ -335,8 +333,6 @@ func (location *Environment_Oper_Voltages_Location) GetEntityData() *types.Commo
     }
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("location", types.YLeaf{"Location", location.Location})
-    location.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", location.PrintHeader})
-    location.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", location.LocHeader})
 
     location.EntityData.YListKeys = []string {"Location"}
 
@@ -351,6 +347,15 @@ type Environment_Oper_Voltages_Location_SensorAttributes struct {
 
     // This attribute is a key. The type is string.
     Sensor interface{}
+
+    // The type is bool. The default value is false.
+    LocHeader interface{}
+
+    // The type is bool. The default value is false.
+    PrintHeader interface{}
+
+    // The type is string.
+    Location interface{}
 
     // The type is string.
     SensorId interface{}
@@ -397,6 +402,9 @@ func (sensorAttributes *Environment_Oper_Voltages_Location_SensorAttributes) Get
     sensorAttributes.EntityData.Children = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs.Append("sensor", types.YLeaf{"Sensor", sensorAttributes.Sensor})
+    sensorAttributes.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", sensorAttributes.LocHeader})
+    sensorAttributes.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", sensorAttributes.PrintHeader})
+    sensorAttributes.EntityData.Leafs.Append("location", types.YLeaf{"Location", sensorAttributes.Location})
     sensorAttributes.EntityData.Leafs.Append("sensor_id", types.YLeaf{"SensorId", sensorAttributes.SensorId})
     sensorAttributes.EntityData.Leafs.Append("alarm", types.YLeaf{"Alarm", sensorAttributes.Alarm})
     sensorAttributes.EntityData.Leafs.Append("value", types.YLeaf{"Value", sensorAttributes.Value})
@@ -454,12 +462,6 @@ type Environment_Oper_Current_Location struct {
     // This attribute is a key. The type is string.
     Location interface{}
 
-    // The type is bool. The default value is false.
-    PrintHeader interface{}
-
-    // The type is interface{} with range: 0..4294967295.
-    LocHeader interface{}
-
     // The type is slice of Environment_Oper_Current_Location_SensorAttributes.
     SensorAttributes []*Environment_Oper_Current_Location_SensorAttributes
 }
@@ -482,8 +484,6 @@ func (location *Environment_Oper_Current_Location) GetEntityData() *types.Common
     }
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("location", types.YLeaf{"Location", location.Location})
-    location.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", location.PrintHeader})
-    location.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", location.LocHeader})
 
     location.EntityData.YListKeys = []string {"Location"}
 
@@ -498,6 +498,15 @@ type Environment_Oper_Current_Location_SensorAttributes struct {
 
     // This attribute is a key. The type is string.
     Sensor interface{}
+
+    // The type is bool. The default value is false.
+    LocHeader interface{}
+
+    // The type is bool. The default value is false.
+    PrintHeader interface{}
+
+    // The type is string.
+    Location interface{}
 
     // The type is string.
     SensorId interface{}
@@ -526,6 +535,9 @@ func (sensorAttributes *Environment_Oper_Current_Location_SensorAttributes) GetE
     sensorAttributes.EntityData.Children = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs = types.NewOrderedMap()
     sensorAttributes.EntityData.Leafs.Append("sensor", types.YLeaf{"Sensor", sensorAttributes.Sensor})
+    sensorAttributes.EntityData.Leafs.Append("loc_header", types.YLeaf{"LocHeader", sensorAttributes.LocHeader})
+    sensorAttributes.EntityData.Leafs.Append("print_header", types.YLeaf{"PrintHeader", sensorAttributes.PrintHeader})
+    sensorAttributes.EntityData.Leafs.Append("location", types.YLeaf{"Location", sensorAttributes.Location})
     sensorAttributes.EntityData.Leafs.Append("sensor_id", types.YLeaf{"SensorId", sensorAttributes.SensorId})
     sensorAttributes.EntityData.Leafs.Append("alarm", types.YLeaf{"Alarm", sensorAttributes.Alarm})
     sensorAttributes.EntityData.Leafs.Append("value", types.YLeaf{"Value", sensorAttributes.Value})
@@ -1750,6 +1762,15 @@ type Environment_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // The type is interface{} with range: 0..100.
+    RaiseFanSpeed interface{}
+
+    // The type is interface{} with range: 0..1.
+    FanCtrlOptics interface{}
+
+    // The type is interface{} with range: 0..1.
+    GracefulShutdown interface{}
+
     
     Router Environment_Config_Router
 
@@ -1764,15 +1785,6 @@ type Environment_Config struct {
 
     
     Monitoring Environment_Config_Monitoring
-
-    
-    RaiseFanSpeed Environment_Config_RaiseFanSpeed
-
-    
-    FanCtrlOptics Environment_Config_FanCtrlOptics
-
-    
-    GracefulShutdown Environment_Config_GracefulShutdown
 }
 
 func (config *Environment_Config) GetEntityData() *types.CommonEntityData {
@@ -1792,10 +1804,10 @@ func (config *Environment_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.Children.Append("fan-ctrl", types.YChild{"FanCtrl", &config.FanCtrl})
     config.EntityData.Children.Append("temperature", types.YChild{"Temperature", &config.Temperature})
     config.EntityData.Children.Append("monitoring", types.YChild{"Monitoring", &config.Monitoring})
-    config.EntityData.Children.Append("raise-fan-speed", types.YChild{"RaiseFanSpeed", &config.RaiseFanSpeed})
-    config.EntityData.Children.Append("fan-ctrl-optics", types.YChild{"FanCtrlOptics", &config.FanCtrlOptics})
-    config.EntityData.Children.Append("graceful-shutdown", types.YChild{"GracefulShutdown", &config.GracefulShutdown})
     config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("raise-fan-speed", types.YLeaf{"RaiseFanSpeed", config.RaiseFanSpeed})
+    config.EntityData.Leafs.Append("fan-ctrl-optics", types.YLeaf{"FanCtrlOptics", config.FanCtrlOptics})
+    config.EntityData.Leafs.Append("graceful-shutdown", types.YLeaf{"GracefulShutdown", config.GracefulShutdown})
 
     config.EntityData.YListKeys = []string {}
 
@@ -2491,384 +2503,6 @@ func (location *Environment_Config_Monitoring_Disable_RackLoc_Location) GetEntit
     return &(location.EntityData)
 }
 
-// Environment_Config_RaiseFanSpeed
-type Environment_Config_RaiseFanSpeed struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    
-    All Environment_Config_RaiseFanSpeed_All
-
-    
-    RackLoc Environment_Config_RaiseFanSpeed_RackLoc
-}
-
-func (raiseFanSpeed *Environment_Config_RaiseFanSpeed) GetEntityData() *types.CommonEntityData {
-    raiseFanSpeed.EntityData.YFilter = raiseFanSpeed.YFilter
-    raiseFanSpeed.EntityData.YangName = "raise-fan-speed"
-    raiseFanSpeed.EntityData.BundleName = "cisco_ios_xr"
-    raiseFanSpeed.EntityData.ParentYangName = "config"
-    raiseFanSpeed.EntityData.SegmentPath = "raise-fan-speed"
-    raiseFanSpeed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + raiseFanSpeed.EntityData.SegmentPath
-    raiseFanSpeed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    raiseFanSpeed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    raiseFanSpeed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    raiseFanSpeed.EntityData.Children = types.NewOrderedMap()
-    raiseFanSpeed.EntityData.Children.Append("all", types.YChild{"All", &raiseFanSpeed.All})
-    raiseFanSpeed.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &raiseFanSpeed.RackLoc})
-    raiseFanSpeed.EntityData.Leafs = types.NewOrderedMap()
-
-    raiseFanSpeed.EntityData.YListKeys = []string {}
-
-    return &(raiseFanSpeed.EntityData)
-}
-
-// Environment_Config_RaiseFanSpeed_All
-type Environment_Config_RaiseFanSpeed_All struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is interface{} with range: 0..100.
-    SpeedPwm interface{}
-}
-
-func (all *Environment_Config_RaiseFanSpeed_All) GetEntityData() *types.CommonEntityData {
-    all.EntityData.YFilter = all.YFilter
-    all.EntityData.YangName = "all"
-    all.EntityData.BundleName = "cisco_ios_xr"
-    all.EntityData.ParentYangName = "raise-fan-speed"
-    all.EntityData.SegmentPath = "all"
-    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/" + all.EntityData.SegmentPath
-    all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    all.EntityData.Children = types.NewOrderedMap()
-    all.EntityData.Leafs = types.NewOrderedMap()
-    all.EntityData.Leafs.Append("speed_pwm", types.YLeaf{"SpeedPwm", all.SpeedPwm})
-
-    all.EntityData.YListKeys = []string {}
-
-    return &(all.EntityData)
-}
-
-// Environment_Config_RaiseFanSpeed_RackLoc
-type Environment_Config_RaiseFanSpeed_RackLoc struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is slice of Environment_Config_RaiseFanSpeed_RackLoc_Location.
-    Location []*Environment_Config_RaiseFanSpeed_RackLoc_Location
-}
-
-func (rackLoc *Environment_Config_RaiseFanSpeed_RackLoc) GetEntityData() *types.CommonEntityData {
-    rackLoc.EntityData.YFilter = rackLoc.YFilter
-    rackLoc.EntityData.YangName = "rack_loc"
-    rackLoc.EntityData.BundleName = "cisco_ios_xr"
-    rackLoc.EntityData.ParentYangName = "raise-fan-speed"
-    rackLoc.EntityData.SegmentPath = "rack_loc"
-    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/" + rackLoc.EntityData.SegmentPath
-    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rackLoc.EntityData.Children = types.NewOrderedMap()
-    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
-    for i := range rackLoc.Location {
-        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
-    }
-    rackLoc.EntityData.Leafs = types.NewOrderedMap()
-
-    rackLoc.EntityData.YListKeys = []string {}
-
-    return &(rackLoc.EntityData)
-}
-
-// Environment_Config_RaiseFanSpeed_RackLoc_Location
-type Environment_Config_RaiseFanSpeed_RackLoc_Location struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The type is RackId.
-    RackId interface{}
-
-    // The type is interface{} with range: 0..100.
-    SpeedPwm interface{}
-}
-
-func (location *Environment_Config_RaiseFanSpeed_RackLoc_Location) GetEntityData() *types.CommonEntityData {
-    location.EntityData.YFilter = location.YFilter
-    location.EntityData.YangName = "location"
-    location.EntityData.BundleName = "cisco_ios_xr"
-    location.EntityData.ParentYangName = "rack_loc"
-    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
-    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/rack_loc/" + location.EntityData.SegmentPath
-    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    location.EntityData.Children = types.NewOrderedMap()
-    location.EntityData.Leafs = types.NewOrderedMap()
-    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
-    location.EntityData.Leafs.Append("speed_pwm", types.YLeaf{"SpeedPwm", location.SpeedPwm})
-
-    location.EntityData.YListKeys = []string {"RackId"}
-
-    return &(location.EntityData)
-}
-
-// Environment_Config_FanCtrlOptics
-type Environment_Config_FanCtrlOptics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    
-    Enable Environment_Config_FanCtrlOptics_Enable
-}
-
-func (fanCtrlOptics *Environment_Config_FanCtrlOptics) GetEntityData() *types.CommonEntityData {
-    fanCtrlOptics.EntityData.YFilter = fanCtrlOptics.YFilter
-    fanCtrlOptics.EntityData.YangName = "fan-ctrl-optics"
-    fanCtrlOptics.EntityData.BundleName = "cisco_ios_xr"
-    fanCtrlOptics.EntityData.ParentYangName = "config"
-    fanCtrlOptics.EntityData.SegmentPath = "fan-ctrl-optics"
-    fanCtrlOptics.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + fanCtrlOptics.EntityData.SegmentPath
-    fanCtrlOptics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fanCtrlOptics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fanCtrlOptics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fanCtrlOptics.EntityData.Children = types.NewOrderedMap()
-    fanCtrlOptics.EntityData.Children.Append("enable", types.YChild{"Enable", &fanCtrlOptics.Enable})
-    fanCtrlOptics.EntityData.Leafs = types.NewOrderedMap()
-
-    fanCtrlOptics.EntityData.YListKeys = []string {}
-
-    return &(fanCtrlOptics.EntityData)
-}
-
-// Environment_Config_FanCtrlOptics_Enable
-type Environment_Config_FanCtrlOptics_Enable struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    
-    RackLoc Environment_Config_FanCtrlOptics_Enable_RackLoc
-}
-
-func (enable *Environment_Config_FanCtrlOptics_Enable) GetEntityData() *types.CommonEntityData {
-    enable.EntityData.YFilter = enable.YFilter
-    enable.EntityData.YangName = "enable"
-    enable.EntityData.BundleName = "cisco_ios_xr"
-    enable.EntityData.ParentYangName = "fan-ctrl-optics"
-    enable.EntityData.SegmentPath = "enable"
-    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/" + enable.EntityData.SegmentPath
-    enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    enable.EntityData.Children = types.NewOrderedMap()
-    enable.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &enable.RackLoc})
-    enable.EntityData.Leafs = types.NewOrderedMap()
-
-    enable.EntityData.YListKeys = []string {}
-
-    return &(enable.EntityData)
-}
-
-// Environment_Config_FanCtrlOptics_Enable_RackLoc
-type Environment_Config_FanCtrlOptics_Enable_RackLoc struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is interface{}.
-    All interface{}
-
-    // The type is slice of
-    // Environment_Config_FanCtrlOptics_Enable_RackLoc_Location.
-    Location []*Environment_Config_FanCtrlOptics_Enable_RackLoc_Location
-}
-
-func (rackLoc *Environment_Config_FanCtrlOptics_Enable_RackLoc) GetEntityData() *types.CommonEntityData {
-    rackLoc.EntityData.YFilter = rackLoc.YFilter
-    rackLoc.EntityData.YangName = "rack_loc"
-    rackLoc.EntityData.BundleName = "cisco_ios_xr"
-    rackLoc.EntityData.ParentYangName = "enable"
-    rackLoc.EntityData.SegmentPath = "rack_loc"
-    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/" + rackLoc.EntityData.SegmentPath
-    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rackLoc.EntityData.Children = types.NewOrderedMap()
-    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
-    for i := range rackLoc.Location {
-        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
-    }
-    rackLoc.EntityData.Leafs = types.NewOrderedMap()
-    rackLoc.EntityData.Leafs.Append("all", types.YLeaf{"All", rackLoc.All})
-
-    rackLoc.EntityData.YListKeys = []string {}
-
-    return &(rackLoc.EntityData)
-}
-
-// Environment_Config_FanCtrlOptics_Enable_RackLoc_Location
-type Environment_Config_FanCtrlOptics_Enable_RackLoc_Location struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The type is RackId.
-    RackId interface{}
-}
-
-func (location *Environment_Config_FanCtrlOptics_Enable_RackLoc_Location) GetEntityData() *types.CommonEntityData {
-    location.EntityData.YFilter = location.YFilter
-    location.EntityData.YangName = "location"
-    location.EntityData.BundleName = "cisco_ios_xr"
-    location.EntityData.ParentYangName = "rack_loc"
-    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
-    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/rack_loc/" + location.EntityData.SegmentPath
-    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    location.EntityData.Children = types.NewOrderedMap()
-    location.EntityData.Leafs = types.NewOrderedMap()
-    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
-
-    location.EntityData.YListKeys = []string {"RackId"}
-
-    return &(location.EntityData)
-}
-
-// Environment_Config_GracefulShutdown
-type Environment_Config_GracefulShutdown struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    
-    Disable Environment_Config_GracefulShutdown_Disable
-}
-
-func (gracefulShutdown *Environment_Config_GracefulShutdown) GetEntityData() *types.CommonEntityData {
-    gracefulShutdown.EntityData.YFilter = gracefulShutdown.YFilter
-    gracefulShutdown.EntityData.YangName = "graceful-shutdown"
-    gracefulShutdown.EntityData.BundleName = "cisco_ios_xr"
-    gracefulShutdown.EntityData.ParentYangName = "config"
-    gracefulShutdown.EntityData.SegmentPath = "graceful-shutdown"
-    gracefulShutdown.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + gracefulShutdown.EntityData.SegmentPath
-    gracefulShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    gracefulShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    gracefulShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    gracefulShutdown.EntityData.Children = types.NewOrderedMap()
-    gracefulShutdown.EntityData.Children.Append("disable", types.YChild{"Disable", &gracefulShutdown.Disable})
-    gracefulShutdown.EntityData.Leafs = types.NewOrderedMap()
-
-    gracefulShutdown.EntityData.YListKeys = []string {}
-
-    return &(gracefulShutdown.EntityData)
-}
-
-// Environment_Config_GracefulShutdown_Disable
-type Environment_Config_GracefulShutdown_Disable struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    
-    RackLoc Environment_Config_GracefulShutdown_Disable_RackLoc
-}
-
-func (disable *Environment_Config_GracefulShutdown_Disable) GetEntityData() *types.CommonEntityData {
-    disable.EntityData.YFilter = disable.YFilter
-    disable.EntityData.YangName = "disable"
-    disable.EntityData.BundleName = "cisco_ios_xr"
-    disable.EntityData.ParentYangName = "graceful-shutdown"
-    disable.EntityData.SegmentPath = "disable"
-    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/" + disable.EntityData.SegmentPath
-    disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    disable.EntityData.Children = types.NewOrderedMap()
-    disable.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &disable.RackLoc})
-    disable.EntityData.Leafs = types.NewOrderedMap()
-
-    disable.EntityData.YListKeys = []string {}
-
-    return &(disable.EntityData)
-}
-
-// Environment_Config_GracefulShutdown_Disable_RackLoc
-type Environment_Config_GracefulShutdown_Disable_RackLoc struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is interface{}.
-    All interface{}
-
-    // The type is slice of
-    // Environment_Config_GracefulShutdown_Disable_RackLoc_Location.
-    Location []*Environment_Config_GracefulShutdown_Disable_RackLoc_Location
-}
-
-func (rackLoc *Environment_Config_GracefulShutdown_Disable_RackLoc) GetEntityData() *types.CommonEntityData {
-    rackLoc.EntityData.YFilter = rackLoc.YFilter
-    rackLoc.EntityData.YangName = "rack_loc"
-    rackLoc.EntityData.BundleName = "cisco_ios_xr"
-    rackLoc.EntityData.ParentYangName = "disable"
-    rackLoc.EntityData.SegmentPath = "rack_loc"
-    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/" + rackLoc.EntityData.SegmentPath
-    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rackLoc.EntityData.Children = types.NewOrderedMap()
-    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
-    for i := range rackLoc.Location {
-        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
-    }
-    rackLoc.EntityData.Leafs = types.NewOrderedMap()
-    rackLoc.EntityData.Leafs.Append("all", types.YLeaf{"All", rackLoc.All})
-
-    rackLoc.EntityData.YListKeys = []string {}
-
-    return &(rackLoc.EntityData)
-}
-
-// Environment_Config_GracefulShutdown_Disable_RackLoc_Location
-type Environment_Config_GracefulShutdown_Disable_RackLoc_Location struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The type is RackId.
-    RackId interface{}
-}
-
-func (location *Environment_Config_GracefulShutdown_Disable_RackLoc_Location) GetEntityData() *types.CommonEntityData {
-    location.EntityData.YFilter = location.YFilter
-    location.EntityData.YangName = "location"
-    location.EntityData.BundleName = "cisco_ios_xr"
-    location.EntityData.ParentYangName = "rack_loc"
-    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
-    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/rack_loc/" + location.EntityData.SegmentPath
-    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    location.EntityData.Children = types.NewOrderedMap()
-    location.EntityData.Leafs = types.NewOrderedMap()
-    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
-
-    location.EntityData.YListKeys = []string {"RackId"}
-
-    return &(location.EntityData)
-}
-
 // Environment_Trace
 // show traceable processes
 type Environment_Trace struct {
@@ -3498,7 +3132,7 @@ type PowerMgmt_Config_RedundancyNumPms_All struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is interface{} with range: 0..5.
+    // The type is interface{} with range: 0..1.
     NumPm interface{}
 }
 
@@ -3563,7 +3197,7 @@ type PowerMgmt_Config_RedundancyNumPms_RackLoc_Location struct {
     // This attribute is a key. The type is RackId.
     RackId interface{}
 
-    // The type is interface{} with range: 0..5.
+    // The type is interface{} with range: 0..1.
     NumPm interface{}
 }
 
@@ -3700,7 +3334,8 @@ type PowerMgmt_Config_Progressive_Enable_Priority_Location struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. The type is string with pattern: 0/([0-9]|1[0-9]).
+    // This attribute is a key. The type is string with pattern:
+    // b'0/([0-9]|1[0-9])'.
     Loc interface{}
 
     // The type is interface{} with range: 0..19.

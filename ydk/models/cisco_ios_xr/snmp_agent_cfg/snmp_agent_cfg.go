@@ -27,6 +27,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-snmp-agent-cfg:mib", reflect.TypeOf(Mib{}))
 }
 
+// SnmpTos represents Snmp tos
+type SnmpTos string
+
+const (
+    // SNMP TOS type Precedence
+    SnmpTos_precedence SnmpTos = "precedence"
+
+    // SNMP TOS type DSCP
+    SnmpTos_dscp SnmpTos = "dscp"
+)
+
 // SnmpHashAlgorithm represents Snmp hash algorithm
 type SnmpHashAlgorithm string
 
@@ -41,15 +52,38 @@ const (
     SnmpHashAlgorithm_sha SnmpHashAlgorithm = "sha"
 )
 
-// SnmpAccessLevel represents Snmp access level
-type SnmpAccessLevel string
+// SnmpPrivAlgorithm represents Snmp priv algorithm
+type SnmpPrivAlgorithm string
 
 const (
-    // Read Only Access for a community string
-    SnmpAccessLevel_read_only SnmpAccessLevel = "read-only"
+    // No Privacy
+    SnmpPrivAlgorithm_none SnmpPrivAlgorithm = "none"
 
-    // Read Write Access for a community string
-    SnmpAccessLevel_read_write SnmpAccessLevel = "read-write"
+    // Des algorithm
+    SnmpPrivAlgorithm_des SnmpPrivAlgorithm = "des"
+
+    // 3des algorithm
+    SnmpPrivAlgorithm_Y_3des SnmpPrivAlgorithm = "3des"
+
+    // aes128 algorithm
+    SnmpPrivAlgorithm_aes128 SnmpPrivAlgorithm = "aes128"
+
+    // aes192 algorithm
+    SnmpPrivAlgorithm_aes192 SnmpPrivAlgorithm = "aes192"
+
+    // aes256 algorithm
+    SnmpPrivAlgorithm_aes256 SnmpPrivAlgorithm = "aes256"
+)
+
+// SnmpOwnerAccess represents Snmp owner access
+type SnmpOwnerAccess string
+
+const (
+    // Secure Domain Router Owner permissions
+    SnmpOwnerAccess_sdr_owner SnmpOwnerAccess = "sdr-owner"
+
+    // System owner permissions
+    SnmpOwnerAccess_system_owner SnmpOwnerAccess = "system-owner"
 )
 
 // SnmpBulkstatSchema represents Snmp bulkstat schema
@@ -73,72 +107,6 @@ const (
 
     // Repeated the instance
     SnmpBulkstatSchema_repeat_oid SnmpBulkstatSchema = "repeat-oid"
-)
-
-// GroupSnmpVersion represents Group snmp version
-type GroupSnmpVersion string
-
-const (
-    // SNMP version 1
-    GroupSnmpVersion_v1 GroupSnmpVersion = "v1"
-
-    // SNMP version 2
-    GroupSnmpVersion_v2c GroupSnmpVersion = "v2c"
-
-    // SNMP version 3
-    GroupSnmpVersion_v3 GroupSnmpVersion = "v3"
-)
-
-// SnmpOwnerAccess represents Snmp owner access
-type SnmpOwnerAccess string
-
-const (
-    // Secure Domain Router Owner permissions
-    SnmpOwnerAccess_sdr_owner SnmpOwnerAccess = "sdr-owner"
-
-    // System owner permissions
-    SnmpOwnerAccess_system_owner SnmpOwnerAccess = "system-owner"
-)
-
-// SnmpBulkstatFileFormat represents Snmp bulkstat file format
-type SnmpBulkstatFileFormat string
-
-const (
-    // Tranfer file in schema Ascii format
-    SnmpBulkstatFileFormat_schema_ascii SnmpBulkstatFileFormat = "schema-ascii"
-
-    // Tranfer file in Bulk Ascii format
-    SnmpBulkstatFileFormat_bulk_ascii SnmpBulkstatFileFormat = "bulk-ascii"
-
-    // Tranfer file in Bulk binary format
-    SnmpBulkstatFileFormat_bulk_binary SnmpBulkstatFileFormat = "bulk-binary"
-)
-
-// SnmpSecurityModel represents Snmp security model
-type SnmpSecurityModel string
-
-const (
-    // No Authentication required
-    SnmpSecurityModel_no_authentication SnmpSecurityModel = "no-authentication"
-
-    // Authentication password alone required for
-    // access
-    SnmpSecurityModel_authentication SnmpSecurityModel = "authentication"
-
-    // Authentication and privacy password required
-    // for access
-    SnmpSecurityModel_privacy SnmpSecurityModel = "privacy"
-)
-
-// SnmpTos represents Snmp tos
-type SnmpTos string
-
-const (
-    // SNMP TOS type Precedence
-    SnmpTos_precedence SnmpTos = "precedence"
-
-    // SNMP TOS type DSCP
-    SnmpTos_dscp SnmpTos = "dscp"
 )
 
 // Snmpacl represents Snmpacl
@@ -220,20 +188,6 @@ const (
     SnmpDscpValue_cs7 SnmpDscpValue = "cs7"
 )
 
-// UserSnmpVersion represents User snmp version
-type UserSnmpVersion string
-
-const (
-    // SNMP version 1
-    UserSnmpVersion_v1 UserSnmpVersion = "v1"
-
-    // SNMP version 2
-    UserSnmpVersion_v2c UserSnmpVersion = "v2c"
-
-    // SNMP version 3
-    UserSnmpVersion_v3 UserSnmpVersion = "v3"
-)
-
 // SnmpPrecedenceValue1 represents Snmp precedence value1
 type SnmpPrecedenceValue1 string
 
@@ -263,27 +217,20 @@ const (
     SnmpPrecedenceValue1_network SnmpPrecedenceValue1 = "network"
 )
 
-// SnmpPrivAlgorithm represents Snmp priv algorithm
-type SnmpPrivAlgorithm string
+// SnmpSecurityModel represents Snmp security model
+type SnmpSecurityModel string
 
 const (
-    // No Privacy
-    SnmpPrivAlgorithm_none SnmpPrivAlgorithm = "none"
+    // No Authentication required
+    SnmpSecurityModel_no_authentication SnmpSecurityModel = "no-authentication"
 
-    // Des algorithm
-    SnmpPrivAlgorithm_des SnmpPrivAlgorithm = "des"
+    // Authentication password alone required for
+    // access
+    SnmpSecurityModel_authentication SnmpSecurityModel = "authentication"
 
-    // 3des algorithm
-    SnmpPrivAlgorithm_Y_3des SnmpPrivAlgorithm = "3des"
-
-    // aes128 algorithm
-    SnmpPrivAlgorithm_aes128 SnmpPrivAlgorithm = "aes128"
-
-    // aes192 algorithm
-    SnmpPrivAlgorithm_aes192 SnmpPrivAlgorithm = "aes192"
-
-    // aes256 algorithm
-    SnmpPrivAlgorithm_aes256 SnmpPrivAlgorithm = "aes256"
+    // Authentication and privacy password required
+    // for access
+    SnmpSecurityModel_privacy SnmpSecurityModel = "privacy"
 )
 
 // SnmpMibViewInclusion represents Snmp mib view inclusion
@@ -295,6 +242,31 @@ const (
 
     // MIB View to be excluded
     SnmpMibViewInclusion_excluded SnmpMibViewInclusion = "excluded"
+)
+
+// SnmpBulkstatFileFormat represents Snmp bulkstat file format
+type SnmpBulkstatFileFormat string
+
+const (
+    // Tranfer file in schema Ascii format
+    SnmpBulkstatFileFormat_schema_ascii SnmpBulkstatFileFormat = "schema-ascii"
+
+    // Tranfer file in Bulk Ascii format
+    SnmpBulkstatFileFormat_bulk_ascii SnmpBulkstatFileFormat = "bulk-ascii"
+
+    // Tranfer file in Bulk binary format
+    SnmpBulkstatFileFormat_bulk_binary SnmpBulkstatFileFormat = "bulk-binary"
+)
+
+// SnmpAccessLevel represents Snmp access level
+type SnmpAccessLevel string
+
+const (
+    // Read Only Access for a community string
+    SnmpAccessLevel_read_only SnmpAccessLevel = "read-only"
+
+    // Read Write Access for a community string
+    SnmpAccessLevel_read_write SnmpAccessLevel = "read-write"
 )
 
 // SnmpContext represents Snmp context
@@ -312,6 +284,34 @@ const (
 
     // OSPFv3 feature
     SnmpContext_ospfv3 SnmpContext = "ospfv3"
+)
+
+// GroupSnmpVersion represents Group snmp version
+type GroupSnmpVersion string
+
+const (
+    // SNMP version 1
+    GroupSnmpVersion_v1 GroupSnmpVersion = "v1"
+
+    // SNMP version 2
+    GroupSnmpVersion_v2c GroupSnmpVersion = "v2c"
+
+    // SNMP version 3
+    GroupSnmpVersion_v3 GroupSnmpVersion = "v3"
+)
+
+// UserSnmpVersion represents User snmp version
+type UserSnmpVersion string
+
+const (
+    // SNMP version 1
+    UserSnmpVersion_v1 UserSnmpVersion = "v1"
+
+    // SNMP version 2
+    UserSnmpVersion_v2c UserSnmpVersion = "v2c"
+
+    // SNMP version 3
+    UserSnmpVersion_v3 UserSnmpVersion = "v3"
 )
 
 // Snmp
@@ -333,7 +333,7 @@ type Snmp struct {
     OidPollStats interface{}
 
     // Assign an interface for the source address of all traps. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     TrapSource interface{}
 
     // Disable authentication traps for packets on a vrf. The type is interface{}.
@@ -344,7 +344,7 @@ type Snmp struct {
     InformTimeout interface{}
 
     // Assign an interface for the source IPV6 address of all traps. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     TrapSourceIpv6 interface{}
 
     // Largest SNMP packet size. The type is interface{} with range: 484..65500.
@@ -355,7 +355,7 @@ type Snmp struct {
     ThrottleTime interface{}
 
     // Assign an interface for the source address of all traps. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     TrapSourceIpv4 interface{}
 
     // Max nmber of informs to hold in queue, (default 25). The type is
@@ -528,7 +528,7 @@ type Snmp_EncryptedCommunityMaps_EncryptedCommunityMap struct {
     YListKey string
 
     // This attribute is a key. SNMP community map. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // SNMP Context Name . The type is string.
@@ -605,7 +605,7 @@ type Snmp_Views_View struct {
     YListKey string
 
     // This attribute is a key. Name of the view. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ViewName interface{}
 
     // This attribute is a key. MIB view family name. The type is string.
@@ -877,7 +877,7 @@ type Snmp_Administration_EncryptedCommunities_EncryptedCommunity struct {
     YListKey string
 
     // This attribute is a key. SNMP community string. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // Read/Write Access. The type is SnmpAccessLevel.
@@ -1037,9 +1037,9 @@ type Snmp_Agent_EngineId_Remotes_Remote struct {
 
     // This attribute is a key. IP address of remote SNMP entity. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 
     // engine ID octet string. The type is string.
@@ -1393,7 +1393,7 @@ type Snmp_Target_Targets_Target struct {
     YListKey string
 
     // This attribute is a key. Name of the target list. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TargetListName interface{}
 
     // List of VRF Name for a target list.
@@ -1467,7 +1467,7 @@ type Snmp_Target_Targets_Target_VrfNames_VrfName struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 }
 
@@ -1534,9 +1534,9 @@ type Snmp_Target_Targets_Target_TargetAddresses_TargetAddress struct {
 
     // This attribute is a key. IPv4/Ipv6 address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 }
 
@@ -1572,8 +1572,8 @@ type Snmp_Notification struct {
     // SNMP notification configuration.
     Snmp Snmp_Notification_Snmp
 
-    // CISCO-SELECTIVE-VRF-DOWNLOAD-MIB notification configuration.
-    SelectiveVrfDownload Snmp_Notification_SelectiveVrfDownload
+    // Enable SNMP diameter traps.
+    Diametermib Snmp_Notification_Diametermib
 
     // CISCO-IETF-VPLS-GENERIC-MIB notification configuration.
     Vpls Snmp_Notification_Vpls
@@ -1581,107 +1581,71 @@ type Snmp_Notification struct {
     // CISCO-IETF-PW-MIB notification configuration.
     L2vpn Snmp_Notification_L2vpn
 
+    // Enable ISIS-MIB notifications.
+    Isis Snmp_Notification_Isis
+
+    // CISCO-CONFIG-MAN-MIB notification configurations.
+    ConfigMan Snmp_Notification_ConfigMan
+
     // Enable CISCO-IPSEC-FLOW-MONITOR-MIB notifications.
     IpSec Snmp_Notification_IpSec
 
     // Enable CISCO-IPSEC-FLOW-MONITOR-MIB notifications.
     Isakmp Snmp_Notification_Isakmp
 
-    // Frequency Synchronization trap configuration.
-    FrequencySynchronization Snmp_Notification_FrequencySynchronization
-
-    // CISCO-RF-MIB notification configuration.
-    Rf Snmp_Notification_Rf
-
-    // CISCO-FABRIC-HFR-MIB notification configuration.
-    FabricCrs Snmp_Notification_FabricCrs
-
-    // CISCO-ENTITY-FRU-CONTROL-MIB notification configuration.
-    FruControl Snmp_Notification_FruControl
-
-    // CISCO-HSRP-MIB notification configuration.
-    Hsrp Snmp_Notification_Hsrp
-
-    // MPLS-L3VPN-STD-MIB notification configuration.
-    MplsL3vpn Snmp_Notification_MplsL3vpn
-
-    // Enable SNMP l2tun traps.
-    L2tun Snmp_Notification_L2tun
-
-    // CISCO-IETF-BFD-MIB notification configuration.
-    Bfd Snmp_Notification_Bfd
-
-    // OSPFv3-MIB notification configuration.
-    Ospfv3 Snmp_Notification_Ospfv3
-
-    // CISCO-FLASH-MIB notification configuration.
-    Flash Snmp_Notification_Flash
-
-    // VRRP-MIB notification configuration.
-    Vrrp Snmp_Notification_Vrrp
-
-    // Enable SNMP daps traps.
-    AddresspoolMib Snmp_Notification_AddresspoolMib
-
     // 802.1ag Connectivity Fault Management MIB notification configuration.
     Cfm Snmp_Notification_Cfm
-
-    // BRIDGE-MIB notification configuration.
-    Bridge Snmp_Notification_Bridge
-
-    // CISCO-OPTICAL-MIB notification configuration.
-    Optical Snmp_Notification_Optical
-
-    // Enable CISCO-ENTITY-EXT-MIB notifications.
-    CiscoEntityExt Snmp_Notification_CiscoEntityExt
-
-    // CISCO-OPTICAL-OTS-MIB notification configuration.
-    OpticalOts Snmp_Notification_OpticalOts
-
-    // Enable ENTITY-MIB notifications.
-    Entity Snmp_Notification_Entity
-
-    // Enable SNMP diameter traps.
-    Diametermib Snmp_Notification_Diametermib
-
-    // MPLS-LDP-STD-MIB notification configuration.
-    MplsLdp Snmp_Notification_MplsLdp
-
-    // CISCO-SYSTEM-MIB notification configuration.
-    System Snmp_Notification_System
-
-    // Subscriber notification commands.
-    SubscriberMib Snmp_Notification_SubscriberMib
 
     // 802.3 OAM MIB notification configuration.
     Oam Snmp_Notification_Oam
 
-    // CISCO-ENTITY-SENSOR-MIB notification configuration.
-    Sensor Snmp_Notification_Sensor
+    // CISCO-FLASH-MIB notification configuration.
+    Flash Snmp_Notification_Flash
 
-    // CISCO-OTN-IF-MIB notification configuration.
-    Otn Snmp_Notification_Otn
-
-    // Enable RSVP-MIB notifications.
-    Rsvp Snmp_Notification_Rsvp
+    // Frequency Synchronization trap configuration.
+    FrequencySynchronization Snmp_Notification_FrequencySynchronization
 
     // CISCO-ENTITY-REDUNDANCY-MIB notification configuration.
     EntityRedundancy Snmp_Notification_EntityRedundancy
 
-    // OSPF-MIB notification configuration.
-    Ospf Snmp_Notification_Ospf
-
-    // CISCO-SYSLOG-MIB notification configuration.
-    Syslog Snmp_Notification_Syslog
-
     // CISCO-CONFIG-COPY-MIB notification configuration.
     ConfigCopy Snmp_Notification_ConfigCopy
 
-    // Enable ISIS-MIB notifications.
-    Isis Snmp_Notification_Isis
+    // CISCO-SELECTIVE-VRF-DOWNLOAD-MIB notification configuration.
+    SelectiveVrfDownload Snmp_Notification_SelectiveVrfDownload
 
-    // CISCO-CONFIG-MAN-MIB notification configurations.
-    ConfigMan Snmp_Notification_ConfigMan
+    // CISCO-SYSTEM-MIB notification configuration.
+    System Snmp_Notification_System
+
+    // CISCO-IETF-BFD-MIB notification configuration.
+    Bfd Snmp_Notification_Bfd
+
+    // Enable SNMP daps traps.
+    AddresspoolMib Snmp_Notification_AddresspoolMib
+
+    // CISCO-NTP-MIB notification configuration.
+    Ntp Snmp_Notification_Ntp
+
+    // Enable RSVP-MIB notifications.
+    Rsvp Snmp_Notification_Rsvp
+
+    // BGP4-MIB and CISCO-BGP4-MIB notification configuration.
+    Bgp Snmp_Notification_Bgp
+
+    // CISCO-HSRP-MIB notification configuration.
+    Hsrp Snmp_Notification_Hsrp
+
+    // OSPF-MIB notification configuration.
+    Ospf Snmp_Notification_Ospf
+
+    // VRRP-MIB notification configuration.
+    Vrrp Snmp_Notification_Vrrp
+
+    // OSPFv3-MIB notification configuration.
+    Ospfv3 Snmp_Notification_Ospfv3
+
+    // MPLS-LDP-STD-MIB notification configuration.
+    MplsLdp Snmp_Notification_MplsLdp
 
     // CISCO-MPLS-TE-P2MP-STD-MIB notification configuration.
     MplsTeP2mp Snmp_Notification_MplsTeP2mp
@@ -1692,14 +1656,47 @@ type Snmp_Notification struct {
     // CISCO-IETF-FRR-MIB notification configuration.
     MplsFrr Snmp_Notification_MplsFrr
 
+    // MPLS-L3VPN-STD-MIB notification configuration.
+    MplsL3vpn Snmp_Notification_MplsL3vpn
+
+    // CISCO-OPTICAL-MIB notification configuration.
+    Optical Snmp_Notification_Optical
+
+    // CISCO-OPTICAL-OTS-MIB notification configuration.
+    OpticalOts Snmp_Notification_OpticalOts
+
+    // CISCO-OTN-IF-MIB notification configuration.
+    Otn Snmp_Notification_Otn
+
+    // BRIDGE-MIB notification configuration.
+    Bridge Snmp_Notification_Bridge
+
+    // CISCO-ENTITY-SENSOR-MIB notification configuration.
+    Sensor Snmp_Notification_Sensor
+
+    // Enable CISCO-ENTITY-EXT-MIB notifications.
+    CiscoEntityExt Snmp_Notification_CiscoEntityExt
+
+    // Enable ENTITY-MIB notifications.
+    Entity Snmp_Notification_Entity
+
     // ENTITY-STATE-MIB notification configuration.
     EntityState Snmp_Notification_EntityState
 
-    // BGP4-MIB and CISCO-BGP4-MIB notification configuration.
-    Bgp Snmp_Notification_Bgp
+    // CISCO-ENTITY-FRU-CONTROL-MIB notification configuration.
+    FruControl Snmp_Notification_FruControl
 
-    // CISCO-NTP-MIB notification configuration.
-    Ntp Snmp_Notification_Ntp
+    // CISCO-RF-MIB notification configuration.
+    Rf Snmp_Notification_Rf
+
+    // CISCO-SYSLOG-MIB notification configuration.
+    Syslog Snmp_Notification_Syslog
+
+    // Subscriber notification commands.
+    SubscriberMib Snmp_Notification_SubscriberMib
+
+    // Enable SNMP l2tun traps.
+    L2tun Snmp_Notification_L2tun
 }
 
 func (notification *Snmp_Notification) GetEntityData() *types.CommonEntityData {
@@ -1715,49 +1712,48 @@ func (notification *Snmp_Notification) GetEntityData() *types.CommonEntityData {
 
     notification.EntityData.Children = types.NewOrderedMap()
     notification.EntityData.Children.Append("snmp", types.YChild{"Snmp", &notification.Snmp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download", types.YChild{"SelectiveVrfDownload", &notification.SelectiveVrfDownload})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib", types.YChild{"Diametermib", &notification.Diametermib})
     notification.EntityData.Children.Append("Cisco-IOS-XR-l2vpn-cfg:vpls", types.YChild{"Vpls", &notification.Vpls})
     notification.EntityData.Children.Append("Cisco-IOS-XR-l2vpn-cfg:l2vpn", types.YChild{"L2vpn", &notification.L2vpn})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:ip-sec", types.YChild{"IpSec", &notification.IpSec})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:isakmp", types.YChild{"Isakmp", &notification.Isakmp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", types.YChild{"FrequencySynchronization", &notification.FrequencySynchronization})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf", types.YChild{"Rf", &notification.Rf})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-fabhfr-mib-cfg:fabric-crs", types.YChild{"FabricCrs", &notification.FabricCrs})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control", types.YChild{"FruControl", &notification.FruControl})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp", types.YChild{"Hsrp", &notification.Hsrp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn", types.YChild{"MplsL3vpn", &notification.MplsL3vpn})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun", types.YChild{"L2tun", &notification.L2tun})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-bfd-cfg:bfd", types.YChild{"Bfd", &notification.Bfd})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3", types.YChild{"Ospfv3", &notification.Ospfv3})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-flashmib-cfg:flash", types.YChild{"Flash", &notification.Flash})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp", types.YChild{"Vrrp", &notification.Vrrp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib", types.YChild{"AddresspoolMib", &notification.AddresspoolMib})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", types.YChild{"Cfm", &notification.Cfm})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-bridgemib-cfg:bridge", types.YChild{"Bridge", &notification.Bridge})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-opticalmib-cfg:optical", types.YChild{"Optical", &notification.Optical})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext", types.YChild{"CiscoEntityExt", &notification.CiscoEntityExt})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-opticalotsmib-cfg:optical-ots", types.YChild{"OpticalOts", &notification.OpticalOts})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-entitymib-cfg:entity", types.YChild{"Entity", &notification.Entity})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib", types.YChild{"Diametermib", &notification.Diametermib})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp", types.YChild{"MplsLdp", &notification.MplsLdp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-systemmib-cfg:system", types.YChild{"System", &notification.System})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib", types.YChild{"SubscriberMib", &notification.SubscriberMib})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ethernet-link-oam-cfg:oam", types.YChild{"Oam", &notification.Oam})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor", types.YChild{"Sensor", &notification.Sensor})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-otnifmib-cfg:otn", types.YChild{"Otn", &notification.Otn})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-rsvp-cfg:rsvp", types.YChild{"Rsvp", &notification.Rsvp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy", types.YChild{"EntityRedundancy", &notification.EntityRedundancy})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-ospf-cfg:ospf", types.YChild{"Ospf", &notification.Ospf})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-syslogmib-cfg:syslog", types.YChild{"Syslog", &notification.Syslog})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-confcopymib-cfg:config-copy", types.YChild{"ConfigCopy", &notification.ConfigCopy})
     notification.EntityData.Children.Append("Cisco-IOS-XR-clns-isis-cfg:isis", types.YChild{"Isis", &notification.Isis})
     notification.EntityData.Children.Append("Cisco-IOS-XR-config-mibs-cfg:config-man", types.YChild{"ConfigMan", &notification.ConfigMan})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:ip-sec", types.YChild{"IpSec", &notification.IpSec})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-crypto-mibs-ipsecflowmon-cfg:isakmp", types.YChild{"Isakmp", &notification.Isakmp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ethernet-cfm-cfg:cfm", types.YChild{"Cfm", &notification.Cfm})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ethernet-link-oam-cfg:oam", types.YChild{"Oam", &notification.Oam})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-flashmib-cfg:flash", types.YChild{"Flash", &notification.Flash})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", types.YChild{"FrequencySynchronization", &notification.FrequencySynchronization})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy", types.YChild{"EntityRedundancy", &notification.EntityRedundancy})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-confcopymib-cfg:config-copy", types.YChild{"ConfigCopy", &notification.ConfigCopy})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download", types.YChild{"SelectiveVrfDownload", &notification.SelectiveVrfDownload})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-infra-systemmib-cfg:system", types.YChild{"System", &notification.System})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-bfd-cfg:bfd", types.YChild{"Bfd", &notification.Bfd})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-daps-mib-cfg:addresspool-mib", types.YChild{"AddresspoolMib", &notification.AddresspoolMib})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-ntp-cfg:ntp", types.YChild{"Ntp", &notification.Ntp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-rsvp-cfg:rsvp", types.YChild{"Rsvp", &notification.Rsvp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &notification.Bgp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp", types.YChild{"Hsrp", &notification.Hsrp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-ospf-cfg:ospf", types.YChild{"Ospf", &notification.Ospf})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp", types.YChild{"Vrrp", &notification.Vrrp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3", types.YChild{"Ospfv3", &notification.Ospfv3})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp", types.YChild{"MplsLdp", &notification.MplsLdp})
     notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-te-p2mp", types.YChild{"MplsTeP2mp", &notification.MplsTeP2mp})
     notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-te", types.YChild{"MplsTe", &notification.MplsTe})
     notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-frr", types.YChild{"MplsFrr", &notification.MplsFrr})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn", types.YChild{"MplsL3vpn", &notification.MplsL3vpn})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-opticalmib-cfg:optical", types.YChild{"Optical", &notification.Optical})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-opticalotsmib-cfg:optical-ots", types.YChild{"OpticalOts", &notification.OpticalOts})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-otnifmib-cfg:otn", types.YChild{"Otn", &notification.Otn})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-bridgemib-cfg:bridge", types.YChild{"Bridge", &notification.Bridge})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor", types.YChild{"Sensor", &notification.Sensor})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext", types.YChild{"CiscoEntityExt", &notification.CiscoEntityExt})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-entitymib-cfg:entity", types.YChild{"Entity", &notification.Entity})
     notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-entstatemib-cfg:entity-state", types.YChild{"EntityState", &notification.EntityState})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &notification.Bgp})
-    notification.EntityData.Children.Append("Cisco-IOS-XR-ip-ntp-cfg:ntp", types.YChild{"Ntp", &notification.Ntp})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control", types.YChild{"FruControl", &notification.FruControl})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf", types.YChild{"Rf", &notification.Rf})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-snmp-syslogmib-cfg:syslog", types.YChild{"Syslog", &notification.Syslog})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib", types.YChild{"SubscriberMib", &notification.SubscriberMib})
+    notification.EntityData.Children.Append("Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun", types.YChild{"L2tun", &notification.L2tun})
     notification.EntityData.Leafs = types.NewOrderedMap()
     notification.EntityData.Leafs.Append("ipsla", types.YLeaf{"Ipsla", notification.Ipsla})
 
@@ -1816,36 +1812,50 @@ func (snmp *Snmp_Notification_Snmp) GetEntityData() *types.CommonEntityData {
     return &(snmp.EntityData)
 }
 
-// Snmp_Notification_SelectiveVrfDownload
-// CISCO-SELECTIVE-VRF-DOWNLOAD-MIB notification
-// configuration
-type Snmp_Notification_SelectiveVrfDownload struct {
+// Snmp_Notification_Diametermib
+// Enable SNMP diameter traps
+type Snmp_Notification_Diametermib struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable csvdEntityRoleChangeNotification notification. The type is
-    // interface{}.
-    RoleChange interface{}
+    // Enable SNMP diameter protocol error notification. The type is bool.
+    Protocolerror interface{}
+
+    // Enable SNMP diameter permanent failure notification. The type is bool.
+    Permanentfail interface{}
+
+    // Enable SNMP diameter peer connection down notification. The type is bool.
+    Peerdown interface{}
+
+    // Enable SNMP diameter peer connection up notification. The type is bool.
+    Peerup interface{}
+
+    // Enable SNMP diameter transient failure notification. The type is bool.
+    Transientfail interface{}
 }
 
-func (selectiveVrfDownload *Snmp_Notification_SelectiveVrfDownload) GetEntityData() *types.CommonEntityData {
-    selectiveVrfDownload.EntityData.YFilter = selectiveVrfDownload.YFilter
-    selectiveVrfDownload.EntityData.YangName = "selective-vrf-download"
-    selectiveVrfDownload.EntityData.BundleName = "cisco_ios_xr"
-    selectiveVrfDownload.EntityData.ParentYangName = "notification"
-    selectiveVrfDownload.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
-    selectiveVrfDownload.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + selectiveVrfDownload.EntityData.SegmentPath
-    selectiveVrfDownload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    selectiveVrfDownload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    selectiveVrfDownload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (diametermib *Snmp_Notification_Diametermib) GetEntityData() *types.CommonEntityData {
+    diametermib.EntityData.YFilter = diametermib.YFilter
+    diametermib.EntityData.YangName = "diametermib"
+    diametermib.EntityData.BundleName = "cisco_ios_xr"
+    diametermib.EntityData.ParentYangName = "notification"
+    diametermib.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
+    diametermib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + diametermib.EntityData.SegmentPath
+    diametermib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diametermib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diametermib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    selectiveVrfDownload.EntityData.Children = types.NewOrderedMap()
-    selectiveVrfDownload.EntityData.Leafs = types.NewOrderedMap()
-    selectiveVrfDownload.EntityData.Leafs.Append("role-change", types.YLeaf{"RoleChange", selectiveVrfDownload.RoleChange})
+    diametermib.EntityData.Children = types.NewOrderedMap()
+    diametermib.EntityData.Leafs = types.NewOrderedMap()
+    diametermib.EntityData.Leafs.Append("protocolerror", types.YLeaf{"Protocolerror", diametermib.Protocolerror})
+    diametermib.EntityData.Leafs.Append("permanentfail", types.YLeaf{"Permanentfail", diametermib.Permanentfail})
+    diametermib.EntityData.Leafs.Append("peerdown", types.YLeaf{"Peerdown", diametermib.Peerdown})
+    diametermib.EntityData.Leafs.Append("peerup", types.YLeaf{"Peerup", diametermib.Peerup})
+    diametermib.EntityData.Leafs.Append("transientfail", types.YLeaf{"Transientfail", diametermib.Transientfail})
 
-    selectiveVrfDownload.EntityData.YListKeys = []string {}
+    diametermib.EntityData.YListKeys = []string {}
 
-    return &(selectiveVrfDownload.EntityData)
+    return &(diametermib.EntityData)
 }
 
 // Snmp_Notification_Vpls
@@ -1933,6 +1943,157 @@ func (l2vpn *Snmp_Notification_L2vpn) GetEntityData() *types.CommonEntityData {
     return &(l2vpn.EntityData)
 }
 
+// Snmp_Notification_Isis
+// Enable ISIS-MIB notifications
+type Snmp_Notification_Isis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable or disable. The type is IsisMibDatabaseOverFlowBoolean. The default
+    // value is false.
+    DatabaseOverflow interface{}
+
+    // Enable or disable. The type is IsisMibManualAddressDropsBoolean. The
+    // default value is false.
+    ManualAddressDrops interface{}
+
+    // Enable or disable. The type is IsisMibCorruptedLspDetectedBoolean. The
+    // default value is false.
+    CorruptedLspDetected interface{}
+
+    // Enable or disable. The type is IsisMibAttemptToExceedMaxSequenceBoolean.
+    // The default value is false.
+    AttemptToExceedMaxSequence interface{}
+
+    // Enable or disable. The type is IsisMibIdLengthMismatchBoolean. The default
+    // value is false.
+    IdLengthMismatch interface{}
+
+    // Enable or disable. The type is IsisMibMaxAreaAddressMismatchBoolean. The
+    // default value is false.
+    MaxAreaAddressMismatch interface{}
+
+    // Enable or disable. The type is IsisMibOwnLspPurgeBoolean. The default value
+    // is false.
+    OwnLspPurge interface{}
+
+    // Enable or disable. The type is IsisMibSequenceNumberSkipBoolean. The
+    // default value is false.
+    SequenceNumberSkip interface{}
+
+    // Enable or disable. The type is IsisMibAuthenticationTypeFailureBoolean. The
+    // default value is false.
+    AuthenticationTypeFailure interface{}
+
+    // Enable or disable. The type is IsisMibAuthenticationFailureBoolean. The
+    // default value is false.
+    AuthenticationFailure interface{}
+
+    // Enable or disable. The type is IsisMibVersionSkewBoolean. The default value
+    // is false.
+    VersionSkew interface{}
+
+    // Enable or disable. The type is IsisMibAreaMismatchBoolean. The default
+    // value is false.
+    AreaMismatch interface{}
+
+    // Enable or disable. The type is IsisMibRejectedAdjacencyBoolean. The default
+    // value is false.
+    RejectedAdjacency interface{}
+
+    // Enable or disable. The type is IsisMibLspTooLargeToPropagateBoolean. The
+    // default value is false.
+    LspTooLargeToPropagate interface{}
+
+    // Enable or disable. The type is
+    // IsisMibOriginatedLspBufferSizeMismatchBoolean. The default value is false.
+    OriginatedLspBufferSizeMismatch interface{}
+
+    // Enable or disable. The type is IsisMibProtocolsSupportedMismatchBoolean.
+    // The default value is false.
+    ProtocolsSupportedMismatch interface{}
+
+    // Enable or disable. The type is IsisMibAdjacencyChangeBoolean. The default
+    // value is false.
+    AdjacencyChange interface{}
+
+    // Enable or disable. The type is IsisMibLspErrorDetectedBoolean. The default
+    // value is false.
+    LspErrorDetected interface{}
+
+    // Enable all isisMIB notifications. The type is IsisMibAllBoolean. The
+    // default value is false.
+    All interface{}
+}
+
+func (isis *Snmp_Notification_Isis) GetEntityData() *types.CommonEntityData {
+    isis.EntityData.YFilter = isis.YFilter
+    isis.EntityData.YangName = "isis"
+    isis.EntityData.BundleName = "cisco_ios_xr"
+    isis.EntityData.ParentYangName = "notification"
+    isis.EntityData.SegmentPath = "Cisco-IOS-XR-clns-isis-cfg:isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + isis.EntityData.SegmentPath
+    isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    isis.EntityData.Children = types.NewOrderedMap()
+    isis.EntityData.Leafs = types.NewOrderedMap()
+    isis.EntityData.Leafs.Append("database-overflow", types.YLeaf{"DatabaseOverflow", isis.DatabaseOverflow})
+    isis.EntityData.Leafs.Append("manual-address-drops", types.YLeaf{"ManualAddressDrops", isis.ManualAddressDrops})
+    isis.EntityData.Leafs.Append("corrupted-lsp-detected", types.YLeaf{"CorruptedLspDetected", isis.CorruptedLspDetected})
+    isis.EntityData.Leafs.Append("attempt-to-exceed-max-sequence", types.YLeaf{"AttemptToExceedMaxSequence", isis.AttemptToExceedMaxSequence})
+    isis.EntityData.Leafs.Append("id-length-mismatch", types.YLeaf{"IdLengthMismatch", isis.IdLengthMismatch})
+    isis.EntityData.Leafs.Append("max-area-address-mismatch", types.YLeaf{"MaxAreaAddressMismatch", isis.MaxAreaAddressMismatch})
+    isis.EntityData.Leafs.Append("own-lsp-purge", types.YLeaf{"OwnLspPurge", isis.OwnLspPurge})
+    isis.EntityData.Leafs.Append("sequence-number-skip", types.YLeaf{"SequenceNumberSkip", isis.SequenceNumberSkip})
+    isis.EntityData.Leafs.Append("authentication-type-failure", types.YLeaf{"AuthenticationTypeFailure", isis.AuthenticationTypeFailure})
+    isis.EntityData.Leafs.Append("authentication-failure", types.YLeaf{"AuthenticationFailure", isis.AuthenticationFailure})
+    isis.EntityData.Leafs.Append("version-skew", types.YLeaf{"VersionSkew", isis.VersionSkew})
+    isis.EntityData.Leafs.Append("area-mismatch", types.YLeaf{"AreaMismatch", isis.AreaMismatch})
+    isis.EntityData.Leafs.Append("rejected-adjacency", types.YLeaf{"RejectedAdjacency", isis.RejectedAdjacency})
+    isis.EntityData.Leafs.Append("lsp-too-large-to-propagate", types.YLeaf{"LspTooLargeToPropagate", isis.LspTooLargeToPropagate})
+    isis.EntityData.Leafs.Append("originated-lsp-buffer-size-mismatch", types.YLeaf{"OriginatedLspBufferSizeMismatch", isis.OriginatedLspBufferSizeMismatch})
+    isis.EntityData.Leafs.Append("protocols-supported-mismatch", types.YLeaf{"ProtocolsSupportedMismatch", isis.ProtocolsSupportedMismatch})
+    isis.EntityData.Leafs.Append("adjacency-change", types.YLeaf{"AdjacencyChange", isis.AdjacencyChange})
+    isis.EntityData.Leafs.Append("lsp-error-detected", types.YLeaf{"LspErrorDetected", isis.LspErrorDetected})
+    isis.EntityData.Leafs.Append("all", types.YLeaf{"All", isis.All})
+
+    isis.EntityData.YListKeys = []string {}
+
+    return &(isis.EntityData)
+}
+
+// Snmp_Notification_ConfigMan
+// CISCO-CONFIG-MAN-MIB notification configurations
+type Snmp_Notification_ConfigMan struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ciscoConfigManMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (configMan *Snmp_Notification_ConfigMan) GetEntityData() *types.CommonEntityData {
+    configMan.EntityData.YFilter = configMan.YFilter
+    configMan.EntityData.YangName = "config-man"
+    configMan.EntityData.BundleName = "cisco_ios_xr"
+    configMan.EntityData.ParentYangName = "notification"
+    configMan.EntityData.SegmentPath = "Cisco-IOS-XR-config-mibs-cfg:config-man"
+    configMan.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + configMan.EntityData.SegmentPath
+    configMan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMan.EntityData.Children = types.NewOrderedMap()
+    configMan.EntityData.Leafs = types.NewOrderedMap()
+    configMan.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", configMan.Enable})
+
+    configMan.EntityData.YListKeys = []string {}
+
+    return &(configMan.EntityData)
+}
+
 // Snmp_Notification_IpSec
 // Enable CISCO-IPSEC-FLOW-MONITOR-MIB
 // notifications
@@ -2003,431 +2164,66 @@ func (isakmp *Snmp_Notification_Isakmp) GetEntityData() *types.CommonEntityData 
     return &(isakmp.EntityData)
 }
 
-// Snmp_Notification_FrequencySynchronization
-// Frequency Synchronization trap configuration
-type Snmp_Notification_FrequencySynchronization struct {
+// Snmp_Notification_Cfm
+// 802.1ag Connectivity Fault Management MIB
+// notification configuration
+type Snmp_Notification_Cfm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable Frequency Synchronization traps. The type is interface{}.
+    // Enable 802.1ag Connectivity Fault Management MIB notifications. The type is
+    // interface{}.
     Enable interface{}
 }
 
-func (frequencySynchronization *Snmp_Notification_FrequencySynchronization) GetEntityData() *types.CommonEntityData {
-    frequencySynchronization.EntityData.YFilter = frequencySynchronization.YFilter
-    frequencySynchronization.EntityData.YangName = "frequency-synchronization"
-    frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
-    frequencySynchronization.EntityData.ParentYangName = "notification"
-    frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
-    frequencySynchronization.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + frequencySynchronization.EntityData.SegmentPath
-    frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (cfm *Snmp_Notification_Cfm) GetEntityData() *types.CommonEntityData {
+    cfm.EntityData.YFilter = cfm.YFilter
+    cfm.EntityData.YangName = "cfm"
+    cfm.EntityData.BundleName = "cisco_ios_xr"
+    cfm.EntityData.ParentYangName = "notification"
+    cfm.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
+    cfm.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + cfm.EntityData.SegmentPath
+    cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    frequencySynchronization.EntityData.Children = types.NewOrderedMap()
-    frequencySynchronization.EntityData.Leafs = types.NewOrderedMap()
-    frequencySynchronization.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", frequencySynchronization.Enable})
+    cfm.EntityData.Children = types.NewOrderedMap()
+    cfm.EntityData.Leafs = types.NewOrderedMap()
+    cfm.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", cfm.Enable})
 
-    frequencySynchronization.EntityData.YListKeys = []string {}
+    cfm.EntityData.YListKeys = []string {}
 
-    return &(frequencySynchronization.EntityData)
+    return &(cfm.EntityData)
 }
 
-// Snmp_Notification_Rf
-// CISCO-RF-MIB notification configuration
-type Snmp_Notification_Rf struct {
+// Snmp_Notification_Oam
+// 802.3 OAM MIB notification configuration
+type Snmp_Notification_Oam struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable ciscoRFMIB notifications. The type is interface{}.
+    // Enable 802.3 OAM MIB notifications. The type is interface{}.
     Enable interface{}
 }
 
-func (rf *Snmp_Notification_Rf) GetEntityData() *types.CommonEntityData {
-    rf.EntityData.YFilter = rf.YFilter
-    rf.EntityData.YangName = "rf"
-    rf.EntityData.BundleName = "cisco_ios_xr"
-    rf.EntityData.ParentYangName = "notification"
-    rf.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
-    rf.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + rf.EntityData.SegmentPath
-    rf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rf.EntityData.Children = types.NewOrderedMap()
-    rf.EntityData.Leafs = types.NewOrderedMap()
-    rf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rf.Enable})
-
-    rf.EntityData.YListKeys = []string {}
-
-    return &(rf.EntityData)
-}
-
-// Snmp_Notification_FabricCrs
-// CISCO-FABRIC-HFR-MIB notification configuration
-type Snmp_Notification_FabricCrs struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable cfhBundleStateNotification notification. The type is interface{}.
-    BundleState interface{}
-
-    // Enable cfhPlaneStateNotification notification. The type is interface{}.
-    PlaneState interface{}
-
-    // Enable cfhBundleDownedLinkNotification notification. The type is
-    // interface{}.
-    BundleDownedLink interface{}
-}
-
-func (fabricCrs *Snmp_Notification_FabricCrs) GetEntityData() *types.CommonEntityData {
-    fabricCrs.EntityData.YFilter = fabricCrs.YFilter
-    fabricCrs.EntityData.YangName = "fabric-crs"
-    fabricCrs.EntityData.BundleName = "cisco_ios_xr"
-    fabricCrs.EntityData.ParentYangName = "notification"
-    fabricCrs.EntityData.SegmentPath = "Cisco-IOS-XR-fabhfr-mib-cfg:fabric-crs"
-    fabricCrs.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + fabricCrs.EntityData.SegmentPath
-    fabricCrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fabricCrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fabricCrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fabricCrs.EntityData.Children = types.NewOrderedMap()
-    fabricCrs.EntityData.Leafs = types.NewOrderedMap()
-    fabricCrs.EntityData.Leafs.Append("bundle-state", types.YLeaf{"BundleState", fabricCrs.BundleState})
-    fabricCrs.EntityData.Leafs.Append("plane-state", types.YLeaf{"PlaneState", fabricCrs.PlaneState})
-    fabricCrs.EntityData.Leafs.Append("bundle-downed-link", types.YLeaf{"BundleDownedLink", fabricCrs.BundleDownedLink})
-
-    fabricCrs.EntityData.YListKeys = []string {}
-
-    return &(fabricCrs.EntityData)
-}
-
-// Snmp_Notification_FruControl
-// CISCO-ENTITY-FRU-CONTROL-MIB notification
-// configuration
-type Snmp_Notification_FruControl struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ciscoEntityFRUControlMIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (fruControl *Snmp_Notification_FruControl) GetEntityData() *types.CommonEntityData {
-    fruControl.EntityData.YFilter = fruControl.YFilter
-    fruControl.EntityData.YangName = "fru-control"
-    fruControl.EntityData.BundleName = "cisco_ios_xr"
-    fruControl.EntityData.ParentYangName = "notification"
-    fruControl.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control"
-    fruControl.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + fruControl.EntityData.SegmentPath
-    fruControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fruControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fruControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fruControl.EntityData.Children = types.NewOrderedMap()
-    fruControl.EntityData.Leafs = types.NewOrderedMap()
-    fruControl.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", fruControl.Enable})
-
-    fruControl.EntityData.YListKeys = []string {}
-
-    return &(fruControl.EntityData)
-}
-
-// Snmp_Notification_Hsrp
-// CISCO-HSRP-MIB notification configuration
-type Snmp_Notification_Hsrp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable CISCO-HSRP-MIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (hsrp *Snmp_Notification_Hsrp) GetEntityData() *types.CommonEntityData {
-    hsrp.EntityData.YFilter = hsrp.YFilter
-    hsrp.EntityData.YangName = "hsrp"
-    hsrp.EntityData.BundleName = "cisco_ios_xr"
-    hsrp.EntityData.ParentYangName = "notification"
-    hsrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
-    hsrp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + hsrp.EntityData.SegmentPath
-    hsrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hsrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hsrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    hsrp.EntityData.Children = types.NewOrderedMap()
-    hsrp.EntityData.Leafs = types.NewOrderedMap()
-    hsrp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", hsrp.Enable})
-
-    hsrp.EntityData.YListKeys = []string {}
-
-    return &(hsrp.EntityData)
-}
-
-// Snmp_Notification_MplsL3vpn
-// MPLS-L3VPN-STD-MIB notification configuration
-type Snmp_Notification_MplsL3vpn struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Time interval (secs) for re-issuing max-threshold notification. The type is
-    // interface{} with range: 0..4294967295. Units are second.
-    MaxThresholdReissueNotificationTime interface{}
-
-    // Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded notification. The type is
-    // interface{}.
-    MaxThresholdExceeded interface{}
-
-    // Enable mplsL3VpnNumVrfRouteMaxThreshCleared notification. The type is
-    // interface{}.
-    MaxThresholdCleared interface{}
-
-    // Enable mplsL3VpnVrfRouteMidThreshExceeded notification. The type is
-    // interface{}.
-    MidThresholdExceeded interface{}
-
-    // Enable mplsL3VpnMIB notifications. The type is interface{}.
-    Enable interface{}
-
-    // Enable mplsL3VpnVrfDown notification. The type is interface{}.
-    VrfDown interface{}
-
-    // Enable mplsL3VpnVrfUp notification. The type is interface{}.
-    VrfUp interface{}
-}
-
-func (mplsL3vpn *Snmp_Notification_MplsL3vpn) GetEntityData() *types.CommonEntityData {
-    mplsL3vpn.EntityData.YFilter = mplsL3vpn.YFilter
-    mplsL3vpn.EntityData.YangName = "mpls-l3vpn"
-    mplsL3vpn.EntityData.BundleName = "cisco_ios_xr"
-    mplsL3vpn.EntityData.ParentYangName = "notification"
-    mplsL3vpn.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn"
-    mplsL3vpn.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + mplsL3vpn.EntityData.SegmentPath
-    mplsL3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsL3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsL3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsL3vpn.EntityData.Children = types.NewOrderedMap()
-    mplsL3vpn.EntityData.Leafs = types.NewOrderedMap()
-    mplsL3vpn.EntityData.Leafs.Append("max-threshold-reissue-notification-time", types.YLeaf{"MaxThresholdReissueNotificationTime", mplsL3vpn.MaxThresholdReissueNotificationTime})
-    mplsL3vpn.EntityData.Leafs.Append("max-threshold-exceeded", types.YLeaf{"MaxThresholdExceeded", mplsL3vpn.MaxThresholdExceeded})
-    mplsL3vpn.EntityData.Leafs.Append("max-threshold-cleared", types.YLeaf{"MaxThresholdCleared", mplsL3vpn.MaxThresholdCleared})
-    mplsL3vpn.EntityData.Leafs.Append("mid-threshold-exceeded", types.YLeaf{"MidThresholdExceeded", mplsL3vpn.MidThresholdExceeded})
-    mplsL3vpn.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mplsL3vpn.Enable})
-    mplsL3vpn.EntityData.Leafs.Append("vrf-down", types.YLeaf{"VrfDown", mplsL3vpn.VrfDown})
-    mplsL3vpn.EntityData.Leafs.Append("vrf-up", types.YLeaf{"VrfUp", mplsL3vpn.VrfUp})
-
-    mplsL3vpn.EntityData.YListKeys = []string {}
-
-    return &(mplsL3vpn.EntityData)
-}
-
-// Snmp_Notification_L2tun
-// Enable SNMP l2tun traps
-type Snmp_Notification_L2tun struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable L2TUN tunnel UP traps. The type is bool.
-    TunnelUp interface{}
-
-    // Enable L2TUN tunnel DOWN traps. The type is bool.
-    TunnelDown interface{}
-
-    // Enable traps for L2TPv3 PW status. The type is bool.
-    PseudowireStatus interface{}
-
-    // Enable L2TUN sessions traps. The type is bool.
-    Sessions interface{}
-}
-
-func (l2tun *Snmp_Notification_L2tun) GetEntityData() *types.CommonEntityData {
-    l2tun.EntityData.YFilter = l2tun.YFilter
-    l2tun.EntityData.YangName = "l2tun"
-    l2tun.EntityData.BundleName = "cisco_ios_xr"
-    l2tun.EntityData.ParentYangName = "notification"
-    l2tun.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
-    l2tun.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + l2tun.EntityData.SegmentPath
-    l2tun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    l2tun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    l2tun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    l2tun.EntityData.Children = types.NewOrderedMap()
-    l2tun.EntityData.Leafs = types.NewOrderedMap()
-    l2tun.EntityData.Leafs.Append("tunnel-up", types.YLeaf{"TunnelUp", l2tun.TunnelUp})
-    l2tun.EntityData.Leafs.Append("tunnel-down", types.YLeaf{"TunnelDown", l2tun.TunnelDown})
-    l2tun.EntityData.Leafs.Append("pseudowire-status", types.YLeaf{"PseudowireStatus", l2tun.PseudowireStatus})
-    l2tun.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", l2tun.Sessions})
-
-    l2tun.EntityData.YListKeys = []string {}
-
-    return &(l2tun.EntityData)
-}
-
-// Snmp_Notification_Bfd
-// CISCO-IETF-BFD-MIB notification configuration
-type Snmp_Notification_Bfd struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable CISCO-IETF-BFD-MIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (bfd *Snmp_Notification_Bfd) GetEntityData() *types.CommonEntityData {
-    bfd.EntityData.YFilter = bfd.YFilter
-    bfd.EntityData.YangName = "bfd"
-    bfd.EntityData.BundleName = "cisco_ios_xr"
-    bfd.EntityData.ParentYangName = "notification"
-    bfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-bfd-cfg:bfd"
-    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bfd.EntityData.SegmentPath
-    bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bfd.EntityData.Children = types.NewOrderedMap()
-    bfd.EntityData.Leafs = types.NewOrderedMap()
-    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
-
-    bfd.EntityData.YListKeys = []string {}
-
-    return &(bfd.EntityData)
-}
-
-// Snmp_Notification_Ospfv3
-// OSPFv3-MIB notification configuration
-type Snmp_Notification_Ospfv3 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SNMP notifications for OSPF errors.
-    Error Snmp_Notification_Ospfv3_Error
-
-    // SNMP notifications for OSPF state change.
-    StateChange Snmp_Notification_Ospfv3_StateChange
-}
-
-func (ospfv3 *Snmp_Notification_Ospfv3) GetEntityData() *types.CommonEntityData {
-    ospfv3.EntityData.YFilter = ospfv3.YFilter
-    ospfv3.EntityData.YangName = "ospfv3"
-    ospfv3.EntityData.BundleName = "cisco_ios_xr"
-    ospfv3.EntityData.ParentYangName = "notification"
-    ospfv3.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3"
-    ospfv3.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ospfv3.EntityData.SegmentPath
-    ospfv3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ospfv3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ospfv3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ospfv3.EntityData.Children = types.NewOrderedMap()
-    ospfv3.EntityData.Children.Append("error", types.YChild{"Error", &ospfv3.Error})
-    ospfv3.EntityData.Children.Append("state-change", types.YChild{"StateChange", &ospfv3.StateChange})
-    ospfv3.EntityData.Leafs = types.NewOrderedMap()
-
-    ospfv3.EntityData.YListKeys = []string {}
-
-    return &(ospfv3.EntityData)
-}
-
-// Snmp_Notification_Ospfv3_Error
-// SNMP notifications for OSPF errors
-type Snmp_Notification_Ospfv3_Error struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ospfv3IfConfigError notification. The type is interface{}.
-    ConfigError interface{}
-
-    // Enable ospfv3IfRxBadPacket notification. The type is interface{}.
-    BadPacket interface{}
-
-    // Enable ospfv3VirtIfRxBadPacket notification. The type is interface{}.
-    VirtualBadPacket interface{}
-
-    // Enable ospfv3VirtIfConfigError notification. The type is interface{}.
-    VirtualConfigError interface{}
-}
-
-func (self *Snmp_Notification_Ospfv3_Error) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "error"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "ospfv3"
-    self.EntityData.SegmentPath = "error"
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("config-error", types.YLeaf{"ConfigError", self.ConfigError})
-    self.EntityData.Leafs.Append("bad-packet", types.YLeaf{"BadPacket", self.BadPacket})
-    self.EntityData.Leafs.Append("virtual-bad-packet", types.YLeaf{"VirtualBadPacket", self.VirtualBadPacket})
-    self.EntityData.Leafs.Append("virtual-config-error", types.YLeaf{"VirtualConfigError", self.VirtualConfigError})
-
-    self.EntityData.YListKeys = []string {}
-
-    return &(self.EntityData)
-}
-
-// Snmp_Notification_Ospfv3_StateChange
-// SNMP notifications for OSPF state change
-type Snmp_Notification_Ospfv3_StateChange struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ospfv3VirtNbrRestartHelperStatusChange notification. The type is
-    // interface{}.
-    RestartVirtualHelper interface{}
-
-    // Enable ospfv3NssaTranslatorStatusChange notification. The type is
-    // interface{}.
-    NssaTranslator interface{}
-
-    // Enable ospfv3IfStateChange notification. The type is interface{}.
-    Interface interface{}
-
-    // Enable ospfv3RestartStatusChange notification. The type is interface{}.
-    Restart interface{}
-
-    // Enable ospfv3NbrStateChange notification. The type is interface{}.
-    Neighbor interface{}
-
-    // Enable ospfv3VirtIfStateChange notification. The type is interface{}.
-    VirtualInterface interface{}
-
-    // Enable ospfv3NbrRestartHelperStatusChange notification. The type is
-    // interface{}.
-    RestartHelper interface{}
-
-    // Enable ospfv3VirtNbrStateChange notification. The type is interface{}.
-    VirtualNeighbor interface{}
-}
-
-func (stateChange *Snmp_Notification_Ospfv3_StateChange) GetEntityData() *types.CommonEntityData {
-    stateChange.EntityData.YFilter = stateChange.YFilter
-    stateChange.EntityData.YangName = "state-change"
-    stateChange.EntityData.BundleName = "cisco_ios_xr"
-    stateChange.EntityData.ParentYangName = "ospfv3"
-    stateChange.EntityData.SegmentPath = "state-change"
-    stateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3/" + stateChange.EntityData.SegmentPath
-    stateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    stateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    stateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    stateChange.EntityData.Children = types.NewOrderedMap()
-    stateChange.EntityData.Leafs = types.NewOrderedMap()
-    stateChange.EntityData.Leafs.Append("restart-virtual-helper", types.YLeaf{"RestartVirtualHelper", stateChange.RestartVirtualHelper})
-    stateChange.EntityData.Leafs.Append("nssa-translator", types.YLeaf{"NssaTranslator", stateChange.NssaTranslator})
-    stateChange.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", stateChange.Interface})
-    stateChange.EntityData.Leafs.Append("restart", types.YLeaf{"Restart", stateChange.Restart})
-    stateChange.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", stateChange.Neighbor})
-    stateChange.EntityData.Leafs.Append("virtual-interface", types.YLeaf{"VirtualInterface", stateChange.VirtualInterface})
-    stateChange.EntityData.Leafs.Append("restart-helper", types.YLeaf{"RestartHelper", stateChange.RestartHelper})
-    stateChange.EntityData.Leafs.Append("virtual-neighbor", types.YLeaf{"VirtualNeighbor", stateChange.VirtualNeighbor})
-
-    stateChange.EntityData.YListKeys = []string {}
-
-    return &(stateChange.EntityData)
+func (oam *Snmp_Notification_Oam) GetEntityData() *types.CommonEntityData {
+    oam.EntityData.YFilter = oam.YFilter
+    oam.EntityData.YangName = "oam"
+    oam.EntityData.BundleName = "cisco_ios_xr"
+    oam.EntityData.ParentYangName = "notification"
+    oam.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
+    oam.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + oam.EntityData.SegmentPath
+    oam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    oam.EntityData.Children = types.NewOrderedMap()
+    oam.EntityData.Leafs = types.NewOrderedMap()
+    oam.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", oam.Enable})
+
+    oam.EntityData.YListKeys = []string {}
+
+    return &(oam.EntityData)
 }
 
 // Snmp_Notification_Flash
@@ -2464,34 +2260,195 @@ func (flash *Snmp_Notification_Flash) GetEntityData() *types.CommonEntityData {
     return &(flash.EntityData)
 }
 
-// Snmp_Notification_Vrrp
-// VRRP-MIB notification configuration
-type Snmp_Notification_Vrrp struct {
+// Snmp_Notification_FrequencySynchronization
+// Frequency Synchronization trap configuration
+type Snmp_Notification_FrequencySynchronization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable VRRP-MIB notifications. The type is interface{}.
+    // Enable Frequency Synchronization traps. The type is interface{}.
     Enable interface{}
 }
 
-func (vrrp *Snmp_Notification_Vrrp) GetEntityData() *types.CommonEntityData {
-    vrrp.EntityData.YFilter = vrrp.YFilter
-    vrrp.EntityData.YangName = "vrrp"
-    vrrp.EntityData.BundleName = "cisco_ios_xr"
-    vrrp.EntityData.ParentYangName = "notification"
-    vrrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
-    vrrp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + vrrp.EntityData.SegmentPath
-    vrrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (frequencySynchronization *Snmp_Notification_FrequencySynchronization) GetEntityData() *types.CommonEntityData {
+    frequencySynchronization.EntityData.YFilter = frequencySynchronization.YFilter
+    frequencySynchronization.EntityData.YangName = "frequency-synchronization"
+    frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
+    frequencySynchronization.EntityData.ParentYangName = "notification"
+    frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + frequencySynchronization.EntityData.SegmentPath
+    frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    vrrp.EntityData.Children = types.NewOrderedMap()
-    vrrp.EntityData.Leafs = types.NewOrderedMap()
-    vrrp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrrp.Enable})
+    frequencySynchronization.EntityData.Children = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs = types.NewOrderedMap()
+    frequencySynchronization.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", frequencySynchronization.Enable})
 
-    vrrp.EntityData.YListKeys = []string {}
+    frequencySynchronization.EntityData.YListKeys = []string {}
 
-    return &(vrrp.EntityData)
+    return &(frequencySynchronization.EntityData)
+}
+
+// Snmp_Notification_EntityRedundancy
+// CISCO-ENTITY-REDUNDANCY-MIB notification
+// configuration
+type Snmp_Notification_EntityRedundancy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable switchover notification. The type is interface{}.
+    Switchover interface{}
+
+    // Enable CISCO-ENTITY-REDUNDANCY-MIB notification. The type is interface{}.
+    Enable interface{}
+
+    // Enable status change notification. The type is interface{}.
+    Status interface{}
+}
+
+func (entityRedundancy *Snmp_Notification_EntityRedundancy) GetEntityData() *types.CommonEntityData {
+    entityRedundancy.EntityData.YFilter = entityRedundancy.YFilter
+    entityRedundancy.EntityData.YangName = "entity-redundancy"
+    entityRedundancy.EntityData.BundleName = "cisco_ios_xr"
+    entityRedundancy.EntityData.ParentYangName = "notification"
+    entityRedundancy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
+    entityRedundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + entityRedundancy.EntityData.SegmentPath
+    entityRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entityRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entityRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    entityRedundancy.EntityData.Children = types.NewOrderedMap()
+    entityRedundancy.EntityData.Leafs = types.NewOrderedMap()
+    entityRedundancy.EntityData.Leafs.Append("switchover", types.YLeaf{"Switchover", entityRedundancy.Switchover})
+    entityRedundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", entityRedundancy.Enable})
+    entityRedundancy.EntityData.Leafs.Append("status", types.YLeaf{"Status", entityRedundancy.Status})
+
+    entityRedundancy.EntityData.YListKeys = []string {}
+
+    return &(entityRedundancy.EntityData)
+}
+
+// Snmp_Notification_ConfigCopy
+// CISCO-CONFIG-COPY-MIB notification configuration
+type Snmp_Notification_ConfigCopy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ccCopyCompletion notification. The type is interface{}.
+    Completion interface{}
+}
+
+func (configCopy *Snmp_Notification_ConfigCopy) GetEntityData() *types.CommonEntityData {
+    configCopy.EntityData.YFilter = configCopy.YFilter
+    configCopy.EntityData.YangName = "config-copy"
+    configCopy.EntityData.BundleName = "cisco_ios_xr"
+    configCopy.EntityData.ParentYangName = "notification"
+    configCopy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
+    configCopy.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + configCopy.EntityData.SegmentPath
+    configCopy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configCopy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configCopy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configCopy.EntityData.Children = types.NewOrderedMap()
+    configCopy.EntityData.Leafs = types.NewOrderedMap()
+    configCopy.EntityData.Leafs.Append("completion", types.YLeaf{"Completion", configCopy.Completion})
+
+    configCopy.EntityData.YListKeys = []string {}
+
+    return &(configCopy.EntityData)
+}
+
+// Snmp_Notification_SelectiveVrfDownload
+// CISCO-SELECTIVE-VRF-DOWNLOAD-MIB notification
+// configuration
+type Snmp_Notification_SelectiveVrfDownload struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable csvdEntityRoleChangeNotification notification. The type is
+    // interface{}.
+    RoleChange interface{}
+}
+
+func (selectiveVrfDownload *Snmp_Notification_SelectiveVrfDownload) GetEntityData() *types.CommonEntityData {
+    selectiveVrfDownload.EntityData.YFilter = selectiveVrfDownload.YFilter
+    selectiveVrfDownload.EntityData.YangName = "selective-vrf-download"
+    selectiveVrfDownload.EntityData.BundleName = "cisco_ios_xr"
+    selectiveVrfDownload.EntityData.ParentYangName = "notification"
+    selectiveVrfDownload.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
+    selectiveVrfDownload.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + selectiveVrfDownload.EntityData.SegmentPath
+    selectiveVrfDownload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    selectiveVrfDownload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    selectiveVrfDownload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    selectiveVrfDownload.EntityData.Children = types.NewOrderedMap()
+    selectiveVrfDownload.EntityData.Leafs = types.NewOrderedMap()
+    selectiveVrfDownload.EntityData.Leafs.Append("role-change", types.YLeaf{"RoleChange", selectiveVrfDownload.RoleChange})
+
+    selectiveVrfDownload.EntityData.YListKeys = []string {}
+
+    return &(selectiveVrfDownload.EntityData)
+}
+
+// Snmp_Notification_System
+// CISCO-SYSTEM-MIB notification configuration
+type Snmp_Notification_System struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ciscoSystemMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (system *Snmp_Notification_System) GetEntityData() *types.CommonEntityData {
+    system.EntityData.YFilter = system.YFilter
+    system.EntityData.YangName = "system"
+    system.EntityData.BundleName = "cisco_ios_xr"
+    system.EntityData.ParentYangName = "notification"
+    system.EntityData.SegmentPath = "Cisco-IOS-XR-infra-systemmib-cfg:system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + system.EntityData.SegmentPath
+    system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    system.EntityData.Children = types.NewOrderedMap()
+    system.EntityData.Leafs = types.NewOrderedMap()
+    system.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", system.Enable})
+
+    system.EntityData.YListKeys = []string {}
+
+    return &(system.EntityData)
+}
+
+// Snmp_Notification_Bfd
+// CISCO-IETF-BFD-MIB notification configuration
+type Snmp_Notification_Bfd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable CISCO-IETF-BFD-MIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (bfd *Snmp_Notification_Bfd) GetEntityData() *types.CommonEntityData {
+    bfd.EntityData.YFilter = bfd.YFilter
+    bfd.EntityData.YangName = "bfd"
+    bfd.EntityData.BundleName = "cisco_ios_xr"
+    bfd.EntityData.ParentYangName = "notification"
+    bfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-bfd-cfg:bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bfd.EntityData.SegmentPath
+    bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bfd.EntityData.Children = types.NewOrderedMap()
+    bfd.EntityData.Leafs = types.NewOrderedMap()
+    bfd.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bfd.Enable})
+
+    bfd.EntityData.YListKeys = []string {}
+
+    return &(bfd.EntityData)
 }
 
 // Snmp_Notification_AddresspoolMib
@@ -2528,456 +2485,34 @@ func (addresspoolMib *Snmp_Notification_AddresspoolMib) GetEntityData() *types.C
     return &(addresspoolMib.EntityData)
 }
 
-// Snmp_Notification_Cfm
-// 802.1ag Connectivity Fault Management MIB
-// notification configuration
-type Snmp_Notification_Cfm struct {
+// Snmp_Notification_Ntp
+// CISCO-NTP-MIB notification configuration
+type Snmp_Notification_Ntp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable 802.1ag Connectivity Fault Management MIB notifications. The type is
-    // interface{}.
+    // Enable ciscoNtpMIB notification configuration. The type is interface{}.
     Enable interface{}
 }
 
-func (cfm *Snmp_Notification_Cfm) GetEntityData() *types.CommonEntityData {
-    cfm.EntityData.YFilter = cfm.YFilter
-    cfm.EntityData.YangName = "cfm"
-    cfm.EntityData.BundleName = "cisco_ios_xr"
-    cfm.EntityData.ParentYangName = "notification"
-    cfm.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
-    cfm.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + cfm.EntityData.SegmentPath
-    cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    cfm.EntityData.Children = types.NewOrderedMap()
-    cfm.EntityData.Leafs = types.NewOrderedMap()
-    cfm.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", cfm.Enable})
-
-    cfm.EntityData.YListKeys = []string {}
-
-    return &(cfm.EntityData)
-}
-
-// Snmp_Notification_Bridge
-// BRIDGE-MIB notification configuration
-type Snmp_Notification_Bridge struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable dot1dBridge notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (bridge *Snmp_Notification_Bridge) GetEntityData() *types.CommonEntityData {
-    bridge.EntityData.YFilter = bridge.YFilter
-    bridge.EntityData.YangName = "bridge"
-    bridge.EntityData.BundleName = "cisco_ios_xr"
-    bridge.EntityData.ParentYangName = "notification"
-    bridge.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
-    bridge.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bridge.EntityData.SegmentPath
-    bridge.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bridge.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bridge.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bridge.EntityData.Children = types.NewOrderedMap()
-    bridge.EntityData.Leafs = types.NewOrderedMap()
-    bridge.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bridge.Enable})
-
-    bridge.EntityData.YListKeys = []string {}
-
-    return &(bridge.EntityData)
-}
-
-// Snmp_Notification_Optical
-// CISCO-OPTICAL-MIB notification configuration
-type Snmp_Notification_Optical struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable Opticalmib notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (optical *Snmp_Notification_Optical) GetEntityData() *types.CommonEntityData {
-    optical.EntityData.YFilter = optical.YFilter
-    optical.EntityData.YangName = "optical"
-    optical.EntityData.BundleName = "cisco_ios_xr"
-    optical.EntityData.ParentYangName = "notification"
-    optical.EntityData.SegmentPath = "Cisco-IOS-XR-opticalmib-cfg:optical"
-    optical.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + optical.EntityData.SegmentPath
-    optical.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    optical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    optical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    optical.EntityData.Children = types.NewOrderedMap()
-    optical.EntityData.Leafs = types.NewOrderedMap()
-    optical.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", optical.Enable})
-
-    optical.EntityData.YListKeys = []string {}
-
-    return &(optical.EntityData)
-}
-
-// Snmp_Notification_CiscoEntityExt
-// Enable CISCO-ENTITY-EXT-MIB notifications
-type Snmp_Notification_CiscoEntityExt struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable CISCO-ENTITY-EXT-MIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (ciscoEntityExt *Snmp_Notification_CiscoEntityExt) GetEntityData() *types.CommonEntityData {
-    ciscoEntityExt.EntityData.YFilter = ciscoEntityExt.YFilter
-    ciscoEntityExt.EntityData.YangName = "cisco-entity-ext"
-    ciscoEntityExt.EntityData.BundleName = "cisco_ios_xr"
-    ciscoEntityExt.EntityData.ParentYangName = "notification"
-    ciscoEntityExt.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
-    ciscoEntityExt.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ciscoEntityExt.EntityData.SegmentPath
-    ciscoEntityExt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ciscoEntityExt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ciscoEntityExt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ciscoEntityExt.EntityData.Children = types.NewOrderedMap()
-    ciscoEntityExt.EntityData.Leafs = types.NewOrderedMap()
-    ciscoEntityExt.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ciscoEntityExt.Enable})
-
-    ciscoEntityExt.EntityData.YListKeys = []string {}
-
-    return &(ciscoEntityExt.EntityData)
-}
-
-// Snmp_Notification_OpticalOts
-// CISCO-OPTICAL-OTS-MIB notification configuration
-type Snmp_Notification_OpticalOts struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable OpticalOtsmib notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (opticalOts *Snmp_Notification_OpticalOts) GetEntityData() *types.CommonEntityData {
-    opticalOts.EntityData.YFilter = opticalOts.YFilter
-    opticalOts.EntityData.YangName = "optical-ots"
-    opticalOts.EntityData.BundleName = "cisco_ios_xr"
-    opticalOts.EntityData.ParentYangName = "notification"
-    opticalOts.EntityData.SegmentPath = "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
-    opticalOts.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + opticalOts.EntityData.SegmentPath
-    opticalOts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticalOts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticalOts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticalOts.EntityData.Children = types.NewOrderedMap()
-    opticalOts.EntityData.Leafs = types.NewOrderedMap()
-    opticalOts.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", opticalOts.Enable})
-
-    opticalOts.EntityData.YListKeys = []string {}
-
-    return &(opticalOts.EntityData)
-}
-
-// Snmp_Notification_Entity
-// Enable ENTITY-MIB notifications
-type Snmp_Notification_Entity struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable entityMIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (entity *Snmp_Notification_Entity) GetEntityData() *types.CommonEntityData {
-    entity.EntityData.YFilter = entity.YFilter
-    entity.EntityData.YangName = "entity"
-    entity.EntityData.BundleName = "cisco_ios_xr"
-    entity.EntityData.ParentYangName = "notification"
-    entity.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
-    entity.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + entity.EntityData.SegmentPath
-    entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    entity.EntityData.Children = types.NewOrderedMap()
-    entity.EntityData.Leafs = types.NewOrderedMap()
-    entity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", entity.Enable})
-
-    entity.EntityData.YListKeys = []string {}
-
-    return &(entity.EntityData)
-}
-
-// Snmp_Notification_Diametermib
-// Enable SNMP diameter traps
-type Snmp_Notification_Diametermib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable SNMP diameter protocol error notification. The type is bool.
-    Protocolerror interface{}
-
-    // Enable SNMP diameter permanent failure notification. The type is bool.
-    Permanentfail interface{}
-
-    // Enable SNMP diameter peer connection down notification. The type is bool.
-    Peerdown interface{}
-
-    // Enable SNMP diameter peer connection up notification. The type is bool.
-    Peerup interface{}
-
-    // Enable SNMP diameter transient failure notification. The type is bool.
-    Transientfail interface{}
-}
-
-func (diametermib *Snmp_Notification_Diametermib) GetEntityData() *types.CommonEntityData {
-    diametermib.EntityData.YFilter = diametermib.YFilter
-    diametermib.EntityData.YangName = "diametermib"
-    diametermib.EntityData.BundleName = "cisco_ios_xr"
-    diametermib.EntityData.ParentYangName = "notification"
-    diametermib.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-diameter-base-mib-cfg:diametermib"
-    diametermib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + diametermib.EntityData.SegmentPath
-    diametermib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    diametermib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    diametermib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    diametermib.EntityData.Children = types.NewOrderedMap()
-    diametermib.EntityData.Leafs = types.NewOrderedMap()
-    diametermib.EntityData.Leafs.Append("protocolerror", types.YLeaf{"Protocolerror", diametermib.Protocolerror})
-    diametermib.EntityData.Leafs.Append("permanentfail", types.YLeaf{"Permanentfail", diametermib.Permanentfail})
-    diametermib.EntityData.Leafs.Append("peerdown", types.YLeaf{"Peerdown", diametermib.Peerdown})
-    diametermib.EntityData.Leafs.Append("peerup", types.YLeaf{"Peerup", diametermib.Peerup})
-    diametermib.EntityData.Leafs.Append("transientfail", types.YLeaf{"Transientfail", diametermib.Transientfail})
-
-    diametermib.EntityData.YListKeys = []string {}
-
-    return &(diametermib.EntityData)
-}
-
-// Snmp_Notification_MplsLdp
-// MPLS-LDP-STD-MIB notification configuration
-type Snmp_Notification_MplsLdp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable mplsLdpSessionUp notification. The type is interface{}.
-    SessionUp interface{}
-
-    // Enable mplsLdpInitSessionThresholdExceeded notification. The type is
-    // interface{}.
-    InitSessionThresholdExceeded interface{}
-
-    // Enable mplsLdpSessionDown notification. The type is interface{}.
-    SessionDown interface{}
-}
-
-func (mplsLdp *Snmp_Notification_MplsLdp) GetEntityData() *types.CommonEntityData {
-    mplsLdp.EntityData.YFilter = mplsLdp.YFilter
-    mplsLdp.EntityData.YangName = "mpls-ldp"
-    mplsLdp.EntityData.BundleName = "cisco_ios_xr"
-    mplsLdp.EntityData.ParentYangName = "notification"
-    mplsLdp.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
-    mplsLdp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + mplsLdp.EntityData.SegmentPath
-    mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsLdp.EntityData.Children = types.NewOrderedMap()
-    mplsLdp.EntityData.Leafs = types.NewOrderedMap()
-    mplsLdp.EntityData.Leafs.Append("session-up", types.YLeaf{"SessionUp", mplsLdp.SessionUp})
-    mplsLdp.EntityData.Leafs.Append("init-session-threshold-exceeded", types.YLeaf{"InitSessionThresholdExceeded", mplsLdp.InitSessionThresholdExceeded})
-    mplsLdp.EntityData.Leafs.Append("session-down", types.YLeaf{"SessionDown", mplsLdp.SessionDown})
-
-    mplsLdp.EntityData.YListKeys = []string {}
-
-    return &(mplsLdp.EntityData)
-}
-
-// Snmp_Notification_System
-// CISCO-SYSTEM-MIB notification configuration
-type Snmp_Notification_System struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ciscoSystemMIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (system *Snmp_Notification_System) GetEntityData() *types.CommonEntityData {
-    system.EntityData.YFilter = system.YFilter
-    system.EntityData.YangName = "system"
-    system.EntityData.BundleName = "cisco_ios_xr"
-    system.EntityData.ParentYangName = "notification"
-    system.EntityData.SegmentPath = "Cisco-IOS-XR-infra-systemmib-cfg:system"
-    system.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + system.EntityData.SegmentPath
-    system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    system.EntityData.Children = types.NewOrderedMap()
-    system.EntityData.Leafs = types.NewOrderedMap()
-    system.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", system.Enable})
-
-    system.EntityData.YListKeys = []string {}
-
-    return &(system.EntityData)
-}
-
-// Snmp_Notification_SubscriberMib
-// Subscriber notification commands
-type Snmp_Notification_SubscriberMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Session aggregation.
-    SessionAggregate Snmp_Notification_SubscriberMib_SessionAggregate
-}
-
-func (subscriberMib *Snmp_Notification_SubscriberMib) GetEntityData() *types.CommonEntityData {
-    subscriberMib.EntityData.YFilter = subscriberMib.YFilter
-    subscriberMib.EntityData.YangName = "subscriber-mib"
-    subscriberMib.EntityData.BundleName = "cisco_ios_xr"
-    subscriberMib.EntityData.ParentYangName = "notification"
-    subscriberMib.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
-    subscriberMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + subscriberMib.EntityData.SegmentPath
-    subscriberMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subscriberMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subscriberMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    subscriberMib.EntityData.Children = types.NewOrderedMap()
-    subscriberMib.EntityData.Children.Append("session-aggregate", types.YChild{"SessionAggregate", &subscriberMib.SessionAggregate})
-    subscriberMib.EntityData.Leafs = types.NewOrderedMap()
-
-    subscriberMib.EntityData.YListKeys = []string {}
-
-    return &(subscriberMib.EntityData)
-}
-
-// Snmp_Notification_SubscriberMib_SessionAggregate
-// Session aggregation
-type Snmp_Notification_SubscriberMib_SessionAggregate struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber notification at node level. The type is interface{}.
-    Node interface{}
-
-    // Subscriber notification at access interface level. The type is interface{}.
-    AccessInterface interface{}
-}
-
-func (sessionAggregate *Snmp_Notification_SubscriberMib_SessionAggregate) GetEntityData() *types.CommonEntityData {
-    sessionAggregate.EntityData.YFilter = sessionAggregate.YFilter
-    sessionAggregate.EntityData.YangName = "session-aggregate"
-    sessionAggregate.EntityData.BundleName = "cisco_ios_xr"
-    sessionAggregate.EntityData.ParentYangName = "subscriber-mib"
-    sessionAggregate.EntityData.SegmentPath = "session-aggregate"
-    sessionAggregate.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib/" + sessionAggregate.EntityData.SegmentPath
-    sessionAggregate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    sessionAggregate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    sessionAggregate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    sessionAggregate.EntityData.Children = types.NewOrderedMap()
-    sessionAggregate.EntityData.Leafs = types.NewOrderedMap()
-    sessionAggregate.EntityData.Leafs.Append("node", types.YLeaf{"Node", sessionAggregate.Node})
-    sessionAggregate.EntityData.Leafs.Append("access-interface", types.YLeaf{"AccessInterface", sessionAggregate.AccessInterface})
-
-    sessionAggregate.EntityData.YListKeys = []string {}
-
-    return &(sessionAggregate.EntityData)
-}
-
-// Snmp_Notification_Oam
-// 802.3 OAM MIB notification configuration
-type Snmp_Notification_Oam struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable 802.3 OAM MIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (oam *Snmp_Notification_Oam) GetEntityData() *types.CommonEntityData {
-    oam.EntityData.YFilter = oam.YFilter
-    oam.EntityData.YangName = "oam"
-    oam.EntityData.BundleName = "cisco_ios_xr"
-    oam.EntityData.ParentYangName = "notification"
-    oam.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-link-oam-cfg:oam"
-    oam.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + oam.EntityData.SegmentPath
-    oam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    oam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    oam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    oam.EntityData.Children = types.NewOrderedMap()
-    oam.EntityData.Leafs = types.NewOrderedMap()
-    oam.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", oam.Enable})
-
-    oam.EntityData.YListKeys = []string {}
-
-    return &(oam.EntityData)
-}
-
-// Snmp_Notification_Sensor
-// CISCO-ENTITY-SENSOR-MIB notification
-// configuration
-type Snmp_Notification_Sensor struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable entitySensorMIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (sensor *Snmp_Notification_Sensor) GetEntityData() *types.CommonEntityData {
-    sensor.EntityData.YFilter = sensor.YFilter
-    sensor.EntityData.YangName = "sensor"
-    sensor.EntityData.BundleName = "cisco_ios_xr"
-    sensor.EntityData.ParentYangName = "notification"
-    sensor.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
-    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + sensor.EntityData.SegmentPath
-    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    sensor.EntityData.Children = types.NewOrderedMap()
-    sensor.EntityData.Leafs = types.NewOrderedMap()
-    sensor.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", sensor.Enable})
-
-    sensor.EntityData.YListKeys = []string {}
-
-    return &(sensor.EntityData)
-}
-
-// Snmp_Notification_Otn
-// CISCO-OTN-IF-MIB notification configuration
-type Snmp_Notification_Otn struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ciscoOtnIfMIB notifications. The type is interface{}.
-    Enable interface{}
-}
-
-func (otn *Snmp_Notification_Otn) GetEntityData() *types.CommonEntityData {
-    otn.EntityData.YFilter = otn.YFilter
-    otn.EntityData.YangName = "otn"
-    otn.EntityData.BundleName = "cisco_ios_xr"
-    otn.EntityData.ParentYangName = "notification"
-    otn.EntityData.SegmentPath = "Cisco-IOS-XR-otnifmib-cfg:otn"
-    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + otn.EntityData.SegmentPath
-    otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    otn.EntityData.Children = types.NewOrderedMap()
-    otn.EntityData.Leafs = types.NewOrderedMap()
-    otn.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", otn.Enable})
-
-    otn.EntityData.YListKeys = []string {}
-
-    return &(otn.EntityData)
+func (ntp *Snmp_Notification_Ntp) GetEntityData() *types.CommonEntityData {
+    ntp.EntityData.YFilter = ntp.YFilter
+    ntp.EntityData.YangName = "ntp"
+    ntp.EntityData.BundleName = "cisco_ios_xr"
+    ntp.EntityData.ParentYangName = "notification"
+    ntp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+    ntp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ntp.EntityData.SegmentPath
+    ntp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ntp.EntityData.Children = types.NewOrderedMap()
+    ntp.EntityData.Leafs = types.NewOrderedMap()
+    ntp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ntp.Enable})
+
+    ntp.EntityData.YListKeys = []string {}
+
+    return &(ntp.EntityData)
 }
 
 // Snmp_Notification_Rsvp
@@ -3018,43 +2553,156 @@ func (rsvp *Snmp_Notification_Rsvp) GetEntityData() *types.CommonEntityData {
     return &(rsvp.EntityData)
 }
 
-// Snmp_Notification_EntityRedundancy
-// CISCO-ENTITY-REDUNDANCY-MIB notification
+// Snmp_Notification_Bgp
+// BGP4-MIB and CISCO-BGP4-MIB notification
 // configuration
-type Snmp_Notification_EntityRedundancy struct {
+type Snmp_Notification_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable switchover notification. The type is interface{}.
-    Switchover interface{}
+    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only notifications:
+    // bgpEstablishedNotification, bgpBackwardTransNotification,
+    // cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded,
+    // cbgpPrefixThresholdClear.
+    Bgp4mib Snmp_Notification_Bgp_Bgp4mib
 
-    // Enable CISCO-ENTITY-REDUNDANCY-MIB notification. The type is interface{}.
-    Enable interface{}
-
-    // Enable status change notification. The type is interface{}.
-    Status interface{}
+    // Enable CISCO-BGP4-MIB v2 notifications: cbgpPeer2EstablishedNotification,
+    // cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange,
+    // cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded,
+    // cbgpPeer2PrefixThresholdClear.
+    CiscoBgp4mib Snmp_Notification_Bgp_CiscoBgp4mib
 }
 
-func (entityRedundancy *Snmp_Notification_EntityRedundancy) GetEntityData() *types.CommonEntityData {
-    entityRedundancy.EntityData.YFilter = entityRedundancy.YFilter
-    entityRedundancy.EntityData.YangName = "entity-redundancy"
-    entityRedundancy.EntityData.BundleName = "cisco_ios_xr"
-    entityRedundancy.EntityData.ParentYangName = "notification"
-    entityRedundancy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-ceredundancymib-cfg:entity-redundancy"
-    entityRedundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + entityRedundancy.EntityData.SegmentPath
-    entityRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    entityRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    entityRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (bgp *Snmp_Notification_Bgp) GetEntityData() *types.CommonEntityData {
+    bgp.EntityData.YFilter = bgp.YFilter
+    bgp.EntityData.YangName = "bgp"
+    bgp.EntityData.BundleName = "cisco_ios_xr"
+    bgp.EntityData.ParentYangName = "notification"
+    bgp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bgp.EntityData.SegmentPath
+    bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    entityRedundancy.EntityData.Children = types.NewOrderedMap()
-    entityRedundancy.EntityData.Leafs = types.NewOrderedMap()
-    entityRedundancy.EntityData.Leafs.Append("switchover", types.YLeaf{"Switchover", entityRedundancy.Switchover})
-    entityRedundancy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", entityRedundancy.Enable})
-    entityRedundancy.EntityData.Leafs.Append("status", types.YLeaf{"Status", entityRedundancy.Status})
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Children.Append("bgp4mib", types.YChild{"Bgp4mib", &bgp.Bgp4mib})
+    bgp.EntityData.Children.Append("cisco-bgp4mib", types.YChild{"CiscoBgp4mib", &bgp.CiscoBgp4mib})
+    bgp.EntityData.Leafs = types.NewOrderedMap()
 
-    entityRedundancy.EntityData.YListKeys = []string {}
+    bgp.EntityData.YListKeys = []string {}
 
-    return &(entityRedundancy.EntityData)
+    return &(bgp.EntityData)
+}
+
+// Snmp_Notification_Bgp_Bgp4mib
+// Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
+// notifications: bgpEstablishedNotification,
+// bgpBackwardTransNotification,
+// cbgpFsmStateChange, cbgpBackwardTransition,
+// cbgpPrefixThresholdExceeded,
+// cbgpPrefixThresholdClear.
+type Snmp_Notification_Bgp_Bgp4mib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only notifications. The type is
+    // interface{}.
+    Enable interface{}
+
+    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only up/down notifications. The
+    // type is interface{}.
+    UpDown interface{}
+}
+
+func (bgp4mib *Snmp_Notification_Bgp_Bgp4mib) GetEntityData() *types.CommonEntityData {
+    bgp4mib.EntityData.YFilter = bgp4mib.YFilter
+    bgp4mib.EntityData.YangName = "bgp4mib"
+    bgp4mib.EntityData.BundleName = "cisco_ios_xr"
+    bgp4mib.EntityData.ParentYangName = "bgp"
+    bgp4mib.EntityData.SegmentPath = "bgp4mib"
+    bgp4mib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/" + bgp4mib.EntityData.SegmentPath
+    bgp4mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgp4mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgp4mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgp4mib.EntityData.Children = types.NewOrderedMap()
+    bgp4mib.EntityData.Leafs = types.NewOrderedMap()
+    bgp4mib.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bgp4mib.Enable})
+    bgp4mib.EntityData.Leafs.Append("up-down", types.YLeaf{"UpDown", bgp4mib.UpDown})
+
+    bgp4mib.EntityData.YListKeys = []string {}
+
+    return &(bgp4mib.EntityData)
+}
+
+// Snmp_Notification_Bgp_CiscoBgp4mib
+// Enable CISCO-BGP4-MIB v2 notifications:
+// cbgpPeer2EstablishedNotification,
+// cbgpPeer2BackwardTransNotification,
+// cbgpPeer2FsmStateChange,
+// cbgpPeer2BackwardTransition,
+// cbgpPeer2PrefixThresholdExceeded,
+// cbgpPeer2PrefixThresholdClear.
+type Snmp_Notification_Bgp_CiscoBgp4mib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable CISCO-BGP4-MIB v2 notifications. The type is interface{}.
+    Enable interface{}
+
+    // Enable CISCO-BGP4-MIB v2 up/down notifications. The type is interface{}.
+    UpDown interface{}
+}
+
+func (ciscoBgp4mib *Snmp_Notification_Bgp_CiscoBgp4mib) GetEntityData() *types.CommonEntityData {
+    ciscoBgp4mib.EntityData.YFilter = ciscoBgp4mib.YFilter
+    ciscoBgp4mib.EntityData.YangName = "cisco-bgp4mib"
+    ciscoBgp4mib.EntityData.BundleName = "cisco_ios_xr"
+    ciscoBgp4mib.EntityData.ParentYangName = "bgp"
+    ciscoBgp4mib.EntityData.SegmentPath = "cisco-bgp4mib"
+    ciscoBgp4mib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/" + ciscoBgp4mib.EntityData.SegmentPath
+    ciscoBgp4mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoBgp4mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoBgp4mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoBgp4mib.EntityData.Children = types.NewOrderedMap()
+    ciscoBgp4mib.EntityData.Leafs = types.NewOrderedMap()
+    ciscoBgp4mib.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ciscoBgp4mib.Enable})
+    ciscoBgp4mib.EntityData.Leafs.Append("up-down", types.YLeaf{"UpDown", ciscoBgp4mib.UpDown})
+
+    ciscoBgp4mib.EntityData.YListKeys = []string {}
+
+    return &(ciscoBgp4mib.EntityData)
+}
+
+// Snmp_Notification_Hsrp
+// CISCO-HSRP-MIB notification configuration
+type Snmp_Notification_Hsrp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable CISCO-HSRP-MIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (hsrp *Snmp_Notification_Hsrp) GetEntityData() *types.CommonEntityData {
+    hsrp.EntityData.YFilter = hsrp.YFilter
+    hsrp.EntityData.YangName = "hsrp"
+    hsrp.EntityData.BundleName = "cisco_ios_xr"
+    hsrp.EntityData.ParentYangName = "notification"
+    hsrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+    hsrp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + hsrp.EntityData.SegmentPath
+    hsrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hsrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hsrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hsrp.EntityData.Children = types.NewOrderedMap()
+    hsrp.EntityData.Leafs = types.NewOrderedMap()
+    hsrp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", hsrp.Enable})
+
+    hsrp.EntityData.YListKeys = []string {}
+
+    return &(hsrp.EntityData)
 }
 
 // Snmp_Notification_Ospf
@@ -3259,215 +2907,210 @@ func (self *Snmp_Notification_Ospf_Error) GetEntityData() *types.CommonEntityDat
     return &(self.EntityData)
 }
 
-// Snmp_Notification_Syslog
-// CISCO-SYSLOG-MIB notification configuration
-type Snmp_Notification_Syslog struct {
+// Snmp_Notification_Vrrp
+// VRRP-MIB notification configuration
+type Snmp_Notification_Vrrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable ciscoSyslogMIB notifications. The type is interface{}.
+    // Enable VRRP-MIB notifications. The type is interface{}.
     Enable interface{}
 }
 
-func (syslog *Snmp_Notification_Syslog) GetEntityData() *types.CommonEntityData {
-    syslog.EntityData.YFilter = syslog.YFilter
-    syslog.EntityData.YangName = "syslog"
-    syslog.EntityData.BundleName = "cisco_ios_xr"
-    syslog.EntityData.ParentYangName = "notification"
-    syslog.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog"
-    syslog.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + syslog.EntityData.SegmentPath
-    syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (vrrp *Snmp_Notification_Vrrp) GetEntityData() *types.CommonEntityData {
+    vrrp.EntityData.YFilter = vrrp.YFilter
+    vrrp.EntityData.YangName = "vrrp"
+    vrrp.EntityData.BundleName = "cisco_ios_xr"
+    vrrp.EntityData.ParentYangName = "notification"
+    vrrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+    vrrp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + vrrp.EntityData.SegmentPath
+    vrrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    syslog.EntityData.Children = types.NewOrderedMap()
-    syslog.EntityData.Leafs = types.NewOrderedMap()
-    syslog.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", syslog.Enable})
+    vrrp.EntityData.Children = types.NewOrderedMap()
+    vrrp.EntityData.Leafs = types.NewOrderedMap()
+    vrrp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrrp.Enable})
 
-    syslog.EntityData.YListKeys = []string {}
+    vrrp.EntityData.YListKeys = []string {}
 
-    return &(syslog.EntityData)
+    return &(vrrp.EntityData)
 }
 
-// Snmp_Notification_ConfigCopy
-// CISCO-CONFIG-COPY-MIB notification configuration
-type Snmp_Notification_ConfigCopy struct {
+// Snmp_Notification_Ospfv3
+// OSPFv3-MIB notification configuration
+type Snmp_Notification_Ospfv3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable ccCopyCompletion notification. The type is interface{}.
-    Completion interface{}
+    // SNMP notifications for OSPF errors.
+    Error Snmp_Notification_Ospfv3_Error
+
+    // SNMP notifications for OSPF state change.
+    StateChange Snmp_Notification_Ospfv3_StateChange
 }
 
-func (configCopy *Snmp_Notification_ConfigCopy) GetEntityData() *types.CommonEntityData {
-    configCopy.EntityData.YFilter = configCopy.YFilter
-    configCopy.EntityData.YangName = "config-copy"
-    configCopy.EntityData.BundleName = "cisco_ios_xr"
-    configCopy.EntityData.ParentYangName = "notification"
-    configCopy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-confcopymib-cfg:config-copy"
-    configCopy.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + configCopy.EntityData.SegmentPath
-    configCopy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    configCopy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    configCopy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ospfv3 *Snmp_Notification_Ospfv3) GetEntityData() *types.CommonEntityData {
+    ospfv3.EntityData.YFilter = ospfv3.YFilter
+    ospfv3.EntityData.YangName = "ospfv3"
+    ospfv3.EntityData.BundleName = "cisco_ios_xr"
+    ospfv3.EntityData.ParentYangName = "notification"
+    ospfv3.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3"
+    ospfv3.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ospfv3.EntityData.SegmentPath
+    ospfv3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ospfv3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ospfv3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configCopy.EntityData.Children = types.NewOrderedMap()
-    configCopy.EntityData.Leafs = types.NewOrderedMap()
-    configCopy.EntityData.Leafs.Append("completion", types.YLeaf{"Completion", configCopy.Completion})
+    ospfv3.EntityData.Children = types.NewOrderedMap()
+    ospfv3.EntityData.Children.Append("error", types.YChild{"Error", &ospfv3.Error})
+    ospfv3.EntityData.Children.Append("state-change", types.YChild{"StateChange", &ospfv3.StateChange})
+    ospfv3.EntityData.Leafs = types.NewOrderedMap()
 
-    configCopy.EntityData.YListKeys = []string {}
+    ospfv3.EntityData.YListKeys = []string {}
 
-    return &(configCopy.EntityData)
+    return &(ospfv3.EntityData)
 }
 
-// Snmp_Notification_Isis
-// Enable ISIS-MIB notifications
-type Snmp_Notification_Isis struct {
+// Snmp_Notification_Ospfv3_Error
+// SNMP notifications for OSPF errors
+type Snmp_Notification_Ospfv3_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable or disable. The type is IsisMibDatabaseOverFlowBoolean. The default
-    // value is false.
-    DatabaseOverflow interface{}
+    // Enable ospfv3IfConfigError notification. The type is interface{}.
+    ConfigError interface{}
 
-    // Enable or disable. The type is IsisMibManualAddressDropsBoolean. The
-    // default value is false.
-    ManualAddressDrops interface{}
+    // Enable ospfv3IfRxBadPacket notification. The type is interface{}.
+    BadPacket interface{}
 
-    // Enable or disable. The type is IsisMibCorruptedLspDetectedBoolean. The
-    // default value is false.
-    CorruptedLspDetected interface{}
+    // Enable ospfv3VirtIfRxBadPacket notification. The type is interface{}.
+    VirtualBadPacket interface{}
 
-    // Enable or disable. The type is IsisMibAttemptToExceedMaxSequenceBoolean.
-    // The default value is false.
-    AttemptToExceedMaxSequence interface{}
-
-    // Enable or disable. The type is IsisMibIdLengthMismatchBoolean. The default
-    // value is false.
-    IdLengthMismatch interface{}
-
-    // Enable or disable. The type is IsisMibMaxAreaAddressMismatchBoolean. The
-    // default value is false.
-    MaxAreaAddressMismatch interface{}
-
-    // Enable or disable. The type is IsisMibOwnLspPurgeBoolean. The default value
-    // is false.
-    OwnLspPurge interface{}
-
-    // Enable or disable. The type is IsisMibSequenceNumberSkipBoolean. The
-    // default value is false.
-    SequenceNumberSkip interface{}
-
-    // Enable or disable. The type is IsisMibAuthenticationTypeFailureBoolean. The
-    // default value is false.
-    AuthenticationTypeFailure interface{}
-
-    // Enable or disable. The type is IsisMibAuthenticationFailureBoolean. The
-    // default value is false.
-    AuthenticationFailure interface{}
-
-    // Enable or disable. The type is IsisMibVersionSkewBoolean. The default value
-    // is false.
-    VersionSkew interface{}
-
-    // Enable or disable. The type is IsisMibAreaMismatchBoolean. The default
-    // value is false.
-    AreaMismatch interface{}
-
-    // Enable or disable. The type is IsisMibRejectedAdjacencyBoolean. The default
-    // value is false.
-    RejectedAdjacency interface{}
-
-    // Enable or disable. The type is IsisMibLspTooLargeToPropagateBoolean. The
-    // default value is false.
-    LspTooLargeToPropagate interface{}
-
-    // Enable or disable. The type is
-    // IsisMibOriginatedLspBufferSizeMismatchBoolean. The default value is false.
-    OriginatedLspBufferSizeMismatch interface{}
-
-    // Enable or disable. The type is IsisMibProtocolsSupportedMismatchBoolean.
-    // The default value is false.
-    ProtocolsSupportedMismatch interface{}
-
-    // Enable or disable. The type is IsisMibAdjacencyChangeBoolean. The default
-    // value is false.
-    AdjacencyChange interface{}
-
-    // Enable or disable. The type is IsisMibLspErrorDetectedBoolean. The default
-    // value is false.
-    LspErrorDetected interface{}
-
-    // Enable all isisMIB notifications. The type is IsisMibAllBoolean. The
-    // default value is false.
-    All interface{}
+    // Enable ospfv3VirtIfConfigError notification. The type is interface{}.
+    VirtualConfigError interface{}
 }
 
-func (isis *Snmp_Notification_Isis) GetEntityData() *types.CommonEntityData {
-    isis.EntityData.YFilter = isis.YFilter
-    isis.EntityData.YangName = "isis"
-    isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "notification"
-    isis.EntityData.SegmentPath = "Cisco-IOS-XR-clns-isis-cfg:isis"
-    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + isis.EntityData.SegmentPath
-    isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (self *Snmp_Notification_Ospfv3_Error) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "error"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "ospfv3"
+    self.EntityData.SegmentPath = "error"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3/" + self.EntityData.SegmentPath
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    isis.EntityData.Children = types.NewOrderedMap()
-    isis.EntityData.Leafs = types.NewOrderedMap()
-    isis.EntityData.Leafs.Append("database-overflow", types.YLeaf{"DatabaseOverflow", isis.DatabaseOverflow})
-    isis.EntityData.Leafs.Append("manual-address-drops", types.YLeaf{"ManualAddressDrops", isis.ManualAddressDrops})
-    isis.EntityData.Leafs.Append("corrupted-lsp-detected", types.YLeaf{"CorruptedLspDetected", isis.CorruptedLspDetected})
-    isis.EntityData.Leafs.Append("attempt-to-exceed-max-sequence", types.YLeaf{"AttemptToExceedMaxSequence", isis.AttemptToExceedMaxSequence})
-    isis.EntityData.Leafs.Append("id-length-mismatch", types.YLeaf{"IdLengthMismatch", isis.IdLengthMismatch})
-    isis.EntityData.Leafs.Append("max-area-address-mismatch", types.YLeaf{"MaxAreaAddressMismatch", isis.MaxAreaAddressMismatch})
-    isis.EntityData.Leafs.Append("own-lsp-purge", types.YLeaf{"OwnLspPurge", isis.OwnLspPurge})
-    isis.EntityData.Leafs.Append("sequence-number-skip", types.YLeaf{"SequenceNumberSkip", isis.SequenceNumberSkip})
-    isis.EntityData.Leafs.Append("authentication-type-failure", types.YLeaf{"AuthenticationTypeFailure", isis.AuthenticationTypeFailure})
-    isis.EntityData.Leafs.Append("authentication-failure", types.YLeaf{"AuthenticationFailure", isis.AuthenticationFailure})
-    isis.EntityData.Leafs.Append("version-skew", types.YLeaf{"VersionSkew", isis.VersionSkew})
-    isis.EntityData.Leafs.Append("area-mismatch", types.YLeaf{"AreaMismatch", isis.AreaMismatch})
-    isis.EntityData.Leafs.Append("rejected-adjacency", types.YLeaf{"RejectedAdjacency", isis.RejectedAdjacency})
-    isis.EntityData.Leafs.Append("lsp-too-large-to-propagate", types.YLeaf{"LspTooLargeToPropagate", isis.LspTooLargeToPropagate})
-    isis.EntityData.Leafs.Append("originated-lsp-buffer-size-mismatch", types.YLeaf{"OriginatedLspBufferSizeMismatch", isis.OriginatedLspBufferSizeMismatch})
-    isis.EntityData.Leafs.Append("protocols-supported-mismatch", types.YLeaf{"ProtocolsSupportedMismatch", isis.ProtocolsSupportedMismatch})
-    isis.EntityData.Leafs.Append("adjacency-change", types.YLeaf{"AdjacencyChange", isis.AdjacencyChange})
-    isis.EntityData.Leafs.Append("lsp-error-detected", types.YLeaf{"LspErrorDetected", isis.LspErrorDetected})
-    isis.EntityData.Leafs.Append("all", types.YLeaf{"All", isis.All})
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("config-error", types.YLeaf{"ConfigError", self.ConfigError})
+    self.EntityData.Leafs.Append("bad-packet", types.YLeaf{"BadPacket", self.BadPacket})
+    self.EntityData.Leafs.Append("virtual-bad-packet", types.YLeaf{"VirtualBadPacket", self.VirtualBadPacket})
+    self.EntityData.Leafs.Append("virtual-config-error", types.YLeaf{"VirtualConfigError", self.VirtualConfigError})
 
-    isis.EntityData.YListKeys = []string {}
+    self.EntityData.YListKeys = []string {}
 
-    return &(isis.EntityData)
+    return &(self.EntityData)
 }
 
-// Snmp_Notification_ConfigMan
-// CISCO-CONFIG-MAN-MIB notification configurations
-type Snmp_Notification_ConfigMan struct {
+// Snmp_Notification_Ospfv3_StateChange
+// SNMP notifications for OSPF state change
+type Snmp_Notification_Ospfv3_StateChange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable ciscoConfigManMIB notifications. The type is interface{}.
-    Enable interface{}
+    // Enable ospfv3VirtNbrRestartHelperStatusChange notification. The type is
+    // interface{}.
+    RestartVirtualHelper interface{}
+
+    // Enable ospfv3NssaTranslatorStatusChange notification. The type is
+    // interface{}.
+    NssaTranslator interface{}
+
+    // Enable ospfv3IfStateChange notification. The type is interface{}.
+    Interface interface{}
+
+    // Enable ospfv3RestartStatusChange notification. The type is interface{}.
+    Restart interface{}
+
+    // Enable ospfv3NbrStateChange notification. The type is interface{}.
+    Neighbor interface{}
+
+    // Enable ospfv3VirtIfStateChange notification. The type is interface{}.
+    VirtualInterface interface{}
+
+    // Enable ospfv3NbrRestartHelperStatusChange notification. The type is
+    // interface{}.
+    RestartHelper interface{}
+
+    // Enable ospfv3VirtNbrStateChange notification. The type is interface{}.
+    VirtualNeighbor interface{}
 }
 
-func (configMan *Snmp_Notification_ConfigMan) GetEntityData() *types.CommonEntityData {
-    configMan.EntityData.YFilter = configMan.YFilter
-    configMan.EntityData.YangName = "config-man"
-    configMan.EntityData.BundleName = "cisco_ios_xr"
-    configMan.EntityData.ParentYangName = "notification"
-    configMan.EntityData.SegmentPath = "Cisco-IOS-XR-config-mibs-cfg:config-man"
-    configMan.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + configMan.EntityData.SegmentPath
-    configMan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    configMan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    configMan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (stateChange *Snmp_Notification_Ospfv3_StateChange) GetEntityData() *types.CommonEntityData {
+    stateChange.EntityData.YFilter = stateChange.YFilter
+    stateChange.EntityData.YangName = "state-change"
+    stateChange.EntityData.BundleName = "cisco_ios_xr"
+    stateChange.EntityData.ParentYangName = "ospfv3"
+    stateChange.EntityData.SegmentPath = "state-change"
+    stateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3/" + stateChange.EntityData.SegmentPath
+    stateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    configMan.EntityData.Children = types.NewOrderedMap()
-    configMan.EntityData.Leafs = types.NewOrderedMap()
-    configMan.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", configMan.Enable})
+    stateChange.EntityData.Children = types.NewOrderedMap()
+    stateChange.EntityData.Leafs = types.NewOrderedMap()
+    stateChange.EntityData.Leafs.Append("restart-virtual-helper", types.YLeaf{"RestartVirtualHelper", stateChange.RestartVirtualHelper})
+    stateChange.EntityData.Leafs.Append("nssa-translator", types.YLeaf{"NssaTranslator", stateChange.NssaTranslator})
+    stateChange.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", stateChange.Interface})
+    stateChange.EntityData.Leafs.Append("restart", types.YLeaf{"Restart", stateChange.Restart})
+    stateChange.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", stateChange.Neighbor})
+    stateChange.EntityData.Leafs.Append("virtual-interface", types.YLeaf{"VirtualInterface", stateChange.VirtualInterface})
+    stateChange.EntityData.Leafs.Append("restart-helper", types.YLeaf{"RestartHelper", stateChange.RestartHelper})
+    stateChange.EntityData.Leafs.Append("virtual-neighbor", types.YLeaf{"VirtualNeighbor", stateChange.VirtualNeighbor})
 
-    configMan.EntityData.YListKeys = []string {}
+    stateChange.EntityData.YListKeys = []string {}
 
-    return &(configMan.EntityData)
+    return &(stateChange.EntityData)
+}
+
+// Snmp_Notification_MplsLdp
+// MPLS-LDP-STD-MIB notification configuration
+type Snmp_Notification_MplsLdp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable mplsLdpSessionUp notification. The type is interface{}.
+    SessionUp interface{}
+
+    // Enable mplsLdpInitSessionThresholdExceeded notification. The type is
+    // interface{}.
+    InitSessionThresholdExceeded interface{}
+
+    // Enable mplsLdpSessionDown notification. The type is interface{}.
+    SessionDown interface{}
+}
+
+func (mplsLdp *Snmp_Notification_MplsLdp) GetEntityData() *types.CommonEntityData {
+    mplsLdp.EntityData.YFilter = mplsLdp.YFilter
+    mplsLdp.EntityData.YangName = "mpls-ldp"
+    mplsLdp.EntityData.BundleName = "cisco_ios_xr"
+    mplsLdp.EntityData.ParentYangName = "notification"
+    mplsLdp.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-ldp-cfg:mpls-ldp"
+    mplsLdp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + mplsLdp.EntityData.SegmentPath
+    mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsLdp.EntityData.Children = types.NewOrderedMap()
+    mplsLdp.EntityData.Leafs = types.NewOrderedMap()
+    mplsLdp.EntityData.Leafs.Append("session-up", types.YLeaf{"SessionUp", mplsLdp.SessionUp})
+    mplsLdp.EntityData.Leafs.Append("init-session-threshold-exceeded", types.YLeaf{"InitSessionThresholdExceeded", mplsLdp.InitSessionThresholdExceeded})
+    mplsLdp.EntityData.Leafs.Append("session-down", types.YLeaf{"SessionDown", mplsLdp.SessionDown})
+
+    mplsLdp.EntityData.YListKeys = []string {}
+
+    return &(mplsLdp.EntityData)
 }
 
 // Snmp_Notification_MplsTeP2mp
@@ -3642,6 +3285,275 @@ func (mplsFrr *Snmp_Notification_MplsFrr) GetEntityData() *types.CommonEntityDat
     return &(mplsFrr.EntityData)
 }
 
+// Snmp_Notification_MplsL3vpn
+// MPLS-L3VPN-STD-MIB notification configuration
+type Snmp_Notification_MplsL3vpn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time interval (secs) for re-issuing max-threshold notification. The type is
+    // interface{} with range: 0..4294967295. Units are second.
+    MaxThresholdReissueNotificationTime interface{}
+
+    // Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded notification. The type is
+    // interface{}.
+    MaxThresholdExceeded interface{}
+
+    // Enable mplsL3VpnNumVrfRouteMaxThreshCleared notification. The type is
+    // interface{}.
+    MaxThresholdCleared interface{}
+
+    // Enable mplsL3VpnVrfRouteMidThreshExceeded notification. The type is
+    // interface{}.
+    MidThresholdExceeded interface{}
+
+    // Enable mplsL3VpnMIB notifications. The type is interface{}.
+    Enable interface{}
+
+    // Enable mplsL3VpnVrfDown notification. The type is interface{}.
+    VrfDown interface{}
+
+    // Enable mplsL3VpnVrfUp notification. The type is interface{}.
+    VrfUp interface{}
+}
+
+func (mplsL3vpn *Snmp_Notification_MplsL3vpn) GetEntityData() *types.CommonEntityData {
+    mplsL3vpn.EntityData.YFilter = mplsL3vpn.YFilter
+    mplsL3vpn.EntityData.YangName = "mpls-l3vpn"
+    mplsL3vpn.EntityData.BundleName = "cisco_ios_xr"
+    mplsL3vpn.EntityData.ParentYangName = "notification"
+    mplsL3vpn.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-vpn-cfg:mpls-l3vpn"
+    mplsL3vpn.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + mplsL3vpn.EntityData.SegmentPath
+    mplsL3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsL3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsL3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsL3vpn.EntityData.Children = types.NewOrderedMap()
+    mplsL3vpn.EntityData.Leafs = types.NewOrderedMap()
+    mplsL3vpn.EntityData.Leafs.Append("max-threshold-reissue-notification-time", types.YLeaf{"MaxThresholdReissueNotificationTime", mplsL3vpn.MaxThresholdReissueNotificationTime})
+    mplsL3vpn.EntityData.Leafs.Append("max-threshold-exceeded", types.YLeaf{"MaxThresholdExceeded", mplsL3vpn.MaxThresholdExceeded})
+    mplsL3vpn.EntityData.Leafs.Append("max-threshold-cleared", types.YLeaf{"MaxThresholdCleared", mplsL3vpn.MaxThresholdCleared})
+    mplsL3vpn.EntityData.Leafs.Append("mid-threshold-exceeded", types.YLeaf{"MidThresholdExceeded", mplsL3vpn.MidThresholdExceeded})
+    mplsL3vpn.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", mplsL3vpn.Enable})
+    mplsL3vpn.EntityData.Leafs.Append("vrf-down", types.YLeaf{"VrfDown", mplsL3vpn.VrfDown})
+    mplsL3vpn.EntityData.Leafs.Append("vrf-up", types.YLeaf{"VrfUp", mplsL3vpn.VrfUp})
+
+    mplsL3vpn.EntityData.YListKeys = []string {}
+
+    return &(mplsL3vpn.EntityData)
+}
+
+// Snmp_Notification_Optical
+// CISCO-OPTICAL-MIB notification configuration
+type Snmp_Notification_Optical struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Opticalmib notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (optical *Snmp_Notification_Optical) GetEntityData() *types.CommonEntityData {
+    optical.EntityData.YFilter = optical.YFilter
+    optical.EntityData.YangName = "optical"
+    optical.EntityData.BundleName = "cisco_ios_xr"
+    optical.EntityData.ParentYangName = "notification"
+    optical.EntityData.SegmentPath = "Cisco-IOS-XR-opticalmib-cfg:optical"
+    optical.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + optical.EntityData.SegmentPath
+    optical.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    optical.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    optical.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    optical.EntityData.Children = types.NewOrderedMap()
+    optical.EntityData.Leafs = types.NewOrderedMap()
+    optical.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", optical.Enable})
+
+    optical.EntityData.YListKeys = []string {}
+
+    return &(optical.EntityData)
+}
+
+// Snmp_Notification_OpticalOts
+// CISCO-OPTICAL-OTS-MIB notification configuration
+type Snmp_Notification_OpticalOts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable OpticalOtsmib notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (opticalOts *Snmp_Notification_OpticalOts) GetEntityData() *types.CommonEntityData {
+    opticalOts.EntityData.YFilter = opticalOts.YFilter
+    opticalOts.EntityData.YangName = "optical-ots"
+    opticalOts.EntityData.BundleName = "cisco_ios_xr"
+    opticalOts.EntityData.ParentYangName = "notification"
+    opticalOts.EntityData.SegmentPath = "Cisco-IOS-XR-opticalotsmib-cfg:optical-ots"
+    opticalOts.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + opticalOts.EntityData.SegmentPath
+    opticalOts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticalOts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticalOts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticalOts.EntityData.Children = types.NewOrderedMap()
+    opticalOts.EntityData.Leafs = types.NewOrderedMap()
+    opticalOts.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", opticalOts.Enable})
+
+    opticalOts.EntityData.YListKeys = []string {}
+
+    return &(opticalOts.EntityData)
+}
+
+// Snmp_Notification_Otn
+// CISCO-OTN-IF-MIB notification configuration
+type Snmp_Notification_Otn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ciscoOtnIfMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (otn *Snmp_Notification_Otn) GetEntityData() *types.CommonEntityData {
+    otn.EntityData.YFilter = otn.YFilter
+    otn.EntityData.YangName = "otn"
+    otn.EntityData.BundleName = "cisco_ios_xr"
+    otn.EntityData.ParentYangName = "notification"
+    otn.EntityData.SegmentPath = "Cisco-IOS-XR-otnifmib-cfg:otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + otn.EntityData.SegmentPath
+    otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", otn.Enable})
+
+    otn.EntityData.YListKeys = []string {}
+
+    return &(otn.EntityData)
+}
+
+// Snmp_Notification_Bridge
+// BRIDGE-MIB notification configuration
+type Snmp_Notification_Bridge struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable dot1dBridge notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (bridge *Snmp_Notification_Bridge) GetEntityData() *types.CommonEntityData {
+    bridge.EntityData.YFilter = bridge.YFilter
+    bridge.EntityData.YangName = "bridge"
+    bridge.EntityData.BundleName = "cisco_ios_xr"
+    bridge.EntityData.ParentYangName = "notification"
+    bridge.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-bridgemib-cfg:bridge"
+    bridge.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bridge.EntityData.SegmentPath
+    bridge.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridge.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridge.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridge.EntityData.Children = types.NewOrderedMap()
+    bridge.EntityData.Leafs = types.NewOrderedMap()
+    bridge.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bridge.Enable})
+
+    bridge.EntityData.YListKeys = []string {}
+
+    return &(bridge.EntityData)
+}
+
+// Snmp_Notification_Sensor
+// CISCO-ENTITY-SENSOR-MIB notification
+// configuration
+type Snmp_Notification_Sensor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable entitySensorMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (sensor *Snmp_Notification_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "notification"
+    sensor.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor"
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + sensor.EntityData.SegmentPath
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensor.EntityData.Children = types.NewOrderedMap()
+    sensor.EntityData.Leafs = types.NewOrderedMap()
+    sensor.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", sensor.Enable})
+
+    sensor.EntityData.YListKeys = []string {}
+
+    return &(sensor.EntityData)
+}
+
+// Snmp_Notification_CiscoEntityExt
+// Enable CISCO-ENTITY-EXT-MIB notifications
+type Snmp_Notification_CiscoEntityExt struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable CISCO-ENTITY-EXT-MIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (ciscoEntityExt *Snmp_Notification_CiscoEntityExt) GetEntityData() *types.CommonEntityData {
+    ciscoEntityExt.EntityData.YFilter = ciscoEntityExt.YFilter
+    ciscoEntityExt.EntityData.YangName = "cisco-entity-ext"
+    ciscoEntityExt.EntityData.BundleName = "cisco_ios_xr"
+    ciscoEntityExt.EntityData.ParentYangName = "notification"
+    ciscoEntityExt.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-entityextmib-cfg:cisco-entity-ext"
+    ciscoEntityExt.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ciscoEntityExt.EntityData.SegmentPath
+    ciscoEntityExt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoEntityExt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoEntityExt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoEntityExt.EntityData.Children = types.NewOrderedMap()
+    ciscoEntityExt.EntityData.Leafs = types.NewOrderedMap()
+    ciscoEntityExt.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ciscoEntityExt.Enable})
+
+    ciscoEntityExt.EntityData.YListKeys = []string {}
+
+    return &(ciscoEntityExt.EntityData)
+}
+
+// Snmp_Notification_Entity
+// Enable ENTITY-MIB notifications
+type Snmp_Notification_Entity struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable entityMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (entity *Snmp_Notification_Entity) GetEntityData() *types.CommonEntityData {
+    entity.EntityData.YFilter = entity.YFilter
+    entity.EntityData.YangName = "entity"
+    entity.EntityData.BundleName = "cisco_ios_xr"
+    entity.EntityData.ParentYangName = "notification"
+    entity.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-entitymib-cfg:entity"
+    entity.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + entity.EntityData.SegmentPath
+    entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    entity.EntityData.Children = types.NewOrderedMap()
+    entity.EntityData.Leafs = types.NewOrderedMap()
+    entity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", entity.Enable})
+
+    entity.EntityData.YListKeys = []string {}
+
+    return &(entity.EntityData)
+}
+
 // Snmp_Notification_EntityState
 // ENTITY-STATE-MIB notification configuration
 type Snmp_Notification_EntityState struct {
@@ -3677,156 +3589,201 @@ func (entityState *Snmp_Notification_EntityState) GetEntityData() *types.CommonE
     return &(entityState.EntityData)
 }
 
-// Snmp_Notification_Bgp
-// BGP4-MIB and CISCO-BGP4-MIB notification
+// Snmp_Notification_FruControl
+// CISCO-ENTITY-FRU-CONTROL-MIB notification
 // configuration
-type Snmp_Notification_Bgp struct {
+type Snmp_Notification_FruControl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only notifications:
-    // bgpEstablishedNotification, bgpBackwardTransNotification,
-    // cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded,
-    // cbgpPrefixThresholdClear.
-    Bgp4mib Snmp_Notification_Bgp_Bgp4mib
-
-    // Enable CISCO-BGP4-MIB v2 notifications: cbgpPeer2EstablishedNotification,
-    // cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange,
-    // cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded,
-    // cbgpPeer2PrefixThresholdClear.
-    CiscoBgp4mib Snmp_Notification_Bgp_CiscoBgp4mib
-}
-
-func (bgp *Snmp_Notification_Bgp) GetEntityData() *types.CommonEntityData {
-    bgp.EntityData.YFilter = bgp.YFilter
-    bgp.EntityData.YangName = "bgp"
-    bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "notification"
-    bgp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + bgp.EntityData.SegmentPath
-    bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bgp.EntityData.Children = types.NewOrderedMap()
-    bgp.EntityData.Children.Append("bgp4mib", types.YChild{"Bgp4mib", &bgp.Bgp4mib})
-    bgp.EntityData.Children.Append("cisco-bgp4mib", types.YChild{"CiscoBgp4mib", &bgp.CiscoBgp4mib})
-    bgp.EntityData.Leafs = types.NewOrderedMap()
-
-    bgp.EntityData.YListKeys = []string {}
-
-    return &(bgp.EntityData)
-}
-
-// Snmp_Notification_Bgp_Bgp4mib
-// Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
-// notifications: bgpEstablishedNotification,
-// bgpBackwardTransNotification,
-// cbgpFsmStateChange, cbgpBackwardTransition,
-// cbgpPrefixThresholdExceeded,
-// cbgpPrefixThresholdClear.
-type Snmp_Notification_Bgp_Bgp4mib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only notifications. The type is
-    // interface{}.
-    Enable interface{}
-
-    // Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only up/down notifications. The
-    // type is interface{}.
-    UpDown interface{}
-}
-
-func (bgp4mib *Snmp_Notification_Bgp_Bgp4mib) GetEntityData() *types.CommonEntityData {
-    bgp4mib.EntityData.YFilter = bgp4mib.YFilter
-    bgp4mib.EntityData.YangName = "bgp4mib"
-    bgp4mib.EntityData.BundleName = "cisco_ios_xr"
-    bgp4mib.EntityData.ParentYangName = "bgp"
-    bgp4mib.EntityData.SegmentPath = "bgp4mib"
-    bgp4mib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/" + bgp4mib.EntityData.SegmentPath
-    bgp4mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bgp4mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bgp4mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bgp4mib.EntityData.Children = types.NewOrderedMap()
-    bgp4mib.EntityData.Leafs = types.NewOrderedMap()
-    bgp4mib.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bgp4mib.Enable})
-    bgp4mib.EntityData.Leafs.Append("up-down", types.YLeaf{"UpDown", bgp4mib.UpDown})
-
-    bgp4mib.EntityData.YListKeys = []string {}
-
-    return &(bgp4mib.EntityData)
-}
-
-// Snmp_Notification_Bgp_CiscoBgp4mib
-// Enable CISCO-BGP4-MIB v2 notifications:
-// cbgpPeer2EstablishedNotification,
-// cbgpPeer2BackwardTransNotification,
-// cbgpPeer2FsmStateChange,
-// cbgpPeer2BackwardTransition,
-// cbgpPeer2PrefixThresholdExceeded,
-// cbgpPeer2PrefixThresholdClear.
-type Snmp_Notification_Bgp_CiscoBgp4mib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable CISCO-BGP4-MIB v2 notifications. The type is interface{}.
-    Enable interface{}
-
-    // Enable CISCO-BGP4-MIB v2 up/down notifications. The type is interface{}.
-    UpDown interface{}
-}
-
-func (ciscoBgp4mib *Snmp_Notification_Bgp_CiscoBgp4mib) GetEntityData() *types.CommonEntityData {
-    ciscoBgp4mib.EntityData.YFilter = ciscoBgp4mib.YFilter
-    ciscoBgp4mib.EntityData.YangName = "cisco-bgp4mib"
-    ciscoBgp4mib.EntityData.BundleName = "cisco_ios_xr"
-    ciscoBgp4mib.EntityData.ParentYangName = "bgp"
-    ciscoBgp4mib.EntityData.SegmentPath = "cisco-bgp4mib"
-    ciscoBgp4mib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-ipv4-bgp-cfg:bgp/" + ciscoBgp4mib.EntityData.SegmentPath
-    ciscoBgp4mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ciscoBgp4mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ciscoBgp4mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ciscoBgp4mib.EntityData.Children = types.NewOrderedMap()
-    ciscoBgp4mib.EntityData.Leafs = types.NewOrderedMap()
-    ciscoBgp4mib.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ciscoBgp4mib.Enable})
-    ciscoBgp4mib.EntityData.Leafs.Append("up-down", types.YLeaf{"UpDown", ciscoBgp4mib.UpDown})
-
-    ciscoBgp4mib.EntityData.YListKeys = []string {}
-
-    return &(ciscoBgp4mib.EntityData)
-}
-
-// Snmp_Notification_Ntp
-// CISCO-NTP-MIB notification configuration
-type Snmp_Notification_Ntp struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable ciscoNtpMIB notification configuration. The type is interface{}.
+    // Enable ciscoEntityFRUControlMIB notifications. The type is interface{}.
     Enable interface{}
 }
 
-func (ntp *Snmp_Notification_Ntp) GetEntityData() *types.CommonEntityData {
-    ntp.EntityData.YFilter = ntp.YFilter
-    ntp.EntityData.YangName = "ntp"
-    ntp.EntityData.BundleName = "cisco_ios_xr"
-    ntp.EntityData.ParentYangName = "notification"
-    ntp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
-    ntp.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + ntp.EntityData.SegmentPath
-    ntp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fruControl *Snmp_Notification_FruControl) GetEntityData() *types.CommonEntityData {
+    fruControl.EntityData.YFilter = fruControl.YFilter
+    fruControl.EntityData.YangName = "fru-control"
+    fruControl.EntityData.BundleName = "cisco_ios_xr"
+    fruControl.EntityData.ParentYangName = "notification"
+    fruControl.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-frucontrolmib-cfg:fru-control"
+    fruControl.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + fruControl.EntityData.SegmentPath
+    fruControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    ntp.EntityData.Children = types.NewOrderedMap()
-    ntp.EntityData.Leafs = types.NewOrderedMap()
-    ntp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ntp.Enable})
+    fruControl.EntityData.Children = types.NewOrderedMap()
+    fruControl.EntityData.Leafs = types.NewOrderedMap()
+    fruControl.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", fruControl.Enable})
 
-    ntp.EntityData.YListKeys = []string {}
+    fruControl.EntityData.YListKeys = []string {}
 
-    return &(ntp.EntityData)
+    return &(fruControl.EntityData)
+}
+
+// Snmp_Notification_Rf
+// CISCO-RF-MIB notification configuration
+type Snmp_Notification_Rf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ciscoRFMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (rf *Snmp_Notification_Rf) GetEntityData() *types.CommonEntityData {
+    rf.EntityData.YFilter = rf.YFilter
+    rf.EntityData.YangName = "rf"
+    rf.EntityData.BundleName = "cisco_ios_xr"
+    rf.EntityData.ParentYangName = "notification"
+    rf.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf"
+    rf.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + rf.EntityData.SegmentPath
+    rf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rf.EntityData.Children = types.NewOrderedMap()
+    rf.EntityData.Leafs = types.NewOrderedMap()
+    rf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rf.Enable})
+
+    rf.EntityData.YListKeys = []string {}
+
+    return &(rf.EntityData)
+}
+
+// Snmp_Notification_Syslog
+// CISCO-SYSLOG-MIB notification configuration
+type Snmp_Notification_Syslog struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable ciscoSyslogMIB notifications. The type is interface{}.
+    Enable interface{}
+}
+
+func (syslog *Snmp_Notification_Syslog) GetEntityData() *types.CommonEntityData {
+    syslog.EntityData.YFilter = syslog.YFilter
+    syslog.EntityData.YangName = "syslog"
+    syslog.EntityData.BundleName = "cisco_ios_xr"
+    syslog.EntityData.ParentYangName = "notification"
+    syslog.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-syslogmib-cfg:syslog"
+    syslog.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + syslog.EntityData.SegmentPath
+    syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    syslog.EntityData.Children = types.NewOrderedMap()
+    syslog.EntityData.Leafs = types.NewOrderedMap()
+    syslog.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", syslog.Enable})
+
+    syslog.EntityData.YListKeys = []string {}
+
+    return &(syslog.EntityData)
+}
+
+// Snmp_Notification_SubscriberMib
+// Subscriber notification commands
+type Snmp_Notification_SubscriberMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Session aggregation.
+    SessionAggregate Snmp_Notification_SubscriberMib_SessionAggregate
+}
+
+func (subscriberMib *Snmp_Notification_SubscriberMib) GetEntityData() *types.CommonEntityData {
+    subscriberMib.EntityData.YFilter = subscriberMib.YFilter
+    subscriberMib.EntityData.YangName = "subscriber-mib"
+    subscriberMib.EntityData.BundleName = "cisco_ios_xr"
+    subscriberMib.EntityData.ParentYangName = "notification"
+    subscriberMib.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib"
+    subscriberMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + subscriberMib.EntityData.SegmentPath
+    subscriberMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subscriberMib.EntityData.Children = types.NewOrderedMap()
+    subscriberMib.EntityData.Children.Append("session-aggregate", types.YChild{"SessionAggregate", &subscriberMib.SessionAggregate})
+    subscriberMib.EntityData.Leafs = types.NewOrderedMap()
+
+    subscriberMib.EntityData.YListKeys = []string {}
+
+    return &(subscriberMib.EntityData)
+}
+
+// Snmp_Notification_SubscriberMib_SessionAggregate
+// Session aggregation
+type Snmp_Notification_SubscriberMib_SessionAggregate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber notification at node level. The type is interface{}.
+    Node interface{}
+
+    // Subscriber notification at access interface level. The type is interface{}.
+    AccessInterface interface{}
+}
+
+func (sessionAggregate *Snmp_Notification_SubscriberMib_SessionAggregate) GetEntityData() *types.CommonEntityData {
+    sessionAggregate.EntityData.YFilter = sessionAggregate.YFilter
+    sessionAggregate.EntityData.YangName = "session-aggregate"
+    sessionAggregate.EntityData.BundleName = "cisco_ios_xr"
+    sessionAggregate.EntityData.ParentYangName = "subscriber-mib"
+    sessionAggregate.EntityData.SegmentPath = "session-aggregate"
+    sessionAggregate.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber-mib/" + sessionAggregate.EntityData.SegmentPath
+    sessionAggregate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionAggregate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionAggregate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionAggregate.EntityData.Children = types.NewOrderedMap()
+    sessionAggregate.EntityData.Leafs = types.NewOrderedMap()
+    sessionAggregate.EntityData.Leafs.Append("node", types.YLeaf{"Node", sessionAggregate.Node})
+    sessionAggregate.EntityData.Leafs.Append("access-interface", types.YLeaf{"AccessInterface", sessionAggregate.AccessInterface})
+
+    sessionAggregate.EntityData.YListKeys = []string {}
+
+    return &(sessionAggregate.EntityData)
+}
+
+// Snmp_Notification_L2tun
+// Enable SNMP l2tun traps
+type Snmp_Notification_L2tun struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable L2TUN tunnel UP traps. The type is bool.
+    TunnelUp interface{}
+
+    // Enable L2TUN tunnel DOWN traps. The type is bool.
+    TunnelDown interface{}
+
+    // Enable traps for L2TPv3 PW status. The type is bool.
+    PseudowireStatus interface{}
+
+    // Enable L2TUN sessions traps. The type is bool.
+    Sessions interface{}
+}
+
+func (l2tun *Snmp_Notification_L2tun) GetEntityData() *types.CommonEntityData {
+    l2tun.EntityData.YFilter = l2tun.YFilter
+    l2tun.EntityData.YangName = "l2tun"
+    l2tun.EntityData.BundleName = "cisco_ios_xr"
+    l2tun.EntityData.ParentYangName = "notification"
+    l2tun.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-proto-mibs-cfg:l2tun"
+    l2tun.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:snmp/notification/" + l2tun.EntityData.SegmentPath
+    l2tun.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2tun.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2tun.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    l2tun.EntityData.Children = types.NewOrderedMap()
+    l2tun.EntityData.Leafs = types.NewOrderedMap()
+    l2tun.EntityData.Leafs.Append("tunnel-up", types.YLeaf{"TunnelUp", l2tun.TunnelUp})
+    l2tun.EntityData.Leafs.Append("tunnel-down", types.YLeaf{"TunnelDown", l2tun.TunnelDown})
+    l2tun.EntityData.Leafs.Append("pseudowire-status", types.YLeaf{"PseudowireStatus", l2tun.PseudowireStatus})
+    l2tun.EntityData.Leafs.Append("sessions", types.YLeaf{"Sessions", l2tun.Sessions})
+
+    l2tun.EntityData.YListKeys = []string {}
+
+    return &(l2tun.EntityData)
 }
 
 // Snmp_Correlator
@@ -4384,9 +4341,9 @@ type Snmp_Correlator_Rules_Rule_AppliedTo_Hosts_Host struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // This attribute is a key. Port (specify 162 for default). The type is
@@ -4630,9 +4587,9 @@ type Snmp_Correlator_RuleSets_RuleSet_AppliedTo_Hosts_Host struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // This attribute is a key. Port (specify 162 for default). The type is
@@ -4798,7 +4755,8 @@ type Snmp_BulkStats_Schemas_Schema_Instance struct {
     // mandatory.
     Type interface{}
 
-    // Instance of the schema. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Instance of the schema. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     Instance interface{}
 
     // Start Instance OID for repetition. The type is string. This attribute is
@@ -5387,7 +5345,7 @@ type Snmp_Users_User struct {
     Algorithm interface{}
 
     // The authentication password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     AuthenticationPassword interface{}
 
     // Flag to indicate that the privacy password is configured for version 3. The
@@ -5398,7 +5356,7 @@ type Snmp_Users_User struct {
     // SnmpPrivAlgorithm.
     PrivAlgorithm interface{}
 
-    // The privacy password. The type is string with pattern: (!.+)|([^!].+).
+    // The privacy password. The type is string with pattern: b'(!.+)|([^!].+)'.
     PrivacyPassword interface{}
 
     // Access-list type. The type is Snmpacl.
@@ -5419,9 +5377,9 @@ type Snmp_Users_User struct {
 
     // IP address of remote SNMP entity. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 
     // UDP port number. The type is interface{} with range: 1..65535.
@@ -5504,7 +5462,7 @@ type Snmp_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Specify hosts to receive SNMP notifications.
@@ -5583,9 +5541,9 @@ type Snmp_Vrfs_Vrf_TrapHosts_TrapHost struct {
 
     // This attribute is a key. IP address of SNMP notification host. The type is
     // one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Container class for defining Clear/encrypt communities for a trap host.
@@ -5666,7 +5624,7 @@ type Snmp_Vrfs_Vrf_TrapHosts_TrapHost_EncryptedUserCommunities_EncryptedUserComm
     YListKey string
 
     // This attribute is a key. SNMPv1/v2c community string or SNMPv3 user. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // UDP port number. The type is interface{} with range: 1..65535. The default
@@ -5907,7 +5865,7 @@ type Snmp_Vrfs_Vrf_TrapHosts_TrapHost_InformHost_InformEncryptedUserCommunities_
     YListKey string
 
     // This attribute is a key. SNMPv2c community string or SNMPv3 user. The type
-    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // UDP port number. The type is interface{} with range: 1..65535. The default
@@ -6108,7 +6066,7 @@ type Snmp_Vrfs_Vrf_Contexts_Context struct {
     YListKey string
 
     // This attribute is a key. Context Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ContextName interface{}
 }
 
@@ -6174,7 +6132,7 @@ type Snmp_Vrfs_Vrf_ContextMappings_ContextMapping struct {
     YListKey string
 
     // This attribute is a key. Context mapping name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ContextMappingName interface{}
 
     // SNMP context feature type. The type is SnmpContext.
@@ -6363,9 +6321,9 @@ type Snmp_TrapHosts_TrapHost struct {
 
     // This attribute is a key. IP address of SNMP notification host. The type is
     // one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Container class for defining Clear/encrypt communities for a trap host.
@@ -6445,7 +6403,7 @@ type Snmp_TrapHosts_TrapHost_EncryptedUserCommunities_EncryptedUserCommunity str
     YListKey string
 
     // This attribute is a key. SNMPv1/v2c community string or SNMPv3 user. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // UDP port number. The type is interface{} with range: 1..65535. The default
@@ -6686,7 +6644,7 @@ type Snmp_TrapHosts_TrapHost_InformHost_InformEncryptedUserCommunities_InformEnc
     YListKey string
 
     // This attribute is a key. SNMPv2c community string or SNMPv3 user. The type
-    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CommunityName interface{}
 
     // UDP port number. The type is interface{} with range: 1..65535. The default
@@ -6887,7 +6845,7 @@ type Snmp_Contexts_Context struct {
     YListKey string
 
     // This attribute is a key. Context Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ContextName interface{}
 }
 
@@ -6953,7 +6911,7 @@ type Snmp_ContextMappings_ContextMapping struct {
     YListKey string
 
     // This attribute is a key. Context mapping name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ContextMappingName interface{}
 
     // SNMP context feature type. The type is SnmpContext.
@@ -7002,17 +6960,8 @@ type Mib struct {
     // Get cached Sesnsor MIB statistics. The type is interface{}.
     SensorMibCache interface{}
 
-    // CBQoSMIB configuration.
-    CbQosmib Mib_CbQosmib
-
     // Notification log MIB configuration.
     NotificationLogMib Mib_NotificationLogMib
-
-    // Entity MIB.
-    EntityMib Mib_EntityMib
-
-    // Subscriber threshold commands.
-    Subscriber Mib_Subscriber
 
     // MPLS TE MIB configuration.
     MplsTeMib Mib_MplsTeMib
@@ -7029,8 +6978,17 @@ type Mib struct {
     // FRR MIB configuration.
     MplsFrrMib Mib_MplsFrrMib
 
+    // CBQoSMIB configuration.
+    CbQosmib Mib_CbQosmib
+
+    // Entity MIB.
+    EntityMib Mib_EntityMib
+
     // Interface MIB configuration.
     InterfaceMib Mib_InterfaceMib
+
+    // Subscriber threshold commands.
+    Subscriber Mib_Subscriber
 }
 
 func (mib *Mib) GetEntityData() *types.CommonEntityData {
@@ -7045,22 +7003,232 @@ func (mib *Mib) GetEntityData() *types.CommonEntityData {
     mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     mib.EntityData.Children = types.NewOrderedMap()
-    mib.EntityData.Children.Append("Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib", types.YChild{"CbQosmib", &mib.CbQosmib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib", types.YChild{"NotificationLogMib", &mib.NotificationLogMib})
-    mib.EntityData.Children.Append("Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib", types.YChild{"EntityMib", &mib.EntityMib})
-    mib.EntityData.Children.Append("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber", types.YChild{"Subscriber", &mib.Subscriber})
     mib.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib", types.YChild{"MplsTeMib", &mib.MplsTeMib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib", types.YChild{"MplsP2mpMib", &mib.MplsP2mpMib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib", types.YChild{"MplsTeExtStdMib", &mib.MplsTeExtStdMib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib", types.YChild{"MplsTeExtMib", &mib.MplsTeExtMib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib", types.YChild{"MplsFrrMib", &mib.MplsFrrMib})
+    mib.EntityData.Children.Append("Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib", types.YChild{"CbQosmib", &mib.CbQosmib})
+    mib.EntityData.Children.Append("Cisco-IOS-XR-snmp-entitymib-cfg:entity-mib", types.YChild{"EntityMib", &mib.EntityMib})
     mib.EntityData.Children.Append("Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib", types.YChild{"InterfaceMib", &mib.InterfaceMib})
+    mib.EntityData.Children.Append("Cisco-IOS-XR-subscriber-session-mon-mibs-cfg:subscriber", types.YChild{"Subscriber", &mib.Subscriber})
     mib.EntityData.Leafs = types.NewOrderedMap()
     mib.EntityData.Leafs.Append("sensor-mib-cache", types.YLeaf{"SensorMibCache", mib.SensorMibCache})
 
     mib.EntityData.YListKeys = []string {}
 
     return &(mib.EntityData)
+}
+
+// Mib_NotificationLogMib
+// Notification log MIB configuration
+type Mib_NotificationLogMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // GlobalAgeOut is the minutes associated with the mib. The type is
+    // interface{} with range: 1..4294967295. Units are minute.
+    GlobalAgeOut interface{}
+
+    // Disable, to disable the logging in default log. The type is interface{}.
+    Disable interface{}
+
+    // To create a default log. The type is interface{}.
+    Default interface{}
+
+    // GlobalSize, max number of notifications that can be logged in all logs. The
+    // type is interface{} with range: 1..15000.
+    GlobalSize interface{}
+
+    // The max number of notifications that this log (default) can hold. The type
+    // is interface{} with range: 1..15000.
+    DefaultSize interface{}
+}
+
+func (notificationLogMib *Mib_NotificationLogMib) GetEntityData() *types.CommonEntityData {
+    notificationLogMib.EntityData.YFilter = notificationLogMib.YFilter
+    notificationLogMib.EntityData.YangName = "notification-log-mib"
+    notificationLogMib.EntityData.BundleName = "cisco_ios_xr"
+    notificationLogMib.EntityData.ParentYangName = "mib"
+    notificationLogMib.EntityData.SegmentPath = "Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib"
+    notificationLogMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + notificationLogMib.EntityData.SegmentPath
+    notificationLogMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    notificationLogMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    notificationLogMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    notificationLogMib.EntityData.Children = types.NewOrderedMap()
+    notificationLogMib.EntityData.Leafs = types.NewOrderedMap()
+    notificationLogMib.EntityData.Leafs.Append("global-age-out", types.YLeaf{"GlobalAgeOut", notificationLogMib.GlobalAgeOut})
+    notificationLogMib.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", notificationLogMib.Disable})
+    notificationLogMib.EntityData.Leafs.Append("default", types.YLeaf{"Default", notificationLogMib.Default})
+    notificationLogMib.EntityData.Leafs.Append("global-size", types.YLeaf{"GlobalSize", notificationLogMib.GlobalSize})
+    notificationLogMib.EntityData.Leafs.Append("default-size", types.YLeaf{"DefaultSize", notificationLogMib.DefaultSize})
+
+    notificationLogMib.EntityData.YListKeys = []string {}
+
+    return &(notificationLogMib.EntityData)
+}
+
+// Mib_MplsTeMib
+// MPLS TE MIB configuration
+type Mib_MplsTeMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure the cache garbage collector time for the mib. The type is
+    // interface{} with range: 0..3600. Units are second. The default value is
+    // 1800.
+    CacheGarbageCollectTimer interface{}
+
+    // Configure the cache time for the mib. The type is interface{} with range:
+    // 0..600. Units are second. The default value is 60.
+    CacheTimer interface{}
+}
+
+func (mplsTeMib *Mib_MplsTeMib) GetEntityData() *types.CommonEntityData {
+    mplsTeMib.EntityData.YFilter = mplsTeMib.YFilter
+    mplsTeMib.EntityData.YangName = "mpls-te-mib"
+    mplsTeMib.EntityData.BundleName = "cisco_ios_xr"
+    mplsTeMib.EntityData.ParentYangName = "mib"
+    mplsTeMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib"
+    mplsTeMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeMib.EntityData.SegmentPath
+    mplsTeMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsTeMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsTeMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsTeMib.EntityData.Children = types.NewOrderedMap()
+    mplsTeMib.EntityData.Leafs = types.NewOrderedMap()
+    mplsTeMib.EntityData.Leafs.Append("cache-garbage-collect-timer", types.YLeaf{"CacheGarbageCollectTimer", mplsTeMib.CacheGarbageCollectTimer})
+    mplsTeMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeMib.CacheTimer})
+
+    mplsTeMib.EntityData.YListKeys = []string {}
+
+    return &(mplsTeMib.EntityData)
+}
+
+// Mib_MplsP2mpMib
+// MPLS P2MP MIB configuration
+type Mib_MplsP2mpMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure the cache time for the mib. The type is interface{} with range:
+    // 0..600. Units are second. The default value is 60.
+    CacheTimer interface{}
+}
+
+func (mplsP2mpMib *Mib_MplsP2mpMib) GetEntityData() *types.CommonEntityData {
+    mplsP2mpMib.EntityData.YFilter = mplsP2mpMib.YFilter
+    mplsP2mpMib.EntityData.YangName = "mpls-p2mp-mib"
+    mplsP2mpMib.EntityData.BundleName = "cisco_ios_xr"
+    mplsP2mpMib.EntityData.ParentYangName = "mib"
+    mplsP2mpMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib"
+    mplsP2mpMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsP2mpMib.EntityData.SegmentPath
+    mplsP2mpMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsP2mpMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsP2mpMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsP2mpMib.EntityData.Children = types.NewOrderedMap()
+    mplsP2mpMib.EntityData.Leafs = types.NewOrderedMap()
+    mplsP2mpMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsP2mpMib.CacheTimer})
+
+    mplsP2mpMib.EntityData.YListKeys = []string {}
+
+    return &(mplsP2mpMib.EntityData)
+}
+
+// Mib_MplsTeExtStdMib
+// MPLS TE EXT STD MIB configuration
+type Mib_MplsTeExtStdMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure the cache time for the mib. The type is interface{} with range:
+    // 0..600. Units are second. The default value is 60.
+    CacheTimer interface{}
+}
+
+func (mplsTeExtStdMib *Mib_MplsTeExtStdMib) GetEntityData() *types.CommonEntityData {
+    mplsTeExtStdMib.EntityData.YFilter = mplsTeExtStdMib.YFilter
+    mplsTeExtStdMib.EntityData.YangName = "mpls-te-ext-std-mib"
+    mplsTeExtStdMib.EntityData.BundleName = "cisco_ios_xr"
+    mplsTeExtStdMib.EntityData.ParentYangName = "mib"
+    mplsTeExtStdMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib"
+    mplsTeExtStdMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeExtStdMib.EntityData.SegmentPath
+    mplsTeExtStdMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsTeExtStdMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsTeExtStdMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsTeExtStdMib.EntityData.Children = types.NewOrderedMap()
+    mplsTeExtStdMib.EntityData.Leafs = types.NewOrderedMap()
+    mplsTeExtStdMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeExtStdMib.CacheTimer})
+
+    mplsTeExtStdMib.EntityData.YListKeys = []string {}
+
+    return &(mplsTeExtStdMib.EntityData)
+}
+
+// Mib_MplsTeExtMib
+// MPLS TE EXT MIB configuration
+type Mib_MplsTeExtMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure the cache time for the mib. The type is interface{} with range:
+    // 0..600. Units are second. The default value is 60.
+    CacheTimer interface{}
+}
+
+func (mplsTeExtMib *Mib_MplsTeExtMib) GetEntityData() *types.CommonEntityData {
+    mplsTeExtMib.EntityData.YFilter = mplsTeExtMib.YFilter
+    mplsTeExtMib.EntityData.YangName = "mpls-te-ext-mib"
+    mplsTeExtMib.EntityData.BundleName = "cisco_ios_xr"
+    mplsTeExtMib.EntityData.ParentYangName = "mib"
+    mplsTeExtMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib"
+    mplsTeExtMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeExtMib.EntityData.SegmentPath
+    mplsTeExtMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsTeExtMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsTeExtMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsTeExtMib.EntityData.Children = types.NewOrderedMap()
+    mplsTeExtMib.EntityData.Leafs = types.NewOrderedMap()
+    mplsTeExtMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeExtMib.CacheTimer})
+
+    mplsTeExtMib.EntityData.YListKeys = []string {}
+
+    return &(mplsTeExtMib.EntityData)
+}
+
+// Mib_MplsFrrMib
+// FRR MIB configuration
+type Mib_MplsFrrMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure the cache time for the mib. The type is interface{} with range:
+    // 0..600. Units are second. The default value is 60.
+    CacheTimer interface{}
+}
+
+func (mplsFrrMib *Mib_MplsFrrMib) GetEntityData() *types.CommonEntityData {
+    mplsFrrMib.EntityData.YFilter = mplsFrrMib.YFilter
+    mplsFrrMib.EntityData.YangName = "mpls-frr-mib"
+    mplsFrrMib.EntityData.BundleName = "cisco_ios_xr"
+    mplsFrrMib.EntityData.ParentYangName = "mib"
+    mplsFrrMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib"
+    mplsFrrMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsFrrMib.EntityData.SegmentPath
+    mplsFrrMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsFrrMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsFrrMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsFrrMib.EntityData.Children = types.NewOrderedMap()
+    mplsFrrMib.EntityData.Leafs = types.NewOrderedMap()
+    mplsFrrMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsFrrMib.CacheTimer})
+
+    mplsFrrMib.EntityData.YListKeys = []string {}
+
+    return &(mplsFrrMib.EntityData)
 }
 
 // Mib_CbQosmib
@@ -7143,55 +7311,6 @@ func (cache *Mib_CbQosmib_Cache) GetEntityData() *types.CommonEntityData {
     return &(cache.EntityData)
 }
 
-// Mib_NotificationLogMib
-// Notification log MIB configuration
-type Mib_NotificationLogMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // GlobalAgeOut is the minutes associated with the mib. The type is
-    // interface{} with range: 1..4294967295. Units are minute.
-    GlobalAgeOut interface{}
-
-    // Disable, to disable the logging in default log. The type is interface{}.
-    Disable interface{}
-
-    // To create a default log. The type is interface{}.
-    Default interface{}
-
-    // GlobalSize, max number of notifications that can be logged in all logs. The
-    // type is interface{} with range: 1..15000.
-    GlobalSize interface{}
-
-    // The max number of notifications that this log (default) can hold. The type
-    // is interface{} with range: 1..15000.
-    DefaultSize interface{}
-}
-
-func (notificationLogMib *Mib_NotificationLogMib) GetEntityData() *types.CommonEntityData {
-    notificationLogMib.EntityData.YFilter = notificationLogMib.YFilter
-    notificationLogMib.EntityData.YangName = "notification-log-mib"
-    notificationLogMib.EntityData.BundleName = "cisco_ios_xr"
-    notificationLogMib.EntityData.ParentYangName = "mib"
-    notificationLogMib.EntityData.SegmentPath = "Cisco-IOS-XR-infra-notification-log-mib-cfg:notification-log-mib"
-    notificationLogMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + notificationLogMib.EntityData.SegmentPath
-    notificationLogMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    notificationLogMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    notificationLogMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    notificationLogMib.EntityData.Children = types.NewOrderedMap()
-    notificationLogMib.EntityData.Leafs = types.NewOrderedMap()
-    notificationLogMib.EntityData.Leafs.Append("global-age-out", types.YLeaf{"GlobalAgeOut", notificationLogMib.GlobalAgeOut})
-    notificationLogMib.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", notificationLogMib.Disable})
-    notificationLogMib.EntityData.Leafs.Append("default", types.YLeaf{"Default", notificationLogMib.Default})
-    notificationLogMib.EntityData.Leafs.Append("global-size", types.YLeaf{"GlobalSize", notificationLogMib.GlobalSize})
-    notificationLogMib.EntityData.Leafs.Append("default-size", types.YLeaf{"DefaultSize", notificationLogMib.DefaultSize})
-
-    notificationLogMib.EntityData.YListKeys = []string {}
-
-    return &(notificationLogMib.EntityData)
-}
-
 // Mib_EntityMib
 // Entity MIB
 type Mib_EntityMib struct {
@@ -7220,6 +7339,276 @@ func (entityMib *Mib_EntityMib) GetEntityData() *types.CommonEntityData {
     entityMib.EntityData.YListKeys = []string {}
 
     return &(entityMib.EntityData)
+}
+
+// Mib_InterfaceMib
+// Interface MIB configuration
+type Mib_InterfaceMib struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Get cached interface statistics. The type is interface{} with range: 0..60.
+    // The default value is 15.
+    InternalCache interface{}
+
+    // Enable support for ifAlias values longer than 64 characters. The type is
+    // interface{}.
+    InterfaceAliasLong interface{}
+
+    // Enable IP subscriber interfaces in IFMIB. The type is interface{}.
+    IpSubscriber interface{}
+
+    // Enable ifindex persistence. The type is interface{}.
+    InterfaceIndexPersistence interface{}
+
+    // Enable cached interface statistics. The type is interface{}.
+    StatisticsCache interface{}
+
+    // Enter the SNMP interface configuration commands.
+    Interfaces Mib_InterfaceMib_Interfaces
+
+    // MIB notification configuration.
+    Notification Mib_InterfaceMib_Notification
+
+    // Add configuration for an interface subset.
+    Subsets Mib_InterfaceMib_Subsets
+}
+
+func (interfaceMib *Mib_InterfaceMib) GetEntityData() *types.CommonEntityData {
+    interfaceMib.EntityData.YFilter = interfaceMib.YFilter
+    interfaceMib.EntityData.YangName = "interface-mib"
+    interfaceMib.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMib.EntityData.ParentYangName = "mib"
+    interfaceMib.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib"
+    interfaceMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + interfaceMib.EntityData.SegmentPath
+    interfaceMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceMib.EntityData.Children = types.NewOrderedMap()
+    interfaceMib.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceMib.Interfaces})
+    interfaceMib.EntityData.Children.Append("notification", types.YChild{"Notification", &interfaceMib.Notification})
+    interfaceMib.EntityData.Children.Append("subsets", types.YChild{"Subsets", &interfaceMib.Subsets})
+    interfaceMib.EntityData.Leafs = types.NewOrderedMap()
+    interfaceMib.EntityData.Leafs.Append("internal-cache", types.YLeaf{"InternalCache", interfaceMib.InternalCache})
+    interfaceMib.EntityData.Leafs.Append("interface-alias-long", types.YLeaf{"InterfaceAliasLong", interfaceMib.InterfaceAliasLong})
+    interfaceMib.EntityData.Leafs.Append("ip-subscriber", types.YLeaf{"IpSubscriber", interfaceMib.IpSubscriber})
+    interfaceMib.EntityData.Leafs.Append("interface-index-persistence", types.YLeaf{"InterfaceIndexPersistence", interfaceMib.InterfaceIndexPersistence})
+    interfaceMib.EntityData.Leafs.Append("statistics-cache", types.YLeaf{"StatisticsCache", interfaceMib.StatisticsCache})
+
+    interfaceMib.EntityData.YListKeys = []string {}
+
+    return &(interfaceMib.EntityData)
+}
+
+// Mib_InterfaceMib_Interfaces
+// Enter the SNMP interface configuration commands
+type Mib_InterfaceMib_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface to configure. The type is slice of
+    // Mib_InterfaceMib_Interfaces_Interface.
+    Interface []*Mib_InterfaceMib_Interfaces_Interface
+}
+
+func (interfaces *Mib_InterfaceMib_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "interface-mib"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + interfaces.EntityData.SegmentPath
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
+    }
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
+    return &(interfaces.EntityData)
+}
+
+// Mib_InterfaceMib_Interfaces_Interface
+// Interface to configure
+type Mib_InterfaceMib_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The name of the interface. The type is string with
+    // pattern: b'[a-zA-Z0-9._/-]+'.
+    InterfaceName interface{}
+
+    // Enable or disable LinkUpDown notification. The type is bool.
+    LinkUpDown interface{}
+
+    // Enable or disable index persistence. The type is bool.
+    IndexPersistence interface{}
+}
+
+func (self *Mib_InterfaceMib_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/interfaces/" + self.EntityData.SegmentPath
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
+    self.EntityData.Leafs.Append("link-up-down", types.YLeaf{"LinkUpDown", self.LinkUpDown})
+    self.EntityData.Leafs.Append("index-persistence", types.YLeaf{"IndexPersistence", self.IndexPersistence})
+
+    self.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(self.EntityData)
+}
+
+// Mib_InterfaceMib_Notification
+// MIB notification configuration
+type Mib_InterfaceMib_Notification struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the varbind of linkupdown trap to the RFC specified varbinds (default
+    // cisco). The type is interface{}.
+    LinkIetf interface{}
+}
+
+func (notification *Mib_InterfaceMib_Notification) GetEntityData() *types.CommonEntityData {
+    notification.EntityData.YFilter = notification.YFilter
+    notification.EntityData.YangName = "notification"
+    notification.EntityData.BundleName = "cisco_ios_xr"
+    notification.EntityData.ParentYangName = "interface-mib"
+    notification.EntityData.SegmentPath = "notification"
+    notification.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + notification.EntityData.SegmentPath
+    notification.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    notification.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    notification.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    notification.EntityData.Children = types.NewOrderedMap()
+    notification.EntityData.Leafs = types.NewOrderedMap()
+    notification.EntityData.Leafs.Append("link-ietf", types.YLeaf{"LinkIetf", notification.LinkIetf})
+
+    notification.EntityData.YListKeys = []string {}
+
+    return &(notification.EntityData)
+}
+
+// Mib_InterfaceMib_Subsets
+// Add configuration for an interface subset
+type Mib_InterfaceMib_Subsets struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subset priorityID to group ifNames based on Regular Expression. The type is
+    // slice of Mib_InterfaceMib_Subsets_Subset.
+    Subset []*Mib_InterfaceMib_Subsets_Subset
+}
+
+func (subsets *Mib_InterfaceMib_Subsets) GetEntityData() *types.CommonEntityData {
+    subsets.EntityData.YFilter = subsets.YFilter
+    subsets.EntityData.YangName = "subsets"
+    subsets.EntityData.BundleName = "cisco_ios_xr"
+    subsets.EntityData.ParentYangName = "interface-mib"
+    subsets.EntityData.SegmentPath = "subsets"
+    subsets.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + subsets.EntityData.SegmentPath
+    subsets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subsets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subsets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subsets.EntityData.Children = types.NewOrderedMap()
+    subsets.EntityData.Children.Append("subset", types.YChild{"Subset", nil})
+    for i := range subsets.Subset {
+        subsets.EntityData.Children.Append(types.GetSegmentPath(subsets.Subset[i]), types.YChild{"Subset", subsets.Subset[i]})
+    }
+    subsets.EntityData.Leafs = types.NewOrderedMap()
+
+    subsets.EntityData.YListKeys = []string {}
+
+    return &(subsets.EntityData)
+}
+
+// Mib_InterfaceMib_Subsets_Subset
+// Subset priorityID to group ifNames based on
+// Regular Expression
+type Mib_InterfaceMib_Subsets_Subset struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The interface subset PriorityID. The type is
+    // interface{} with range: 1..255.
+    SubsetId interface{}
+
+    // SNMP linkUp and linkDown notifications.
+    LinkUpDown Mib_InterfaceMib_Subsets_Subset_LinkUpDown
+}
+
+func (subset *Mib_InterfaceMib_Subsets_Subset) GetEntityData() *types.CommonEntityData {
+    subset.EntityData.YFilter = subset.YFilter
+    subset.EntityData.YangName = "subset"
+    subset.EntityData.BundleName = "cisco_ios_xr"
+    subset.EntityData.ParentYangName = "subsets"
+    subset.EntityData.SegmentPath = "subset" + types.AddKeyToken(subset.SubsetId, "subset-id")
+    subset.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/subsets/" + subset.EntityData.SegmentPath
+    subset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subset.EntityData.Children = types.NewOrderedMap()
+    subset.EntityData.Children.Append("link-up-down", types.YChild{"LinkUpDown", &subset.LinkUpDown})
+    subset.EntityData.Leafs = types.NewOrderedMap()
+    subset.EntityData.Leafs.Append("subset-id", types.YLeaf{"SubsetId", subset.SubsetId})
+
+    subset.EntityData.YListKeys = []string {"SubsetId"}
+
+    return &(subset.EntityData)
+}
+
+// Mib_InterfaceMib_Subsets_Subset_LinkUpDown
+// SNMP linkUp and linkDown notifications
+type Mib_InterfaceMib_Subsets_Subset_LinkUpDown struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable or disable linkupdown notification. The type is bool.
+    Enable interface{}
+
+    // Regular expression to match ifName. The type is string.
+    RegularExpression interface{}
+}
+
+func (linkUpDown *Mib_InterfaceMib_Subsets_Subset_LinkUpDown) GetEntityData() *types.CommonEntityData {
+    linkUpDown.EntityData.YFilter = linkUpDown.YFilter
+    linkUpDown.EntityData.YangName = "link-up-down"
+    linkUpDown.EntityData.BundleName = "cisco_ios_xr"
+    linkUpDown.EntityData.ParentYangName = "subset"
+    linkUpDown.EntityData.SegmentPath = "link-up-down"
+    linkUpDown.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/subsets/subset/" + linkUpDown.EntityData.SegmentPath
+    linkUpDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkUpDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkUpDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    linkUpDown.EntityData.Children = types.NewOrderedMap()
+    linkUpDown.EntityData.Leafs = types.NewOrderedMap()
+    linkUpDown.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", linkUpDown.Enable})
+    linkUpDown.EntityData.Leafs.Append("regular-expression", types.YLeaf{"RegularExpression", linkUpDown.RegularExpression})
+
+    linkUpDown.EntityData.YListKeys = []string {}
+
+    return &(linkUpDown.EntityData)
 }
 
 // Mib_Subscriber
@@ -7404,7 +7793,7 @@ type Mib_Subscriber_Threshold_Delta_Evaluation_AccessInterfaces_AccessInterface 
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -7479,7 +7868,7 @@ type Mib_Subscriber_Threshold_Delta_Evaluation_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -7588,7 +7977,7 @@ type Mib_Subscriber_Threshold_Delta_Percent_AccessInterfaces_AccessInterface str
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -7663,7 +8052,7 @@ type Mib_Subscriber_Threshold_Delta_Percent_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -7962,7 +8351,7 @@ type Mib_Subscriber_Threshold_Falling_AccessInterfaces_AccessInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -8037,7 +8426,7 @@ type Mib_Subscriber_Threshold_Falling_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -8146,7 +8535,7 @@ type Mib_Subscriber_Threshold_Rising_AccessInterfaces_AccessInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -8221,7 +8610,7 @@ type Mib_Subscriber_Threshold_Rising_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Session count. The type is interface{} with range: 1..4294967294.
@@ -8252,436 +8641,5 @@ func (node *Mib_Subscriber_Threshold_Rising_Nodes_Node) GetEntityData() *types.C
     node.EntityData.YListKeys = []string {"NodeName"}
 
     return &(node.EntityData)
-}
-
-// Mib_MplsTeMib
-// MPLS TE MIB configuration
-type Mib_MplsTeMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure the cache garbage collector time for the mib. The type is
-    // interface{} with range: 0..3600. Units are second. The default value is
-    // 1800.
-    CacheGarbageCollectTimer interface{}
-
-    // Configure the cache time for the mib. The type is interface{} with range:
-    // 0..600. Units are second. The default value is 60.
-    CacheTimer interface{}
-}
-
-func (mplsTeMib *Mib_MplsTeMib) GetEntityData() *types.CommonEntityData {
-    mplsTeMib.EntityData.YFilter = mplsTeMib.YFilter
-    mplsTeMib.EntityData.YangName = "mpls-te-mib"
-    mplsTeMib.EntityData.BundleName = "cisco_ios_xr"
-    mplsTeMib.EntityData.ParentYangName = "mib"
-    mplsTeMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-mib"
-    mplsTeMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeMib.EntityData.SegmentPath
-    mplsTeMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsTeMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsTeMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsTeMib.EntityData.Children = types.NewOrderedMap()
-    mplsTeMib.EntityData.Leafs = types.NewOrderedMap()
-    mplsTeMib.EntityData.Leafs.Append("cache-garbage-collect-timer", types.YLeaf{"CacheGarbageCollectTimer", mplsTeMib.CacheGarbageCollectTimer})
-    mplsTeMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeMib.CacheTimer})
-
-    mplsTeMib.EntityData.YListKeys = []string {}
-
-    return &(mplsTeMib.EntityData)
-}
-
-// Mib_MplsP2mpMib
-// MPLS P2MP MIB configuration
-type Mib_MplsP2mpMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure the cache time for the mib. The type is interface{} with range:
-    // 0..600. Units are second. The default value is 60.
-    CacheTimer interface{}
-}
-
-func (mplsP2mpMib *Mib_MplsP2mpMib) GetEntityData() *types.CommonEntityData {
-    mplsP2mpMib.EntityData.YFilter = mplsP2mpMib.YFilter
-    mplsP2mpMib.EntityData.YangName = "mpls-p2mp-mib"
-    mplsP2mpMib.EntityData.BundleName = "cisco_ios_xr"
-    mplsP2mpMib.EntityData.ParentYangName = "mib"
-    mplsP2mpMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-p2mp-mib"
-    mplsP2mpMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsP2mpMib.EntityData.SegmentPath
-    mplsP2mpMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsP2mpMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsP2mpMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsP2mpMib.EntityData.Children = types.NewOrderedMap()
-    mplsP2mpMib.EntityData.Leafs = types.NewOrderedMap()
-    mplsP2mpMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsP2mpMib.CacheTimer})
-
-    mplsP2mpMib.EntityData.YListKeys = []string {}
-
-    return &(mplsP2mpMib.EntityData)
-}
-
-// Mib_MplsTeExtStdMib
-// MPLS TE EXT STD MIB configuration
-type Mib_MplsTeExtStdMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure the cache time for the mib. The type is interface{} with range:
-    // 0..600. Units are second. The default value is 60.
-    CacheTimer interface{}
-}
-
-func (mplsTeExtStdMib *Mib_MplsTeExtStdMib) GetEntityData() *types.CommonEntityData {
-    mplsTeExtStdMib.EntityData.YFilter = mplsTeExtStdMib.YFilter
-    mplsTeExtStdMib.EntityData.YangName = "mpls-te-ext-std-mib"
-    mplsTeExtStdMib.EntityData.BundleName = "cisco_ios_xr"
-    mplsTeExtStdMib.EntityData.ParentYangName = "mib"
-    mplsTeExtStdMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-std-mib"
-    mplsTeExtStdMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeExtStdMib.EntityData.SegmentPath
-    mplsTeExtStdMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsTeExtStdMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsTeExtStdMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsTeExtStdMib.EntityData.Children = types.NewOrderedMap()
-    mplsTeExtStdMib.EntityData.Leafs = types.NewOrderedMap()
-    mplsTeExtStdMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeExtStdMib.CacheTimer})
-
-    mplsTeExtStdMib.EntityData.YListKeys = []string {}
-
-    return &(mplsTeExtStdMib.EntityData)
-}
-
-// Mib_MplsTeExtMib
-// MPLS TE EXT MIB configuration
-type Mib_MplsTeExtMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure the cache time for the mib. The type is interface{} with range:
-    // 0..600. Units are second. The default value is 60.
-    CacheTimer interface{}
-}
-
-func (mplsTeExtMib *Mib_MplsTeExtMib) GetEntityData() *types.CommonEntityData {
-    mplsTeExtMib.EntityData.YFilter = mplsTeExtMib.YFilter
-    mplsTeExtMib.EntityData.YangName = "mpls-te-ext-mib"
-    mplsTeExtMib.EntityData.BundleName = "cisco_ios_xr"
-    mplsTeExtMib.EntityData.ParentYangName = "mib"
-    mplsTeExtMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te-ext-mib"
-    mplsTeExtMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsTeExtMib.EntityData.SegmentPath
-    mplsTeExtMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsTeExtMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsTeExtMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsTeExtMib.EntityData.Children = types.NewOrderedMap()
-    mplsTeExtMib.EntityData.Leafs = types.NewOrderedMap()
-    mplsTeExtMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsTeExtMib.CacheTimer})
-
-    mplsTeExtMib.EntityData.YListKeys = []string {}
-
-    return &(mplsTeExtMib.EntityData)
-}
-
-// Mib_MplsFrrMib
-// FRR MIB configuration
-type Mib_MplsFrrMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure the cache time for the mib. The type is interface{} with range:
-    // 0..600. Units are second. The default value is 60.
-    CacheTimer interface{}
-}
-
-func (mplsFrrMib *Mib_MplsFrrMib) GetEntityData() *types.CommonEntityData {
-    mplsFrrMib.EntityData.YFilter = mplsFrrMib.YFilter
-    mplsFrrMib.EntityData.YangName = "mpls-frr-mib"
-    mplsFrrMib.EntityData.BundleName = "cisco_ios_xr"
-    mplsFrrMib.EntityData.ParentYangName = "mib"
-    mplsFrrMib.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-frr-mib"
-    mplsFrrMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + mplsFrrMib.EntityData.SegmentPath
-    mplsFrrMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mplsFrrMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mplsFrrMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mplsFrrMib.EntityData.Children = types.NewOrderedMap()
-    mplsFrrMib.EntityData.Leafs = types.NewOrderedMap()
-    mplsFrrMib.EntityData.Leafs.Append("cache-timer", types.YLeaf{"CacheTimer", mplsFrrMib.CacheTimer})
-
-    mplsFrrMib.EntityData.YListKeys = []string {}
-
-    return &(mplsFrrMib.EntityData)
-}
-
-// Mib_InterfaceMib
-// Interface MIB configuration
-type Mib_InterfaceMib struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Get cached interface statistics. The type is interface{} with range: 0..60.
-    // The default value is 15.
-    InternalCache interface{}
-
-    // Enable support for ifAlias values longer than 64 characters. The type is
-    // interface{}.
-    InterfaceAliasLong interface{}
-
-    // Enable IP subscriber interfaces in IFMIB. The type is interface{}.
-    IpSubscriber interface{}
-
-    // Enable ifindex persistence. The type is interface{}.
-    InterfaceIndexPersistence interface{}
-
-    // Enable cached interface statistics. The type is interface{}.
-    StatisticsCache interface{}
-
-    // Enter the SNMP interface configuration commands.
-    Interfaces Mib_InterfaceMib_Interfaces
-
-    // MIB notification configuration.
-    Notification Mib_InterfaceMib_Notification
-
-    // Add configuration for an interface subset.
-    Subsets Mib_InterfaceMib_Subsets
-}
-
-func (interfaceMib *Mib_InterfaceMib) GetEntityData() *types.CommonEntityData {
-    interfaceMib.EntityData.YFilter = interfaceMib.YFilter
-    interfaceMib.EntityData.YangName = "interface-mib"
-    interfaceMib.EntityData.BundleName = "cisco_ios_xr"
-    interfaceMib.EntityData.ParentYangName = "mib"
-    interfaceMib.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib"
-    interfaceMib.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/" + interfaceMib.EntityData.SegmentPath
-    interfaceMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceMib.EntityData.Children = types.NewOrderedMap()
-    interfaceMib.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &interfaceMib.Interfaces})
-    interfaceMib.EntityData.Children.Append("notification", types.YChild{"Notification", &interfaceMib.Notification})
-    interfaceMib.EntityData.Children.Append("subsets", types.YChild{"Subsets", &interfaceMib.Subsets})
-    interfaceMib.EntityData.Leafs = types.NewOrderedMap()
-    interfaceMib.EntityData.Leafs.Append("internal-cache", types.YLeaf{"InternalCache", interfaceMib.InternalCache})
-    interfaceMib.EntityData.Leafs.Append("interface-alias-long", types.YLeaf{"InterfaceAliasLong", interfaceMib.InterfaceAliasLong})
-    interfaceMib.EntityData.Leafs.Append("ip-subscriber", types.YLeaf{"IpSubscriber", interfaceMib.IpSubscriber})
-    interfaceMib.EntityData.Leafs.Append("interface-index-persistence", types.YLeaf{"InterfaceIndexPersistence", interfaceMib.InterfaceIndexPersistence})
-    interfaceMib.EntityData.Leafs.Append("statistics-cache", types.YLeaf{"StatisticsCache", interfaceMib.StatisticsCache})
-
-    interfaceMib.EntityData.YListKeys = []string {}
-
-    return &(interfaceMib.EntityData)
-}
-
-// Mib_InterfaceMib_Interfaces
-// Enter the SNMP interface configuration commands
-type Mib_InterfaceMib_Interfaces struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Interface to configure. The type is slice of
-    // Mib_InterfaceMib_Interfaces_Interface.
-    Interface []*Mib_InterfaceMib_Interfaces_Interface
-}
-
-func (interfaces *Mib_InterfaceMib_Interfaces) GetEntityData() *types.CommonEntityData {
-    interfaces.EntityData.YFilter = interfaces.YFilter
-    interfaces.EntityData.YangName = "interfaces"
-    interfaces.EntityData.BundleName = "cisco_ios_xr"
-    interfaces.EntityData.ParentYangName = "interface-mib"
-    interfaces.EntityData.SegmentPath = "interfaces"
-    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + interfaces.EntityData.SegmentPath
-    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaces.EntityData.Children = types.NewOrderedMap()
-    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaces.Interface {
-        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
-    }
-    interfaces.EntityData.Leafs = types.NewOrderedMap()
-
-    interfaces.EntityData.YListKeys = []string {}
-
-    return &(interfaces.EntityData)
-}
-
-// Mib_InterfaceMib_Interfaces_Interface
-// Interface to configure
-type Mib_InterfaceMib_Interfaces_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
-
-    // Enable or disable LinkUpDown notification. The type is bool.
-    LinkUpDown interface{}
-
-    // Enable or disable index persistence. The type is bool.
-    IndexPersistence interface{}
-}
-
-func (self *Mib_InterfaceMib_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xr"
-    self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
-    self.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/interfaces/" + self.EntityData.SegmentPath
-    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", self.InterfaceName})
-    self.EntityData.Leafs.Append("link-up-down", types.YLeaf{"LinkUpDown", self.LinkUpDown})
-    self.EntityData.Leafs.Append("index-persistence", types.YLeaf{"IndexPersistence", self.IndexPersistence})
-
-    self.EntityData.YListKeys = []string {"InterfaceName"}
-
-    return &(self.EntityData)
-}
-
-// Mib_InterfaceMib_Notification
-// MIB notification configuration
-type Mib_InterfaceMib_Notification struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the varbind of linkupdown trap to the RFC specified varbinds (default
-    // cisco). The type is interface{}.
-    LinkIetf interface{}
-}
-
-func (notification *Mib_InterfaceMib_Notification) GetEntityData() *types.CommonEntityData {
-    notification.EntityData.YFilter = notification.YFilter
-    notification.EntityData.YangName = "notification"
-    notification.EntityData.BundleName = "cisco_ios_xr"
-    notification.EntityData.ParentYangName = "interface-mib"
-    notification.EntityData.SegmentPath = "notification"
-    notification.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + notification.EntityData.SegmentPath
-    notification.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    notification.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    notification.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    notification.EntityData.Children = types.NewOrderedMap()
-    notification.EntityData.Leafs = types.NewOrderedMap()
-    notification.EntityData.Leafs.Append("link-ietf", types.YLeaf{"LinkIetf", notification.LinkIetf})
-
-    notification.EntityData.YListKeys = []string {}
-
-    return &(notification.EntityData)
-}
-
-// Mib_InterfaceMib_Subsets
-// Add configuration for an interface subset
-type Mib_InterfaceMib_Subsets struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subset priorityID to group ifNames based on Regular Expression. The type is
-    // slice of Mib_InterfaceMib_Subsets_Subset.
-    Subset []*Mib_InterfaceMib_Subsets_Subset
-}
-
-func (subsets *Mib_InterfaceMib_Subsets) GetEntityData() *types.CommonEntityData {
-    subsets.EntityData.YFilter = subsets.YFilter
-    subsets.EntityData.YangName = "subsets"
-    subsets.EntityData.BundleName = "cisco_ios_xr"
-    subsets.EntityData.ParentYangName = "interface-mib"
-    subsets.EntityData.SegmentPath = "subsets"
-    subsets.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/" + subsets.EntityData.SegmentPath
-    subsets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subsets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subsets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    subsets.EntityData.Children = types.NewOrderedMap()
-    subsets.EntityData.Children.Append("subset", types.YChild{"Subset", nil})
-    for i := range subsets.Subset {
-        subsets.EntityData.Children.Append(types.GetSegmentPath(subsets.Subset[i]), types.YChild{"Subset", subsets.Subset[i]})
-    }
-    subsets.EntityData.Leafs = types.NewOrderedMap()
-
-    subsets.EntityData.YListKeys = []string {}
-
-    return &(subsets.EntityData)
-}
-
-// Mib_InterfaceMib_Subsets_Subset
-// Subset priorityID to group ifNames based on
-// Regular Expression
-type Mib_InterfaceMib_Subsets_Subset struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. The interface subset PriorityID. The type is
-    // interface{} with range: 1..255.
-    SubsetId interface{}
-
-    // SNMP linkUp and linkDown notifications.
-    LinkUpDown Mib_InterfaceMib_Subsets_Subset_LinkUpDown
-}
-
-func (subset *Mib_InterfaceMib_Subsets_Subset) GetEntityData() *types.CommonEntityData {
-    subset.EntityData.YFilter = subset.YFilter
-    subset.EntityData.YangName = "subset"
-    subset.EntityData.BundleName = "cisco_ios_xr"
-    subset.EntityData.ParentYangName = "subsets"
-    subset.EntityData.SegmentPath = "subset" + types.AddKeyToken(subset.SubsetId, "subset-id")
-    subset.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/subsets/" + subset.EntityData.SegmentPath
-    subset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    subset.EntityData.Children = types.NewOrderedMap()
-    subset.EntityData.Children.Append("link-up-down", types.YChild{"LinkUpDown", &subset.LinkUpDown})
-    subset.EntityData.Leafs = types.NewOrderedMap()
-    subset.EntityData.Leafs.Append("subset-id", types.YLeaf{"SubsetId", subset.SubsetId})
-
-    subset.EntityData.YListKeys = []string {"SubsetId"}
-
-    return &(subset.EntityData)
-}
-
-// Mib_InterfaceMib_Subsets_Subset_LinkUpDown
-// SNMP linkUp and linkDown notifications
-type Mib_InterfaceMib_Subsets_Subset_LinkUpDown struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable or disable linkupdown notification. The type is bool.
-    Enable interface{}
-
-    // Regular expression to match ifName. The type is string.
-    RegularExpression interface{}
-}
-
-func (linkUpDown *Mib_InterfaceMib_Subsets_Subset_LinkUpDown) GetEntityData() *types.CommonEntityData {
-    linkUpDown.EntityData.YFilter = linkUpDown.YFilter
-    linkUpDown.EntityData.YangName = "link-up-down"
-    linkUpDown.EntityData.BundleName = "cisco_ios_xr"
-    linkUpDown.EntityData.ParentYangName = "subset"
-    linkUpDown.EntityData.SegmentPath = "link-up-down"
-    linkUpDown.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/subsets/subset/" + linkUpDown.EntityData.SegmentPath
-    linkUpDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    linkUpDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    linkUpDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    linkUpDown.EntityData.Children = types.NewOrderedMap()
-    linkUpDown.EntityData.Leafs = types.NewOrderedMap()
-    linkUpDown.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", linkUpDown.Enable})
-    linkUpDown.EntityData.Leafs.Append("regular-expression", types.YLeaf{"RegularExpression", linkUpDown.RegularExpression})
-
-    linkUpDown.EntityData.YListKeys = []string {}
-
-    return &(linkUpDown.EntityData)
 }
 

@@ -158,10 +158,10 @@ type Controllers_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. The name of the controller. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     InterafceName interface{}
 
-    // Controller. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Controller. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     Controller interface{}
 
     // Operational state with no translation of error disable or shutdown. The

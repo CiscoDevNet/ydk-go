@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ASR9k policy manager configuration.
-// 
-// Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
+//  
+// Copyright (c) 2013, 2015-2019 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_policymgr_cfg
 
@@ -19,6 +19,60 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-infra-policymgr-cfg policy-manager}", reflect.TypeOf(PolicyManager{}))
     ydk.RegisterEntity("Cisco-IOS-XR-infra-policymgr-cfg:policy-manager", reflect.TypeOf(PolicyManager{}))
 }
+
+// ClassMapType represents Policy manager class-map type.
+type ClassMapType string
+
+const (
+    // QoS Classmap.
+    ClassMapType_qos ClassMapType = "qos"
+
+    // TRAFFIC Classmap.
+    ClassMapType_traffic ClassMapType = "traffic"
+
+    // Control Subscriber Classmap.
+    ClassMapType_control ClassMapType = "control"
+)
+
+// PolicyMapType represents Policy manager policy-map type.
+type PolicyMapType string
+
+const (
+    // QoS Policymap
+    PolicyMapType_qos PolicyMapType = "qos"
+
+    // PBR Policymap
+    PolicyMapType_pbr PolicyMapType = "pbr"
+
+    // TRAFFIC Policymap
+    PolicyMapType_traffic PolicyMapType = "traffic"
+
+    // SUBSCRIBER-CONTROL Policymap
+    PolicyMapType_subscriber_control PolicyMapType = "subscriber-control"
+
+    // Accounting Policymap
+    PolicyMapType_accounting PolicyMapType = "accounting"
+
+    // REDIRECT Policy map
+    PolicyMapType_redirect PolicyMapType = "redirect"
+
+    // FLOWMONITOR Policy map
+    PolicyMapType_flow_monitor PolicyMapType = "flow-monitor"
+)
+
+// PmapClassMapType represents Policy manager class-map type.
+type PmapClassMapType string
+
+const (
+    // QoS Classmap.
+    PmapClassMapType_qos PmapClassMapType = "qos"
+
+    // TRAFFIC Classmap.
+    PmapClassMapType_traffic PmapClassMapType = "traffic"
+
+    // Subscriber Control Classmap.
+    PmapClassMapType_subscriber_control PmapClassMapType = "subscriber-control"
+)
 
 // EventType represents Event type.
 type EventType string
@@ -73,20 +127,6 @@ const (
     EventType_timer_expiry EventType = "timer-expiry"
 )
 
-// ClassMapType represents Policy manager class-map type.
-type ClassMapType string
-
-const (
-    // QoS Classmap.
-    ClassMapType_qos ClassMapType = "qos"
-
-    // TRAFFIC Classmap.
-    ClassMapType_traffic ClassMapType = "traffic"
-
-    // Control Subscriber Classmap.
-    ClassMapType_control ClassMapType = "control"
-)
-
 // ExecutionStrategy represents Executuion strategy.
 type ExecutionStrategy string
 
@@ -125,43 +165,6 @@ const (
 
     // Authorize username.
     AuthorizeIdentifier_username AuthorizeIdentifier = "username"
-)
-
-// PmapClassMapType represents Policy manager class-map type.
-type PmapClassMapType string
-
-const (
-    // QoS Classmap.
-    PmapClassMapType_qos PmapClassMapType = "qos"
-
-    // TRAFFIC Classmap.
-    PmapClassMapType_traffic PmapClassMapType = "traffic"
-
-    // Subscriber Control Classmap.
-    PmapClassMapType_subscriber_control PmapClassMapType = "subscriber-control"
-)
-
-// PolicyMapType represents Policy manager policy-map type.
-type PolicyMapType string
-
-const (
-    // QoS Policymap
-    PolicyMapType_qos PolicyMapType = "qos"
-
-    // PBR Policymap
-    PolicyMapType_pbr PolicyMapType = "pbr"
-
-    // TRAFFIC Policymap
-    PolicyMapType_traffic PolicyMapType = "traffic"
-
-    // SUBSCRIBER-CONTROL Policymap
-    PolicyMapType_subscriber_control PolicyMapType = "subscriber-control"
-
-    // REDIRECT Policy map
-    PolicyMapType_redirect PolicyMapType = "redirect"
-
-    // FLOWMONITOR Policy map
-    PolicyMapType_flow_monitor PolicyMapType = "flow-monitor"
 )
 
 // PolicyManager
@@ -243,7 +246,7 @@ type PolicyManager_ClassMaps_ClassMap struct {
     Type interface{}
 
     // This attribute is a key. Name of class-map. The type is string with
-    // pattern: [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
+    // pattern: b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'.
     Name interface{}
 
     // Match all match criteria. The type is interface{}.
@@ -295,38 +298,38 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     YFilter yfilter.YFilter
 
     // Match IPv4 DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Ipv4Dscp []interface{}
 
     // Match IPv6 DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Ipv6Dscp []interface{}
 
     // Match DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp []interface{}
 
     // Match IPv4 precedence. The type is one of the following types: slice of int
     // with range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Ipv4Precedence []interface{}
 
     // Match IPv6 precedence. The type is one of the following types: slice of int
     // with range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Ipv6Precedence []interface{}
 
     // Match precedence. The type is one of the following types: slice of int with
     // range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence []interface{}
 
     // Match QoS group. Should be value 0..512 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     QosGroup []interface{}
 
     // Match Traffic Class. Should be value 0..63 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     TrafficClass []interface{}
 
     // Match CoS. The type is slice of interface{} with range: 0..7.
@@ -342,17 +345,17 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     DeiInner interface{}
 
     // Match protocol. The type is slice of string with pattern:
-    // ([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp)).
+    // b'([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'.
     Protocol []interface{}
 
-    // Match IPv4 ACL. The type is string with length: 1..64.
-    Ipv4Acl interface{}
+    // Match IPv4 ACL. The type is slice of string with length: 1..64.
+    Ipv4Acl []interface{}
 
-    // Match IPv6 ACL. The type is string with length: 1..64.
-    Ipv6Acl interface{}
+    // Match IPv6 ACL. The type is slice of string with length: 1..64.
+    Ipv6Acl []interface{}
 
-    // Match Ethernet Services. The type is string with length: 1..64.
-    EthernetServicesAcl interface{}
+    // Match Ethernet Services. The type is slice of string with length: 1..64.
+    EthernetServicesAcl []interface{}
 
     // Match MPLS experimental topmost label. The type is slice of interface{}
     // with range: 0..7.
@@ -366,80 +369,85 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     DiscardClass []interface{}
 
     // Match IPv4 packet length. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Ipv4PacketLength []interface{}
 
-    // Match IPv6 packet length. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 packet length.  Should be value 0..65535 or range. The type is
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Ipv6PacketLength []interface{}
 
-    // Match packet length. Should be value 0..65535 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match packet length.  Should be value 0..65535 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     PacketLength []interface{}
 
-    // Match MPLS Label Disposition IPv4 access list. The type is string with
-    // length: 1..32.
-    MplsDispositionIpv4AccessList interface{}
+    // Match MPLS Label Disposition IPv4 access list. The type is slice of string
+    // with length: 1..32.
+    MplsDispositionIpv4AccessList []interface{}
 
-    // Match MPLS Label Disposition IPv6 access list. The type is string with
-    // length: 1..32.
-    MplsDispositionIpv6AccessList interface{}
+    // Match MPLS Label Disposition IPv6 access list. The type is slice of string
+    // with length: 1..32.
+    MplsDispositionIpv6AccessList []interface{}
 
-    // Match VLAN ID. The type is slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match MPLS Label Disposition class-map. The type is slice of string with
+    // length: 1..32.
+    MplsDispClassMap []interface{}
+
+    // Match VLAN ID. The type is slice of string with pattern:
+    // b'(\\d+)|(\\d+\\-\\d+)'.
     Vlan []interface{}
 
     // Match inner VLAN ID. The type is slice of string with pattern:
-    // (\d+)|(\d+\-\d+).
+    // b'(\\d+)|(\\d+\\-\\d+)'.
     InnerVlan []interface{}
 
     // Match flow-tag. Should be value 1..63 or range. The type is slice of string
-    // with pattern: (\d+)|(\d+\-\d+).
+    // with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     FlowTag []interface{}
 
     // Match Ethertype. The type is slice of string with pattern:
-    // ((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6)).
+    // b'((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'.
     Ethertype []interface{}
 
-    // Match destination port. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match destination port.  Should be value 0..65535 or range. The type is
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     DestinationPort []interface{}
 
     // Match fragment type for a packet. The type is slice of string with pattern:
-    // (dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment).
+    // b'(dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment)'.
     FragmentType []interface{}
 
-    // Match frame-relay DLCI value. Should be value 16..1007 or range. The type
-    // is slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match frame-relay DLCI value.  Should be value 16..1007 or range. The type
+    // is slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     FrameRelayDlci []interface{}
 
-    // Set FrameRelay DE bit. The type is interface{} with range: 0..1.
-    FrDe interface{}
+    // Match FrameRelay DE bit. The type is slice of interface{} with range: 0..1.
+    FrDe []interface{}
 
-    // Match IPv4 ICMP code. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP code.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv4Code []interface{}
 
-    // Match IPv4 ICMP type. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP type.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv4Type []interface{}
 
-    // Match IPv6 ICMP code. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP code.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv6Code []interface{}
 
-    // Match IPv6 ICMP type. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP type.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv6Type []interface{}
 
-    // Match source port. Should be value 0..65535 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match source port.  Should be value 0..65535 or range. The type is slice of
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     SourcePort []interface{}
 
     // Match TCP flags. The type is interface{} with range: 0..4095.
     TcpFlag interface{}
 
     // Match authentication status. The type is string with pattern:
-    // (authenticated)|(unauthenticated).
+    // b'(authenticated)|(unauthenticated)'.
     AuthenStatus interface{}
 
     // Match Circuit ID. The type is slice of string with length: 1..32.
@@ -496,8 +504,8 @@ type PolicyManager_ClassMaps_ClassMap_Match struct {
     // Match VPLS Unknown. The type is interface{}.
     VplsUnknown interface{}
 
-    // Match ATM CLP bit. The type is interface{} with range: 0..1.
-    AtmClp interface{}
+    // Match ATM CLP bit. The type is slice of interface{} with range: 0..1.
+    AtmClp []interface{}
 
     // Match ATM OAM. The type is interface{}.
     AtmOam interface{}
@@ -614,6 +622,7 @@ func (match *PolicyManager_ClassMaps_ClassMap_Match) GetEntityData() *types.Comm
     match.EntityData.Leafs.Append("packet-length", types.YLeaf{"PacketLength", match.PacketLength})
     match.EntityData.Leafs.Append("mpls-disposition-ipv4-access-list", types.YLeaf{"MplsDispositionIpv4AccessList", match.MplsDispositionIpv4AccessList})
     match.EntityData.Leafs.Append("mpls-disposition-ipv6-access-list", types.YLeaf{"MplsDispositionIpv6AccessList", match.MplsDispositionIpv6AccessList})
+    match.EntityData.Leafs.Append("mpls-disp-class-map", types.YLeaf{"MplsDispClassMap", match.MplsDispClassMap})
     match.EntityData.Leafs.Append("vlan", types.YLeaf{"Vlan", match.Vlan})
     match.EntityData.Leafs.Append("inner-vlan", types.YLeaf{"InnerVlan", match.InnerVlan})
     match.EntityData.Leafs.Append("flow-tag", types.YLeaf{"FlowTag", match.FlowTag})
@@ -664,11 +673,11 @@ type PolicyManager_ClassMaps_ClassMap_Match_DestinationAddressIpv4 struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv4 netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Netmask interface{}
 }
 
@@ -701,7 +710,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_DestinationAddressIpv6 struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv6 prefix length. The type is interface{} with
@@ -738,11 +747,11 @@ type PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv4 struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv4 netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Netmask interface{}
 }
 
@@ -775,7 +784,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_SourceAddressIpv6 struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv6 prefix length. The type is interface{} with
@@ -816,7 +825,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_DhcpClientId struct {
     Value interface{}
 
     // This attribute is a key. Dhcp client id Ascii/Hex. The type is string with
-    // pattern: (none)|(ascii)|(hex).
+    // pattern: b'(none)|(ascii)|(hex)'.
     Flag interface{}
 }
 
@@ -853,7 +862,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_DhcpClientIdRegex struct {
     Value interface{}
 
     // This attribute is a key. Dhcp client Id regex Ascii/Hex. The type is string
-    // with pattern: (none)|(ascii)|(hex).
+    // with pattern: b'(none)|(ascii)|(hex)'.
     Flag interface{}
 }
 
@@ -959,7 +968,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_Flow struct {
     YFilter yfilter.YFilter
 
     // Configure the flow-key parameters. The type is slice of string with
-    // pattern: (SourceIP)|(DestinationIP)|(5Tuple).
+    // pattern: b'(SourceIP)|(DestinationIP)|(5Tuple)'.
     FlowKey []interface{}
 
     // Configure the flow-cache parameters.
@@ -994,7 +1003,7 @@ type PolicyManager_ClassMaps_ClassMap_Match_Flow_FlowCache struct {
     YFilter yfilter.YFilter
 
     // Maximum time of inactivity for a flow. The type is one of the following
-    // types: int with range: 10..2550, or string with pattern: (None)|(none).
+    // types: int with range: 10..2550, or string with pattern: b'(None)|(none)'.
     IdleTimeout interface{}
 }
 
@@ -1025,38 +1034,38 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot struct {
     YFilter yfilter.YFilter
 
     // Match IPv4 DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Ipv4Dscp []interface{}
 
     // Match IPv6 DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Ipv6Dscp []interface{}
 
     // Match DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp []interface{}
 
     // Match IPv4 precedence. The type is one of the following types: slice of int
     // with range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Ipv4Precedence []interface{}
 
     // Match IPv6 precedence. The type is one of the following types: slice of int
     // with range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Ipv6Precedence []interface{}
 
     // Match precedence. The type is one of the following types: slice of int with
     // range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence []interface{}
 
     // Match QoS group. Should be value 0..512 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     QosGroup []interface{}
 
     // Match Traffic Class. Should be value 0..63 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     TrafficClass []interface{}
 
     // Match CoS. The type is slice of interface{} with range: 0..7.
@@ -1072,17 +1081,17 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot struct {
     DeiInner interface{}
 
     // Match protocol. The type is slice of string with pattern:
-    // ([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp)).
+    // b'([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'.
     Protocol []interface{}
 
-    // Match IPv4 ACL. The type is string with length: 1..64.
-    Ipv4Acl interface{}
+    // Match IPv4 ACL. The type is slice of string with length: 1..64.
+    Ipv4Acl []interface{}
 
-    // Match IPv6 ACL. The type is string with length: 1..64.
-    Ipv6Acl interface{}
+    // Match IPv6 ACL. The type is slice of string with length: 1..64.
+    Ipv6Acl []interface{}
 
-    // Match Ethernet Services. The type is string with length: 1..64.
-    EthernetServicesAcl interface{}
+    // Match Ethernet Services. The type is slice of string with length: 1..64.
+    EthernetServicesAcl []interface{}
 
     // Match MPLS experimental topmost label. The type is slice of interface{}
     // with range: 0..7.
@@ -1096,80 +1105,85 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot struct {
     DiscardClass []interface{}
 
     // Match IPv4 packet length. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Ipv4PacketLength []interface{}
 
-    // Match IPv6 packet length. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 packet length.  Should be value 0..65535 or range. The type is
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Ipv6PacketLength []interface{}
 
-    // Match packet length. Should be value 0..65535 or range. The type is slice
-    // of string with pattern: (\d+)|(\d+\-\d+).
+    // Match packet length.  Should be value 0..65535 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     PacketLength []interface{}
 
-    // Match MPLS Label Disposition IPv4 access list. The type is string with
-    // length: 1..32.
-    MplsDispositionIpv4AccessList interface{}
+    // Match MPLS Label Disposition IPv4 access list. The type is slice of string
+    // with length: 1..32.
+    MplsDispositionIpv4AccessList []interface{}
 
-    // Match MPLS Label Disposition IPv6 access list. The type is string with
-    // length: 1..32.
-    MplsDispositionIpv6AccessList interface{}
+    // Match MPLS Label Disposition IPv6 access list. The type is slice of string
+    // with length: 1..32.
+    MplsDispositionIpv6AccessList []interface{}
 
-    // Match VLAN ID. The type is slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match MPLS Label Disposition class-map. The type is slice of string with
+    // length: 1..32.
+    MplsDispClassMap []interface{}
+
+    // Match VLAN ID. The type is slice of string with pattern:
+    // b'(\\d+)|(\\d+\\-\\d+)'.
     Vlan []interface{}
 
     // Match inner VLAN ID. The type is slice of string with pattern:
-    // (\d+)|(\d+\-\d+).
+    // b'(\\d+)|(\\d+\\-\\d+)'.
     InnerVlan []interface{}
 
     // Match flow-tag. Should be value 1..63 or range. The type is slice of string
-    // with pattern: (\d+)|(\d+\-\d+).
+    // with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     FlowTag []interface{}
 
     // Match Ethertype. The type is slice of string with pattern:
-    // ((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6)).
+    // b'((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'.
     Ethertype []interface{}
 
-    // Match destination port. Should be value 0..65535 or range. The type is
-    // slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match destination port.  Should be value 0..65535 or range. The type is
+    // slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     DestinationPort []interface{}
 
     // Match fragment type for a packet. The type is slice of string with pattern:
-    // (dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment).
+    // b'(dont-fragment)|(first-fragment)|(is-fragment)|(last-fragment)'.
     FragmentType []interface{}
 
-    // Match frame-relay DLCI value. Should be value 16..1007 or range. The type
-    // is slice of string with pattern: (\d+)|(\d+\-\d+).
+    // Match frame-relay DLCI value.  Should be value 16..1007 or range. The type
+    // is slice of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     FrameRelayDlci []interface{}
 
-    // Set FrameRelay DE bit. The type is interface{} with range: 0..1.
-    FrDe interface{}
+    // Match FrameRelay DE bit. The type is slice of interface{} with range: 0..1.
+    FrDe []interface{}
 
-    // Match IPv4 ICMP code. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP code.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv4Code []interface{}
 
-    // Match IPv4 ICMP type. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv4 ICMP type.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv4Type []interface{}
 
-    // Match IPv6 ICMP code. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP code.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv6Code []interface{}
 
-    // Match IPv6 ICMP type. Should be value 0..255 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match IPv6 ICMP type.  Should be value 0..255 or range. The type is slice
+    // of string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     Icmpv6Type []interface{}
 
-    // Match source port. Should be value 0..65535 or range. The type is slice of
-    // string with pattern: (\d+)|(\d+\-\d+).
+    // Match source port.  Should be value 0..65535 or range. The type is slice of
+    // string with pattern: b'(\\d+)|(\\d+\\-\\d+)'.
     SourcePort []interface{}
 
     // Match TCP flags. The type is interface{} with range: 0..4095.
     TcpFlag interface{}
 
     // Match authentication status. The type is string with pattern:
-    // (authenticated)|(unauthenticated).
+    // b'(authenticated)|(unauthenticated)'.
     AuthenStatus interface{}
 
     // Match Circuit ID. The type is slice of string with length: 1..32.
@@ -1332,6 +1346,7 @@ func (matchNot *PolicyManager_ClassMaps_ClassMap_MatchNot) GetEntityData() *type
     matchNot.EntityData.Leafs.Append("packet-length", types.YLeaf{"PacketLength", matchNot.PacketLength})
     matchNot.EntityData.Leafs.Append("mpls-disposition-ipv4-access-list", types.YLeaf{"MplsDispositionIpv4AccessList", matchNot.MplsDispositionIpv4AccessList})
     matchNot.EntityData.Leafs.Append("mpls-disposition-ipv6-access-list", types.YLeaf{"MplsDispositionIpv6AccessList", matchNot.MplsDispositionIpv6AccessList})
+    matchNot.EntityData.Leafs.Append("mpls-disp-class-map", types.YLeaf{"MplsDispClassMap", matchNot.MplsDispClassMap})
     matchNot.EntityData.Leafs.Append("vlan", types.YLeaf{"Vlan", matchNot.Vlan})
     matchNot.EntityData.Leafs.Append("inner-vlan", types.YLeaf{"InnerVlan", matchNot.InnerVlan})
     matchNot.EntityData.Leafs.Append("flow-tag", types.YLeaf{"FlowTag", matchNot.FlowTag})
@@ -1378,11 +1393,11 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_DestinationAddressIpv4 struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv4 netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Netmask interface{}
 }
 
@@ -1415,7 +1430,7 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_DestinationAddressIpv6 struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv6 prefix length. The type is interface{} with
@@ -1452,11 +1467,11 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddressIpv4 struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv4 netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Netmask interface{}
 }
 
@@ -1489,7 +1504,7 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_SourceAddressIpv6 struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. IPv6 prefix length. The type is interface{} with
@@ -1530,7 +1545,7 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientId struct {
     Value interface{}
 
     // This attribute is a key. Dhcp client id Ascii/Hex. The type is string with
-    // pattern: (none)|(ascii)|(hex).
+    // pattern: b'(none)|(ascii)|(hex)'.
     Flag interface{}
 }
 
@@ -1567,7 +1582,7 @@ type PolicyManager_ClassMaps_ClassMap_MatchNot_DhcpClientIdRegex struct {
     Value interface{}
 
     // This attribute is a key. Dhcp client Id regex Ascii/Hex. The type is string
-    // with pattern: (none)|(ascii)|(hex).
+    // with pattern: b'(none)|(ascii)|(hex)'.
     Flag interface{}
 }
 
@@ -1742,7 +1757,7 @@ type PolicyManager_PolicyMaps_PolicyMap struct {
     Type interface{}
 
     // This attribute is a key. Name of policy-map. The type is string with
-    // pattern: [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
+    // pattern: b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'.
     Name interface{}
 
     // Description for this policy-map. The type is string.
@@ -1842,7 +1857,7 @@ type PolicyManager_PolicyMaps_PolicyMap_Event_Class struct {
     YListKey string
 
     // This attribute is a key. Name of class. The type is string with pattern:
-    // [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
+    // b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'.
     ClassName interface{}
 
     // This attribute is a key. Type of class. The type is PmapClassMapType.
@@ -1911,7 +1926,7 @@ type PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule struct {
     // Deactivate dynamic templates.
     DeactivateDynamicTemplate PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_DeactivateDynamicTemplate
 
-    // Set a timer to execute a rule on its expiry.
+    // Set a timer to execute a rule on its  expiry.
     SetTimer PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer
 
     // Disable timer before it expires.
@@ -2095,7 +2110,7 @@ func (deactivateDynamicTemplate *PolicyManager_PolicyMaps_PolicyMap_Event_Class_
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer
-// Set a timer to execute a rule on its
+// Set a timer to execute a rule on its 
 // expiry
 // This type is a presence type.
 type PolicyManager_PolicyMaps_PolicyMap_Event_Class_ActionRule_SetTimer struct {
@@ -2170,7 +2185,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule struct {
     YListKey string
 
     // This attribute is a key. Name of class-map. The type is string with
-    // pattern: [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
+    // pattern: b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'.
     ClassName interface{}
 
     // This attribute is a key. Type of class-map. The type is PmapClassMapType.
@@ -2197,7 +2212,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule struct {
     // Policy action DECAP GRE. The type is interface{}.
     DecapGre interface{}
 
-    // Policy action service fragment. Service fragment name. The type is string.
+    // Policy action service fragment.  Service fragment name. The type is string.
     ServiceFragment interface{}
 
     // Policy action fragment. Fragment name. The type is string.
@@ -2351,7 +2366,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Shape_Rate struct {
     Value interface{}
 
     // Shape bandwidth units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'.
     Unit interface{}
 }
 
@@ -2386,7 +2401,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Shape_Burst struct {
     Value interface{}
 
     // Burst size units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Units interface{}
 }
 
@@ -2421,7 +2436,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_MinBandwidth struct {
     Value interface{}
 
     // Minimum bandwidth units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'.
     Unit interface{}
 }
 
@@ -2457,7 +2472,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_BandwidthRemaining struct 
     Value interface{}
 
     // Remaining bandwidth units. The type is string with pattern:
-    // (percent)|(ratio).
+    // b'(percent)|(ratio)'.
     Unit interface{}
 }
 
@@ -2493,7 +2508,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_QueueLimit struct {
     Value interface{}
 
     // Remaining bandwidth units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)|(percent).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)|(percent)'.
     Unit interface{}
 }
 
@@ -2569,7 +2584,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_PfcBufferSize struct {
     Value interface{}
 
     // Pfc buffer size units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Unit interface{}
 }
 
@@ -2604,7 +2619,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_PfcPauseThreshold stru
     Value interface{}
 
     // Pfc pause threshold units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Unit interface{}
 }
 
@@ -2639,7 +2654,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Pfc_PfcResumeThreshold str
     Value interface{}
 
     // Pfc resume threshold units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Unit interface{}
 }
 
@@ -2679,7 +2694,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetect struct {
 
     // This attribute is a key. Minimum RED threshold units. The type is string
     // with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     ThresholdMinUnits interface{}
 
     // This attribute is a key. Maximum RED threshold value. The type is
@@ -2688,11 +2703,10 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetect struct {
 
     // This attribute is a key. Maximum RED threshold units. The type is string
     // with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     ThresholdMaxUnits interface{}
 
-    // WRED based on CoS. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // WRED based on CoS. The type is slice of interface{} with range: 0..7.
     Cos []interface{}
 
     // WRED based on discard class. The type is slice of interface{} with range:
@@ -2700,7 +2714,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetect struct {
     DiscardClass []interface{}
 
     // WRED based on DSCP. The type is slice of string with pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp []interface{}
 
     // MPLS Experimental value based WRED. The type is slice of interface{} with
@@ -2709,11 +2723,12 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_RandomDetect struct {
 
     // WRED based on precedence. The type is one of the following types: slice of
     // int with range: 0..7, or slice of string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence []interface{}
 
-    // DEI based WRED. The type is interface{} with range: 0..1.
-    Dei interface{}
+    // DEI based WRED. Should be value 0..1. The type is slice of interface{} with
+    // range: 0..1.
+    Dei []interface{}
 
     // ECN based WRED. The type is interface{}.
     Ecn interface{}
@@ -2757,7 +2772,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
 
     // Marks a packet by setting the DSCP in the ToS byte. The type is string with
     // pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp interface{}
 
     // Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos-group
@@ -2770,7 +2785,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies that are attached in the ingress policy. The
+    // used only in service policies  that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -2782,8 +2797,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch. Switches can leverage Layer 2 header information,
-    // including a CoS value marking. Packets entering an interface cannot be set
+    // being sent to a switch.  Switches can leverage Layer 2 header information, 
+    // including a CoS value marking. Packets entering an  interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -2792,24 +2807,24 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
 
     // Sets the precedence value in the IP header. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence interface{}
 
     // Sets the precedence tunnel value for ipsec. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     PrecedenceTunnel interface{}
 
     // Sets the experimental value of the MPLS packet top-most labels. The type is
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet imposition labels.
-    // Imposition can be used only in service policies that are attached in the
+    // Sets the experimental value of the MPLS packet  imposition labels.
+    // Imposition can be used only in service policies that  are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -2823,12 +2838,20 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set struct {
     DeiImposition interface{}
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Destination IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
+
+    // Set atm cell-loss-priority bit. The type is interface{}.
+    AtmClp interface{}
+
+    // Marks a packet by setting DSCP in the tunnel header. This is specific to
+    // ipsec tunnels. The type is string with pattern:
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
+    DscpTunnel interface{}
 }
 
 func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set) GetEntityData() *types.CommonEntityData {
@@ -2862,6 +2885,8 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Set) GetEntityData()
     set.EntityData.Leafs.Append("dei-imposition", types.YLeaf{"DeiImposition", set.DeiImposition})
     set.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", set.SourceAddress})
     set.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", set.DestinationAddress})
+    set.EntityData.Leafs.Append("atm-clp", types.YLeaf{"AtmClp", set.AtmClp})
+    set.EntityData.Leafs.Append("dscp-tunnel", types.YLeaf{"DscpTunnel", set.DscpTunnel})
 
     set.EntityData.YListKeys = []string {}
 
@@ -2886,10 +2911,10 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police struct {
     // Peak burst configuration.
     PeakBurst PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBurst
 
-    // Configures the action to take on packets that conform to the rate limit.
+    // Configures the action to take on packets that conform  to the rate limit.
     ConformAction PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
 
-    // Configures the action to take on packets that exceed the rate limit.
+    // Configures the action to take on packets that exceed  the rate limit.
     ExceedAction PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction
 
     // Configures the action to take on packets that violate the rate limit.
@@ -2932,7 +2957,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Rate struct {
     Value interface{}
 
     // Rate units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'.
     Units interface{}
 }
 
@@ -2967,7 +2992,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakRate struct {
     Value interface{}
 
     // Peak rate units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'.
     Units interface{}
 }
 
@@ -3002,7 +3027,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_Burst struct {
     Value interface{}
 
     // Burst units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Units interface{}
 }
 
@@ -3037,7 +3062,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBurst struct {
     Value interface{}
 
     // Peak burst units. The type is string with pattern:
-    // (bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells).
+    // b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'.
     Units interface{}
 }
 
@@ -3063,7 +3088,7 @@ func (peakBurst *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_PeakBur
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
-// Configures the action to take on packets that conform
+// Configures the action to take on packets that conform 
 // to the rate limit.
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction struct {
     EntityData types.CommonEntityData
@@ -3109,7 +3134,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
 
     // Marks a packet by setting the DSCP in the ToS byte. The type is string with
     // pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp interface{}
 
     // Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos-group
@@ -3122,7 +3147,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies that are attached in the ingress policy. The
+    // used only in service policies  that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3134,8 +3159,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch. Switches can leverage Layer 2 header information,
-    // including a CoS value marking. Packets entering an interface cannot be set
+    // being sent to a switch.  Switches can leverage Layer 2 header information, 
+    // including a CoS value marking. Packets entering an  interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3144,24 +3169,24 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
 
     // Sets the precedence value in the IP header. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence interface{}
 
     // Sets the precedence tunnel value for ipsec. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     PrecedenceTunnel interface{}
 
     // Sets the experimental value of the MPLS packet top-most labels. The type is
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet imposition labels.
-    // Imposition can be used only in service policies that are attached in the
+    // Sets the experimental value of the MPLS packet  imposition labels.
+    // Imposition can be used only in service policies that  are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3175,12 +3200,20 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set s
     DeiImposition interface{}
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Destination IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
+
+    // Set atm cell-loss-priority bit. The type is interface{}.
+    AtmClp interface{}
+
+    // Marks a packet by setting DSCP in the tunnel header. This is specific to
+    // ipsec tunnels. The type is string with pattern:
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
+    DscpTunnel interface{}
 }
 
 func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction_Set) GetEntityData() *types.CommonEntityData {
@@ -3214,6 +3247,8 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
     set.EntityData.Leafs.Append("dei-imposition", types.YLeaf{"DeiImposition", set.DeiImposition})
     set.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", set.SourceAddress})
     set.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", set.DestinationAddress})
+    set.EntityData.Leafs.Append("atm-clp", types.YLeaf{"AtmClp", set.AtmClp})
+    set.EntityData.Leafs.Append("dscp-tunnel", types.YLeaf{"DscpTunnel", set.DscpTunnel})
 
     set.EntityData.YListKeys = []string {}
 
@@ -3221,7 +3256,7 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ConformAction
 }
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction
-// Configures the action to take on packets that exceed
+// Configures the action to take on packets that exceed 
 // the rate limit.
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction struct {
     EntityData types.CommonEntityData
@@ -3267,7 +3302,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
 
     // Marks a packet by setting the DSCP in the ToS byte. The type is string with
     // pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp interface{}
 
     // Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos-group
@@ -3280,7 +3315,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies that are attached in the ingress policy. The
+    // used only in service policies  that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3292,8 +3327,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch. Switches can leverage Layer 2 header information,
-    // including a CoS value marking. Packets entering an interface cannot be set
+    // being sent to a switch.  Switches can leverage Layer 2 header information, 
+    // including a CoS value marking. Packets entering an  interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3302,24 +3337,24 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
 
     // Sets the precedence value in the IP header. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence interface{}
 
     // Sets the precedence tunnel value for ipsec. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     PrecedenceTunnel interface{}
 
     // Sets the experimental value of the MPLS packet top-most labels. The type is
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet imposition labels.
-    // Imposition can be used only in service policies that are attached in the
+    // Sets the experimental value of the MPLS packet  imposition labels.
+    // Imposition can be used only in service policies that  are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3333,12 +3368,20 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set st
     DeiImposition interface{}
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Destination IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
+
+    // Set atm cell-loss-priority bit. The type is interface{}.
+    AtmClp interface{}
+
+    // Marks a packet by setting DSCP in the tunnel header. This is specific to
+    // ipsec tunnels. The type is string with pattern:
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
+    DscpTunnel interface{}
 }
 
 func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_Set) GetEntityData() *types.CommonEntityData {
@@ -3372,6 +3415,8 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ExceedAction_
     set.EntityData.Leafs.Append("dei-imposition", types.YLeaf{"DeiImposition", set.DeiImposition})
     set.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", set.SourceAddress})
     set.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", set.DestinationAddress})
+    set.EntityData.Leafs.Append("atm-clp", types.YLeaf{"AtmClp", set.AtmClp})
+    set.EntityData.Leafs.Append("dscp-tunnel", types.YLeaf{"DscpTunnel", set.DscpTunnel})
 
     set.EntityData.YListKeys = []string {}
 
@@ -3425,7 +3470,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
 
     // Marks a packet by setting the DSCP in the ToS byte. The type is string with
     // pattern:
-    // ([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7).
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
     Dscp interface{}
 
     // Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos-group
@@ -3438,7 +3483,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
     TrafficClass interface{}
 
     // Sets the discard class on IPv4 or MPLS packets. The discard-class can be
-    // used only in service policies that are attached in the ingress policy. The
+    // used only in service policies  that are attached in the ingress policy. The
     // type is interface{} with range: 0..7.
     DiscardClass interface{}
 
@@ -3450,8 +3495,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
 
     // Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This
     // command should be used by a router if a user wants to mark a packet that is
-    // being sent to a switch. Switches can leverage Layer 2 header information,
-    // including a CoS value marking. Packets entering an interface cannot be set
+    // being sent to a switch.  Switches can leverage Layer 2 header information, 
+    // including a CoS value marking. Packets entering an  interface cannot be set
     // with a CoS value. The type is interface{} with range: 0..7.
     Cos interface{}
 
@@ -3460,24 +3505,24 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
 
     // Sets the precedence value in the IP header. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     Precedence interface{}
 
     // Sets the precedence tunnel value for ipsec. The type is one of the
     // following types: int with range: 0..7, or string with pattern:
-    // (critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine).
+    // b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'.
     PrecedenceTunnel interface{}
 
     // Sets the experimental value of the MPLS packet top-most labels. The type is
     // interface{} with range: 0..7.
     MplsExperimentalTopMost interface{}
 
-    // Sets the experimental value of the MPLS packet imposition labels.
-    // Imposition can be used only in service policies that are attached in the
+    // Sets the experimental value of the MPLS packet  imposition labels.
+    // Imposition can be used only in service policies that  are attached in the
     // ingress policy. The type is interface{} with range: 0..7.
     MplsExperimentalImposition interface{}
 
-    // Sets the spatial reuse protocol priority value of an outgoing packet. The
+    // Sets the spatial reuse protocol priority value of an  outgoing packet. The
     // type is interface{} with range: 0..7.
     SrpPriority interface{}
 
@@ -3491,12 +3536,20 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set s
     DeiImposition interface{}
 
     // Source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Destination IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
+
+    // Set atm cell-loss-priority bit. The type is interface{}.
+    AtmClp interface{}
+
+    // Marks a packet by setting DSCP in the tunnel header. This is specific to
+    // ipsec tunnels. The type is string with pattern:
+    // b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'.
+    DscpTunnel interface{}
 }
 
 func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction_Set) GetEntityData() *types.CommonEntityData {
@@ -3530,6 +3583,8 @@ func (set *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Police_ViolateAction
     set.EntityData.Leafs.Append("dei-imposition", types.YLeaf{"DeiImposition", set.DeiImposition})
     set.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", set.SourceAddress})
     set.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", set.DestinationAddress})
+    set.EntityData.Leafs.Append("atm-clp", types.YLeaf{"AtmClp", set.AtmClp})
+    set.EntityData.Leafs.Append("dscp-tunnel", types.YLeaf{"DscpTunnel", set.DscpTunnel})
 
     set.EntityData.YListKeys = []string {}
 
@@ -3543,11 +3598,11 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_ServicePolicy struct {
     YFilter yfilter.YFilter
 
     // Name of service-policy. The type is string with pattern:
-    // [a-zA-Z0-9][a-zA-Z0-9\._@$%+#:=<>\-]{0,62}.
+    // b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'.
     PolicyName interface{}
 
     // Type of service-policy. The type is string with pattern:
-    // (PBR)|(QOS)|(REDIRECT)|(TRAFFIC)|(pbr)|(qos)|(redirect)|(traffic).
+    // b'(PBR)|(QOS)|(REDIRECT)|(TRAFFIC)|(pbr)|(qos)|(redirect)|(traffic)'.
     Type interface{}
 }
 
@@ -3578,9 +3633,9 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interval after which a flow is removed, if there is no activity. If
+    // The interval after which a flow is removed,  if there is no activity. If
     // timeout is 0 this flow does not expire. The type is one of the following
-    // types: int with range: 10..2550, or string with pattern: (None)|(none).
+    // types: int with range: 10..2550, or string with pattern: b'(None)|(none)'.
     FlowIdleTimeout interface{}
 
     // The rate allocated for all flows.
@@ -3622,7 +3677,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal_Rate struct {
     Value interface{}
 
     // Rate units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(cellsps).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'.
     Units interface{}
 }
 
@@ -3657,7 +3712,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_CacLocal_FlowRate struct {
     Value interface{}
 
     // Rate units. The type is string with pattern:
-    // (bps)|(kbps)|(mbps)|(gbps)|(cellsps).
+    // b'(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'.
     Units interface{}
 }
 
@@ -3942,7 +3997,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Alarm struct {
     YFilter yfilter.YFilter
 
     // Severity of the alarm. The type is string with pattern:
-    // (informational)|(notification)|(warning)|(error)|(critical)|(alert)|(emergency).
+    // b'(informational)|(notification)|(warning)|(error)|(critical)|(alert)|(emergency)'.
     Severity interface{}
 
     // Alarm type.
@@ -3979,7 +4034,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_React_Alarm_Type struct {
     // Discrete alarm type. The type is interface{}.
     Discrete interface{}
 
-    // Number of flows to reach before triggering alarm. The type is interface{}
+    // Number of flows to reach before  triggering alarm. The type is interface{}
     // with range: 0..65535. Units are number of flows.
     GroupCount interface{}
 
@@ -4170,7 +4225,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4NextHop interface{}
 
     // IPv4 VRF. The type is string.
@@ -4205,7 +4260,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_Ipv6 struct {
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6NextHop interface{}
 
     // IPv6 VRF. The type is string.
@@ -4309,7 +4364,7 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrRedirect_NextHop_RouteT
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // IPv4 netmask. The type is string.
@@ -4346,8 +4401,8 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward struct {
     // Use system default routing table. The type is interface{}.
     Default interface{}
 
-    // Use specific next-hop. Here we present 5 different combination for the pbf
-    // next-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf  4. v4
+    // Use specific next-hop. Here we present 5 different combination  for the pbf
+    // next-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4
     // address  5. v6 address.
     NextHop PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop
 }
@@ -4375,11 +4430,11 @@ func (pbrForward *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward) G
 
 // PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop
 // Use specific next-hop.
-// Here we present 5 different combination
+// Here we present 5 different combination 
 // for the pbf next-hop.
 //  1. vrf with v6 address
 //  2. vrf with v4 address
-//  3. vrf
+//  3. vrf 
 //  4. v4 address
 //  5. v6 address
 type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop struct {
@@ -4390,11 +4445,11 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_PbrForward_NextHop struct 
     Vrf interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 

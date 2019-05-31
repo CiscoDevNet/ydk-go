@@ -24,6 +24,43 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-ntp-oper:ntp", reflect.TypeOf(Ntp{}))
 }
 
+// ClockUpdateNode represents Mode of Clock Update
+type ClockUpdateNode string
+
+const (
+    //  clock is never updated
+    ClockUpdateNode_clk_never_updated ClockUpdateNode = "clk-never-updated"
+
+    //  clock is updated
+    ClockUpdateNode_clk_updated ClockUpdateNode = "clk-updated"
+
+    //  clock has no update info
+    ClockUpdateNode_clk_no_update_info ClockUpdateNode = "clk-no-update-info"
+)
+
+// NtpLoopFilterState represents Loop filter state
+type NtpLoopFilterState string
+
+const (
+    //  never set
+    NtpLoopFilterState_ntp_loop_flt_n_set NtpLoopFilterState = "ntp-loop-flt-n-set"
+
+    //  drift set from file
+    NtpLoopFilterState_ntp_loop_flt_f_set NtpLoopFilterState = "ntp-loop-flt-f-set"
+
+    //  spike
+    NtpLoopFilterState_ntp_loop_flt_spik NtpLoopFilterState = "ntp-loop-flt-spik"
+
+    //  drift being measured
+    NtpLoopFilterState_ntp_loop_flt_freq NtpLoopFilterState = "ntp-loop-flt-freq"
+
+    //  normal controlled loop
+    NtpLoopFilterState_ntp_loop_flt_sync NtpLoopFilterState = "ntp-loop-flt-sync"
+
+    //  unknown
+    NtpLoopFilterState_ntp_loop_flt_unkn NtpLoopFilterState = "ntp-loop-flt-unkn"
+)
+
 // NtpPeerStatus represents Type of peer status
 type NtpPeerStatus string
 
@@ -83,43 +120,6 @@ const (
 
     // A broadcast client mode
     NtpMode_ntp_mode_xcast_client NtpMode = "ntp-mode-xcast-client"
-)
-
-// ClockUpdateNode represents Mode of Clock Update
-type ClockUpdateNode string
-
-const (
-    //  clock is never updated
-    ClockUpdateNode_clk_never_updated ClockUpdateNode = "clk-never-updated"
-
-    //  clock is updated
-    ClockUpdateNode_clk_updated ClockUpdateNode = "clk-updated"
-
-    //  clock has no update info
-    ClockUpdateNode_clk_no_update_info ClockUpdateNode = "clk-no-update-info"
-)
-
-// NtpLoopFilterState represents Loop filter state
-type NtpLoopFilterState string
-
-const (
-    //  never set
-    NtpLoopFilterState_ntp_loop_flt_n_set NtpLoopFilterState = "ntp-loop-flt-n-set"
-
-    //  drift set from file
-    NtpLoopFilterState_ntp_loop_flt_f_set NtpLoopFilterState = "ntp-loop-flt-f-set"
-
-    //  spike
-    NtpLoopFilterState_ntp_loop_flt_spik NtpLoopFilterState = "ntp-loop-flt-spik"
-
-    //  drift being measured
-    NtpLoopFilterState_ntp_loop_flt_freq NtpLoopFilterState = "ntp-loop-flt-freq"
-
-    //  normal controlled loop
-    NtpLoopFilterState_ntp_loop_flt_sync NtpLoopFilterState = "ntp-loop-flt-sync"
-
-    //  unknown
-    NtpLoopFilterState_ntp_loop_flt_unkn NtpLoopFilterState = "ntp-loop-flt-unkn"
 )
 
 // NtpLeap represents Type of leap
@@ -211,7 +211,7 @@ type Ntp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node identifier. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // NTP Associations Detail information.
@@ -411,7 +411,7 @@ type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_PeerInfoCommon struct {
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.
@@ -922,7 +922,7 @@ type Ntp_Nodes_Node_Status struct {
     SysStratum interface{}
 
     // Reference clock ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SysRefId interface{}
 
     // Root delay. The type is string.
@@ -1276,7 +1276,7 @@ type Ntp_Nodes_Node_Associations_PeerSummaryInfo_PeerInfoCommon struct {
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.

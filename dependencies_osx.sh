@@ -44,8 +44,8 @@ function install_golang {
 
 function install_libydk {
     print_msg "Installing YDK C++ core libraries"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.2/libydk-0.8.2-Darwin.pkg
-    sudo installer -pkg libydk-0.8.2-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.3/libydk-0.8.3-Darwin.pkg
+    sudo installer -pkg libydk-0.8.3-Darwin.pkg -target /
 }
 
 # Terminal colors

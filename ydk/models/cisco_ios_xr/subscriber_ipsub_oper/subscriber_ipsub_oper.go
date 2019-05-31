@@ -24,6 +24,31 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber", reflect.TypeOf(IpSubscriber{}))
 }
 
+// IpsubMaParentIntfVlan represents Access interface VLAN type
+type IpsubMaParentIntfVlan string
+
+const (
+    // Plain
+    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
+
+    // Ambiguous
+    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
+)
+
+// IpsubMaParentIntfStateData represents Parent interface state
+type IpsubMaParentIntfStateData string
+
+const (
+    // Interface being deleted
+    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
+
+    // Interface operationally down
+    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
+
+    // Interface up
+    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
+)
+
 // IpsubMaIntfStateData represents Interface states
 type IpsubMaIntfStateData string
 
@@ -78,31 +103,6 @@ const (
 
     // Session in error state
     IpsubMaIntfStateData_error_ IpsubMaIntfStateData = "error"
-)
-
-// IpsubMaParentIntfVlan represents Access interface VLAN type
-type IpsubMaParentIntfVlan string
-
-const (
-    // Plain
-    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
-
-    // Ambiguous
-    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
-)
-
-// IpsubMaParentIntfStateData represents Parent interface state
-type IpsubMaParentIntfStateData string
-
-const (
-    // Interface being deleted
-    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
-
-    // Interface operationally down
-    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
-
-    // Interface up
-    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
 )
 
 // IpsubMaIntfInitiatorData represents Ipsub ma intf initiator data
@@ -191,7 +191,8 @@ type IpSubscriber_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node ID to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // type is string with pattern:
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IP subscriber interface summary.
@@ -1070,22 +1071,22 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Access interface through which this subscriber is accessible. The type is
-    // string with pattern: [a-zA-Z0-9._/-]+.
+    // string with pattern: b'[a-zA-Z0-9._/-]+'.
     AccessInterface interface{}
 
     // IPv4 Address of the subscriber. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SubscriberIpv4Address interface{}
 
     // IPv6 Address of the subscriber. The type is string.
     SubscriberIpv6Address interface{}
 
     // MAC address of the subscriber. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SubscriberMacAddres interface{}
 
     // Subscriber label for this subscriber interface. The type is interface{}
@@ -1297,7 +1298,7 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface creation time in Month Date HH:MM:SS format. The type is string.

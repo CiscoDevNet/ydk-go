@@ -24,6 +24,21 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt", reflect.TypeOf(PerfMgmt{}))
 }
 
+// PmThresholdRearm represents Pm threshold rearm
+type PmThresholdRearm string
+
+const (
+    // Rearm Always
+    PmThresholdRearm_always PmThresholdRearm = "always"
+
+    // Rearm after window of sampling periods
+    PmThresholdRearm_window PmThresholdRearm = "window"
+
+    // Rearm after the first period when condition is
+    // not met
+    PmThresholdRearm_toggle PmThresholdRearm = "toggle"
+)
+
 // PmThresholdOp represents Pm threshold op
 type PmThresholdOp string
 
@@ -48,21 +63,6 @@ const (
 
     // Not in Range
     PmThresholdOp_rg PmThresholdOp = "rg"
-)
-
-// PmThresholdRearm represents Pm threshold rearm
-type PmThresholdRearm string
-
-const (
-    // Rearm Always
-    PmThresholdRearm_always PmThresholdRearm = "always"
-
-    // Rearm after window of sampling periods
-    PmThresholdRearm_window PmThresholdRearm = "window"
-
-    // Rearm after the first period when condition is
-    // not met
-    PmThresholdRearm_toggle PmThresholdRearm = "toggle"
 )
 
 // PerfMgmt
@@ -159,7 +159,7 @@ type PerfMgmt_Resources_TftpResources struct {
     YPresence bool
 
     // IP address of the TFTP server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     ServerAddress interface{}
 
@@ -400,7 +400,7 @@ type PerfMgmt_Statistics_GenericCounterInterface_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -519,7 +519,7 @@ type PerfMgmt_Statistics_ProcessNode_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -638,7 +638,7 @@ type PerfMgmt_Statistics_BasicCounterInterface_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -757,7 +757,7 @@ type PerfMgmt_Statistics_Ospfv3Protocol_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -876,7 +876,7 @@ type PerfMgmt_Statistics_CpuNode_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -995,7 +995,7 @@ type PerfMgmt_Statistics_DataRateInterface_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1114,7 +1114,7 @@ type PerfMgmt_Statistics_MemoryNode_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1233,7 +1233,7 @@ type PerfMgmt_Statistics_LdpMpls_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1352,7 +1352,7 @@ type PerfMgmt_Statistics_Bgp_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1471,7 +1471,7 @@ type PerfMgmt_Statistics_Ospfv2Protocol_Templates_Template struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Enable instance filtering by regular expression. The type is string with
@@ -1820,7 +1820,7 @@ type PerfMgmt_Enable_Threshold_MemoryNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -1985,7 +1985,7 @@ type PerfMgmt_Enable_Threshold_CpuNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2149,7 +2149,7 @@ type PerfMgmt_Enable_Threshold_ProcessNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2531,7 +2531,7 @@ type PerfMgmt_Enable_Statistics_CpuNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2695,7 +2695,7 @@ type PerfMgmt_Enable_Statistics_ProcessNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -2859,7 +2859,7 @@ type PerfMgmt_Enable_Statistics_MemoryNode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -3056,7 +3056,7 @@ type PerfMgmt_Enable_MonitorEnable_LdpMpls_Sessions_Session struct {
 
     // This attribute is a key. IP address of the LDP Session. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Session interface{}
 
     // Template name. The type is string.
@@ -3156,7 +3156,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv3Protocol_OspfInstances_OspfInstance str
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InstanceName interface{}
 
     // Template name. The type is string.
@@ -3256,7 +3256,7 @@ type PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3356,7 +3356,7 @@ type PerfMgmt_Enable_MonitorEnable_Process_ProcessNodes_ProcessNode struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Process ID specification.
@@ -3527,7 +3527,7 @@ type PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3627,7 +3627,7 @@ type PerfMgmt_Enable_MonitorEnable_Memory_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -3727,7 +3727,7 @@ type PerfMgmt_Enable_MonitorEnable_Ospfv2Protocol_OspfInstances_OspfInstance str
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InstanceName interface{}
 
     // Template name. The type is string.
@@ -3827,7 +3827,7 @@ type PerfMgmt_Enable_MonitorEnable_Cpu_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Template name. The type is string.
@@ -3928,7 +3928,7 @@ type PerfMgmt_Enable_MonitorEnable_Bgp_Neighbors_Neighbor struct {
 
     // This attribute is a key. IP address of the Neighbor. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 
     // Template name. The type is string.
@@ -4028,7 +4028,7 @@ type PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -4337,7 +4337,7 @@ type PerfMgmt_Threshold_GenericCounterInterface_GenericCounterInterfaceTemplates
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -5635,7 +5635,7 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -6799,7 +6799,7 @@ type PerfMgmt_Threshold_BasicCounterInterface_BasicCounterInterfaceTemplates_Bas
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -7502,7 +7502,7 @@ type PerfMgmt_Threshold_Bgp_BgpTemplates_BgpTemplate struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -8076,7 +8076,7 @@ type PerfMgmt_Threshold_Ospfv2Protocol_Ospfv2ProtocolTemplates_Ospfv2ProtocolTem
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -9418,7 +9418,7 @@ type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate struct {
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -9638,7 +9638,7 @@ type PerfMgmt_Threshold_DataRateInterface_DataRateInterfaceTemplates_DataRateInt
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -10280,7 +10280,7 @@ type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate str
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -10559,7 +10559,7 @@ type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate struct
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:
@@ -10778,7 +10778,7 @@ type PerfMgmt_Threshold_Ospfv3Protocol_Ospfv3ProtocolTemplates_Ospfv3ProtocolTem
     YListKey string
 
     // This attribute is a key. Template Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Frequency of sampling in minutes. The type is interface{} with range:

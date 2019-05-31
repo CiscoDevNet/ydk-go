@@ -83,7 +83,7 @@ type Dot1x_Dot1xProfile struct {
     ProfileName interface{}
 
     // Dot1x PAE (Port Access Entity) Role. The type is string with pattern:
-    // (supplicant)|(authenticator)|(both).
+    // b'(supplicant)|(authenticator)|(both)'.
     Pae interface{}
 
     // Dot1x Supplicant Related Configuration.
@@ -296,6 +296,9 @@ type Eap_EapProfile struct {
     // length: 1..63.
     ProfileName interface{}
 
+    // Configure backward compatibility for TLS 1.0. The type is interface{}.
+    AllowEapTls10 interface{}
+
     // Configure EAP Identity/UserName. The type is string with length: 1..63.
     Identity interface{}
 
@@ -318,6 +321,7 @@ func (eapProfile *Eap_EapProfile) GetEntityData() *types.CommonEntityData {
     eapProfile.EntityData.Children.Append("eaptls", types.YChild{"Eaptls", &eapProfile.Eaptls})
     eapProfile.EntityData.Leafs = types.NewOrderedMap()
     eapProfile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", eapProfile.ProfileName})
+    eapProfile.EntityData.Leafs.Append("allow-eap-tls1-0", types.YLeaf{"AllowEapTls10", eapProfile.AllowEapTls10})
     eapProfile.EntityData.Leafs.Append("identity", types.YLeaf{"Identity", eapProfile.Identity})
 
     eapProfile.EntityData.YListKeys = []string {"ProfileName"}

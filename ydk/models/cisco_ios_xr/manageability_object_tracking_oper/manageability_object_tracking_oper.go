@@ -359,6 +359,9 @@ type ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_IpslaTracks struc
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -377,6 +380,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -930,6 +934,9 @@ type ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTypeInfo_IpslaTra
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -948,6 +955,7 @@ func (ipslaTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTyp
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -1241,6 +1249,9 @@ type ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeInfo_IpslaTracks
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -1259,6 +1270,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeIn
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -1773,6 +1785,9 @@ type ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_TrackTypeInfo_I
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -1791,6 +1806,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_T
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -2122,6 +2138,9 @@ type ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_IpslaTracks struct {
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -2140,6 +2159,7 @@ func (ipslaTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_IpslaTrac
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -2654,6 +2674,9 @@ type ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTypeInfo_IpslaTr
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -2672,6 +2695,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -2965,6 +2989,9 @@ type ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_IpslaTracks struc
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -2983,6 +3010,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 
@@ -3497,6 +3525,9 @@ type ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTypeInfo_IpslaTr
 
     // Latest Return Code. The type is interface{} with range: 0..4294967295.
     ReturnCode interface{}
+
+    // Latest Ret Code String. The type is string with length: 0..120.
+    ReturnCodeString interface{}
 }
 
 func (ipslaTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTypeInfo_IpslaTracks) GetEntityData() *types.CommonEntityData {
@@ -3515,6 +3546,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.Leafs.Append("ipsla-op-id", types.YLeaf{"IpslaOpId", ipslaTracks.IpslaOpId})
     ipslaTracks.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", ipslaTracks.Rtt})
     ipslaTracks.EntityData.Leafs.Append("return-code", types.YLeaf{"ReturnCode", ipslaTracks.ReturnCode})
+    ipslaTracks.EntityData.Leafs.Append("return-code-string", types.YLeaf{"ReturnCodeString", ipslaTracks.ReturnCodeString})
 
     ipslaTracks.EntityData.YListKeys = []string {}
 

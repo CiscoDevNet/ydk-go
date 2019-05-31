@@ -70,7 +70,7 @@ type Rcp_RcpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 }
 
@@ -135,7 +135,7 @@ type Ftp_FtpClient struct {
     Passive interface{}
 
     // Specify password for ftp connnection. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Password for anonymous user (ftp server dependent). The type is string.
@@ -145,7 +145,7 @@ type Ftp_FtpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // VRF table.
@@ -218,11 +218,11 @@ type Ftp_FtpClient_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // Specify username for connections. The type is string.
@@ -232,7 +232,7 @@ type Ftp_FtpClient_Vrfs_Vrf struct {
     AnonymousPassword interface{}
 
     // Specify password for ftp connnection. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Password interface{}
 
     // Enable connect using passive mode. The type is interface{}.
@@ -309,7 +309,7 @@ type Tftp_TftpClient struct {
     Timeout interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // VRF table.
@@ -380,11 +380,11 @@ type Tftp_TftpClient_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9._/-]+.
+    // with pattern: b'[a-zA-Z0-9._/-]+'.
     SourceInterface interface{}
 
     // Specify the number of retries when client requests TFTP connections. The

@@ -44,13 +44,15 @@ func init() {
     ydk.RegisterEntity("CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB", reflect.TypeOf(CISCOMEDIAGATEWAYMIB{}))
 }
 
-// CCallControlJitterDelayMode represents            which is specified by jitter nominal delay.
-type CCallControlJitterDelayMode string
+// CGwServiceState represents     No new connections are allowed.
+type CGwServiceState string
 
 const (
-    CCallControlJitterDelayMode_adaptive CCallControlJitterDelayMode = "adaptive"
+    CGwServiceState_inService CGwServiceState = "inService"
 
-    CCallControlJitterDelayMode_fixed CCallControlJitterDelayMode = "fixed"
+    CGwServiceState_forcedOutOfService CGwServiceState = "forcedOutOfService"
+
+    CGwServiceState_gracefulOutOfService CGwServiceState = "gracefulOutOfService"
 )
 
 // CGwAdminState represents       New connections would be blocked.
@@ -64,15 +66,13 @@ const (
     CGwAdminState_gracefulOutOfService CGwAdminState = "gracefulOutOfService"
 )
 
-// CGwServiceState represents     No new connections are allowed.
-type CGwServiceState string
+// CCallControlJitterDelayMode represents            which is specified by jitter nominal delay.
+type CCallControlJitterDelayMode string
 
 const (
-    CGwServiceState_inService CGwServiceState = "inService"
+    CCallControlJitterDelayMode_adaptive CCallControlJitterDelayMode = "adaptive"
 
-    CGwServiceState_forcedOutOfService CGwServiceState = "forcedOutOfService"
-
-    CGwServiceState_gracefulOutOfService CGwServiceState = "gracefulOutOfService"
+    CCallControlJitterDelayMode_fixed CCallControlJitterDelayMode = "fixed"
 )
 
 // CISCOMEDIAGATEWAYMIB

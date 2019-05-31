@@ -102,7 +102,7 @@ type BRIDGEMIB_Dot1dBase struct {
     // address of all ports that belong to this bridge.  However, it is only 
     // required to be unique.  When concatenated with dot1dStpPriority, a unique
     // BridgeIdentifier is formed, which is used in the Spanning Tree Protocol.
-    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1dBaseBridgeAddress interface{}
 
     // The number of ports controlled by this bridging entity. The type is
@@ -184,7 +184,7 @@ type BRIDGEMIB_Dot1dStp struct {
     // The bridge identifier of the root of the spanning tree, as determined by
     // the Spanning Tree Protocol, as executed by this node.  This value is used
     // as the Root Identifier parameter in all Configuration Bridge PDUs
-    // originated by this node. The type is string with length: 8.
+    // originated by this node. The type is string with length: 8..8.
     Dot1dStpDesignatedRoot interface{}
 
     // The cost of the path to the root as seen from this bridge. The type is
@@ -402,7 +402,7 @@ type BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry struct {
     // X.25 virtual circuit corresponding to this port.  For a port which has a
     // unique value of dot1dBasePortIfIndex, this object can have the value { 0 0
     // }. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Dot1dBasePortCircuit interface{}
 
     // The number of frames discarded by this port due to excessive transit delay
@@ -473,7 +473,7 @@ type BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry struct {
     Dot1dPortGmrpFailedRegistrations interface{}
 
     // The Source MAC Address of the last GMRP message received on this port. The
-    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1dPortGmrpLastPduOrigin interface{}
 
     // The state of Restricted Group Registration on this port. If the value of
@@ -527,7 +527,7 @@ type BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry struct {
     Dot1qPortGvrpFailedRegistrations interface{}
 
     // The Source MAC Address of the last GVRP message received on this port. The
-    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1qPortGvrpLastPduOrigin interface{}
 
     // The state of Restricted VLAN Registration on this port. If the value of
@@ -669,7 +669,7 @@ type BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry struct {
 
     // The unique Bridge Identifier of the Bridge recorded as the Root in the
     // Configuration BPDUs transmitted by the Designated Bridge for the segment to
-    // which the port is attached. The type is string with length: 8.
+    // which the port is attached. The type is string with length: 8..8.
     Dot1dStpPortDesignatedRoot interface{}
 
     // The path cost of the Designated Port of the segment connected to this port.
@@ -679,11 +679,11 @@ type BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry struct {
 
     // The Bridge Identifier of the bridge that this port considers to be the
     // Designated Bridge for this port's segment. The type is string with length:
-    // 8.
+    // 8..8.
     Dot1dStpPortDesignatedBridge interface{}
 
     // The Port Identifier of the port on the Designated Bridge for this port's
-    // segment. The type is string with length: 2.
+    // segment. The type is string with length: 2..2.
     Dot1dStpPortDesignatedPort interface{}
 
     // The number of times this port has transitioned from the Learning state to
@@ -813,7 +813,7 @@ type BRIDGEMIB_Dot1dTpFdbTable_Dot1dTpFdbEntry struct {
 
     // This attribute is a key. A unicast MAC address for which the bridge has
     // forwarding and/or filtering information. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1dTpFdbAddress interface{}
 
     // Either the value '0', or the port number of the port on which a frame
@@ -1043,7 +1043,7 @@ type BRIDGEMIB_Dot1dStaticTable_Dot1dStaticEntry struct {
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object can take the value
     // of a unicast address, a group address, or the broadcast address. The type
-    // is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1dStaticAddress interface{}
 
     // This attribute is a key. Either the value '0', or the port number of the

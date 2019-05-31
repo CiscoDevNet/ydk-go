@@ -326,7 +326,7 @@ type DOCSCABLEDEVICEMIB_DocsDevSoftware struct {
     // deprecated.  See docsDevSwServerAddress for its replacement.  This object
     // will have its value modified, given a valid SET to docsDevSwServerAddress.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevSwServer interface{}
 
     // The filename of the software image to be downloaded via TFTP, or the
@@ -496,14 +496,14 @@ type DOCSCABLEDEVICEMIB_DocsDevServer struct {
     // if this agent is not assigned an IPv4 address.  This object is deprecated
     // and is replaced by docsDevServerDhcpAddress. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevServerDhcp interface{}
 
     // The IP address of the Time server (RFC 0868).  Returns 0.0.0.0 if the time
     // server IP address is unknown, or if the time server is not an IPv4 server. 
     // This object is deprecated and is replaced by docsDevServerTimeAddress. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevServerTime interface{}
 
     // The IP address of the TFTP server responsible for downloading provisioning
@@ -511,7 +511,7 @@ type DOCSCABLEDEVICEMIB_DocsDevServer struct {
     // server address is unknown or is not an IPv4 address.  This object is
     // deprecated and is replaced by docsDevServerConfigTftpAddress. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevServerTftp interface{}
 
     // The name of the device configuration file read from the TFTP server. 
@@ -626,7 +626,7 @@ type DOCSCABLEDEVICEMIB_DocsDevEvent struct {
     // is inhibited, or the Syslog server address is not an IPv4 address.  This
     // object is deprecated and is replaced by docsDevEvSyslogAddress. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevEvSyslog interface{}
 
     // Controls the transmission of traps and syslog messages with respect to the
@@ -935,14 +935,14 @@ type DOCSCABLEDEVICEMIB_DocsDevNmAccessTable_DocsDevNmAccessEntry struct {
     // are enabled for this entry, then the value must be the address of a
     // specific device.  Implementations MAY recognize 255.255.255.255 as
     // equivalent to 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevNmAccessIp interface{}
 
     // The IP subnet mask of the network management stations. If traps are enabled
     // for this entry, then the value must be 0.0.0.0.  Implementations MAY
     // recognize 255.255.255.255 as equivalent to 0.0.0.0. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevNmAccessIpMask interface{}
 
     // The community string to be matched for access by this entry.  If set to a
@@ -1617,13 +1617,13 @@ type DOCSCABLEDEVICEMIB_DocsDevFilterIpTable_DocsDevFilterIpEntry struct {
     // docsDevFilterIpSmask before being compared to this value.  A value of 0 for
     // this object and 0 for the mask matches all IP addresses. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevFilterIpSaddr interface{}
 
     // A bit mask that is to be applied to the source address prior to matching. 
     // This mask is not necessarily the same as a subnet mask, but 1s bits must be
     // leftmost and contiguous. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevFilterIpSmask interface{}
 
     // The destination IP address, or portion thereof, that is to be matched for
@@ -1631,13 +1631,13 @@ type DOCSCABLEDEVICEMIB_DocsDevFilterIpTable_DocsDevFilterIpEntry struct {
     // docsDevFilterIpDmask before being compared to this value.  A value of
     // 00000000 for this object and 00000000 for the mask matches all IP
     // addresses. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevFilterIpDaddr interface{}
 
     // A bit mask that is to be applied to the destination address prior to
     // matching. This mask is not necessarily the same as a subnet mask, but 1s
     // bits MUST be leftmost and contiguous. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevFilterIpDmask interface{}
 
     // The IP protocol value that is to be matched.  For example, icmp is 1, tcp
@@ -1678,11 +1678,11 @@ type DOCSCABLEDEVICEMIB_DocsDevFilterIpTable_DocsDevFilterIpEntry struct {
     // This is the value to be matched to the packet's TOS (Type of Service) value
     // (after the TOS value is ANDed with docsDevFilterIpTosMask).  A value for
     // this object of 0 and a mask of 0 matches all TOS values. The type is string
-    // with length: 1.
+    // with length: 1..1.
     DocsDevFilterIpTos interface{}
 
     // The mask to be applied to the packet's TOS value before matching. The type
-    // is string with length: 1.
+    // is string with length: 1..1.
     DocsDevFilterIpTosMask interface{}
 
     // If this value is set to true and docsDevFilterIpControl is anything but
@@ -1862,7 +1862,7 @@ type DOCSCABLEDEVICEMIB_DocsDevFilterPolicyTable_DocsDevFilterPolicyEntry struct
     // pointer references an empty or non-existent row, then no policy action is
     // taken.  The default upon row creation is a null pointer that results in no
     // policy action being taken. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     DocsDevFilterPolicyPtr interface{}
 }
 
@@ -1965,12 +1965,12 @@ type DOCSCABLEDEVICEMIB_DocsDevFilterTosTable_DocsDevFilterTosEntry struct {
     DocsDevFilterTosStatus interface{}
 
     // This value is bitwise ANDed with the matched packet's TOS bits. The type is
-    // string with length: 1.
+    // string with length: 1..1.
     DocsDevFilterTosAndMask interface{}
 
     // This value is bitwise ORed with the result from the AND procedure (tosBits
     // & docsDevFilterTosAndMask). The result then replaces the packet's TOS bits.
-    // The type is string with length: 1.
+    // The type is string with length: 1..1.
     DocsDevFilterTosOrMask interface{}
 }
 
@@ -2083,7 +2083,7 @@ type DOCSCABLEDEVICEMIB_DocsDevCpeTable_DocsDevCpeEntry struct {
     // This attribute is a key. The IPv4 address to which this entry applies. 
     // N.B.  Attempts to set all zeros or all ones address values MUST be
     // rejected. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DocsDevCpeIp interface{}
 
     // This object describes how this entry was created.  If the value is

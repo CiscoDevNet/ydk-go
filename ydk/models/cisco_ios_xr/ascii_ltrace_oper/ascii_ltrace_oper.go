@@ -95,10 +95,12 @@ type Ltrace_Features_Feature struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // feature name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // feature name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     FeatureName interface{}
 
-    // trace buffer name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // trace buffer name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TraceBuf interface{}
 
     // trace.

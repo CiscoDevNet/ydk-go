@@ -112,7 +112,7 @@ type Vlans_Vlan_Config struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
+    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }
@@ -168,7 +168,7 @@ type Vlans_Vlan_State struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
+    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }

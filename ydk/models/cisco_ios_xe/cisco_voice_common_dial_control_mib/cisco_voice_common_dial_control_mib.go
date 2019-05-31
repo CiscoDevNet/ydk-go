@@ -28,128 +28,6 @@ func init() {
     ydk.RegisterEntity("CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB", reflect.TypeOf(CISCOVOICECOMMONDIALCONTROLMIB{}))
 }
 
-// CvcInBandSignaling represents               GR303
-type CvcInBandSignaling string
-
-const (
-    CvcInBandSignaling_cas CvcInBandSignaling = "cas"
-
-    CvcInBandSignaling_none CvcInBandSignaling = "none"
-
-    CvcInBandSignaling_cept CvcInBandSignaling = "cept"
-
-    CvcInBandSignaling_transparent CvcInBandSignaling = "transparent"
-
-    CvcInBandSignaling_gr303 CvcInBandSignaling = "gr303"
-)
-
-// CvcCoderTypeRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
-type CvcCoderTypeRate string
-
-const (
-    CvcCoderTypeRate_other CvcCoderTypeRate = "other"
-
-    CvcCoderTypeRate_fax2400 CvcCoderTypeRate = "fax2400"
-
-    CvcCoderTypeRate_fax4800 CvcCoderTypeRate = "fax4800"
-
-    CvcCoderTypeRate_fax7200 CvcCoderTypeRate = "fax7200"
-
-    CvcCoderTypeRate_fax9600 CvcCoderTypeRate = "fax9600"
-
-    CvcCoderTypeRate_fax14400 CvcCoderTypeRate = "fax14400"
-
-    CvcCoderTypeRate_fax12000 CvcCoderTypeRate = "fax12000"
-
-    CvcCoderTypeRate_g729r8000 CvcCoderTypeRate = "g729r8000"
-
-    CvcCoderTypeRate_g729Ar8000 CvcCoderTypeRate = "g729Ar8000"
-
-    CvcCoderTypeRate_g726r16000 CvcCoderTypeRate = "g726r16000"
-
-    CvcCoderTypeRate_g726r24000 CvcCoderTypeRate = "g726r24000"
-
-    CvcCoderTypeRate_g726r32000 CvcCoderTypeRate = "g726r32000"
-
-    CvcCoderTypeRate_g711ulawr64000 CvcCoderTypeRate = "g711ulawr64000"
-
-    CvcCoderTypeRate_g711Alawr64000 CvcCoderTypeRate = "g711Alawr64000"
-
-    CvcCoderTypeRate_g728r16000 CvcCoderTypeRate = "g728r16000"
-
-    CvcCoderTypeRate_g723r6300 CvcCoderTypeRate = "g723r6300"
-
-    CvcCoderTypeRate_g723r5300 CvcCoderTypeRate = "g723r5300"
-
-    CvcCoderTypeRate_gsmr13200 CvcCoderTypeRate = "gsmr13200"
-
-    CvcCoderTypeRate_g729Br8000 CvcCoderTypeRate = "g729Br8000"
-
-    CvcCoderTypeRate_g729ABr8000 CvcCoderTypeRate = "g729ABr8000"
-
-    CvcCoderTypeRate_g723Ar6300 CvcCoderTypeRate = "g723Ar6300"
-
-    CvcCoderTypeRate_g723Ar5300 CvcCoderTypeRate = "g723Ar5300"
-
-    CvcCoderTypeRate_ietfg729r8000 CvcCoderTypeRate = "ietfg729r8000"
-
-    CvcCoderTypeRate_gsmeEr12200 CvcCoderTypeRate = "gsmeEr12200"
-
-    CvcCoderTypeRate_clearChannel CvcCoderTypeRate = "clearChannel"
-
-    CvcCoderTypeRate_g726r40000 CvcCoderTypeRate = "g726r40000"
-
-    CvcCoderTypeRate_llcc CvcCoderTypeRate = "llcc"
-
-    CvcCoderTypeRate_gsmAmrNb CvcCoderTypeRate = "gsmAmrNb"
-
-    CvcCoderTypeRate_g722 CvcCoderTypeRate = "g722"
-
-    CvcCoderTypeRate_iLBC CvcCoderTypeRate = "iLBC"
-
-    CvcCoderTypeRate_iLBCr15200 CvcCoderTypeRate = "iLBCr15200"
-
-    CvcCoderTypeRate_iLBCr13330 CvcCoderTypeRate = "iLBCr13330"
-
-    CvcCoderTypeRate_g722r4800 CvcCoderTypeRate = "g722r4800"
-
-    CvcCoderTypeRate_g722r5600 CvcCoderTypeRate = "g722r5600"
-
-    CvcCoderTypeRate_g722r6400 CvcCoderTypeRate = "g722r6400"
-
-    CvcCoderTypeRate_iSAC CvcCoderTypeRate = "iSAC"
-
-    CvcCoderTypeRate_aaclc CvcCoderTypeRate = "aaclc"
-
-    CvcCoderTypeRate_aacld CvcCoderTypeRate = "aacld"
-)
-
-// CvcVideoCoderRate represents the video data of the voice call.
-type CvcVideoCoderRate string
-
-const (
-    CvcVideoCoderRate_none CvcVideoCoderRate = "none"
-
-    CvcVideoCoderRate_h261 CvcVideoCoderRate = "h261"
-
-    CvcVideoCoderRate_h263 CvcVideoCoderRate = "h263"
-
-    CvcVideoCoderRate_h263plus CvcVideoCoderRate = "h263plus"
-
-    CvcVideoCoderRate_h264 CvcVideoCoderRate = "h264"
-)
-
-// CvcH320CallType represents This object specifies the H320 call type of a voice call.
-type CvcH320CallType string
-
-const (
-    CvcH320CallType_none CvcH320CallType = "none"
-
-    CvcH320CallType_primary CvcH320CallType = "primary"
-
-    CvcH320CallType_secondary CvcH320CallType = "secondary"
-)
-
 // CvcSpeechCoderRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
 type CvcSpeechCoderRate string
 
@@ -234,6 +112,128 @@ const (
     CvcFaxTransmitRate_fax14400 CvcFaxTransmitRate = "fax14400"
 
     CvcFaxTransmitRate_fax12000 CvcFaxTransmitRate = "fax12000"
+)
+
+// CvcCoderTypeRate represents aacld          - AAC-LD MPEG-4 Low Delay Audio Coder
+type CvcCoderTypeRate string
+
+const (
+    CvcCoderTypeRate_other CvcCoderTypeRate = "other"
+
+    CvcCoderTypeRate_fax2400 CvcCoderTypeRate = "fax2400"
+
+    CvcCoderTypeRate_fax4800 CvcCoderTypeRate = "fax4800"
+
+    CvcCoderTypeRate_fax7200 CvcCoderTypeRate = "fax7200"
+
+    CvcCoderTypeRate_fax9600 CvcCoderTypeRate = "fax9600"
+
+    CvcCoderTypeRate_fax14400 CvcCoderTypeRate = "fax14400"
+
+    CvcCoderTypeRate_fax12000 CvcCoderTypeRate = "fax12000"
+
+    CvcCoderTypeRate_g729r8000 CvcCoderTypeRate = "g729r8000"
+
+    CvcCoderTypeRate_g729Ar8000 CvcCoderTypeRate = "g729Ar8000"
+
+    CvcCoderTypeRate_g726r16000 CvcCoderTypeRate = "g726r16000"
+
+    CvcCoderTypeRate_g726r24000 CvcCoderTypeRate = "g726r24000"
+
+    CvcCoderTypeRate_g726r32000 CvcCoderTypeRate = "g726r32000"
+
+    CvcCoderTypeRate_g711ulawr64000 CvcCoderTypeRate = "g711ulawr64000"
+
+    CvcCoderTypeRate_g711Alawr64000 CvcCoderTypeRate = "g711Alawr64000"
+
+    CvcCoderTypeRate_g728r16000 CvcCoderTypeRate = "g728r16000"
+
+    CvcCoderTypeRate_g723r6300 CvcCoderTypeRate = "g723r6300"
+
+    CvcCoderTypeRate_g723r5300 CvcCoderTypeRate = "g723r5300"
+
+    CvcCoderTypeRate_gsmr13200 CvcCoderTypeRate = "gsmr13200"
+
+    CvcCoderTypeRate_g729Br8000 CvcCoderTypeRate = "g729Br8000"
+
+    CvcCoderTypeRate_g729ABr8000 CvcCoderTypeRate = "g729ABr8000"
+
+    CvcCoderTypeRate_g723Ar6300 CvcCoderTypeRate = "g723Ar6300"
+
+    CvcCoderTypeRate_g723Ar5300 CvcCoderTypeRate = "g723Ar5300"
+
+    CvcCoderTypeRate_ietfg729r8000 CvcCoderTypeRate = "ietfg729r8000"
+
+    CvcCoderTypeRate_gsmeEr12200 CvcCoderTypeRate = "gsmeEr12200"
+
+    CvcCoderTypeRate_clearChannel CvcCoderTypeRate = "clearChannel"
+
+    CvcCoderTypeRate_g726r40000 CvcCoderTypeRate = "g726r40000"
+
+    CvcCoderTypeRate_llcc CvcCoderTypeRate = "llcc"
+
+    CvcCoderTypeRate_gsmAmrNb CvcCoderTypeRate = "gsmAmrNb"
+
+    CvcCoderTypeRate_g722 CvcCoderTypeRate = "g722"
+
+    CvcCoderTypeRate_iLBC CvcCoderTypeRate = "iLBC"
+
+    CvcCoderTypeRate_iLBCr15200 CvcCoderTypeRate = "iLBCr15200"
+
+    CvcCoderTypeRate_iLBCr13330 CvcCoderTypeRate = "iLBCr13330"
+
+    CvcCoderTypeRate_g722r4800 CvcCoderTypeRate = "g722r4800"
+
+    CvcCoderTypeRate_g722r5600 CvcCoderTypeRate = "g722r5600"
+
+    CvcCoderTypeRate_g722r6400 CvcCoderTypeRate = "g722r6400"
+
+    CvcCoderTypeRate_iSAC CvcCoderTypeRate = "iSAC"
+
+    CvcCoderTypeRate_aaclc CvcCoderTypeRate = "aaclc"
+
+    CvcCoderTypeRate_aacld CvcCoderTypeRate = "aacld"
+)
+
+// CvcInBandSignaling represents               GR303
+type CvcInBandSignaling string
+
+const (
+    CvcInBandSignaling_cas CvcInBandSignaling = "cas"
+
+    CvcInBandSignaling_none CvcInBandSignaling = "none"
+
+    CvcInBandSignaling_cept CvcInBandSignaling = "cept"
+
+    CvcInBandSignaling_transparent CvcInBandSignaling = "transparent"
+
+    CvcInBandSignaling_gr303 CvcInBandSignaling = "gr303"
+)
+
+// CvcH320CallType represents This object specifies the H320 call type of a voice call.
+type CvcH320CallType string
+
+const (
+    CvcH320CallType_none CvcH320CallType = "none"
+
+    CvcH320CallType_primary CvcH320CallType = "primary"
+
+    CvcH320CallType_secondary CvcH320CallType = "secondary"
+)
+
+// CvcVideoCoderRate represents the video data of the voice call.
+type CvcVideoCoderRate string
+
+const (
+    CvcVideoCoderRate_none CvcVideoCoderRate = "none"
+
+    CvcVideoCoderRate_h261 CvcVideoCoderRate = "h261"
+
+    CvcVideoCoderRate_h263 CvcVideoCoderRate = "h263"
+
+    CvcVideoCoderRate_h263plus CvcVideoCoderRate = "h263plus"
+
+    CvcVideoCoderRate_h264 CvcVideoCoderRate = "h264"
 )
 
 // CISCOVOICECOMMONDIALCONTROLMIB

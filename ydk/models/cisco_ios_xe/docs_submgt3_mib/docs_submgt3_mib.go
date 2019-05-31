@@ -776,7 +776,7 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
     // originally defined in RFC 791, has  been superseded by the 6-bit
     // Differentiated Services  Field (DSField, RFC 3260) and the 2-bit Explicit 
     // Congestion Notification Field (ECN field, RFC 3168). The type is string
-    // with length: 1.
+    // with length: 1..1.
     DocsSubmgt3FilterGrpIpTosLow interface{}
 
     // This attribute represents the high value of a range  of ToS octet values.
@@ -784,12 +784,12 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
     // for packet classification.  The IP ToS octet, as originally defined in RFC
     // 791, has  been superseded by the 6-bit Differentiated Services  Field
     // (DSField, RFC 3260) and the 2-bit Explicit  Congestion Notification Field
-    // (ECN field, RFC 3168). The type is string with length: 1.
+    // (ECN field, RFC 3168). The type is string with length: 1..1.
     DocsSubmgt3FilterGrpIpTosHigh interface{}
 
     // This attribute represents the mask value that is bitwise  ANDed with ToS
     // octet in an IP packet, and the resulting value  is used for range checking
-    // of IpTosLow and IpTosHigh. The type is string with length: 1.
+    // of IpTosLow and IpTosHigh. The type is string with length: 1..1.
     DocsSubmgt3FilterGrpIpTosMask interface{}
 
     // This attribute represents the value of the IP Protocol  field required for
@@ -855,18 +855,18 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
 
     // This attribute represents the criteria to match against  an Ethernet packet
     // MAC address bitwise ANDed  with DestMacMask. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsSubmgt3FilterGrpDestMacAddr interface{}
 
     // An Ethernet packet matches an entry when its  destination MAC address
     // bitwise ANDed with  the DestMacMask attribute equals the value of  the
     // DestMacAddr attribute. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsSubmgt3FilterGrpDestMacMask interface{}
 
     // This attribute represents the value to match against  an Ethernet packet
     // source MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     DocsSubmgt3FilterGrpSrcMacAddr interface{}
 
     // This attribute indicates the format of the layer 3  protocol ID in the

@@ -483,14 +483,14 @@ type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry struct {
 
     // The MAC address of the peer OAM entity.  The MAC address is derived from
     // the most recently received OAMPDU. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Cdot3OamPeerMacAddress interface{}
 
     // The OUI of the OAM peer as reflected in the latest Information OAMPDU
     // received with a Local Information TLV.  The OUI can be used to identify the
     // vendor of the remote OAM entity.  This value is initialized to zero before
     // any Local Information TLV is received.  . The type is string with length:
-    // 3.
+    // 3..3.
     Cdot3OamPeerVendorOui interface{}
 
     // The Vendor Info of the OAM peer as reflected in the latest Information
@@ -1411,7 +1411,7 @@ type CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry struct {
     // Event TLVs) use the IEEE 802.3 OUI of 0x0180C2.  Organizations defining
     // their own Event Notification TLVs include their OUI in the Event
     // Notification TLV which gets reflected here.  . The type is string with
-    // length: 3.
+    // length: 3..3.
     Cdot3OamEventLogOui interface{}
 
     // The type of event that generated this entry in the event log.  When the OUI

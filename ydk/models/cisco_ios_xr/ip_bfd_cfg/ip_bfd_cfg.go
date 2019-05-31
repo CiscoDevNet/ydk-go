@@ -42,15 +42,15 @@ const (
     BfdEchoStartupValidate_force BfdEchoStartupValidate = "force"
 )
 
-// BfdIfIpv6ChecksumUsage represents Bfd if ipv6 checksum usage
-type BfdIfIpv6ChecksumUsage string
+// BfdBundleCoexistenceBobBlb represents Bfd bundle coexistence bob blb
+type BfdBundleCoexistenceBobBlb string
 
 const (
-    // Disable IPv6 checksum
-    BfdIfIpv6ChecksumUsage_disable BfdIfIpv6ChecksumUsage = "disable"
+    // Inherited coexistence mode
+    BfdBundleCoexistenceBobBlb_inherited BfdBundleCoexistenceBobBlb = "inherited"
 
-    // Enable IPv6 checksum
-    BfdIfIpv6ChecksumUsage_enable BfdIfIpv6ChecksumUsage = "enable"
+    // Logical coexistence mode
+    BfdBundleCoexistenceBobBlb_logical BfdBundleCoexistenceBobBlb = "logical"
 )
 
 // BfdIfEchoUsage represents Bfd if echo usage
@@ -64,15 +64,15 @@ const (
     BfdIfEchoUsage_disable BfdIfEchoUsage = "disable"
 )
 
-// BfdBundleCoexistenceBobBlb represents Bfd bundle coexistence bob blb
-type BfdBundleCoexistenceBobBlb string
+// BfdIfIpv6ChecksumUsage represents Bfd if ipv6 checksum usage
+type BfdIfIpv6ChecksumUsage string
 
 const (
-    // Inherited coexistence mode
-    BfdBundleCoexistenceBobBlb_inherited BfdBundleCoexistenceBobBlb = "inherited"
+    // Disable IPv6 checksum
+    BfdIfIpv6ChecksumUsage_disable BfdIfIpv6ChecksumUsage = "disable"
 
-    // Logical coexistence mode
-    BfdBundleCoexistenceBobBlb_logical BfdBundleCoexistenceBobBlb = "logical"
+    // Enable IPv6 checksum
+    BfdIfIpv6ChecksumUsage_enable BfdIfIpv6ChecksumUsage = "enable"
 )
 
 // Bfd
@@ -99,9 +99,9 @@ type Bfd struct {
 
     // IPv4 echo source address configuration. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     GlobalIpv4EchoSource interface{}
 
     // Flapping class container.
@@ -430,7 +430,7 @@ type Bfd_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Echo usage for this interface. The type is BfdIfEchoUsage. The default
@@ -444,9 +444,9 @@ type Bfd_Interfaces_Interface struct {
 
     // Interface IPv4 echo source address configuration. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv4EchoSource interface{}
 }
 
@@ -515,7 +515,7 @@ type Bfd_MultiPathIncludes_MultiPathInclude struct {
     YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Location interface{}
 }
 

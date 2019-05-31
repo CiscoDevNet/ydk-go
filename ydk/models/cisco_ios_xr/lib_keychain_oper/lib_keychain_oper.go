@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-lib-keychain-oper:keychain", reflect.TypeOf(Keychain{}))
 }
 
-// Enc represents Type of password encryption
-type Enc string
-
-const (
-    // Type 7 password type
-    Enc_password_type7 Enc = "password-type7"
-
-    // Type 6 Encryption
-    Enc_password_type6 Enc = "password-type6"
-)
-
 // CrytoAlgo represents Cryptographic algorithm type
 type CrytoAlgo string
 
@@ -71,6 +60,17 @@ const (
 
     // HMAC SHA256 32 bytes
     CrytoAlgo_hmac_sha_256 CrytoAlgo = "hmac-sha-256"
+)
+
+// Enc represents Type of password encryption
+type Enc string
+
+const (
+    // Type 7 password type
+    Enc_password_type7 Enc = "password-type7"
+
+    // Type 6 Encryption
+    Enc_password_type6 Enc = "password-type6"
 )
 
 // Keychain
@@ -144,7 +144,7 @@ type Keychain_Keys_Key struct {
     YListKey string
 
     // This attribute is a key. Key name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     KeyName interface{}
 
     // Accept tolerance is infinite if value is 0xffffffff. The type is string.

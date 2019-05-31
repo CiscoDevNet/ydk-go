@@ -24,111 +24,111 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-objmgr-oper:object-group", reflect.TypeOf(ObjectGroup{}))
 }
 
-// EndPort represents End port
-type EndPort string
+// StartPort represents Start port
+type StartPort string
 
 const (
     // Echo (7)
-    EndPort_echo EndPort = "echo"
+    StartPort_echo StartPort = "echo"
 
     // Discard (9)
-    EndPort_discard EndPort = "discard"
+    StartPort_discard StartPort = "discard"
 
     // Daytime (13)
-    EndPort_daytime EndPort = "daytime"
+    StartPort_daytime StartPort = "daytime"
 
     // Character generator (19)
-    EndPort_chargen EndPort = "chargen"
+    StartPort_chargen StartPort = "chargen"
 
     // FTP data connections (used infrequently, 20)
-    EndPort_ftp_data EndPort = "ftp-data"
+    StartPort_ftp_data StartPort = "ftp-data"
 
     // File Transfer Protocol (21)
-    EndPort_ftp EndPort = "ftp"
+    StartPort_ftp StartPort = "ftp"
 
     // Secure Shell (22)
-    EndPort_ssh EndPort = "ssh"
+    StartPort_ssh StartPort = "ssh"
 
     // Telnet (23)
-    EndPort_telnet EndPort = "telnet"
+    StartPort_telnet StartPort = "telnet"
 
     // Simple Mail Transport Protocol (25)
-    EndPort_smtp EndPort = "smtp"
+    StartPort_smtp StartPort = "smtp"
 
     // Time (37)
-    EndPort_time EndPort = "time"
+    StartPort_time StartPort = "time"
 
     // Nicname (43)
-    EndPort_nicname EndPort = "nicname"
+    StartPort_nicname StartPort = "nicname"
 
     // TAC Access Control System (49)
-    EndPort_tacacs EndPort = "tacacs"
+    StartPort_tacacs StartPort = "tacacs"
 
     // Domain Name Service (53)
-    EndPort_domain EndPort = "domain"
+    StartPort_domain StartPort = "domain"
 
     // Gopher (70)
-    EndPort_gopher EndPort = "gopher"
+    StartPort_gopher StartPort = "gopher"
 
     // Finger (79)
-    EndPort_finger EndPort = "finger"
+    StartPort_finger StartPort = "finger"
 
     // World Wide Web (HTTP, 80)
-    EndPort_www EndPort = "www"
+    StartPort_www StartPort = "www"
 
     // NIC hostname server (101)
-    EndPort_host_name EndPort = "host-name"
+    StartPort_host_name StartPort = "host-name"
 
     // Post Office Protocol v2 (109)
-    EndPort_pop2 EndPort = "pop2"
+    StartPort_pop2 StartPort = "pop2"
 
     // Post Office Protocol v3 (110)
-    EndPort_pop3 EndPort = "pop3"
+    StartPort_pop3 StartPort = "pop3"
 
     // Sun Remote Procedure Call (111)
-    EndPort_sun_rpc EndPort = "sun-rpc"
+    StartPort_sun_rpc StartPort = "sun-rpc"
 
     // Ident Protocol (113)
-    EndPort_ident EndPort = "ident"
+    StartPort_ident StartPort = "ident"
 
     // Network News Transport Protocol (119)
-    EndPort_nntp EndPort = "nntp"
+    StartPort_nntp StartPort = "nntp"
 
     // Border Gateway Protocol (179)
-    EndPort_bgp EndPort = "bgp"
+    StartPort_bgp StartPort = "bgp"
 
     // Internet Relay Chat (194)
-    EndPort_irc EndPort = "irc"
+    StartPort_irc StartPort = "irc"
 
     // PIM Auto-RP (496)
-    EndPort_pim_auto_rp EndPort = "pim-auto-rp"
+    StartPort_pim_auto_rp StartPort = "pim-auto-rp"
 
     // Exec (rsh, 512)
-    EndPort_exec EndPort = "exec"
+    StartPort_exec StartPort = "exec"
 
     // Login (rlogin, 513)
-    EndPort_login EndPort = "login"
+    StartPort_login StartPort = "login"
 
     // Remote commands (rcmd, 514)
-    EndPort_cmd EndPort = "cmd"
+    StartPort_cmd StartPort = "cmd"
 
     // Printer service (515)
-    EndPort_lpd EndPort = "lpd"
+    StartPort_lpd StartPort = "lpd"
 
     // Unix-to-Unix Copy Program (540)
-    EndPort_uucp EndPort = "uucp"
+    StartPort_uucp StartPort = "uucp"
 
     // Kerberos login (543)
-    EndPort_klogin EndPort = "klogin"
+    StartPort_klogin StartPort = "klogin"
 
     // Kerberos shell (544)
-    EndPort_kshell EndPort = "kshell"
+    StartPort_kshell StartPort = "kshell"
 
     // Talk (517)
-    EndPort_talk EndPort = "talk"
+    StartPort_talk StartPort = "talk"
 
     // LDP session connection attempts (MPLS, 646)
-    EndPort_ldp EndPort = "ldp"
+    StartPort_ldp StartPort = "ldp"
 )
 
 // PortOperator represents Port operator
@@ -259,111 +259,111 @@ const (
     Port_ldp Port = "ldp"
 )
 
-// StartPort represents Start port
-type StartPort string
+// EndPort represents End port
+type EndPort string
 
 const (
     // Echo (7)
-    StartPort_echo StartPort = "echo"
+    EndPort_echo EndPort = "echo"
 
     // Discard (9)
-    StartPort_discard StartPort = "discard"
+    EndPort_discard EndPort = "discard"
 
     // Daytime (13)
-    StartPort_daytime StartPort = "daytime"
+    EndPort_daytime EndPort = "daytime"
 
     // Character generator (19)
-    StartPort_chargen StartPort = "chargen"
+    EndPort_chargen EndPort = "chargen"
 
     // FTP data connections (used infrequently, 20)
-    StartPort_ftp_data StartPort = "ftp-data"
+    EndPort_ftp_data EndPort = "ftp-data"
 
     // File Transfer Protocol (21)
-    StartPort_ftp StartPort = "ftp"
+    EndPort_ftp EndPort = "ftp"
 
     // Secure Shell (22)
-    StartPort_ssh StartPort = "ssh"
+    EndPort_ssh EndPort = "ssh"
 
     // Telnet (23)
-    StartPort_telnet StartPort = "telnet"
+    EndPort_telnet EndPort = "telnet"
 
     // Simple Mail Transport Protocol (25)
-    StartPort_smtp StartPort = "smtp"
+    EndPort_smtp EndPort = "smtp"
 
     // Time (37)
-    StartPort_time StartPort = "time"
+    EndPort_time EndPort = "time"
 
     // Nicname (43)
-    StartPort_nicname StartPort = "nicname"
+    EndPort_nicname EndPort = "nicname"
 
     // TAC Access Control System (49)
-    StartPort_tacacs StartPort = "tacacs"
+    EndPort_tacacs EndPort = "tacacs"
 
     // Domain Name Service (53)
-    StartPort_domain StartPort = "domain"
+    EndPort_domain EndPort = "domain"
 
     // Gopher (70)
-    StartPort_gopher StartPort = "gopher"
+    EndPort_gopher EndPort = "gopher"
 
     // Finger (79)
-    StartPort_finger StartPort = "finger"
+    EndPort_finger EndPort = "finger"
 
     // World Wide Web (HTTP, 80)
-    StartPort_www StartPort = "www"
+    EndPort_www EndPort = "www"
 
     // NIC hostname server (101)
-    StartPort_host_name StartPort = "host-name"
+    EndPort_host_name EndPort = "host-name"
 
     // Post Office Protocol v2 (109)
-    StartPort_pop2 StartPort = "pop2"
+    EndPort_pop2 EndPort = "pop2"
 
     // Post Office Protocol v3 (110)
-    StartPort_pop3 StartPort = "pop3"
+    EndPort_pop3 EndPort = "pop3"
 
     // Sun Remote Procedure Call (111)
-    StartPort_sun_rpc StartPort = "sun-rpc"
+    EndPort_sun_rpc EndPort = "sun-rpc"
 
     // Ident Protocol (113)
-    StartPort_ident StartPort = "ident"
+    EndPort_ident EndPort = "ident"
 
     // Network News Transport Protocol (119)
-    StartPort_nntp StartPort = "nntp"
+    EndPort_nntp EndPort = "nntp"
 
     // Border Gateway Protocol (179)
-    StartPort_bgp StartPort = "bgp"
+    EndPort_bgp EndPort = "bgp"
 
     // Internet Relay Chat (194)
-    StartPort_irc StartPort = "irc"
+    EndPort_irc EndPort = "irc"
 
     // PIM Auto-RP (496)
-    StartPort_pim_auto_rp StartPort = "pim-auto-rp"
+    EndPort_pim_auto_rp EndPort = "pim-auto-rp"
 
     // Exec (rsh, 512)
-    StartPort_exec StartPort = "exec"
+    EndPort_exec EndPort = "exec"
 
     // Login (rlogin, 513)
-    StartPort_login StartPort = "login"
+    EndPort_login EndPort = "login"
 
     // Remote commands (rcmd, 514)
-    StartPort_cmd StartPort = "cmd"
+    EndPort_cmd EndPort = "cmd"
 
     // Printer service (515)
-    StartPort_lpd StartPort = "lpd"
+    EndPort_lpd EndPort = "lpd"
 
     // Unix-to-Unix Copy Program (540)
-    StartPort_uucp StartPort = "uucp"
+    EndPort_uucp EndPort = "uucp"
 
     // Kerberos login (543)
-    StartPort_klogin StartPort = "klogin"
+    EndPort_klogin EndPort = "klogin"
 
     // Kerberos shell (544)
-    StartPort_kshell StartPort = "kshell"
+    EndPort_kshell EndPort = "kshell"
 
     // Talk (517)
-    StartPort_talk StartPort = "talk"
+    EndPort_talk EndPort = "talk"
 
     // LDP session connection attempts (MPLS, 646)
-    StartPort_ldp StartPort = "ldp"
+    EndPort_ldp EndPort = "ldp"
 )
 
 // ObjectGroup
@@ -1073,14 +1073,14 @@ type ObjectGroup_Network_Ipv6_Objects_Object_Addresses_Address struct {
     YListKey string
 
     // IPv6 prefix x:x::x/y. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix of the IP Address. The type is interface{} with range: 0..128.
     PrefixLength interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixXr interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1153,19 +1153,19 @@ type ObjectGroup_Network_Ipv6_Objects_Object_AddressRanges_AddressRange struct {
     YListKey string
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     EndAddress interface{}
 
     // Range start address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddressXr interface{}
 
     // Range end address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     EndAddressXr interface{}
 }
 
@@ -1305,11 +1305,11 @@ type ObjectGroup_Network_Ipv6_Objects_Object_Hosts_Host struct {
 
     // This attribute is a key. host ipv6 address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HostAddress interface{}
 
     // Host address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     HostAddressXr interface{}
 }
 
@@ -1563,14 +1563,14 @@ type ObjectGroup_Network_Ipv4_Objects_Object_Addresses_Address struct {
     YListKey string
 
     // IPv4 address/prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix of the IP Address. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrefixXr interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1643,19 +1643,19 @@ type ObjectGroup_Network_Ipv4_Objects_Object_AddressRanges_AddressRange struct {
     YListKey string
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     EndAddress interface{}
 
     // Range start address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddressXr interface{}
 
     // Range end address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     EndAddressXr interface{}
 }
 
@@ -1795,11 +1795,11 @@ type ObjectGroup_Network_Ipv4_Objects_Object_Hosts_Host struct {
 
     // This attribute is a key. Host ipv4 address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HostAddress interface{}
 
     // Host address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     HostAddressXr interface{}
 }
 

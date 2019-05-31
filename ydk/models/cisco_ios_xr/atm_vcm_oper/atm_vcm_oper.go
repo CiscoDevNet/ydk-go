@@ -24,64 +24,18 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-atm-vcm-oper:atm-vcm", reflect.TypeOf(AtmVcm{}))
 }
 
-// Vc represents  ATM VC type
-type Vc string
+// VcCellPackingMode represents ATM VC cell packing mode
+type VcCellPackingMode string
 
 const (
-    //  ATM Layer 3 VC type
-    Vc_layer3_vc Vc = "layer3-vc"
+    // VP mode
+    VcCellPackingMode_vp VcCellPackingMode = "vp"
 
-    //  ATM Layer 2 VC type
-    Vc_layer2_vc Vc = "layer2-vc"
+    // VC mode
+    VcCellPackingMode_vc VcCellPackingMode = "vc"
 
-    //  ATM Layer 2 VP type
-    Vc_layer2_vp Vc = "layer2-vp"
-
-    //  ATM type unknown
-    Vc_vc_type_unknown Vc = "vc-type-unknown"
-)
-
-// VcEncap represents VC Encapsulation Type
-type VcEncap string
-
-const (
-    // ILMI Encapsulation
-    VcEncap_ilmi VcEncap = "ilmi"
-
-    // QSAAL Encapsulation
-    VcEncap_qsaal VcEncap = "qsaal"
-
-    // SNAP Encapsulation
-    VcEncap_snap VcEncap = "snap"
-
-    // MUX Encapsulation
-    VcEncap_mux VcEncap = "mux"
-
-    // NLPID Encapsulation
-    VcEncap_nlpid VcEncap = "nlpid"
-
-    // F4OAM Encapsulation
-    VcEncap_f4oam VcEncap = "f4oam"
-
-    // AAL0 Encapsulation
-    VcEncap_aal0 VcEncap = "aal0"
-
-    // AAL5 Encapsulation
-    VcEncap_aal5 VcEncap = "aal5"
-
-    // Uknown (invalid) Encapsulation
-    VcEncap_encap_unknown VcEncap = "encap-unknown"
-)
-
-// VcManageLevel represents ATM Class link manage level
-type VcManageLevel string
-
-const (
-    // Managed
-    VcManageLevel_manage VcManageLevel = "manage"
-
-    // Not managed
-    VcManageLevel_not_managed VcManageLevel = "not-managed"
+    // Port mode
+    VcCellPackingMode_port_mode VcCellPackingMode = "port-mode"
 )
 
 // VcTestMode represents VC Test Mode Type
@@ -96,33 +50,6 @@ const (
 
     // VC in test mode Reserved
     VcTestMode_reserved VcTestMode = "reserved"
-)
-
-// VpTrafShaping represents VP-Tunnel traffic shaping type
-type VpTrafShaping string
-
-const (
-    // VP-Tunnel traffic shaping type CBR
-    VpTrafShaping_vp_cbr VpTrafShaping = "vp-cbr"
-
-    // VP-Tunnel traffic shaping type VBR-NR
-    VpTrafShaping_vp_vbr_nrt VpTrafShaping = "vp-vbr-nrt"
-
-    // VP-Tunnel traffic shaping type VBR-RT
-    VpTrafShaping_vp_vbr_rt VpTrafShaping = "vp-vbr-rt"
-
-    // VP-Tunnel traffic shaping type ABR
-    VpTrafShaping_vp_abr VpTrafShaping = "vp-abr"
-
-    // VP-Tunnel traffic shaping type UBR+
-    VpTrafShaping_vp_ubr_plus VpTrafShaping = "vp-ubr-plus"
-
-    // VP-Tunnel traffic shaping type UBR
-    VpTrafShaping_vp_ubr VpTrafShaping = "vp-ubr"
-
-    // VP-Tunnel traffic shaping type Unknown
-    // (invalid)
-    VpTrafShaping_vp_traf_shaping_unknown VpTrafShaping = "vp-traf-shaping-unknown"
 )
 
 // VcState represents VC State
@@ -169,53 +96,31 @@ const (
     VcState_state_unknown VcState = "state-unknown"
 )
 
-// ClassLinkOamInheritLevel represents ATM VC-class inheritence level for class-link
-type ClassLinkOamInheritLevel string
+// VcInheritLevel represents ATM vc-class inheritence level
+type VcInheritLevel string
 
 const (
-    // Configured on VC
-    ClassLinkOamInheritLevel_vc_configured_onvc ClassLinkOamInheritLevel = "vc-configured-onvc"
+    // ATM vc-class inherit level: Config of VC
+    VcInheritLevel_directly_configured_onvc VcInheritLevel = "directly-configured-onvc"
 
-    // Class on VC
-    ClassLinkOamInheritLevel_vc_class_onvc ClassLinkOamInheritLevel = "vc-class-onvc"
+    // ATM vc-class inherit level: Class of VC
+    VcInheritLevel_vc_class_configured_onvc VcInheritLevel = "vc-class-configured-onvc"
 
-    // Class on sub-if
-    ClassLinkOamInheritLevel_vc_class_on_sub_interface ClassLinkOamInheritLevel = "vc-class-on-sub-interface"
+    // ATM vc-class inherit level: Class of Sub-if
+    VcInheritLevel_vc_class_configured_on_sub_interface VcInheritLevel = "vc-class-configured-on-sub-interface"
 
-    // Class on main-if
-    ClassLinkOamInheritLevel_vc_class_on_main_interface ClassLinkOamInheritLevel = "vc-class-on-main-interface"
+    // ATM vc-class inherit level: Class of Main-if
+    VcInheritLevel_vc_class_configured_on_main_interface VcInheritLevel = "vc-class-configured-on-main-interface"
 
-    // Global default values
-    ClassLinkOamInheritLevel_vc_global_default ClassLinkOamInheritLevel = "vc-global-default"
+    // ATM vc-class inherit level: Global Default
+    VcInheritLevel_global_default VcInheritLevel = "global-default"
 
-    // Unknown (invalid)
-    ClassLinkOamInheritLevel_vc_inherit_level_unknown ClassLinkOamInheritLevel = "vc-inherit-level-unknown"
-)
+    // ATM vc-class inherit level: Unknown (invalid)
+    VcInheritLevel_unknown VcInheritLevel = "unknown"
 
-// VpState represents VP-Tunnel State
-type VpState string
-
-const (
-    // VP-Tunnel State: Initialized
-    VpState_vp_initialized VpState = "vp-initialized"
-
-    // VP-Tunnel State: Modifying
-    VpState_vp_modifying VpState = "vp-modifying"
-
-    // VP-Tunnel State: Ready
-    VpState_vp_ready VpState = "vp-ready"
-
-    // VP-Tunnel State: Managed Down
-    VpState_vp_mgd_down VpState = "vp-mgd-down"
-
-    // VP-Tunnel State: Deleting
-    VpState_vp_deleting VpState = "vp-deleting"
-
-    // VP-Tunnel State: Deleted
-    VpState_vp_deleted VpState = "vp-deleted"
-
-    // VP-Tunnel State: Unknown
-    VpState_vp_state_unknown VpState = "vp-state-unknown"
+    // ATM vc-class inherit level: Not supported on
+    // this VC class
+    VcInheritLevel_not_supported VcInheritLevel = "not-supported"
 )
 
 // VcTrafShaping represents VC traffic shaping type
@@ -244,18 +149,87 @@ const (
     VcTrafShaping_traf_shaping_unknown VcTrafShaping = "traf-shaping-unknown"
 )
 
-// VcCellPackingMode represents ATM VC cell packing mode
-type VcCellPackingMode string
+// VcEncap represents VC Encapsulation Type
+type VcEncap string
 
 const (
-    // VP mode
-    VcCellPackingMode_vp VcCellPackingMode = "vp"
+    // ILMI Encapsulation
+    VcEncap_ilmi VcEncap = "ilmi"
 
-    // VC mode
-    VcCellPackingMode_vc VcCellPackingMode = "vc"
+    // QSAAL Encapsulation
+    VcEncap_qsaal VcEncap = "qsaal"
 
-    // Port mode
-    VcCellPackingMode_port_mode VcCellPackingMode = "port-mode"
+    // SNAP Encapsulation
+    VcEncap_snap VcEncap = "snap"
+
+    // MUX Encapsulation
+    VcEncap_mux VcEncap = "mux"
+
+    // NLPID Encapsulation
+    VcEncap_nlpid VcEncap = "nlpid"
+
+    // F4OAM Encapsulation
+    VcEncap_f4oam VcEncap = "f4oam"
+
+    // AAL0 Encapsulation
+    VcEncap_aal0 VcEncap = "aal0"
+
+    // AAL5 Encapsulation
+    VcEncap_aal5 VcEncap = "aal5"
+
+    // Uknown (invalid) Encapsulation
+    VcEncap_encap_unknown VcEncap = "encap-unknown"
+)
+
+// Vc represents  ATM VC type
+type Vc string
+
+const (
+    //  ATM Layer 3 VC type
+    Vc_layer3_vc Vc = "layer3-vc"
+
+    //  ATM Layer 2 VC type
+    Vc_layer2_vc Vc = "layer2-vc"
+
+    //  ATM Layer 2 VP type
+    Vc_layer2_vp Vc = "layer2-vp"
+
+    //  ATM type unknown
+    Vc_vc_type_unknown Vc = "vc-type-unknown"
+)
+
+// ClassLinkOamInheritLevel represents ATM VC-class inheritence level for class-link
+type ClassLinkOamInheritLevel string
+
+const (
+    // Configured on VC
+    ClassLinkOamInheritLevel_vc_configured_onvc ClassLinkOamInheritLevel = "vc-configured-onvc"
+
+    // Class on VC
+    ClassLinkOamInheritLevel_vc_class_onvc ClassLinkOamInheritLevel = "vc-class-onvc"
+
+    // Class on sub-if
+    ClassLinkOamInheritLevel_vc_class_on_sub_interface ClassLinkOamInheritLevel = "vc-class-on-sub-interface"
+
+    // Class on main-if
+    ClassLinkOamInheritLevel_vc_class_on_main_interface ClassLinkOamInheritLevel = "vc-class-on-main-interface"
+
+    // Global default values
+    ClassLinkOamInheritLevel_vc_global_default ClassLinkOamInheritLevel = "vc-global-default"
+
+    // Unknown (invalid)
+    ClassLinkOamInheritLevel_vc_inherit_level_unknown ClassLinkOamInheritLevel = "vc-inherit-level-unknown"
+)
+
+// VcManageLevel represents ATM Class link manage level
+type VcManageLevel string
+
+const (
+    // Managed
+    VcManageLevel_manage VcManageLevel = "manage"
+
+    // Not managed
+    VcManageLevel_not_managed VcManageLevel = "not-managed"
 )
 
 // VcmPort represents ATM port type
@@ -272,31 +246,57 @@ const (
     VcmPort_port_type_unknown VcmPort = "port-type-unknown"
 )
 
-// VcInheritLevel represents ATM vc-class inheritence level
-type VcInheritLevel string
+// VpState represents VP-Tunnel State
+type VpState string
 
 const (
-    // ATM vc-class inherit level: Config of VC
-    VcInheritLevel_directly_configured_onvc VcInheritLevel = "directly-configured-onvc"
+    // VP-Tunnel State: Initialized
+    VpState_vp_initialized VpState = "vp-initialized"
 
-    // ATM vc-class inherit level: Class of VC
-    VcInheritLevel_vc_class_configured_onvc VcInheritLevel = "vc-class-configured-onvc"
+    // VP-Tunnel State: Modifying
+    VpState_vp_modifying VpState = "vp-modifying"
 
-    // ATM vc-class inherit level: Class of Sub-if
-    VcInheritLevel_vc_class_configured_on_sub_interface VcInheritLevel = "vc-class-configured-on-sub-interface"
+    // VP-Tunnel State: Ready
+    VpState_vp_ready VpState = "vp-ready"
 
-    // ATM vc-class inherit level: Class of Main-if
-    VcInheritLevel_vc_class_configured_on_main_interface VcInheritLevel = "vc-class-configured-on-main-interface"
+    // VP-Tunnel State: Managed Down
+    VpState_vp_mgd_down VpState = "vp-mgd-down"
 
-    // ATM vc-class inherit level: Global Default
-    VcInheritLevel_global_default VcInheritLevel = "global-default"
+    // VP-Tunnel State: Deleting
+    VpState_vp_deleting VpState = "vp-deleting"
 
-    // ATM vc-class inherit level: Unknown (invalid)
-    VcInheritLevel_unknown VcInheritLevel = "unknown"
+    // VP-Tunnel State: Deleted
+    VpState_vp_deleted VpState = "vp-deleted"
 
-    // ATM vc-class inherit level: Not supported on
-    // this VC class
-    VcInheritLevel_not_supported VcInheritLevel = "not-supported"
+    // VP-Tunnel State: Unknown
+    VpState_vp_state_unknown VpState = "vp-state-unknown"
+)
+
+// VpTrafShaping represents VP-Tunnel traffic shaping type
+type VpTrafShaping string
+
+const (
+    // VP-Tunnel traffic shaping type CBR
+    VpTrafShaping_vp_cbr VpTrafShaping = "vp-cbr"
+
+    // VP-Tunnel traffic shaping type VBR-NR
+    VpTrafShaping_vp_vbr_nrt VpTrafShaping = "vp-vbr-nrt"
+
+    // VP-Tunnel traffic shaping type VBR-RT
+    VpTrafShaping_vp_vbr_rt VpTrafShaping = "vp-vbr-rt"
+
+    // VP-Tunnel traffic shaping type ABR
+    VpTrafShaping_vp_abr VpTrafShaping = "vp-abr"
+
+    // VP-Tunnel traffic shaping type UBR+
+    VpTrafShaping_vp_ubr_plus VpTrafShaping = "vp-ubr-plus"
+
+    // VP-Tunnel traffic shaping type UBR
+    VpTrafShaping_vp_ubr VpTrafShaping = "vp-ubr"
+
+    // VP-Tunnel traffic shaping type Unknown
+    // (invalid)
+    VpTrafShaping_vp_traf_shaping_unknown VpTrafShaping = "vp-traf-shaping-unknown"
 )
 
 // AtmVcm
@@ -372,7 +372,7 @@ type AtmVcm_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Contains all VC information for node.
@@ -462,7 +462,7 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // VPI. The type is interface{} with range: 0..4095.
@@ -471,13 +471,14 @@ type AtmVcm_Nodes_Node_Vcs_Vc struct {
     // VCI. The type is interface{} with range: 1..65535.
     Vci interface{}
 
-    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main Interface handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MainInterface interface{}
 
-    // Subinterface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Subinterface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SubInterface interface{}
 
-    // VC Interfcace handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // VC Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     VcInterface interface{}
 
     // VC VPI value. The type is interface{} with range: 0..65535.
@@ -676,13 +677,13 @@ type AtmVcm_Nodes_Node_CellPacks_CellPack struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // PCI. The type is interface{} with range: 0..4294967295.
     Pci interface{}
 
-    // Sub-interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Sub-interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SubInterfaceName interface{}
 
     // ATM cell packing mode. The type is VcCellPackingMode.
@@ -817,19 +818,20 @@ type AtmVcm_Nodes_Node_Pvps_Pvp struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // VPI. The type is interface{} with range: 0..4294967295.
     Vpi interface{}
 
-    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main Interface handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MainInterface interface{}
 
-    // Subinterface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Subinterface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SubInterface interface{}
 
-    // VC Interfcace handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // VC Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     VcInterface interface{}
 
     // VC VPI value. The type is interface{} with range: 0..65535.
@@ -1033,7 +1035,7 @@ type AtmVcm_Nodes_Node_ClassLinks_ClassLink struct {
     // VCI. The type is interface{} with range: 0..4294967295.
     Vci interface{}
 
-    // Sub-interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Sub-interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     SubInterfaceName interface{}
 
     // Not supported VC class.
@@ -1397,7 +1399,7 @@ type AtmVcm_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // ILMI VPI. The type is interface{} with range: 0..4294967295.
@@ -1451,7 +1453,8 @@ type AtmVcm_Nodes_Node_Interfaces_Interface struct {
     // ATM interface port type. The type is VcmPort.
     PortType interface{}
 
-    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main Interface handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MainInterface interface{}
 
     // Number of L2 attachment circuits with the cell packing feature enabled on
@@ -1582,16 +1585,17 @@ type AtmVcm_Nodes_Node_VpTunnels_VpTunnel struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // VPI. The type is interface{} with range: 0..4294967295.
     Vpi interface{}
 
-    // Main Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // Main Interface handle. The type is string with pattern:
+    // b'[a-zA-Z0-9._/-]+'.
     MainInterface interface{}
 
-    // VP Interfcace handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    // VP Interfcace handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
     VpInterface interface{}
 
     // VP-Tunnel VPI value. The type is interface{} with range: 0..65535.

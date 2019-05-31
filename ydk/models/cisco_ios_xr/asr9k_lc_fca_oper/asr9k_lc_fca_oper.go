@@ -27,26 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-lc-fca-oper:mpa", reflect.TypeOf(Mpa{}))
 }
 
-// SpaResetReason represents SPA reset reasons
-type SpaResetReason string
-
-const (
-    // spa reset reason unknown
-    SpaResetReason_spa_reset_reason_unknown SpaResetReason = "spa-reset-reason-unknown"
-
-    // spa reset reason manual
-    SpaResetReason_spa_reset_reason_manual SpaResetReason = "spa-reset-reason-manual"
-
-    // spa reset reason fpd upgrade
-    SpaResetReason_spa_reset_reason_fpd_upgrade SpaResetReason = "spa-reset-reason-fpd-upgrade"
-
-    // spa reset reason audit fail
-    SpaResetReason_spa_reset_reason_audit_fail SpaResetReason = "spa-reset-reason-audit-fail"
-
-    // spa reset reason failure
-    SpaResetReason_spa_reset_reason_failure SpaResetReason = "spa-reset-reason-failure"
-)
-
 // SpaFailureReason represents SPA failure reasons
 type SpaFailureReason string
 
@@ -74,6 +54,26 @@ const (
 
     // spa failure reason read type
     SpaFailureReason_spa_failure_reason_read_type SpaFailureReason = "spa-failure-reason-read-type"
+)
+
+// SpaResetReason represents SPA reset reasons
+type SpaResetReason string
+
+const (
+    // spa reset reason unknown
+    SpaResetReason_spa_reset_reason_unknown SpaResetReason = "spa-reset-reason-unknown"
+
+    // spa reset reason manual
+    SpaResetReason_spa_reset_reason_manual SpaResetReason = "spa-reset-reason-manual"
+
+    // spa reset reason fpd upgrade
+    SpaResetReason_spa_reset_reason_fpd_upgrade SpaResetReason = "spa-reset-reason-fpd-upgrade"
+
+    // spa reset reason audit fail
+    SpaResetReason_spa_reset_reason_audit_fail SpaResetReason = "spa-reset-reason-audit-fail"
+
+    // spa reset reason failure
+    SpaResetReason_spa_reset_reason_failure SpaResetReason = "spa-reset-reason-failure"
 )
 
 // SpaOperState represents SPA operational states
@@ -164,7 +164,7 @@ type MpaInternal_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. node number. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Number. The type is slice of MpaInternal_Nodes_Node_Bay.
@@ -272,7 +272,7 @@ type MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy struct {
     YListKey string
 
     // This attribute is a key. ifsubsys number. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Number interface{}
 
     // mpa internal info.
@@ -437,7 +437,7 @@ type Mpa_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. node number. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Number. The type is slice of Mpa_Nodes_Node_Bay.

@@ -32,6 +32,9 @@ type SdrInventory struct {
 
     // RackTable.
     Racks SdrInventory_Racks
+
+    // Memory.
+    Memory SdrInventory_Memory
 }
 
 func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
@@ -47,6 +50,7 @@ func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
 
     sdrInventory.EntityData.Children = types.NewOrderedMap()
     sdrInventory.EntityData.Children.Append("racks", types.YChild{"Racks", &sdrInventory.Racks})
+    sdrInventory.EntityData.Children.Append("memory", types.YChild{"Memory", &sdrInventory.Memory})
     sdrInventory.EntityData.Leafs = types.NewOrderedMap()
 
     sdrInventory.EntityData.YListKeys = []string {}
@@ -95,7 +99,7 @@ type SdrInventory_Racks_Rack struct {
     YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Slot name. The type is slice of SdrInventory_Racks_Rack_Slot.
@@ -134,7 +138,7 @@ type SdrInventory_Racks_Rack_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Card. The type is slice of SdrInventory_Racks_Rack_Slot_Card.
@@ -173,7 +177,7 @@ type SdrInventory_Racks_Rack_Slot_Card struct {
     YListKey string
 
     // This attribute is a key. Card. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Attributes.
@@ -296,5 +300,178 @@ func (attributes *SdrInventory_Racks_Rack_Slot_Card_Attributes) GetEntityData() 
     attributes.EntityData.YListKeys = []string {}
 
     return &(attributes.EntityData)
+}
+
+// SdrInventory_Memory
+// Memory
+type SdrInventory_Memory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RackTable.
+    Racks SdrInventory_Memory_Racks
+}
+
+func (memory *SdrInventory_Memory) GetEntityData() *types.CommonEntityData {
+    memory.EntityData.YFilter = memory.YFilter
+    memory.EntityData.YangName = "memory"
+    memory.EntityData.BundleName = "cisco_ios_xr"
+    memory.EntityData.ParentYangName = "sdr-inventory"
+    memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/" + memory.EntityData.SegmentPath
+    memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memory.EntityData.Children = types.NewOrderedMap()
+    memory.EntityData.Children.Append("racks", types.YChild{"Racks", &memory.Racks})
+    memory.EntityData.Leafs = types.NewOrderedMap()
+
+    memory.EntityData.YListKeys = []string {}
+
+    return &(memory.EntityData)
+}
+
+// SdrInventory_Memory_Racks
+// RackTable
+type SdrInventory_Memory_Racks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Rack name. The type is slice of SdrInventory_Memory_Racks_Rack.
+    Rack []*SdrInventory_Memory_Racks_Rack
+}
+
+func (racks *SdrInventory_Memory_Racks) GetEntityData() *types.CommonEntityData {
+    racks.EntityData.YFilter = racks.YFilter
+    racks.EntityData.YangName = "racks"
+    racks.EntityData.BundleName = "cisco_ios_xr"
+    racks.EntityData.ParentYangName = "memory"
+    racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/" + racks.EntityData.SegmentPath
+    racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    racks.EntityData.Children = types.NewOrderedMap()
+    racks.EntityData.Children.Append("rack", types.YChild{"Rack", nil})
+    for i := range racks.Rack {
+        racks.EntityData.Children.Append(types.GetSegmentPath(racks.Rack[i]), types.YChild{"Rack", racks.Rack[i]})
+    }
+    racks.EntityData.Leafs = types.NewOrderedMap()
+
+    racks.EntityData.YListKeys = []string {}
+
+    return &(racks.EntityData)
+}
+
+// SdrInventory_Memory_Racks_Rack
+// Rack name
+type SdrInventory_Memory_Racks_Rack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Rack name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Name interface{}
+
+    // NodeIDTable.
+    NodeIds SdrInventory_Memory_Racks_Rack_NodeIds
+}
+
+func (rack *SdrInventory_Memory_Racks_Rack) GetEntityData() *types.CommonEntityData {
+    rack.EntityData.YFilter = rack.YFilter
+    rack.EntityData.YangName = "rack"
+    rack.EntityData.BundleName = "cisco_ios_xr"
+    rack.EntityData.ParentYangName = "racks"
+    rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/racks/" + rack.EntityData.SegmentPath
+    rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rack.EntityData.Children = types.NewOrderedMap()
+    rack.EntityData.Children.Append("node-ids", types.YChild{"NodeIds", &rack.NodeIds})
+    rack.EntityData.Leafs = types.NewOrderedMap()
+    rack.EntityData.Leafs.Append("name", types.YLeaf{"Name", rack.Name})
+
+    rack.EntityData.YListKeys = []string {"Name"}
+
+    return &(rack.EntityData)
+}
+
+// SdrInventory_Memory_Racks_Rack_NodeIds
+// NodeIDTable
+type SdrInventory_Memory_Racks_Rack_NodeIds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Inventory Admin Mempool Data  Bag. The type is slice of
+    // SdrInventory_Memory_Racks_Rack_NodeIds_NodeId.
+    NodeId []*SdrInventory_Memory_Racks_Rack_NodeIds_NodeId
+}
+
+func (nodeIds *SdrInventory_Memory_Racks_Rack_NodeIds) GetEntityData() *types.CommonEntityData {
+    nodeIds.EntityData.YFilter = nodeIds.YFilter
+    nodeIds.EntityData.YangName = "node-ids"
+    nodeIds.EntityData.BundleName = "cisco_ios_xr"
+    nodeIds.EntityData.ParentYangName = "rack"
+    nodeIds.EntityData.SegmentPath = "node-ids"
+    nodeIds.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/racks/rack/" + nodeIds.EntityData.SegmentPath
+    nodeIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeIds.EntityData.Children = types.NewOrderedMap()
+    nodeIds.EntityData.Children.Append("node-id", types.YChild{"NodeId", nil})
+    for i := range nodeIds.NodeId {
+        nodeIds.EntityData.Children.Append(types.GetSegmentPath(nodeIds.NodeId[i]), types.YChild{"NodeId", nodeIds.NodeId[i]})
+    }
+    nodeIds.EntityData.Leafs = types.NewOrderedMap()
+
+    nodeIds.EntityData.YListKeys = []string {}
+
+    return &(nodeIds.EntityData)
+}
+
+// SdrInventory_Memory_Racks_Rack_NodeIds_NodeId
+// Inventory Admin Mempool Data  Bag
+type SdrInventory_Memory_Racks_Rack_NodeIds_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. nodeid. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Name interface{}
+
+    // Total Memory. The type is interface{} with range: 0..4294967295.
+    TotalMemory interface{}
+
+    // Avaialble Memory. The type is interface{} with range: 0..4294967295.
+    AvailableMemory interface{}
+}
+
+func (nodeId *SdrInventory_Memory_Racks_Rack_NodeIds_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "node-ids"
+    nodeId.EntityData.SegmentPath = "node-id" + types.AddKeyToken(nodeId.Name, "name")
+    nodeId.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/memory/racks/rack/node-ids/" + nodeId.EntityData.SegmentPath
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("name", types.YLeaf{"Name", nodeId.Name})
+    nodeId.EntityData.Leafs.Append("total-memory", types.YLeaf{"TotalMemory", nodeId.TotalMemory})
+    nodeId.EntityData.Leafs.Append("available-memory", types.YLeaf{"AvailableMemory", nodeId.AvailableMemory})
+
+    nodeId.EntityData.YListKeys = []string {"Name"}
+
+    return &(nodeId.EntityData)
 }
 

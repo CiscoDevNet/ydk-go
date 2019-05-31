@@ -95,7 +95,7 @@ type LptsIfib_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Slice specific.
@@ -164,7 +164,7 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId struct {
     YListKey string
 
     // This attribute is a key. Type value. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SliceName interface{}
 
     // Data for single pre-ifib entry. The type is slice of

@@ -134,7 +134,7 @@ type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -506,7 +506,7 @@ type Dot1x_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Dot1x Default Values.
@@ -1236,7 +1236,7 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -1253,6 +1253,9 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession struct {
 
     // EAPOL Ethertype. The type is string.
     Ethertype interface{}
+
+    // EAPOL Destination Address. The type is string.
+    EapolAddr interface{}
 
     // Dot1x interface Info.
     IntfInfo Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo
@@ -1282,6 +1285,7 @@ func (interfaceSession *Dot1x_Session_InterfaceSessions_InterfaceSession) GetEnt
     interfaceSession.EntityData.Leafs.Append("if-handle", types.YLeaf{"IfHandle", interfaceSession.IfHandle})
     interfaceSession.EntityData.Leafs.Append("mac", types.YLeaf{"Mac", interfaceSession.Mac})
     interfaceSession.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", interfaceSession.Ethertype})
+    interfaceSession.EntityData.Leafs.Append("eapol-addr", types.YLeaf{"EapolAddr", interfaceSession.EapolAddr})
 
     interfaceSession.EntityData.YListKeys = []string {"Name"}
 

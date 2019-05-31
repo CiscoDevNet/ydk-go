@@ -99,7 +99,7 @@ type Nve_Vnis_Vni struct {
     YListKey string
 
     // This attribute is a key. VNI ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Vni interface{}
 
     // NVE Interface name. The type is string.
@@ -112,7 +112,7 @@ type Nve_Vnis_Vni struct {
     State interface{}
 
     // MCAST IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     McastIpv4Address interface{}
 
     // Flags. The type is interface{} with range: 0..4294967295.
@@ -137,7 +137,7 @@ type Nve_Vnis_Vni struct {
     BviState interface{}
 
     // BVI MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     BviMac interface{}
 
     // L3 VRF Name. The type is string.
@@ -247,7 +247,7 @@ type Nve_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9._/-]+.
+    // b'[a-zA-Z0-9._/-]+'.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -269,7 +269,7 @@ type Nve_Interfaces_Interface struct {
     SourceInterfaceName interface{}
 
     // Source IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceIpv4Address interface{}
 
     // NVE IfHandle. The type is interface{} with range: 0..18446744073709551615.
@@ -285,7 +285,7 @@ type Nve_Interfaces_Interface struct {
     AnyCastSourceInterfaceName interface{}
 
     // Anycast Source IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     AnyCastSourceIpv4Address interface{}
 
     // Anycast Source Interface State. The type is interface{} with range:
@@ -293,7 +293,7 @@ type Nve_Interfaces_Interface struct {
     AnyCastSourceState interface{}
 
     // MCAST sync group IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SyncMcastIpv4Address interface{}
 
     // Sync McastFlags. The type is interface{} with range: 0..4294967295.
