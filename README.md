@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CiscoDevNet/ydk-go.svg?branch=master)](https://travis-ci.org/CiscoDevNet/ydk-go)
+[![Build Status](https://travis-ci.com/CiscoDevNet/ydk-go.svg?branch=master)](https://travis-ci.com/CiscoDevNet/ydk-go)
 [![GoDoc](https://godoc.org/github.com/CiscoDevNet/ydk-go?status.svg)](https://godoc.org/github.com/CiscoDevNet/ydk-go)
 [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/ydkdev/ydk-go/)
 
