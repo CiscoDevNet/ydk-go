@@ -67,13 +67,13 @@ print_msg "OS info: $os_info"
 
 print_msg "Installing OS dependencies"
 apt-get update -y > /dev/null
-apt-get install git gdebi-core libtool-bin wget sudo -y > /dev/null
+apt-get install git gdebi-core python-dev libtool-bin wget sudo -y > /dev/null
 
 check_install_gcc
 install_libydk
 
 print_msg "Installing Golang version 1.9.2"
-wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
+wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz > /dev/null
 tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
 ln -sf /usr/local/go/bin/go /usr/bin/go
 
